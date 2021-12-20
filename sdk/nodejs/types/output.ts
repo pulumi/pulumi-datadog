@@ -268,12 +268,14 @@ export interface DashboardWidgetChangeDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQuery;
     changeType?: string;
     compareTo?: string;
+    formulas?: outputs.DashboardWidgetChangeDefinitionRequestFormula[];
     increaseGood?: boolean;
     logQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQuery;
     orderBy?: string;
     orderDir?: string;
     processQuery?: outputs.DashboardWidgetChangeDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetChangeDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery;
     showPresent?: boolean;
@@ -309,6 +311,31 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute {
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetChangeDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
@@ -348,6 +375,90 @@ export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
@@ -1007,12 +1118,14 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery;
     changeType?: string;
     compareTo?: string;
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula[];
     increaseGood?: boolean;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery;
     orderBy?: string;
     orderDir?: string;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery;
     showPresent?: boolean;
@@ -1048,6 +1161,31 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
@@ -1087,6 +1225,90 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProc
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
@@ -2812,8 +3034,104 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustom
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    scatterplotTables?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable[];
     xes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX[];
     ys?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY[];
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable {
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula[];
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery[];
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    alias?: string;
+    dimension: string;
+    formulaExpression: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
@@ -5139,8 +5457,104 @@ export interface DashboardWidgetScatterplotDefinitionCustomLink {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
+    scatterplotTables?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTable[];
     xes?: outputs.DashboardWidgetScatterplotDefinitionRequestX[];
     ys?: outputs.DashboardWidgetScatterplotDefinitionRequestY[];
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
+    formulas?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula[];
+    queries?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery[];
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    alias?: string;
+    dimension: string;
+    formulaExpression: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    computes: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
@@ -7078,7 +7492,7 @@ export interface ServiceLevelObjectiveThreshold {
     /**
      * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
      */
-    targetDisplay?: string;
+    targetDisplay: string;
     /**
      * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
@@ -7090,7 +7504,7 @@ export interface ServiceLevelObjectiveThreshold {
     /**
      * A string representation of the warning target (see the description of the targetDisplay field for details).
      */
-    warningDisplay?: string;
+    warningDisplay: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
@@ -7178,7 +7592,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
      */
     type: string;
 }
@@ -7256,6 +7670,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: string;
     /**
+     * For UDP tests, message to send with the request.
+     */
+    message?: string;
+    /**
      * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
      */
     method?: string;
@@ -7307,7 +7725,7 @@ export interface SyntheticsTestAssertion {
      */
     targetjsonpath?: outputs.SyntheticsTestAssertionTargetjsonpath;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
      */
     type: string;
 }
@@ -7511,6 +7929,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: string;
     /**
+     * For UDP tests, message to send with the request.
+     */
+    message?: string;
+    /**
      * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
      */
     method?: string;
@@ -7543,7 +7965,6 @@ export interface SyntheticsTestRequestDefinition {
      */
     url?: string;
 }
-
 export namespace slack {
     export interface ChannelDisplay {
         /**

@@ -268,12 +268,14 @@ export interface DashboardWidgetChangeDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQuery>;
     changeType?: pulumi.Input<string>;
     compareTo?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormula>[]>;
     increaseGood?: pulumi.Input<boolean>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQuery>;
     orderBy?: pulumi.Input<string>;
     orderDir?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestSecurityQuery>;
     showPresent?: pulumi.Input<boolean>;
@@ -309,6 +311,31 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
@@ -348,6 +375,90 @@ export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
@@ -1007,12 +1118,14 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery>;
     changeType?: pulumi.Input<string>;
     compareTo?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula>[]>;
     increaseGood?: pulumi.Input<boolean>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery>;
     orderBy?: pulumi.Input<string>;
     orderDir?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery>;
     showPresent?: pulumi.Input<boolean>;
@@ -1048,6 +1161,31 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
@@ -1087,6 +1225,90 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProc
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
@@ -2812,8 +3034,104 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustom
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    scatterplotTables?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable>[]>;
     xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX>[]>;
     ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    alias?: pulumi.Input<string>;
+    dimension: pulumi.Input<string>;
+    formulaExpression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
@@ -5139,8 +5457,104 @@ export interface DashboardWidgetScatterplotDefinitionCustomLink {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
+    scatterplotTables?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTable>[]>;
     xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestX>[]>;
     ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestY>[]>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery>[]>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    alias?: pulumi.Input<string>;
+    dimension: pulumi.Input<string>;
+    formulaExpression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
@@ -7070,7 +7484,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetjsonpath>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
      */
     type: pulumi.Input<string>;
 }
@@ -7148,6 +7562,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
+     * For UDP tests, message to send with the request.
+     */
+    message?: pulumi.Input<string>;
+    /**
      * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
      */
     method?: pulumi.Input<string>;
@@ -7199,7 +7617,7 @@ export interface SyntheticsTestAssertion {
      */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetjsonpath>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
      */
     type: pulumi.Input<string>;
 }
@@ -7402,6 +7820,10 @@ export interface SyntheticsTestRequestDefinition {
      * Host name to perform the test with.
      */
     host?: pulumi.Input<string>;
+    /**
+     * For UDP tests, message to send with the request.
+     */
+    message?: pulumi.Input<string>;
     /**
      * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
      */

@@ -147,6 +147,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_synthetics_global_variable":  {Tok: makeDataSource(datadogMod, "getSyntheticsGlobalVariable")},
 			"datadog_user":                        {Tok: makeDataSource(datadogMod, "getUser")},
 			"datadog_roles":                       {Tok: makeDataSource(datadogMod, "getRoles")},
+			"datadog_logs_indexes_order":          {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

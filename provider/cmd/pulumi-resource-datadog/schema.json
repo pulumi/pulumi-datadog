@@ -977,6 +977,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormula:DashboardWidgetChangeDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "increaseGood": {
                     "type": "boolean",
                     "language": {
@@ -1019,6 +1030,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQuery:DashboardWidgetChangeDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1231,6 +1253,160 @@
             "required": [
                 "aggregation"
             ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormula:DashboardWidgetChangeDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditionalFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat:DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestFormulaLimit:DashboardWidgetChangeDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat:DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customBgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hideValue": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "palette": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeframe": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparator",
+                "palette",
+                "value"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestFormulaLimit:DashboardWidgetChangeDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "datadog:index/DashboardWidgetChangeDefinitionRequestLogQuery:DashboardWidgetChangeDefinitionRequestLogQuery": {
             "properties": {
@@ -1453,6 +1629,545 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQuery:DashboardWidgetChangeDefinitionRequestQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQuery:DashboardWidgetChangeDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryMetricQuery:DashboardWidgetChangeDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryProcessQuery:DashboardWidgetChangeDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQuery:DashboardWidgetChangeDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute:DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch:DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute:DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch:DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryMetricQuery:DashboardWidgetChangeDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionRequestQueryProcessQuery:DashboardWidgetChangeDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetChangeDefinitionRequestRumQuery:DashboardWidgetChangeDefinitionRequestRumQuery": {
@@ -4783,6 +5498,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "increaseGood": {
                     "type": "boolean",
                     "language": {
@@ -4825,6 +5551,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5037,6 +5774,160 @@
             "required": [
                 "aggregation"
             ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditionalFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customBgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hideValue": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "palette": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeframe": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparator",
+                "palette",
+                "value"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery": {
             "properties": {
@@ -5259,6 +6150,545 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery": {
@@ -15255,6 +16685,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest": {
             "properties": {
+                "scatterplotTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "xes": {
                     "type": "array",
                     "items": {
@@ -15279,6 +16720,605 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable": {
+            "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dimension": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dimension",
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX": {
             "properties": {
@@ -28850,6 +30890,17 @@
         },
         "datadog:index/DashboardWidgetScatterplotDefinitionRequest:DashboardWidgetScatterplotDefinitionRequest": {
             "properties": {
+                "scatterplotTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTable:DashboardWidgetScatterplotDefinitionRequestScatterplotTable"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "xes": {
                     "type": "array",
                     "items": {
@@ -28874,6 +30925,605 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTable:DashboardWidgetScatterplotDefinitionRequestScatterplotTable": {
+            "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula:DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula:DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dimension": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dimension",
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
+            ]
         },
         "datadog:index/DashboardWidgetScatterplotDefinitionRequestX:DashboardWidgetScatterplotDefinitionRequestX": {
             "properties": {
@@ -38121,7 +40771,17 @@
             "required": [
                 "target",
                 "timeframe"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "target",
+                        "targetDisplay",
+                        "timeframe",
+                        "warningDisplay"
+                    ]
+                }
+            }
         },
         "datadog:index/SyntheticsGlobalVariableParseTestOptions:SyntheticsGlobalVariableParseTestOptions": {
             "properties": {
@@ -38342,7 +41002,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.\n",
+                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -38613,6 +41273,15 @@
                         }
                     }
                 },
+                "message": {
+                    "type": "string",
+                    "description": "For UDP tests, message to send with the request.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "method": {
                     "type": "string",
                     "description": "The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.\n",
@@ -38728,7 +41397,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.\n",
+                    "description": "Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -39392,6 +42061,15 @@
                 "host": {
                     "type": "string",
                     "description": "Host name to perform the test with.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "For UDP tests, message to send with the request.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -42272,7 +44950,7 @@
             }
         },
         "datadog:index/monitor:Monitor": {
-            "description": "Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog monitor\nconst foo = new datadog.Monitor(\"foo\", {\n    escalationMessage: \"Escalation message @pagerduty\",\n    includeTags: true,\n    message: \"Monitor triggered. Notify: @hipchat-channel\",\n    monitorThresholds: {\n        critical: \"4\",\n        criticalRecovery: \"3\",\n        warning: \"2\",\n        warningRecovery: \"1\",\n    },\n    name: \"Name for monitor foo\",\n    notifyAudit: false,\n    notifyNoData: false,\n    query: \"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n    renotifyInterval: 60,\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    timeoutH: 60,\n    type: \"metric alert\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog monitor\nfoo = datadog.Monitor(\"foo\",\n    escalation_message=\"Escalation message @pagerduty\",\n    include_tags=True,\n    message=\"Monitor triggered. Notify: @hipchat-channel\",\n    monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(\n        critical=\"4\",\n        critical_recovery=\"3\",\n        warning=\"2\",\n        warning_recovery=\"1\",\n    ),\n    name=\"Name for monitor foo\",\n    notify_audit=False,\n    notify_no_data=False,\n    query=\"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n    renotify_interval=60,\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    timeout_h=60,\n    type=\"metric alert\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog monitor\n        var foo = new Datadog.Monitor(\"foo\", new Datadog.MonitorArgs\n        {\n            EscalationMessage = \"Escalation message @pagerduty\",\n            IncludeTags = true,\n            Message = \"Monitor triggered. Notify: @hipchat-channel\",\n            MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs\n            {\n                Critical = \"4\",\n                CriticalRecovery = \"3\",\n                Warning = \"2\",\n                WarningRecovery = \"1\",\n            },\n            Name = \"Name for monitor foo\",\n            NotifyAudit = false,\n            NotifyNoData = false,\n            Query = \"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n            RenotifyInterval = 60,\n            Tags = \n            {\n                \"foo:bar\",\n                \"baz\",\n            },\n            TimeoutH = 60,\n            Type = \"metric alert\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMonitor(ctx, \"foo\", \u0026datadog.MonitorArgs{\n\t\t\tEscalationMessage: pulumi.String(\"Escalation message @pagerduty\"),\n\t\t\tIncludeTags:       pulumi.Bool(true),\n\t\t\tMessage:           pulumi.String(\"Monitor triggered. Notify: @hipchat-channel\"),\n\t\t\tMonitorThresholds: \u0026MonitorMonitorThresholdsArgs{\n\t\t\t\tCritical:         pulumi.String(\"4\"),\n\t\t\t\tCriticalRecovery: pulumi.String(\"3\"),\n\t\t\t\tWarning:          pulumi.String(\"2\"),\n\t\t\t\tWarningRecovery:  pulumi.String(\"1\"),\n\t\t\t},\n\t\t\tName:             pulumi.String(\"Name for monitor foo\"),\n\t\t\tNotifyAudit:      pulumi.Bool(false),\n\t\t\tNotifyNoData:     pulumi.Bool(false),\n\t\t\tQuery:            pulumi.String(\"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\"),\n\t\t\tRenotifyInterval: pulumi.Int(60),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tTimeoutH: pulumi.Int(60),\n\t\t\tType:     pulumi.String(\"metric alert\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081\n```\n\n ",
+            "description": "Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog monitor\nconst foo = new datadog.Monitor(\"foo\", {\n    escalationMessage: \"Escalation message @pagerduty\",\n    includeTags: true,\n    message: \"Monitor triggered. Notify: @hipchat-channel\",\n    monitorThresholds: {\n        critical: \"4\",\n        criticalRecovery: \"3\",\n        warning: \"2\",\n        warningRecovery: \"1\",\n    },\n    name: \"Name for monitor foo\",\n    notifyAudit: false,\n    notifyNoData: false,\n    query: \"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n    renotifyInterval: 60,\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    type: \"metric alert\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog monitor\nfoo = datadog.Monitor(\"foo\",\n    escalation_message=\"Escalation message @pagerduty\",\n    include_tags=True,\n    message=\"Monitor triggered. Notify: @hipchat-channel\",\n    monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(\n        critical=\"4\",\n        critical_recovery=\"3\",\n        warning=\"2\",\n        warning_recovery=\"1\",\n    ),\n    name=\"Name for monitor foo\",\n    notify_audit=False,\n    notify_no_data=False,\n    query=\"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n    renotify_interval=60,\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    type=\"metric alert\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog monitor\n        var foo = new Datadog.Monitor(\"foo\", new Datadog.MonitorArgs\n        {\n            EscalationMessage = \"Escalation message @pagerduty\",\n            IncludeTags = true,\n            Message = \"Monitor triggered. Notify: @hipchat-channel\",\n            MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs\n            {\n                Critical = \"4\",\n                CriticalRecovery = \"3\",\n                Warning = \"2\",\n                WarningRecovery = \"1\",\n            },\n            Name = \"Name for monitor foo\",\n            NotifyAudit = false,\n            NotifyNoData = false,\n            Query = \"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\",\n            RenotifyInterval = 60,\n            Tags = \n            {\n                \"foo:bar\",\n                \"baz\",\n            },\n            Type = \"metric alert\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMonitor(ctx, \"foo\", \u0026datadog.MonitorArgs{\n\t\t\tEscalationMessage: pulumi.String(\"Escalation message @pagerduty\"),\n\t\t\tIncludeTags:       pulumi.Bool(true),\n\t\t\tMessage:           pulumi.String(\"Monitor triggered. Notify: @hipchat-channel\"),\n\t\t\tMonitorThresholds: \u0026MonitorMonitorThresholdsArgs{\n\t\t\t\tCritical:         pulumi.String(\"4\"),\n\t\t\t\tCriticalRecovery: pulumi.String(\"3\"),\n\t\t\t\tWarning:          pulumi.String(\"2\"),\n\t\t\t\tWarningRecovery:  pulumi.String(\"1\"),\n\t\t\t},\n\t\t\tName:             pulumi.String(\"Name for monitor foo\"),\n\t\t\tNotifyAudit:      pulumi.Bool(false),\n\t\t\tNotifyNoData:     pulumi.Bool(false),\n\t\t\tQuery:            pulumi.String(\"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} \u003e 4\"),\n\t\t\tRenotifyInterval: pulumi.Int(60),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric alert\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081\n```\n\n ",
             "properties": {
                 "enableLogsSample": {
                     "type": "boolean",
@@ -42320,12 +44998,12 @@
                 },
                 "newGroupDelay": {
                     "type": "integer",
-                    "description": "Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the\ndefault value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).\n"
+                    "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
                 },
                 "newHostDelay": {
                     "type": "integer",
-                    "description": "Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor\nresults. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release\nand `new_host_delay` will be removed entirely in a subsequent major version release).\n",
-                    "deprecationMessage": "Prefer using new_group_delay (except when setting `new_host_delay` to zero)."
+                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default\nand set `new_host_delay` to zero for monitors grouped by host.\n",
+                    "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                 },
                 "noDataTimeframe": {
                     "type": "integer",
@@ -42446,12 +45124,12 @@
                 },
                 "newGroupDelay": {
                     "type": "integer",
-                    "description": "Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the\ndefault value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).\n"
+                    "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
                 },
                 "newHostDelay": {
                     "type": "integer",
-                    "description": "Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor\nresults. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release\nand `new_host_delay` will be removed entirely in a subsequent major version release).\n",
-                    "deprecationMessage": "Prefer using new_group_delay (except when setting `new_host_delay` to zero)."
+                    "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default\nand set `new_host_delay` to zero for monitors grouped by host.\n",
+                    "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                 },
                 "noDataTimeframe": {
                     "type": "integer",
@@ -42573,12 +45251,12 @@
                     },
                     "newGroupDelay": {
                         "type": "integer",
-                        "description": "Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the\ndefault value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).\n"
+                        "description": "The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a\nnonzero value.\n"
                     },
                     "newHostDelay": {
                         "type": "integer",
-                        "description": "Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor\nresults. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release\nand `new_host_delay` will be removed entirely in a subsequent major version release).\n",
-                        "deprecationMessage": "Prefer using new_group_delay (except when setting `new_host_delay` to zero)."
+                        "description": "**Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before\nstarting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors\nand monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default\nand set `new_host_delay` to zero for monitors grouped by host.\n",
+                        "deprecationMessage": "Use `new_group_delay` except when setting `new_host_delay` to zero."
                     },
                     "noDataTimeframe": {
                         "type": "integer",
@@ -43769,7 +46447,7 @@
                 },
                 "subtype": {
                     "type": "string",
-                    "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.\n"
+                    "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -43887,7 +46565,7 @@
                 },
                 "subtype": {
                     "type": "string",
-                    "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.\n"
+                    "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -44010,7 +46688,7 @@
                     },
                     "subtype": {
                         "type": "string",
-                        "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.\n"
+                        "description": "The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -44739,6 +47417,30 @@
                     "syntheticsIpv6ByLocation",
                     "webhooksIpv4s",
                     "webhooksIpv6s",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder": {
+            "description": "Get the current order of your log indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getLogsIndexesOrder());\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_logs_indexes_order()\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetLogsIndexesOrder.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetLogsIndexesOrder(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getLogsIndexesOrder.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "indexNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "indexNames",
                     "id"
                 ]
             }

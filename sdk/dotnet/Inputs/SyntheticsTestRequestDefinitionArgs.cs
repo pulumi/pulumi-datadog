@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
+        /// For UDP tests, message to send with the request.
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
+
+        /// <summary>
         /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         /// </summary>
         [Input("method")]

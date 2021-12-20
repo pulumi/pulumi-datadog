@@ -54,7 +54,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
         pulumi.set(__self__, "locations", locations)
@@ -311,7 +311,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         """
         return pulumi.get(self, "subtype")
 
@@ -375,7 +375,7 @@ class _SyntheticsTestState:
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
         """
@@ -639,7 +639,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         """
         return pulumi.get(self, "subtype")
 
@@ -973,7 +973,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
         """
@@ -1371,7 +1371,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
         """
@@ -1547,7 +1547,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
         """
         return pulumi.get(self, "subtype")
 

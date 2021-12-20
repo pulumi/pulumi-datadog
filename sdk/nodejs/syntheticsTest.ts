@@ -366,7 +366,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -529,7 +529,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -612,7 +612,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
      */
     subtype?: pulumi.Input<string>;
     /**

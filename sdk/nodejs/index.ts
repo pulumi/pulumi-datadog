@@ -17,6 +17,7 @@ export * from "./getApplicationKey";
 export * from "./getDashboard";
 export * from "./getDashboardList";
 export * from "./getIpRanges";
+export * from "./getLogsIndexesOrder";
 export * from "./getMonitor";
 export * from "./getMonitors";
 export * from "./getPermissions";

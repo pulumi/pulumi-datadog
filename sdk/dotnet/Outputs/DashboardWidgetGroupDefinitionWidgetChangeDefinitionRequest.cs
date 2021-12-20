@@ -16,12 +16,14 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery? ApmQuery;
         public readonly string? ChangeType;
         public readonly string? CompareTo;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula> Formulas;
         public readonly bool? IncreaseGood;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery? LogQuery;
         public readonly string? OrderBy;
         public readonly string? OrderDir;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly bool? ShowPresent;
@@ -33,6 +35,8 @@ namespace Pulumi.Datadog.Outputs
             string? changeType,
 
             string? compareTo,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula> formulas,
 
             bool? increaseGood,
 
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery> queries,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery? rumQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery? securityQuery,
@@ -55,12 +61,14 @@ namespace Pulumi.Datadog.Outputs
             ApmQuery = apmQuery;
             ChangeType = changeType;
             CompareTo = compareTo;
+            Formulas = formulas;
             IncreaseGood = increaseGood;
             LogQuery = logQuery;
             OrderBy = orderBy;
             OrderDir = orderDir;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             ShowPresent = showPresent;

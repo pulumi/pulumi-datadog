@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.6.0 of the DataDog Terraform Provider
+* Upgrade to v3.7.0 of the DataDog Terraform Provider
 * Upgrade to v3.13.0 of the Pulumi Terraform Bridge
 * Upgrade to v3.19.0 of the Pulumi SDK
 

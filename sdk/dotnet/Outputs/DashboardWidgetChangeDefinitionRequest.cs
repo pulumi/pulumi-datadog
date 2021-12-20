@@ -16,12 +16,14 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestApmQuery? ApmQuery;
         public readonly string? ChangeType;
         public readonly string? CompareTo;
+        public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestFormula> Formulas;
         public readonly bool? IncreaseGood;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestLogQuery? LogQuery;
         public readonly string? OrderBy;
         public readonly string? OrderDir;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly bool? ShowPresent;
@@ -33,6 +35,8 @@ namespace Pulumi.Datadog.Outputs
             string? changeType,
 
             string? compareTo,
+
+            ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestFormula> formulas,
 
             bool? increaseGood,
 
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestQuery> queries,
+
             Outputs.DashboardWidgetChangeDefinitionRequestRumQuery? rumQuery,
 
             Outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery? securityQuery,
@@ -55,12 +61,14 @@ namespace Pulumi.Datadog.Outputs
             ApmQuery = apmQuery;
             ChangeType = changeType;
             CompareTo = compareTo;
+            Formulas = formulas;
             IncreaseGood = increaseGood;
             LogQuery = logQuery;
             OrderBy = orderBy;
             OrderDir = orderDir;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             ShowPresent = showPresent;

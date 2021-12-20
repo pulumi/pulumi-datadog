@@ -17,6 +17,7 @@ from .get_application_key import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
+from .get_logs_indexes_order import *
 from .get_monitor import *
 from .get_monitors import *
 from .get_permissions import *
