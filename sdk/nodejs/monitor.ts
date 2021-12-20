@@ -34,7 +34,6 @@ import * as utilities from "./utilities";
  *         "foo:bar",
  *         "baz",
  *     ],
- *     timeoutH: 60,
  *     type: "metric alert",
  * });
  * ```
@@ -126,17 +125,17 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     * The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value.
      */
     public readonly newGroupDelay!: pulumi.Output<number | undefined>;
     /**
-     * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+     * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+     * and set `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
+     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
@@ -352,17 +351,17 @@ export interface MonitorState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     * The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value.
      */
     newGroupDelay?: pulumi.Input<number>;
     /**
-     * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+     * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+     * and set `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
+     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**
@@ -490,17 +489,17 @@ export interface MonitorArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     * The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value.
      */
     newGroupDelay?: pulumi.Input<number>;
     /**
-     * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+     * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+     * and set `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
+     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**

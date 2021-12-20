@@ -73,12 +73,12 @@ class MonitorArgs:
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[int] new_group_delay: Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-               default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
-        :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-               results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-               and `new_host_delay` will be removed entirely in a subsequent major version release).
+        :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+               nonzero value.
+        :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+               and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
@@ -121,8 +121,8 @@ class MonitorArgs:
         if new_group_delay is not None:
             pulumi.set(__self__, "new_group_delay", new_group_delay)
         if new_host_delay is not None:
-            warnings.warn("""Prefer using new_group_delay (except when setting `new_host_delay` to zero).""", DeprecationWarning)
-            pulumi.log.warn("""new_host_delay is deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).""")
+            warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
+            pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
             pulumi.set(__self__, "new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
@@ -326,9 +326,8 @@ class MonitorArgs:
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> Optional[pulumi.Input[int]]:
         """
-        Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-        default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -340,9 +339,10 @@ class MonitorArgs:
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> Optional[pulumi.Input[int]]:
         """
-        Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-        and `new_host_delay` will be removed entirely in a subsequent major version release).
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+        and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -548,12 +548,12 @@ class _MonitorState:
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[str] name: Name of Datadog monitor.
-        :param pulumi.Input[int] new_group_delay: Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-               default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
-        :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-               results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-               and `new_host_delay` will be removed entirely in a subsequent major version release).
+        :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+               nonzero value.
+        :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+               and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
@@ -606,8 +606,8 @@ class _MonitorState:
         if new_group_delay is not None:
             pulumi.set(__self__, "new_group_delay", new_group_delay)
         if new_host_delay is not None:
-            warnings.warn("""Prefer using new_group_delay (except when setting `new_host_delay` to zero).""", DeprecationWarning)
-            pulumi.log.warn("""new_host_delay is deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).""")
+            warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
+            pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
             pulumi.set(__self__, "new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
@@ -783,9 +783,8 @@ class _MonitorState:
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> Optional[pulumi.Input[int]]:
         """
-        Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-        default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -797,9 +796,10 @@ class _MonitorState:
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> Optional[pulumi.Input[int]]:
         """
-        Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-        and `new_host_delay` will be removed entirely in a subsequent major version release).
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+        and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -1048,7 +1048,6 @@ class Monitor(pulumi.CustomResource):
                 "foo:bar",
                 "baz",
             ],
-            timeout_h=60,
             type="metric alert")
         ```
 
@@ -1079,12 +1078,12 @@ class Monitor(pulumi.CustomResource):
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[str] name: Name of Datadog monitor.
-        :param pulumi.Input[int] new_group_delay: Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-               default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
-        :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-               results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-               and `new_host_delay` will be removed entirely in a subsequent major version release).
+        :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+               nonzero value.
+        :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+               and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
@@ -1147,7 +1146,6 @@ class Monitor(pulumi.CustomResource):
                 "foo:bar",
                 "baz",
             ],
-            timeout_h=60,
             type="metric alert")
         ```
 
@@ -1228,8 +1226,8 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["new_group_delay"] = new_group_delay
             if new_host_delay is not None and not opts.urn:
-                warnings.warn("""Prefer using new_group_delay (except when setting `new_host_delay` to zero).""", DeprecationWarning)
-                pulumi.log.warn("""new_host_delay is deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).""")
+                warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
+                pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
             __props__.__dict__["new_host_delay"] = new_host_delay
             __props__.__dict__["no_data_timeframe"] = no_data_timeframe
             __props__.__dict__["notify_audit"] = notify_audit
@@ -1312,12 +1310,12 @@ class Monitor(pulumi.CustomResource):
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[str] name: Name of Datadog monitor.
-        :param pulumi.Input[int] new_group_delay: Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-               nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-               default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
-        :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-               results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-               and `new_host_delay` will be removed entirely in a subsequent major version release).
+        :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+               nonzero value.
+        :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+               starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+               and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
@@ -1478,9 +1476,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> pulumi.Output[Optional[int]]:
         """
-        Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
-        nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
-        default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        nonzero value.
         """
         return pulumi.get(self, "new_group_delay")
 
@@ -1488,9 +1485,10 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> pulumi.Output[Optional[int]]:
         """
-        Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
-        and `new_host_delay` will be removed entirely in a subsequent major version release).
+        **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+        starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+        and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 

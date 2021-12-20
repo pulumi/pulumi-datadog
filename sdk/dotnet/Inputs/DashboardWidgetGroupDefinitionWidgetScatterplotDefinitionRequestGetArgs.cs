@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs : Pulumi.ResourceArgs
     {
+        [Input("scatterplotTables")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs>? _scatterplotTables;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs> ScatterplotTables
+        {
+            get => _scatterplotTables ?? (_scatterplotTables = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs>());
+            set => _scatterplotTables = value;
+        }
+
         [Input("xes")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs>? _xes;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs> Xes

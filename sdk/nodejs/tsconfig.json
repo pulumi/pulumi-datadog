@@ -36,6 +36,7 @@
         "getDashboard.ts",
         "getDashboardList.ts",
         "getIpRanges.ts",
+        "getLogsIndexesOrder.ts",
         "getMonitor.ts",
         "getMonitors.ts",
         "getPermissions.ts",

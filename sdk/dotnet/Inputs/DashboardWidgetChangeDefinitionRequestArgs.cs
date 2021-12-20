@@ -21,6 +21,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("compareTo")]
         public Input<string>? CompareTo { get; set; }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetChangeDefinitionRequestFormulaArgs>? _formulas;
+        public InputList<Inputs.DashboardWidgetChangeDefinitionRequestFormulaArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestFormulaArgs>());
+            set => _formulas = value;
+        }
+
         [Input("increaseGood")]
         public Input<bool>? IncreaseGood { get; set; }
 
@@ -38,6 +46,14 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryArgs>? _queries;
+        public InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryArgs>());
+            set => _queries = value;
+        }
 
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestRumQueryArgs>? RumQuery { get; set; }

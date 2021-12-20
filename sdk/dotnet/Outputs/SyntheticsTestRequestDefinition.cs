@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
+        /// For UDP tests, message to send with the request.
+        /// </summary>
+        public readonly string? Message;
+        /// <summary>
         /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         /// </summary>
         public readonly string? Method;
@@ -72,6 +76,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? host,
 
+            string? message,
+
             string? method,
 
             bool? noSavingResponseBody,
@@ -92,6 +98,7 @@ namespace Pulumi.Datadog.Outputs
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             Host = host;
+            Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
             NumberOfPackets = numberOfPackets;

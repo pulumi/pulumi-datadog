@@ -13,15 +13,19 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable> ScatterplotTables;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX> Xes;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY> Ys;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest(
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables,
+
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX> xes,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY> ys)
         {
+            ScatterplotTables = scatterplotTables;
             Xes = xes;
             Ys = ys;
         }
