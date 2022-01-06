@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-datadog/provider/v4/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-datadog/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
