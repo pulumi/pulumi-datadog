@@ -80,9 +80,7 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
             const args = argsOrState as LogsArchiveOrderArgs | undefined;
             resourceInputs["archiveIds"] = args ? args.archiveIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsArchiveOrder.__pulumiType, name, resourceInputs, opts);
     }
 }

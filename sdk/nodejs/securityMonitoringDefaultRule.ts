@@ -95,9 +95,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringDefaultRule.__pulumiType, name, resourceInputs, opts);
     }
 }

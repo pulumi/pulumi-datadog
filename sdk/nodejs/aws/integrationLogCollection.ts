@@ -91,9 +91,7 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["services"] = args ? args.services : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationLogCollection.__pulumiType, name, resourceInputs, opts);
     }
 }

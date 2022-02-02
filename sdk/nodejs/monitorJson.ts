@@ -105,9 +105,7 @@ export class MonitorJson extends pulumi.CustomResource {
             resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorJson.__pulumiType, name, resourceInputs, opts);
     }
 }

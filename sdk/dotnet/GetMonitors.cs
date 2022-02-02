@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -16,13 +15,13 @@ namespace Pulumi.Datadog
         /// Use this data source to list several existing monitors for use in other resources.
         /// </summary>
         public static Task<GetMonitorsResult> InvokeAsync(GetMonitorsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to list several existing monitors for use in other resources.
         /// </summary>
         public static Output<GetMonitorsResult> Invoke(GetMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithDefaults());
     }
 
 

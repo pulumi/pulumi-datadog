@@ -26,9 +26,7 @@ export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getMonitor:getMonitor", {
         "monitorTagsFilters": args.monitorTagsFilters,
         "nameFilter": args.nameFilter,

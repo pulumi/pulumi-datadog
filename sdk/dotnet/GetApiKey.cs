@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing api key.
@@ -68,7 +67,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 

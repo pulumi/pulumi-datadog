@@ -23,9 +23,7 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getDashboard:getDashboard", {
         "name": args.name,
     }, opts);

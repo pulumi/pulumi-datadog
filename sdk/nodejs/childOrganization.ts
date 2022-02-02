@@ -110,9 +110,7 @@ export class ChildOrganization extends pulumi.CustomResource {
             resourceInputs["settings"] = undefined /*out*/;
             resourceInputs["users"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChildOrganization.__pulumiType, name, resourceInputs, opts);
     }
 }

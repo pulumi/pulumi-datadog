@@ -35,7 +35,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -155,9 +155,7 @@ export class SloCorrection extends pulumi.CustomResource {
             resourceInputs["start"] = args ? args.start : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SloCorrection.__pulumiType, name, resourceInputs, opts);
     }
 }

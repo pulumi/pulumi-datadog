@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringRulesResult> InvokeAsync(GetSecurityMonitoringRulesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
@@ -78,7 +77,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityMonitoringRulesResult> Invoke(GetSecurityMonitoringRulesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());
     }
 
 

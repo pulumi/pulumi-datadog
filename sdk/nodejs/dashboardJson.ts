@@ -576,9 +576,7 @@ export class DashboardJson extends pulumi.CustomResource {
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DashboardJson.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -106,9 +106,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["display"] = args ? args.display : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }

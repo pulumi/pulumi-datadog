@@ -55,6 +55,7 @@ setup(name='pulumi_datadog',
       package_data={
           'pulumi_datadog': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

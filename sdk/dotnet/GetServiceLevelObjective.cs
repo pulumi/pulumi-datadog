@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceLevelObjectiveResult> InvokeAsync(GetServiceLevelObjectiveArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing SLO for use in other resources.
@@ -78,7 +77,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
     }
 
 

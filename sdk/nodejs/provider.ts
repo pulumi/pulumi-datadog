@@ -58,9 +58,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
             resourceInputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

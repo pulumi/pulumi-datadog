@@ -114,9 +114,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["payload"] = args ? args.payload : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }

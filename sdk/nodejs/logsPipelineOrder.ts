@@ -98,9 +98,7 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelines"] = args ? args.pipelines : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsPipelineOrder.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -48172,6 +48172,7 @@
             }
         },
         "go": {
+            "generateExtraInputTypes": true,
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
         },
