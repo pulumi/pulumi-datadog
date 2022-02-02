@@ -86,9 +86,7 @@ export class ServiceObject extends pulumi.CustomResource {
             resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceObject.__pulumiType, name, resourceInputs, opts);
     }
 }

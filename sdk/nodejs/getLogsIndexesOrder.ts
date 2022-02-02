@@ -21,9 +21,7 @@ export function getLogsIndexesOrder(opts?: pulumi.InvokeOptions): Promise<GetLog
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", {
     }, opts);
 }

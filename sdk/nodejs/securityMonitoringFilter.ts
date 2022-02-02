@@ -129,9 +129,7 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

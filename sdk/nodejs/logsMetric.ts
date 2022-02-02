@@ -120,9 +120,7 @@ export class LogsMetric extends pulumi.CustomResource {
             resourceInputs["groupBies"] = args ? args.groupBies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsMetric.__pulumiType, name, resourceInputs, opts);
     }
 }

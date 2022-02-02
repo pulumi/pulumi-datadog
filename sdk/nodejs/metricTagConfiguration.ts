@@ -129,9 +129,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
             resourceInputs["metricType"] = args ? args.metricType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricTagConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

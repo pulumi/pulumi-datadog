@@ -12,9 +12,7 @@ export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", {
         "name": args.name,
     }, opts);

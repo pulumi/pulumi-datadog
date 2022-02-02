@@ -35,7 +35,7 @@ namespace Pulumi.Datadog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringFiltersResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

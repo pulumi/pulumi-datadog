@@ -125,9 +125,7 @@ export class LogsArchive extends pulumi.CustomResource {
             resourceInputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
             resourceInputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsArchive.__pulumiType, name, resourceInputs, opts);
     }
 }

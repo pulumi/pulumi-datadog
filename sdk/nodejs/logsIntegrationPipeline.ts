@@ -77,9 +77,7 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
             const args = argsOrState as LogsIntegrationPipelineArgs | undefined;
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsIntegrationPipeline.__pulumiType, name, resourceInputs, opts);
     }
 }

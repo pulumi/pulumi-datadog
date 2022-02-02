@@ -141,9 +141,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
             resourceInputs["externalId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

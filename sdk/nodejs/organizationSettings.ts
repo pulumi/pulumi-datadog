@@ -95,9 +95,7 @@ export class OrganizationSettings extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["publicId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

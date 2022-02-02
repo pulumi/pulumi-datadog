@@ -137,9 +137,7 @@ export class DashboardList extends pulumi.CustomResource {
             resourceInputs["dashItems"] = args ? args.dashItems : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DashboardList.__pulumiType, name, resourceInputs, opts);
     }
 }

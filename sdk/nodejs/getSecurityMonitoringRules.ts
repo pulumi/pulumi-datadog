@@ -27,9 +27,7 @@ export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", {
         "defaultOnlyFilter": args.defaultOnlyFilter,
         "nameFilter": args.nameFilter,

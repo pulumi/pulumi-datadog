@@ -101,9 +101,7 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["tagFilterStr"] = args ? args.tagFilterStr : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationTagFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

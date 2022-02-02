@@ -25,9 +25,7 @@ export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", {
         "ids": args.ids,
         "metricsQuery": args.metricsQuery,

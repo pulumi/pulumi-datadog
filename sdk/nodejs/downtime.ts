@@ -159,9 +159,7 @@ export class Downtime extends pulumi.CustomResource {
             resourceInputs["activeChildId"] = undefined /*out*/;
             resourceInputs["disabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Downtime.__pulumiType, name, resourceInputs, opts);
     }
 }

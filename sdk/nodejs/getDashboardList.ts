@@ -39,9 +39,7 @@ export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getDashboardList:getDashboardList", {
         "name": args.name,
     }, opts);

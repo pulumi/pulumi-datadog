@@ -21,9 +21,7 @@ export function getPermissions(opts?: pulumi.InvokeOptions): Promise<GetPermissi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getPermissions:getPermissions", {
     }, opts);
 }

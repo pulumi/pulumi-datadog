@@ -24,9 +24,7 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("datadog:index/getApplicationKey:getApplicationKey", {
         "id": args.id,
         "name": args.name,

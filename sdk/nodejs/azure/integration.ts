@@ -114,9 +114,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

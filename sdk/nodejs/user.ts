@@ -119,9 +119,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["userInvitationId"] = undefined /*out*/;
             resourceInputs["verified"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

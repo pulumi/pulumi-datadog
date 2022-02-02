@@ -93,9 +93,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["lambdaArn"] = args ? args.lambdaArn : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationLambdaArn.__pulumiType, name, resourceInputs, opts);
     }
 }

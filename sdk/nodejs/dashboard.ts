@@ -839,9 +839,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["widgets"] = args ? args.widgets : undefined;
             resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -197,9 +197,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceLevelObjective.__pulumiType, name, resourceInputs, opts);
     }
 }
