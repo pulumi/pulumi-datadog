@@ -53,6 +53,7 @@ namespace Pulumi.Datadog.Outputs
         /// Query arguments name and value map.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestQuery;
+        public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
         /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
         /// </summary>
@@ -80,6 +81,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableDictionary<string, object>? requestQuery,
 
+            Outputs.SyntheticsTestApiStepRetry? retry,
+
             string? subtype)
         {
             AllowFailure = allowFailure;
@@ -92,6 +95,7 @@ namespace Pulumi.Datadog.Outputs
             RequestDefinition = requestDefinition;
             RequestHeaders = requestHeaders;
             RequestQuery = requestQuery;
+            Retry = retry;
             Subtype = subtype;
         }
     }

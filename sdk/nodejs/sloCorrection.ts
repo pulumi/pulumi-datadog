@@ -13,36 +13,37 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const exampleSlo = new datadog.ServiceLevelObjective("example_slo", {
- *     description: "some updated description about example_slo SLO",
+ * // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
+ * const exampleSlo = new datadog.ServiceLevelObjective("exampleSlo", {
  *     name: "example slo",
+ *     type: "metric",
+ *     description: "some updated description about example_slo SLO",
  *     query: {
- *         denominator: "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
  *         numerator: "sum:my.metric{type:good}.as_count()",
+ *         denominator: "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
  *     },
- *     tags: ["foo:bar"],
  *     thresholds: [{
- *         target: 99.5,
  *         timeframe: "7d",
+ *         target: 99.5,
  *         warning: 99.8,
  *     }],
- *     type: "metric",
+ *     tags: ["foo:bar"],
  * });
- * const exampleSloCorrection = new datadog.SloCorrection("example_slo_correction", {
+ * const exampleSloCorrection = new datadog.SloCorrection("exampleSloCorrection", {
  *     category: "Scheduled Maintenance",
  *     description: "correction example",
- *     end: 1735718600,
- *     sloId: "datadog_service_level_objective.example_slo.id",
  *     start: 1735707000,
+ *     end: 1735718600,
+ *     sloId: exampleSlo.id,
  *     timezone: "UTC",
  * });
- * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("example_slo_correction_with_recurrence", {
+ * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("exampleSloCorrectionWithRecurrence", {
  *     category: "Scheduled Maintenance",
  *     description: "correction example with recurrence",
- *     duration: 3600,
- *     rrule: "FREQ=DAILY;INTERVAL=3;",
- *     sloId: "datadog_service_level_objective.example_slo.id",
  *     start: 1735707000,
+ *     rrule: "FREQ=DAILY;INTERVAL=3;COUNT=3",
+ *     duration: 3600,
+ *     sloId: exampleSlo.id,
  *     timezone: "UTC",
  * });
  * ```
@@ -98,7 +99,7 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     public readonly end!: pulumi.Output<number | undefined>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
     public readonly rrule!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +182,7 @@ export interface SloCorrectionState {
      */
     end?: pulumi.Input<number>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
     rrule?: pulumi.Input<string>;
     /**
@@ -219,7 +220,7 @@ export interface SloCorrectionArgs {
      */
     end?: pulumi.Input<number>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
     rrule?: pulumi.Input<string>;
     /**

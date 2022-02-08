@@ -151,6 +151,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetServicemapDefinitionGetArgs>? ServicemapDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Sunburst widget.
+        /// </summary>
+        [Input("sunburstDefinition")]
+        public Input<Inputs.DashboardWidgetSunburstDefinitionGetArgs>? SunburstDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
         [Input("timeseriesDefinition")]

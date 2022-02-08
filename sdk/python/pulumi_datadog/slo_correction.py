@@ -29,7 +29,7 @@ class SloCorrectionArgs:
         :param pulumi.Input[str] description: Description of the correction being made.
         :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
-        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
         pulumi.set(__self__, "category", category)
@@ -122,7 +122,7 @@ class SloCorrectionArgs:
     @pulumi.getter
     def rrule(self) -> Optional[pulumi.Input[str]]:
         """
-        Recurrence rules as defined in the iCalendar RFC 5545.
+        Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         """
         return pulumi.get(self, "rrule")
 
@@ -160,7 +160,7 @@ class _SloCorrectionState:
         :param pulumi.Input[str] description: Description of the correction being made.
         :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
-        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -234,7 +234,7 @@ class _SloCorrectionState:
     @pulumi.getter
     def rrule(self) -> Optional[pulumi.Input[str]]:
         """
-        Recurrence rules as defined in the iCalendar RFC 5545.
+        Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         """
         return pulumi.get(self, "rrule")
 
@@ -302,34 +302,35 @@ class SloCorrection(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
         example_slo = datadog.ServiceLevelObjective("exampleSlo",
-            description="some updated description about example_slo SLO",
             name="example slo",
+            type="metric",
+            description="some updated description about example_slo SLO",
             query=datadog.ServiceLevelObjectiveQueryArgs(
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
                 numerator="sum:my.metric{type:good}.as_count()",
+                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
             ),
-            tags=["foo:bar"],
             thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                target=99.5,
                 timeframe="7d",
+                target=99.5,
                 warning=99.8,
             )],
-            type="metric")
+            tags=["foo:bar"])
         example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
             category="Scheduled Maintenance",
             description="correction example",
-            end=1735718600,
-            slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
+            end=1735718600,
+            slo_id=example_slo.id,
             timezone="UTC")
         example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
             category="Scheduled Maintenance",
             description="correction example with recurrence",
-            duration=3600,
-            rrule="FREQ=DAILY;INTERVAL=3;",
-            slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
+            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
+            duration=3600,
+            slo_id=example_slo.id,
             timezone="UTC")
         ```
 
@@ -345,7 +346,7 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the correction being made.
         :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
-        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -365,34 +366,35 @@ class SloCorrection(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
         example_slo = datadog.ServiceLevelObjective("exampleSlo",
-            description="some updated description about example_slo SLO",
             name="example slo",
+            type="metric",
+            description="some updated description about example_slo SLO",
             query=datadog.ServiceLevelObjectiveQueryArgs(
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
                 numerator="sum:my.metric{type:good}.as_count()",
+                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
             ),
-            tags=["foo:bar"],
             thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                target=99.5,
                 timeframe="7d",
+                target=99.5,
                 warning=99.8,
             )],
-            type="metric")
+            tags=["foo:bar"])
         example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
             category="Scheduled Maintenance",
             description="correction example",
-            end=1735718600,
-            slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
+            end=1735718600,
+            slo_id=example_slo.id,
             timezone="UTC")
         example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
             category="Scheduled Maintenance",
             description="correction example with recurrence",
-            duration=3600,
-            rrule="FREQ=DAILY;INTERVAL=3;",
-            slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
+            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
+            duration=3600,
+            slo_id=example_slo.id,
             timezone="UTC")
         ```
 
@@ -480,7 +482,7 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the correction being made.
         :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
-        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -535,7 +537,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter
     def rrule(self) -> pulumi.Output[Optional[str]]:
         """
-        Recurrence rules as defined in the iCalendar RFC 5545.
+        Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         """
         return pulumi.get(self, "rrule")
 

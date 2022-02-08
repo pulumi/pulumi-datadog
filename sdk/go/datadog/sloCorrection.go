@@ -25,24 +25,24 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
-// 			Description: pulumi.String("some updated description about example_slo SLO"),
+// 		exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
 // 			Name:        pulumi.String("example slo"),
+// 			Type:        pulumi.String("metric"),
+// 			Description: pulumi.String("some updated description about example_slo SLO"),
 // 			Query: &ServiceLevelObjectiveQueryArgs{
-// 				Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
 // 				Numerator:   pulumi.String("sum:my.metric{type:good}.as_count()"),
+// 				Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
+// 			},
+// 			Thresholds: ServiceLevelObjectiveThresholdArray{
+// 				&ServiceLevelObjectiveThresholdArgs{
+// 					Timeframe: pulumi.String("7d"),
+// 					Target:    pulumi.Float64(99.5),
+// 					Warning:   pulumi.Float64(99.8),
+// 				},
 // 			},
 // 			Tags: pulumi.StringArray{
 // 				pulumi.String("foo:bar"),
 // 			},
-// 			Thresholds: ServiceLevelObjectiveThresholdArray{
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Target:    pulumi.Float64(99.5),
-// 					Timeframe: pulumi.String("7d"),
-// 					Warning:   pulumi.Float64(99.8),
-// 				},
-// 			},
-// 			Type: pulumi.String("metric"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -50,9 +50,9 @@ import (
 // 		_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrection", &datadog.SloCorrectionArgs{
 // 			Category:    pulumi.String("Scheduled Maintenance"),
 // 			Description: pulumi.String("correction example"),
-// 			End:         pulumi.Int(1735718600),
-// 			SloId:       pulumi.String("datadog_service_level_objective.example_slo.id"),
 // 			Start:       pulumi.Int(1735707000),
+// 			End:         pulumi.Int(1735718600),
+// 			SloId:       exampleSlo.ID(),
 // 			Timezone:    pulumi.String("UTC"),
 // 		})
 // 		if err != nil {
@@ -61,10 +61,10 @@ import (
 // 		_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrectionWithRecurrence", &datadog.SloCorrectionArgs{
 // 			Category:    pulumi.String("Scheduled Maintenance"),
 // 			Description: pulumi.String("correction example with recurrence"),
-// 			Duration:    pulumi.Int(3600),
-// 			Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;"),
-// 			SloId:       pulumi.String("datadog_service_level_objective.example_slo.id"),
 // 			Start:       pulumi.Int(1735707000),
+// 			Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;COUNT=3"),
+// 			Duration:    pulumi.Int(3600),
+// 			SloId:       exampleSlo.ID(),
 // 			Timezone:    pulumi.String("UTC"),
 // 		})
 // 		if err != nil {
@@ -91,7 +91,7 @@ type SloCorrection struct {
 	Duration pulumi.IntPtrOutput `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrOutput `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrOutput `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringOutput `pulumi:"sloId"`
@@ -147,7 +147,7 @@ type sloCorrectionState struct {
 	Duration *int `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End *int `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId *string `pulumi:"sloId"`
@@ -166,7 +166,7 @@ type SloCorrectionState struct {
 	Duration pulumi.IntPtrInput
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrInput
-	// Recurrence rules as defined in the iCalendar RFC 5545.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringPtrInput
@@ -189,7 +189,7 @@ type sloCorrectionArgs struct {
 	Duration *int `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End *int `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId string `pulumi:"sloId"`
@@ -209,7 +209,7 @@ type SloCorrectionArgs struct {
 	Duration pulumi.IntPtrInput
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrInput
-	// Recurrence rules as defined in the iCalendar RFC 5545.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringInput

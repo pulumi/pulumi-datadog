@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// For UDP tests, message to send with the request.
+        /// For UDP and websocket tests, message to send with the request.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

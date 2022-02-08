@@ -203,6 +203,10 @@ export interface DashboardWidget {
      */
     servicemapDefinition?: outputs.DashboardWidgetServicemapDefinition;
     /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: outputs.DashboardWidgetSunburstDefinition;
+    /**
      * The definition for a Timeseries widget.
      */
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
@@ -1052,6 +1056,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      * The definition for a Service Map widget.
      */
     servicemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
+    /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
     /**
      * The definition for a Timeseries widget.
      */
@@ -3472,6 +3480,359 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomL
     label?: string;
     link?: string;
     overrideLabel?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink[];
+    hideTotal?: boolean;
+    legendInline?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline;
+    legendTable?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable;
+    liveSpan?: string;
+    requests?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline {
+    hidePercent?: boolean;
+    hideValue?: boolean;
+    type: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable {
+    type: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
+    apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery;
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula[];
+    logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery;
+    networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery;
+    q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery[];
+    rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery;
+    securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
@@ -5897,6 +6258,359 @@ export interface DashboardWidgetServicemapDefinitionCustomLink {
     overrideLabel?: string;
 }
 
+export interface DashboardWidgetSunburstDefinition {
+    customLinks?: outputs.DashboardWidgetSunburstDefinitionCustomLink[];
+    hideTotal?: boolean;
+    legendInline?: outputs.DashboardWidgetSunburstDefinitionLegendInline;
+    legendTable?: outputs.DashboardWidgetSunburstDefinitionLegendTable;
+    liveSpan?: string;
+    requests?: outputs.DashboardWidgetSunburstDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionLegendInline {
+    hidePercent?: boolean;
+    hideValue?: boolean;
+    type: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionLegendTable {
+    type: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequest {
+    apmQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery;
+    formulas?: outputs.DashboardWidgetSunburstDefinitionRequestFormula[];
+    logQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQuery;
+    networkQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery;
+    processQuery?: outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery;
+    q?: string;
+    queries?: outputs.DashboardWidgetSunburstDefinitionRequestQuery[];
+    rumQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQuery;
+    securityQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQuery {
+    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     customLinks?: outputs.DashboardWidgetTimeseriesDefinitionCustomLink[];
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
@@ -6753,6 +7467,9 @@ export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
+    /**
+     * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     */
     agentRules?: outputs.GetSecurityMonitoringRulesRuleQueryAgentRule[];
     aggregation?: string;
     distinctFields?: string[];
@@ -7453,6 +8170,9 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
 }
 
 export interface SecurityMonitoringRuleQuery {
+    /**
+     * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     */
     agentRules?: outputs.SecurityMonitoringRuleQueryAgentRule[];
     aggregation?: string;
     distinctFields?: string[];
@@ -7568,6 +8288,7 @@ export interface SyntheticsTestApiStep {
      * Query arguments name and value map.
      */
     requestQuery?: {[key: string]: any};
+    retry?: outputs.SyntheticsTestApiStepRetry;
     /**
      * The subtype of the Synthetic multistep API test step. Valid values are `http`.
      */
@@ -7670,7 +8391,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: string;
     /**
-     * For UDP tests, message to send with the request.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: string;
     /**
@@ -7705,6 +8426,11 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * The URL to send the request to.
      */
     url?: string;
+}
+
+export interface SyntheticsTestApiStepRetry {
+    count?: number;
+    interval?: number;
 }
 
 export interface SyntheticsTestAssertion {
@@ -7929,7 +8655,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: string;
     /**
-     * For UDP tests, message to send with the request.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: string;
     /**

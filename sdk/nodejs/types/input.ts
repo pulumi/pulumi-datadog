@@ -203,6 +203,10 @@ export interface DashboardWidget {
      */
     servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetServicemapDefinition>;
     /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetSunburstDefinition>;
+    /**
      * The definition for a Timeseries widget.
      */
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinition>;
@@ -1052,6 +1056,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      * The definition for a Service Map widget.
      */
     servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition>;
+    /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition>;
     /**
      * The definition for a Timeseries widget.
      */
@@ -3472,6 +3480,359 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomL
     label?: pulumi.Input<string>;
     link?: pulumi.Input<string>;
     overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink>[]>;
+    hideTotal?: pulumi.Input<boolean>;
+    legendInline?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline>;
+    legendTable?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable>;
+    liveSpan?: pulumi.Input<string>;
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest>[]>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline {
+    hidePercent?: pulumi.Input<boolean>;
+    hideValue?: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable {
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula>[]>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery>;
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery>;
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery>[]>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery {
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
@@ -5897,6 +6258,359 @@ export interface DashboardWidgetServicemapDefinitionCustomLink {
     overrideLabel?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetSunburstDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionCustomLink>[]>;
+    hideTotal?: pulumi.Input<boolean>;
+    legendInline?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionLegendInline>;
+    legendTable?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionLegendTable>;
+    liveSpan?: pulumi.Input<string>;
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequest>[]>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionLegendInline {
+    hidePercent?: pulumi.Input<boolean>;
+    hideValue?: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionLegendTable {
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequest {
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormula>[]>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQuery>;
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestProcessQuery>;
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQuery>[]>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestProcessQuery {
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionCustomLink>[]>;
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
@@ -7345,6 +8059,9 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
 }
 
 export interface SecurityMonitoringRuleQuery {
+    /**
+     * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     */
     agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQueryAgentRule>[]>;
     aggregation?: pulumi.Input<string>;
     distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
@@ -7460,6 +8177,7 @@ export interface SyntheticsTestApiStep {
      * Query arguments name and value map.
      */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
+    retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
      * The subtype of the Synthetic multistep API test step. Valid values are `http`.
      */
@@ -7562,7 +8280,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * For UDP tests, message to send with the request.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -7597,6 +8315,11 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * The URL to send the request to.
      */
     url?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestApiStepRetry {
+    count?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
 }
 
 export interface SyntheticsTestAssertion {
@@ -7821,7 +8544,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * For UDP tests, message to send with the request.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -7857,7 +8580,6 @@ export interface SyntheticsTestRequestDefinition {
      */
     url?: pulumi.Input<string>;
 }
-
 export namespace slack {
     export interface ChannelDisplay {
         /**

@@ -443,6 +443,55 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition',
     'DashboardWidgetGroupDefinitionWidgetServicemapDefinition',
     'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinition',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent',
@@ -770,6 +819,55 @@ __all__ = [
     'DashboardWidgetServiceLevelObjectiveDefinition',
     'DashboardWidgetServicemapDefinition',
     'DashboardWidgetServicemapDefinitionCustomLink',
+    'DashboardWidgetSunburstDefinition',
+    'DashboardWidgetSunburstDefinitionCustomLink',
+    'DashboardWidgetSunburstDefinitionLegendInline',
+    'DashboardWidgetSunburstDefinitionLegendTable',
+    'DashboardWidgetSunburstDefinitionRequest',
+    'DashboardWidgetSunburstDefinitionRequestApmQuery',
+    'DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestAuditQuery',
+    'DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestFormula',
+    'DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat',
+    'DashboardWidgetSunburstDefinitionRequestFormulaLimit',
+    'DashboardWidgetSunburstDefinitionRequestLogQuery',
+    'DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestNetworkQuery',
+    'DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestProcessQuery',
+    'DashboardWidgetSunburstDefinitionRequestQuery',
+    'DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery',
+    'DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery',
+    'DashboardWidgetSunburstDefinitionRequestQueryEventQuery',
+    'DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute',
+    'DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort',
+    'DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch',
+    'DashboardWidgetSunburstDefinitionRequestQueryMetricQuery',
+    'DashboardWidgetSunburstDefinitionRequestQueryProcessQuery',
+    'DashboardWidgetSunburstDefinitionRequestRumQuery',
+    'DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestSecurityQuery',
+    'DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery',
+    'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy',
+    'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery',
+    'DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetTimeseriesDefinition',
     'DashboardWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetTimeseriesDefinitionEvent',
@@ -950,6 +1048,7 @@ __all__ = [
     'SyntheticsTestApiStepRequestClientCertificateCert',
     'SyntheticsTestApiStepRequestClientCertificateKey',
     'SyntheticsTestApiStepRequestDefinition',
+    'SyntheticsTestApiStepRetry',
     'SyntheticsTestAssertion',
     'SyntheticsTestAssertionTargetjsonpath',
     'SyntheticsTestBrowserStep',
@@ -1514,6 +1613,8 @@ class DashboardWidget(dict):
             suggest = "service_level_objective_definition"
         elif key == "servicemapDefinition":
             suggest = "servicemap_definition"
+        elif key == "sunburstDefinition":
+            suggest = "sunburst_definition"
         elif key == "timeseriesDefinition":
             suggest = "timeseries_definition"
         elif key == "toplistDefinition":
@@ -1558,6 +1659,7 @@ class DashboardWidget(dict):
                  scatterplot_definition: Optional['outputs.DashboardWidgetScatterplotDefinition'] = None,
                  service_level_objective_definition: Optional['outputs.DashboardWidgetServiceLevelObjectiveDefinition'] = None,
                  servicemap_definition: Optional['outputs.DashboardWidgetServicemapDefinition'] = None,
+                 sunburst_definition: Optional['outputs.DashboardWidgetSunburstDefinition'] = None,
                  timeseries_definition: Optional['outputs.DashboardWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetToplistDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetTraceServiceDefinition'] = None,
@@ -1586,6 +1688,7 @@ class DashboardWidget(dict):
         :param 'DashboardWidgetScatterplotDefinitionArgs' scatterplot_definition: The definition for a Scatterplot widget.
         :param 'DashboardWidgetServiceLevelObjectiveDefinitionArgs' service_level_objective_definition: The definition for a Service Level Objective widget.
         :param 'DashboardWidgetServicemapDefinitionArgs' servicemap_definition: The definition for a Service Map widget.
+        :param 'DashboardWidgetSunburstDefinitionArgs' sunburst_definition: The definition for a Sunburst widget.
         :param 'DashboardWidgetTimeseriesDefinitionArgs' timeseries_definition: The definition for a Timeseries widget.
         :param 'DashboardWidgetToplistDefinitionArgs' toplist_definition: The definition for a Toplist widget.
         :param 'DashboardWidgetTraceServiceDefinitionArgs' trace_service_definition: The definition for a Trace Service widget.
@@ -1637,6 +1740,8 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "service_level_objective_definition", service_level_objective_definition)
         if servicemap_definition is not None:
             pulumi.set(__self__, "servicemap_definition", servicemap_definition)
+        if sunburst_definition is not None:
+            pulumi.set(__self__, "sunburst_definition", sunburst_definition)
         if timeseries_definition is not None:
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
@@ -1829,6 +1934,14 @@ class DashboardWidget(dict):
         The definition for a Service Map widget.
         """
         return pulumi.get(self, "servicemap_definition")
+
+    @property
+    @pulumi.getter(name="sunburstDefinition")
+    def sunburst_definition(self) -> Optional['outputs.DashboardWidgetSunburstDefinition']:
+        """
+        The definition for a Sunburst widget.
+        """
+        return pulumi.get(self, "sunburst_definition")
 
     @property
     @pulumi.getter(name="timeseriesDefinition")
@@ -6876,6 +6989,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             suggest = "service_level_objective_definition"
         elif key == "servicemapDefinition":
             suggest = "servicemap_definition"
+        elif key == "sunburstDefinition":
+            suggest = "sunburst_definition"
         elif key == "timeseriesDefinition":
             suggest = "timeseries_definition"
         elif key == "toplistDefinition":
@@ -6919,6 +7034,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  scatterplot_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition'] = None,
                  service_level_objective_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition'] = None,
                  servicemap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition'] = None,
+                 sunburst_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition'] = None,
                  timeseries_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition'] = None,
@@ -6946,6 +7062,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         :param 'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs' scatterplot_definition: The definition for a Scatterplot widget.
         :param 'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs' service_level_objective_definition: The definition for a Service Level Objective widget.
         :param 'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs' servicemap_definition: The definition for a Service Map widget.
+        :param 'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs' sunburst_definition: The definition for a Sunburst widget.
         :param 'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs' timeseries_definition: The definition for a Timeseries widget.
         :param 'DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs' toplist_definition: The definition for a Toplist widget.
         :param 'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs' trace_service_definition: The definition for a Trace Service widget.
@@ -6995,6 +7112,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "service_level_objective_definition", service_level_objective_definition)
         if servicemap_definition is not None:
             pulumi.set(__self__, "servicemap_definition", servicemap_definition)
+        if sunburst_definition is not None:
+            pulumi.set(__self__, "sunburst_definition", sunburst_definition)
         if timeseries_definition is not None:
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
@@ -7179,6 +7298,14 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         The definition for a Service Map widget.
         """
         return pulumi.get(self, "servicemap_definition")
+
+    @property
+    @pulumi.getter(name="sunburstDefinition")
+    def sunburst_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition']:
+        """
+        The definition for a Sunburst widget.
+        """
+        return pulumi.get(self, "sunburst_definition")
 
     @property
     @pulumi.getter(name="timeseriesDefinition")
@@ -23326,6 +23453,2357 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink(dict):
     @pulumi.getter(name="overrideLabel")
     def override_label(self) -> Optional[str]:
         return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hideTotal":
+            suggest = "hide_total"
+        elif key == "legendInline":
+            suggest = "legend_inline"
+        elif key == "legendTable":
+            suggest = "legend_table"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink']] = None,
+                 hide_total: Optional[bool] = None,
+                 legend_inline: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline'] = None,
+                 legend_table: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable'] = None,
+                 live_span: Optional[str] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest']] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if hide_total is not None:
+            pulumi.set(__self__, "hide_total", hide_total)
+        if legend_inline is not None:
+            pulumi.set(__self__, "legend_inline", legend_inline)
+        if legend_table is not None:
+            pulumi.set(__self__, "legend_table", legend_table)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter(name="hideTotal")
+    def hide_total(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_total")
+
+    @property
+    @pulumi.getter(name="legendInline")
+    def legend_inline(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline']:
+        return pulumi.get(self, "legend_inline")
+
+    @property
+    @pulumi.getter(name="legendTable")
+    def legend_table(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable']:
+        return pulumi.get(self, "legend_table")
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[str]:
+        return pulumi.get(self, "live_span")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hidePercent":
+            suggest = "hide_percent"
+        elif key == "hideValue":
+            suggest = "hide_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 hide_percent: Optional[bool] = None,
+                 hide_value: Optional[bool] = None):
+        pulumi.set(__self__, "type", type)
+        if hide_percent is not None:
+            pulumi.set(__self__, "hide_percent", hide_percent)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="hidePercent")
+    def hide_percent(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_percent")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable(dict):
+    def __init__(__self__, *,
+                 type: str):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "auditQuery":
+            suggest = "audit_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "networkQuery":
+            suggest = "network_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery'] = None,
+                 audit_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery'] = None,
+                 formulas: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula']] = None,
+                 log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery'] = None,
+                 network_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery'] = None,
+                 q: Optional[str] = None,
+                 queries: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery']] = None,
+                 rum_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery'] = None):
+        if apm_query is not None:
+            pulumi.set(__self__, "apm_query", apm_query)
+        if audit_query is not None:
+            pulumi.set(__self__, "audit_query", audit_query)
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if log_query is not None:
+            pulumi.set(__self__, "log_query", log_query)
+        if network_query is not None:
+            pulumi.set(__self__, "network_query", network_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+        if q is not None:
+            pulumi.set(__self__, "q", q)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+        if rum_query is not None:
+            pulumi.set(__self__, "rum_query", rum_query)
+        if security_query is not None:
+            pulumi.set(__self__, "security_query", security_query)
+
+    @property
+    @pulumi.getter(name="apmQuery")
+    def apm_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery']:
+        return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="auditQuery")
+    def audit_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery']:
+        return pulumi.get(self, "audit_query")
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula']]:
+        return pulumi.get(self, "formulas")
+
+    @property
+    @pulumi.getter(name="logQuery")
+    def log_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery']:
+        return pulumi.get(self, "log_query")
+
+    @property
+    @pulumi.getter(name="networkQuery")
+    def network_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery']:
+        return pulumi.get(self, "network_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+    @property
+    @pulumi.getter
+    def q(self) -> Optional[str]:
+        return pulumi.get(self, "q")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery']]:
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="rumQuery")
+    def rum_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery']:
+        return pulumi.get(self, "rum_query")
+
+    @property
+    @pulumi.getter(name="securityQuery")
+    def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery']:
+        return pulumi.get(self, "security_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formulaExpression":
+            suggest = "formula_expression"
+        elif key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 formula_expression: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat']] = None,
+                 limit: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit'] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> str:
+        return pulumi.get(self, "formula_expression")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat']]:
+        return pulumi.get(self, "conditional_formats")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit']:
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparator: str,
+                 palette: str,
+                 value: float,
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 hide_value: Optional[bool] = None,
+                 image_url: Optional[str] = None,
+                 metric: Optional[str] = None,
+                 timeframe: Optional[str] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> str:
+        return pulumi.get(self, "comparator")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> str:
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[str]:
+        return pulumi.get(self, "timeframe")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 order: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric: str,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
+                 search_by: Optional[str] = None):
+        pulumi.set(__self__, "metric", metric)
+        if filter_bies is not None:
+            pulumi.set(__self__, "filter_bies", filter_bies)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if search_by is not None:
+            pulumi.set(__self__, "search_by", search_by)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="filterBies")
+    def filter_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "filter_bies")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="searchBy")
+    def search_by(self) -> Optional[str]:
+        return pulumi.get(self, "search_by")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmDependencyStatsQuery":
+            suggest = "apm_dependency_stats_query"
+        elif key == "apmResourceStatsQuery":
+            suggest = "apm_resource_stats_query"
+        elif key == "eventQuery":
+            suggest = "event_query"
+        elif key == "metricQuery":
+            suggest = "metric_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery'] = None,
+                 apm_resource_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery'] = None,
+                 event_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery'] = None,
+                 metric_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery'] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery']:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery']:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery']:
+        return pulumi.get(self, "event_query")
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery']:
+        return pulumi.get(self, "metric_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "isUpstream":
+            suggest = "is_upstream"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 operation_name: str,
+                 resource_name: str,
+                 service: str,
+                 stat: str,
+                 is_upstream: Optional[bool] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> str:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[bool]:
+        return pulumi.get(self, "is_upstream")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+        elif key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 service: str,
+                 stat: str,
+                 group_bies: Optional[Sequence[str]] = None,
+                 operation_name: Optional[str] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 computes: Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute'],
+                 data_source: str,
+                 name: str,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']] = None,
+                 indexes: Optional[Sequence[str]] = None,
+                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch'] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute']:
+        return pulumi.get(self, "computes")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch']:
+        return pulumi.get(self, "search")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 interval: Optional[int] = None,
+                 metric: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str,
+                 limit: Optional[int] = None,
+                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort'] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort']:
+        return pulumi.get(self, "sort")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 metric: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 query: str,
+                 aggregator: Optional[str] = None,
+                 data_source: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "isNormalizedCpu":
+            suggest = "is_normalized_cpu"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+        elif key == "textFilter":
+            suggest = "text_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 metric: str,
+                 name: str,
+                 aggregator: Optional[str] = None,
+                 is_normalized_cpu: Optional[bool] = None,
+                 limit: Optional[int] = None,
+                 sort: Optional[str] = None,
+                 tag_filters: Optional[Sequence[str]] = None,
+                 text_filter: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[bool]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[str]:
+        return pulumi.get(self, "sort")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tag_filters")
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[str]:
+        return pulumi.get(self, "text_filter")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -39638,6 +42116,2357 @@ class DashboardWidgetServicemapDefinitionCustomLink(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetSunburstDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hideTotal":
+            suggest = "hide_total"
+        elif key == "legendInline":
+            suggest = "legend_inline"
+        elif key == "legendTable":
+            suggest = "legend_table"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionCustomLink']] = None,
+                 hide_total: Optional[bool] = None,
+                 legend_inline: Optional['outputs.DashboardWidgetSunburstDefinitionLegendInline'] = None,
+                 legend_table: Optional['outputs.DashboardWidgetSunburstDefinitionLegendTable'] = None,
+                 live_span: Optional[str] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequest']] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if hide_total is not None:
+            pulumi.set(__self__, "hide_total", hide_total)
+        if legend_inline is not None:
+            pulumi.set(__self__, "legend_inline", legend_inline)
+        if legend_table is not None:
+            pulumi.set(__self__, "legend_table", legend_table)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter(name="hideTotal")
+    def hide_total(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_total")
+
+    @property
+    @pulumi.getter(name="legendInline")
+    def legend_inline(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionLegendInline']:
+        return pulumi.get(self, "legend_inline")
+
+    @property
+    @pulumi.getter(name="legendTable")
+    def legend_table(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionLegendTable']:
+        return pulumi.get(self, "legend_table")
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[str]:
+        return pulumi.get(self, "live_span")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionLegendInline(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hidePercent":
+            suggest = "hide_percent"
+        elif key == "hideValue":
+            suggest = "hide_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionLegendInline. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionLegendInline.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionLegendInline.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 hide_percent: Optional[bool] = None,
+                 hide_value: Optional[bool] = None):
+        pulumi.set(__self__, "type", type)
+        if hide_percent is not None:
+            pulumi.set(__self__, "hide_percent", hide_percent)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="hidePercent")
+    def hide_percent(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_percent")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionLegendTable(dict):
+    def __init__(__self__, *,
+                 type: str):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "auditQuery":
+            suggest = "audit_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "networkQuery":
+            suggest = "network_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQuery'] = None,
+                 audit_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery'] = None,
+                 formulas: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormula']] = None,
+                 log_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQuery'] = None,
+                 network_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery'] = None,
+                 q: Optional[str] = None,
+                 queries: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQuery']] = None,
+                 rum_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery'] = None):
+        if apm_query is not None:
+            pulumi.set(__self__, "apm_query", apm_query)
+        if audit_query is not None:
+            pulumi.set(__self__, "audit_query", audit_query)
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if log_query is not None:
+            pulumi.set(__self__, "log_query", log_query)
+        if network_query is not None:
+            pulumi.set(__self__, "network_query", network_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+        if q is not None:
+            pulumi.set(__self__, "q", q)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+        if rum_query is not None:
+            pulumi.set(__self__, "rum_query", rum_query)
+        if security_query is not None:
+            pulumi.set(__self__, "security_query", security_query)
+
+    @property
+    @pulumi.getter(name="apmQuery")
+    def apm_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQuery']:
+        return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="auditQuery")
+    def audit_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery']:
+        return pulumi.get(self, "audit_query")
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormula']]:
+        return pulumi.get(self, "formulas")
+
+    @property
+    @pulumi.getter(name="logQuery")
+    def log_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQuery']:
+        return pulumi.get(self, "log_query")
+
+    @property
+    @pulumi.getter(name="networkQuery")
+    def network_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery']:
+        return pulumi.get(self, "network_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+    @property
+    @pulumi.getter
+    def q(self) -> Optional[str]:
+        return pulumi.get(self, "q")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQuery']]:
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="rumQuery")
+    def rum_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQuery']:
+        return pulumi.get(self, "rum_query")
+
+    @property
+    @pulumi.getter(name="securityQuery")
+    def security_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery']:
+        return pulumi.get(self, "security_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestAuditQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestAuditQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestAuditQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestAuditQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormula(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formulaExpression":
+            suggest = "formula_expression"
+        elif key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormula.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormula.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 formula_expression: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat']] = None,
+                 limit: Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit'] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> str:
+        return pulumi.get(self, "formula_expression")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat']]:
+        return pulumi.get(self, "conditional_formats")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit']:
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparator: str,
+                 palette: str,
+                 value: float,
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 hide_value: Optional[bool] = None,
+                 image_url: Optional[str] = None,
+                 metric: Optional[str] = None,
+                 timeframe: Optional[str] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> str:
+        return pulumi.get(self, "comparator")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> str:
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[str]:
+        return pulumi.get(self, "timeframe")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestFormulaLimit(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 order: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestNetworkQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestNetworkQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric: str,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
+                 search_by: Optional[str] = None):
+        pulumi.set(__self__, "metric", metric)
+        if filter_bies is not None:
+            pulumi.set(__self__, "filter_bies", filter_bies)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if search_by is not None:
+            pulumi.set(__self__, "search_by", search_by)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="filterBies")
+    def filter_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "filter_bies")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="searchBy")
+    def search_by(self) -> Optional[str]:
+        return pulumi.get(self, "search_by")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmDependencyStatsQuery":
+            suggest = "apm_dependency_stats_query"
+        elif key == "apmResourceStatsQuery":
+            suggest = "apm_resource_stats_query"
+        elif key == "eventQuery":
+            suggest = "event_query"
+        elif key == "metricQuery":
+            suggest = "metric_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery'] = None,
+                 apm_resource_stats_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery'] = None,
+                 event_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery'] = None,
+                 metric_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery'] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery']:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery']:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery']:
+        return pulumi.get(self, "event_query")
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery']:
+        return pulumi.get(self, "metric_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "isUpstream":
+            suggest = "is_upstream"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 operation_name: str,
+                 resource_name: str,
+                 service: str,
+                 stat: str,
+                 is_upstream: Optional[bool] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> str:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[bool]:
+        return pulumi.get(self, "is_upstream")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+        elif key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 service: str,
+                 stat: str,
+                 group_bies: Optional[Sequence[str]] = None,
+                 operation_name: Optional[str] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryEventQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 computes: Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute'],
+                 data_source: str,
+                 name: str,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']] = None,
+                 indexes: Optional[Sequence[str]] = None,
+                 search: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch'] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute']:
+        return pulumi.get(self, "computes")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch']:
+        return pulumi.get(self, "search")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 interval: Optional[int] = None,
+                 metric: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str,
+                 limit: Optional[int] = None,
+                 sort: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort'] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort']:
+        return pulumi.get(self, "sort")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 metric: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryMetricQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 query: str,
+                 aggregator: Optional[str] = None,
+                 data_source: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "isNormalizedCpu":
+            suggest = "is_normalized_cpu"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+        elif key == "textFilter":
+            suggest = "text_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 metric: str,
+                 name: str,
+                 aggregator: Optional[str] = None,
+                 is_normalized_cpu: Optional[bool] = None,
+                 limit: Optional[int] = None,
+                 sort: Optional[str] = None,
+                 tag_filters: Optional[Sequence[str]] = None,
+                 text_filter: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[bool]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[str]:
+        return pulumi.get(self, "sort")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tag_filters")
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[str]:
+        return pulumi.get(self, "text_filter")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery']:
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']]:
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortQuery":
+            suggest = "sort_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facet: Optional[str] = None,
+                 limit: Optional[int] = None,
+                 sort_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery']:
+        return pulumi.get(self, "sort_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 order: str,
+                 facet: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
 class DashboardWidgetTimeseriesDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -48572,6 +53401,7 @@ class SyntheticsTestApiStep(dict):
                  request_definition: Optional['outputs.SyntheticsTestApiStepRequestDefinition'] = None,
                  request_headers: Optional[Mapping[str, Any]] = None,
                  request_query: Optional[Mapping[str, Any]] = None,
+                 retry: Optional['outputs.SyntheticsTestApiStepRetry'] = None,
                  subtype: Optional[str] = None):
         """
         :param str name: The name of the step.
@@ -48605,6 +53435,8 @@ class SyntheticsTestApiStep(dict):
             pulumi.set(__self__, "request_headers", request_headers)
         if request_query is not None:
             pulumi.set(__self__, "request_query", request_query)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
 
@@ -48687,6 +53519,11 @@ class SyntheticsTestApiStep(dict):
         Query arguments name and value map.
         """
         return pulumi.get(self, "request_query")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.SyntheticsTestApiStepRetry']:
+        return pulumi.get(self, "retry")
 
     @property
     @pulumi.getter
@@ -48998,7 +53835,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param str host: Host name to perform the test with.
-        :param str message: For UDP tests, message to send with the request.
+        :param str message: For UDP and websocket tests, message to send with the request.
         :param str method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
@@ -49085,7 +53922,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         """
-        For UDP tests, message to send with the request.
+        For UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 
@@ -49152,6 +53989,27 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         The URL to send the request to.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class SyntheticsTestApiStepRetry(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 interval: Optional[int] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -50015,7 +54873,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param str host: Host name to perform the test with.
-        :param str message: For UDP tests, message to send with the request.
+        :param str message: For UDP and websocket tests, message to send with the request.
         :param str method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
@@ -50088,7 +54946,7 @@ class SyntheticsTestRequestDefinition(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         """
-        For UDP tests, message to send with the request.
+        For UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 

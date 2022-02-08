@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// For UDP tests, message to send with the request.
+        /// For UDP and websocket tests, message to send with the request.
         /// </summary>
         public readonly string? Message;
         /// <summary>
