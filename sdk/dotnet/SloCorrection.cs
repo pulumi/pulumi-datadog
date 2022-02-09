@@ -22,47 +22,48 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
     ///         var exampleSlo = new Datadog.ServiceLevelObjective("exampleSlo", new Datadog.ServiceLevelObjectiveArgs
     ///         {
-    ///             Description = "some updated description about example_slo SLO",
     ///             Name = "example slo",
+    ///             Type = "metric",
+    ///             Description = "some updated description about example_slo SLO",
     ///             Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
     ///             {
-    ///                 Denominator = "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
     ///                 Numerator = "sum:my.metric{type:good}.as_count()",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
+    ///                 Denominator = "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
     ///             },
     ///             Thresholds = 
     ///             {
     ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
     ///                 {
-    ///                     Target = 99.5,
     ///                     Timeframe = "7d",
+    ///                     Target = 99.5,
     ///                     Warning = 99.8,
     ///                 },
     ///             },
-    ///             Type = "metric",
+    ///             Tags = 
+    ///             {
+    ///                 "foo:bar",
+    ///             },
     ///         });
     ///         var exampleSloCorrection = new Datadog.SloCorrection("exampleSloCorrection", new Datadog.SloCorrectionArgs
     ///         {
     ///             Category = "Scheduled Maintenance",
     ///             Description = "correction example",
-    ///             End = 1735718600,
-    ///             SloId = "datadog_service_level_objective.example_slo.id",
     ///             Start = 1735707000,
+    ///             End = 1735718600,
+    ///             SloId = exampleSlo.Id,
     ///             Timezone = "UTC",
     ///         });
     ///         var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new Datadog.SloCorrectionArgs
     ///         {
     ///             Category = "Scheduled Maintenance",
     ///             Description = "correction example with recurrence",
-    ///             Duration = 3600,
-    ///             Rrule = "FREQ=DAILY;INTERVAL=3;",
-    ///             SloId = "datadog_service_level_objective.example_slo.id",
     ///             Start = 1735707000,
+    ///             Rrule = "FREQ=DAILY;INTERVAL=3;COUNT=3",
+    ///             Duration = 3600,
+    ///             SloId = exampleSlo.Id,
     ///             Timezone = "UTC",
     ///         });
     ///     }
@@ -104,7 +105,7 @@ namespace Pulumi.Datadog
         public Output<int?> End { get; private set; } = null!;
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Output("rrule")]
         public Output<string?> Rrule { get; private set; } = null!;
@@ -198,7 +199,7 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }
@@ -253,7 +254,7 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }

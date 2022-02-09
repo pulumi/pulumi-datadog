@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("agentRules")]
         private InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs>? _agentRules;
+        [Obsolete(@"`agent_rule` has been deprecated in favor of new Agent Rule resource.")]
         public InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs> AgentRules
         {
             get => _agentRules ?? (_agentRules = new InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs>());

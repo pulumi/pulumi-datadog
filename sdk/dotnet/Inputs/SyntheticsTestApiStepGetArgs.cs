@@ -96,6 +96,9 @@ namespace Pulumi.Datadog.Inputs
             set => _requestQuery = value;
         }
 
+        [Input("retry")]
+        public Input<Inputs.SyntheticsTestApiStepRetryGetArgs>? Retry { get; set; }
+
         /// <summary>
         /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
         /// </summary>

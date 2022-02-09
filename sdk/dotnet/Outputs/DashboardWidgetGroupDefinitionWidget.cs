@@ -102,6 +102,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? ServicemapDefinition;
         /// <summary>
+        /// The definition for a Sunburst widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? SunburstDefinition;
+        /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? TimeseriesDefinition;
@@ -164,6 +168,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? servicemapDefinition,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? sunburstDefinition,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? timeseriesDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? toplistDefinition,
@@ -194,6 +200,7 @@ namespace Pulumi.Datadog.Outputs
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
+            SunburstDefinition = sunburstDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
