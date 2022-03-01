@@ -24,18 +24,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "My test SLO"
-// 		opt1 := "foo:bar"
 // 		_, err := datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
-// 			NameQuery: &opt0,
-// 			TagsQuery: &opt1,
+// 			NameQuery: pulumi.StringRef("My test SLO"),
+// 			TagsQuery: pulumi.StringRef("foo:bar"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt2 := data.Terraform_remote_state.Api.Outputs.Slo
 // 		_, err = datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
-// 			Id: &opt2,
+// 			Id: pulumi.StringRef(data.Terraform_remote_state.Api.Outputs.Slo),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

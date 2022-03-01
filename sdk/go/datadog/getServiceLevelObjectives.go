@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "owner:ft-foo"
 // 		_, err := datadog.GetServiceLevelObjectives(ctx, &GetServiceLevelObjectivesArgs{
-// 			TagsQuery: &opt0,
+// 			TagsQuery: pulumi.StringRef("owner:ft-foo"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

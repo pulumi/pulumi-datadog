@@ -231,6 +231,39 @@ class LogsIndex(pulumi.CustomResource):
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_index = datadog.LogsIndex("sampleIndex",
+            daily_limit=200000,
+            exclusion_filters=[
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="app:coredns",
+                        sample_rate=0.97,
+                    )],
+                    is_enabled=True,
+                    name="Filter coredns logs",
+                ),
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="service:kube_apiserver",
+                        sample_rate=1,
+                    )],
+                    is_enabled=True,
+                    name="Kubernetes apiserver",
+                ),
+            ],
+            filters=[datadog.LogsIndexFilterArgs(
+                query="*",
+            )],
+            name="your index",
+            retention_days=7)
+        ```
+
         ## Import
 
         ```sh
@@ -253,6 +286,39 @@ class LogsIndex(pulumi.CustomResource):
                  args: LogsIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_index = datadog.LogsIndex("sampleIndex",
+            daily_limit=200000,
+            exclusion_filters=[
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="app:coredns",
+                        sample_rate=0.97,
+                    )],
+                    is_enabled=True,
+                    name="Filter coredns logs",
+                ),
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="service:kube_apiserver",
+                        sample_rate=1,
+                    )],
+                    is_enabled=True,
+                    name="Kubernetes apiserver",
+                ),
+            ],
+            filters=[datadog.LogsIndexFilterArgs(
+                query="*",
+            )],
+            name="your index",
+            retention_days=7)
+        ```
+
         ## Import
 
         ```sh
