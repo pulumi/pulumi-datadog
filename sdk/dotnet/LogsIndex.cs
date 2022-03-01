@@ -10,6 +10,63 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
+    ///         {
+    ///             DailyLimit = 200000,
+    ///             ExclusionFilters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filters = 
+    ///                     {
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                         {
+    ///                             Query = "app:coredns",
+    ///                             SampleRate = 0.97,
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Filter coredns logs",
+    ///                 },
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filters = 
+    ///                     {
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                         {
+    ///                             Query = "service:kube_apiserver",
+    ///                             SampleRate = 1,
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Kubernetes apiserver",
+    ///                 },
+    ///             },
+    ///             Filters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexFilterArgs
+    ///                 {
+    ///                     Query = "*",
+    ///                 },
+    ///             },
+    ///             Name = "your index",
+    ///             RetentionDays = 7,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

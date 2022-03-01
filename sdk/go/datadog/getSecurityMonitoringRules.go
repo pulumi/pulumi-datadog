@@ -24,11 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
-// 		opt1 := "attack"
 // 		_, err := datadog.GetSecurityMonitoringRules(ctx, &GetSecurityMonitoringRulesArgs{
-// 			DefaultOnlyFilter: &opt0,
-// 			NameFilter:        &opt1,
+// 			DefaultOnlyFilter: pulumi.BoolRef(true),
+// 			NameFilter:        pulumi.StringRef("attack"),
 // 			TagsFilters: []string{
 // 				"foo:bar",
 // 			},

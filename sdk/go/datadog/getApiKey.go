@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "foo-application"
 // 		_, err := datadog.LookupApiKey(ctx, &GetApiKeyArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("foo-application"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

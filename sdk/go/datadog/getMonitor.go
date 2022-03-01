@@ -24,12 +24,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "My awesome monitor"
 // 		_, err := datadog.LookupMonitor(ctx, &GetMonitorArgs{
 // 			MonitorTagsFilters: []string{
 // 				"foo:bar",
 // 			},
-// 			NameFilter: &opt0,
+// 			NameFilter: pulumi.StringRef("My awesome monitor"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

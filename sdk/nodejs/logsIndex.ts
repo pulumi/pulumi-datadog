@@ -6,6 +6,40 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const sampleIndex = new datadog.LogsIndex("sample_index", {
+ *     dailyLimit: 200000,
+ *     exclusionFilters: [
+ *         {
+ *             filters: [{
+ *                 query: "app:coredns",
+ *                 sampleRate: 0.97,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Filter coredns logs",
+ *         },
+ *         {
+ *             filters: [{
+ *                 query: "service:kube_apiserver",
+ *                 sampleRate: 1,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Kubernetes apiserver",
+ *         },
+ *     ],
+ *     filters: [{
+ *         query: "*",
+ *     }],
+ *     name: "your index",
+ *     retentionDays: 7,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

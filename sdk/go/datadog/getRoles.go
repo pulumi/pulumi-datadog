@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Datadog"
 // 		_, err := datadog.GetRoles(ctx, &GetRolesArgs{
-// 			Filter: &opt0,
+// 			Filter: pulumi.StringRef("Datadog"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
