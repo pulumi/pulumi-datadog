@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ForceElementUpdate { get; set; }
 
         /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
+        [Input("isCritical")]
+        public Input<bool>? IsCritical { get; set; }
+
+        /// <summary>
         /// Name of the step.
         /// </summary>
         [Input("name", required: true)]

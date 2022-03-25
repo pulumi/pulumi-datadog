@@ -19,6 +19,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Code;
         public readonly int? Delay;
         public readonly string? Element;
+        public readonly Outputs.SyntheticsTestBrowserStepParamsElementUserLocator? ElementUserLocator;
         public readonly string? Email;
         public readonly string? File;
         public readonly string? Files;
@@ -45,6 +46,8 @@ namespace Pulumi.Datadog.Outputs
             int? delay,
 
             string? element,
+
+            Outputs.SyntheticsTestBrowserStepParamsElementUserLocator? elementUserLocator,
 
             string? email,
 
@@ -76,6 +79,7 @@ namespace Pulumi.Datadog.Outputs
             Code = code;
             Delay = delay;
             Element = element;
+            ElementUserLocator = elementUserLocator;
             Email = email;
             File = file;
             Files = files;

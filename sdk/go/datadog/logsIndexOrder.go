@@ -30,9 +30,7 @@ import (
 // 			Indexes: pulumi.StringArray{
 // 				pulumi.Any(datadog_logs_index.Sample_index.Id),
 // 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			pulumi.Resource("datadog_logs_index.sample_index"),
-// 		}))
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

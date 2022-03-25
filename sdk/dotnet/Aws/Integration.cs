@@ -82,6 +82,12 @@ namespace Pulumi.Datadog.Aws
         public Output<ImmutableDictionary<string, object>?> AccountSpecificNamespaceRules { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        /// </summary>
+        [Output("cspmResourceCollectionEnabled")]
+        public Output<string> CspmResourceCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An array of AWS regions to exclude from metrics collection.
         /// </summary>
         [Output("excludedRegions")]
@@ -105,6 +111,18 @@ namespace Pulumi.Datadog.Aws
         /// </summary>
         [Output("hostTags")]
         public Output<ImmutableArray<string>> HostTags { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether Datadog collects metrics for this AWS account.
+        /// </summary>
+        [Output("metricsCollectionEnabled")]
+        public Output<string> MetricsCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// </summary>
+        [Output("resourceCollectionEnabled")]
+        public Output<string> ResourceCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Your Datadog role delegation name.
@@ -188,6 +206,12 @@ namespace Pulumi.Datadog.Aws
             set => _accountSpecificNamespaceRules = value;
         }
 
+        /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        /// </summary>
+        [Input("cspmResourceCollectionEnabled")]
+        public Input<string>? CspmResourceCollectionEnabled { get; set; }
+
         [Input("excludedRegions")]
         private InputList<string>? _excludedRegions;
 
@@ -223,6 +247,18 @@ namespace Pulumi.Datadog.Aws
             get => _hostTags ?? (_hostTags = new InputList<string>());
             set => _hostTags = value;
         }
+
+        /// <summary>
+        /// Whether Datadog collects metrics for this AWS account.
+        /// </summary>
+        [Input("metricsCollectionEnabled")]
+        public Input<string>? MetricsCollectionEnabled { get; set; }
+
+        /// <summary>
+        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<string>? ResourceCollectionEnabled { get; set; }
 
         /// <summary>
         /// Your Datadog role delegation name.
@@ -267,6 +303,12 @@ namespace Pulumi.Datadog.Aws
             set => _accountSpecificNamespaceRules = value;
         }
 
+        /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        /// </summary>
+        [Input("cspmResourceCollectionEnabled")]
+        public Input<string>? CspmResourceCollectionEnabled { get; set; }
+
         [Input("excludedRegions")]
         private InputList<string>? _excludedRegions;
 
@@ -309,6 +351,18 @@ namespace Pulumi.Datadog.Aws
             get => _hostTags ?? (_hostTags = new InputList<string>());
             set => _hostTags = value;
         }
+
+        /// <summary>
+        /// Whether Datadog collects metrics for this AWS account.
+        /// </summary>
+        [Input("metricsCollectionEnabled")]
+        public Input<string>? MetricsCollectionEnabled { get; set; }
+
+        /// <summary>
+        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<string>? ResourceCollectionEnabled { get; set; }
 
         /// <summary>
         /// Your Datadog role delegation name.

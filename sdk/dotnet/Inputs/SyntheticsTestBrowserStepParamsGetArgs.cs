@@ -30,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("element")]
         public Input<string>? Element { get; set; }
 
+        [Input("elementUserLocator")]
+        public Input<Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs>? ElementUserLocator { get; set; }
+
         [Input("email")]
         public Input<string>? Email { get; set; }
 

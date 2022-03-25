@@ -15,8 +15,8 @@ namespace Pulumi.Datadog.Inputs
         [Input("detectionMethod")]
         public Input<string>? DetectionMethod { get; set; }
 
-        [Input("evaluationWindow", required: true)]
-        public Input<int> EvaluationWindow { get; set; } = null!;
+        [Input("evaluationWindow")]
+        public Input<int>? EvaluationWindow { get; set; }
 
         [Input("keepAlive", required: true)]
         public Input<int> KeepAlive { get; set; } = null!;

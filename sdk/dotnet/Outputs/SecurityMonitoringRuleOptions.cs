@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleOptions
     {
         public readonly string? DetectionMethod;
-        public readonly int EvaluationWindow;
+        public readonly int? EvaluationWindow;
         public readonly int KeepAlive;
         public readonly int MaxSignalDuration;
         public readonly Outputs.SecurityMonitoringRuleOptionsNewValueOptions? NewValueOptions;
@@ -23,7 +23,7 @@ namespace Pulumi.Datadog.Outputs
         private SecurityMonitoringRuleOptions(
             string? detectionMethod,
 
-            int evaluationWindow,
+            int? evaluationWindow,
 
             int keepAlive,
 

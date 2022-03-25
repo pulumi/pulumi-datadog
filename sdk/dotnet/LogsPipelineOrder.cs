@@ -30,13 +30,6 @@ namespace Pulumi.Datadog
     ///                 datadog_logs_custom_pipeline.Sample_pipeline.Id,
     ///                 datadog_logs_integration_pipeline.Python.Id,
     ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_logs_custom_pipeline.sample_pipeline",
-    ///                 "datadog_logs_integration_pipeline.python",
-    ///             },
     ///         });
     ///     }
     /// 

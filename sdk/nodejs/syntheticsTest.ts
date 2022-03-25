@@ -354,6 +354,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * The proxy to perform the test.
+     */
+    public readonly requestProxy!: pulumi.Output<outputs.SyntheticsTestRequestProxy | undefined>;
+    /**
      * Query arguments name and value map.
      */
     public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -406,6 +410,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = state ? state.requestDefinition : undefined;
             resourceInputs["requestHeaders"] = state ? state.requestHeaders : undefined;
+            resourceInputs["requestProxy"] = state ? state.requestProxy : undefined;
             resourceInputs["requestQuery"] = state ? state.requestQuery : undefined;
             resourceInputs["setCookie"] = state ? state.setCookie : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -440,6 +445,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = args ? args.requestDefinition : undefined;
             resourceInputs["requestHeaders"] = args ? args.requestHeaders : undefined;
+            resourceInputs["requestProxy"] = args ? args.requestProxy : undefined;
             resourceInputs["requestQuery"] = args ? args.requestQuery : undefined;
             resourceInputs["setCookie"] = args ? args.setCookie : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -514,6 +520,10 @@ export interface SyntheticsTestState {
      * Header name and value map.
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The proxy to perform the test.
+     */
+    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy>;
     /**
      * Query arguments name and value map.
      */
@@ -597,6 +607,10 @@ export interface SyntheticsTestArgs {
      * Header name and value map.
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The proxy to perform the test.
+     */
+    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy>;
     /**
      * Query arguments name and value map.
      */

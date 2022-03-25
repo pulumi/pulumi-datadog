@@ -84,6 +84,12 @@ namespace Pulumi.Datadog.Inputs
             set => _requestHeaders = value;
         }
 
+        /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
+        [Input("requestProxy")]
+        public Input<Inputs.SyntheticsTestApiStepRequestProxyArgs>? RequestProxy { get; set; }
+
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;
 

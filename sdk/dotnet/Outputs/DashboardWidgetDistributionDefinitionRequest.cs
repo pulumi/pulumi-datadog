@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? ApmStatsQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
@@ -24,6 +25,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetDistributionDefinitionRequest(
             Outputs.DashboardWidgetDistributionDefinitionRequestApmQuery? apmQuery,
+
+            Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? apmStatsQuery,
 
             Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? logQuery,
 
@@ -38,6 +41,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetDistributionDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
+            ApmStatsQuery = apmStatsQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;

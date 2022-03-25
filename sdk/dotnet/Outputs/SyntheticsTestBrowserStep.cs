@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ForceElementUpdate;
         /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
+        public readonly bool? IsCritical;
+        /// <summary>
         /// Name of the step.
         /// </summary>
         public readonly string Name;
@@ -44,6 +48,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? forceElementUpdate,
 
+            bool? isCritical,
+
             string name,
 
             Outputs.SyntheticsTestBrowserStepParams @params,
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AllowFailure = allowFailure;
             ForceElementUpdate = forceElementUpdate;
+            IsCritical = isCritical;
             Name = name;
             Params = @params;
             Timeout = timeout;

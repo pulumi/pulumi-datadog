@@ -7,16 +7,20 @@ import typing
 # Export this package's modules as members:
 from .api_key import *
 from .application_key import *
+from .authn_mapping import *
 from .child_organization import *
+from .cloud_workload_security_agent_rule import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .downtime import *
 from .get_api_key import *
 from .get_application_key import *
+from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
+from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_monitor import *
 from .get_monitors import *
@@ -150,10 +154,26 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/authnMapping",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/authnMapping:AuthnMapping": "AuthnMapping"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/childOrganization",
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/childOrganization:ChildOrganization": "ChildOrganization"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/cloudWorkloadSecurityAgentRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": "CloudWorkloadSecurityAgentRule"
   }
  },
  {

@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        [Input("apmStatsQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs>? ApmStatsQuery { get; set; }
+
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 

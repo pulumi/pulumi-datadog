@@ -16,9 +16,12 @@ class IntegrationArgs:
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None):
         """
@@ -26,9 +29,12 @@ class IntegrationArgs:
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
+        :param pulumi.Input[str] resource_collection_enabled: Whether Datadog collects a standard set of resources from your AWS account.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
@@ -38,12 +44,18 @@ class IntegrationArgs:
             pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
             pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
+        if cspm_resource_collection_enabled is not None:
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if excluded_regions is not None:
             pulumi.set(__self__, "excluded_regions", excluded_regions)
         if filter_tags is not None:
             pulumi.set(__self__, "filter_tags", filter_tags)
         if host_tags is not None:
             pulumi.set(__self__, "host_tags", host_tags)
+        if metrics_collection_enabled is not None:
+            pulumi.set(__self__, "metrics_collection_enabled", metrics_collection_enabled)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if secret_access_key is not None:
@@ -84,6 +96,18 @@ class IntegrationArgs:
     @account_specific_namespace_rules.setter
     def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "account_specific_namespace_rules", value)
+
+    @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
+
+    @cspm_resource_collection_enabled.setter
+    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cspm_resource_collection_enabled", value)
 
     @property
     @pulumi.getter(name="excludedRegions")
@@ -122,6 +146,30 @@ class IntegrationArgs:
         pulumi.set(self, "host_tags", value)
 
     @property
+    @pulumi.getter(name="metricsCollectionEnabled")
+    def metrics_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects metrics for this AWS account.
+        """
+        return pulumi.get(self, "metrics_collection_enabled")
+
+    @metrics_collection_enabled.setter
+    def metrics_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_collection_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects a standard set of resources from your AWS account.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_collection_enabled", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -152,10 +200,13 @@ class _IntegrationState:
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None):
         """
@@ -163,11 +214,14 @@ class _IntegrationState:
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
                Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
+        :param pulumi.Input[str] resource_collection_enabled: Whether Datadog collects a standard set of resources from your AWS account.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
@@ -177,6 +231,8 @@ class _IntegrationState:
             pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
             pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
+        if cspm_resource_collection_enabled is not None:
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if excluded_regions is not None:
             pulumi.set(__self__, "excluded_regions", excluded_regions)
         if external_id is not None:
@@ -185,6 +241,10 @@ class _IntegrationState:
             pulumi.set(__self__, "filter_tags", filter_tags)
         if host_tags is not None:
             pulumi.set(__self__, "host_tags", host_tags)
+        if metrics_collection_enabled is not None:
+            pulumi.set(__self__, "metrics_collection_enabled", metrics_collection_enabled)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if secret_access_key is not None:
@@ -225,6 +285,18 @@ class _IntegrationState:
     @account_specific_namespace_rules.setter
     def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "account_specific_namespace_rules", value)
+
+    @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
+
+    @cspm_resource_collection_enabled.setter
+    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cspm_resource_collection_enabled", value)
 
     @property
     @pulumi.getter(name="excludedRegions")
@@ -276,6 +348,30 @@ class _IntegrationState:
         pulumi.set(self, "host_tags", value)
 
     @property
+    @pulumi.getter(name="metricsCollectionEnabled")
+    def metrics_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects metrics for this AWS account.
+        """
+        return pulumi.get(self, "metrics_collection_enabled")
+
+    @metrics_collection_enabled.setter
+    def metrics_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_collection_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Datadog collects a standard set of resources from your AWS account.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_collection_enabled", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -308,9 +404,12 @@ class Integration(pulumi.CustomResource):
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -355,9 +454,12 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
+        :param pulumi.Input[str] resource_collection_enabled: Whether Datadog collects a standard set of resources from your AWS account.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
@@ -421,9 +523,12 @@ class Integration(pulumi.CustomResource):
                  access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -441,9 +546,12 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["access_key_id"] = access_key_id
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
+            __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
             __props__.__dict__["excluded_regions"] = excluded_regions
             __props__.__dict__["filter_tags"] = filter_tags
             __props__.__dict__["host_tags"] = host_tags
+            __props__.__dict__["metrics_collection_enabled"] = metrics_collection_enabled
+            __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["secret_access_key"] = secret_access_key
             __props__.__dict__["external_id"] = None
@@ -460,10 +568,13 @@ class Integration(pulumi.CustomResource):
             access_key_id: Optional[pulumi.Input[str]] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
             excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
+            resource_collection_enabled: Optional[pulumi.Input[str]] = None,
             role_name: Optional[pulumi.Input[str]] = None,
             secret_access_key: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
@@ -476,11 +587,14 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
                Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
+        :param pulumi.Input[str] resource_collection_enabled: Whether Datadog collects a standard set of resources from your AWS account.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
@@ -491,10 +605,13 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["access_key_id"] = access_key_id
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
+        __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
         __props__.__dict__["excluded_regions"] = excluded_regions
         __props__.__dict__["external_id"] = external_id
         __props__.__dict__["filter_tags"] = filter_tags
         __props__.__dict__["host_tags"] = host_tags
+        __props__.__dict__["metrics_collection_enabled"] = metrics_collection_enabled
+        __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         __props__.__dict__["role_name"] = role_name
         __props__.__dict__["secret_access_key"] = secret_access_key
         return Integration(resource_name, opts=opts, __props__=__props__)
@@ -522,6 +639,14 @@ class Integration(pulumi.CustomResource):
         Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
+
+    @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> pulumi.Output[str]:
+        """
+        Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
 
     @property
     @pulumi.getter(name="excludedRegions")
@@ -555,6 +680,22 @@ class Integration(pulumi.CustomResource):
         Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         """
         return pulumi.get(self, "host_tags")
+
+    @property
+    @pulumi.getter(name="metricsCollectionEnabled")
+    def metrics_collection_enabled(self) -> pulumi.Output[str]:
+        """
+        Whether Datadog collects metrics for this AWS account.
+        """
+        return pulumi.get(self, "metrics_collection_enabled")
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> pulumi.Output[str]:
+        """
+        Whether Datadog collects a standard set of resources from your AWS account.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
 
     @property
     @pulumi.getter(name="roleName")

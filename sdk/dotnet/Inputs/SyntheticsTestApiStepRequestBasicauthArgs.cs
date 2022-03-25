@@ -13,16 +13,64 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRequestBasicauthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Access key for `SIGV4` authentication.
+        /// </summary>
+        [Input("accessKey")]
+        public Input<string>? AccessKey { get; set; }
+
+        /// <summary>
+        /// Domain for `ntlm` authentication.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// Password for authentication.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// Region for `SIGV4` authentication.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Secret key for `SIGV4` authentication.
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        /// <summary>
+        /// Service name for `SIGV4` authentication.
+        /// </summary>
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// Session token for `SIGV4` authentication.
+        /// </summary>
+        [Input("sessionToken")]
+        public Input<string>? SessionToken { get; set; }
+
+        /// <summary>
+        /// Type of basic authentication to use when performing the test.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Username for authentication.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
+
+        /// <summary>
+        /// Workstation for `ntlm` authentication.
+        /// </summary>
+        [Input("workstation")]
+        public Input<string>? Workstation { get; set; }
 
         public SyntheticsTestApiStepRequestBasicauthArgs()
         {

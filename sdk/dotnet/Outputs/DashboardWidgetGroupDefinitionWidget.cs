@@ -118,6 +118,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? TraceServiceDefinition;
         /// <summary>
+        /// The definition for a Treemap widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition? TreemapDefinition;
+        /// <summary>
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? WidgetLayout;
@@ -176,6 +180,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? traceServiceDefinition,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition? treemapDefinition,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? widgetLayout)
         {
             AlertGraphDefinition = alertGraphDefinition;
@@ -204,6 +210,7 @@ namespace Pulumi.Datadog.Outputs
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
+            TreemapDefinition = treemapDefinition;
             WidgetLayout = widgetLayout;
         }
     }
