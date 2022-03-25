@@ -50,6 +50,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestHeaders;
         /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestApiStepRequestProxy? RequestProxy;
+        /// <summary>
         /// Query arguments name and value map.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestQuery;
@@ -79,6 +83,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableDictionary<string, object>? requestHeaders,
 
+            Outputs.SyntheticsTestApiStepRequestProxy? requestProxy,
+
             ImmutableDictionary<string, object>? requestQuery,
 
             Outputs.SyntheticsTestApiStepRetry? retry,
@@ -94,6 +100,7 @@ namespace Pulumi.Datadog.Outputs
             RequestClientCertificate = requestClientCertificate;
             RequestDefinition = requestDefinition;
             RequestHeaders = requestHeaders;
+            RequestProxy = requestProxy;
             RequestQuery = requestQuery;
             Retry = retry;
             Subtype = subtype;

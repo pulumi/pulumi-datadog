@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
+        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// </summary>
+        public readonly bool? CheckCertificateRevocation;
+        /// <summary>
         /// Determines whether or not the API HTTP test should follow redirects.
         /// </summary>
         public readonly bool? FollowRedirects;
@@ -55,6 +59,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? allowInsecure,
 
+            bool? checkCertificateRevocation,
+
             bool? followRedirects,
 
             int? minFailureDuration,
@@ -75,6 +81,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
+            CheckCertificateRevocation = checkCertificateRevocation;
             FollowRedirects = followRedirects;
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;

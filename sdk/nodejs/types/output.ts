@@ -219,6 +219,10 @@ export interface DashboardWidget {
      */
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
     /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: outputs.DashboardWidgetTreemapDefinition;
+    /**
      * The layout of the widget on a 'free' dashboard.
      */
     widgetLayout?: outputs.DashboardWidgetWidgetLayout;
@@ -559,6 +563,7 @@ export interface DashboardWidgetDistributionDefinition {
 
 export interface DashboardWidgetDistributionDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQuery;
+    apmStatsQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery;
     logQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery;
     q?: string;
@@ -597,6 +602,23 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryMultiComput
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
+    columns?: outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn[];
+    env: string;
+    name: string;
+    primaryTag: string;
+    resource?: string;
+    rowType: string;
+    service: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    alias?: string;
+    cellDisplayMode?: string;
+    name: string;
+    order?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
@@ -1073,6 +1095,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
     /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition;
+    /**
      * The layout of the widget on a 'free' dashboard.
      */
     widgetLayout?: outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout;
@@ -1413,6 +1439,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery;
+    apmStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery;
     q?: string;
@@ -1451,6 +1478,23 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery {
+    columns?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn[];
+    env: string;
+    name: string;
+    primaryTag: string;
+    resource?: string;
+    rowType: string;
+    service: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    alias?: string;
+    cellDisplayMode?: string;
+    name: string;
+    order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
@@ -4571,6 +4615,128 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
+    requests?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula[];
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery[];
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
     height: number;
     isColumnBreak?: boolean;
@@ -7347,6 +7513,128 @@ export interface DashboardWidgetTraceServiceDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetTreemapDefinition {
+    requests?: outputs.DashboardWidgetTreemapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetTreemapDefinitionRequestFormula[];
+    queries?: outputs.DashboardWidgetTreemapDefinitionRequestQuery[];
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery;
+    eventQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetWidgetLayout {
     height: number;
     isColumnBreak?: boolean;
@@ -7380,6 +7668,40 @@ export interface DowntimeRecurrence {
      * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
      */
     weekDays?: string[];
+}
+
+export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
+    description: string;
+    enabled: boolean;
+    expression: string;
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    name: string;
+}
+
+export interface GetLogsIndexesLogsIndex {
+    dailyLimit: number;
+    exclusionFilters: outputs.GetLogsIndexesLogsIndexExclusionFilter[];
+    filters: outputs.GetLogsIndexesLogsIndexFilter[];
+    name: string;
+    retentionDays: number;
+}
+
+export interface GetLogsIndexesLogsIndexExclusionFilter {
+    filters?: outputs.GetLogsIndexesLogsIndexExclusionFilterFilter[];
+    isEnabled: boolean;
+    name: string;
+}
+
+export interface GetLogsIndexesLogsIndexExclusionFilterFilter {
+    query: string;
+    sampleRate: number;
+}
+
+export interface GetLogsIndexesLogsIndexFilter {
+    query: string;
 }
 
 export interface GetMonitorMonitorThreshold {
@@ -7455,7 +7777,7 @@ export interface GetSecurityMonitoringRulesRuleFilter {
 
 export interface GetSecurityMonitoringRulesRuleOptions {
     detectionMethod?: string;
-    evaluationWindow: number;
+    evaluationWindow?: number;
     keepAlive: number;
     maxSignalDuration: number;
     newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
@@ -8158,7 +8480,7 @@ export interface SecurityMonitoringRuleFilter {
 
 export interface SecurityMonitoringRuleOptions {
     detectionMethod?: string;
-    evaluationWindow: number;
+    evaluationWindow?: number;
     keepAlive: number;
     maxSignalDuration: number;
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
@@ -8285,6 +8607,10 @@ export interface SyntheticsTestApiStep {
      */
     requestHeaders?: {[key: string]: any};
     /**
+     * The proxy to perform the test.
+     */
+    requestProxy?: outputs.SyntheticsTestApiStepRequestProxy;
+    /**
      * Query arguments name and value map.
      */
     requestQuery?: {[key: string]: any};
@@ -8347,13 +8673,45 @@ export interface SyntheticsTestApiStepExtractedValueParser {
 
 export interface SyntheticsTestApiStepRequestBasicauth {
     /**
+     * Access key for `SIGV4` authentication.
+     */
+    accessKey?: string;
+    /**
+     * Domain for `ntlm` authentication.
+     */
+    domain?: string;
+    /**
      * Password for authentication.
      */
-    password: string;
+    password?: string;
+    /**
+     * Region for `SIGV4` authentication.
+     */
+    region?: string;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
+    secretKey?: string;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
+    serviceName?: string;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
+    sessionToken?: string;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
+    type?: string;
     /**
      * Username for authentication.
      */
-    username: string;
+    username?: string;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
+    workstation?: string;
 }
 
 export interface SyntheticsTestApiStepRequestClientCertificate {
@@ -8428,6 +8786,17 @@ export interface SyntheticsTestApiStepRequestDefinition {
     url?: string;
 }
 
+export interface SyntheticsTestApiStepRequestProxy {
+    /**
+     * Header name and value map.
+     */
+    headers?: {[key: string]: any};
+    /**
+     * URL of the proxy to perform the test.
+     */
+    url: string;
+}
+
 export interface SyntheticsTestApiStepRetry {
     count?: number;
     interval?: number;
@@ -8472,6 +8841,10 @@ export interface SyntheticsTestBrowserStep {
      */
     forceElementUpdate?: boolean;
     /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+     */
+    isCritical?: boolean;
+    /**
      * Name of the step.
      */
     name: string;
@@ -8496,6 +8869,7 @@ export interface SyntheticsTestBrowserStepParams {
     code?: string;
     delay?: number;
     element?: string;
+    elementUserLocator?: outputs.SyntheticsTestBrowserStepParamsElementUserLocator;
     email?: string;
     file?: string;
     files?: string;
@@ -8508,6 +8882,19 @@ export interface SyntheticsTestBrowserStepParams {
     withClick?: boolean;
     x?: number;
     y?: number;
+}
+
+export interface SyntheticsTestBrowserStepParamsElementUserLocator {
+    failTestOnCannotLocate?: boolean;
+    value: outputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue;
+}
+
+export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     */
+    type?: string;
+    value: string;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
@@ -8574,6 +8961,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: boolean;
     /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     */
+    checkCertificateRevocation?: boolean;
+    /**
      * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: boolean;
@@ -8613,13 +9004,45 @@ export interface SyntheticsTestOptionsListRetry {
 
 export interface SyntheticsTestRequestBasicauth {
     /**
+     * Access key for `SIGV4` authentication.
+     */
+    accessKey?: string;
+    /**
+     * Domain for `ntlm` authentication.
+     */
+    domain?: string;
+    /**
      * Password for authentication.
      */
-    password: string;
+    password?: string;
+    /**
+     * Region for `SIGV4` authentication.
+     */
+    region?: string;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
+    secretKey?: string;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
+    serviceName?: string;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
+    sessionToken?: string;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
+    type?: string;
     /**
      * Username for authentication.
      */
-    username: string;
+    username?: string;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
+    workstation?: string;
 }
 
 export interface SyntheticsTestRequestClientCertificate {
@@ -8690,6 +9113,17 @@ export interface SyntheticsTestRequestDefinition {
      * The URL to send the request to.
      */
     url?: string;
+}
+
+export interface SyntheticsTestRequestProxy {
+    /**
+     * Header name and value map.
+     */
+    headers?: {[key: string]: any};
+    /**
+     * URL of the proxy to perform the test.
+     */
+    url: string;
 }
 export namespace slack {
     export interface ChannelDisplay {

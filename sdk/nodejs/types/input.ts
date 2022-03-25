@@ -219,6 +219,10 @@ export interface DashboardWidget {
      */
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinition>;
     /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: pulumi.Input<inputs.DashboardWidgetTreemapDefinition>;
+    /**
      * The layout of the widget on a 'free' dashboard.
      */
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetWidgetLayout>;
@@ -559,6 +563,7 @@ export interface DashboardWidgetDistributionDefinition {
 
 export interface DashboardWidgetDistributionDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQuery>;
+    apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
@@ -597,6 +602,23 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryMultiComput
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
+    columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn>[]>;
+    env: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    primaryTag: pulumi.Input<string>;
+    resource?: pulumi.Input<string>;
+    rowType: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
@@ -1073,6 +1095,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition>;
     /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition>;
+    /**
      * The layout of the widget on a 'free' dashboard.
      */
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout>;
@@ -1413,6 +1439,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery>;
+    apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
@@ -1451,6 +1478,23 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery {
+    columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn>[]>;
+    env: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    primaryTag: pulumi.Input<string>;
+    resource?: pulumi.Input<string>;
+    rowType: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
@@ -4571,6 +4615,128 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     titleSize?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest>[]>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
     height: pulumi.Input<number>;
     isColumnBreak?: pulumi.Input<boolean>;
@@ -7347,6 +7513,128 @@ export interface DashboardWidgetTraceServiceDefinition {
     titleSize?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetTreemapDefinition {
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequest>[]>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQuery>[]>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery>;
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetWidgetLayout {
     height: pulumi.Input<number>;
     isColumnBreak?: pulumi.Input<boolean>;
@@ -8047,7 +8335,7 @@ export interface SecurityMonitoringRuleFilter {
 
 export interface SecurityMonitoringRuleOptions {
     detectionMethod?: pulumi.Input<string>;
-    evaluationWindow: pulumi.Input<number>;
+    evaluationWindow?: pulumi.Input<number>;
     keepAlive: pulumi.Input<number>;
     maxSignalDuration: pulumi.Input<number>;
     newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
@@ -8174,6 +8462,10 @@ export interface SyntheticsTestApiStep {
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
     /**
+     * The proxy to perform the test.
+     */
+    requestProxy?: pulumi.Input<inputs.SyntheticsTestApiStepRequestProxy>;
+    /**
      * Query arguments name and value map.
      */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
@@ -8236,13 +8528,45 @@ export interface SyntheticsTestApiStepExtractedValueParser {
 
 export interface SyntheticsTestApiStepRequestBasicauth {
     /**
+     * Access key for `SIGV4` authentication.
+     */
+    accessKey?: pulumi.Input<string>;
+    /**
+     * Domain for `ntlm` authentication.
+     */
+    domain?: pulumi.Input<string>;
+    /**
      * Password for authentication.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Region for `SIGV4` authentication.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
+    secretKey?: pulumi.Input<string>;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
+    serviceName?: pulumi.Input<string>;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
+    sessionToken?: pulumi.Input<string>;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
+    type?: pulumi.Input<string>;
     /**
      * Username for authentication.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
+    workstation?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepRequestClientCertificate {
@@ -8317,6 +8641,17 @@ export interface SyntheticsTestApiStepRequestDefinition {
     url?: pulumi.Input<string>;
 }
 
+export interface SyntheticsTestApiStepRequestProxy {
+    /**
+     * Header name and value map.
+     */
+    headers?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * URL of the proxy to perform the test.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface SyntheticsTestApiStepRetry {
     count?: pulumi.Input<number>;
     interval?: pulumi.Input<number>;
@@ -8361,6 +8696,10 @@ export interface SyntheticsTestBrowserStep {
      */
     forceElementUpdate?: pulumi.Input<boolean>;
     /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+     */
+    isCritical?: pulumi.Input<boolean>;
+    /**
      * Name of the step.
      */
     name: pulumi.Input<string>;
@@ -8385,6 +8724,7 @@ export interface SyntheticsTestBrowserStepParams {
     code?: pulumi.Input<string>;
     delay?: pulumi.Input<number>;
     element?: pulumi.Input<string>;
+    elementUserLocator?: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsElementUserLocator>;
     email?: pulumi.Input<string>;
     file?: pulumi.Input<string>;
     files?: pulumi.Input<string>;
@@ -8397,6 +8737,19 @@ export interface SyntheticsTestBrowserStepParams {
     withClick?: pulumi.Input<boolean>;
     x?: pulumi.Input<number>;
     y?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestBrowserStepParamsElementUserLocator {
+    failTestOnCannotLocate?: pulumi.Input<boolean>;
+    value: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue>;
+}
+
+export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     */
+    type?: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
@@ -8463,6 +8816,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     */
+    checkCertificateRevocation?: pulumi.Input<boolean>;
+    /**
      * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: pulumi.Input<boolean>;
@@ -8502,13 +8859,45 @@ export interface SyntheticsTestOptionsListRetry {
 
 export interface SyntheticsTestRequestBasicauth {
     /**
+     * Access key for `SIGV4` authentication.
+     */
+    accessKey?: pulumi.Input<string>;
+    /**
+     * Domain for `ntlm` authentication.
+     */
+    domain?: pulumi.Input<string>;
+    /**
      * Password for authentication.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
+    /**
+     * Region for `SIGV4` authentication.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
+    secretKey?: pulumi.Input<string>;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
+    serviceName?: pulumi.Input<string>;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
+    sessionToken?: pulumi.Input<string>;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
+    type?: pulumi.Input<string>;
     /**
      * Username for authentication.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
+    workstation?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestRequestClientCertificate {
@@ -8579,6 +8968,17 @@ export interface SyntheticsTestRequestDefinition {
      * The URL to send the request to.
      */
     url?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestRequestProxy {
+    /**
+     * Header name and value map.
+     */
+    headers?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * URL of the proxy to perform the test.
+     */
+    url: pulumi.Input<string>;
 }
 export namespace slack {
     export interface ChannelDisplay {

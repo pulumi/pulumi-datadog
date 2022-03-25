@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? AllowInsecure { get; set; }
 
         /// <summary>
+        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// </summary>
+        [Input("checkCertificateRevocation")]
+        public Input<bool>? CheckCertificateRevocation { get; set; }
+
+        /// <summary>
         /// Determines whether or not the API HTTP test should follow redirects.
         /// </summary>
         [Input("followRedirects")]

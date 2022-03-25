@@ -82,6 +82,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+     */
+    public readonly cspmResourceCollectionEnabled!: pulumi.Output<string>;
+    /**
      * An array of AWS regions to exclude from metrics collection.
      */
     public readonly excludedRegions!: pulumi.Output<string[] | undefined>;
@@ -98,6 +102,14 @@ export class Integration extends pulumi.CustomResource {
      * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
      */
     public readonly hostTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether Datadog collects metrics for this AWS account.
+     */
+    public readonly metricsCollectionEnabled!: pulumi.Output<string>;
+    /**
+     * Whether Datadog collects a standard set of resources from your AWS account.
+     */
+    public readonly resourceCollectionEnabled!: pulumi.Output<string>;
     /**
      * Your Datadog role delegation name.
      */
@@ -123,10 +135,13 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
+            resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
             resourceInputs["excludedRegions"] = state ? state.excludedRegions : undefined;
             resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["filterTags"] = state ? state.filterTags : undefined;
             resourceInputs["hostTags"] = state ? state.hostTags : undefined;
+            resourceInputs["metricsCollectionEnabled"] = state ? state.metricsCollectionEnabled : undefined;
+            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
             resourceInputs["roleName"] = state ? state.roleName : undefined;
             resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
         } else {
@@ -134,9 +149,12 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
+            resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
             resourceInputs["excludedRegions"] = args ? args.excludedRegions : undefined;
             resourceInputs["filterTags"] = args ? args.filterTags : undefined;
             resourceInputs["hostTags"] = args ? args.hostTags : undefined;
+            resourceInputs["metricsCollectionEnabled"] = args ? args.metricsCollectionEnabled : undefined;
+            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
             resourceInputs["externalId"] = undefined /*out*/;
@@ -163,6 +181,10 @@ export interface IntegrationState {
      */
     accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+     */
+    cspmResourceCollectionEnabled?: pulumi.Input<string>;
+    /**
      * An array of AWS regions to exclude from metrics collection.
      */
     excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -179,6 +201,14 @@ export interface IntegrationState {
      * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
      */
     hostTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether Datadog collects metrics for this AWS account.
+     */
+    metricsCollectionEnabled?: pulumi.Input<string>;
+    /**
+     * Whether Datadog collects a standard set of resources from your AWS account.
+     */
+    resourceCollectionEnabled?: pulumi.Input<string>;
     /**
      * Your Datadog role delegation name.
      */
@@ -206,6 +236,10 @@ export interface IntegrationArgs {
      */
     accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
+     */
+    cspmResourceCollectionEnabled?: pulumi.Input<string>;
+    /**
      * An array of AWS regions to exclude from metrics collection.
      */
     excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -217,6 +251,14 @@ export interface IntegrationArgs {
      * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
      */
     hostTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether Datadog collects metrics for this AWS account.
+     */
+    metricsCollectionEnabled?: pulumi.Input<string>;
+    /**
+     * Whether Datadog collects a standard set of resources from your AWS account.
+     */
+    resourceCollectionEnabled?: pulumi.Input<string>;
     /**
      * Your Datadog role delegation name.
      */

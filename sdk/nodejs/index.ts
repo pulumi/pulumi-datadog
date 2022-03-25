@@ -7,16 +7,20 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./apiKey";
 export * from "./applicationKey";
+export * from "./authnMapping";
 export * from "./childOrganization";
+export * from "./cloudWorkloadSecurityAgentRule";
 export * from "./dashboard";
 export * from "./dashboardJson";
 export * from "./dashboardList";
 export * from "./downtime";
 export * from "./getApiKey";
 export * from "./getApplicationKey";
+export * from "./getCloudWorkloadSecurityAgentRules";
 export * from "./getDashboard";
 export * from "./getDashboardList";
 export * from "./getIpRanges";
+export * from "./getLogsIndexes";
 export * from "./getLogsIndexesOrder";
 export * from "./getMonitor";
 export * from "./getMonitors";
@@ -79,7 +83,9 @@ export {
 // Import resources to register:
 import { ApiKey } from "./apiKey";
 import { ApplicationKey } from "./applicationKey";
+import { AuthnMapping } from "./authnMapping";
 import { ChildOrganization } from "./childOrganization";
+import { CloudWorkloadSecurityAgentRule } from "./cloudWorkloadSecurityAgentRule";
 import { Dashboard } from "./dashboard";
 import { DashboardJson } from "./dashboardJson";
 import { DashboardList } from "./dashboardList";
@@ -118,8 +124,12 @@ const _module = {
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
+            case "datadog:index/authnMapping:AuthnMapping":
+                return new AuthnMapping(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
                 return new ChildOrganization(name, <any>undefined, { urn })
+            case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
+                return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "datadog:index/dashboardJson:DashboardJson":
@@ -185,7 +195,9 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)

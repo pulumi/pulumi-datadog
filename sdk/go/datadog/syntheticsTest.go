@@ -379,6 +379,8 @@ type SyntheticsTest struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrOutput `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
+	// The proxy to perform the test.
+	RequestProxy SyntheticsTestRequestProxyPtrOutput `pulumi:"requestProxy"`
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapOutput `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -463,6 +465,8 @@ type syntheticsTestState struct {
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// The proxy to perform the test.
+	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -507,6 +511,8 @@ type SyntheticsTestState struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
+	// The proxy to perform the test.
+	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -553,6 +559,8 @@ type syntheticsTestArgs struct {
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// The proxy to perform the test.
+	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -596,6 +604,8 @@ type SyntheticsTestArgs struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
+	// The proxy to perform the test.
+	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput
 	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.

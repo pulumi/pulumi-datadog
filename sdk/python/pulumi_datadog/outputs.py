@@ -70,6 +70,8 @@ __all__ = [
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy',
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute',
+    'DashboardWidgetDistributionDefinitionRequestApmStatsQuery',
+    'DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetDistributionDefinitionRequestLogQuery',
     'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy',
@@ -167,6 +169,8 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy',
@@ -590,6 +594,21 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinition',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetWidgetLayout',
     'DashboardWidgetHeatmapDefinition',
     'DashboardWidgetHeatmapDefinitionCustomLink',
@@ -966,6 +985,21 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetToplistDefinitionRequestStyle',
     'DashboardWidgetTraceServiceDefinition',
+    'DashboardWidgetTreemapDefinition',
+    'DashboardWidgetTreemapDefinitionRequest',
+    'DashboardWidgetTreemapDefinitionRequestFormula',
+    'DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat',
+    'DashboardWidgetTreemapDefinitionRequestFormulaLimit',
+    'DashboardWidgetTreemapDefinitionRequestQuery',
+    'DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery',
+    'DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQuery',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch',
+    'DashboardWidgetTreemapDefinitionRequestQueryMetricQuery',
+    'DashboardWidgetTreemapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetWidgetLayout',
     'DowntimeRecurrence',
     'LogsArchiveAzureArchive',
@@ -1048,11 +1082,14 @@ __all__ = [
     'SyntheticsTestApiStepRequestClientCertificateCert',
     'SyntheticsTestApiStepRequestClientCertificateKey',
     'SyntheticsTestApiStepRequestDefinition',
+    'SyntheticsTestApiStepRequestProxy',
     'SyntheticsTestApiStepRetry',
     'SyntheticsTestAssertion',
     'SyntheticsTestAssertionTargetjsonpath',
     'SyntheticsTestBrowserStep',
     'SyntheticsTestBrowserStepParams',
+    'SyntheticsTestBrowserStepParamsElementUserLocator',
+    'SyntheticsTestBrowserStepParamsElementUserLocatorValue',
     'SyntheticsTestBrowserStepParamsVariable',
     'SyntheticsTestBrowserVariable',
     'SyntheticsTestConfigVariable',
@@ -1064,6 +1101,12 @@ __all__ = [
     'SyntheticsTestRequestClientCertificateCert',
     'SyntheticsTestRequestClientCertificateKey',
     'SyntheticsTestRequestDefinition',
+    'SyntheticsTestRequestProxy',
+    'GetCloudWorkloadSecurityAgentRulesAgentRuleResult',
+    'GetLogsIndexesLogsIndexResult',
+    'GetLogsIndexesLogsIndexExclusionFilterResult',
+    'GetLogsIndexesLogsIndexExclusionFilterFilterResult',
+    'GetLogsIndexesLogsIndexFilterResult',
     'GetMonitorMonitorThresholdResult',
     'GetMonitorMonitorThresholdWindowResult',
     'GetMonitorsMonitorResult',
@@ -1621,6 +1664,8 @@ class DashboardWidget(dict):
             suggest = "toplist_definition"
         elif key == "traceServiceDefinition":
             suggest = "trace_service_definition"
+        elif key == "treemapDefinition":
+            suggest = "treemap_definition"
         elif key == "widgetLayout":
             suggest = "widget_layout"
 
@@ -1663,6 +1708,7 @@ class DashboardWidget(dict):
                  timeseries_definition: Optional['outputs.DashboardWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetToplistDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetTraceServiceDefinition'] = None,
+                 treemap_definition: Optional['outputs.DashboardWidgetTreemapDefinition'] = None,
                  widget_layout: Optional['outputs.DashboardWidgetWidgetLayout'] = None):
         """
         :param 'DashboardWidgetAlertGraphDefinitionArgs' alert_graph_definition: The definition for a Alert Graph widget.
@@ -1692,6 +1738,7 @@ class DashboardWidget(dict):
         :param 'DashboardWidgetTimeseriesDefinitionArgs' timeseries_definition: The definition for a Timeseries widget.
         :param 'DashboardWidgetToplistDefinitionArgs' toplist_definition: The definition for a Toplist widget.
         :param 'DashboardWidgetTraceServiceDefinitionArgs' trace_service_definition: The definition for a Trace Service widget.
+        :param 'DashboardWidgetTreemapDefinitionArgs' treemap_definition: The definition for a Treemap widget.
         :param 'DashboardWidgetWidgetLayoutArgs' widget_layout: The layout of the widget on a 'free' dashboard.
         """
         if alert_graph_definition is not None:
@@ -1748,6 +1795,8 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "toplist_definition", toplist_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
+        if treemap_definition is not None:
+            pulumi.set(__self__, "treemap_definition", treemap_definition)
         if widget_layout is not None:
             pulumi.set(__self__, "widget_layout", widget_layout)
 
@@ -1966,6 +2015,14 @@ class DashboardWidget(dict):
         The definition for a Trace Service widget.
         """
         return pulumi.get(self, "trace_service_definition")
+
+    @property
+    @pulumi.getter(name="treemapDefinition")
+    def treemap_definition(self) -> Optional['outputs.DashboardWidgetTreemapDefinition']:
+        """
+        The definition for a Treemap widget.
+        """
+        return pulumi.get(self, "treemap_definition")
 
     @property
     @pulumi.getter(name="widgetLayout")
@@ -4260,6 +4317,8 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
         suggest = None
         if key == "apmQuery":
             suggest = "apm_query"
+        elif key == "apmStatsQuery":
+            suggest = "apm_stats_query"
         elif key == "logQuery":
             suggest = "log_query"
         elif key == "processQuery":
@@ -4282,6 +4341,7 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
 
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuery'] = None,
+                 apm_stats_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -4290,6 +4350,8 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
                  style: Optional['outputs.DashboardWidgetDistributionDefinitionRequestStyle'] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
         if log_query is not None:
             pulumi.set(__self__, "log_query", log_query)
         if process_query is not None:
@@ -4307,6 +4369,11 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
     @pulumi.getter(name="apmQuery")
     def apm_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuery']:
         return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery']:
+        return pulumi.get(self, "apm_stats_query")
 
     @property
     @pulumi.getter(name="logQuery")
@@ -4533,6 +4600,134 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetDistributionDefinitionRequestApmStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryTag":
+            suggest = "primary_tag"
+        elif key == "rowType":
+            suggest = "row_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestApmStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 env: str,
+                 name: str,
+                 primary_tag: str,
+                 row_type: str,
+                 service: str,
+                 columns: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn']] = None,
+                 resource: Optional[str] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> str:
+        return pulumi.get(self, "primary_tag")
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> str:
+        return pulumi.get(self, "row_type")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn']]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
 
 
 @pulumi.output_type
@@ -6997,6 +7192,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             suggest = "toplist_definition"
         elif key == "traceServiceDefinition":
             suggest = "trace_service_definition"
+        elif key == "treemapDefinition":
+            suggest = "treemap_definition"
         elif key == "widgetLayout":
             suggest = "widget_layout"
 
@@ -7038,6 +7235,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  timeseries_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition'] = None,
+                 treemap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition'] = None,
                  widget_layout: Optional['outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout'] = None):
         """
         :param 'DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs' alert_graph_definition: The definition for a Alert Graph widget.
@@ -7066,6 +7264,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         :param 'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs' timeseries_definition: The definition for a Timeseries widget.
         :param 'DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs' toplist_definition: The definition for a Toplist widget.
         :param 'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs' trace_service_definition: The definition for a Trace Service widget.
+        :param 'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs' treemap_definition: The definition for a Treemap widget.
         :param 'DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs' widget_layout: The layout of the widget on a 'free' dashboard.
         """
         if alert_graph_definition is not None:
@@ -7120,6 +7319,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "toplist_definition", toplist_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
+        if treemap_definition is not None:
+            pulumi.set(__self__, "treemap_definition", treemap_definition)
         if widget_layout is not None:
             pulumi.set(__self__, "widget_layout", widget_layout)
 
@@ -7330,6 +7531,14 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         The definition for a Trace Service widget.
         """
         return pulumi.get(self, "trace_service_definition")
+
+    @property
+    @pulumi.getter(name="treemapDefinition")
+    def treemap_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition']:
+        """
+        The definition for a Treemap widget.
+        """
+        return pulumi.get(self, "treemap_definition")
 
     @property
     @pulumi.getter(name="widgetLayout")
@@ -9624,6 +9833,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
         suggest = None
         if key == "apmQuery":
             suggest = "apm_query"
+        elif key == "apmStatsQuery":
+            suggest = "apm_stats_query"
         elif key == "logQuery":
             suggest = "log_query"
         elif key == "processQuery":
@@ -9646,6 +9857,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
 
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery'] = None,
+                 apm_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -9654,6 +9866,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
                  style: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle'] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
         if log_query is not None:
             pulumi.set(__self__, "log_query", log_query)
         if process_query is not None:
@@ -9671,6 +9885,11 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
     @pulumi.getter(name="apmQuery")
     def apm_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery']:
         return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery']:
+        return pulumi.get(self, "apm_stats_query")
 
     @property
     @pulumi.getter(name="logQuery")
@@ -9897,6 +10116,134 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryTag":
+            suggest = "primary_tag"
+        elif key == "rowType":
+            suggest = "row_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 env: str,
+                 name: str,
+                 primary_tag: str,
+                 row_type: str,
+                 service: str,
+                 columns: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn']] = None,
+                 resource: Optional[str] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> str:
+        return pulumi.get(self, "primary_tag")
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> str:
+        return pulumi.get(self, "row_type")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn']]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
 
 
 @pulumi.output_type
@@ -30821,6 +31168,833 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinition(dict):
+    def __init__(__self__, *,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest']] = None,
+                 title: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest(dict):
+    def __init__(__self__, *,
+                 formulas: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula']] = None,
+                 queries: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery']] = None):
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula']]:
+        return pulumi.get(self, "formulas")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery']]:
+        return pulumi.get(self, "queries")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formulaExpression":
+            suggest = "formula_expression"
+        elif key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 formula_expression: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat']] = None,
+                 limit: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit'] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> str:
+        return pulumi.get(self, "formula_expression")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat']]:
+        return pulumi.get(self, "conditional_formats")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit']:
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparator: str,
+                 palette: str,
+                 value: float,
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 hide_value: Optional[bool] = None,
+                 image_url: Optional[str] = None,
+                 metric: Optional[str] = None,
+                 timeframe: Optional[str] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> str:
+        return pulumi.get(self, "comparator")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> str:
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[str]:
+        return pulumi.get(self, "timeframe")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 order: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmDependencyStatsQuery":
+            suggest = "apm_dependency_stats_query"
+        elif key == "apmResourceStatsQuery":
+            suggest = "apm_resource_stats_query"
+        elif key == "eventQuery":
+            suggest = "event_query"
+        elif key == "metricQuery":
+            suggest = "metric_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery'] = None,
+                 apm_resource_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery'] = None,
+                 event_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery'] = None,
+                 metric_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery'] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery']:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery']:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery']:
+        return pulumi.get(self, "event_query")
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery']:
+        return pulumi.get(self, "metric_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "isUpstream":
+            suggest = "is_upstream"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 operation_name: str,
+                 resource_name: str,
+                 service: str,
+                 stat: str,
+                 is_upstream: Optional[bool] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> str:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[bool]:
+        return pulumi.get(self, "is_upstream")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+        elif key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 service: str,
+                 stat: str,
+                 group_bies: Optional[Sequence[str]] = None,
+                 operation_name: Optional[str] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 computes: Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute'],
+                 data_source: str,
+                 name: str,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']] = None,
+                 indexes: Optional[Sequence[str]] = None,
+                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch'] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute']:
+        return pulumi.get(self, "computes")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch']:
+        return pulumi.get(self, "search")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 interval: Optional[int] = None,
+                 metric: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str,
+                 limit: Optional[int] = None,
+                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort'] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort']:
+        return pulumi.get(self, "sort")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 metric: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 query: str,
+                 aggregator: Optional[str] = None,
+                 data_source: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "isNormalizedCpu":
+            suggest = "is_normalized_cpu"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+        elif key == "textFilter":
+            suggest = "text_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 metric: str,
+                 name: str,
+                 aggregator: Optional[str] = None,
+                 is_normalized_cpu: Optional[bool] = None,
+                 limit: Optional[int] = None,
+                 sort: Optional[str] = None,
+                 tag_filters: Optional[Sequence[str]] = None,
+                 text_filter: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[bool]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[str]:
+        return pulumi.get(self, "sort")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tag_filters")
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[str]:
+        return pulumi.get(self, "text_filter")
+
+
+@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetWidgetLayout(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -49481,6 +50655,833 @@ class DashboardWidgetTraceServiceDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetTreemapDefinition(dict):
+    def __init__(__self__, *,
+                 requests: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequest']] = None,
+                 title: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequest(dict):
+    def __init__(__self__, *,
+                 formulas: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestFormula']] = None,
+                 queries: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQuery']] = None):
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestFormula']]:
+        return pulumi.get(self, "formulas")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQuery']]:
+        return pulumi.get(self, "queries")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormula(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formulaExpression":
+            suggest = "formula_expression"
+        elif key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormula. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormula.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormula.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 formula_expression: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat']] = None,
+                 limit: Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit'] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> str:
+        return pulumi.get(self, "formula_expression")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat']]:
+        return pulumi.get(self, "conditional_formats")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit']:
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparator: str,
+                 palette: str,
+                 value: float,
+                 custom_bg_color: Optional[str] = None,
+                 custom_fg_color: Optional[str] = None,
+                 hide_value: Optional[bool] = None,
+                 image_url: Optional[str] = None,
+                 metric: Optional[str] = None,
+                 timeframe: Optional[str] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> str:
+        return pulumi.get(self, "comparator")
+
+    @property
+    @pulumi.getter
+    def palette(self) -> str:
+        return pulumi.get(self, "palette")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[str]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[bool]:
+        return pulumi.get(self, "hide_value")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[str]:
+        return pulumi.get(self, "timeframe")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestFormulaLimit(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 order: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmDependencyStatsQuery":
+            suggest = "apm_dependency_stats_query"
+        elif key == "apmResourceStatsQuery":
+            suggest = "apm_resource_stats_query"
+        elif key == "eventQuery":
+            suggest = "event_query"
+        elif key == "metricQuery":
+            suggest = "metric_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery'] = None,
+                 apm_resource_stats_query: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery'] = None,
+                 event_query: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery'] = None,
+                 metric_query: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery'] = None,
+                 process_query: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery'] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery']:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery']:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery']:
+        return pulumi.get(self, "event_query")
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery']:
+        return pulumi.get(self, "metric_query")
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery']:
+        return pulumi.get(self, "process_query")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "isUpstream":
+            suggest = "is_upstream"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 operation_name: str,
+                 resource_name: str,
+                 service: str,
+                 stat: str,
+                 is_upstream: Optional[bool] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> str:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[bool]:
+        return pulumi.get(self, "is_upstream")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "primaryTagName":
+            suggest = "primary_tag_name"
+        elif key == "primaryTagValue":
+            suggest = "primary_tag_value"
+        elif key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 env: str,
+                 name: str,
+                 service: str,
+                 stat: str,
+                 group_bies: Optional[Sequence[str]] = None,
+                 operation_name: Optional[str] = None,
+                 primary_tag_name: Optional[str] = None,
+                 primary_tag_value: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[str]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryEventQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryEventQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 computes: Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute'],
+                 data_source: str,
+                 name: str,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']] = None,
+                 indexes: Optional[Sequence[str]] = None,
+                 search: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch'] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute']:
+        return pulumi.get(self, "computes")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']]:
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch']:
+        return pulumi.get(self, "search")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 interval: Optional[int] = None,
+                 metric: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy(dict):
+    def __init__(__self__, *,
+                 facet: str,
+                 limit: Optional[int] = None,
+                 sort: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort'] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> str:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort']:
+        return pulumi.get(self, "sort")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 metric: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryMetricQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryMetricQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 query: str,
+                 aggregator: Optional[str] = None,
+                 data_source: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "isNormalizedCpu":
+            suggest = "is_normalized_cpu"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+        elif key == "textFilter":
+            suggest = "text_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTreemapDefinitionRequestQueryProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 metric: str,
+                 name: str,
+                 aggregator: Optional[str] = None,
+                 is_normalized_cpu: Optional[bool] = None,
+                 limit: Optional[int] = None,
+                 sort: Optional[str] = None,
+                 tag_filters: Optional[Sequence[str]] = None,
+                 text_filter: Optional[str] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[str]:
+        return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[bool]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[str]:
+        return pulumi.get(self, "sort")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tag_filters")
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[str]:
+        return pulumi.get(self, "text_filter")
+
+
+@pulumi.output_type
 class DashboardWidgetWidgetLayout(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -52954,14 +54955,14 @@ class SecurityMonitoringRuleOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "evaluationWindow":
-            suggest = "evaluation_window"
-        elif key == "keepAlive":
+        if key == "keepAlive":
             suggest = "keep_alive"
         elif key == "maxSignalDuration":
             suggest = "max_signal_duration"
         elif key == "detectionMethod":
             suggest = "detection_method"
+        elif key == "evaluationWindow":
+            suggest = "evaluation_window"
         elif key == "newValueOptions":
             suggest = "new_value_options"
 
@@ -52977,23 +54978,19 @@ class SecurityMonitoringRuleOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 evaluation_window: int,
                  keep_alive: int,
                  max_signal_duration: int,
                  detection_method: Optional[str] = None,
+                 evaluation_window: Optional[int] = None,
                  new_value_options: Optional['outputs.SecurityMonitoringRuleOptionsNewValueOptions'] = None):
-        pulumi.set(__self__, "evaluation_window", evaluation_window)
         pulumi.set(__self__, "keep_alive", keep_alive)
         pulumi.set(__self__, "max_signal_duration", max_signal_duration)
         if detection_method is not None:
             pulumi.set(__self__, "detection_method", detection_method)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if new_value_options is not None:
             pulumi.set(__self__, "new_value_options", new_value_options)
-
-    @property
-    @pulumi.getter(name="evaluationWindow")
-    def evaluation_window(self) -> int:
-        return pulumi.get(self, "evaluation_window")
 
     @property
     @pulumi.getter(name="keepAlive")
@@ -53009,6 +55006,11 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="detectionMethod")
     def detection_method(self) -> Optional[str]:
         return pulumi.get(self, "detection_method")
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> Optional[int]:
+        return pulumi.get(self, "evaluation_window")
 
     @property
     @pulumi.getter(name="newValueOptions")
@@ -53376,6 +55378,8 @@ class SyntheticsTestApiStep(dict):
             suggest = "request_definition"
         elif key == "requestHeaders":
             suggest = "request_headers"
+        elif key == "requestProxy":
+            suggest = "request_proxy"
         elif key == "requestQuery":
             suggest = "request_query"
 
@@ -53400,6 +55404,7 @@ class SyntheticsTestApiStep(dict):
                  request_client_certificate: Optional['outputs.SyntheticsTestApiStepRequestClientCertificate'] = None,
                  request_definition: Optional['outputs.SyntheticsTestApiStepRequestDefinition'] = None,
                  request_headers: Optional[Mapping[str, Any]] = None,
+                 request_proxy: Optional['outputs.SyntheticsTestApiStepRequestProxy'] = None,
                  request_query: Optional[Mapping[str, Any]] = None,
                  retry: Optional['outputs.SyntheticsTestApiStepRetry'] = None,
                  subtype: Optional[str] = None):
@@ -53413,6 +55418,7 @@ class SyntheticsTestApiStep(dict):
         :param 'SyntheticsTestApiStepRequestClientCertificateArgs' request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the api step.
         :param Mapping[str, Any] request_headers: Header name and value map.
+        :param 'SyntheticsTestApiStepRequestProxyArgs' request_proxy: The proxy to perform the test.
         :param Mapping[str, Any] request_query: Query arguments name and value map.
         :param str subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
@@ -53433,6 +55439,8 @@ class SyntheticsTestApiStep(dict):
             pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
+        if request_proxy is not None:
+            pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
             pulumi.set(__self__, "request_query", request_query)
         if retry is not None:
@@ -53511,6 +55519,14 @@ class SyntheticsTestApiStep(dict):
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
+
+    @property
+    @pulumi.getter(name="requestProxy")
+    def request_proxy(self) -> Optional['outputs.SyntheticsTestApiStepRequestProxy']:
+        """
+        The proxy to perform the test.
+        """
+        return pulumi.get(self, "request_proxy")
 
     @property
     @pulumi.getter(name="requestQuery")
@@ -53697,19 +55713,92 @@ class SyntheticsTestApiStepExtractedValueParser(dict):
 
 @pulumi.output_type
 class SyntheticsTestApiStepRequestBasicauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "sessionToken":
+            suggest = "session_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestApiStepRequestBasicauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestApiStepRequestBasicauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestApiStepRequestBasicauth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 password: str,
-                 username: str):
+                 access_key: Optional[str] = None,
+                 domain: Optional[str] = None,
+                 password: Optional[str] = None,
+                 region: Optional[str] = None,
+                 secret_key: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 session_token: Optional[str] = None,
+                 type: Optional[str] = None,
+                 username: Optional[str] = None,
+                 workstation: Optional[str] = None):
         """
+        :param str access_key: Access key for `SIGV4` authentication.
+        :param str domain: Domain for `ntlm` authentication.
         :param str password: Password for authentication.
+        :param str region: Region for `SIGV4` authentication.
+        :param str secret_key: Secret key for `SIGV4` authentication.
+        :param str service_name: Service name for `SIGV4` authentication.
+        :param str session_token: Session token for `SIGV4` authentication.
+        :param str type: Type of basic authentication to use when performing the test.
         :param str username: Username for authentication.
+        :param str workstation: Workstation for `ntlm` authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if workstation is not None:
+            pulumi.set(__self__, "workstation", workstation)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[str]:
+        """
+        Access key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "access_key")
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def domain(self) -> Optional[str]:
+        """
+        Domain for `ntlm` authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
         """
         Password for authentication.
         """
@@ -53717,11 +55806,59 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def region(self) -> Optional[str]:
+        """
+        Region for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[str]:
+        """
+        Secret key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        """
+        Service name for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[str]:
+        """
+        Session token for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "session_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of basic authentication to use when performing the test.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
         """
         Username for authentication.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def workstation(self) -> Optional[str]:
+        """
+        Workstation for `ntlm` authentication.
+        """
+        return pulumi.get(self, "workstation")
 
 
 @pulumi.output_type
@@ -53992,6 +56129,36 @@ class SyntheticsTestApiStepRequestDefinition(dict):
 
 
 @pulumi.output_type
+class SyntheticsTestApiStepRequestProxy(dict):
+    def __init__(__self__, *,
+                 url: str,
+                 headers: Optional[Mapping[str, Any]] = None):
+        """
+        :param str url: URL of the proxy to perform the test.
+        :param Mapping[str, Any] headers: Header name and value map.
+        """
+        pulumi.set(__self__, "url", url)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL of the proxy to perform the test.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, Any]]:
+        """
+        Header name and value map.
+        """
+        return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
 class SyntheticsTestApiStepRetry(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None,
@@ -54112,6 +56279,8 @@ class SyntheticsTestBrowserStep(dict):
             suggest = "allow_failure"
         elif key == "forceElementUpdate":
             suggest = "force_element_update"
+        elif key == "isCritical":
+            suggest = "is_critical"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestBrowserStep. Access the value via the '{suggest}' property getter instead.")
@@ -54130,6 +56299,7 @@ class SyntheticsTestBrowserStep(dict):
                  type: str,
                  allow_failure: Optional[bool] = None,
                  force_element_update: Optional[bool] = None,
+                 is_critical: Optional[bool] = None,
                  timeout: Optional[int] = None):
         """
         :param str name: Name of the step.
@@ -54137,6 +56307,7 @@ class SyntheticsTestBrowserStep(dict):
         :param str type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         :param bool allow_failure: Determines if the step should be allowed to fail.
         :param bool force_element_update: Force update of the "element" parameter for the step
+        :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param int timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -54146,6 +56317,8 @@ class SyntheticsTestBrowserStep(dict):
             pulumi.set(__self__, "allow_failure", allow_failure)
         if force_element_update is not None:
             pulumi.set(__self__, "force_element_update", force_element_update)
+        if is_critical is not None:
+            pulumi.set(__self__, "is_critical", is_critical)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -54190,6 +56363,14 @@ class SyntheticsTestBrowserStep(dict):
         return pulumi.get(self, "force_element_update")
 
     @property
+    @pulumi.getter(name="isCritical")
+    def is_critical(self) -> Optional[bool]:
+        """
+        Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        """
+        return pulumi.get(self, "is_critical")
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
@@ -54205,6 +56386,8 @@ class SyntheticsTestBrowserStepParams(dict):
         suggest = None
         if key == "clickType":
             suggest = "click_type"
+        elif key == "elementUserLocator":
+            suggest = "element_user_locator"
         elif key == "playingTabId":
             suggest = "playing_tab_id"
         elif key == "subtestPublicId":
@@ -54230,6 +56413,7 @@ class SyntheticsTestBrowserStepParams(dict):
                  code: Optional[str] = None,
                  delay: Optional[int] = None,
                  element: Optional[str] = None,
+                 element_user_locator: Optional['outputs.SyntheticsTestBrowserStepParamsElementUserLocator'] = None,
                  email: Optional[str] = None,
                  file: Optional[str] = None,
                  files: Optional[str] = None,
@@ -54254,6 +56438,8 @@ class SyntheticsTestBrowserStepParams(dict):
             pulumi.set(__self__, "delay", delay)
         if element is not None:
             pulumi.set(__self__, "element", element)
+        if element_user_locator is not None:
+            pulumi.set(__self__, "element_user_locator", element_user_locator)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if file is not None:
@@ -54308,6 +56494,11 @@ class SyntheticsTestBrowserStepParams(dict):
     @pulumi.getter
     def element(self) -> Optional[str]:
         return pulumi.get(self, "element")
+
+    @property
+    @pulumi.getter(name="elementUserLocator")
+    def element_user_locator(self) -> Optional['outputs.SyntheticsTestBrowserStepParamsElementUserLocator']:
+        return pulumi.get(self, "element_user_locator")
 
     @property
     @pulumi.getter
@@ -54368,6 +56559,69 @@ class SyntheticsTestBrowserStepParams(dict):
     @pulumi.getter
     def y(self) -> Optional[int]:
         return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class SyntheticsTestBrowserStepParamsElementUserLocator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failTestOnCannotLocate":
+            suggest = "fail_test_on_cannot_locate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestBrowserStepParamsElementUserLocator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestBrowserStepParamsElementUserLocator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestBrowserStepParamsElementUserLocator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 value: 'outputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue',
+                 fail_test_on_cannot_locate: Optional[bool] = None):
+        pulumi.set(__self__, "value", value)
+        if fail_test_on_cannot_locate is not None:
+            pulumi.set(__self__, "fail_test_on_cannot_locate", fail_test_on_cannot_locate)
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue':
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="failTestOnCannotLocate")
+    def fail_test_on_cannot_locate(self) -> Optional[bool]:
+        return pulumi.get(self, "fail_test_on_cannot_locate")
+
+
+@pulumi.output_type
+class SyntheticsTestBrowserStepParamsElementUserLocatorValue(dict):
+    def __init__(__self__, *,
+                 value: str,
+                 type: Optional[str] = None):
+        """
+        :param str type: Synthetics test type. Valid values are `api`, `browser`.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Synthetics test type. Valid values are `api`, `browser`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -54538,6 +56792,8 @@ class SyntheticsTestOptionsList(dict):
             suggest = "accept_self_signed"
         elif key == "allowInsecure":
             suggest = "allow_insecure"
+        elif key == "checkCertificateRevocation":
+            suggest = "check_certificate_revocation"
         elif key == "followRedirects":
             suggest = "follow_redirects"
         elif key == "minFailureDuration":
@@ -54568,6 +56824,7 @@ class SyntheticsTestOptionsList(dict):
                  tick_every: int,
                  accept_self_signed: Optional[bool] = None,
                  allow_insecure: Optional[bool] = None,
+                 check_certificate_revocation: Optional[bool] = None,
                  follow_redirects: Optional[bool] = None,
                  min_failure_duration: Optional[int] = None,
                  min_location_failed: Optional[int] = None,
@@ -54580,6 +56837,7 @@ class SyntheticsTestOptionsList(dict):
         :param int tick_every: How often the test should run (in seconds).
         :param bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
         :param bool allow_insecure: Allows loading insecure content for an HTTP test.
+        :param bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
         :param int min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
@@ -54591,6 +56849,8 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if check_certificate_revocation is not None:
+            pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
         if min_failure_duration is not None:
@@ -54631,6 +56891,14 @@ class SyntheticsTestOptionsList(dict):
         Allows loading insecure content for an HTTP test.
         """
         return pulumi.get(self, "allow_insecure")
+
+    @property
+    @pulumi.getter(name="checkCertificateRevocation")
+    def check_certificate_revocation(self) -> Optional[bool]:
+        """
+        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        """
+        return pulumi.get(self, "check_certificate_revocation")
 
     @property
     @pulumi.getter(name="followRedirects")
@@ -54741,19 +57009,92 @@ class SyntheticsTestOptionsListRetry(dict):
 
 @pulumi.output_type
 class SyntheticsTestRequestBasicauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "sessionToken":
+            suggest = "session_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestRequestBasicauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestRequestBasicauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestRequestBasicauth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 password: str,
-                 username: str):
+                 access_key: Optional[str] = None,
+                 domain: Optional[str] = None,
+                 password: Optional[str] = None,
+                 region: Optional[str] = None,
+                 secret_key: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 session_token: Optional[str] = None,
+                 type: Optional[str] = None,
+                 username: Optional[str] = None,
+                 workstation: Optional[str] = None):
         """
+        :param str access_key: Access key for `SIGV4` authentication.
+        :param str domain: Domain for `ntlm` authentication.
         :param str password: Password for authentication.
+        :param str region: Region for `SIGV4` authentication.
+        :param str secret_key: Secret key for `SIGV4` authentication.
+        :param str service_name: Service name for `SIGV4` authentication.
+        :param str session_token: Session token for `SIGV4` authentication.
+        :param str type: Type of basic authentication to use when performing the test.
         :param str username: Username for authentication.
+        :param str workstation: Workstation for `ntlm` authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if workstation is not None:
+            pulumi.set(__self__, "workstation", workstation)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[str]:
+        """
+        Access key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "access_key")
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def domain(self) -> Optional[str]:
+        """
+        Domain for `ntlm` authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
         """
         Password for authentication.
         """
@@ -54761,11 +57102,59 @@ class SyntheticsTestRequestBasicauth(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def region(self) -> Optional[str]:
+        """
+        Region for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[str]:
+        """
+        Secret key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        """
+        Service name for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[str]:
+        """
+        Session token for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "session_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of basic authentication to use when performing the test.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
         """
         Username for authentication.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def workstation(self) -> Optional[str]:
+        """
+        Workstation for `ntlm` authentication.
+        """
+        return pulumi.get(self, "workstation")
 
 
 @pulumi.output_type
@@ -55013,6 +57402,180 @@ class SyntheticsTestRequestDefinition(dict):
         The URL to send the request to.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class SyntheticsTestRequestProxy(dict):
+    def __init__(__self__, *,
+                 url: str,
+                 headers: Optional[Mapping[str, Any]] = None):
+        """
+        :param str url: URL of the proxy to perform the test.
+        :param Mapping[str, Any] headers: Header name and value map.
+        """
+        pulumi.set(__self__, "url", url)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL of the proxy to perform the test.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, Any]]:
+        """
+        Header name and value map.
+        """
+        return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
+class GetCloudWorkloadSecurityAgentRulesAgentRuleResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 enabled: bool,
+                 expression: str,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of this resource.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of this resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetLogsIndexesLogsIndexResult(dict):
+    def __init__(__self__, *,
+                 daily_limit: int,
+                 exclusion_filters: Sequence['outputs.GetLogsIndexesLogsIndexExclusionFilterResult'],
+                 filters: Sequence['outputs.GetLogsIndexesLogsIndexFilterResult'],
+                 name: str,
+                 retention_days: int):
+        pulumi.set(__self__, "daily_limit", daily_limit)
+        pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="dailyLimit")
+    def daily_limit(self) -> int:
+        return pulumi.get(self, "daily_limit")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Sequence['outputs.GetLogsIndexesLogsIndexExclusionFilterResult']:
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Sequence['outputs.GetLogsIndexesLogsIndexFilterResult']:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> int:
+        return pulumi.get(self, "retention_days")
+
+
+@pulumi.output_type
+class GetLogsIndexesLogsIndexExclusionFilterResult(dict):
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 name: str,
+                 filters: Optional[Sequence['outputs.GetLogsIndexesLogsIndexExclusionFilterFilterResult']] = None):
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.GetLogsIndexesLogsIndexExclusionFilterFilterResult']]:
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class GetLogsIndexesLogsIndexExclusionFilterFilterResult(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 sample_rate: float):
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "sample_rate", sample_rate)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> float:
+        return pulumi.get(self, "sample_rate")
+
+
+@pulumi.output_type
+class GetLogsIndexesLogsIndexFilterResult(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -55352,23 +57915,19 @@ class GetSecurityMonitoringRulesRuleFilterResult(dict):
 @pulumi.output_type
 class GetSecurityMonitoringRulesRuleOptionsResult(dict):
     def __init__(__self__, *,
-                 evaluation_window: int,
                  keep_alive: int,
                  max_signal_duration: int,
                  detection_method: Optional[str] = None,
+                 evaluation_window: Optional[int] = None,
                  new_value_options: Optional['outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult'] = None):
-        pulumi.set(__self__, "evaluation_window", evaluation_window)
         pulumi.set(__self__, "keep_alive", keep_alive)
         pulumi.set(__self__, "max_signal_duration", max_signal_duration)
         if detection_method is not None:
             pulumi.set(__self__, "detection_method", detection_method)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if new_value_options is not None:
             pulumi.set(__self__, "new_value_options", new_value_options)
-
-    @property
-    @pulumi.getter(name="evaluationWindow")
-    def evaluation_window(self) -> int:
-        return pulumi.get(self, "evaluation_window")
 
     @property
     @pulumi.getter(name="keepAlive")
@@ -55384,6 +57943,11 @@ class GetSecurityMonitoringRulesRuleOptionsResult(dict):
     @pulumi.getter(name="detectionMethod")
     def detection_method(self) -> Optional[str]:
         return pulumi.get(self, "detection_method")
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> Optional[int]:
+        return pulumi.get(self, "evaluation_window")
 
     @property
     @pulumi.getter(name="newValueOptions")

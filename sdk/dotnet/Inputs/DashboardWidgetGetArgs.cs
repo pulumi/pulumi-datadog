@@ -175,6 +175,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTraceServiceDefinitionGetArgs>? TraceServiceDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Treemap widget.
+        /// </summary>
+        [Input("treemapDefinition")]
+        public Input<Inputs.DashboardWidgetTreemapDefinitionGetArgs>? TreemapDefinition { get; set; }
+
+        /// <summary>
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
         [Input("widgetLayout")]

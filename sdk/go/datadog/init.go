@@ -24,8 +24,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiKey{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
+	case "datadog:index/authnMapping:AuthnMapping":
+		r = &AuthnMapping{}
 	case "datadog:index/childOrganization:ChildOrganization":
 		r = &ChildOrganization{}
+	case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
+		r = &CloudWorkloadSecurityAgentRule{}
 	case "datadog:index/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "datadog:index/dashboardJson:DashboardJson":
@@ -127,7 +131,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/authnMapping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/childOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/cloudWorkloadSecurityAgentRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

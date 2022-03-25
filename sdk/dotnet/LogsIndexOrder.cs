@@ -29,12 +29,6 @@ namespace Pulumi.Datadog
     ///             {
     ///                 datadog_logs_index.Sample_index.Id,
     ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_logs_index.sample_index",
-    ///             },
     ///         });
     ///     }
     /// 

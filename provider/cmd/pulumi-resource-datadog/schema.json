@@ -721,6 +721,15 @@
                         }
                     }
                 },
+                "treemapDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinition:DashboardWidgetTreemapDefinition",
+                    "description": "The definition for a Treemap widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "widgetLayout": {
                     "$ref": "#/types/datadog:index/DashboardWidgetWidgetLayout:DashboardWidgetWidgetLayout",
                     "description": "The layout of the widget on a 'free' dashboard.\n",
@@ -2702,6 +2711,14 @@
                         }
                     }
                 },
+                "apmStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetDistributionDefinitionRequestApmStatsQuery:DashboardWidgetDistributionDefinitionRequestApmStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetDistributionDefinitionRequestLogQuery:DashboardWidgetDistributionDefinitionRequestLogQuery",
                     "language": {
@@ -2931,6 +2948,117 @@
             "type": "object",
             "required": [
                 "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetDistributionDefinitionRequestApmStatsQuery:DashboardWidgetDistributionDefinitionRequestApmStatsQuery": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn:DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTag": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rowType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "env",
+                "name",
+                "primaryTag",
+                "rowType",
+                "service"
+            ]
+        },
+        "datadog:index/DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn:DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetDistributionDefinitionRequestLogQuery:DashboardWidgetDistributionDefinitionRequestLogQuery": {
@@ -5251,6 +5379,15 @@
                         }
                     }
                 },
+                "treemapDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinition:DashboardWidgetGroupDefinitionWidgetTreemapDefinition",
+                    "description": "The definition for a Treemap widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "widgetLayout": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetWidgetLayout:DashboardWidgetGroupDefinitionWidgetWidgetLayout",
                     "description": "The layout of the widget on a 'free' dashboard.\n",
@@ -7232,6 +7369,14 @@
                         }
                     }
                 },
+                "apmStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery",
                     "language": {
@@ -7461,6 +7606,117 @@
             "type": "object",
             "required": [
                 "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTag": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rowType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "env",
+                "name",
+                "primaryTag",
+                "rowType",
+                "service"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery": {
@@ -25712,6 +25968,751 @@
                 "spanName"
             ]
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinition:DashboardWidgetGroupDefinitionWidgetTreemapDefinition": {
+            "properties": {
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest": {
+            "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditionalFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customBgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hideValue": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "palette": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeframe": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparator",
+                "palette",
+                "value"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
+            ]
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetWidgetLayout:DashboardWidgetGroupDefinitionWidgetWidgetLayout": {
             "properties": {
                 "height": {
@@ -41993,6 +42994,751 @@
                 "spanName"
             ]
         },
+        "datadog:index/DashboardWidgetTreemapDefinition:DashboardWidgetTreemapDefinition": {
+            "properties": {
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequest:DashboardWidgetTreemapDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequest:DashboardWidgetTreemapDefinitionRequest": {
+            "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormula:DashboardWidgetTreemapDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQuery:DashboardWidgetTreemapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormula:DashboardWidgetTreemapDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditionalFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat:DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaLimit:DashboardWidgetTreemapDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat:DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customBgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customFgColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hideValue": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "palette": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeframe": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparator",
+                "palette",
+                "value"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestFormulaLimit:DashboardWidgetTreemapDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQuery:DashboardWidgetTreemapDefinitionRequestQuery": {
+            "properties": {
+                "apmDependencyStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmResourceStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQuery:DashboardWidgetTreemapDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryMetricQuery:DashboardWidgetTreemapDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryProcessQuery:DashboardWidgetTreemapDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isUpstream": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "operationName",
+                "resourceName",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery:DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operationName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTagValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "env",
+                "name",
+                "service",
+                "stat"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQuery:DashboardWidgetTreemapDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute:DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch:DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute:DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch:DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryMetricQuery:DashboardWidgetTreemapDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryProcessQuery:DashboardWidgetTreemapDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
+            ]
+        },
         "datadog:index/DashboardWidgetWidgetLayout:DashboardWidgetWidgetLayout": {
             "properties": {
                 "height": {
@@ -44732,7 +46478,6 @@
             },
             "type": "object",
             "required": [
-                "evaluationWindow",
                 "keepAlive",
                 "maxSignalDuration"
             ]
@@ -45106,6 +46851,15 @@
                         }
                     }
                 },
+                "requestProxy": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestApiStepRequestProxy:SyntheticsTestApiStepRequestProxy",
+                    "description": "The proxy to perform the test.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requestQuery": {
                     "type": "object",
                     "additionalProperties": {
@@ -45300,9 +47054,72 @@
         },
         "datadog:index/SyntheticsTestApiStepRequestBasicauth:SyntheticsTestApiStepRequestBasicauth": {
             "properties": {
+                "accessKey": {
+                    "type": "string",
+                    "description": "Access key for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Domain for `ntlm` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "password": {
                     "type": "string",
                     "description": "Password for authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretKey": {
+                    "type": "string",
+                    "description": "Secret key for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "Service name for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sessionToken": {
+                    "type": "string",
+                    "description": "Session token for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of basic authentication to use when performing the test.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -45317,13 +47134,18 @@
                             "mapCase": false
                         }
                     }
+                },
+                "workstation": {
+                    "type": "string",
+                    "description": "Workstation for `ntlm` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
-            "type": "object",
-            "required": [
-                "password",
-                "username"
-            ]
+            "type": "object"
         },
         "datadog:index/SyntheticsTestApiStepRequestClientCertificate:SyntheticsTestApiStepRequestClientCertificate": {
             "properties": {
@@ -45536,6 +47358,35 @@
             },
             "type": "object"
         },
+        "datadog:index/SyntheticsTestApiStepRequestProxy:SyntheticsTestApiStepRequestProxy": {
+            "properties": {
+                "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Header name and value map.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the proxy to perform the test.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
         "datadog:index/SyntheticsTestApiStepRetry:SyntheticsTestApiStepRetry": {
             "properties": {
                 "count": {
@@ -45665,6 +47516,15 @@
                         }
                     }
                 },
+                "isCritical": {
+                    "type": "boolean",
+                    "description": "Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the step.\n",
@@ -45753,6 +47613,14 @@
                 },
                 "element": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "elementUserLocator": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestBrowserStepParamsElementUserLocator:SyntheticsTestBrowserStepParamsElementUserLocator",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -45860,6 +47728,55 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/SyntheticsTestBrowserStepParamsElementUserLocator:SyntheticsTestBrowserStepParamsElementUserLocator": {
+            "properties": {
+                "failTestOnCannotLocate": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestBrowserStepParamsElementUserLocatorValue:SyntheticsTestBrowserStepParamsElementUserLocatorValue",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "datadog:index/SyntheticsTestBrowserStepParamsElementUserLocatorValue:SyntheticsTestBrowserStepParamsElementUserLocatorValue": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Synthetics test type. Valid values are `api`, `browser`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
         },
         "datadog:index/SyntheticsTestBrowserStepParamsVariable:SyntheticsTestBrowserStepParamsVariable": {
             "properties": {
@@ -46011,6 +47928,15 @@
                         }
                     }
                 },
+                "checkCertificateRevocation": {
+                    "type": "boolean",
+                    "description": "For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "followRedirects": {
                     "type": "boolean",
                     "description": "Determines whether or not the API HTTP test should follow redirects.\n",
@@ -46131,9 +48057,72 @@
         },
         "datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth": {
             "properties": {
+                "accessKey": {
+                    "type": "string",
+                    "description": "Access key for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Domain for `ntlm` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "password": {
                     "type": "string",
                     "description": "Password for authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretKey": {
+                    "type": "string",
+                    "description": "Secret key for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "Service name for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sessionToken": {
+                    "type": "string",
+                    "description": "Session token for `SIGV4` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of basic authentication to use when performing the test.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -46148,13 +48137,18 @@
                             "mapCase": false
                         }
                     }
+                },
+                "workstation": {
+                    "type": "string",
+                    "description": "Workstation for `ntlm` authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
-            "type": "object",
-            "required": [
-                "password",
-                "username"
-            ]
+            "type": "object"
         },
         "datadog:index/SyntheticsTestRequestClientCertificate:SyntheticsTestRequestClientCertificate": {
             "properties": {
@@ -46350,6 +48344,248 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy": {
+            "properties": {
+                "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Header name and value map.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the proxy to perform the test.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
+        "datadog:index/getCloudWorkloadSecurityAgentRulesAgentRule:getCloudWorkloadSecurityAgentRulesAgentRule": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "enabled",
+                "expression",
+                "id",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsIndexesLogsIndex:getLogsIndexesLogsIndex": {
+            "properties": {
+                "dailyLimit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "exclusionFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getLogsIndexesLogsIndexExclusionFilter:getLogsIndexesLogsIndexExclusionFilter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getLogsIndexesLogsIndexFilter:getLogsIndexesLogsIndexFilter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "retentionDays": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dailyLimit",
+                "exclusionFilters",
+                "filters",
+                "name",
+                "retentionDays"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsIndexesLogsIndexExclusionFilter:getLogsIndexesLogsIndexExclusionFilter": {
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getLogsIndexesLogsIndexExclusionFilterFilter:getLogsIndexesLogsIndexExclusionFilterFilter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "isEnabled",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsIndexesLogsIndexExclusionFilterFilter:getLogsIndexesLogsIndexExclusionFilterFilter": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sampleRate": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query",
+                "sampleRate"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsIndexesLogsIndexFilter:getLogsIndexesLogsIndexFilter": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "datadog:index/getMonitorMonitorThreshold:getMonitorMonitorThreshold": {
             "properties": {
@@ -46855,7 +49091,6 @@
             },
             "type": "object",
             "required": [
-                "evaluationWindow",
                 "keepAlive",
                 "maxSignalDuration"
             ],
@@ -47160,6 +49395,10 @@
                     },
                     "description": "Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).\n"
                 },
+                "cspmResourceCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.\n"
+                },
                 "excludedRegions": {
                     "type": "array",
                     "items": {
@@ -47185,6 +49424,14 @@
                     },
                     "description": "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.\n"
                 },
+                "metricsCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects metrics for this AWS account.\n"
+                },
+                "resourceCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects a standard set of resources from your AWS account.\n"
+                },
                 "roleName": {
                     "type": "string",
                     "description": "Your Datadog role delegation name.\n"
@@ -47195,7 +49442,10 @@
                 }
             },
             "required": [
-                "externalId"
+                "cspmResourceCollectionEnabled",
+                "externalId",
+                "metricsCollectionEnabled",
+                "resourceCollectionEnabled"
             ],
             "inputProperties": {
                 "accessKeyId": {
@@ -47212,6 +49462,10 @@
                         "$ref": "pulumi.json#/Any"
                     },
                     "description": "Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).\n"
+                },
+                "cspmResourceCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.\n"
                 },
                 "excludedRegions": {
                     "type": "array",
@@ -47233,6 +49487,14 @@
                         "type": "string"
                     },
                     "description": "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.\n"
+                },
+                "metricsCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects metrics for this AWS account.\n"
+                },
+                "resourceCollectionEnabled": {
+                    "type": "string",
+                    "description": "Whether Datadog collects a standard set of resources from your AWS account.\n"
                 },
                 "roleName": {
                     "type": "string",
@@ -47261,6 +49523,10 @@
                         },
                         "description": "Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).\n"
                     },
+                    "cspmResourceCollectionEnabled": {
+                        "type": "string",
+                        "description": "Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.\n"
+                    },
                     "excludedRegions": {
                         "type": "array",
                         "items": {
@@ -47285,6 +49551,14 @@
                             "type": "string"
                         },
                         "description": "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.\n"
+                    },
+                    "metricsCollectionEnabled": {
+                        "type": "string",
+                        "description": "Whether Datadog collects metrics for this AWS account.\n"
+                    },
+                    "resourceCollectionEnabled": {
+                        "type": "string",
+                        "description": "Whether Datadog collects a standard set of resources from your AWS account.\n"
                     },
                     "roleName": {
                         "type": "string",
@@ -47730,6 +50004,65 @@
                 "type": "object"
             }
         },
+        "datadog:index/authnMapping:AuthnMapping": {
+            "description": "Provides a Datadog AuthN Mappings resource. This feature lets you automatically assign roles to users based on their SAML attributes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst roRole = datadog.getRole({\n    filter: \"Datadog Read Only Role\",\n});\n// Create a new AuthN mapping\nconst devRoRoleMapping = new datadog.AuthnMapping(\"devRoRoleMapping\", {\n    key: \"Member-of\",\n    value: \"Development\",\n    role: roRole.then(roRole =\u003e roRole.id),\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nro_role = datadog.get_role(filter=\"Datadog Read Only Role\")\n# Create a new AuthN mapping\ndev_ro_role_mapping = datadog.AuthnMapping(\"devRoRoleMapping\",\n    key=\"Member-of\",\n    value=\"Development\",\n    role=ro_role.id)\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var roRole = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs\n        {\n            Filter = \"Datadog Read Only Role\",\n        }));\n        // Create a new AuthN mapping\n        var devRoRoleMapping = new Datadog.AuthnMapping(\"devRoRoleMapping\", new Datadog.AuthnMappingArgs\n        {\n            Key = \"Member-of\",\n            Value = \"Development\",\n            Role = roRole.Apply(roRole =\u003e roRole.Id),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\troRole, err := datadog.LookupRole(ctx, \u0026GetRoleArgs{\n\t\t\tFilter: \"Datadog Read Only Role\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewAuthnMapping(ctx, \"devRoRoleMapping\", \u0026datadog.AuthnMappingArgs{\n\t\t\tKey:   pulumi.String(\"Member-of\"),\n\t\t\tValue: pulumi.String(\"Development\"),\n\t\t\tRole:  pulumi.String(roRole.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# AuthN mappings can be imported using their ID, e.g.\n\n```sh\n $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Identity provider key.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The ID of a role to attach to all users with the corresponding key and value.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Identity provider value.\n"
+                }
+            },
+            "required": [
+                "key",
+                "role",
+                "value"
+            ],
+            "inputProperties": {
+                "key": {
+                    "type": "string",
+                    "description": "Identity provider key.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The ID of a role to attach to all users with the corresponding key and value.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Identity provider value.\n"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "role",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AuthnMapping resources.\n",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "Identity provider key.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The ID of a role to attach to all users with the corresponding key and value.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Identity provider value.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/childOrganization:ChildOrganization": {
             "description": "Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `datadog.OrganizationSettings`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog Child Organization\nconst organization = new datadog.ChildOrganization(\"organization\", {\n    name: \"foo-organization\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog Child Organization\norganization = datadog.ChildOrganization(\"organization\", name=\"foo-organization\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog Child Organization\n        var organization = new Datadog.ChildOrganization(\"organization\", new Datadog.ChildOrganizationArgs\n        {\n            Name = \"foo-organization\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewChildOrganization(ctx, \"organization\", \u0026datadog.ChildOrganizationArgs{\n\t\t\tName: pulumi.String(\"foo-organization\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -47834,6 +50167,75 @@
                             "$ref": "#/types/datadog:index/ChildOrganizationUser:ChildOrganizationUser"
                         },
                         "description": "Information about a user\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": {
+            "description": "Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myAgentRule = new datadog.CloudWorkloadSecurityAgentRule(\"my_agent_rule\", {\n    description: \"My agent rule\",\n    enabled: true,\n    expression: \"exec.file.name == \\\"java\\\"\",\n    name: \"my_agent_rule\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmy_agent_rule = datadog.CloudWorkloadSecurityAgentRule(\"myAgentRule\",\n    description=\"My agent rule\",\n    enabled=True,\n    expression=\"exec.file.name == \\\"java\\\"\",\n    name=\"my_agent_rule\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myAgentRule = new Datadog.CloudWorkloadSecurityAgentRule(\"myAgentRule\", new Datadog.CloudWorkloadSecurityAgentRuleArgs\n        {\n            Description = \"My agent rule\",\n            Enabled = true,\n            Expression = \"exec.file.name == \\\"java\\\"\",\n            Name = \"my_agent_rule\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, \"myAgentRule\", \u0026datadog.CloudWorkloadSecurityAgentRuleArgs{\n\t\t\tDescription: pulumi.String(\"My agent rule\"),\n\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\tExpression:  pulumi.String(\"exec.file.name == \\\"java\\\"\"),\n\t\t\tName:        pulumi.String(\"my_agent_rule\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# Cloud Workload Security Agent rules can be imported using ID, e.g.\n\n```sh\n $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Agent rule.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the Agent rule is enabled.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "The SECL expression of the Agent rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Agent rule.\n"
+                }
+            },
+            "required": [
+                "expression",
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Agent rule.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the Agent rule is enabled.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "The SECL expression of the Agent rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Agent rule.\n"
+                }
+            },
+            "requiredInputs": [
+                "expression",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CloudWorkloadSecurityAgentRule resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Agent rule.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the Agent rule is enabled.\n"
+                    },
+                    "expression": {
+                        "type": "string",
+                        "description": "The SECL expression of the Agent rule.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Agent rule.\n"
                     }
                 },
                 "type": "object"
@@ -48508,7 +50910,7 @@
             }
         },
         "datadog:index/logsArchiveOrder:LogsArchiveOrder": {
-            "description": "Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleArchiveOrder = new datadog.LogsArchiveOrder(\"sample_archive_order\", {\n    archiveIds: [\n        datadog_logs_archive_sample_archive_1.id,\n        datadog_logs_archive_sample_archive_2.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_archive_order = datadog.LogsArchiveOrder(\"sampleArchiveOrder\", archive_ids=[\n    datadog_logs_archive[\"sample_archive_1\"][\"id\"],\n    datadog_logs_archive[\"sample_archive_2\"][\"id\"],\n])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleArchiveOrder = new Datadog.LogsArchiveOrder(\"sampleArchiveOrder\", new Datadog.LogsArchiveOrderArgs\n        {\n            ArchiveIds = \n            {\n                datadog_logs_archive.Sample_archive_1.Id,\n                datadog_logs_archive.Sample_archive_2.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsArchiveOrder(ctx, \"sampleArchiveOrder\", \u0026datadog.LogsArchiveOrderArgs{\n\t\t\tArchiveIds: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_archive.Sample_archive_1.Id),\n\t\t\t\tpulumi.Any(datadog_logs_archive.Sample_archive_2.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.\n\n```sh\n $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name\u003e archiveOrderID\n```\n\n ",
+            "description": "Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleArchiveOrder = new datadog.LogsArchiveOrder(\"sampleArchiveOrder\", {archiveIds: [\n    datadog_logs_archive.sample_archive_1.id,\n    datadog_logs_archive.sample_archive_2.id,\n]});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_archive_order = datadog.LogsArchiveOrder(\"sampleArchiveOrder\", archive_ids=[\n    datadog_logs_archive[\"sample_archive_1\"][\"id\"],\n    datadog_logs_archive[\"sample_archive_2\"][\"id\"],\n])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleArchiveOrder = new Datadog.LogsArchiveOrder(\"sampleArchiveOrder\", new Datadog.LogsArchiveOrderArgs\n        {\n            ArchiveIds = \n            {\n                datadog_logs_archive.Sample_archive_1.Id,\n                datadog_logs_archive.Sample_archive_2.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsArchiveOrder(ctx, \"sampleArchiveOrder\", \u0026datadog.LogsArchiveOrderArgs{\n\t\t\tArchiveIds: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_archive.Sample_archive_1.Id),\n\t\t\t\tpulumi.Any(datadog_logs_archive.Sample_archive_2.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.\n\n```sh\n $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name\u003e archiveOrderID\n```\n\n ",
             "properties": {
                 "archiveIds": {
                     "type": "array",
@@ -48733,7 +51135,7 @@
             }
         },
         "datadog:index/logsIndexOrder:LogsIndexOrder": {
-            "description": "Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n}, {\n    dependsOn: [\"datadog_logs_index.sample_index\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]],\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_logs_index.sample_index\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new Datadog.LogsIndexOrderArgs\n        {\n            Name = \"sample_index_order\",\n            Indexes = \n            {\n                datadog_logs_index.Sample_index.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_index.sample_index\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_index.Sample_index.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tpulumi.Resource(\"datadog_logs_index.sample_index\"),\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name\u003e \u003cname\u003e\n```\n\n ",
+            "description": "Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new Datadog.LogsIndexOrderArgs\n        {\n            Name = \"sample_index_order\",\n            Indexes = \n            {\n                datadog_logs_index.Sample_index.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_index.Sample_index.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name\u003e \u003cname\u003e\n```\n\n ",
             "properties": {
                 "indexes": {
                     "type": "array",
@@ -48892,7 +51294,7 @@
             }
         },
         "datadog:index/logsPipelineOrder:LogsPipelineOrder": {
-            "description": "Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipelineOrder = new datadog.LogsPipelineOrder(\"samplePipelineOrder\", {\n    name: \"sample_pipeline_order\",\n    pipelines: [\n        datadog_logs_custom_pipeline.sample_pipeline.id,\n        datadog_logs_integration_pipeline.python.id,\n    ],\n}, {\n    dependsOn: [\n        \"datadog_logs_custom_pipeline.sample_pipeline\",\n        \"datadog_logs_integration_pipeline.python\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline_order = datadog.LogsPipelineOrder(\"samplePipelineOrder\",\n    name=\"sample_pipeline_order\",\n    pipelines=[\n        datadog_logs_custom_pipeline[\"sample_pipeline\"][\"id\"],\n        datadog_logs_integration_pipeline[\"python\"][\"id\"],\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[\n            \"datadog_logs_custom_pipeline.sample_pipeline\",\n            \"datadog_logs_integration_pipeline.python\",\n        ]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipelineOrder = new Datadog.LogsPipelineOrder(\"samplePipelineOrder\", new Datadog.LogsPipelineOrderArgs\n        {\n            Name = \"sample_pipeline_order\",\n            Pipelines = \n            {\n                datadog_logs_custom_pipeline.Sample_pipeline.Id,\n                datadog_logs_integration_pipeline.Python.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_custom_pipeline.sample_pipeline\",\n                \"datadog_logs_integration_pipeline.python\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsPipelineOrder(ctx, \"samplePipelineOrder\", \u0026datadog.LogsPipelineOrderArgs{\n\t\t\tName: pulumi.String(\"sample_pipeline_order\"),\n\t\t\tPipelines: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),\n\t\t\t\tpulumi.Any(datadog_logs_integration_pipeline.Python.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tpulumi.Resource(\"datadog_logs_custom_pipeline.sample_pipeline\"),\n\t\t\tpulumi.Resource(\"datadog_logs_integration_pipeline.python\"),\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).\n\n```sh\n $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name\u003e \u003cname\u003e\n```\n\n ",
+            "description": "Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipelineOrder = new datadog.LogsPipelineOrder(\"samplePipelineOrder\", {\n    name: \"sample_pipeline_order\",\n    pipelines: [\n        datadog_logs_custom_pipeline.sample_pipeline.id,\n        datadog_logs_integration_pipeline.python.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline_order = datadog.LogsPipelineOrder(\"samplePipelineOrder\",\n    name=\"sample_pipeline_order\",\n    pipelines=[\n        datadog_logs_custom_pipeline[\"sample_pipeline\"][\"id\"],\n        datadog_logs_integration_pipeline[\"python\"][\"id\"],\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipelineOrder = new Datadog.LogsPipelineOrder(\"samplePipelineOrder\", new Datadog.LogsPipelineOrderArgs\n        {\n            Name = \"sample_pipeline_order\",\n            Pipelines = \n            {\n                datadog_logs_custom_pipeline.Sample_pipeline.Id,\n                datadog_logs_integration_pipeline.Python.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsPipelineOrder(ctx, \"samplePipelineOrder\", \u0026datadog.LogsPipelineOrderArgs{\n\t\t\tName: pulumi.String(\"sample_pipeline_order\"),\n\t\t\tPipelines: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),\n\t\t\t\tpulumi.Any(datadog_logs_integration_pipeline.Python.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).\n\n```sh\n $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name\u003e \u003cname\u003e\n```\n\n ",
             "properties": {
                 "name": {
                     "type": "string",
@@ -50631,6 +53033,10 @@
                     },
                     "description": "Header name and value map.\n"
                 },
+                "requestProxy": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",
+                    "description": "The proxy to perform the test.\n"
+                },
                 "requestQuery": {
                     "type": "object",
                     "additionalProperties": {
@@ -50748,6 +53154,10 @@
                         "$ref": "pulumi.json#/Any"
                     },
                     "description": "Header name and value map.\n"
+                },
+                "requestProxy": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",
+                    "description": "The proxy to perform the test.\n"
                 },
                 "requestQuery": {
                     "type": "object",
@@ -50871,6 +53281,10 @@
                             "$ref": "pulumi.json#/Any"
                         },
                         "description": "Header name and value map.\n"
+                    },
+                    "requestProxy": {
+                        "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",
+                        "description": "The proxy to perform the test.\n"
                     },
                     "requestQuery": {
                         "type": "object",
@@ -51400,6 +53814,30 @@
                 ]
             }
         },
+        "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": {
+            "description": "Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getCloudWorkloadSecurityAgentRules());\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_cloud_workload_security_agent_rules()\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetCloudWorkloadSecurityAgentRules.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetCloudWorkloadSecurityAgentRules(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCloudWorkloadSecurityAgentRules.\n",
+                "properties": {
+                    "agentRules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getCloudWorkloadSecurityAgentRulesAgentRule:getCloudWorkloadSecurityAgentRulesAgentRule"
+                        },
+                        "description": "List of Agent rules.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "agentRules",
+                    "id"
+                ]
+            }
+        },
         "datadog:index/getDashboard:getDashboard": {
             "description": "Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getDashboard({\n    name: \"My super dashboard\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_dashboard(name=\"My super dashboard\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetDashboard.InvokeAsync(new Datadog.GetDashboardArgs\n        {\n            Name = \"My super dashboard\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupDashboard(ctx, \u0026GetDashboardArgs{\n\t\t\tName: \"My super dashboard\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -51618,6 +54056,30 @@
                     "syntheticsIpv6ByLocation",
                     "webhooksIpv4s",
                     "webhooksIpv6s",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getLogsIndexes:getLogsIndexes": {
+            "description": "Use this data source to list several existing logs indexes for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getLogsIndexes());\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_logs_indexes()\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetLogsIndexes.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetLogsIndexes(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getLogsIndexes.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "logsIndexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getLogsIndexesLogsIndex:getLogsIndexesLogsIndex"
+                        },
+                        "description": "List of logs indexes\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "logsIndexes",
                     "id"
                 ]
             }

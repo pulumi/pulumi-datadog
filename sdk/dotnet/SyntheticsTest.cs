@@ -485,6 +485,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
 
         /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
+        [Output("requestProxy")]
+        public Output<Outputs.SyntheticsTestRequestProxy?> RequestProxy { get; private set; } = null!;
+
+        /// <summary>
         /// Query arguments name and value map.
         /// </summary>
         [Output("requestQuery")]
@@ -695,6 +701,12 @@ namespace Pulumi.Datadog
             set => _requestHeaders = value;
         }
 
+        /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
+        [Input("requestProxy")]
+        public Input<Inputs.SyntheticsTestRequestProxyArgs>? RequestProxy { get; set; }
+
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;
 
@@ -884,6 +896,12 @@ namespace Pulumi.Datadog
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
             set => _requestHeaders = value;
         }
+
+        /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
+        [Input("requestProxy")]
+        public Input<Inputs.SyntheticsTestRequestProxyGetArgs>? RequestProxy { get; set; }
 
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;

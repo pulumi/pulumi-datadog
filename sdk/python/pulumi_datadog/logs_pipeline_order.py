@@ -110,11 +110,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
             pipelines=[
                 datadog_logs_custom_pipeline["sample_pipeline"]["id"],
                 datadog_logs_integration_pipeline["python"]["id"],
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    "datadog_logs_custom_pipeline.sample_pipeline",
-                    "datadog_logs_integration_pipeline.python",
-                ]))
+            ])
         ```
 
         ## Import
@@ -150,11 +146,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
             pipelines=[
                 datadog_logs_custom_pipeline["sample_pipeline"]["id"],
                 datadog_logs_integration_pipeline["python"]["id"],
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    "datadog_logs_custom_pipeline.sample_pipeline",
-                    "datadog_logs_integration_pipeline.python",
-                ]))
+            ])
         ```
 
         ## Import

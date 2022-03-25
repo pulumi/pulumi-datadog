@@ -69,6 +69,8 @@ __all__ = [
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs',
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs',
+    'DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs',
+    'DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs',
@@ -166,6 +168,8 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupByArgs',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs',
+    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupByArgs',
@@ -589,6 +593,21 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs',
     'DashboardWidgetHeatmapDefinitionArgs',
     'DashboardWidgetHeatmapDefinitionCustomLinkArgs',
@@ -965,6 +984,21 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestStyleArgs',
     'DashboardWidgetTraceServiceDefinitionArgs',
+    'DashboardWidgetTreemapDefinitionArgs',
+    'DashboardWidgetTreemapDefinitionRequestArgs',
+    'DashboardWidgetTreemapDefinitionRequestFormulaArgs',
+    'DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs',
+    'DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetWidgetLayoutArgs',
     'DowntimeRecurrenceArgs',
     'LogsArchiveAzureArchiveArgs',
@@ -1047,11 +1081,14 @@ __all__ = [
     'SyntheticsTestApiStepRequestClientCertificateCertArgs',
     'SyntheticsTestApiStepRequestClientCertificateKeyArgs',
     'SyntheticsTestApiStepRequestDefinitionArgs',
+    'SyntheticsTestApiStepRequestProxyArgs',
     'SyntheticsTestApiStepRetryArgs',
     'SyntheticsTestAssertionArgs',
     'SyntheticsTestAssertionTargetjsonpathArgs',
     'SyntheticsTestBrowserStepArgs',
     'SyntheticsTestBrowserStepParamsArgs',
+    'SyntheticsTestBrowserStepParamsElementUserLocatorArgs',
+    'SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs',
     'SyntheticsTestBrowserStepParamsVariableArgs',
     'SyntheticsTestBrowserVariableArgs',
     'SyntheticsTestConfigVariableArgs',
@@ -1063,6 +1100,7 @@ __all__ = [
     'SyntheticsTestRequestClientCertificateCertArgs',
     'SyntheticsTestRequestClientCertificateKeyArgs',
     'SyntheticsTestRequestDefinitionArgs',
+    'SyntheticsTestRequestProxyArgs',
 ]
 
 @pulumi.input_type
@@ -1610,6 +1648,7 @@ class DashboardWidgetArgs:
                  timeseries_definition: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionArgs']] = None,
                  toplist_definition: Optional[pulumi.Input['DashboardWidgetToplistDefinitionArgs']] = None,
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs']] = None,
+                 treemap_definition: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetWidgetLayoutArgs']] = None):
         """
         :param pulumi.Input['DashboardWidgetAlertGraphDefinitionArgs'] alert_graph_definition: The definition for a Alert Graph widget.
@@ -1639,6 +1678,7 @@ class DashboardWidgetArgs:
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionArgs'] timeseries_definition: The definition for a Timeseries widget.
         :param pulumi.Input['DashboardWidgetToplistDefinitionArgs'] toplist_definition: The definition for a Toplist widget.
         :param pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs'] trace_service_definition: The definition for a Trace Service widget.
+        :param pulumi.Input['DashboardWidgetTreemapDefinitionArgs'] treemap_definition: The definition for a Treemap widget.
         :param pulumi.Input['DashboardWidgetWidgetLayoutArgs'] widget_layout: The layout of the widget on a 'free' dashboard.
         """
         if alert_graph_definition is not None:
@@ -1695,6 +1735,8 @@ class DashboardWidgetArgs:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
+        if treemap_definition is not None:
+            pulumi.set(__self__, "treemap_definition", treemap_definition)
         if widget_layout is not None:
             pulumi.set(__self__, "widget_layout", widget_layout)
 
@@ -2021,6 +2063,18 @@ class DashboardWidgetArgs:
     @trace_service_definition.setter
     def trace_service_definition(self, value: Optional[pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs']]):
         pulumi.set(self, "trace_service_definition", value)
+
+    @property
+    @pulumi.getter(name="treemapDefinition")
+    def treemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']]:
+        """
+        The definition for a Treemap widget.
+        """
+        return pulumi.get(self, "treemap_definition")
+
+    @treemap_definition.setter
+    def treemap_definition(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']]):
+        pulumi.set(self, "treemap_definition", value)
 
     @property
     @pulumi.getter(name="widgetLayout")
@@ -4560,6 +4614,7 @@ class DashboardWidgetDistributionDefinitionArgs:
 class DashboardWidgetDistributionDefinitionRequestArgs:
     def __init__(__self__, *,
                  apm_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryArgs']] = None,
+                 apm_stats_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs']] = None,
                  log_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryArgs']] = None,
                  process_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestProcessQueryArgs']] = None,
                  q: Optional[pulumi.Input[str]] = None,
@@ -4568,6 +4623,8 @@ class DashboardWidgetDistributionDefinitionRequestArgs:
                  style: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestStyleArgs']] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
         if log_query is not None:
             pulumi.set(__self__, "log_query", log_query)
         if process_query is not None:
@@ -4589,6 +4646,15 @@ class DashboardWidgetDistributionDefinitionRequestArgs:
     @apm_query.setter
     def apm_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryArgs']]):
         pulumi.set(self, "apm_query", value)
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs']]:
+        return pulumi.get(self, "apm_stats_query")
+
+    @apm_stats_query.setter
+    def apm_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs']]):
+        pulumi.set(self, "apm_stats_query", value)
 
     @property
     @pulumi.getter(name="logQuery")
@@ -4867,6 +4933,142 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs:
+    def __init__(__self__, *,
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 primary_tag: pulumi.Input[str],
+                 row_type: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]] = None,
+                 resource: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_tag")
+
+    @primary_tag.setter
+    def primary_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_tag", value)
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "row_type")
+
+    @row_type.setter
+    def row_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "row_type", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -7548,6 +7750,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  timeseries_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs']] = None,
                  toplist_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs']] = None,
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs']] = None,
+                 treemap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs']] = None):
         """
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs'] alert_graph_definition: The definition for a Alert Graph widget.
@@ -7576,6 +7779,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs'] timeseries_definition: The definition for a Timeseries widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs'] toplist_definition: The definition for a Toplist widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs'] trace_service_definition: The definition for a Trace Service widget.
+        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs'] treemap_definition: The definition for a Treemap widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs'] widget_layout: The layout of the widget on a 'free' dashboard.
         """
         if alert_graph_definition is not None:
@@ -7630,6 +7834,8 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
+        if treemap_definition is not None:
+            pulumi.set(__self__, "treemap_definition", treemap_definition)
         if widget_layout is not None:
             pulumi.set(__self__, "widget_layout", widget_layout)
 
@@ -7944,6 +8150,18 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @trace_service_definition.setter
     def trace_service_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs']]):
         pulumi.set(self, "trace_service_definition", value)
+
+    @property
+    @pulumi.getter(name="treemapDefinition")
+    def treemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']]:
+        """
+        The definition for a Treemap widget.
+        """
+        return pulumi.get(self, "treemap_definition")
+
+    @treemap_definition.setter
+    def treemap_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']]):
+        pulumi.set(self, "treemap_definition", value)
 
     @property
     @pulumi.getter(name="widgetLayout")
@@ -10483,6 +10701,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs:
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestArgs:
     def __init__(__self__, *,
                  apm_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryArgs']] = None,
+                 apm_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs']] = None,
                  log_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryArgs']] = None,
                  process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQueryArgs']] = None,
                  q: Optional[pulumi.Input[str]] = None,
@@ -10491,6 +10710,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestArgs:
                  style: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyleArgs']] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
         if log_query is not None:
             pulumi.set(__self__, "log_query", log_query)
         if process_query is not None:
@@ -10512,6 +10733,15 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestArgs:
     @apm_query.setter
     def apm_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryArgs']]):
         pulumi.set(self, "apm_query", value)
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs']]:
+        return pulumi.get(self, "apm_stats_query")
+
+    @apm_stats_query.setter
+    def apm_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs']]):
+        pulumi.set(self, "apm_stats_query", value)
 
     @property
     @pulumi.getter(name="logQuery")
@@ -10790,6 +11020,142 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs:
+    def __init__(__self__, *,
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 primary_tag: pulumi.Input[str],
+                 row_type: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]] = None,
+                 resource: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_tag")
+
+    @primary_tag.setter
+    def primary_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_tag", value)
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "row_type")
+
+    @row_type.setter
+    def row_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "row_type", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -34053,6 +34419,947 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs:
+    def __init__(__self__, *,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: The title of the dashboard.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 formulas: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs']]]] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs']]]] = None):
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs']]]]:
+        return pulumi.get(self, "formulas")
+
+    @formulas.setter
+    def formulas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs']]]]):
+        pulumi.set(self, "formulas", value)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs']]]]:
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs']]]]):
+        pulumi.set(self, "queries", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs:
+    def __init__(__self__, *,
+                 formula_expression: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 conditional_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]] = None,
+                 limit: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs']] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "formula_expression")
+
+    @formula_expression.setter
+    def formula_expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "formula_expression", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]]:
+        return pulumi.get(self, "conditional_formats")
+
+    @conditional_formats.setter
+    def conditional_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]]):
+        pulumi.set(self, "conditional_formats", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs']]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs']]):
+        pulumi.set(self, "limit", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs:
+    def __init__(__self__, *,
+                 comparator: pulumi.Input[str],
+                 palette: pulumi.Input[str],
+                 value: pulumi.Input[float],
+                 custom_bg_color: Optional[pulumi.Input[str]] = None,
+                 custom_fg_color: Optional[pulumi.Input[str]] = None,
+                 hide_value: Optional[pulumi.Input[bool]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input[str]] = None,
+                 timeframe: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "comparator")
+
+    @comparator.setter
+    def comparator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "comparator", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: pulumi.Input[str]):
+        pulumi.set(self, "palette", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @custom_bg_color.setter
+    def custom_bg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_bg_color", value)
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @custom_fg_color.setter
+    def custom_fg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_fg_color", value)
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "hide_value")
+
+    @hide_value.setter
+    def hide_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_value", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timeframe")
+
+    @timeframe.setter
+    def timeframe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeframe", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']] = None,
+                 apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
+                 event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs']] = None,
+                 metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs']] = None,
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']]:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @apm_dependency_stats_query.setter
+    def apm_dependency_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']]):
+        pulumi.set(self, "apm_dependency_stats_query", value)
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']]:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @apm_resource_stats_query.setter
+    def apm_resource_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']]):
+        pulumi.set(self, "apm_resource_stats_query", value)
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs']]:
+        return pulumi.get(self, "event_query")
+
+    @event_query.setter
+    def event_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs']]):
+        pulumi.set(self, "event_query", value)
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs']]:
+        return pulumi.get(self, "metric_query")
+
+    @metric_query.setter
+    def metric_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs']]):
+        pulumi.set(self, "metric_query", value)
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]:
+        return pulumi.get(self, "process_query")
+
+    @process_query.setter
+    def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]):
+        pulumi.set(self, "process_query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 operation_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 stat: pulumi.Input[str],
+                 is_upstream: Optional[pulumi.Input[bool]] = None,
+                 primary_tag_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_upstream")
+
+    @is_upstream.setter
+    def is_upstream(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_upstream", value)
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @primary_tag_name.setter
+    def primary_tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @primary_tag_value.setter
+    def primary_tag_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_value", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 stat: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 operation_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_value: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @primary_tag_name.setter
+    def primary_tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @primary_tag_value.setter
+    def primary_tag_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_value", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs:
+    def __init__(__self__, *,
+                 computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]],
+                 data_source: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 search: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]]:
+        return pulumi.get(self, "computes")
+
+    @computes.setter
+    def computes(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]]):
+        pulumi.set(self, "computes", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']]:
+        return pulumi.get(self, "search")
+
+    @search.setter
+    def search(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']]):
+        pulumi.set(self, "search", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 interval: Optional[pulumi.Input[int]] = None,
+                 metric: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs:
+    def __init__(__self__, *,
+                 facet: pulumi.Input[str],
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "facet", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 metric: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 query: pulumi.Input[str],
+                 aggregator: Optional[pulumi.Input[str]] = None,
+                 data_source: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aggregator")
+
+    @aggregator.setter
+    def aggregator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregator", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 metric: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 aggregator: Optional[pulumi.Input[str]] = None,
+                 is_normalized_cpu: Optional[pulumi.Input[bool]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input[str]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 text_filter: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aggregator")
+
+    @aggregator.setter
+    def aggregator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregator", value)
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @is_normalized_cpu.setter
+    def is_normalized_cpu(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_normalized_cpu", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sort", value)
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "tag_filters")
+
+    @tag_filters.setter
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_filters", value)
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text_filter")
+
+    @text_filter.setter
+    def text_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs:
     def __init__(__self__, *,
                  height: pulumi.Input[int],
@@ -54813,6 +56120,947 @@ class DashboardWidgetTraceServiceDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetTreemapDefinitionArgs:
+    def __init__(__self__, *,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: The title of the dashboard.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 formulas: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaArgs']]]] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryArgs']]]] = None):
+        if formulas is not None:
+            pulumi.set(__self__, "formulas", formulas)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
+
+    @property
+    @pulumi.getter
+    def formulas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaArgs']]]]:
+        return pulumi.get(self, "formulas")
+
+    @formulas.setter
+    def formulas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaArgs']]]]):
+        pulumi.set(self, "formulas", value)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryArgs']]]]:
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryArgs']]]]):
+        pulumi.set(self, "queries", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestFormulaArgs:
+    def __init__(__self__, *,
+                 formula_expression: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 conditional_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]] = None,
+                 limit: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs']] = None):
+        pulumi.set(__self__, "formula_expression", formula_expression)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if conditional_formats is not None:
+            pulumi.set(__self__, "conditional_formats", conditional_formats)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter(name="formulaExpression")
+    def formula_expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "formula_expression")
+
+    @formula_expression.setter
+    def formula_expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "formula_expression", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter(name="conditionalFormats")
+    def conditional_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]]:
+        return pulumi.get(self, "conditional_formats")
+
+    @conditional_formats.setter
+    def conditional_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs']]]]):
+        pulumi.set(self, "conditional_formats", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs']]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs']]):
+        pulumi.set(self, "limit", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs:
+    def __init__(__self__, *,
+                 comparator: pulumi.Input[str],
+                 palette: pulumi.Input[str],
+                 value: pulumi.Input[float],
+                 custom_bg_color: Optional[pulumi.Input[str]] = None,
+                 custom_fg_color: Optional[pulumi.Input[str]] = None,
+                 hide_value: Optional[pulumi.Input[bool]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input[str]] = None,
+                 timeframe: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "palette", palette)
+        pulumi.set(__self__, "value", value)
+        if custom_bg_color is not None:
+            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
+        if custom_fg_color is not None:
+            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
+        if hide_value is not None:
+            pulumi.set(__self__, "hide_value", hide_value)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if timeframe is not None:
+            pulumi.set(__self__, "timeframe", timeframe)
+
+    @property
+    @pulumi.getter
+    def comparator(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "comparator")
+
+    @comparator.setter
+    def comparator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "comparator", value)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: pulumi.Input[str]):
+        pulumi.set(self, "palette", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="customBgColor")
+    def custom_bg_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_bg_color")
+
+    @custom_bg_color.setter
+    def custom_bg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_bg_color", value)
+
+    @property
+    @pulumi.getter(name="customFgColor")
+    def custom_fg_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_fg_color")
+
+    @custom_fg_color.setter
+    def custom_fg_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_fg_color", value)
+
+    @property
+    @pulumi.getter(name="hideValue")
+    def hide_value(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "hide_value")
+
+    @hide_value.setter
+    def hide_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hide_value", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timeframe")
+
+    @timeframe.setter
+    def timeframe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeframe", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 apm_dependency_stats_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']] = None,
+                 apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
+                 event_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs']] = None,
+                 metric_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs']] = None,
+                 process_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None):
+        if apm_dependency_stats_query is not None:
+            pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
+        if apm_resource_stats_query is not None:
+            pulumi.set(__self__, "apm_resource_stats_query", apm_resource_stats_query)
+        if event_query is not None:
+            pulumi.set(__self__, "event_query", event_query)
+        if metric_query is not None:
+            pulumi.set(__self__, "metric_query", metric_query)
+        if process_query is not None:
+            pulumi.set(__self__, "process_query", process_query)
+
+    @property
+    @pulumi.getter(name="apmDependencyStatsQuery")
+    def apm_dependency_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']]:
+        return pulumi.get(self, "apm_dependency_stats_query")
+
+    @apm_dependency_stats_query.setter
+    def apm_dependency_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs']]):
+        pulumi.set(self, "apm_dependency_stats_query", value)
+
+    @property
+    @pulumi.getter(name="apmResourceStatsQuery")
+    def apm_resource_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']]:
+        return pulumi.get(self, "apm_resource_stats_query")
+
+    @apm_resource_stats_query.setter
+    def apm_resource_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']]):
+        pulumi.set(self, "apm_resource_stats_query", value)
+
+    @property
+    @pulumi.getter(name="eventQuery")
+    def event_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs']]:
+        return pulumi.get(self, "event_query")
+
+    @event_query.setter
+    def event_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs']]):
+        pulumi.set(self, "event_query", value)
+
+    @property
+    @pulumi.getter(name="metricQuery")
+    def metric_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs']]:
+        return pulumi.get(self, "metric_query")
+
+    @metric_query.setter
+    def metric_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs']]):
+        pulumi.set(self, "metric_query", value)
+
+    @property
+    @pulumi.getter(name="processQuery")
+    def process_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]:
+        return pulumi.get(self, "process_query")
+
+    @process_query.setter
+    def process_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]):
+        pulumi.set(self, "process_query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 operation_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 stat: pulumi.Input[str],
+                 is_upstream: Optional[pulumi.Input[bool]] = None,
+                 primary_tag_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_name", operation_name)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if is_upstream is not None:
+            pulumi.set(__self__, "is_upstream", is_upstream)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter(name="isUpstream")
+    def is_upstream(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_upstream")
+
+    @is_upstream.setter
+    def is_upstream(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_upstream", value)
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @primary_tag_name.setter
+    def primary_tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @primary_tag_value.setter
+    def primary_tag_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_value", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 stat: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 operation_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_name: Optional[pulumi.Input[str]] = None,
+                 primary_tag_value: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "stat", stat)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if primary_tag_name is not None:
+            pulumi.set(__self__, "primary_tag_name", primary_tag_name)
+        if primary_tag_value is not None:
+            pulumi.set(__self__, "primary_tag_value", primary_tag_value)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagName")
+    def primary_tag_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_name")
+
+    @primary_tag_name.setter
+    def primary_tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_name", value)
+
+    @property
+    @pulumi.getter(name="primaryTagValue")
+    def primary_tag_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_tag_value")
+
+    @primary_tag_value.setter
+    def primary_tag_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_tag_value", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
+    def __init__(__self__, *,
+                 computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]],
+                 data_source: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 search: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]]:
+        return pulumi.get(self, "computes")
+
+    @computes.setter
+    def computes(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]]):
+        pulumi.set(self, "computes", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']]:
+        return pulumi.get(self, "search")
+
+    @search.setter
+    def search(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']]):
+        pulumi.set(self, "search", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 interval: Optional[pulumi.Input[int]] = None,
+                 metric: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs:
+    def __init__(__self__, *,
+                 facet: pulumi.Input[str],
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "facet", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 metric: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 query: pulumi.Input[str],
+                 aggregator: Optional[pulumi.Input[str]] = None,
+                 data_source: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aggregator")
+
+    @aggregator.setter
+    def aggregator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregator", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 metric: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 aggregator: Optional[pulumi.Input[str]] = None,
+                 is_normalized_cpu: Optional[pulumi.Input[bool]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input[str]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 text_filter: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "name", name)
+        if aggregator is not None:
+            pulumi.set(__self__, "aggregator", aggregator)
+        if is_normalized_cpu is not None:
+            pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if text_filter is not None:
+            pulumi.set(__self__, "text_filter", text_filter)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def aggregator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aggregator")
+
+    @aggregator.setter
+    def aggregator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregator", value)
+
+    @property
+    @pulumi.getter(name="isNormalizedCpu")
+    def is_normalized_cpu(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_normalized_cpu")
+
+    @is_normalized_cpu.setter
+    def is_normalized_cpu(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_normalized_cpu", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sort", value)
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "tag_filters")
+
+    @tag_filters.setter
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_filters", value)
+
+    @property
+    @pulumi.getter(name="textFilter")
+    def text_filter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text_filter")
+
+    @text_filter.setter
+    def text_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
 class DashboardWidgetWidgetLayoutArgs:
     def __init__(__self__, *,
                  height: pulumi.Input[int],
@@ -58367,27 +60615,19 @@ class SecurityMonitoringRuleFilterArgs:
 @pulumi.input_type
 class SecurityMonitoringRuleOptionsArgs:
     def __init__(__self__, *,
-                 evaluation_window: pulumi.Input[int],
                  keep_alive: pulumi.Input[int],
                  max_signal_duration: pulumi.Input[int],
                  detection_method: Optional[pulumi.Input[str]] = None,
+                 evaluation_window: Optional[pulumi.Input[int]] = None,
                  new_value_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']] = None):
-        pulumi.set(__self__, "evaluation_window", evaluation_window)
         pulumi.set(__self__, "keep_alive", keep_alive)
         pulumi.set(__self__, "max_signal_duration", max_signal_duration)
         if detection_method is not None:
             pulumi.set(__self__, "detection_method", detection_method)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if new_value_options is not None:
             pulumi.set(__self__, "new_value_options", new_value_options)
-
-    @property
-    @pulumi.getter(name="evaluationWindow")
-    def evaluation_window(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "evaluation_window")
-
-    @evaluation_window.setter
-    def evaluation_window(self, value: pulumi.Input[int]):
-        pulumi.set(self, "evaluation_window", value)
 
     @property
     @pulumi.getter(name="keepAlive")
@@ -58415,6 +60655,15 @@ class SecurityMonitoringRuleOptionsArgs:
     @detection_method.setter
     def detection_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "detection_method", value)
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_window")
+
+    @evaluation_window.setter
+    def evaluation_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_window", value)
 
     @property
     @pulumi.getter(name="newValueOptions")
@@ -58798,6 +61047,7 @@ class SyntheticsTestApiStepArgs:
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs']] = None,
                  request_definition: Optional[pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs']] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_proxy: Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestApiStepRetryArgs']] = None,
                  subtype: Optional[pulumi.Input[str]] = None):
@@ -58811,6 +61061,7 @@ class SyntheticsTestApiStepArgs:
         :param pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs'] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input['SyntheticsTestApiStepRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
@@ -58831,6 +61082,8 @@ class SyntheticsTestApiStepArgs:
             pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
+        if request_proxy is not None:
+            pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
             pulumi.set(__self__, "request_query", request_query)
         if retry is not None:
@@ -58945,6 +61198,18 @@ class SyntheticsTestApiStepArgs:
     @request_headers.setter
     def request_headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "request_headers", value)
+
+    @property
+    @pulumi.getter(name="requestProxy")
+    def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']]:
+        """
+        The proxy to perform the test.
+        """
+        return pulumi.get(self, "request_proxy")
+
+    @request_proxy.setter
+    def request_proxy(self, value: Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']]):
+        pulumi.set(self, "request_proxy", value)
 
     @property
     @pulumi.getter(name="requestQuery")
@@ -59200,38 +61465,168 @@ class SyntheticsTestApiStepExtractedValueParserArgs:
 @pulumi.input_type
 class SyntheticsTestApiStepRequestBasicauthArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 secret_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 session_token: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 workstation: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] access_key: Access key for `SIGV4` authentication.
+        :param pulumi.Input[str] domain: Domain for `ntlm` authentication.
         :param pulumi.Input[str] password: Password for authentication.
+        :param pulumi.Input[str] region: Region for `SIGV4` authentication.
+        :param pulumi.Input[str] secret_key: Secret key for `SIGV4` authentication.
+        :param pulumi.Input[str] service_name: Service name for `SIGV4` authentication.
+        :param pulumi.Input[str] session_token: Session token for `SIGV4` authentication.
+        :param pulumi.Input[str] type: Type of basic authentication to use when performing the test.
         :param pulumi.Input[str] username: Username for authentication.
+        :param pulumi.Input[str] workstation: Workstation for `ntlm` authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if workstation is not None:
+            pulumi.set(__self__, "workstation", workstation)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain for `ntlm` authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for authentication.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[str]):
+    def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @secret_key.setter
+    def secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_key", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service name for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Session token for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "session_token")
+
+    @session_token.setter
+    def session_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_token", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of basic authentication to use when performing the test.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
         Username for authentication.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[str]):
+    def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def workstation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workstation for `ntlm` authentication.
+        """
+        return pulumi.get(self, "workstation")
+
+    @workstation.setter
+    def workstation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workstation", value)
 
 
 @pulumi.input_type
@@ -59557,6 +61952,44 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
 
 
 @pulumi.input_type
+class SyntheticsTestApiStepRequestProxyArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        :param pulumi.Input[str] url: URL of the proxy to perform the test.
+        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
+        """
+        pulumi.set(__self__, "url", url)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        URL of the proxy to perform the test.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Header name and value map.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "headers", value)
+
+
+@pulumi.input_type
 class SyntheticsTestApiStepRetryArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
@@ -59716,6 +62149,7 @@ class SyntheticsTestBrowserStepArgs:
                  type: pulumi.Input[str],
                  allow_failure: Optional[pulumi.Input[bool]] = None,
                  force_element_update: Optional[pulumi.Input[bool]] = None,
+                 is_critical: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: Name of the step.
@@ -59723,6 +62157,7 @@ class SyntheticsTestBrowserStepArgs:
         :param pulumi.Input[str] type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
         :param pulumi.Input[bool] force_element_update: Force update of the "element" parameter for the step
+        :param pulumi.Input[bool] is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -59732,6 +62167,8 @@ class SyntheticsTestBrowserStepArgs:
             pulumi.set(__self__, "allow_failure", allow_failure)
         if force_element_update is not None:
             pulumi.set(__self__, "force_element_update", force_element_update)
+        if is_critical is not None:
+            pulumi.set(__self__, "is_critical", is_critical)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -59796,6 +62233,18 @@ class SyntheticsTestBrowserStepArgs:
         pulumi.set(self, "force_element_update", value)
 
     @property
+    @pulumi.getter(name="isCritical")
+    def is_critical(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        """
+        return pulumi.get(self, "is_critical")
+
+    @is_critical.setter
+    def is_critical(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_critical", value)
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -59817,6 +62266,7 @@ class SyntheticsTestBrowserStepParamsArgs:
                  code: Optional[pulumi.Input[str]] = None,
                  delay: Optional[pulumi.Input[int]] = None,
                  element: Optional[pulumi.Input[str]] = None,
+                 element_user_locator: Optional[pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorArgs']] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  file: Optional[pulumi.Input[str]] = None,
                  files: Optional[pulumi.Input[str]] = None,
@@ -59841,6 +62291,8 @@ class SyntheticsTestBrowserStepParamsArgs:
             pulumi.set(__self__, "delay", delay)
         if element is not None:
             pulumi.set(__self__, "element", element)
+        if element_user_locator is not None:
+            pulumi.set(__self__, "element_user_locator", element_user_locator)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if file is not None:
@@ -59919,6 +62371,15 @@ class SyntheticsTestBrowserStepParamsArgs:
     @element.setter
     def element(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "element", value)
+
+    @property
+    @pulumi.getter(name="elementUserLocator")
+    def element_user_locator(self) -> Optional[pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorArgs']]:
+        return pulumi.get(self, "element_user_locator")
+
+    @element_user_locator.setter
+    def element_user_locator(self, value: Optional[pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorArgs']]):
+        pulumi.set(self, "element_user_locator", value)
 
     @property
     @pulumi.getter
@@ -60027,6 +62488,68 @@ class SyntheticsTestBrowserStepParamsArgs:
     @y.setter
     def y(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "y", value)
+
+
+@pulumi.input_type
+class SyntheticsTestBrowserStepParamsElementUserLocatorArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs'],
+                 fail_test_on_cannot_locate: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "value", value)
+        if fail_test_on_cannot_locate is not None:
+            pulumi.set(__self__, "fail_test_on_cannot_locate", fail_test_on_cannot_locate)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs']:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs']):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="failTestOnCannotLocate")
+    def fail_test_on_cannot_locate(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "fail_test_on_cannot_locate")
+
+    @fail_test_on_cannot_locate.setter
+    def fail_test_on_cannot_locate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_test_on_cannot_locate", value)
+
+
+@pulumi.input_type
+class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        """
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Synthetics test type. Valid values are `api`, `browser`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -60240,6 +62763,7 @@ class SyntheticsTestOptionsListArgs:
                  tick_every: pulumi.Input[int],
                  accept_self_signed: Optional[pulumi.Input[bool]] = None,
                  allow_insecure: Optional[pulumi.Input[bool]] = None,
+                 check_certificate_revocation: Optional[pulumi.Input[bool]] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
                  min_failure_duration: Optional[pulumi.Input[int]] = None,
                  min_location_failed: Optional[pulumi.Input[int]] = None,
@@ -60252,6 +62776,7 @@ class SyntheticsTestOptionsListArgs:
         :param pulumi.Input[int] tick_every: How often the test should run (in seconds).
         :param pulumi.Input[bool] accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
         :param pulumi.Input[bool] allow_insecure: Allows loading insecure content for an HTTP test.
+        :param pulumi.Input[bool] check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param pulumi.Input[bool] follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
         :param pulumi.Input[int] min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
@@ -60263,6 +62788,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if check_certificate_revocation is not None:
+            pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
         if min_failure_duration is not None:
@@ -60315,6 +62842,18 @@ class SyntheticsTestOptionsListArgs:
     @allow_insecure.setter
     def allow_insecure(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_insecure", value)
+
+    @property
+    @pulumi.getter(name="checkCertificateRevocation")
+    def check_certificate_revocation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        """
+        return pulumi.get(self, "check_certificate_revocation")
+
+    @check_certificate_revocation.setter
+    def check_certificate_revocation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "check_certificate_revocation", value)
 
     @property
     @pulumi.getter(name="followRedirects")
@@ -60453,38 +62992,168 @@ class SyntheticsTestOptionsListRetryArgs:
 @pulumi.input_type
 class SyntheticsTestRequestBasicauthArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 secret_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 session_token: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 workstation: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] access_key: Access key for `SIGV4` authentication.
+        :param pulumi.Input[str] domain: Domain for `ntlm` authentication.
         :param pulumi.Input[str] password: Password for authentication.
+        :param pulumi.Input[str] region: Region for `SIGV4` authentication.
+        :param pulumi.Input[str] secret_key: Secret key for `SIGV4` authentication.
+        :param pulumi.Input[str] service_name: Service name for `SIGV4` authentication.
+        :param pulumi.Input[str] session_token: Session token for `SIGV4` authentication.
+        :param pulumi.Input[str] type: Type of basic authentication to use when performing the test.
         :param pulumi.Input[str] username: Username for authentication.
+        :param pulumi.Input[str] workstation: Workstation for `ntlm` authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if workstation is not None:
+            pulumi.set(__self__, "workstation", workstation)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain for `ntlm` authentication.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for authentication.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[str]):
+    def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret key for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @secret_key.setter
+    def secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_key", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service name for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Session token for `SIGV4` authentication.
+        """
+        return pulumi.get(self, "session_token")
+
+    @session_token.setter
+    def session_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_token", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of basic authentication to use when performing the test.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
         Username for authentication.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[str]):
+    def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def workstation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workstation for `ntlm` authentication.
+        """
+        return pulumi.get(self, "workstation")
+
+    @workstation.setter
+    def workstation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workstation", value)
 
 
 @pulumi.input_type
@@ -60783,5 +63452,43 @@ class SyntheticsTestRequestDefinitionArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class SyntheticsTestRequestProxyArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        :param pulumi.Input[str] url: URL of the proxy to perform the test.
+        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
+        """
+        pulumi.set(__self__, "url", url)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        URL of the proxy to perform the test.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Header name and value map.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "headers", value)
 
 

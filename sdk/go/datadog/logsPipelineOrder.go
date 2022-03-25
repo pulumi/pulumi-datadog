@@ -31,10 +31,7 @@ import (
 // 				pulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),
 // 				pulumi.Any(datadog_logs_integration_pipeline.Python.Id),
 // 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			pulumi.Resource("datadog_logs_custom_pipeline.sample_pipeline"),
-// 			pulumi.Resource("datadog_logs_integration_pipeline.python"),
-// 		}))
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

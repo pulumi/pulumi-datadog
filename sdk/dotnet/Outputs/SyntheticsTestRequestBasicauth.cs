@@ -14,22 +14,78 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestRequestBasicauth
     {
         /// <summary>
+        /// Access key for `SIGV4` authentication.
+        /// </summary>
+        public readonly string? AccessKey;
+        /// <summary>
+        /// Domain for `ntlm` authentication.
+        /// </summary>
+        public readonly string? Domain;
+        /// <summary>
         /// Password for authentication.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
+        /// <summary>
+        /// Region for `SIGV4` authentication.
+        /// </summary>
+        public readonly string? Region;
+        /// <summary>
+        /// Secret key for `SIGV4` authentication.
+        /// </summary>
+        public readonly string? SecretKey;
+        /// <summary>
+        /// Service name for `SIGV4` authentication.
+        /// </summary>
+        public readonly string? ServiceName;
+        /// <summary>
+        /// Session token for `SIGV4` authentication.
+        /// </summary>
+        public readonly string? SessionToken;
+        /// <summary>
+        /// Type of basic authentication to use when performing the test.
+        /// </summary>
+        public readonly string? Type;
         /// <summary>
         /// Username for authentication.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
+        /// <summary>
+        /// Workstation for `ntlm` authentication.
+        /// </summary>
+        public readonly string? Workstation;
 
         [OutputConstructor]
         private SyntheticsTestRequestBasicauth(
-            string password,
+            string? accessKey,
 
-            string username)
+            string? domain,
+
+            string? password,
+
+            string? region,
+
+            string? secretKey,
+
+            string? serviceName,
+
+            string? sessionToken,
+
+            string? type,
+
+            string? username,
+
+            string? workstation)
         {
+            AccessKey = accessKey;
+            Domain = domain;
             Password = password;
+            Region = region;
+            SecretKey = secretKey;
+            ServiceName = serviceName;
+            SessionToken = sessionToken;
+            Type = type;
             Username = username;
+            Workstation = workstation;
         }
     }
 }
