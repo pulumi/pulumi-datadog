@@ -52,6 +52,7 @@
         "getServiceLevelObjectives.ts",
         "getSyntheticsGlobalVariable.ts",
         "getSyntheticsLocations.ts",
+        "getSyntheticsTest.ts",
         "getUser.ts",
         "index.ts",
         "logsArchive.ts",

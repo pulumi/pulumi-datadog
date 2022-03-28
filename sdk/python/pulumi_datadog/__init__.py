@@ -33,6 +33,7 @@ from .get_service_level_objective import *
 from .get_service_level_objectives import *
 from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
+from .get_synthetics_test import *
 from .get_user import *
 from .logs_archive import *
 from .logs_archive_order import *
