@@ -33,6 +33,7 @@ export * from "./getServiceLevelObjective";
 export * from "./getServiceLevelObjectives";
 export * from "./getSyntheticsGlobalVariable";
 export * from "./getSyntheticsLocations";
+export * from "./getSyntheticsTest";
 export * from "./getUser";
 export * from "./logsArchive";
 export * from "./logsArchiveOrder";

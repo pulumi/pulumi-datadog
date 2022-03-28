@@ -152,6 +152,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_logs_indexes":                        {Tok: makeDataSource(datadogMod, "getLogsIndexes")},
 			"datadog_logs_indexes_order":                  {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
 			"datadog_cloud_workload_security_agent_rules": {Tok: makeDataSource(datadogMod, "getCloudWorkloadSecurityAgentRules")},
+			"datadog_synthetics_test":                     {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -54773,6 +54773,58 @@
                 ]
             }
         },
+        "datadog:index/getSyntheticsTest:getSyntheticsTest": {
+            "description": "Use this data source to retrieve a Datadog Synthetic Test.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSyntheticsTest.\n",
+                "properties": {
+                    "testId": {
+                        "type": "string",
+                        "description": "The synthetic test id to search for\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "testId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSyntheticsTest.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the synthetic test.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags assigned to the synthetic test.\n"
+                    },
+                    "testId": {
+                        "type": "string",
+                        "description": "The synthetic test id to search for\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The start URL of the synthetic test.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "tags",
+                    "testId",
+                    "url",
+                    "id"
+                ]
+            }
+        },
         "datadog:index/getUser:getUser": {
             "description": "Use this data source to retrieve information about an existing user to use it in an other resources.\n",
             "inputs": {
