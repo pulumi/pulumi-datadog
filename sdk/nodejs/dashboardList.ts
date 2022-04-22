@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *             query: "*",
  *             eventSize: "l",
  *             title: "Widget Title",
- *             titleSize: 16,
+ *             titleSize: "16",
  *             titleAlign: "left",
  *             liveSpan: "1h",
  *         },
