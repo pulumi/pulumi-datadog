@@ -83,7 +83,8 @@ namespace Pulumi.Datadog
         public Output<int?> DailyLimit { get; private set; } = null!;
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Output("disableDailyLimit")]
         public Output<bool> DisableDailyLimit { get; private set; } = null!;
@@ -165,7 +166,8 @@ namespace Pulumi.Datadog
         public Input<int>? DailyLimit { get; set; }
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }
@@ -220,7 +222,8 @@ namespace Pulumi.Datadog
         public Input<int>? DailyLimit { get; set; }
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }

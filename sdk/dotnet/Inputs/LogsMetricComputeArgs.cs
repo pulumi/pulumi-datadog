@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsMetricComputeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
-        /// </summary>
         [Input("aggregationType", required: true)]
         public Input<string> AggregationType { get; set; } = null!;
 
-        /// <summary>
-        /// The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

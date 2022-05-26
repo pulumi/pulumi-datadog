@@ -29,13 +29,14 @@ class DashboardArgs:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+               expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
@@ -72,7 +73,7 @@ class DashboardArgs:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Input[str]:
         """
-        The layout type of the dashboard. Valid values are `ordered`, `free`.
+        The layout type of the dashboard.
         """
         return pulumi.get(self, "layout_type")
 
@@ -120,7 +121,7 @@ class DashboardArgs:
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+        Whether this dashboard is read-only.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -144,7 +145,8 @@ class DashboardArgs:
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+        expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         """
         return pulumi.get(self, "reflow_type")
 
@@ -234,10 +236,11 @@ class _DashboardState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+               expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
@@ -315,7 +318,7 @@ class _DashboardState:
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+        Whether this dashboard is read-only.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -327,7 +330,7 @@ class _DashboardState:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The layout type of the dashboard. Valid values are `ordered`, `free`.
+        The layout type of the dashboard.
         """
         return pulumi.get(self, "layout_type")
 
@@ -351,7 +354,8 @@ class _DashboardState:
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+        expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         """
         return pulumi.get(self, "reflow_type")
 
@@ -1155,10 +1159,11 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+               expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
@@ -1965,10 +1970,11 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+               expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
@@ -2023,7 +2029,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+        Whether this dashboard is read-only.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -2031,7 +2037,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Output[str]:
         """
-        The layout type of the dashboard. Valid values are `ordered`, `free`.
+        The layout type of the dashboard.
         """
         return pulumi.get(self, "layout_type")
 
@@ -2047,7 +2053,8 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+        expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
         """
         return pulumi.get(self, "reflow_type")
 

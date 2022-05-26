@@ -59,7 +59,8 @@ namespace Pulumi.Datadog
         public Output<bool> Active { get; private set; } = null!;
 
         /// <summary>
-        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+        /// This field will only exist on recurring downtimes.
         /// </summary>
         [Output("activeChildId")]
         public Output<int> ActiveChildId { get; private set; } = null!;
@@ -95,10 +96,17 @@ namespace Pulumi.Datadog
         public Output<int?> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        /// silenced
         /// </summary>
         [Output("monitorTags")]
         public Output<ImmutableArray<string>> MonitorTags { get; private set; } = null!;
+
+        /// <summary>
+        /// When true the first recovery notification during the downtime will be muted
+        /// </summary>
+        [Output("muteFirstRecoveryNotification")]
+        public Output<bool?> MuteFirstRecoveryNotification { get; private set; } = null!;
 
         /// <summary>
         /// Optional recurring schedule for this downtime
@@ -204,13 +212,20 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        /// silenced
         /// </summary>
         public InputList<string> MonitorTags
         {
             get => _monitorTags ?? (_monitorTags = new InputList<string>());
             set => _monitorTags = value;
         }
+
+        /// <summary>
+        /// When true the first recovery notification during the downtime will be muted
+        /// </summary>
+        [Input("muteFirstRecoveryNotification")]
+        public Input<bool>? MuteFirstRecoveryNotification { get; set; }
 
         /// <summary>
         /// Optional recurring schedule for this downtime
@@ -262,7 +277,8 @@ namespace Pulumi.Datadog
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+        /// This field will only exist on recurring downtimes.
         /// </summary>
         [Input("activeChildId")]
         public Input<int>? ActiveChildId { get; set; }
@@ -301,13 +317,20 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        /// silenced
         /// </summary>
         public InputList<string> MonitorTags
         {
             get => _monitorTags ?? (_monitorTags = new InputList<string>());
             set => _monitorTags = value;
         }
+
+        /// <summary>
+        /// When true the first recovery notification during the downtime will be muted
+        /// </summary>
+        [Input("muteFirstRecoveryNotification")]
+        public Input<bool>? MuteFirstRecoveryNotification { get; set; }
 
         /// <summary>
         /// Optional recurring schedule for this downtime

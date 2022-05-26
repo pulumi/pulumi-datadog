@@ -13,57 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestRequestDefinition
     {
-        /// <summary>
-        /// The request body.
-        /// </summary>
         public readonly string? Body;
-        /// <summary>
-        /// DNS server to use for DNS tests (`subtype = "dns"`).
-        /// </summary>
         public readonly string? DnsServer;
-        /// <summary>
-        /// DNS server port to use for DNS tests.
-        /// </summary>
         public readonly int? DnsServerPort;
-        /// <summary>
-        /// Host name to perform the test with.
-        /// </summary>
         public readonly string? Host;
-        /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
-        /// </summary>
         public readonly string? Message;
-        /// <summary>
-        /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        /// </summary>
         public readonly string? Method;
-        /// <summary>
-        /// Determines whether or not to save the response body.
-        /// </summary>
         public readonly bool? NoSavingResponseBody;
-        /// <summary>
-        /// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        /// </summary>
         public readonly int? NumberOfPackets;
-        /// <summary>
-        /// Port to use when performing the test.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        /// </summary>
         public readonly string? Servername;
-        /// <summary>
-        /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        /// </summary>
         public readonly bool? ShouldTrackHops;
-        /// <summary>
-        /// Timeout in seconds for the test. Defaults to `60`.
-        /// </summary>
         public readonly int? Timeout;
-        /// <summary>
-        /// The URL to send the request to.
-        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorValue
     {
-        /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
-        /// </summary>
         public readonly string? Type;
         public readonly string Value;
 

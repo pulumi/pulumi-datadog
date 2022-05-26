@@ -45,30 +45,21 @@ func GetServiceLevelObjectives(ctx *pulumi.Context, args *GetServiceLevelObjecti
 
 // A collection of arguments for invoking getServiceLevelObjectives.
 type GetServiceLevelObjectivesArgs struct {
-	// An array of SLO IDs to limit the search.
-	Ids []string `pulumi:"ids"`
-	// Filter results based on SLO numerator and denominator.
-	MetricsQuery *string `pulumi:"metricsQuery"`
-	// Filter results based on SLO names.
-	NameQuery *string `pulumi:"nameQuery"`
-	// Filter results based on a single SLO tag.
-	TagsQuery *string `pulumi:"tagsQuery"`
+	Ids          []string `pulumi:"ids"`
+	MetricsQuery *string  `pulumi:"metricsQuery"`
+	NameQuery    *string  `pulumi:"nameQuery"`
+	TagsQuery    *string  `pulumi:"tagsQuery"`
 }
 
 // A collection of values returned by getServiceLevelObjectives.
 type GetServiceLevelObjectivesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// An array of SLO IDs to limit the search.
-	Ids []string `pulumi:"ids"`
-	// Filter results based on SLO numerator and denominator.
-	MetricsQuery *string `pulumi:"metricsQuery"`
-	// Filter results based on SLO names.
-	NameQuery *string `pulumi:"nameQuery"`
-	// List of SLOs
-	Slos []GetServiceLevelObjectivesSlo `pulumi:"slos"`
-	// Filter results based on a single SLO tag.
-	TagsQuery *string `pulumi:"tagsQuery"`
+	Id           string                         `pulumi:"id"`
+	Ids          []string                       `pulumi:"ids"`
+	MetricsQuery *string                        `pulumi:"metricsQuery"`
+	NameQuery    *string                        `pulumi:"nameQuery"`
+	Slos         []GetServiceLevelObjectivesSlo `pulumi:"slos"`
+	TagsQuery    *string                        `pulumi:"tagsQuery"`
 }
 
 func GetServiceLevelObjectivesOutput(ctx *pulumi.Context, args GetServiceLevelObjectivesOutputArgs, opts ...pulumi.InvokeOption) GetServiceLevelObjectivesResultOutput {
@@ -86,14 +77,10 @@ func GetServiceLevelObjectivesOutput(ctx *pulumi.Context, args GetServiceLevelOb
 
 // A collection of arguments for invoking getServiceLevelObjectives.
 type GetServiceLevelObjectivesOutputArgs struct {
-	// An array of SLO IDs to limit the search.
-	Ids pulumi.StringArrayInput `pulumi:"ids"`
-	// Filter results based on SLO numerator and denominator.
-	MetricsQuery pulumi.StringPtrInput `pulumi:"metricsQuery"`
-	// Filter results based on SLO names.
-	NameQuery pulumi.StringPtrInput `pulumi:"nameQuery"`
-	// Filter results based on a single SLO tag.
-	TagsQuery pulumi.StringPtrInput `pulumi:"tagsQuery"`
+	Ids          pulumi.StringArrayInput `pulumi:"ids"`
+	MetricsQuery pulumi.StringPtrInput   `pulumi:"metricsQuery"`
+	NameQuery    pulumi.StringPtrInput   `pulumi:"nameQuery"`
+	TagsQuery    pulumi.StringPtrInput   `pulumi:"tagsQuery"`
 }
 
 func (GetServiceLevelObjectivesOutputArgs) ElementType() reflect.Type {
@@ -120,27 +107,22 @@ func (o GetServiceLevelObjectivesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An array of SLO IDs to limit the search.
 func (o GetServiceLevelObjectivesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
 
-// Filter results based on SLO numerator and denominator.
 func (o GetServiceLevelObjectivesResultOutput) MetricsQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.MetricsQuery }).(pulumi.StringPtrOutput)
 }
 
-// Filter results based on SLO names.
 func (o GetServiceLevelObjectivesResultOutput) NameQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.NameQuery }).(pulumi.StringPtrOutput)
 }
 
-// List of SLOs
 func (o GetServiceLevelObjectivesResultOutput) Slos() GetServiceLevelObjectivesSloArrayOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) []GetServiceLevelObjectivesSlo { return v.Slos }).(GetServiceLevelObjectivesSloArrayOutput)
 }
 
-// Filter results based on a single SLO tag.
 func (o GetServiceLevelObjectivesResultOutput) TagsQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.TagsQuery }).(pulumi.StringPtrOutput)
 }

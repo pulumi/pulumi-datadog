@@ -39,9 +39,6 @@ class GetLogsIndexesResult:
     @property
     @pulumi.getter(name="logsIndexes")
     def logs_indexes(self) -> Sequence['outputs.GetLogsIndexesLogsIndexResult']:
-        """
-        List of logs indexes
-        """
         return pulumi.get(self, "logs_indexes")
 
 

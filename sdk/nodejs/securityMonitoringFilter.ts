@@ -72,7 +72,7 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
      */
     public readonly exclusionFilters!: pulumi.Output<outputs.SecurityMonitoringFilterExclusionFilter[] | undefined>;
     /**
-     * The filtered data type. Valid values are `logs`.
+     * The filtered data type.
      */
     public readonly filteredDataType!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface SecurityMonitoringFilterState {
      */
     exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
     /**
-     * The filtered data type. Valid values are `logs`.
+     * The filtered data type.
      */
     filteredDataType?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface SecurityMonitoringFilterArgs {
      */
     exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
     /**
-     * The filtered data type. Valid values are `logs`.
+     * The filtered data type.
      */
     filteredDataType?: pulumi.Input<string>;
     /**

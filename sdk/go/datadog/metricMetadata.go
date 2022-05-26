@@ -52,7 +52,7 @@ type MetricMetadata struct {
 	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrOutput `pulumi:"statsdInterval"`
-	// Type of the metric.
+	// Metric type such as `gauge` or `rate`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
@@ -100,7 +100,7 @@ type metricMetadataState struct {
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval *int `pulumi:"statsdInterval"`
-	// Type of the metric.
+	// Metric type such as `gauge` or `rate`.
 	Type *string `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit *string `pulumi:"unit"`
@@ -117,7 +117,7 @@ type MetricMetadataState struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	// Type of the metric.
+	// Metric type such as `gauge` or `rate`.
 	Type pulumi.StringPtrInput
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type metricMetadataArgs struct {
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval *int `pulumi:"statsdInterval"`
-	// Type of the metric.
+	// Metric type such as `gauge` or `rate`.
 	Type *string `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit *string `pulumi:"unit"`
@@ -156,7 +156,7 @@ type MetricMetadataArgs struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	// Type of the metric.
+	// Metric type such as `gauge` or `rate`.
 	Type pulumi.StringPtrInput
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrInput
@@ -247,6 +247,41 @@ func (o MetricMetadataOutput) ToMetricMetadataOutput() MetricMetadataOutput {
 
 func (o MetricMetadataOutput) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
 	return o
+}
+
+// A description of the metric.
+func (o MetricMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the metric.
+func (o MetricMetadataOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringOutput { return v.Metric }).(pulumi.StringOutput)
+}
+
+// Per unit of the metric such as `second` in `bytes per second`.
+func (o MetricMetadataOutput) PerUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.PerUnit }).(pulumi.StringPtrOutput)
+}
+
+// A short name of the metric.
+func (o MetricMetadataOutput) ShortName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
+}
+
+// If applicable, statsd flush interval in seconds for the metric.
+func (o MetricMetadataOutput) StatsdInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.IntPtrOutput { return v.StatsdInterval }).(pulumi.IntPtrOutput)
+}
+
+// Metric type such as `gauge` or `rate`.
+func (o MetricMetadataOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Primary unit of the metric such as `byte` or `operation`.
+func (o MetricMetadataOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 type MetricMetadataArrayOutput struct{ *pulumi.OutputState }

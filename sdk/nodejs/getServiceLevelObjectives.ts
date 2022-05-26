@@ -38,21 +38,9 @@ export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, 
  * A collection of arguments for invoking getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesArgs {
-    /**
-     * An array of SLO IDs to limit the search.
-     */
     ids?: string[];
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     metricsQuery?: string;
-    /**
-     * Filter results based on SLO names.
-     */
     nameQuery?: string;
-    /**
-     * Filter results based on a single SLO tag.
-     */
     tagsQuery?: string;
 }
 
@@ -64,25 +52,10 @@ export interface GetServiceLevelObjectivesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * An array of SLO IDs to limit the search.
-     */
     readonly ids?: string[];
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     readonly metricsQuery?: string;
-    /**
-     * Filter results based on SLO names.
-     */
     readonly nameQuery?: string;
-    /**
-     * List of SLOs
-     */
     readonly slos: outputs.GetServiceLevelObjectivesSlo[];
-    /**
-     * Filter results based on a single SLO tag.
-     */
     readonly tagsQuery?: string;
 }
 
@@ -94,20 +67,8 @@ export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectives
  * A collection of arguments for invoking getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesOutputArgs {
-    /**
-     * An array of SLO IDs to limit the search.
-     */
     ids?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     metricsQuery?: pulumi.Input<string>;
-    /**
-     * Filter results based on SLO names.
-     */
     nameQuery?: pulumi.Input<string>;
-    /**
-     * Filter results based on a single SLO tag.
-     */
     tagsQuery?: pulumi.Input<string>;
 }

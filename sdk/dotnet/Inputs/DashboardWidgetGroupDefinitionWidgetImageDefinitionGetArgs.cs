@@ -27,9 +27,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("sizing")]
         public Input<string>? Sizing { get; set; }
 
-        /// <summary>
-        /// The URL of the dashboard.
-        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

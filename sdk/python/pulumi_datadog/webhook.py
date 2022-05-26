@@ -23,7 +23,7 @@ class WebhookArgs:
         :param pulumi.Input[str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         :param pulumi.Input[str] url: The URL of the webhook.
         :param pulumi.Input[str] custom_headers: The headers attached to the webhook.
-        :param pulumi.Input[str] encode_as: Encoding type. Valid values are `json`, `form`.
+        :param pulumi.Input[str] encode_as: Encoding type.
         :param pulumi.Input[str] payload: The payload of the webhook.
         """
         pulumi.set(__self__, "name", name)
@@ -75,7 +75,7 @@ class WebhookArgs:
     @pulumi.getter(name="encodeAs")
     def encode_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Encoding type. Valid values are `json`, `form`.
+        Encoding type.
         """
         return pulumi.get(self, "encode_as")
 
@@ -107,7 +107,7 @@ class _WebhookState:
         """
         Input properties used for looking up and filtering Webhook resources.
         :param pulumi.Input[str] custom_headers: The headers attached to the webhook.
-        :param pulumi.Input[str] encode_as: Encoding type. Valid values are `json`, `form`.
+        :param pulumi.Input[str] encode_as: Encoding type.
         :param pulumi.Input[str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         :param pulumi.Input[str] payload: The payload of the webhook.
         :param pulumi.Input[str] url: The URL of the webhook.
@@ -139,7 +139,7 @@ class _WebhookState:
     @pulumi.getter(name="encodeAs")
     def encode_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Encoding type. Valid values are `json`, `form`.
+        Encoding type.
         """
         return pulumi.get(self, "encode_as")
 
@@ -227,7 +227,7 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_headers: The headers attached to the webhook.
-        :param pulumi.Input[str] encode_as: Encoding type. Valid values are `json`, `form`.
+        :param pulumi.Input[str] encode_as: Encoding type.
         :param pulumi.Input[str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         :param pulumi.Input[str] payload: The payload of the webhook.
         :param pulumi.Input[str] url: The URL of the webhook.
@@ -331,7 +331,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_headers: The headers attached to the webhook.
-        :param pulumi.Input[str] encode_as: Encoding type. Valid values are `json`, `form`.
+        :param pulumi.Input[str] encode_as: Encoding type.
         :param pulumi.Input[str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         :param pulumi.Input[str] payload: The payload of the webhook.
         :param pulumi.Input[str] url: The URL of the webhook.
@@ -359,7 +359,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter(name="encodeAs")
     def encode_as(self) -> pulumi.Output[str]:
         """
-        Encoding type. Valid values are `json`, `form`.
+        Encoding type.
         """
         return pulumi.get(self, "encode_as")
 

@@ -14,9 +14,6 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsGlobalVariableParseTestOptionsParser
     {
         public readonly string Type;
-        /// <summary>
-        /// The value of the global variable.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

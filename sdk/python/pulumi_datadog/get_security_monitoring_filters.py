@@ -34,17 +34,11 @@ class GetSecurityMonitoringFiltersResult:
     @property
     @pulumi.getter
     def filters(self) -> Sequence['outputs.GetSecurityMonitoringFiltersFilterResult']:
-        """
-        List of filters.
-        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="filtersIds")
     def filters_ids(self) -> Sequence[str]:
-        """
-        List of IDs of filters.
-        """
         return pulumi.get(self, "filters_ids")
 
     @property

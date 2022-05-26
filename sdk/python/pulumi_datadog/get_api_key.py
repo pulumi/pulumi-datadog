@@ -34,25 +34,16 @@ class GetApiKeyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Id for API Key.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The value of the API Key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Name for API Key.
-        """
         return pulumi.get(self, "name")
 
 
@@ -81,10 +72,6 @@ def get_api_key(id: Optional[str] = None,
 
     foo = datadog.get_api_key(name="foo-application")
     ```
-
-
-    :param str id: Id for API Key.
-    :param str name: Name for API Key.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -116,9 +103,5 @@ def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     foo = datadog.get_api_key(name="foo-application")
     ```
-
-
-    :param str id: Id for API Key.
-    :param str name: Name for API Key.
     """
     ...

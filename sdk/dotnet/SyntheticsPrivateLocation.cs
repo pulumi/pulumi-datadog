@@ -49,7 +49,8 @@ namespace Pulumi.Datadog
     public partial class SyntheticsPrivateLocation : Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        /// this configuration.
         /// </summary>
         [Output("config")]
         public Output<string> Config { get; private set; } = null!;
@@ -59,6 +60,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The private location metadata
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.SyntheticsPrivateLocationMetadata?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Synthetics private location name.
@@ -125,6 +132,12 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The private location metadata
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.SyntheticsPrivateLocationMetadataArgs>? Metadata { get; set; }
+
+        /// <summary>
         /// Synthetics private location name.
         /// </summary>
         [Input("name", required: true)]
@@ -150,7 +163,8 @@ namespace Pulumi.Datadog
     public sealed class SyntheticsPrivateLocationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        /// this configuration.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
@@ -160,6 +174,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The private location metadata
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.SyntheticsPrivateLocationMetadataGetArgs>? Metadata { get; set; }
 
         /// <summary>
         /// Synthetics private location name.

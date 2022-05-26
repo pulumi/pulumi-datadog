@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringFilterExclusionFilter>> ExclusionFilters { get; private set; } = null!;
 
         /// <summary>
-        /// The filtered data type. Valid values are `logs`.
+        /// The filtered data type.
         /// </summary>
         [Output("filteredDataType")]
         public Output<string?> FilteredDataType { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The filtered data type. Valid values are `logs`.
+        /// The filtered data type.
         /// </summary>
         [Input("filteredDataType")]
         public Input<string>? FilteredDataType { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The filtered data type. Valid values are `logs`.
+        /// The filtered data type.
         /// </summary>
         [Input("filteredDataType")]
         public Input<string>? FilteredDataType { get; set; }

@@ -226,6 +226,21 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// Slack account name.
+func (o ChannelOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Slack channel name.
+func (o ChannelOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// Configuration options for what is shown in an alert event message.
+func (o ChannelOutput) Display() ChannelDisplayOutput {
+	return o.ApplyT(func(v *Channel) ChannelDisplayOutput { return v.Display }).(ChannelDisplayOutput)
+}
+
 type ChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelArrayOutput) ElementType() reflect.Type {

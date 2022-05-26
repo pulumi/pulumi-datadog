@@ -56,7 +56,8 @@ export class LogsIndexOrder extends pulumi.CustomResource {
     }
 
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+     * list.
      */
     public readonly indexes!: pulumi.Output<string[]>;
     /**
@@ -100,7 +101,8 @@ export class LogsIndexOrder extends pulumi.CustomResource {
  */
 export interface LogsIndexOrderState {
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+     * list.
      */
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -114,7 +116,8 @@ export interface LogsIndexOrderState {
  */
 export interface LogsIndexOrderArgs {
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+     * list.
      */
     indexes: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -70,7 +70,7 @@ namespace Pulumi.Datadog
         public Output<int?> StatsdInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the metric.
+        /// Metric type such as `gauge` or `rate`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Type of the metric.
+        /// Metric type such as `gauge` or `rate`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Type of the metric.
+        /// Metric type such as `gauge` or `rate`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

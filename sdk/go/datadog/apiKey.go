@@ -197,6 +197,16 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
+// The value of the API Key.
+func (o ApiKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Name for API Key.
+func (o ApiKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type ApiKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyArrayOutput) ElementType() reflect.Type {

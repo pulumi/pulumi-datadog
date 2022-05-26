@@ -33,9 +33,6 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getRole.
  */
 export interface GetRoleArgs {
-    /**
-     * A string on which to filter the roles.
-     */
     filter: string;
 }
 
@@ -43,21 +40,12 @@ export interface GetRoleArgs {
  * A collection of values returned by getRole.
  */
 export interface GetRoleResult {
-    /**
-     * A string on which to filter the roles.
-     */
     readonly filter: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the role.
-     */
     readonly name: string;
-    /**
-     * Number of users assigned to this role.
-     */
     readonly userCount: number;
 }
 
@@ -69,8 +57,5 @@ export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getRole.
  */
 export interface GetRoleOutputArgs {
-    /**
-     * A string on which to filter the roles.
-     */
     filter: pulumi.Input<string>;
 }

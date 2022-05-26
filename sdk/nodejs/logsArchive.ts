@@ -69,7 +69,8 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     public readonly gcsArchive!: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -80,6 +81,10 @@ export class LogsArchive extends pulumi.CustomResource {
      * The archive query/filter. Logs matching this query are included in the archive.
      */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * To limit the rehydration scan size for the archive, set a value in GB.
+     */
+    public readonly rehydrationMaxScanSizeInGb!: pulumi.Output<number | undefined>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
@@ -107,6 +112,7 @@ export class LogsArchive extends pulumi.CustomResource {
             resourceInputs["includeTags"] = state ? state.includeTags : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["rehydrationMaxScanSizeInGb"] = state ? state.rehydrationMaxScanSizeInGb : undefined;
             resourceInputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
             resourceInputs["s3Archive"] = state ? state.s3Archive : undefined;
         } else {
@@ -122,6 +128,7 @@ export class LogsArchive extends pulumi.CustomResource {
             resourceInputs["includeTags"] = args ? args.includeTags : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["rehydrationMaxScanSizeInGb"] = args ? args.rehydrationMaxScanSizeInGb : undefined;
             resourceInputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
             resourceInputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
@@ -143,7 +150,8 @@ export interface LogsArchiveState {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -154,6 +162,10 @@ export interface LogsArchiveState {
      * The archive query/filter. Logs matching this query are included in the archive.
      */
     query?: pulumi.Input<string>;
+    /**
+     * To limit the rehydration scan size for the archive, set a value in GB.
+     */
+    rehydrationMaxScanSizeInGb?: pulumi.Input<number>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
@@ -177,7 +189,8 @@ export interface LogsArchiveArgs {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -188,6 +201,10 @@ export interface LogsArchiveArgs {
      * The archive query/filter. Logs matching this query are included in the archive.
      */
     query: pulumi.Input<string>;
+    /**
+     * To limit the rehydration scan size for the archive, set a value in GB.
+     */
+    rehydrationMaxScanSizeInGb?: pulumi.Input<number>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */

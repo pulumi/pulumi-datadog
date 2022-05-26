@@ -73,15 +73,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetApiKeyArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Id for API Key.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name for API Key.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -92,15 +86,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetApiKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Id for API Key.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name for API Key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -113,17 +101,8 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetApiKeyResult
     {
-        /// <summary>
-        /// Id for API Key.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The value of the API Key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Name for API Key.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

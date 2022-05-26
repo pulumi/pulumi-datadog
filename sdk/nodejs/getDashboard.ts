@@ -33,9 +33,6 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getDashboard.
  */
 export interface GetDashboardArgs {
-    /**
-     * The dashboard name to search for. Must only match one dashboard.
-     */
     name: string;
 }
 
@@ -47,17 +44,8 @@ export interface GetDashboardResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The dashboard name to search for. Must only match one dashboard.
-     */
     readonly name: string;
-    /**
-     * The name of the dashboard.
-     */
     readonly title: string;
-    /**
-     * The URL to a specific dashboard.
-     */
     readonly url: string;
 }
 
@@ -69,8 +57,5 @@ export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getDashboard.
  */
 export interface GetDashboardOutputArgs {
-    /**
-     * The dashboard name to search for. Must only match one dashboard.
-     */
     name: pulumi.Input<string>;
 }

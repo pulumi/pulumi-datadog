@@ -197,6 +197,16 @@ func (o ApplicationKeyOutput) ToApplicationKeyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The value of the Application Key.
+func (o ApplicationKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Name for Application Key.
+func (o ApplicationKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type ApplicationKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKeyArrayOutput) ElementType() reflect.Type {

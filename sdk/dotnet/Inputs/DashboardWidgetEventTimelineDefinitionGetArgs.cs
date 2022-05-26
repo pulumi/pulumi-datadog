@@ -21,9 +21,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("tagsExecution")]
         public Input<string>? TagsExecution { get; set; }
 
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

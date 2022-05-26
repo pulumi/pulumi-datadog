@@ -219,6 +219,21 @@ func (o WebhookCustomVariableOutput) ToWebhookCustomVariableOutputWithContext(ct
 	return o
 }
 
+// Whether the custom variable is secret or not.
+func (o WebhookCustomVariableOutput) GetIsSecret() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebhookCustomVariable) pulumi.BoolOutput { return v.IsSecret }).(pulumi.BoolOutput)
+}
+
+// The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
+func (o WebhookCustomVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebhookCustomVariable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the custom variable.
+func (o WebhookCustomVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebhookCustomVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 type WebhookCustomVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (WebhookCustomVariableArrayOutput) ElementType() reflect.Type {

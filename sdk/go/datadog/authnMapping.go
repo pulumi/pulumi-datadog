@@ -227,6 +227,21 @@ func (o AuthnMappingOutput) ToAuthnMappingOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Identity provider key.
+func (o AuthnMappingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthnMapping) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// The ID of a role to attach to all users with the corresponding key and value.
+func (o AuthnMappingOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthnMapping) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// Identity provider value.
+func (o AuthnMappingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthnMapping) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 type AuthnMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthnMappingArrayOutput) ElementType() reflect.Type {

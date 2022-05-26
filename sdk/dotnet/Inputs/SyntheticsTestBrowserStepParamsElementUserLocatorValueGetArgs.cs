@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorValueGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

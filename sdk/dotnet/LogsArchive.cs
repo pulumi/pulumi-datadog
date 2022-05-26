@@ -61,7 +61,8 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveGcsArchive?> GcsArchive { get; private set; } = null!;
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
         /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
@@ -77,6 +78,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// To limit the rehydration scan size for the archive, set a value in GB.
+        /// </summary>
+        [Output("rehydrationMaxScanSizeInGb")]
+        public Output<int?> RehydrationMaxScanSizeInGb { get; private set; } = null!;
 
         /// <summary>
         /// An array of tags to add to rehydrated logs from an archive.
@@ -149,7 +156,8 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -165,6 +173,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
+
+        /// <summary>
+        /// To limit the rehydration scan size for the archive, set a value in GB.
+        /// </summary>
+        [Input("rehydrationMaxScanSizeInGb")]
+        public Input<int>? RehydrationMaxScanSizeInGb { get; set; }
 
         [Input("rehydrationTags")]
         private InputList<string>? _rehydrationTags;
@@ -204,7 +218,8 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveGetArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -220,6 +235,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        /// <summary>
+        /// To limit the rehydration scan size for the archive, set a value in GB.
+        /// </summary>
+        [Input("rehydrationMaxScanSizeInGb")]
+        public Input<int>? RehydrationMaxScanSizeInGb { get; set; }
 
         [Input("rehydrationTags")]
         private InputList<string>? _rehydrationTags;

@@ -22,9 +22,6 @@ export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArg
  * A collection of arguments for invoking getSyntheticsGlobalVariable.
  */
 export interface GetSyntheticsGlobalVariableArgs {
-    /**
-     * The synthetics global variable name to search for. Must only match one global variable.
-     */
     name: string;
 }
 
@@ -36,13 +33,7 @@ export interface GetSyntheticsGlobalVariableResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The synthetics global variable name to search for. Must only match one global variable.
-     */
     readonly name: string;
-    /**
-     * A list of tags assigned to the Synthetics global variable.
-     */
     readonly tags: string[];
 }
 
@@ -54,8 +45,5 @@ export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVaria
  * A collection of arguments for invoking getSyntheticsGlobalVariable.
  */
 export interface GetSyntheticsGlobalVariableOutputArgs {
-    /**
-     * The synthetics global variable name to search for. Must only match one global variable.
-     */
     name: pulumi.Input<string>;
 }

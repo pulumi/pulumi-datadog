@@ -47,7 +47,7 @@ type OrganizationSettings struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for Organization.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId pulumi.StringOutput `pulumi:"publicId"`
 	// Organization settings
 	Settings OrganizationSettingsSettingsOutput `pulumi:"settings"`
@@ -86,7 +86,7 @@ type organizationSettingsState struct {
 	Description *string `pulumi:"description"`
 	// Name for Organization.
 	Name *string `pulumi:"name"`
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId *string `pulumi:"publicId"`
 	// Organization settings
 	Settings *OrganizationSettingsSettings `pulumi:"settings"`
@@ -97,7 +97,7 @@ type OrganizationSettingsState struct {
 	Description pulumi.StringPtrInput
 	// Name for Organization.
 	Name pulumi.StringPtrInput
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId pulumi.StringPtrInput
 	// Organization settings
 	Settings OrganizationSettingsSettingsPtrInput
@@ -207,6 +207,26 @@ func (o OrganizationSettingsOutput) ToOrganizationSettingsOutput() OrganizationS
 
 func (o OrganizationSettingsOutput) ToOrganizationSettingsOutputWithContext(ctx context.Context) OrganizationSettingsOutput {
 	return o
+}
+
+// Description of the organization.
+func (o OrganizationSettingsOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name for Organization.
+func (o OrganizationSettingsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The `public_id` of the organization you are operating within.
+func (o OrganizationSettingsOutput) PublicId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringOutput { return v.PublicId }).(pulumi.StringOutput)
+}
+
+// Organization settings
+func (o OrganizationSettingsOutput) Settings() OrganizationSettingsSettingsOutput {
+	return o.ApplyT(func(v *OrganizationSettings) OrganizationSettingsSettingsOutput { return v.Settings }).(OrganizationSettingsSettingsOutput)
 }
 
 type OrganizationSettingsArrayOutput struct{ *pulumi.OutputState }

@@ -35,8 +35,5 @@ export interface GetLogsIndexesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of logs indexes
-     */
     readonly logsIndexes: outputs.GetLogsIndexesLogsIndex[];
 }

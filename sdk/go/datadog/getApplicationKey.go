@@ -45,19 +45,14 @@ func LookupApplicationKey(ctx *pulumi.Context, args *LookupApplicationKeyArgs, o
 
 // A collection of arguments for invoking getApplicationKey.
 type LookupApplicationKeyArgs struct {
-	// Id for Application Key.
-	Id *string `pulumi:"id"`
-	// Name for Application Key.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getApplicationKey.
 type LookupApplicationKeyResult struct {
-	// Id for Application Key.
-	Id *string `pulumi:"id"`
-	// The value of the Application Key.
-	Key string `pulumi:"key"`
-	// Name for Application Key.
+	Id   *string `pulumi:"id"`
+	Key  string  `pulumi:"key"`
 	Name *string `pulumi:"name"`
 }
 
@@ -76,9 +71,7 @@ func LookupApplicationKeyOutput(ctx *pulumi.Context, args LookupApplicationKeyOu
 
 // A collection of arguments for invoking getApplicationKey.
 type LookupApplicationKeyOutputArgs struct {
-	// Id for Application Key.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name for Application Key.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -101,17 +94,14 @@ func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutputWith
 	return o
 }
 
-// Id for Application Key.
 func (o LookupApplicationKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The value of the Application Key.
 func (o LookupApplicationKeyResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationKeyResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Name for Application Key.
 func (o LookupApplicationKeyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

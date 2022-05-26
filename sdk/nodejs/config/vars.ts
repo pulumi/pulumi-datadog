@@ -43,7 +43,7 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
- * Enables request retries on HTTP status codes 429 and 5xx.
+ * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
  */
 export declare const httpClientRetryEnabled: boolean | undefined;
 Object.defineProperty(exports, "httpClientRetryEnabled", {

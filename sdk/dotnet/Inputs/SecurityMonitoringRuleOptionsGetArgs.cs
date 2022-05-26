@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("evaluationWindow")]
         public Input<int>? EvaluationWindow { get; set; }
 
+        [Input("impossibleTravelOptions")]
+        public Input<Inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs>? ImpossibleTravelOptions { get; set; }
+
         [Input("keepAlive", required: true)]
         public Input<int> KeepAlive { get; set; } = null!;
 

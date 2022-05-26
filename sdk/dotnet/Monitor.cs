@@ -22,7 +22,6 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
-    ///         // Create a new Datadog monitor
     ///         var foo = new Datadog.Monitor("foo", new Datadog.MonitorArgs
     ///         {
     ///             EscalationMessage = "Escalation message @pagerduty",
@@ -31,19 +30,14 @@ namespace Pulumi.Datadog
     ///             MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
     ///             {
     ///                 Critical = "4",
-    ///                 CriticalRecovery = "3",
     ///                 Warning = "2",
-    ///                 WarningRecovery = "1",
     ///             },
     ///             Name = "Name for monitor foo",
-    ///             NotifyAudit = false,
-    ///             NotifyNoData = false,
     ///             Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
-    ///             RenotifyInterval = 60,
     ///             Tags = 
     ///             {
     ///                 "foo:bar",
-    ///                 "baz",
+    ///                 "team:fooBar",
     ///             },
     ///             Type = "metric alert",
     ///         });
@@ -111,7 +105,8 @@ namespace Pulumi.Datadog
         public Output<bool?> Locked { get; private set; } = null!;
 
         /// <summary>
-        /// A message to include with notifications for this monitor.
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
         /// </summary>
         [Output("message")]
         public Output<string> Message { get; private set; } = null!;
@@ -215,6 +210,12 @@ namespace Pulumi.Datadog
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        /// field.
+        /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
@@ -226,7 +227,8 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        /// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        /// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         /// </summary>
         [Output("timeoutH")]
         public Output<int?> TimeoutH { get; private set; } = null!;
@@ -341,7 +343,8 @@ namespace Pulumi.Datadog
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// A message to include with notifications for this monitor.
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
@@ -453,6 +456,13 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        /// field.
+        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -473,7 +483,8 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        /// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        /// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         /// </summary>
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }
@@ -549,7 +560,8 @@ namespace Pulumi.Datadog
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// A message to include with notifications for this monitor.
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
@@ -661,6 +673,13 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        /// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        /// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        /// field.
+        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -681,7 +700,8 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        /// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        /// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         /// </summary>
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }

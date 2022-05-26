@@ -82,7 +82,7 @@ export interface ProviderArgs {
      */
     appKey?: pulumi.Input<string>;
     /**
-     * Enables request retries on HTTP status codes 429 and 5xx.
+     * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      */
     httpClientRetryEnabled?: pulumi.Input<boolean>;
     /**

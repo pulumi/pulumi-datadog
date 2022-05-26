@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("example")]
         public Input<string>? Example { get; set; }
 
-        /// <summary>
-        /// Name of Datadog synthetics test.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

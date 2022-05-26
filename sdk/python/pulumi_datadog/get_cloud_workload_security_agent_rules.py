@@ -31,9 +31,6 @@ class GetCloudWorkloadSecurityAgentRulesResult:
     @property
     @pulumi.getter(name="agentRules")
     def agent_rules(self) -> Sequence['outputs.GetCloudWorkloadSecurityAgentRulesAgentRuleResult']:
-        """
-        List of Agent rules.
-        """
         return pulumi.get(self, "agent_rules")
 
     @property

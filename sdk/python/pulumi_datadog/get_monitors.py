@@ -49,33 +49,21 @@ class GetMonitorsResult:
     @property
     @pulumi.getter(name="monitorTagsFilters")
     def monitor_tags_filters(self) -> Optional[Sequence[str]]:
-        """
-        A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        """
         return pulumi.get(self, "monitor_tags_filters")
 
     @property
     @pulumi.getter
     def monitors(self) -> Sequence['outputs.GetMonitorsMonitorResult']:
-        """
-        List of monitors
-        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> Optional[str]:
-        """
-        A monitor name to limit the search.
-        """
         return pulumi.get(self, "name_filter")
 
     @property
     @pulumi.getter(name="tagsFilters")
     def tags_filters(self) -> Optional[Sequence[str]]:
-        """
-        A list of tags to limit the search. This filters on the monitor scope.
-        """
         return pulumi.get(self, "tags_filters")
 
 
@@ -98,11 +86,6 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorsResult:
     """
     Use this data source to list several existing monitors for use in other resources.
-
-
-    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-    :param str name_filter: A monitor name to limit the search.
-    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     __args__ = dict()
     __args__['monitorTagsFilters'] = monitor_tags_filters
@@ -129,10 +112,5 @@ def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Seq
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorsResult]:
     """
     Use this data source to list several existing monitors for use in other resources.
-
-
-    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-    :param str name_filter: A monitor name to limit the search.
-    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     ...

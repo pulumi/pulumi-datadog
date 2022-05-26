@@ -46,9 +46,6 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Map of permissions names to their corresponding ID.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Permissions;
 
         [OutputConstructor]

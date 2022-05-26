@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringFilterExclusionFilterGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Exclusion filter name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

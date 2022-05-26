@@ -48,71 +48,42 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getMonitor.
 type LookupMonitorArgs struct {
-	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
-	// A monitor name to limit the search.
-	NameFilter *string `pulumi:"nameFilter"`
-	// A list of tags to limit the search. This filters on the monitor scope.
-	TagsFilters []string `pulumi:"tagsFilters"`
+	NameFilter         *string  `pulumi:"nameFilter"`
+	TagsFilters        []string `pulumi:"tagsFilters"`
 }
 
 // A collection of values returned by getMonitor.
 type LookupMonitorResult struct {
-	// Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-	EnableLogsSample bool `pulumi:"enableLogsSample"`
-	// Message included with a re-notification for this monitor.
-	EscalationMessage string `pulumi:"escalationMessage"`
-	// Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-	EvaluationDelay int `pulumi:"evaluationDelay"`
-	// Whether or not to trigger one alert if any source breaches a threshold.
-	GroupbySimpleMonitor bool `pulumi:"groupbySimpleMonitor"`
+	EnableLogsSample     bool   `pulumi:"enableLogsSample"`
+	EscalationMessage    string `pulumi:"escalationMessage"`
+	EvaluationDelay      int    `pulumi:"evaluationDelay"`
+	GroupbySimpleMonitor bool   `pulumi:"groupbySimpleMonitor"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-	IncludeTags bool `pulumi:"includeTags"`
-	// Whether or not changes to the monitor are restricted to the creator or admins.
-	Locked bool `pulumi:"locked"`
-	// Message included with notifications for this monitor
-	Message string `pulumi:"message"`
-	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
-	// Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
+	Id                      string                             `pulumi:"id"`
+	IncludeTags             bool                               `pulumi:"includeTags"`
+	Locked                  bool                               `pulumi:"locked"`
+	Message                 string                             `pulumi:"message"`
+	MonitorTagsFilters      []string                           `pulumi:"monitorTagsFilters"`
 	MonitorThresholdWindows []GetMonitorMonitorThresholdWindow `pulumi:"monitorThresholdWindows"`
-	// Alert thresholds of the monitor.
-	MonitorThresholds []GetMonitorMonitorThreshold `pulumi:"monitorThresholds"`
-	// Name of the monitor
-	Name string `pulumi:"name"`
-	// A monitor name to limit the search.
-	NameFilter *string `pulumi:"nameFilter"`
-	// Time (in seconds) to skip evaluations for new groups.
-	NewGroupDelay int `pulumi:"newGroupDelay"`
-	// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
-	NewHostDelay int `pulumi:"newHostDelay"`
-	// The number of minutes before the monitor notifies when data stops reporting.
-	NoDataTimeframe int `pulumi:"noDataTimeframe"`
-	// Whether or not tagged users are notified on changes to the monitor.
-	NotifyAudit bool `pulumi:"notifyAudit"`
-	// Whether or not this monitor notifies when data stops reporting.
-	NotifyNoData bool `pulumi:"notifyNoData"`
-	// Query of the monitor.
-	Query string `pulumi:"query"`
-	// The number of minutes after the last notification before the monitor re-notifies on the current status.
-	RenotifyInterval int `pulumi:"renotifyInterval"`
-	// The number of re-notification messages that should be sent on the current status.
-	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
-	// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
-	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
-	// Whether or not the monitor needs a full window of data before it is evaluated.
-	RequireFullWindow bool     `pulumi:"requireFullWindow"`
-	RestrictedRoles   []string `pulumi:"restrictedRoles"`
-	// List of tags associated with the monitor.
-	Tags []string `pulumi:"tags"`
-	// A list of tags to limit the search. This filters on the monitor scope.
-	TagsFilters []string `pulumi:"tagsFilters"`
-	// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-	TimeoutH int `pulumi:"timeoutH"`
-	// Type of the monitor.
-	Type string `pulumi:"type"`
+	MonitorThresholds       []GetMonitorMonitorThreshold       `pulumi:"monitorThresholds"`
+	Name                    string                             `pulumi:"name"`
+	NameFilter              *string                            `pulumi:"nameFilter"`
+	NewGroupDelay           int                                `pulumi:"newGroupDelay"`
+	NewHostDelay            int                                `pulumi:"newHostDelay"`
+	NoDataTimeframe         int                                `pulumi:"noDataTimeframe"`
+	NotifyAudit             bool                               `pulumi:"notifyAudit"`
+	NotifyNoData            bool                               `pulumi:"notifyNoData"`
+	Query                   string                             `pulumi:"query"`
+	RenotifyInterval        int                                `pulumi:"renotifyInterval"`
+	RenotifyOccurrences     int                                `pulumi:"renotifyOccurrences"`
+	RenotifyStatuses        []string                           `pulumi:"renotifyStatuses"`
+	RequireFullWindow       bool                               `pulumi:"requireFullWindow"`
+	RestrictedRoles         []string                           `pulumi:"restrictedRoles"`
+	Tags                    []string                           `pulumi:"tags"`
+	TagsFilters             []string                           `pulumi:"tagsFilters"`
+	TimeoutH                int                                `pulumi:"timeoutH"`
+	Type                    string                             `pulumi:"type"`
 }
 
 func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
@@ -130,12 +101,9 @@ func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts
 
 // A collection of arguments for invoking getMonitor.
 type LookupMonitorOutputArgs struct {
-	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters pulumi.StringArrayInput `pulumi:"monitorTagsFilters"`
-	// A monitor name to limit the search.
-	NameFilter pulumi.StringPtrInput `pulumi:"nameFilter"`
-	// A list of tags to limit the search. This filters on the monitor scope.
-	TagsFilters pulumi.StringArrayInput `pulumi:"tagsFilters"`
+	NameFilter         pulumi.StringPtrInput   `pulumi:"nameFilter"`
+	TagsFilters        pulumi.StringArrayInput `pulumi:"tagsFilters"`
 }
 
 func (LookupMonitorOutputArgs) ElementType() reflect.Type {
@@ -157,22 +125,18 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx co
 	return o
 }
 
-// Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
 func (o LookupMonitorResultOutput) EnableLogsSample() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.EnableLogsSample }).(pulumi.BoolOutput)
 }
 
-// Message included with a re-notification for this monitor.
 func (o LookupMonitorResultOutput) EscalationMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.EscalationMessage }).(pulumi.StringOutput)
 }
 
-// Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
 func (o LookupMonitorResultOutput) EvaluationDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.EvaluationDelay }).(pulumi.IntOutput)
 }
 
-// Whether or not to trigger one alert if any source breaches a threshold.
 func (o LookupMonitorResultOutput) GroupbySimpleMonitor() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.GroupbySimpleMonitor }).(pulumi.BoolOutput)
 }
@@ -182,92 +146,74 @@ func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
 func (o LookupMonitorResultOutput) IncludeTags() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.IncludeTags }).(pulumi.BoolOutput)
 }
 
-// Whether or not changes to the monitor are restricted to the creator or admins.
 func (o LookupMonitorResultOutput) Locked() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.Locked }).(pulumi.BoolOutput)
 }
 
-// Message included with notifications for this monitor
 func (o LookupMonitorResultOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 func (o LookupMonitorResultOutput) MonitorTagsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.MonitorTagsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
 func (o LookupMonitorResultOutput) MonitorThresholdWindows() GetMonitorMonitorThresholdWindowArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []GetMonitorMonitorThresholdWindow { return v.MonitorThresholdWindows }).(GetMonitorMonitorThresholdWindowArrayOutput)
 }
 
-// Alert thresholds of the monitor.
 func (o LookupMonitorResultOutput) MonitorThresholds() GetMonitorMonitorThresholdArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []GetMonitorMonitorThreshold { return v.MonitorThresholds }).(GetMonitorMonitorThresholdArrayOutput)
 }
 
-// Name of the monitor
 func (o LookupMonitorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A monitor name to limit the search.
 func (o LookupMonitorResultOutput) NameFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.NameFilter }).(pulumi.StringPtrOutput)
 }
 
-// Time (in seconds) to skip evaluations for new groups.
 func (o LookupMonitorResultOutput) NewGroupDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.NewGroupDelay }).(pulumi.IntOutput)
 }
 
-// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
 func (o LookupMonitorResultOutput) NewHostDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.NewHostDelay }).(pulumi.IntOutput)
 }
 
-// The number of minutes before the monitor notifies when data stops reporting.
 func (o LookupMonitorResultOutput) NoDataTimeframe() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.NoDataTimeframe }).(pulumi.IntOutput)
 }
 
-// Whether or not tagged users are notified on changes to the monitor.
 func (o LookupMonitorResultOutput) NotifyAudit() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.NotifyAudit }).(pulumi.BoolOutput)
 }
 
-// Whether or not this monitor notifies when data stops reporting.
 func (o LookupMonitorResultOutput) NotifyNoData() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.NotifyNoData }).(pulumi.BoolOutput)
 }
 
-// Query of the monitor.
 func (o LookupMonitorResultOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Query }).(pulumi.StringOutput)
 }
 
-// The number of minutes after the last notification before the monitor re-notifies on the current status.
 func (o LookupMonitorResultOutput) RenotifyInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.RenotifyInterval }).(pulumi.IntOutput)
 }
 
-// The number of re-notification messages that should be sent on the current status.
 func (o LookupMonitorResultOutput) RenotifyOccurrences() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.RenotifyOccurrences }).(pulumi.IntOutput)
 }
 
-// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
 func (o LookupMonitorResultOutput) RenotifyStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.RenotifyStatuses }).(pulumi.StringArrayOutput)
 }
 
-// Whether or not the monitor needs a full window of data before it is evaluated.
 func (o LookupMonitorResultOutput) RequireFullWindow() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.RequireFullWindow }).(pulumi.BoolOutput)
 }
@@ -276,22 +222,18 @@ func (o LookupMonitorResultOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }
 
-// List of tags associated with the monitor.
 func (o LookupMonitorResultOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// A list of tags to limit the search. This filters on the monitor scope.
 func (o LookupMonitorResultOutput) TagsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.TagsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
 func (o LookupMonitorResultOutput) TimeoutH() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.TimeoutH }).(pulumi.IntOutput)
 }
 
-// Type of the monitor.
 func (o LookupMonitorResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -40,7 +40,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def http_client_retry_enabled(self) -> Optional[bool]:
         """
-        Enables request retries on HTTP status codes 429 and 5xx.
+        Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         """
         return __config__.get_bool('httpClientRetryEnabled')
 

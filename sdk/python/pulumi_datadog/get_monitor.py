@@ -110,33 +110,21 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="enableLogsSample")
     def enable_logs_sample(self) -> bool:
-        """
-        Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-        """
         return pulumi.get(self, "enable_logs_sample")
 
     @property
     @pulumi.getter(name="escalationMessage")
     def escalation_message(self) -> str:
-        """
-        Message included with a re-notification for this monitor.
-        """
         return pulumi.get(self, "escalation_message")
 
     @property
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> int:
-        """
-        Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-        """
         return pulumi.get(self, "evaluation_delay")
 
     @property
     @pulumi.getter(name="groupbySimpleMonitor")
     def groupby_simple_monitor(self) -> bool:
-        """
-        Whether or not to trigger one alert if any source breaches a threshold.
-        """
         return pulumi.get(self, "groupby_simple_monitor")
 
     @property
@@ -150,145 +138,91 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> bool:
-        """
-        Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-        """
         return pulumi.get(self, "include_tags")
 
     @property
     @pulumi.getter
     def locked(self) -> bool:
-        """
-        Whether or not changes to the monitor are restricted to the creator or admins.
-        """
         return pulumi.get(self, "locked")
 
     @property
     @pulumi.getter
     def message(self) -> str:
-        """
-        Message included with notifications for this monitor
-        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter(name="monitorTagsFilters")
     def monitor_tags_filters(self) -> Optional[Sequence[str]]:
-        """
-        A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        """
         return pulumi.get(self, "monitor_tags_filters")
 
     @property
     @pulumi.getter(name="monitorThresholdWindows")
     def monitor_threshold_windows(self) -> Sequence['outputs.GetMonitorMonitorThresholdWindowResult']:
-        """
-        Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
-        """
         return pulumi.get(self, "monitor_threshold_windows")
 
     @property
     @pulumi.getter(name="monitorThresholds")
     def monitor_thresholds(self) -> Sequence['outputs.GetMonitorMonitorThresholdResult']:
-        """
-        Alert thresholds of the monitor.
-        """
         return pulumi.get(self, "monitor_thresholds")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the monitor
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> Optional[str]:
-        """
-        A monitor name to limit the search.
-        """
         return pulumi.get(self, "name_filter")
 
     @property
     @pulumi.getter(name="newGroupDelay")
     def new_group_delay(self) -> int:
-        """
-        Time (in seconds) to skip evaluations for new groups.
-        """
         return pulumi.get(self, "new_group_delay")
 
     @property
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> int:
-        """
-        Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
-        """
         return pulumi.get(self, "new_host_delay")
 
     @property
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> int:
-        """
-        The number of minutes before the monitor notifies when data stops reporting.
-        """
         return pulumi.get(self, "no_data_timeframe")
 
     @property
     @pulumi.getter(name="notifyAudit")
     def notify_audit(self) -> bool:
-        """
-        Whether or not tagged users are notified on changes to the monitor.
-        """
         return pulumi.get(self, "notify_audit")
 
     @property
     @pulumi.getter(name="notifyNoData")
     def notify_no_data(self) -> bool:
-        """
-        Whether or not this monitor notifies when data stops reporting.
-        """
         return pulumi.get(self, "notify_no_data")
 
     @property
     @pulumi.getter
     def query(self) -> str:
-        """
-        Query of the monitor.
-        """
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> int:
-        """
-        The number of minutes after the last notification before the monitor re-notifies on the current status.
-        """
         return pulumi.get(self, "renotify_interval")
 
     @property
     @pulumi.getter(name="renotifyOccurrences")
     def renotify_occurrences(self) -> int:
-        """
-        The number of re-notification messages that should be sent on the current status.
-        """
         return pulumi.get(self, "renotify_occurrences")
 
     @property
     @pulumi.getter(name="renotifyStatuses")
     def renotify_statuses(self) -> Sequence[str]:
-        """
-        The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
-        """
         return pulumi.get(self, "renotify_statuses")
 
     @property
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> bool:
-        """
-        Whether or not the monitor needs a full window of data before it is evaluated.
-        """
         return pulumi.get(self, "require_full_window")
 
     @property
@@ -299,33 +233,21 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
-        """
-        List of tags associated with the monitor.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsFilters")
     def tags_filters(self) -> Optional[Sequence[str]]:
-        """
-        A list of tags to limit the search. This filters on the monitor scope.
-        """
         return pulumi.get(self, "tags_filters")
 
     @property
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> int:
-        """
-        Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-        """
         return pulumi.get(self, "timeout_h")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Type of the monitor.
-        """
         return pulumi.get(self, "type")
 
 
@@ -381,11 +303,6 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
         name_filter="My awesome monitor")
     ```
-
-
-    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-    :param str name_filter: A monitor name to limit the search.
-    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     __args__ = dict()
     __args__['monitorTagsFilters'] = monitor_tags_filters
@@ -445,10 +362,5 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
     test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
         name_filter="My awesome monitor")
     ```
-
-
-    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-    :param str name_filter: A monitor name to limit the search.
-    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     ...

@@ -213,6 +213,26 @@ func (o DashboardJsonOutput) ToDashboardJsonOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The JSON formatted definition of the Dashboard.
+func (o DashboardJsonOutput) Dashboard() pulumi.StringOutput {
+	return o.ApplyT(func(v *DashboardJson) pulumi.StringOutput { return v.Dashboard }).(pulumi.StringOutput)
+}
+
+// The list of dashboard lists this dashboard belongs to.
+func (o DashboardJsonOutput) DashboardLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DashboardJson) pulumi.IntArrayOutput { return v.DashboardLists }).(pulumi.IntArrayOutput)
+}
+
+// The list of dashboard lists this dashboard should be removed from. Internal only.
+func (o DashboardJsonOutput) DashboardListsRemoveds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DashboardJson) pulumi.IntArrayOutput { return v.DashboardListsRemoveds }).(pulumi.IntArrayOutput)
+}
+
+// The URL of the dashboard.
+func (o DashboardJsonOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *DashboardJson) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type DashboardJsonArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardJsonArrayOutput) ElementType() reflect.Type {

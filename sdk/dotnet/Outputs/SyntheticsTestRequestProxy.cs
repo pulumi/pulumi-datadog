@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestRequestProxy
     {
-        /// <summary>
-        /// Header name and value map.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? Headers;
-        /// <summary>
-        /// URL of the proxy to perform the test.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

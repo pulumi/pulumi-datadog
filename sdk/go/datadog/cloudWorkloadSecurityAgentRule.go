@@ -229,6 +229,26 @@ func (o CloudWorkloadSecurityAgentRuleOutput) ToCloudWorkloadSecurityAgentRuleOu
 	return o
 }
 
+// The description of the Agent rule.
+func (o CloudWorkloadSecurityAgentRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the Agent rule is enabled.
+func (o CloudWorkloadSecurityAgentRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The SECL expression of the Agent rule.
+func (o CloudWorkloadSecurityAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.StringOutput { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The name of the Agent rule.
+func (o CloudWorkloadSecurityAgentRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type CloudWorkloadSecurityAgentRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (CloudWorkloadSecurityAgentRuleArrayOutput) ElementType() reflect.Type {

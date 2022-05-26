@@ -12,45 +12,24 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsListArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
-        /// </summary>
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
 
-        /// <summary>
-        /// Allows loading insecure content for an HTTP test.
-        /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
-        /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-        /// </summary>
         [Input("checkCertificateRevocation")]
         public Input<bool>? CheckCertificateRevocation { get; set; }
 
-        /// <summary>
-        /// Determines whether or not the API HTTP test should follow redirects.
-        /// </summary>
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 
-        /// <summary>
-        /// Minimum amount of time in failure required to trigger an alert. Default is `0`.
-        /// </summary>
         [Input("minFailureDuration")]
         public Input<int>? MinFailureDuration { get; set; }
 
-        /// <summary>
-        /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
-        /// </summary>
         [Input("minLocationFailed")]
         public Input<int>? MinLocationFailed { get; set; }
 
-        /// <summary>
-        /// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-        /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
@@ -60,18 +39,20 @@ namespace Pulumi.Datadog.Inputs
         [Input("monitorPriority")]
         public Input<int>? MonitorPriority { get; set; }
 
-        /// <summary>
-        /// Prevents saving screenshots of the steps.
-        /// </summary>
         [Input("noScreenshot")]
         public Input<bool>? NoScreenshot { get; set; }
+
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
 
         [Input("retry")]
         public Input<Inputs.SyntheticsTestOptionsListRetryArgs>? Retry { get; set; }
 
-        /// <summary>
-        /// How often the test should run (in seconds).
-        /// </summary>
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;
 

@@ -65,7 +65,7 @@ export class ChildOrganization extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The `publicId` of the organization you are operating within.
+     * The `public_id` of the organization you are operating within.
      */
     public /*out*/ readonly publicId!: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export interface ChildOrganizationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `publicId` of the organization you are operating within.
+     * The `public_id` of the organization you are operating within.
      */
     publicId?: pulumi.Input<string>;
     /**

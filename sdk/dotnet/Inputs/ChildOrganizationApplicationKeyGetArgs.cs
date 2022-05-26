@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("hash")]
         public Input<string>? Hash { get; set; }
 
-        /// <summary>
-        /// Name for Child Organization after creation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

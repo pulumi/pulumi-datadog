@@ -65,13 +65,16 @@ import (
 type MetricTagConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+	// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+	// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
 	Aggregations MetricTagConfigurationAggregationArrayOutput `pulumi:"aggregations"`
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+	// have a `metric_type` of distribution.
 	IncludePercentiles pulumi.BoolPtrOutput `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation.
 	MetricType pulumi.StringOutput `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -115,26 +118,32 @@ func GetMetricTagConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricTagConfiguration resources.
 type metricTagConfigurationState struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+	// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+	// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
 	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+	// have a `metric_type` of distribution.
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName *string `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation.
 	MetricType *string `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags []string `pulumi:"tags"`
 }
 
 type MetricTagConfigurationState struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+	// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+	// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
 	Aggregations MetricTagConfigurationAggregationArrayInput
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+	// have a `metric_type` of distribution.
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringPtrInput
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation.
 	MetricType pulumi.StringPtrInput
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayInput
@@ -145,13 +154,16 @@ func (MetricTagConfigurationState) ElementType() reflect.Type {
 }
 
 type metricTagConfigurationArgs struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+	// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+	// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
 	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+	// have a `metric_type` of distribution.
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName string `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation.
 	MetricType string `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags []string `pulumi:"tags"`
@@ -159,13 +171,16 @@ type metricTagConfigurationArgs struct {
 
 // The set of arguments for constructing a MetricTagConfiguration resource.
 type MetricTagConfigurationArgs struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+	// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+	// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
 	Aggregations MetricTagConfigurationAggregationArrayInput
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+	// have a `metric_type` of distribution.
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringInput
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation.
 	MetricType pulumi.StringInput
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayInput
@@ -256,6 +271,34 @@ func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutput() MetricTag
 
 func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutputWithContext(ctx context.Context) MetricTagConfigurationOutput {
 	return o
+}
+
+// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
+// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
+// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+func (o MetricTagConfigurationOutput) Aggregations() MetricTagConfigurationAggregationArrayOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) MetricTagConfigurationAggregationArrayOutput { return v.Aggregations }).(MetricTagConfigurationAggregationArrayOutput)
+}
+
+// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
+// have a `metric_type` of distribution.
+func (o MetricTagConfigurationOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.BoolPtrOutput { return v.IncludePercentiles }).(pulumi.BoolPtrOutput)
+}
+
+// The metric name for this resource.
+func (o MetricTagConfigurationOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The metric's type. This field can't be updated after creation.
+func (o MetricTagConfigurationOutput) MetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.StringOutput { return v.MetricType }).(pulumi.StringOutput)
+}
+
+// A list of tag keys that will be queryable for your metric.
+func (o MetricTagConfigurationOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type MetricTagConfigurationArrayOutput struct{ *pulumi.OutputState }

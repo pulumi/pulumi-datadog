@@ -47,7 +47,8 @@ namespace Pulumi.Datadog
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
         /// </summary>
         [Output("indexes")]
         public Output<ImmutableArray<string>> Indexes { get; private set; } = null!;
@@ -108,7 +109,8 @@ namespace Pulumi.Datadog
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -133,7 +135,8 @@ namespace Pulumi.Datadog
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
         /// </summary>
         public InputList<string> Indexes
         {

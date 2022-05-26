@@ -55,7 +55,9 @@ type Integration struct {
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+	// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+	// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
@@ -105,7 +107,9 @@ type integrationState struct {
 	ClientId *string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+	// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+	// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
 	TenantName *string `pulumi:"tenantName"`
@@ -118,7 +122,9 @@ type IntegrationState struct {
 	ClientId pulumi.StringPtrInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringPtrInput
-	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+	// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+	// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringPtrInput
@@ -135,7 +141,9 @@ type integrationArgs struct {
 	ClientId string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret string `pulumi:"clientSecret"`
-	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+	// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+	// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
 	TenantName string `pulumi:"tenantName"`
@@ -149,7 +157,9 @@ type IntegrationArgs struct {
 	ClientId pulumi.StringInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringInput
-	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+	// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+	// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringInput
@@ -240,6 +250,33 @@ func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
 
 func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return o
+}
+
+// Silence monitors for expected Azure VM shutdowns.
+func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
+}
+
+// Your Azure web application ID.
+func (o IntegrationOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// (Required for Initial Creation) Your Azure web application secret key.
+func (o IntegrationOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+func (o IntegrationOutput) HostFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.HostFilters }).(pulumi.StringPtrOutput)
+}
+
+// Your Azure Active Directory ID.
+func (o IntegrationOutput) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
 }
 
 type IntegrationArrayOutput struct{ *pulumi.OutputState }

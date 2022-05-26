@@ -6,17 +6,11 @@ import { input as inputs, output as outputs } from "../types";
 
 export interface ChildOrganizationApiKey {
     key: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
 }
 
 export interface ChildOrganizationApplicationKey {
     hash: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
     owner: string;
 }
@@ -54,186 +48,66 @@ export interface ChildOrganizationSettingSamlStrictMode {
 export interface ChildOrganizationUser {
     accessRole: string;
     email: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
 }
 
 export interface DashboardListDashItem {
-    /**
-     * The ID of the dashboard to add
-     */
     dashId: string;
-    /**
-     * The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
-     */
     type: string;
 }
 
 export interface DashboardTemplateVariable {
-    /**
-     * The list of values that the template variable drop-down is be limited to
-     */
     availableValues?: string[];
-    /**
-     * The default value for the template variable on dashboard load.
-     */
     default?: string;
-    /**
-     * The name of the variable.
-     */
     name: string;
-    /**
-     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
-     */
     prefix?: string;
 }
 
 export interface DashboardTemplateVariablePreset {
-    /**
-     * The name of the preset.
-     */
     name?: string;
-    /**
-     * The template variable names and assumed values under the given preset
-     */
     templateVariables?: outputs.DashboardTemplateVariablePresetTemplateVariable[];
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
-    /**
-     * The name of the variable.
-     */
     name?: string;
     value?: string;
 }
 
 export interface DashboardWidget {
-    /**
-     * The definition for a Alert Graph widget.
-     */
     alertGraphDefinition?: outputs.DashboardWidgetAlertGraphDefinition;
-    /**
-     * The definition for a Alert Value widget.
-     */
     alertValueDefinition?: outputs.DashboardWidgetAlertValueDefinition;
-    /**
-     * The definition for a Change widget.
-     */
     changeDefinition?: outputs.DashboardWidgetChangeDefinition;
-    /**
-     * The definition for a Check Status widget.
-     */
     checkStatusDefinition?: outputs.DashboardWidgetCheckStatusDefinition;
-    /**
-     * The definition for a Distribution widget.
-     */
     distributionDefinition?: outputs.DashboardWidgetDistributionDefinition;
-    /**
-     * The definition for a Event Stream widget.
-     */
     eventStreamDefinition?: outputs.DashboardWidgetEventStreamDefinition;
-    /**
-     * The definition for a Event Timeline widget.
-     */
     eventTimelineDefinition?: outputs.DashboardWidgetEventTimelineDefinition;
-    /**
-     * The definition for a Free Text widget.
-     */
     freeTextDefinition?: outputs.DashboardWidgetFreeTextDefinition;
-    /**
-     * The definition for a Geomap widget.
-     */
     geomapDefinition?: outputs.DashboardWidgetGeomapDefinition;
-    /**
-     * The definition for a Group widget.
-     */
     groupDefinition?: outputs.DashboardWidgetGroupDefinition;
-    /**
-     * The definition for a Heatmap widget.
-     */
     heatmapDefinition?: outputs.DashboardWidgetHeatmapDefinition;
-    /**
-     * The definition for a Hostmap widget.
-     */
     hostmapDefinition?: outputs.DashboardWidgetHostmapDefinition;
-    /**
-     * The ID of the widget.
-     */
     id: number;
-    /**
-     * The definition for an Iframe widget.
-     */
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
-    /**
-     * The definition for an Image widget
-     */
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
-    /**
-     * The definition for an Log Stream widget.
-     */
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
-    /**
-     * The definition for an Manage Status widget.
-     */
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
-    /**
-     * The definition for a Note widget.
-     */
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
-    /**
-     * The definition for a Query Table widget.
-     */
     queryTableDefinition?: outputs.DashboardWidgetQueryTableDefinition;
-    /**
-     * The definition for a Query Value widget.
-     */
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
-    /**
-     * The definition for a Scatterplot widget.
-     */
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
-    /**
-     * The definition for a Service Level Objective widget.
-     */
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
-    /**
-     * The definition for a Service Map widget.
-     */
     servicemapDefinition?: outputs.DashboardWidgetServicemapDefinition;
-    /**
-     * The definition for a Sunburst widget.
-     */
     sunburstDefinition?: outputs.DashboardWidgetSunburstDefinition;
-    /**
-     * The definition for a Timeseries widget.
-     */
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
-    /**
-     * The definition for a Toplist widget.
-     */
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
-    /**
-     * The definition for a Trace Service widget.
-     */
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
-    /**
-     * The definition for a Treemap widget.
-     */
     treemapDefinition?: outputs.DashboardWidgetTreemapDefinition;
-    /**
-     * The layout of the widget on a 'free' dashboard.
-     */
     widgetLayout?: outputs.DashboardWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: string;
     liveSpan?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -244,9 +118,6 @@ export interface DashboardWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -257,9 +128,6 @@ export interface DashboardWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetChangeDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -540,9 +408,6 @@ export interface DashboardWidgetCheckStatusDefinition {
     grouping: string;
     liveSpan?: string;
     tags?: string[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -553,9 +418,6 @@ export interface DashboardWidgetDistributionDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -733,9 +595,6 @@ export interface DashboardWidgetEventStreamDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -745,9 +604,6 @@ export interface DashboardWidgetEventTimelineDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -765,9 +621,6 @@ export interface DashboardWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGeomapDefinitionStyle;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -974,142 +827,46 @@ export interface DashboardWidgetGeomapDefinitionView {
 export interface DashboardWidgetGroupDefinition {
     backgroundColor?: string;
     bannerImg?: string;
-    /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
-     */
     layoutType: string;
     showTitle?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
-    /**
-     * The list of widgets to display on the dashboard.
-     */
     widgets: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
 
 export interface DashboardWidgetGroupDefinitionWidget {
-    /**
-     * The definition for a Alert Graph widget.
-     */
     alertGraphDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition;
-    /**
-     * The definition for a Alert Value widget.
-     */
     alertValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition;
-    /**
-     * The definition for a Change widget.
-     */
     changeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition;
-    /**
-     * The definition for a Check Status widget.
-     */
     checkStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition;
-    /**
-     * The definition for a Distribution widget.
-     */
     distributionDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition;
-    /**
-     * The definition for a Event Stream widget.
-     */
     eventStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition;
-    /**
-     * The definition for a Event Timeline widget.
-     */
     eventTimelineDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition;
-    /**
-     * The definition for a Free Text widget.
-     */
     freeTextDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition;
-    /**
-     * The definition for a Geomap widget.
-     */
     geomapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition;
-    /**
-     * The definition for a Heatmap widget.
-     */
     heatmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition;
-    /**
-     * The definition for a Hostmap widget.
-     */
     hostmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition;
-    /**
-     * The ID of the widget.
-     */
     id: number;
-    /**
-     * The definition for an Iframe widget.
-     */
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
-    /**
-     * The definition for an Image widget
-     */
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
-    /**
-     * The definition for an Log Stream widget.
-     */
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
-    /**
-     * The definition for an Manage Status widget.
-     */
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
-    /**
-     * The definition for a Note widget.
-     */
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
-    /**
-     * The definition for a Query Table widget.
-     */
     queryTableDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
-    /**
-     * The definition for a Query Value widget.
-     */
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
-    /**
-     * The definition for a Scatterplot widget.
-     */
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
-    /**
-     * The definition for a Service Level Objective widget.
-     */
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
-    /**
-     * The definition for a Service Map widget.
-     */
     servicemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
-    /**
-     * The definition for a Sunburst widget.
-     */
     sunburstDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
-    /**
-     * The definition for a Timeseries widget.
-     */
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
-    /**
-     * The definition for a Toplist widget.
-     */
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
-    /**
-     * The definition for a Trace Service widget.
-     */
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
-    /**
-     * The definition for a Treemap widget.
-     */
     treemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition;
-    /**
-     * The layout of the widget on a 'free' dashboard.
-     */
     widgetLayout?: outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: string;
     liveSpan?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1120,9 +877,6 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1133,9 +887,6 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1416,9 +1167,6 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     grouping: string;
     liveSpan?: string;
     tags?: string[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1429,9 +1177,6 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1609,9 +1354,6 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1621,9 +1363,6 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1641,9 +1380,6 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1854,9 +1590,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2041,9 +1774,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2357,9 +2087,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
-    /**
-     * The URL of the dashboard.
-     */
     url: string;
 }
 
@@ -2369,9 +2096,6 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     horizontalAlign?: string;
     margin?: string;
     sizing?: string;
-    /**
-     * The URL of the dashboard.
-     */
     url: string;
     urlDarkTheme?: string;
     verticalAlign?: string;
@@ -2386,9 +2110,6 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2407,9 +2128,6 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     summaryType?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2432,9 +2150,6 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     hasSearchBar?: string;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2746,9 +2461,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     precision?: number;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
-    /**
-     * The title of the dashboard.
-     */
+    timeseriesBackground?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3063,14 +2776,24 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground {
+    type: string;
+    yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     colorByGroups?: string[];
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink[];
     liveSpan?: string;
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3497,9 +3220,6 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3511,9 +3231,6 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3533,9 +3250,6 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
     legendTable?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3890,9 +3604,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4273,9 +3984,6 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4607,9 +4315,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4617,9 +4322,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
 }
 
@@ -4752,9 +4454,6 @@ export interface DashboardWidgetHeatmapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4939,9 +4638,6 @@ export interface DashboardWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetHostmapDefinitionStyle;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5255,9 +4951,6 @@ export interface DashboardWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetIframeDefinition {
-    /**
-     * The URL of the dashboard.
-     */
     url: string;
 }
 
@@ -5267,9 +4960,6 @@ export interface DashboardWidgetImageDefinition {
     horizontalAlign?: string;
     margin?: string;
     sizing?: string;
-    /**
-     * The URL of the dashboard.
-     */
     url: string;
     urlDarkTheme?: string;
     verticalAlign?: string;
@@ -5284,9 +4974,6 @@ export interface DashboardWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5305,9 +4992,6 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     summaryType?: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5330,9 +5014,6 @@ export interface DashboardWidgetQueryTableDefinition {
     hasSearchBar?: string;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5644,9 +5325,7 @@ export interface DashboardWidgetQueryValueDefinition {
     precision?: number;
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
-    /**
-     * The title of the dashboard.
-     */
+    timeseriesBackground?: outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5961,14 +5640,24 @@ export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCom
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionTimeseriesBackground {
+    type: string;
+    yaxis?: outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis;
+}
+
+export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
+}
+
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: string[];
     customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
     liveSpan?: string;
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6395,9 +6084,6 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6409,9 +6095,6 @@ export interface DashboardWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6431,9 +6114,6 @@ export interface DashboardWidgetSunburstDefinition {
     legendTable?: outputs.DashboardWidgetSunburstDefinitionLegendTable;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetSunburstDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6788,9 +6468,6 @@ export interface DashboardWidgetTimeseriesDefinition {
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7171,9 +6848,6 @@ export interface DashboardWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetToplistDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7505,9 +7179,6 @@ export interface DashboardWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7515,9 +7186,6 @@ export interface DashboardWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetTreemapDefinition {
     requests?: outputs.DashboardWidgetTreemapDefinitionRequest[];
-    /**
-     * The title of the dashboard.
-     */
     title?: string;
 }
 
@@ -7644,29 +7312,11 @@ export interface DashboardWidgetWidgetLayout {
 }
 
 export interface DowntimeRecurrence {
-    /**
-     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
-     */
     period?: number;
-    /**
-     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
-     */
     rrule?: string;
-    /**
-     * One of `days`, `weeks`, `months`, or `years`
-     */
     type: string;
-    /**
-     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
-     */
     untilDate?: number;
-    /**
-     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
-     */
     untilOccurrences?: number;
-    /**
-     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
-     */
     weekDays?: string[];
 }
 
@@ -7674,9 +7324,6 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     description: string;
     enabled: boolean;
     expression: string;
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
 }
@@ -7719,18 +7366,12 @@ export interface GetMonitorMonitorThresholdWindow {
 }
 
 export interface GetMonitorsMonitor {
-    /**
-     * The ID of this resource.
-     */
     id: number;
     name: string;
     type: string;
 }
 
 export interface GetRolesRole {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
     userCount: number;
@@ -7778,9 +7419,14 @@ export interface GetSecurityMonitoringRulesRuleFilter {
 export interface GetSecurityMonitoringRulesRuleOptions {
     detectionMethod?: string;
     evaluationWindow?: number;
+    impossibleTravelOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions;
     keepAlive: number;
     maxSignalDuration: number;
     newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
+    baselineUserLocations?: boolean;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
@@ -7807,139 +7453,52 @@ export interface GetSecurityMonitoringRulesRuleQueryAgentRule {
 }
 
 export interface GetServiceLevelObjectivesSlo {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
     type: string;
 }
 
 export interface LogsArchiveAzureArchive {
-    /**
-     * Your client id.
-     */
     clientId: string;
-    /**
-     * The container where the archive will be stored.
-     */
     container: string;
-    /**
-     * The path where the archive will be stored.
-     */
     path?: string;
-    /**
-     * The associated storage account.
-     */
     storageAccount: string;
-    /**
-     * Your tenant id.
-     */
     tenantId: string;
 }
 
 export interface LogsArchiveGcsArchive {
-    /**
-     * Name of your GCS bucket.
-     */
     bucket: string;
-    /**
-     * Your client email.
-     */
     clientEmail: string;
-    /**
-     * Path where the archive will be stored.
-     */
     path: string;
-    /**
-     * Your project id.
-     */
     projectId: string;
 }
 
 export interface LogsArchiveS3Archive {
-    /**
-     * Your AWS account id.
-     */
     accountId: string;
-    /**
-     * Name of your s3 bucket.
-     */
     bucket: string;
-    /**
-     * Path where the archive will be stored.
-     */
     path: string;
-    /**
-     * Your AWS role name
-     */
     roleName: string;
 }
 
 export interface LogsCustomPipelineFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessor {
-    /**
-     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
-    /**
-     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
-    /**
-     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
-    /**
-     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
-    /**
-     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-     */
     geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
-    /**
-     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-     */
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
-    /**
-     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorLookupProcessor;
-    /**
-     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
-    /**
-     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
-    /**
-     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
-    /**
-     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-     */
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
-    /**
-     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-     */
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
-    /**
-     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-     */
     urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
-    /**
-     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-     */
     userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
 }
 
@@ -7976,9 +7535,6 @@ export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: string;
 }
 
@@ -8031,68 +7587,23 @@ export interface LogsCustomPipelineProcessorPipeline {
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
-    /**
-     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
-    /**
-     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
-    /**
-     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
-    /**
-     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
-    /**
-     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-     */
     geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
-    /**
-     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-     */
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
-    /**
-     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
-    /**
-     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
-    /**
-     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
-    /**
-     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
-    /**
-     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-     */
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
-    /**
-     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-     */
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
-    /**
-     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-     */
     urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
-    /**
-     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-     */
     userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
 }
 
@@ -8129,9 +7640,6 @@ export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCa
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: string;
 }
 
@@ -8261,153 +7769,63 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 }
 
 export interface LogsIndexExclusionFilter {
-    /**
-     * Logs filter
-     */
     filters?: outputs.LogsIndexExclusionFilterFilter[];
-    /**
-     * A boolean stating if the exclusion is active or not.
-     */
     isEnabled?: boolean;
-    /**
-     * The name of the exclusion filter.
-     */
     name?: string;
 }
 
 export interface LogsIndexExclusionFilterFilter {
-    /**
-     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-     */
     query?: string;
     sampleRate?: number;
 }
 
 export interface LogsIndexFilter {
-    /**
-     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-     */
     query: string;
 }
 
 export interface LogsMetricCompute {
-    /**
-     * The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
-     */
     aggregationType: string;
-    /**
-     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-     */
     path?: string;
 }
 
 export interface LogsMetricFilter {
-    /**
-     * The search query - following the log search syntax.
-     */
     query: string;
 }
 
 export interface LogsMetricGroupBy {
-    /**
-     * The path to the value the log-based metric will be aggregated over.
-     */
     path: string;
-    /**
-     * Name of the tag that gets created.
-     */
     tagName: string;
 }
 
 export interface MetricTagConfigurationAggregation {
-    /**
-     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
-     */
     space: string;
-    /**
-     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
-     */
     time: string;
 }
 
 export interface MonitorMonitorThresholdWindows {
-    /**
-     * Describes how long an anomalous metric must be normal before the alert recovers.
-     */
     recoveryWindow?: string;
-    /**
-     * Describes how long a metric must be anomalous before an alert triggers.
-     */
     triggerWindow?: string;
 }
 
 export interface MonitorMonitorThresholds {
-    /**
-     * The monitor `CRITICAL` threshold. Must be a number.
-     */
     critical?: string;
-    /**
-     * The monitor `CRITICAL` recovery threshold. Must be a number.
-     */
     criticalRecovery?: string;
-    /**
-     * The monitor `OK` threshold. Must be a number.
-     */
     ok?: string;
-    /**
-     * The monitor `UNKNOWN` threshold. Must be a number.
-     */
     unknown?: string;
-    /**
-     * The monitor `WARNING` threshold. Must be a number.
-     */
     warning?: string;
-    /**
-     * The monitor `WARNING` recovery threshold. Must be a number.
-     */
     warningRecovery?: string;
 }
 
 export interface OrganizationSettingsSettings {
-    /**
-     * Whether or not the organization users can share widgets outside of Datadog.
-     */
     privateWidgetShare?: boolean;
-    /**
-     * SAML properties
-     */
     saml: outputs.OrganizationSettingsSettingsSaml;
-    /**
-     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-     */
     samlAutocreateAccessRole?: string;
-    /**
-     * List of domains where the SAML automated user creation is enabled.
-     */
     samlAutocreateUsersDomains: outputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains;
-    /**
-     * Whether or not SAML can be enabled for this organization.
-     */
     samlCanBeEnabled: boolean;
-    /**
-     * Identity provider endpoint for SAML authentication.
-     */
     samlIdpEndpoint: string;
-    /**
-     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-     */
     samlIdpInitiatedLogin: outputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin;
-    /**
-     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-     */
     samlIdpMetadataUploaded: boolean;
-    /**
-     * URL for SAML logging.
-     */
     samlLoginUrl: string;
-    /**
-     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-     */
     samlStrictMode: outputs.OrganizationSettingsSettingsSamlStrictMode;
 }
 
@@ -8429,13 +7847,7 @@ export interface OrganizationSettingsSettingsSamlStrictMode {
 }
 
 export interface RolePermission {
-    /**
-     * ID of the permission to assign.
-     */
     id: string;
-    /**
-     * Name of the permission.
-     */
     name: string;
 }
 
@@ -8450,13 +7862,7 @@ export interface SecurityMonitoringDefaultRuleFilter {
 }
 
 export interface SecurityMonitoringFilterExclusionFilter {
-    /**
-     * Exclusion filter name.
-     */
     name: string;
-    /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
-     */
     query: string;
 }
 
@@ -8481,9 +7887,14 @@ export interface SecurityMonitoringRuleFilter {
 export interface SecurityMonitoringRuleOptions {
     detectionMethod?: string;
     evaluationWindow?: number;
+    impossibleTravelOptions?: outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
     keepAlive: number;
     maxSignalDuration: number;
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
+}
+
+export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+    baselineUserLocations?: boolean;
 }
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
@@ -8516,131 +7927,54 @@ export interface SecurityMonitoringRuleQueryAgentRule {
 }
 
 export interface ServiceLevelObjectiveQuery {
-    /**
-     * The sum of the `total` events.
-     */
     denominator: string;
-    /**
-     * The sum of all the `good` events.
-     */
     numerator: string;
 }
 
 export interface ServiceLevelObjectiveThreshold {
-    /**
-     * The objective's target in`[0,100]`.
-     */
     target: number;
-    /**
-     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
-     */
     targetDisplay: string;
-    /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
-     */
     timeframe: string;
-    /**
-     * The objective's warning value in `[0,100]`. This must be greater than the target value.
-     */
     warning?: number;
-    /**
-     * A string representation of the warning target (see the description of the targetDisplay field for details).
-     */
     warningDisplay: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
-    /**
-     * Required when type = `httpHeader`. Defines the header to use to extract the value
-     */
     field?: string;
     parser: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
-    /**
-     * Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`.
-     */
     type: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
     type: string;
-    /**
-     * The value of the global variable.
-     */
     value?: string;
 }
 
+export interface SyntheticsPrivateLocationMetadata {
+    restrictedRoles?: string[];
+}
+
 export interface SyntheticsTestApiStep {
-    /**
-     * Determines whether or not to continue with test if this step fails.
-     */
     allowFailure?: boolean;
-    /**
-     * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-     */
     assertions?: outputs.SyntheticsTestApiStepAssertion[];
-    /**
-     * Values to parse and save as variables from the response.
-     */
     extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
-    /**
-     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
-     */
     isCritical?: boolean;
-    /**
-     * The name of the step.
-     */
     name: string;
-    /**
-     * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-     */
     requestBasicauth?: outputs.SyntheticsTestApiStepRequestBasicauth;
-    /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-     */
     requestClientCertificate?: outputs.SyntheticsTestApiStepRequestClientCertificate;
-    /**
-     * The request for the api step.
-     */
     requestDefinition?: outputs.SyntheticsTestApiStepRequestDefinition;
-    /**
-     * Header name and value map.
-     */
     requestHeaders?: {[key: string]: any};
-    /**
-     * The proxy to perform the test.
-     */
     requestProxy?: outputs.SyntheticsTestApiStepRequestProxy;
-    /**
-     * Query arguments name and value map.
-     */
     requestQuery?: {[key: string]: any};
     retry?: outputs.SyntheticsTestApiStepRetry;
-    /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
-     */
     subtype?: string;
 }
 
 export interface SyntheticsTestApiStepAssertion {
-    /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-     */
     operator: string;
-    /**
-     * If assertion type is `header`, this is the header name.
-     */
     property?: string;
-    /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-     */
     target?: string;
-    /**
-     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-     */
     targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
-    /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-     */
     type: string;
 }
 
@@ -8652,65 +7986,26 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
 
 export interface SyntheticsTestApiStepExtractedValue {
     field?: string;
-    /**
-     * Name of Datadog synthetics test.
-     */
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type: string;
     value?: string;
 }
 
 export interface SyntheticsTestApiStepRequestBasicauth {
-    /**
-     * Access key for `SIGV4` authentication.
-     */
     accessKey?: string;
-    /**
-     * Domain for `ntlm` authentication.
-     */
     domain?: string;
-    /**
-     * Password for authentication.
-     */
     password?: string;
-    /**
-     * Region for `SIGV4` authentication.
-     */
     region?: string;
-    /**
-     * Secret key for `SIGV4` authentication.
-     */
     secretKey?: string;
-    /**
-     * Service name for `SIGV4` authentication.
-     */
     serviceName?: string;
-    /**
-     * Session token for `SIGV4` authentication.
-     */
     sessionToken?: string;
-    /**
-     * Type of basic authentication to use when performing the test.
-     */
     type?: string;
-    /**
-     * Username for authentication.
-     */
     username?: string;
-    /**
-     * Workstation for `ntlm` authentication.
-     */
     workstation?: string;
 }
 
@@ -8731,69 +8026,24 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     allowInsecure?: boolean;
-    /**
-     * The request body.
-     */
     body?: string;
-    /**
-     * DNS server to use for DNS tests (`subtype = "dns"`).
-     */
     dnsServer?: string;
-    /**
-     * DNS server port to use for DNS tests.
-     */
     dnsServerPort?: number;
     followRedirects?: boolean;
-    /**
-     * Host name to perform the test with.
-     */
     host?: string;
-    /**
-     * For UDP and websocket tests, message to send with the request.
-     */
     message?: string;
-    /**
-     * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-     */
     method?: string;
-    /**
-     * Determines whether or not to save the response body.
-     */
     noSavingResponseBody?: boolean;
-    /**
-     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-     */
     numberOfPackets?: number;
-    /**
-     * Port to use when performing the test.
-     */
     port?: number;
-    /**
-     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-     */
     servername?: string;
-    /**
-     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-     */
     shouldTrackHops?: boolean;
-    /**
-     * Timeout in seconds for the test. Defaults to `60`.
-     */
     timeout?: number;
-    /**
-     * The URL to send the request to.
-     */
     url?: string;
 }
 
 export interface SyntheticsTestApiStepRequestProxy {
-    /**
-     * Header name and value map.
-     */
     headers?: {[key: string]: any};
-    /**
-     * URL of the proxy to perform the test.
-     */
     url: string;
 }
 
@@ -8803,25 +8053,10 @@ export interface SyntheticsTestApiStepRetry {
 }
 
 export interface SyntheticsTestAssertion {
-    /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-     */
     operator: string;
-    /**
-     * If assertion type is `header`, this is the header name.
-     */
     property?: string;
-    /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-     */
     target?: string;
-    /**
-     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-     */
     targetjsonpath?: outputs.SyntheticsTestAssertionTargetjsonpath;
-    /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-     */
     type: string;
 }
 
@@ -8832,33 +8067,12 @@ export interface SyntheticsTestAssertionTargetjsonpath {
 }
 
 export interface SyntheticsTestBrowserStep {
-    /**
-     * Determines if the step should be allowed to fail.
-     */
     allowFailure?: boolean;
-    /**
-     * Force update of the "element" parameter for the step
-     */
     forceElementUpdate?: boolean;
-    /**
-     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
-     */
     isCritical?: boolean;
-    /**
-     * Name of the step.
-     */
     name: string;
-    /**
-     * Parameters for the step.
-     */
     params: outputs.SyntheticsTestBrowserStepParams;
-    /**
-     * Used to override the default timeout of a step.
-     */
     timeout?: number;
-    /**
-     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
-     */
     type: string;
 }
 
@@ -8890,106 +8104,44 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocator {
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type?: string;
     value: string;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
     example?: string;
-    /**
-     * Name of Datadog synthetics test.
-     */
     name?: string;
 }
 
 export interface SyntheticsTestBrowserVariable {
-    /**
-     * Example for the variable.
-     */
     example?: string;
-    /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-     */
     id?: string;
-    /**
-     * Name of the variable.
-     */
     name: string;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: string;
-    /**
-     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
-     */
     type: string;
 }
 
 export interface SyntheticsTestConfigVariable {
-    /**
-     * Example for the variable.
-     */
     example?: string;
-    /**
-     * When type = `global`, ID of the global variable to use.
-     */
     id?: string;
-    /**
-     * Name of the variable.
-     */
     name: string;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: string;
-    /**
-     * Type of test configuration variable. Valid values are `global`, `text`.
-     */
     type: string;
 }
 
 export interface SyntheticsTestOptionsList {
-    /**
-     * For SSL test, whether or not the test should allow self signed certificates.
-     */
     acceptSelfSigned?: boolean;
-    /**
-     * Allows loading insecure content for an HTTP test.
-     */
     allowInsecure?: boolean;
-    /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-     */
     checkCertificateRevocation?: boolean;
-    /**
-     * Determines whether or not the API HTTP test should follow redirects.
-     */
     followRedirects?: boolean;
-    /**
-     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
-     */
     minFailureDuration?: number;
-    /**
-     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
-     */
     minLocationFailed?: number;
-    /**
-     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-     */
     monitorName?: string;
     monitorOptions?: outputs.SyntheticsTestOptionsListMonitorOptions;
     monitorPriority?: number;
-    /**
-     * Prevents saving screenshots of the steps.
-     */
     noScreenshot?: boolean;
+    restrictedRoles?: string[];
     retry?: outputs.SyntheticsTestOptionsListRetry;
-    /**
-     * How often the test should run (in seconds).
-     */
     tickEvery: number;
 }
 
@@ -9003,45 +8155,15 @@ export interface SyntheticsTestOptionsListRetry {
 }
 
 export interface SyntheticsTestRequestBasicauth {
-    /**
-     * Access key for `SIGV4` authentication.
-     */
     accessKey?: string;
-    /**
-     * Domain for `ntlm` authentication.
-     */
     domain?: string;
-    /**
-     * Password for authentication.
-     */
     password?: string;
-    /**
-     * Region for `SIGV4` authentication.
-     */
     region?: string;
-    /**
-     * Secret key for `SIGV4` authentication.
-     */
     secretKey?: string;
-    /**
-     * Service name for `SIGV4` authentication.
-     */
     serviceName?: string;
-    /**
-     * Session token for `SIGV4` authentication.
-     */
     sessionToken?: string;
-    /**
-     * Type of basic authentication to use when performing the test.
-     */
     type?: string;
-    /**
-     * Username for authentication.
-     */
     username?: string;
-    /**
-     * Workstation for `ntlm` authentication.
-     */
     workstation?: string;
 }
 
@@ -9061,87 +8183,31 @@ export interface SyntheticsTestRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestRequestDefinition {
-    /**
-     * The request body.
-     */
     body?: string;
-    /**
-     * DNS server to use for DNS tests (`subtype = "dns"`).
-     */
     dnsServer?: string;
-    /**
-     * DNS server port to use for DNS tests.
-     */
     dnsServerPort?: number;
-    /**
-     * Host name to perform the test with.
-     */
     host?: string;
-    /**
-     * For UDP and websocket tests, message to send with the request.
-     */
     message?: string;
-    /**
-     * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-     */
     method?: string;
-    /**
-     * Determines whether or not to save the response body.
-     */
     noSavingResponseBody?: boolean;
-    /**
-     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-     */
     numberOfPackets?: number;
-    /**
-     * Port to use when performing the test.
-     */
     port?: number;
-    /**
-     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-     */
     servername?: string;
-    /**
-     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-     */
     shouldTrackHops?: boolean;
-    /**
-     * Timeout in seconds for the test. Defaults to `60`.
-     */
     timeout?: number;
-    /**
-     * The URL to send the request to.
-     */
     url?: string;
 }
 
 export interface SyntheticsTestRequestProxy {
-    /**
-     * Header name and value map.
-     */
     headers?: {[key: string]: any};
-    /**
-     * URL of the proxy to perform the test.
-     */
     url: string;
 }
+
 export namespace slack {
     export interface ChannelDisplay {
-        /**
-         * Show the main body of the alert event.
-         */
         message?: boolean;
-        /**
-         * Show the list of @-handles in the alert event.
-         */
         notified?: boolean;
-        /**
-         * Show the alert event's snapshot image.
-         */
         snapshot?: boolean;
-        /**
-         * Show the scopes on which the monitor alerted.
-         */
         tags?: boolean;
     }
 

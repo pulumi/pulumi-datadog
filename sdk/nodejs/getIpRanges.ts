@@ -30,72 +30,24 @@ export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesRes
  * A collection of values returned by getIpRanges.
  */
 export interface GetIpRangesResult {
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
-     */
     readonly agentsIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
-     */
     readonly agentsIpv6s: string[];
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
-     */
     readonly apiIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
-     */
     readonly apiIpv6s: string[];
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
-     */
     readonly apmIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
-     */
     readonly apmIpv6s: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
-     */
     readonly logsIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
-     */
     readonly logsIpv6s: string[];
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
-     */
     readonly processIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
-     */
     readonly processIpv6s: string[];
-    /**
-     * A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
-     */
     readonly syntheticsIpv4ByLocation: {[key: string]: any};
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
-     */
     readonly syntheticsIpv4s: string[];
-    /**
-     * A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
-     */
     readonly syntheticsIpv6ByLocation: {[key: string]: any};
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
-     */
     readonly syntheticsIpv6s: string[];
-    /**
-     * An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
-     */
     readonly webhooksIpv4s: string[];
-    /**
-     * An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
-     */
     readonly webhooksIpv6s: string[];
 }

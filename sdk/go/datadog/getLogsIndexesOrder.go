@@ -41,7 +41,6 @@ func GetLogsIndexesOrder(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Get
 // A collection of values returned by getLogsIndexesOrder.
 type GetLogsIndexesOrderResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+	Id         string   `pulumi:"id"`
 	IndexNames []string `pulumi:"indexNames"`
 }

@@ -38,26 +38,32 @@ class SyntheticsTestArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SyntheticsTest resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
+               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+               `aws:eu-central-1`).
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+        :param pulumi.Input[str] type: Synthetics test type.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep api tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
+        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+               using the same `@username` notation as events.
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+               below.
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the
+               [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+               synthetics page of the UI. Default is an empty list (`[]`).
         """
         pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "name", name)
@@ -102,7 +108,9 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [Datadog
+        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+        `aws:eu-central-1`).
         """
         return pulumi.get(self, "locations")
 
@@ -126,7 +134,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
         """
         return pulumi.get(self, "status")
 
@@ -138,7 +146,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type.
         """
         return pulumi.get(self, "type")
 
@@ -210,7 +218,7 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -222,7 +230,8 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+        using the same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -255,7 +264,8 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="requestClientCertificate")
     def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]:
         """
-        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+        below.
         """
         return pulumi.get(self, "request_client_certificate")
 
@@ -315,7 +325,8 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="setCookie")
     def set_cookie(self) -> Optional[pulumi.Input[str]]:
         """
-        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        Cookies to be used for a browser test request, using the
+        [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         """
         return pulumi.get(self, "set_cookie")
 
@@ -327,7 +338,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
+        The subtype of the Synthetic API test. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -339,7 +350,8 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
+        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+        synthetics page of the UI. Default is an empty list (`[]`).
         """
         return pulumi.get(self, "tags")
 
@@ -380,22 +392,28 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
+               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+               `aws:eu-central-1`).
+        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+               using the same `@username` notation as events.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+               below.
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the
+               [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+               synthetics page of the UI. Default is an empty list (`[]`).
+        :param pulumi.Input[str] type: Synthetics test type.
         """
         if api_steps is not None:
             pulumi.set(__self__, "api_steps", api_steps)
@@ -506,7 +524,7 @@ class _SyntheticsTestState:
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -518,7 +536,9 @@ class _SyntheticsTestState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [Datadog
+        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+        `aws:eu-central-1`).
         """
         return pulumi.get(self, "locations")
 
@@ -530,7 +550,8 @@ class _SyntheticsTestState:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+        using the same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -587,7 +608,8 @@ class _SyntheticsTestState:
     @pulumi.getter(name="requestClientCertificate")
     def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]:
         """
-        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+        below.
         """
         return pulumi.get(self, "request_client_certificate")
 
@@ -647,7 +669,8 @@ class _SyntheticsTestState:
     @pulumi.getter(name="setCookie")
     def set_cookie(self) -> Optional[pulumi.Input[str]]:
         """
-        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        Cookies to be used for a browser test request, using the
+        [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         """
         return pulumi.get(self, "set_cookie")
 
@@ -659,7 +682,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
         """
         return pulumi.get(self, "status")
 
@@ -671,7 +694,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
+        The subtype of the Synthetic API test. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -683,7 +706,8 @@ class _SyntheticsTestState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
+        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+        synthetics page of the UI. Default is an empty list (`[]`).
         """
         return pulumi.get(self, "tags")
 
@@ -695,7 +719,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type.
         """
         return pulumi.get(self, "type")
 
@@ -749,12 +773,6 @@ class SyntheticsTest(pulumi.CustomResource):
 
         ```python
         import pulumi
-
-        config_variable = {
-            "name": "LOCAL_VAR",
-            "id": [your_global_variable_id],
-            "type": "global",
-        }
         ```
 
         which you can now use in your request definition:
@@ -781,7 +799,7 @@ class SyntheticsTest(pulumi.CustomResource):
             name="An API test on example.org",
             options_list=datadog.SyntheticsTestOptionsListArgs(
                 monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=100,
+                    renotify_interval=120,
                 ),
                 retry=datadog.SyntheticsTestOptionsListRetryArgs(
                     count=2,
@@ -995,21 +1013,27 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
+               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+               `aws:eu-central-1`).
+        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+               using the same `@username` notation as events.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+               below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the
+               [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+               synthetics page of the UI. Default is an empty list (`[]`).
+        :param pulumi.Input[str] type: Synthetics test type.
         """
         ...
     @overload
@@ -1035,12 +1059,6 @@ class SyntheticsTest(pulumi.CustomResource):
 
         ```python
         import pulumi
-
-        config_variable = {
-            "name": "LOCAL_VAR",
-            "id": [your_global_variable_id],
-            "type": "global",
-        }
         ```
 
         which you can now use in your request definition:
@@ -1067,7 +1085,7 @@ class SyntheticsTest(pulumi.CustomResource):
             name="An API test on example.org",
             options_list=datadog.SyntheticsTestOptionsListArgs(
                 monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=100,
+                    renotify_interval=120,
                 ),
                 retry=datadog.SyntheticsTestOptionsListRetryArgs(
                     count=2,
@@ -1396,22 +1414,28 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
+               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+               `aws:eu-central-1`).
+        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+               using the same `@username` notation as events.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+               below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the
+               [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+               synthetics page of the UI. Default is an empty list (`[]`).
+        :param pulumi.Input[str] type: Synthetics test type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1485,7 +1509,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
@@ -1493,7 +1517,9 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Sequence[str]]:
         """
-        Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [Datadog
+        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+        `aws:eu-central-1`).
         """
         return pulumi.get(self, "locations")
 
@@ -1501,7 +1527,8 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+        using the same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -1538,7 +1565,8 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="requestClientCertificate")
     def request_client_certificate(self) -> pulumi.Output[Optional['outputs.SyntheticsTestRequestClientCertificate']]:
         """
-        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+        below.
         """
         return pulumi.get(self, "request_client_certificate")
 
@@ -1578,7 +1606,8 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="setCookie")
     def set_cookie(self) -> pulumi.Output[Optional[str]]:
         """
-        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        Cookies to be used for a browser test request, using the
+        [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         """
         return pulumi.get(self, "set_cookie")
 
@@ -1586,7 +1615,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
+        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
         """
         return pulumi.get(self, "status")
 
@@ -1594,7 +1623,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`.
+        The subtype of the Synthetic API test. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -1602,7 +1631,8 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
+        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+        synthetics page of the UI. Default is an empty list (`[]`).
         """
         return pulumi.get(self, "tags")
 
@@ -1610,7 +1640,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Synthetics test type.
         """
         return pulumi.get(self, "type")
 

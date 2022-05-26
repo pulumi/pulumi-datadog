@@ -31,13 +31,7 @@ export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promi
  * A collection of values returned by getSecurityMonitoringFilters.
  */
 export interface GetSecurityMonitoringFiltersResult {
-    /**
-     * List of filters.
-     */
     readonly filters: outputs.GetSecurityMonitoringFiltersFilter[];
-    /**
-     * List of IDs of filters.
-     */
     readonly filtersIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

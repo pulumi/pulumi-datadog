@@ -72,7 +72,7 @@ export class MetricMetadata extends pulumi.CustomResource {
      */
     public readonly statsdInterval!: pulumi.Output<number | undefined>;
     /**
-     * Type of the metric.
+     * Metric type such as `gauge` or `rate`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface MetricMetadataState {
      */
     statsdInterval?: pulumi.Input<number>;
     /**
-     * Type of the metric.
+     * Metric type such as `gauge` or `rate`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface MetricMetadataArgs {
      */
     statsdInterval?: pulumi.Input<number>;
     /**
-     * Type of the metric.
+     * Metric type such as `gauge` or `rate`.
      */
     type?: pulumi.Input<string>;
     /**

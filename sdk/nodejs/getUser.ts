@@ -22,9 +22,6 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * Filter all users by the given string.
-     */
     filter: string;
 }
 
@@ -32,21 +29,12 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * Email of the user.
-     */
     readonly email: string;
-    /**
-     * Filter all users by the given string.
-     */
     readonly filter: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the user.
-     */
     readonly name: string;
 }
 
@@ -58,8 +46,5 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * Filter all users by the given string.
-     */
     filter: pulumi.Input<string>;
 }

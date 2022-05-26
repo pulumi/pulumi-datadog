@@ -42,17 +42,11 @@ class GetSyntheticsGlobalVariableResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The synthetics global variable name to search for. Must only match one global variable.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
-        """
-        A list of tags assigned to the Synthetics global variable.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -71,9 +65,6 @@ def get_synthetics_global_variable(name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyntheticsGlobalVariableResult:
     """
     Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
-
-
-    :param str name: The synthetics global variable name to search for. Must only match one global variable.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -94,8 +85,5 @@ def get_synthetics_global_variable_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsGlobalVariableResult]:
     """
     Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
-
-
-    :param str name: The synthetics global variable name to search for. Must only match one global variable.
     """
     ...

@@ -13,44 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptionsList
     {
-        /// <summary>
-        /// For SSL test, whether or not the test should allow self signed certificates.
-        /// </summary>
         public readonly bool? AcceptSelfSigned;
-        /// <summary>
-        /// Allows loading insecure content for an HTTP test.
-        /// </summary>
         public readonly bool? AllowInsecure;
-        /// <summary>
-        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-        /// </summary>
         public readonly bool? CheckCertificateRevocation;
-        /// <summary>
-        /// Determines whether or not the API HTTP test should follow redirects.
-        /// </summary>
         public readonly bool? FollowRedirects;
-        /// <summary>
-        /// Minimum amount of time in failure required to trigger an alert. Default is `0`.
-        /// </summary>
         public readonly int? MinFailureDuration;
-        /// <summary>
-        /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
-        /// </summary>
         public readonly int? MinLocationFailed;
-        /// <summary>
-        /// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-        /// </summary>
         public readonly string? MonitorName;
         public readonly Outputs.SyntheticsTestOptionsListMonitorOptions? MonitorOptions;
         public readonly int? MonitorPriority;
-        /// <summary>
-        /// Prevents saving screenshots of the steps.
-        /// </summary>
         public readonly bool? NoScreenshot;
+        public readonly ImmutableArray<string> RestrictedRoles;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
-        /// <summary>
-        /// How often the test should run (in seconds).
-        /// </summary>
         public readonly int TickEvery;
 
         [OutputConstructor]
@@ -75,6 +49,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? noScreenshot,
 
+            ImmutableArray<string> restrictedRoles,
+
             Outputs.SyntheticsTestOptionsListRetry? retry,
 
             int tickEvery)
@@ -89,6 +65,7 @@ namespace Pulumi.Datadog.Outputs
             MonitorOptions = monitorOptions;
             MonitorPriority = monitorPriority;
             NoScreenshot = noScreenshot;
+            RestrictedRoles = restrictedRoles;
             Retry = retry;
             TickEvery = tickEvery;
         }

@@ -25,7 +25,7 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
-// Enables request retries on HTTP status codes 429 and 5xx.
+// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 func GetHttpClientRetryEnabled(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "datadog:httpClientRetryEnabled")
 }

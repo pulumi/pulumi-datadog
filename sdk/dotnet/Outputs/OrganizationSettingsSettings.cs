@@ -13,45 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class OrganizationSettingsSettings
     {
-        /// <summary>
-        /// Whether or not the organization users can share widgets outside of Datadog.
-        /// </summary>
         public readonly bool? PrivateWidgetShare;
-        /// <summary>
-        /// SAML properties
-        /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSaml Saml;
-        /// <summary>
-        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-        /// </summary>
         public readonly string? SamlAutocreateAccessRole;
-        /// <summary>
-        /// List of domains where the SAML automated user creation is enabled.
-        /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains SamlAutocreateUsersDomains;
-        /// <summary>
-        /// Whether or not SAML can be enabled for this organization.
-        /// </summary>
         public readonly bool? SamlCanBeEnabled;
-        /// <summary>
-        /// Identity provider endpoint for SAML authentication.
-        /// </summary>
         public readonly string? SamlIdpEndpoint;
-        /// <summary>
-        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin SamlIdpInitiatedLogin;
-        /// <summary>
-        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        /// </summary>
         public readonly bool? SamlIdpMetadataUploaded;
-        /// <summary>
-        /// URL for SAML logging.
-        /// </summary>
         public readonly string? SamlLoginUrl;
-        /// <summary>
-        /// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-        /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSamlStrictMode SamlStrictMode;
 
         [OutputConstructor]

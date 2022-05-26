@@ -45,20 +45,16 @@ func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRole.
 type LookupRoleArgs struct {
-	// A string on which to filter the roles.
 	Filter string `pulumi:"filter"`
 }
 
 // A collection of values returned by getRole.
 type LookupRoleResult struct {
-	// A string on which to filter the roles.
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the role.
-	Name string `pulumi:"name"`
-	// Number of users assigned to this role.
-	UserCount int `pulumi:"userCount"`
+	Id        string `pulumi:"id"`
+	Name      string `pulumi:"name"`
+	UserCount int    `pulumi:"userCount"`
 }
 
 func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
@@ -76,7 +72,6 @@ func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRole.
 type LookupRoleOutputArgs struct {
-	// A string on which to filter the roles.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -99,7 +94,6 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.
 	return o
 }
 
-// A string on which to filter the roles.
 func (o LookupRoleResultOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -109,12 +103,10 @@ func (o LookupRoleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the role.
 func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Number of users assigned to this role.
 func (o LookupRoleResultOutput) UserCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupRoleResult) int { return v.UserCount }).(pulumi.IntOutput)
 }

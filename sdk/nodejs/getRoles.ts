@@ -35,9 +35,6 @@ export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getRoles.
  */
 export interface GetRolesArgs {
-    /**
-     * Filter all roles by the given string.
-     */
     filter?: string;
 }
 
@@ -45,17 +42,11 @@ export interface GetRolesArgs {
  * A collection of values returned by getRoles.
  */
 export interface GetRolesResult {
-    /**
-     * Filter all roles by the given string.
-     */
     readonly filter?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of Roles
-     */
     readonly roles: outputs.GetRolesRole[];
 }
 
@@ -67,8 +58,5 @@ export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getRoles.
  */
 export interface GetRolesOutputArgs {
-    /**
-     * Filter all roles by the given string.
-     */
     filter?: pulumi.Input<string>;
 }

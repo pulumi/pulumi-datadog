@@ -46,7 +46,7 @@ type ChildOrganization struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for Child Organization after creation.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId pulumi.StringOutput `pulumi:"publicId"`
 	// Organization settings
 	Settings ChildOrganizationSettingArrayOutput `pulumi:"settings"`
@@ -94,7 +94,7 @@ type childOrganizationState struct {
 	Description *string `pulumi:"description"`
 	// Name for Child Organization after creation.
 	Name *string `pulumi:"name"`
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId *string `pulumi:"publicId"`
 	// Organization settings
 	Settings []ChildOrganizationSetting `pulumi:"settings"`
@@ -111,7 +111,7 @@ type ChildOrganizationState struct {
 	Description pulumi.StringPtrInput
 	// Name for Child Organization after creation.
 	Name pulumi.StringPtrInput
-	// The `publicId` of the organization you are operating within.
+	// The `public_id` of the organization you are operating within.
 	PublicId pulumi.StringPtrInput
 	// Organization settings
 	Settings ChildOrganizationSettingArrayInput
@@ -219,6 +219,41 @@ func (o ChildOrganizationOutput) ToChildOrganizationOutput() ChildOrganizationOu
 
 func (o ChildOrganizationOutput) ToChildOrganizationOutputWithContext(ctx context.Context) ChildOrganizationOutput {
 	return o
+}
+
+// Datadog API key.
+func (o ChildOrganizationOutput) ApiKeys() ChildOrganizationApiKeyArrayOutput {
+	return o.ApplyT(func(v *ChildOrganization) ChildOrganizationApiKeyArrayOutput { return v.ApiKeys }).(ChildOrganizationApiKeyArrayOutput)
+}
+
+// An application key with its associated metadata.
+func (o ChildOrganizationOutput) ApplicationKeys() ChildOrganizationApplicationKeyArrayOutput {
+	return o.ApplyT(func(v *ChildOrganization) ChildOrganizationApplicationKeyArrayOutput { return v.ApplicationKeys }).(ChildOrganizationApplicationKeyArrayOutput)
+}
+
+// Description of the organization.
+func (o ChildOrganizationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChildOrganization) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name for Child Organization after creation.
+func (o ChildOrganizationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChildOrganization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The `public_id` of the organization you are operating within.
+func (o ChildOrganizationOutput) PublicId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChildOrganization) pulumi.StringOutput { return v.PublicId }).(pulumi.StringOutput)
+}
+
+// Organization settings
+func (o ChildOrganizationOutput) Settings() ChildOrganizationSettingArrayOutput {
+	return o.ApplyT(func(v *ChildOrganization) ChildOrganizationSettingArrayOutput { return v.Settings }).(ChildOrganizationSettingArrayOutput)
+}
+
+// Information about a user
+func (o ChildOrganizationOutput) Users() ChildOrganizationUserArrayOutput {
+	return o.ApplyT(func(v *ChildOrganization) ChildOrganizationUserArrayOutput { return v.Users }).(ChildOrganizationUserArrayOutput)
 }
 
 type ChildOrganizationArrayOutput struct{ *pulumi.OutputState }

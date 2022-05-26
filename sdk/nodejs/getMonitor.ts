@@ -38,17 +38,8 @@ export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorArgs {
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     monitorTagsFilters?: string[];
-    /**
-     * A monitor name to limit the search.
-     */
     nameFilter?: string;
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     tagsFilters?: string[];
 }
 
@@ -56,114 +47,36 @@ export interface GetMonitorArgs {
  * A collection of values returned by getMonitor.
  */
 export interface GetMonitorResult {
-    /**
-     * Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-     */
     readonly enableLogsSample: boolean;
-    /**
-     * Message included with a re-notification for this monitor.
-     */
     readonly escalationMessage: string;
-    /**
-     * Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-     */
     readonly evaluationDelay: number;
-    /**
-     * Whether or not to trigger one alert if any source breaches a threshold.
-     */
     readonly groupbySimpleMonitor: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-     */
     readonly includeTags: boolean;
-    /**
-     * Whether or not changes to the monitor are restricted to the creator or admins.
-     */
     readonly locked: boolean;
-    /**
-     * Message included with notifications for this monitor
-     */
     readonly message: string;
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     readonly monitorTagsFilters?: string[];
-    /**
-     * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
-     */
     readonly monitorThresholdWindows: outputs.GetMonitorMonitorThresholdWindow[];
-    /**
-     * Alert thresholds of the monitor.
-     */
     readonly monitorThresholds: outputs.GetMonitorMonitorThreshold[];
-    /**
-     * Name of the monitor
-     */
     readonly name: string;
-    /**
-     * A monitor name to limit the search.
-     */
     readonly nameFilter?: string;
-    /**
-     * Time (in seconds) to skip evaluations for new groups.
-     */
     readonly newGroupDelay: number;
-    /**
-     * Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
-     */
     readonly newHostDelay: number;
-    /**
-     * The number of minutes before the monitor notifies when data stops reporting.
-     */
     readonly noDataTimeframe: number;
-    /**
-     * Whether or not tagged users are notified on changes to the monitor.
-     */
     readonly notifyAudit: boolean;
-    /**
-     * Whether or not this monitor notifies when data stops reporting.
-     */
     readonly notifyNoData: boolean;
-    /**
-     * Query of the monitor.
-     */
     readonly query: string;
-    /**
-     * The number of minutes after the last notification before the monitor re-notifies on the current status.
-     */
     readonly renotifyInterval: number;
-    /**
-     * The number of re-notification messages that should be sent on the current status.
-     */
     readonly renotifyOccurrences: number;
-    /**
-     * The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
-     */
     readonly renotifyStatuses: string[];
-    /**
-     * Whether or not the monitor needs a full window of data before it is evaluated.
-     */
     readonly requireFullWindow: boolean;
     readonly restrictedRoles: string[];
-    /**
-     * List of tags associated with the monitor.
-     */
     readonly tags: string[];
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     readonly tagsFilters?: string[];
-    /**
-     * Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-     */
     readonly timeoutH: number;
-    /**
-     * Type of the monitor.
-     */
     readonly type: string;
 }
 
@@ -175,16 +88,7 @@ export function getMonitorOutput(args?: GetMonitorOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorOutputArgs {
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A monitor name to limit the search.
-     */
     nameFilter?: pulumi.Input<string>;
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

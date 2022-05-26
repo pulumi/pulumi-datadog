@@ -44,7 +44,8 @@ class MonitorArgs:
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
         :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
                on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
@@ -91,9 +92,14 @@ class MonitorArgs:
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+               field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         pulumi.set(__self__, "message", message)
@@ -112,6 +118,9 @@ class MonitorArgs:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
+        if locked is not None:
+            warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
+            pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
             pulumi.set(__self__, "locked", locked)
         if monitor_threshold_windows is not None:
@@ -154,7 +163,8 @@ class MonitorArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[str]:
         """
-        A message to include with notifications for this monitor.
+        A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -453,6 +463,12 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        field.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -476,7 +492,8 @@ class MonitorArgs:
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
@@ -543,7 +560,8 @@ class _MonitorState:
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
@@ -573,9 +591,14 @@ class _MonitorState:
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+               field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
                cannot be changed after a monitor is created.
@@ -593,6 +616,9 @@ class _MonitorState:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
+        if locked is not None:
+            warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
+            pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
             pulumi.set(__self__, "locked", locked)
         if message is not None:
@@ -734,7 +760,8 @@ class _MonitorState:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        A message to include with notifications for this monitor.
+        A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -928,6 +955,12 @@ class _MonitorState:
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        field.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -951,7 +984,8 @@ class _MonitorState:
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
@@ -1028,25 +1062,19 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new Datadog monitor
         foo = datadog.Monitor("foo",
             escalation_message="Escalation message @pagerduty",
             include_tags=True,
             message="Monitor triggered. Notify: @hipchat-channel",
             monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
                 critical="4",
-                critical_recovery="3",
                 warning="2",
-                warning_recovery="1",
             ),
             name="Name for monitor foo",
-            notify_audit=False,
-            notify_no_data=False,
             query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            renotify_interval=60,
             tags=[
                 "foo:bar",
-                "baz",
+                "team:fooBar",
             ],
             type="metric alert")
         ```
@@ -1073,7 +1101,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
@@ -1103,9 +1132,14 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+               field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
                cannot be changed after a monitor is created.
@@ -1126,25 +1160,19 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new Datadog monitor
         foo = datadog.Monitor("foo",
             escalation_message="Escalation message @pagerduty",
             include_tags=True,
             message="Monitor triggered. Notify: @hipchat-channel",
             monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
                 critical="4",
-                critical_recovery="3",
                 warning="2",
-                warning_recovery="1",
             ),
             name="Name for monitor foo",
-            notify_audit=False,
-            notify_no_data=False,
             query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            renotify_interval=60,
             tags=[
                 "foo:bar",
-                "baz",
+                "team:fooBar",
             ],
             type="metric alert")
         ```
@@ -1215,6 +1243,9 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
             __props__.__dict__["include_tags"] = include_tags
+            if locked is not None and not opts.urn:
+                warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
+                pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
             __props__.__dict__["locked"] = locked
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
@@ -1305,7 +1336,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
@@ -1335,9 +1367,14 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+               updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+               identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+               field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+               minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
                cannot be changed after a monitor is created.
@@ -1443,7 +1480,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[str]:
         """
-        A message to include with notifications for this monitor.
+        A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
@@ -1577,6 +1615,12 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+        updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+        identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+        field.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @property
@@ -1592,7 +1636,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+        The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+        minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 

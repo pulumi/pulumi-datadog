@@ -46,9 +46,6 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of logs indexes
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexResult> LogsIndexes;
 
         [OutputConstructor]
