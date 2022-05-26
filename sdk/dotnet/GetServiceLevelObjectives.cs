@@ -75,31 +75,18 @@ namespace Pulumi.Datadog
     {
         [Input("ids")]
         private List<string>? _ids;
-
-        /// <summary>
-        /// An array of SLO IDs to limit the search.
-        /// </summary>
         public List<string> Ids
         {
             get => _ids ?? (_ids = new List<string>());
             set => _ids = value;
         }
 
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         [Input("metricsQuery")]
         public string? MetricsQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         [Input("nameQuery")]
         public string? NameQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         [Input("tagsQuery")]
         public string? TagsQuery { get; set; }
 
@@ -112,31 +99,18 @@ namespace Pulumi.Datadog
     {
         [Input("ids")]
         private InputList<string>? _ids;
-
-        /// <summary>
-        /// An array of SLO IDs to limit the search.
-        /// </summary>
         public InputList<string> Ids
         {
             get => _ids ?? (_ids = new InputList<string>());
             set => _ids = value;
         }
 
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         [Input("metricsQuery")]
         public Input<string>? MetricsQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         [Input("nameQuery")]
         public Input<string>? NameQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         [Input("tagsQuery")]
         public Input<string>? TagsQuery { get; set; }
 
@@ -153,25 +127,10 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// An array of SLO IDs to limit the search.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         public readonly string? MetricsQuery;
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         public readonly string? NameQuery;
-        /// <summary>
-        /// List of SLOs
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLevelObjectivesSloResult> Slos;
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         public readonly string? TagsQuery;
 
         [OutputConstructor]

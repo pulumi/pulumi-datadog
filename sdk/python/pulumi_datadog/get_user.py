@@ -37,17 +37,11 @@ class GetUserResult:
     @property
     @pulumi.getter
     def email(self) -> str:
-        """
-        Email of the user.
-        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def filter(self) -> str:
-        """
-        Filter all users by the given string.
-        """
         return pulumi.get(self, "filter")
 
     @property
@@ -61,9 +55,6 @@ class GetUserResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the user.
-        """
         return pulumi.get(self, "name")
 
 
@@ -83,9 +74,6 @@ def get_user(filter: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
-
-
-    :param str filter: Filter all users by the given string.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -107,8 +95,5 @@ def get_user_output(filter: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
-
-
-    :param str filter: Filter all users by the given string.
     """
     ...

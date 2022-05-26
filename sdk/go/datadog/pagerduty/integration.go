@@ -228,6 +228,21 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// Your PagerDuty API token.
+func (o IntegrationOutput) ApiToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ApiToken }).(pulumi.StringPtrOutput)
+}
+
+// Array of your schedule URLs.
+func (o IntegrationOutput) Schedules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringArrayOutput { return v.Schedules }).(pulumi.StringArrayOutput)
+}
+
+// Your PagerDuty account’s personalized subdomain name.
+func (o IntegrationOutput) Subdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
+}
+
 type IntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationArrayOutput) ElementType() reflect.Type {

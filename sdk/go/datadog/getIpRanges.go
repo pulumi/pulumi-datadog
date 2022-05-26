@@ -40,38 +40,22 @@ func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRanges
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
 	AgentsIpv4s []string `pulumi:"agentsIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
 	AgentsIpv6s []string `pulumi:"agentsIpv6s"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
-	ApiIpv4s []string `pulumi:"apiIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
-	ApiIpv6s []string `pulumi:"apiIpv6s"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
-	ApmIpv4s []string `pulumi:"apmIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
-	ApmIpv6s []string `pulumi:"apmIpv6s"`
+	ApiIpv4s    []string `pulumi:"apiIpv4s"`
+	ApiIpv6s    []string `pulumi:"apiIpv6s"`
+	ApmIpv4s    []string `pulumi:"apmIpv4s"`
+	ApmIpv6s    []string `pulumi:"apmIpv6s"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
-	LogsIpv4s []string `pulumi:"logsIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
-	LogsIpv6s []string `pulumi:"logsIpv6s"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
-	ProcessIpv4s []string `pulumi:"processIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
-	ProcessIpv6s []string `pulumi:"processIpv6s"`
-	// A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
+	Id                       string                 `pulumi:"id"`
+	LogsIpv4s                []string               `pulumi:"logsIpv4s"`
+	LogsIpv6s                []string               `pulumi:"logsIpv6s"`
+	ProcessIpv4s             []string               `pulumi:"processIpv4s"`
+	ProcessIpv6s             []string               `pulumi:"processIpv6s"`
 	SyntheticsIpv4ByLocation map[string]interface{} `pulumi:"syntheticsIpv4ByLocation"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
-	SyntheticsIpv4s []string `pulumi:"syntheticsIpv4s"`
-	// A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
+	SyntheticsIpv4s          []string               `pulumi:"syntheticsIpv4s"`
 	SyntheticsIpv6ByLocation map[string]interface{} `pulumi:"syntheticsIpv6ByLocation"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
-	SyntheticsIpv6s []string `pulumi:"syntheticsIpv6s"`
-	// An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
-	WebhooksIpv4s []string `pulumi:"webhooksIpv4s"`
-	// An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
-	WebhooksIpv6s []string `pulumi:"webhooksIpv6s"`
+	SyntheticsIpv6s          []string               `pulumi:"syntheticsIpv6s"`
+	WebhooksIpv4s            []string               `pulumi:"webhooksIpv4s"`
+	WebhooksIpv6s            []string               `pulumi:"webhooksIpv6s"`
 }

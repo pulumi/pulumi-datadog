@@ -12,63 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class OrganizationSettingsSettingsGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not the organization users can share widgets outside of Datadog.
-        /// </summary>
         [Input("privateWidgetShare")]
         public Input<bool>? PrivateWidgetShare { get; set; }
 
-        /// <summary>
-        /// SAML properties
-        /// </summary>
         [Input("saml", required: true)]
         public Input<Inputs.OrganizationSettingsSettingsSamlGetArgs> Saml { get; set; } = null!;
 
-        /// <summary>
-        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-        /// </summary>
         [Input("samlAutocreateAccessRole")]
         public Input<string>? SamlAutocreateAccessRole { get; set; }
 
-        /// <summary>
-        /// List of domains where the SAML automated user creation is enabled.
-        /// </summary>
         [Input("samlAutocreateUsersDomains", required: true)]
         public Input<Inputs.OrganizationSettingsSettingsSamlAutocreateUsersDomainsGetArgs> SamlAutocreateUsersDomains { get; set; } = null!;
 
-        /// <summary>
-        /// Whether or not SAML can be enabled for this organization.
-        /// </summary>
         [Input("samlCanBeEnabled")]
         public Input<bool>? SamlCanBeEnabled { get; set; }
 
-        /// <summary>
-        /// Identity provider endpoint for SAML authentication.
-        /// </summary>
         [Input("samlIdpEndpoint")]
         public Input<string>? SamlIdpEndpoint { get; set; }
 
-        /// <summary>
-        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        /// </summary>
         [Input("samlIdpInitiatedLogin", required: true)]
         public Input<Inputs.OrganizationSettingsSettingsSamlIdpInitiatedLoginGetArgs> SamlIdpInitiatedLogin { get; set; } = null!;
 
-        /// <summary>
-        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        /// </summary>
         [Input("samlIdpMetadataUploaded")]
         public Input<bool>? SamlIdpMetadataUploaded { get; set; }
 
-        /// <summary>
-        /// URL for SAML logging.
-        /// </summary>
         [Input("samlLoginUrl")]
         public Input<string>? SamlLoginUrl { get; set; }
 
-        /// <summary>
-        /// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-        /// </summary>
         [Input("samlStrictMode", required: true)]
         public Input<Inputs.OrganizationSettingsSettingsSamlStrictModeGetArgs> SamlStrictMode { get; set; } = null!;
 

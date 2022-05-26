@@ -13,117 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidget
     {
-        /// <summary>
-        /// The definition for a Alert Graph widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition? AlertGraphDefinition;
-        /// <summary>
-        /// The definition for a Alert Value widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition? AlertValueDefinition;
-        /// <summary>
-        /// The definition for a Change widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition? ChangeDefinition;
-        /// <summary>
-        /// The definition for a Check Status widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition? CheckStatusDefinition;
-        /// <summary>
-        /// The definition for a Distribution widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition? DistributionDefinition;
-        /// <summary>
-        /// The definition for a Event Stream widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition? EventStreamDefinition;
-        /// <summary>
-        /// The definition for a Event Timeline widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition? EventTimelineDefinition;
-        /// <summary>
-        /// The definition for a Free Text widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? FreeTextDefinition;
-        /// <summary>
-        /// The definition for a Geomap widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition? GeomapDefinition;
-        /// <summary>
-        /// The definition for a Heatmap widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? HeatmapDefinition;
-        /// <summary>
-        /// The definition for a Hostmap widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? HostmapDefinition;
-        /// <summary>
-        /// The ID of the widget.
-        /// </summary>
         public readonly int? Id;
-        /// <summary>
-        /// The definition for an Iframe widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? IframeDefinition;
-        /// <summary>
-        /// The definition for an Image widget
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
-        /// <summary>
-        /// The definition for an Log Stream widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? LogStreamDefinition;
-        /// <summary>
-        /// The definition for an Manage Status widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition? ManageStatusDefinition;
-        /// <summary>
-        /// The definition for a Note widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? NoteDefinition;
-        /// <summary>
-        /// The definition for a Query Table widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
-        /// <summary>
-        /// The definition for a Query Value widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition? QueryValueDefinition;
-        /// <summary>
-        /// The definition for a Scatterplot widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition? ScatterplotDefinition;
-        /// <summary>
-        /// The definition for a Service Level Objective widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
-        /// <summary>
-        /// The definition for a Service Map widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? ServicemapDefinition;
-        /// <summary>
-        /// The definition for a Sunburst widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? SunburstDefinition;
-        /// <summary>
-        /// The definition for a Timeseries widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? TimeseriesDefinition;
-        /// <summary>
-        /// The definition for a Toplist widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? ToplistDefinition;
-        /// <summary>
-        /// The definition for a Trace Service widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? TraceServiceDefinition;
-        /// <summary>
-        /// The definition for a Treemap widget.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition? TreemapDefinition;
-        /// <summary>
-        /// The layout of the widget on a 'free' dashboard.
-        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? WidgetLayout;
 
         [OutputConstructor]

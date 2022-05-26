@@ -35,13 +35,7 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyArgs {
-    /**
-     * Id for Application Key.
-     */
     id?: string;
-    /**
-     * Name for Application Key.
-     */
     name?: string;
 }
 
@@ -49,17 +43,8 @@ export interface GetApplicationKeyArgs {
  * A collection of values returned by getApplicationKey.
  */
 export interface GetApplicationKeyResult {
-    /**
-     * Id for Application Key.
-     */
     readonly id?: string;
-    /**
-     * The value of the Application Key.
-     */
     readonly key: string;
-    /**
-     * Name for Application Key.
-     */
     readonly name?: string;
 }
 
@@ -71,12 +56,6 @@ export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyOutputArgs {
-    /**
-     * Id for Application Key.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name for Application Key.
-     */
     name?: pulumi.Input<string>;
 }

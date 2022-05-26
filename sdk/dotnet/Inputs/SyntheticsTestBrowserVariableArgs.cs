@@ -12,33 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestBrowserVariableArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Example for the variable.
-        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
-        /// <summary>
-        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the variable.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Pattern of the variable.
-        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
-        /// <summary>
-        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

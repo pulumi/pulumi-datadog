@@ -48,7 +48,9 @@ namespace Pulumi.Datadog
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        /// The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        /// value as the resource name. No related field is available in [Logs Pipeline
+        /// API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -106,7 +108,9 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        /// The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        /// value as the resource name. No related field is available in [Logs Pipeline
+        /// API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -131,7 +135,9 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        /// The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        /// value as the resource name. No related field is available in [Logs Pipeline
+        /// API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

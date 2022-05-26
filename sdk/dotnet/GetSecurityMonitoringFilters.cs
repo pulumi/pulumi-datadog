@@ -42,13 +42,7 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetSecurityMonitoringFiltersResult
     {
-        /// <summary>
-        /// List of filters.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringFiltersFilterResult> Filters;
-        /// <summary>
-        /// List of IDs of filters.
-        /// </summary>
         public readonly ImmutableArray<string> FiltersIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

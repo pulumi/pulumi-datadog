@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -60,13 +61,18 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
+     * this configuration.
      */
     public /*out*/ readonly config!: pulumi.Output<string>;
     /**
      * Description of the private location.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The private location metadata
+     */
+    public readonly metadata!: pulumi.Output<outputs.SyntheticsPrivateLocationMetadata | undefined>;
     /**
      * Synthetics private location name.
      */
@@ -91,6 +97,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             const state = argsOrState as SyntheticsPrivateLocationState | undefined;
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -99,6 +106,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["config"] = undefined /*out*/;
@@ -113,13 +121,18 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
  */
 export interface SyntheticsPrivateLocationState {
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
+     * this configuration.
      */
     config?: pulumi.Input<string>;
     /**
      * Description of the private location.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The private location metadata
+     */
+    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata>;
     /**
      * Synthetics private location name.
      */
@@ -138,6 +151,10 @@ export interface SyntheticsPrivateLocationArgs {
      * Description of the private location.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The private location metadata
+     */
+    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata>;
     /**
      * Synthetics private location name.
      */

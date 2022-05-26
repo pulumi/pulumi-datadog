@@ -13,29 +13,11 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorMonitorThresholds
     {
-        /// <summary>
-        /// The monitor `CRITICAL` threshold. Must be a number.
-        /// </summary>
         public readonly string? Critical;
-        /// <summary>
-        /// The monitor `CRITICAL` recovery threshold. Must be a number.
-        /// </summary>
         public readonly string? CriticalRecovery;
-        /// <summary>
-        /// The monitor `OK` threshold. Must be a number.
-        /// </summary>
         public readonly string? Ok;
-        /// <summary>
-        /// The monitor `UNKNOWN` threshold. Must be a number.
-        /// </summary>
         public readonly string? Unknown;
-        /// <summary>
-        /// The monitor `WARNING` threshold. Must be a number.
-        /// </summary>
         public readonly string? Warning;
-        /// <summary>
-        /// The monitor `WARNING` recovery threshold. Must be a number.
-        /// </summary>
         public readonly string? WarningRecovery;
 
         [OutputConstructor]

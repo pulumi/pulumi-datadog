@@ -18,27 +18,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("bannerImg")]
         public Input<string>? BannerImg { get; set; }
 
-        /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
-        /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }
 
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         [Input("widgets", required: true)]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetArgs>? _widgets;
-
-        /// <summary>
-        /// The list of widgets to display on the dashboard.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetArgs> Widgets
         {
             get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetArgs>());

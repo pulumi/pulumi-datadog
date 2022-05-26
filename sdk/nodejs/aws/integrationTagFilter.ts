@@ -58,11 +58,11 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+     * The namespace associated with the tag filter entry.
      */
     public readonly namespace!: pulumi.Output<string>;
     /**
@@ -111,11 +111,11 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
  */
 export interface IntegrationTagFilterState {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+     * The namespace associated with the tag filter entry.
      */
     namespace?: pulumi.Input<string>;
     /**
@@ -129,11 +129,11 @@ export interface IntegrationTagFilterState {
  */
 export interface IntegrationTagFilterArgs {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      */
     accountId: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+     * The namespace associated with the tag filter entry.
      */
     namespace: pulumi.Input<string>;
     /**

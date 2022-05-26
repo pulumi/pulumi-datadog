@@ -55,12 +55,15 @@ type LogsArchive struct {
 	AzureArchive LogsArchiveAzureArchivePtrOutput `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// Your archive name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringOutput `pulumi:"query"`
+	// To limit the rehydration scan size for the archive, set a value in GB.
+	RehydrationMaxScanSizeInGb pulumi.IntPtrOutput `pulumi:"rehydrationMaxScanSizeInGb"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayOutput `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
@@ -106,12 +109,15 @@ type logsArchiveState struct {
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// Your archive name.
 	Name *string `pulumi:"name"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query *string `pulumi:"query"`
+	// To limit the rehydration scan size for the archive, set a value in GB.
+	RehydrationMaxScanSizeInGb *int `pulumi:"rehydrationMaxScanSizeInGb"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
@@ -123,12 +129,15 @@ type LogsArchiveState struct {
 	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
 	// Your archive name.
 	Name pulumi.StringPtrInput
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringPtrInput
+	// To limit the rehydration scan size for the archive, set a value in GB.
+	RehydrationMaxScanSizeInGb pulumi.IntPtrInput
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
 	// Definition of an s3 archive.
@@ -144,12 +153,15 @@ type logsArchiveArgs struct {
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// Your archive name.
 	Name string `pulumi:"name"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query string `pulumi:"query"`
+	// To limit the rehydration scan size for the archive, set a value in GB.
+	RehydrationMaxScanSizeInGb *int `pulumi:"rehydrationMaxScanSizeInGb"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
@@ -162,12 +174,15 @@ type LogsArchiveArgs struct {
 	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
 	// Your archive name.
 	Name pulumi.StringInput
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringInput
+	// To limit the rehydration scan size for the archive, set a value in GB.
+	RehydrationMaxScanSizeInGb pulumi.IntPtrInput
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
 	// Definition of an s3 archive.
@@ -259,6 +274,47 @@ func (o LogsArchiveOutput) ToLogsArchiveOutput() LogsArchiveOutput {
 
 func (o LogsArchiveOutput) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
 	return o
+}
+
+// Definition of an azure archive.
+func (o LogsArchiveOutput) AzureArchive() LogsArchiveAzureArchivePtrOutput {
+	return o.ApplyT(func(v *LogsArchive) LogsArchiveAzureArchivePtrOutput { return v.AzureArchive }).(LogsArchiveAzureArchivePtrOutput)
+}
+
+// Definition of a GCS archive.
+func (o LogsArchiveOutput) GcsArchive() LogsArchiveGcsArchivePtrOutput {
+	return o.ApplyT(func(v *LogsArchive) LogsArchiveGcsArchivePtrOutput { return v.GcsArchive }).(LogsArchiveGcsArchivePtrOutput)
+}
+
+// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+// are sent to the archive.
+func (o LogsArchiveOutput) IncludeTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.BoolPtrOutput { return v.IncludeTags }).(pulumi.BoolPtrOutput)
+}
+
+// Your archive name.
+func (o LogsArchiveOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The archive query/filter. Logs matching this query are included in the archive.
+func (o LogsArchiveOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// To limit the rehydration scan size for the archive, set a value in GB.
+func (o LogsArchiveOutput) RehydrationMaxScanSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.IntPtrOutput { return v.RehydrationMaxScanSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+// An array of tags to add to rehydrated logs from an archive.
+func (o LogsArchiveOutput) RehydrationTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.StringArrayOutput { return v.RehydrationTags }).(pulumi.StringArrayOutput)
+}
+
+// Definition of an s3 archive.
+func (o LogsArchiveOutput) S3Archive() LogsArchiveS3ArchivePtrOutput {
+	return o.ApplyT(func(v *LogsArchive) LogsArchiveS3ArchivePtrOutput { return v.S3Archive }).(LogsArchiveS3ArchivePtrOutput)
 }
 
 type LogsArchiveArrayOutput struct{ *pulumi.OutputState }

@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class RolePermission
     {
-        /// <summary>
-        /// ID of the permission to assign.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the permission.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

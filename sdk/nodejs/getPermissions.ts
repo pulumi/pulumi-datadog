@@ -34,8 +34,5 @@ export interface GetPermissionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Map of permissions names to their corresponding ID.
-     */
     readonly permissions: {[key: string]: string};
 }

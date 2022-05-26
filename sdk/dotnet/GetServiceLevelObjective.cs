@@ -83,27 +83,15 @@ namespace Pulumi.Datadog
 
     public sealed class GetServiceLevelObjectiveArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A SLO ID to limit the search.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         [Input("metricsQuery")]
         public string? MetricsQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         [Input("nameQuery")]
         public string? NameQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         [Input("tagsQuery")]
         public string? TagsQuery { get; set; }
 
@@ -114,27 +102,15 @@ namespace Pulumi.Datadog
 
     public sealed class GetServiceLevelObjectiveInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A SLO ID to limit the search.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         [Input("metricsQuery")]
         public Input<string>? MetricsQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         [Input("nameQuery")]
         public Input<string>? NameQuery { get; set; }
 
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         [Input("tagsQuery")]
         public Input<string>? TagsQuery { get; set; }
 
@@ -147,29 +123,11 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetServiceLevelObjectiveResult
     {
-        /// <summary>
-        /// A SLO ID to limit the search.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Filter results based on SLO numerator and denominator.
-        /// </summary>
         public readonly string? MetricsQuery;
-        /// <summary>
-        /// Name of the Datadog service level objective
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Filter results based on SLO names.
-        /// </summary>
         public readonly string? NameQuery;
-        /// <summary>
-        /// Filter results based on a single SLO tag.
-        /// </summary>
         public readonly string? TagsQuery;
-        /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

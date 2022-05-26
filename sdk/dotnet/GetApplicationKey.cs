@@ -73,15 +73,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetApplicationKeyArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Id for Application Key.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name for Application Key.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -92,15 +86,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetApplicationKeyInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Id for Application Key.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name for Application Key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -113,17 +101,8 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetApplicationKeyResult
     {
-        /// <summary>
-        /// Id for Application Key.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The value of the Application Key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Name for Application Key.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

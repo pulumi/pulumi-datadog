@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardTemplateVariablePresetTemplateVariableGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the variable.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

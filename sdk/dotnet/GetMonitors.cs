@@ -29,28 +29,17 @@ namespace Pulumi.Datadog
     {
         [Input("monitorTagsFilters")]
         private List<string>? _monitorTagsFilters;
-
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public List<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new List<string>());
             set => _monitorTagsFilters = value;
         }
 
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
@@ -66,28 +55,17 @@ namespace Pulumi.Datadog
     {
         [Input("monitorTagsFilters")]
         private InputList<string>? _monitorTagsFilters;
-
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public InputList<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
             set => _monitorTagsFilters = value;
         }
 
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
@@ -107,21 +85,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public readonly ImmutableArray<string> MonitorTagsFilters;
-        /// <summary>
-        /// List of monitors
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorsMonitorResult> Monitors;
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         public readonly string? NameFilter;
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
 
         [OutputConstructor]

@@ -21,6 +21,7 @@ class DowntimeArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  monitor_id: Optional[pulumi.Input[int]] = None,
                  monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  recurrence: Optional[pulumi.Input['DowntimeRecurrenceArgs']] = None,
                  start: Optional[pulumi.Input[int]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,9 @@ class DowntimeArgs:
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+               silenced
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[int] start: Specify when this downtime should start
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
@@ -49,6 +52,8 @@ class DowntimeArgs:
             pulumi.set(__self__, "monitor_id", monitor_id)
         if monitor_tags is not None:
             pulumi.set(__self__, "monitor_tags", monitor_tags)
+        if mute_first_recovery_notification is not None:
+            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
         if start is not None:
@@ -122,13 +127,26 @@ class DowntimeArgs:
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        silenced
         """
         return pulumi.get(self, "monitor_tags")
 
     @monitor_tags.setter
     def monitor_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "monitor_tags", value)
+
+    @property
+    @pulumi.getter(name="muteFirstRecoveryNotification")
+    def mute_first_recovery_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true the first recovery notification during the downtime will be muted
+        """
+        return pulumi.get(self, "mute_first_recovery_notification")
+
+    @mute_first_recovery_notification.setter
+    def mute_first_recovery_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mute_first_recovery_notification", value)
 
     @property
     @pulumi.getter
@@ -190,6 +208,7 @@ class _DowntimeState:
                  message: Optional[pulumi.Input[str]] = None,
                  monitor_id: Optional[pulumi.Input[int]] = None,
                  monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  recurrence: Optional[pulumi.Input['DowntimeRecurrenceArgs']] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  start: Optional[pulumi.Input[int]] = None,
@@ -198,13 +217,16 @@ class _DowntimeState:
         """
         Input properties used for looking up and filtering Downtime resources.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
-        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+               This field will only exist on recurring downtimes.
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+               silenced
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -227,6 +249,8 @@ class _DowntimeState:
             pulumi.set(__self__, "monitor_id", monitor_id)
         if monitor_tags is not None:
             pulumi.set(__self__, "monitor_tags", monitor_tags)
+        if mute_first_recovery_notification is not None:
+            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
         if scopes is not None:
@@ -254,7 +278,8 @@ class _DowntimeState:
     @pulumi.getter(name="activeChildId")
     def active_child_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+        This field will only exist on recurring downtimes.
         """
         return pulumi.get(self, "active_child_id")
 
@@ -326,13 +351,26 @@ class _DowntimeState:
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        silenced
         """
         return pulumi.get(self, "monitor_tags")
 
     @monitor_tags.setter
     def monitor_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "monitor_tags", value)
+
+    @property
+    @pulumi.getter(name="muteFirstRecoveryNotification")
+    def mute_first_recovery_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true the first recovery notification during the downtime will be muted
+        """
+        return pulumi.get(self, "mute_first_recovery_notification")
+
+    @mute_first_recovery_notification.setter
+    def mute_first_recovery_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mute_first_recovery_notification", value)
 
     @property
     @pulumi.getter
@@ -405,6 +443,7 @@ class Downtime(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  monitor_id: Optional[pulumi.Input[int]] = None,
                  monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  start: Optional[pulumi.Input[int]] = None,
@@ -444,7 +483,9 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+               silenced
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -504,6 +545,7 @@ class Downtime(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  monitor_id: Optional[pulumi.Input[int]] = None,
                  monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  start: Optional[pulumi.Input[int]] = None,
@@ -526,6 +568,7 @@ class Downtime(pulumi.CustomResource):
             __props__.__dict__["message"] = message
             __props__.__dict__["monitor_id"] = monitor_id
             __props__.__dict__["monitor_tags"] = monitor_tags
+            __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
             __props__.__dict__["recurrence"] = recurrence
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
@@ -554,6 +597,7 @@ class Downtime(pulumi.CustomResource):
             message: Optional[pulumi.Input[str]] = None,
             monitor_id: Optional[pulumi.Input[int]] = None,
             monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
             recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             start: Optional[pulumi.Input[int]] = None,
@@ -567,13 +611,16 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
-        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+               This field will only exist on recurring downtimes.
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+               silenced
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -592,6 +639,7 @@ class Downtime(pulumi.CustomResource):
         __props__.__dict__["message"] = message
         __props__.__dict__["monitor_id"] = monitor_id
         __props__.__dict__["monitor_tags"] = monitor_tags
+        __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
         __props__.__dict__["recurrence"] = recurrence
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["start"] = start
@@ -611,7 +659,8 @@ class Downtime(pulumi.CustomResource):
     @pulumi.getter(name="activeChildId")
     def active_child_id(self) -> pulumi.Output[int]:
         """
-        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+        This field will only exist on recurring downtimes.
         """
         return pulumi.get(self, "active_child_id")
 
@@ -659,9 +708,18 @@ class Downtime(pulumi.CustomResource):
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+        silenced
         """
         return pulumi.get(self, "monitor_tags")
+
+    @property
+    @pulumi.getter(name="muteFirstRecoveryNotification")
+    def mute_first_recovery_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When true the first recovery notification during the downtime will be muted
+        """
+        return pulumi.get(self, "mute_first_recovery_notification")
 
     @property
     @pulumi.getter

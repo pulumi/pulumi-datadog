@@ -13,54 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStep
     {
-        /// <summary>
-        /// Determines whether or not to continue with test if this step fails.
-        /// </summary>
         public readonly bool? AllowFailure;
-        /// <summary>
-        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> Assertions;
-        /// <summary>
-        /// Values to parse and save as variables from the response.
-        /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> ExtractedValues;
-        /// <summary>
-        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        /// </summary>
         public readonly bool? IsCritical;
-        /// <summary>
-        /// The name of the step.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestBasicauth? RequestBasicauth;
-        /// <summary>
-        /// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestClientCertificate? RequestClientCertificate;
-        /// <summary>
-        /// The request for the api step.
-        /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestDefinition? RequestDefinition;
-        /// <summary>
-        /// Header name and value map.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestHeaders;
-        /// <summary>
-        /// The proxy to perform the test.
-        /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestProxy? RequestProxy;
-        /// <summary>
-        /// Query arguments name and value map.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
-        /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
-        /// </summary>
         public readonly string? Subtype;
 
         [OutputConstructor]

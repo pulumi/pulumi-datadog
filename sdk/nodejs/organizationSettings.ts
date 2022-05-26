@@ -63,7 +63,7 @@ export class OrganizationSettings extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The `publicId` of the organization you are operating within.
+     * The `public_id` of the organization you are operating within.
      */
     public /*out*/ readonly publicId!: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export interface OrganizationSettingsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `publicId` of the organization you are operating within.
+     * The `public_id` of the organization you are operating within.
      */
     publicId?: pulumi.Input<string>;
     /**

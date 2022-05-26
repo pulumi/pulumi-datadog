@@ -16,9 +16,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<string> Filters;
         public readonly string Service;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

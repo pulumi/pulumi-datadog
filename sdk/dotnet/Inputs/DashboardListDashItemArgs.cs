@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardListDashItemArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the dashboard to add
-        /// </summary>
         [Input("dashId", required: true)]
         public Input<string> DashId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

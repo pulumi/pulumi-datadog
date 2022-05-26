@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

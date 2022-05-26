@@ -54,7 +54,8 @@ type Downtime struct {
 
 	// When true indicates this downtime is being actively applied
 	Active pulumi.BoolOutput `pulumi:"active"`
-	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+	// This field will only exist on recurring downtimes.
 	ActiveChildId pulumi.IntOutput `pulumi:"activeChildId"`
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolOutput `pulumi:"disabled"`
@@ -66,8 +67,11 @@ type Downtime struct {
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrOutput `pulumi:"monitorId"`
-	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+	// silenced
 	MonitorTags pulumi.StringArrayOutput `pulumi:"monitorTags"`
+	// When true the first recovery notification during the downtime will be muted
+	MuteFirstRecoveryNotification pulumi.BoolPtrOutput `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrOutput `pulumi:"recurrence"`
 	// specify the group scope to which this downtime applies. For everything use '*'
@@ -114,7 +118,8 @@ func GetDowntime(ctx *pulumi.Context,
 type downtimeState struct {
 	// When true indicates this downtime is being actively applied
 	Active *bool `pulumi:"active"`
-	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+	// This field will only exist on recurring downtimes.
 	ActiveChildId *int `pulumi:"activeChildId"`
 	// When true indicates this downtime is not being applied
 	Disabled *bool `pulumi:"disabled"`
@@ -126,8 +131,11 @@ type downtimeState struct {
 	Message *string `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId *int `pulumi:"monitorId"`
-	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+	// silenced
 	MonitorTags []string `pulumi:"monitorTags"`
+	// When true the first recovery notification during the downtime will be muted
+	MuteFirstRecoveryNotification *bool `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
 	// specify the group scope to which this downtime applies. For everything use '*'
@@ -143,7 +151,8 @@ type downtimeState struct {
 type DowntimeState struct {
 	// When true indicates this downtime is being actively applied
 	Active pulumi.BoolPtrInput
-	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+	// This field will only exist on recurring downtimes.
 	ActiveChildId pulumi.IntPtrInput
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolPtrInput
@@ -155,8 +164,11 @@ type DowntimeState struct {
 	Message pulumi.StringPtrInput
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrInput
-	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+	// silenced
 	MonitorTags pulumi.StringArrayInput
+	// When true the first recovery notification during the downtime will be muted
+	MuteFirstRecoveryNotification pulumi.BoolPtrInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
 	// specify the group scope to which this downtime applies. For everything use '*'
@@ -182,8 +194,11 @@ type downtimeArgs struct {
 	Message *string `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId *int `pulumi:"monitorId"`
-	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+	// silenced
 	MonitorTags []string `pulumi:"monitorTags"`
+	// When true the first recovery notification during the downtime will be muted
+	MuteFirstRecoveryNotification *bool `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
 	// specify the group scope to which this downtime applies. For everything use '*'
@@ -206,8 +221,11 @@ type DowntimeArgs struct {
 	Message pulumi.StringPtrInput
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrInput
-	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+	// silenced
 	MonitorTags pulumi.StringArrayInput
+	// When true the first recovery notification during the downtime will be muted
+	MuteFirstRecoveryNotification pulumi.BoolPtrInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
 	// specify the group scope to which this downtime applies. For everything use '*'
@@ -305,6 +323,78 @@ func (o DowntimeOutput) ToDowntimeOutput() DowntimeOutput {
 
 func (o DowntimeOutput) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
 	return o
+}
+
+// When true indicates this downtime is being actively applied
+func (o DowntimeOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.BoolOutput { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+// This field will only exist on recurring downtimes.
+func (o DowntimeOutput) ActiveChildId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.IntOutput { return v.ActiveChildId }).(pulumi.IntOutput)
+}
+
+// When true indicates this downtime is not being applied
+func (o DowntimeOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
+}
+
+// Optionally specify an end date when this downtime should expire
+func (o DowntimeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.IntPtrOutput { return v.End }).(pulumi.IntPtrOutput)
+}
+
+// String representing date and time to end the downtime in RFC3339 format.
+func (o DowntimeOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// An optional message to provide when creating the downtime, can include notification handles
+func (o DowntimeOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// When specified, this downtime will only apply to this monitor
+func (o DowntimeOutput) MonitorId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.IntPtrOutput { return v.MonitorId }).(pulumi.IntPtrOutput)
+}
+
+// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+// silenced
+func (o DowntimeOutput) MonitorTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringArrayOutput { return v.MonitorTags }).(pulumi.StringArrayOutput)
+}
+
+// When true the first recovery notification during the downtime will be muted
+func (o DowntimeOutput) MuteFirstRecoveryNotification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.BoolPtrOutput { return v.MuteFirstRecoveryNotification }).(pulumi.BoolPtrOutput)
+}
+
+// Optional recurring schedule for this downtime
+func (o DowntimeOutput) Recurrence() DowntimeRecurrencePtrOutput {
+	return o.ApplyT(func(v *Downtime) DowntimeRecurrencePtrOutput { return v.Recurrence }).(DowntimeRecurrencePtrOutput)
+}
+
+// specify the group scope to which this downtime applies. For everything use '*'
+func (o DowntimeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Specify when this downtime should start
+func (o DowntimeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.IntPtrOutput { return v.Start }).(pulumi.IntPtrOutput)
+}
+
+// String representing date and time to start the downtime in RFC3339 format.
+func (o DowntimeOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// The timezone for the downtime, default UTC
+func (o DowntimeOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type DowntimeArrayOutput struct{ *pulumi.OutputState }

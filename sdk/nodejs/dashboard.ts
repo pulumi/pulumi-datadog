@@ -749,13 +749,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the dashboard.
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
@@ -763,7 +763,8 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
      */
     public readonly reflowType!: pulumi.Output<string | undefined>;
     /**
@@ -861,13 +862,13 @@ export interface DashboardState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the dashboard.
      */
     layoutType?: pulumi.Input<string>;
     /**
@@ -875,7 +876,8 @@ export interface DashboardState {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
      */
     reflowType?: pulumi.Input<string>;
     /**
@@ -917,13 +919,13 @@ export interface DashboardArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the dashboard.
      */
     layoutType: pulumi.Input<string>;
     /**
@@ -931,7 +933,8 @@ export interface DashboardArgs {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
      */
     reflowType?: pulumi.Input<string>;
     /**

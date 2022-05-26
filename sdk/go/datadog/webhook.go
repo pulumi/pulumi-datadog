@@ -66,7 +66,7 @@ type Webhook struct {
 
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
-	// Encoding type. Valid values are `json`, `form`.
+	// Encoding type.
 	EncodeAs pulumi.StringOutput `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,7 +113,7 @@ func GetWebhook(ctx *pulumi.Context,
 type webhookState struct {
 	// The headers attached to the webhook.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Encoding type. Valid values are `json`, `form`.
+	// Encoding type.
 	EncodeAs *string `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name *string `pulumi:"name"`
@@ -126,7 +126,7 @@ type webhookState struct {
 type WebhookState struct {
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrInput
-	// Encoding type. Valid values are `json`, `form`.
+	// Encoding type.
 	EncodeAs pulumi.StringPtrInput
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringPtrInput
@@ -143,7 +143,7 @@ func (WebhookState) ElementType() reflect.Type {
 type webhookArgs struct {
 	// The headers attached to the webhook.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Encoding type. Valid values are `json`, `form`.
+	// Encoding type.
 	EncodeAs *string `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name string `pulumi:"name"`
@@ -157,7 +157,7 @@ type webhookArgs struct {
 type WebhookArgs struct {
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrInput
-	// Encoding type. Valid values are `json`, `form`.
+	// Encoding type.
 	EncodeAs pulumi.StringPtrInput
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringInput
@@ -252,6 +252,31 @@ func (o WebhookOutput) ToWebhookOutput() WebhookOutput {
 
 func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
 	return o
+}
+
+// The headers attached to the webhook.
+func (o WebhookOutput) CustomHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.CustomHeaders }).(pulumi.StringPtrOutput)
+}
+
+// Encoding type.
+func (o WebhookOutput) EncodeAs() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.EncodeAs }).(pulumi.StringOutput)
+}
+
+// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
+func (o WebhookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The payload of the webhook.
+func (o WebhookOutput) Payload() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Payload }).(pulumi.StringOutput)
+}
+
+// The URL of the webhook.
+func (o WebhookOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type WebhookArrayOutput struct{ *pulumi.OutputState }

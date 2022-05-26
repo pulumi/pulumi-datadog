@@ -48,33 +48,21 @@ class GetSyntheticsTestResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the synthetic test.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
-        """
-        A list of tags assigned to the synthetic test.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="testId")
     def test_id(self) -> str:
-        """
-        The synthetic test id to search for
-        """
         return pulumi.get(self, "test_id")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        The start URL of the synthetic test.
-        """
         return pulumi.get(self, "url")
 
 
@@ -95,9 +83,6 @@ def get_synthetics_test(test_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyntheticsTestResult:
     """
     Use this data source to retrieve a Datadog Synthetic Test.
-
-
-    :param str test_id: The synthetic test id to search for
     """
     __args__ = dict()
     __args__['testId'] = test_id
@@ -120,8 +105,5 @@ def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsTestResult]:
     """
     Use this data source to retrieve a Datadog Synthetic Test.
-
-
-    :param str test_id: The synthetic test id to search for
     """
     ...

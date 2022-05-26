@@ -60,7 +60,7 @@ type SecurityMonitoringFilter struct {
 
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters SecurityMonitoringFilterExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
-	// The filtered data type. Valid values are `logs`.
+	// The filtered data type.
 	FilteredDataType pulumi.StringPtrOutput `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
@@ -112,7 +112,7 @@ func GetSecurityMonitoringFilter(ctx *pulumi.Context,
 type securityMonitoringFilterState struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters []SecurityMonitoringFilterExclusionFilter `pulumi:"exclusionFilters"`
-	// The filtered data type. Valid values are `logs`.
+	// The filtered data type.
 	FilteredDataType *string `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -127,7 +127,7 @@ type securityMonitoringFilterState struct {
 type SecurityMonitoringFilterState struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters SecurityMonitoringFilterExclusionFilterArrayInput
-	// The filtered data type. Valid values are `logs`.
+	// The filtered data type.
 	FilteredDataType pulumi.StringPtrInput
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolPtrInput
@@ -146,7 +146,7 @@ func (SecurityMonitoringFilterState) ElementType() reflect.Type {
 type securityMonitoringFilterArgs struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters []SecurityMonitoringFilterExclusionFilter `pulumi:"exclusionFilters"`
-	// The filtered data type. Valid values are `logs`.
+	// The filtered data type.
 	FilteredDataType *string `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -160,7 +160,7 @@ type securityMonitoringFilterArgs struct {
 type SecurityMonitoringFilterArgs struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters SecurityMonitoringFilterExclusionFilterArrayInput
-	// The filtered data type. Valid values are `logs`.
+	// The filtered data type.
 	FilteredDataType pulumi.StringPtrInput
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolInput
@@ -255,6 +255,38 @@ func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterOutput() Secur
 
 func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterOutput {
 	return o
+}
+
+// Exclusion filters to exclude some logs from the security filter.
+func (o SecurityMonitoringFilterOutput) ExclusionFilters() SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) SecurityMonitoringFilterExclusionFilterArrayOutput {
+		return v.ExclusionFilters
+	}).(SecurityMonitoringFilterExclusionFilterArrayOutput)
+}
+
+// The filtered data type.
+func (o SecurityMonitoringFilterOutput) FilteredDataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringPtrOutput { return v.FilteredDataType }).(pulumi.StringPtrOutput)
+}
+
+// Whether the security filter is enabled.
+func (o SecurityMonitoringFilterOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The name of the security filter.
+func (o SecurityMonitoringFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query of the security filter.
+func (o SecurityMonitoringFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The version of the security filter.
+func (o SecurityMonitoringFilterOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
 
 type SecurityMonitoringFilterArrayOutput struct{ *pulumi.OutputState }

@@ -26,17 +26,8 @@ export function getMonitors(args?: GetMonitorsArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getMonitors.
  */
 export interface GetMonitorsArgs {
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     monitorTagsFilters?: string[];
-    /**
-     * A monitor name to limit the search.
-     */
     nameFilter?: string;
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     tagsFilters?: string[];
 }
 
@@ -48,21 +39,9 @@ export interface GetMonitorsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     readonly monitorTagsFilters?: string[];
-    /**
-     * List of monitors
-     */
     readonly monitors: outputs.GetMonitorsMonitor[];
-    /**
-     * A monitor name to limit the search.
-     */
     readonly nameFilter?: string;
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     readonly tagsFilters?: string[];
 }
 
@@ -74,16 +53,7 @@ export function getMonitorsOutput(args?: GetMonitorsOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getMonitors.
  */
 export interface GetMonitorsOutputArgs {
-    /**
-     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-     */
     monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A monitor name to limit the search.
-     */
     nameFilter?: pulumi.Input<string>;
-    /**
-     * A list of tags to limit the search. This filters on the monitor scope.
-     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

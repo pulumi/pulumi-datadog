@@ -221,6 +221,21 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+// Name of the role.
+func (o RoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of objects containing the permission ID and the name of the permissions granted to this role.
+func (o RoleOutput) Permissions() RolePermissionArrayOutput {
+	return o.ApplyT(func(v *Role) RolePermissionArrayOutput { return v.Permissions }).(RolePermissionArrayOutput)
+}
+
+// Number of users that have this role.
+func (o RoleOutput) UserCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Role) pulumi.IntOutput { return v.UserCount }).(pulumi.IntOutput)
+}
+
 type RoleArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleArrayOutput) ElementType() reflect.Type {

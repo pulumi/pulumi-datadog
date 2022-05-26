@@ -272,6 +272,48 @@ func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutputWithCont
 	return o
 }
 
+// Description of the global variable.
+func (o SyntheticsGlobalVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Synthetics global variable name.
+func (o SyntheticsGlobalVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of the Synthetics test to use for a variable from test.
+func (o SyntheticsGlobalVariableOutput) ParseTestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.ParseTestId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the Synthetics test to use a source of the global variable value.
+func (o SyntheticsGlobalVariableOutput) ParseTestOptions() SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+		return v.ParseTestOptions
+	}).(SyntheticsGlobalVariableParseTestOptionsPtrOutput)
+}
+
+// A list of role identifiers to associate with the Synthetics global variable.
+func (o SyntheticsGlobalVariableOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// If set to true, the value of the global variable is hidden. Defaults to `false`.
+func (o SyntheticsGlobalVariableOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.BoolPtrOutput { return v.Secure }).(pulumi.BoolPtrOutput)
+}
+
+// A list of tags to associate with your synthetics global variable.
+func (o SyntheticsGlobalVariableOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// The value of the global variable.
+func (o SyntheticsGlobalVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 type SyntheticsGlobalVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsGlobalVariableArrayOutput) ElementType() reflect.Type {

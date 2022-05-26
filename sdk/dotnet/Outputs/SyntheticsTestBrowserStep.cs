@@ -13,33 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestBrowserStep
     {
-        /// <summary>
-        /// Determines if the step should be allowed to fail.
-        /// </summary>
         public readonly bool? AllowFailure;
-        /// <summary>
-        /// Force update of the "element" parameter for the step
-        /// </summary>
         public readonly bool? ForceElementUpdate;
-        /// <summary>
-        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        /// </summary>
         public readonly bool? IsCritical;
-        /// <summary>
-        /// Name of the step.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Parameters for the step.
-        /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParams Params;
-        /// <summary>
-        /// Used to override the default timeout of a step.
-        /// </summary>
         public readonly int? Timeout;
-        /// <summary>
-        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

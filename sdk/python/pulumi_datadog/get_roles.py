@@ -35,9 +35,6 @@ class GetRolesResult:
     @property
     @pulumi.getter
     def filter(self) -> Optional[str]:
-        """
-        Filter all roles by the given string.
-        """
         return pulumi.get(self, "filter")
 
     @property
@@ -51,9 +48,6 @@ class GetRolesResult:
     @property
     @pulumi.getter
     def roles(self) -> Sequence['outputs.GetRolesRoleResult']:
-        """
-        List of Roles
-        """
         return pulumi.get(self, "roles")
 
 
@@ -81,9 +75,6 @@ def get_roles(filter: Optional[str] = None,
 
     foo = datadog.get_roles(filter="Datadog")
     ```
-
-
-    :param str filter: Filter all roles by the given string.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -113,8 +104,5 @@ def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
 
     foo = datadog.get_roles(filter="Datadog")
     ```
-
-
-    :param str filter: Filter all roles by the given string.
     """
     ...

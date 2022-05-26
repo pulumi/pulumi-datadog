@@ -12,81 +12,42 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestRequestDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The request body.
-        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
-        /// <summary>
-        /// DNS server to use for DNS tests (`subtype = "dns"`).
-        /// </summary>
         [Input("dnsServer")]
         public Input<string>? DnsServer { get; set; }
 
-        /// <summary>
-        /// DNS server port to use for DNS tests.
-        /// </summary>
         [Input("dnsServerPort")]
         public Input<int>? DnsServerPort { get; set; }
 
-        /// <summary>
-        /// Host name to perform the test with.
-        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
-        /// <summary>
-        /// For UDP and websocket tests, message to send with the request.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
-        /// <summary>
-        /// Determines whether or not to save the response body.
-        /// </summary>
         [Input("noSavingResponseBody")]
         public Input<bool>? NoSavingResponseBody { get; set; }
 
-        /// <summary>
-        /// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        /// </summary>
         [Input("numberOfPackets")]
         public Input<int>? NumberOfPackets { get; set; }
 
-        /// <summary>
-        /// Port to use when performing the test.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        /// </summary>
         [Input("servername")]
         public Input<string>? Servername { get; set; }
 
-        /// <summary>
-        /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        /// </summary>
         [Input("shouldTrackHops")]
         public Input<bool>? ShouldTrackHops { get; set; }
 
-        /// <summary>
-        /// Timeout in seconds for the test. Defaults to `60`.
-        /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
-        /// <summary>
-        /// The URL to send the request to.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

@@ -244,6 +244,26 @@ func (o LogsMetricOutput) ToLogsMetricOutputWithContext(ctx context.Context) Log
 	return o
 }
 
+// The compute rule to compute the log-based metric. This field can't be updated after creation.
+func (o LogsMetricOutput) Compute() LogsMetricComputeOutput {
+	return o.ApplyT(func(v *LogsMetric) LogsMetricComputeOutput { return v.Compute }).(LogsMetricComputeOutput)
+}
+
+// The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+func (o LogsMetricOutput) Filter() LogsMetricFilterOutput {
+	return o.ApplyT(func(v *LogsMetric) LogsMetricFilterOutput { return v.Filter }).(LogsMetricFilterOutput)
+}
+
+// The rules for the group by.
+func (o LogsMetricOutput) GroupBies() LogsMetricGroupByArrayOutput {
+	return o.ApplyT(func(v *LogsMetric) LogsMetricGroupByArrayOutput { return v.GroupBies }).(LogsMetricGroupByArrayOutput)
+}
+
+// The name of the log-based metric. This field can't be updated after creation.
+func (o LogsMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsMetric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type LogsMetricArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsMetricArrayOutput) ElementType() reflect.Type {

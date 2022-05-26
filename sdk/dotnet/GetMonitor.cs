@@ -83,28 +83,17 @@ namespace Pulumi.Datadog
     {
         [Input("monitorTagsFilters")]
         private List<string>? _monitorTagsFilters;
-
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public List<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new List<string>());
             set => _monitorTagsFilters = value;
         }
 
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
@@ -120,28 +109,17 @@ namespace Pulumi.Datadog
     {
         [Input("monitorTagsFilters")]
         private InputList<string>? _monitorTagsFilters;
-
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public InputList<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
             set => _monitorTagsFilters = value;
         }
 
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
@@ -157,114 +135,36 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetMonitorResult
     {
-        /// <summary>
-        /// Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-        /// </summary>
         public readonly bool EnableLogsSample;
-        /// <summary>
-        /// Message included with a re-notification for this monitor.
-        /// </summary>
         public readonly string EscalationMessage;
-        /// <summary>
-        /// Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-        /// </summary>
         public readonly int EvaluationDelay;
-        /// <summary>
-        /// Whether or not to trigger one alert if any source breaches a threshold.
-        /// </summary>
         public readonly bool GroupbySimpleMonitor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-        /// </summary>
         public readonly bool IncludeTags;
-        /// <summary>
-        /// Whether or not changes to the monitor are restricted to the creator or admins.
-        /// </summary>
         public readonly bool Locked;
-        /// <summary>
-        /// Message included with notifications for this monitor
-        /// </summary>
         public readonly string Message;
-        /// <summary>
-        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-        /// </summary>
         public readonly ImmutableArray<string> MonitorTagsFilters;
-        /// <summary>
-        /// Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdWindowResult> MonitorThresholdWindows;
-        /// <summary>
-        /// Alert thresholds of the monitor.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdResult> MonitorThresholds;
-        /// <summary>
-        /// Name of the monitor
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A monitor name to limit the search.
-        /// </summary>
         public readonly string? NameFilter;
-        /// <summary>
-        /// Time (in seconds) to skip evaluations for new groups.
-        /// </summary>
         public readonly int NewGroupDelay;
-        /// <summary>
-        /// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
-        /// </summary>
         public readonly int NewHostDelay;
-        /// <summary>
-        /// The number of minutes before the monitor notifies when data stops reporting.
-        /// </summary>
         public readonly int NoDataTimeframe;
-        /// <summary>
-        /// Whether or not tagged users are notified on changes to the monitor.
-        /// </summary>
         public readonly bool NotifyAudit;
-        /// <summary>
-        /// Whether or not this monitor notifies when data stops reporting.
-        /// </summary>
         public readonly bool NotifyNoData;
-        /// <summary>
-        /// Query of the monitor.
-        /// </summary>
         public readonly string Query;
-        /// <summary>
-        /// The number of minutes after the last notification before the monitor re-notifies on the current status.
-        /// </summary>
         public readonly int RenotifyInterval;
-        /// <summary>
-        /// The number of re-notification messages that should be sent on the current status.
-        /// </summary>
         public readonly int RenotifyOccurrences;
-        /// <summary>
-        /// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
-        /// </summary>
         public readonly ImmutableArray<string> RenotifyStatuses;
-        /// <summary>
-        /// Whether or not the monitor needs a full window of data before it is evaluated.
-        /// </summary>
         public readonly bool RequireFullWindow;
         public readonly ImmutableArray<string> RestrictedRoles;
-        /// <summary>
-        /// List of tags associated with the monitor.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
-        /// <summary>
-        /// A list of tags to limit the search. This filters on the monitor scope.
-        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
-        /// <summary>
-        /// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-        /// </summary>
         public readonly int TimeoutH;
-        /// <summary>
-        /// Type of the monitor.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

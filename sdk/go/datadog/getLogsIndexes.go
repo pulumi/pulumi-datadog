@@ -41,7 +41,6 @@ func GetLogsIndexes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogsI
 // A collection of values returned by getLogsIndexes.
 type GetLogsIndexesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of logs indexes
+	Id          string                    `pulumi:"id"`
 	LogsIndexes []GetLogsIndexesLogsIndex `pulumi:"logsIndexes"`
 }

@@ -14,31 +14,18 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("availableValues")]
         private InputList<string>? _availableValues;
-
-        /// <summary>
-        /// The list of values that the template variable drop-down is be limited to
-        /// </summary>
         public InputList<string> AvailableValues
         {
             get => _availableValues ?? (_availableValues = new InputList<string>());
             set => _availableValues = value;
         }
 
-        /// <summary>
-        /// The default value for the template variable on dashboard load.
-        /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
 
-        /// <summary>
-        /// The name of the variable.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

@@ -31,9 +31,6 @@ export function getCloudWorkloadSecurityAgentRules(opts?: pulumi.InvokeOptions):
  * A collection of values returned by getCloudWorkloadSecurityAgentRules.
  */
 export interface GetCloudWorkloadSecurityAgentRulesResult {
-    /**
-     * List of Agent rules.
-     */
     readonly agentRules: outputs.GetCloudWorkloadSecurityAgentRulesAgentRule[];
     /**
      * The provider-assigned unique ID for this managed resource.

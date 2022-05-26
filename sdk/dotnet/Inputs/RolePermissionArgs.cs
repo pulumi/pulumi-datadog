@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class RolePermissionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the permission to assign.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the permission.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

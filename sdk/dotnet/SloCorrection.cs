@@ -81,7 +81,7 @@ namespace Pulumi.Datadog
     public partial class SloCorrection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+        /// Category the SLO correction belongs to.
         /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
@@ -105,7 +105,8 @@ namespace Pulumi.Datadog
         public Output<int?> End { get; private set; } = null!;
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+        /// `COUNT` and `UNTIL`.
         /// </summary>
         [Output("rrule")]
         public Output<string?> Rrule { get; private set; } = null!;
@@ -175,7 +176,7 @@ namespace Pulumi.Datadog
     public sealed class SloCorrectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+        /// Category the SLO correction belongs to.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -199,7 +200,8 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+        /// `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }
@@ -230,7 +232,7 @@ namespace Pulumi.Datadog
     public sealed class SloCorrectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+        /// Category the SLO correction belongs to.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -254,7 +256,8 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+        /// `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }

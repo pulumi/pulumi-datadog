@@ -136,7 +136,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level
+     * objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
+     * when querying via the API
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
@@ -144,7 +146,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+     * found in the Datadog API [documentation
+     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -231,7 +235,9 @@ export interface ServiceLevelObjectiveState {
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level
+     * objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
+     * when querying via the API
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -239,7 +245,9 @@ export interface ServiceLevelObjectiveState {
      */
     thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+     * found in the Datadog API [documentation
+     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
      */
     type?: pulumi.Input<string>;
     /**
@@ -277,7 +285,9 @@ export interface ServiceLevelObjectiveArgs {
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level
+     * objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
+     * when querying via the API
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -285,7 +295,9 @@ export interface ServiceLevelObjectiveArgs {
      */
     thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+     * found in the Datadog API [documentation
+     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
      */
     type: pulumi.Input<string>;
     /**

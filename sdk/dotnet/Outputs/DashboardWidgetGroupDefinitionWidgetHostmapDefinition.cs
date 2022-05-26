@@ -21,9 +21,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest? Request;
         public readonly ImmutableArray<string> Scopes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle? Style;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

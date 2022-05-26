@@ -41,7 +41,6 @@ func GetPermissions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPermi
 // A collection of values returned by getPermissions.
 type GetPermissionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Map of permissions names to their corresponding ID.
+	Id          string            `pulumi:"id"`
 	Permissions map[string]string `pulumi:"permissions"`
 }

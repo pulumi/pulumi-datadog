@@ -252,6 +252,41 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// Whether the user is disabled.
+func (o UserOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// Email address for user.
+func (o UserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Name for user.
+func (o UserOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list a role IDs to assign to the user.
+func (o UserOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Whether an invitation email should be sent when the user is created.
+func (o UserOutput) SendUserInvitation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SendUserInvitation }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the user invitation that was sent when creating the user.
+func (o UserOutput) UserInvitationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserInvitationId }).(pulumi.StringOutput)
+}
+
+// Returns `true` if the user is verified.
+func (o UserOutput) Verified() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.Verified }).(pulumi.BoolOutput)
+}
+
 type UserArrayOutput struct{ *pulumi.OutputState }
 
 func (UserArrayOutput) ElementType() reflect.Type {

@@ -22,22 +22,17 @@ func LookupSyntheticsTest(ctx *pulumi.Context, args *LookupSyntheticsTestArgs, o
 
 // A collection of arguments for invoking getSyntheticsTest.
 type LookupSyntheticsTestArgs struct {
-	// The synthetic test id to search for
 	TestId string `pulumi:"testId"`
 }
 
 // A collection of values returned by getSyntheticsTest.
 type LookupSyntheticsTestResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The name of the synthetic test.
-	Name string `pulumi:"name"`
-	// A list of tags assigned to the synthetic test.
-	Tags []string `pulumi:"tags"`
-	// The synthetic test id to search for
-	TestId string `pulumi:"testId"`
-	// The start URL of the synthetic test.
-	Url string `pulumi:"url"`
+	Id     string   `pulumi:"id"`
+	Name   string   `pulumi:"name"`
+	Tags   []string `pulumi:"tags"`
+	TestId string   `pulumi:"testId"`
+	Url    string   `pulumi:"url"`
 }
 
 func LookupSyntheticsTestOutput(ctx *pulumi.Context, args LookupSyntheticsTestOutputArgs, opts ...pulumi.InvokeOption) LookupSyntheticsTestResultOutput {
@@ -55,7 +50,6 @@ func LookupSyntheticsTestOutput(ctx *pulumi.Context, args LookupSyntheticsTestOu
 
 // A collection of arguments for invoking getSyntheticsTest.
 type LookupSyntheticsTestOutputArgs struct {
-	// The synthetic test id to search for
 	TestId pulumi.StringInput `pulumi:"testId"`
 }
 
@@ -83,22 +77,18 @@ func (o LookupSyntheticsTestResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the synthetic test.
 func (o LookupSyntheticsTestResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of tags assigned to the synthetic test.
 func (o LookupSyntheticsTestResultOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The synthetic test id to search for
 func (o LookupSyntheticsTestResultOutput) TestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.TestId }).(pulumi.StringOutput)
 }
 
-// The start URL of the synthetic test.
 func (o LookupSyntheticsTestResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Url }).(pulumi.StringOutput)
 }

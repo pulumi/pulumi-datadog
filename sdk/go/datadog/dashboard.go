@@ -788,15 +788,16 @@ type Dashboard struct {
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
-	// The layout type of the dashboard. Valid values are `ordered`, `free`.
+	// The layout type of the dashboard.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
@@ -853,15 +854,16 @@ type dashboardState struct {
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard. Valid values are `ordered`, `free`.
+	// The layout type of the dashboard.
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
@@ -884,15 +886,16 @@ type DashboardState struct {
 	DashboardListsRemoveds pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard. Valid values are `ordered`, `free`.
+	// The layout type of the dashboard.
 	LayoutType pulumi.StringPtrInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
@@ -917,15 +920,16 @@ type dashboardArgs struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard. Valid values are `ordered`, `free`.
+	// The layout type of the dashboard.
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
@@ -947,15 +951,16 @@ type DashboardArgs struct {
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard. Valid values are `ordered`, `free`.
+	// The layout type of the dashboard.
 	LayoutType pulumi.StringInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
@@ -1056,6 +1061,74 @@ func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
 
 func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
 	return o
+}
+
+// A list of dashboard lists this dashboard belongs to.
+func (o DashboardOutput) DashboardLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.IntArrayOutput { return v.DashboardLists }).(pulumi.IntArrayOutput)
+}
+
+// A list of dashboard lists this dashboard should be removed from. Internal only.
+func (o DashboardOutput) DashboardListsRemoveds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.IntArrayOutput { return v.DashboardListsRemoveds }).(pulumi.IntArrayOutput)
+}
+
+// The description of the dashboard.
+func (o DashboardOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether this dashboard is read-only.
+//
+// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+func (o DashboardOutput) IsReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.BoolPtrOutput { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The layout type of the dashboard.
+func (o DashboardOutput) LayoutType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LayoutType }).(pulumi.StringOutput)
+}
+
+// The list of handles for the users to notify when changes are made to this dashboard.
+func (o DashboardOutput) NotifyLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.NotifyLists }).(pulumi.StringArrayOutput)
+}
+
+// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
+// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+func (o DashboardOutput) ReflowType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ReflowType }).(pulumi.StringPtrOutput)
+}
+
+// UUIDs of roles whose associated users are authorized to edit the dashboard.
+func (o DashboardOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// The list of selectable template variable presets for this dashboard.
+func (o DashboardOutput) TemplateVariablePresets() DashboardTemplateVariablePresetArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardTemplateVariablePresetArrayOutput { return v.TemplateVariablePresets }).(DashboardTemplateVariablePresetArrayOutput)
+}
+
+// The list of template variables for this dashboard.
+func (o DashboardOutput) TemplateVariables() DashboardTemplateVariableArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardTemplateVariableArrayOutput { return v.TemplateVariables }).(DashboardTemplateVariableArrayOutput)
+}
+
+// The title of the dashboard.
+func (o DashboardOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// The URL of the dashboard.
+func (o DashboardOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// The list of widgets to display on the dashboard.
+func (o DashboardOutput) Widgets() DashboardWidgetArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardWidgetArrayOutput { return v.Widgets }).(DashboardWidgetArrayOutput)
 }
 
 type DashboardArrayOutput struct{ *pulumi.OutputState }

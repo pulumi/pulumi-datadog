@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsIndexExclusionFilterFilterGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 

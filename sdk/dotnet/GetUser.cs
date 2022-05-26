@@ -27,9 +27,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter all users by the given string.
-        /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
 
@@ -40,9 +37,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter all users by the given string.
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
@@ -55,21 +49,12 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// Email of the user.
-        /// </summary>
         public readonly string Email;
-        /// <summary>
-        /// Filter all users by the given string.
-        /// </summary>
         public readonly string Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

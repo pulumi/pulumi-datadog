@@ -71,7 +71,8 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
         /// </summary>
         [Output("hostFilters")]
         public Output<string?> HostFilters { get; private set; } = null!;
@@ -159,7 +160,8 @@ namespace Pulumi.Datadog.Gcp
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -208,7 +210,8 @@ namespace Pulumi.Datadog.Gcp
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }

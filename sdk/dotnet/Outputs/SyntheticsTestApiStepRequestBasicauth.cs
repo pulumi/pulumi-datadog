@@ -13,45 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStepRequestBasicauth
     {
-        /// <summary>
-        /// Access key for `SIGV4` authentication.
-        /// </summary>
         public readonly string? AccessKey;
-        /// <summary>
-        /// Domain for `ntlm` authentication.
-        /// </summary>
         public readonly string? Domain;
-        /// <summary>
-        /// Password for authentication.
-        /// </summary>
         public readonly string? Password;
-        /// <summary>
-        /// Region for `SIGV4` authentication.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// Secret key for `SIGV4` authentication.
-        /// </summary>
         public readonly string? SecretKey;
-        /// <summary>
-        /// Service name for `SIGV4` authentication.
-        /// </summary>
         public readonly string? ServiceName;
-        /// <summary>
-        /// Session token for `SIGV4` authentication.
-        /// </summary>
         public readonly string? SessionToken;
-        /// <summary>
-        /// Type of basic authentication to use when performing the test.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// Username for authentication.
-        /// </summary>
         public readonly string? Username;
-        /// <summary>
-        /// Workstation for `ntlm` authentication.
-        /// </summary>
         public readonly string? Workstation;
 
         [OutputConstructor]

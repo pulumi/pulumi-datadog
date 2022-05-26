@@ -49,9 +49,11 @@ import (
 type IntegrationLogCollection struct {
 	pulumi.CustomResourceState
 
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+	// A list of services to collect logs from. See the [api
+	// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+	// which services are supported.
 	Services pulumi.StringArrayOutput `pulumi:"services"`
 }
 
@@ -90,16 +92,20 @@ func GetIntegrationLogCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationLogCollection resources.
 type integrationLogCollectionState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
 	AccountId *string `pulumi:"accountId"`
-	// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+	// A list of services to collect logs from. See the [api
+	// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+	// which services are supported.
 	Services []string `pulumi:"services"`
 }
 
 type IntegrationLogCollectionState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
 	AccountId pulumi.StringPtrInput
-	// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+	// A list of services to collect logs from. See the [api
+	// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+	// which services are supported.
 	Services pulumi.StringArrayInput
 }
 
@@ -108,17 +114,21 @@ func (IntegrationLogCollectionState) ElementType() reflect.Type {
 }
 
 type integrationLogCollectionArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
 	AccountId string `pulumi:"accountId"`
-	// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+	// A list of services to collect logs from. See the [api
+	// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+	// which services are supported.
 	Services []string `pulumi:"services"`
 }
 
 // The set of arguments for constructing a IntegrationLogCollection resource.
 type IntegrationLogCollectionArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
 	AccountId pulumi.StringInput
-	// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+	// A list of services to collect logs from. See the [api
+	// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+	// which services are supported.
 	Services pulumi.StringArrayInput
 }
 
@@ -207,6 +217,18 @@ func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutput() Integ
 
 func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
 	return o
+}
+
+// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+func (o IntegrationLogCollectionOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationLogCollection) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// A list of services to collect logs from. See the [api
+// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+// which services are supported.
+func (o IntegrationLogCollectionOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationLogCollection) pulumi.StringArrayOutput { return v.Services }).(pulumi.StringArrayOutput)
 }
 
 type IntegrationLogCollectionArrayOutput struct{ *pulumi.OutputState }

@@ -27,9 +27,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetSyntheticsTestArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The synthetic test id to search for
-        /// </summary>
         [Input("testId", required: true)]
         public string TestId { get; set; } = null!;
 
@@ -40,9 +37,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetSyntheticsTestInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The synthetic test id to search for
-        /// </summary>
         [Input("testId", required: true)]
         public Input<string> TestId { get; set; } = null!;
 
@@ -59,21 +53,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the synthetic test.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A list of tags assigned to the synthetic test.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
-        /// <summary>
-        /// The synthetic test id to search for
-        /// </summary>
         public readonly string TestId;
-        /// <summary>
-        /// The start URL of the synthetic test.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

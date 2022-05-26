@@ -27,9 +27,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetSyntheticsGlobalVariableArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -40,9 +37,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetSyntheticsGlobalVariableInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -59,13 +53,7 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The synthetics global variable name to search for. Must only match one global variable.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A list of tags assigned to the Synthetics global variable.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]

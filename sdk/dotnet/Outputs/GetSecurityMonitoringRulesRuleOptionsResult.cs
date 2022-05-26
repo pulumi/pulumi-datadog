@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? DetectionMethod;
         public readonly int? EvaluationWindow;
+        public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsResult? ImpossibleTravelOptions;
         public readonly int KeepAlive;
         public readonly int MaxSignalDuration;
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? NewValueOptions;
@@ -25,6 +26,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? evaluationWindow,
 
+            Outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsResult? impossibleTravelOptions,
+
             int keepAlive,
 
             int maxSignalDuration,
@@ -33,6 +36,7 @@ namespace Pulumi.Datadog.Outputs
         {
             DetectionMethod = detectionMethod;
             EvaluationWindow = evaluationWindow;
+            ImpossibleTravelOptions = impossibleTravelOptions;
             KeepAlive = keepAlive;
             MaxSignalDuration = maxSignalDuration;
             NewValueOptions = newValueOptions;

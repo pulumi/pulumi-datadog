@@ -30,19 +30,14 @@ import (
 // 			IncludeTags:       pulumi.Bool(true),
 // 			Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
 // 			MonitorThresholds: &MonitorMonitorThresholdsArgs{
-// 				Critical:         pulumi.String("4"),
-// 				CriticalRecovery: pulumi.String("3"),
-// 				Warning:          pulumi.String("2"),
-// 				WarningRecovery:  pulumi.String("1"),
+// 				Critical: pulumi.String("4"),
+// 				Warning:  pulumi.String("2"),
 // 			},
-// 			Name:             pulumi.String("Name for monitor foo"),
-// 			NotifyAudit:      pulumi.Bool(false),
-// 			NotifyNoData:     pulumi.Bool(false),
-// 			Query:            pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
-// 			RenotifyInterval: pulumi.Int(60),
+// 			Name:  pulumi.String("Name for monitor foo"),
+// 			Query: pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
 // 			Tags: pulumi.StringArray{
 // 				pulumi.String("foo:bar"),
-// 				pulumi.String("baz"),
+// 				pulumi.String("team:fooBar"),
 // 			},
 // 			Type: pulumi.String("metric alert"),
 // 		})
@@ -82,8 +77,11 @@ type Monitor struct {
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+	//
+	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
-	// A message to include with notifications for this monitor.
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -129,12 +127,17 @@ type Monitor struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow pulumi.BoolPtrOutput     `pulumi:"requireFullWindow"`
-	RestrictedRoles   pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
+	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
+	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+	// field.
+	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+	// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+	// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
 	TimeoutH pulumi.IntPtrOutput `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -205,8 +208,11 @@ type monitorState struct {
 	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+	//
+	// Deprecated: Use `restricted_roles`.
 	Locked *bool `pulumi:"locked"`
-	// A message to include with notifications for this monitor.
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message *string `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -252,12 +258,17 @@ type monitorState struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
-	RestrictedRoles   []string `pulumi:"restrictedRoles"`
+	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+	// field.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+	// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+	// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -288,8 +299,11 @@ type MonitorState struct {
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+	//
+	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrInput
-	// A message to include with notifications for this monitor.
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message pulumi.StringPtrInput
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -336,11 +350,16 @@ type MonitorState struct {
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	RestrictedRoles   pulumi.StringArrayInput
+	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+	// field.
+	RestrictedRoles pulumi.StringArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+	// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+	// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -375,8 +394,11 @@ type monitorArgs struct {
 	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+	//
+	// Deprecated: Use `restricted_roles`.
 	Locked *bool `pulumi:"locked"`
-	// A message to include with notifications for this monitor.
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message string `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -422,12 +444,17 @@ type monitorArgs struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
-	RestrictedRoles   []string `pulumi:"restrictedRoles"`
+	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+	// field.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+	// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+	// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -459,8 +486,11 @@ type MonitorArgs struct {
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+	//
+	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrInput
-	// A message to include with notifications for this monitor.
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message pulumi.StringInput
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -507,11 +537,16 @@ type MonitorArgs struct {
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	RestrictedRoles   pulumi.StringArrayInput
+	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+	// field.
+	RestrictedRoles pulumi.StringArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+	// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+	// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -606,6 +641,175 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
+// monitors. Defaults to `false`.
+func (o MonitorOutput) EnableLogsSample() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.EnableLogsSample }).(pulumi.BoolPtrOutput)
+}
+
+// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+func (o MonitorOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.EscalationMessage }).(pulumi.StringPtrOutput)
+}
+
+// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
+// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
+// data during evaluation.
+func (o MonitorOutput) EvaluationDelay() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.EvaluationDelay }).(pulumi.IntOutput)
+}
+
+// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
+// composite monitor).
+func (o MonitorOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+// `false`.
+func (o MonitorOutput) GroupbySimpleMonitor() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.GroupbySimpleMonitor }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
+// Defaults to `true`.
+func (o MonitorOutput) IncludeTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.IncludeTags }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+//
+// Deprecated: Use `restricted_roles`.
+func (o MonitorOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.Locked }).(pulumi.BoolPtrOutput)
+}
+
+// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+// same `@username` notation as events.
+func (o MonitorOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+// required for, anomaly monitors.
+func (o MonitorOutput) MonitorThresholdWindows() MonitorMonitorThresholdWindowsPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorMonitorThresholdWindowsPtrOutput { return v.MonitorThresholdWindows }).(MonitorMonitorThresholdWindowsPtrOutput)
+}
+
+// Alert thresholds of the monitor.
+func (o MonitorOutput) MonitorThresholds() MonitorMonitorThresholdsPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorMonitorThresholdsPtrOutput { return v.MonitorThresholds }).(MonitorMonitorThresholdsPtrOutput)
+}
+
+// Name of Datadog monitor.
+func (o MonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+// nonzero value.
+func (o MonitorOutput) NewGroupDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NewGroupDelay }).(pulumi.IntPtrOutput)
+}
+
+// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
+// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
+// and set `new_host_delay` to zero for monitors grouped by host.
+//
+// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+func (o MonitorOutput) NewHostDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NewHostDelay }).(pulumi.IntPtrOutput)
+}
+
+// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
+// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+func (o MonitorOutput) NoDataTimeframe() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NoDataTimeframe }).(pulumi.IntPtrOutput)
+}
+
+// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
+func (o MonitorOutput) NotifyAudit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.NotifyAudit }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+func (o MonitorOutput) NotifyNoData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.NotifyNoData }).(pulumi.BoolPtrOutput)
+}
+
+// Integer from 1 (high) to 5 (low) indicating alert severity.
+func (o MonitorOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+func (o MonitorOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
+// re-notify if it's not resolved.
+func (o MonitorOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
+}
+
+// The number of re-notification messages that should be sent on the current status.
+func (o MonitorOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
+}
+
+// The types of statuses for which re-notification messages should be sent.
+func (o MonitorOutput) RenotifyStatuses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.RenotifyStatuses }).(pulumi.StringArrayOutput)
+}
+
+// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
+// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+// all times` and `in total` aggregation. `false` otherwise.
+func (o MonitorOutput) RequireFullWindow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.RequireFullWindow }).(pulumi.BoolPtrOutput)
+}
+
+// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+// field.
+func (o MonitorOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
+// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+func (o MonitorOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+// minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
+func (o MonitorOutput) TimeoutH() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.TimeoutH }).(pulumi.IntPtrOutput)
+}
+
+// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
+// cannot be changed after a monitor is created.
+func (o MonitorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// If set to `false`, skip the validation call done during plan.
+func (o MonitorOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
 type MonitorArrayOutput struct{ *pulumi.OutputState }

@@ -24,7 +24,9 @@ class IntegrationArgs:
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -86,7 +88,9 @@ class IntegrationArgs:
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+        from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+        defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         return pulumi.get(self, "host_filters")
 
@@ -108,7 +112,9 @@ class _IntegrationState:
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
         if automute is not None:
@@ -162,7 +168,9 @@ class _IntegrationState:
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+        from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+        defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         return pulumi.get(self, "host_filters")
 
@@ -224,7 +232,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
         ...
@@ -326,7 +336,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,7 +380,9 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> pulumi.Output[Optional[str]]:
         """
-        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+        from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+        defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         return pulumi.get(self, "host_filters")
 

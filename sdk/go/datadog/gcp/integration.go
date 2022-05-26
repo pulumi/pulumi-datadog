@@ -59,7 +59,8 @@ type Integration struct {
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+	// imported into Datadog.
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
@@ -119,7 +120,8 @@ type integrationState struct {
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+	// imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey *string `pulumi:"privateKey"`
@@ -136,7 +138,8 @@ type IntegrationState struct {
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+	// imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringPtrInput
@@ -157,7 +160,8 @@ type integrationArgs struct {
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+	// imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey string `pulumi:"privateKey"`
@@ -175,7 +179,8 @@ type IntegrationArgs struct {
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+	// imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringInput
@@ -270,6 +275,42 @@ func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
 
 func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return o
+}
+
+// Silence monitors for expected GCE instance shutdowns.
+func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
+}
+
+// Your email found in your JSON service account key.
+func (o IntegrationOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Your ID found in your JSON service account key.
+func (o IntegrationOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+// imported into Datadog.
+func (o IntegrationOutput) HostFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.HostFilters }).(pulumi.StringPtrOutput)
+}
+
+// Your private key name found in your JSON service account key.
+func (o IntegrationOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Your private key ID found in your JSON service account key.
+func (o IntegrationOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Your Google Cloud project ID found in your JSON service account key.
+func (o IntegrationOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
 type IntegrationArrayOutput struct{ *pulumi.OutputState }

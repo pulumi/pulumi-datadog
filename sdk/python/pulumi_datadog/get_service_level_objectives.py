@@ -52,41 +52,26 @@ class GetServiceLevelObjectivesResult:
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[str]]:
-        """
-        An array of SLO IDs to limit the search.
-        """
         return pulumi.get(self, "ids")
 
     @property
     @pulumi.getter(name="metricsQuery")
     def metrics_query(self) -> Optional[str]:
-        """
-        Filter results based on SLO numerator and denominator.
-        """
         return pulumi.get(self, "metrics_query")
 
     @property
     @pulumi.getter(name="nameQuery")
     def name_query(self) -> Optional[str]:
-        """
-        Filter results based on SLO names.
-        """
         return pulumi.get(self, "name_query")
 
     @property
     @pulumi.getter
     def slos(self) -> Sequence['outputs.GetServiceLevelObjectivesSloResult']:
-        """
-        List of SLOs
-        """
         return pulumi.get(self, "slos")
 
     @property
     @pulumi.getter(name="tagsQuery")
     def tags_query(self) -> Optional[str]:
-        """
-        Filter results based on a single SLO tag.
-        """
         return pulumi.get(self, "tags_query")
 
 
@@ -120,12 +105,6 @@ def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
 
     ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
     ```
-
-
-    :param Sequence[str] ids: An array of SLO IDs to limit the search.
-    :param str metrics_query: Filter results based on SLO numerator and denominator.
-    :param str name_query: Filter results based on SLO names.
-    :param str tags_query: Filter results based on a single SLO tag.
     """
     __args__ = dict()
     __args__['ids'] = ids
@@ -164,11 +143,5 @@ def get_service_level_objectives_output(ids: Optional[pulumi.Input[Optional[Sequ
 
     ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
     ```
-
-
-    :param Sequence[str] ids: An array of SLO IDs to limit the search.
-    :param str metrics_query: Filter results based on SLO numerator and denominator.
-    :param str name_query: Filter results based on SLO names.
-    :param str tags_query: Filter results based on a single SLO tag.
     """
     ...

@@ -41,21 +41,9 @@ export function getServiceLevelObjective(args?: GetServiceLevelObjectiveArgs, op
  * A collection of arguments for invoking getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveArgs {
-    /**
-     * A SLO ID to limit the search.
-     */
     id?: string;
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     metricsQuery?: string;
-    /**
-     * Filter results based on SLO names.
-     */
     nameQuery?: string;
-    /**
-     * Filter results based on a single SLO tag.
-     */
     tagsQuery?: string;
 }
 
@@ -63,29 +51,11 @@ export interface GetServiceLevelObjectiveArgs {
  * A collection of values returned by getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveResult {
-    /**
-     * A SLO ID to limit the search.
-     */
     readonly id?: string;
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     readonly metricsQuery?: string;
-    /**
-     * Name of the Datadog service level objective
-     */
     readonly name: string;
-    /**
-     * Filter results based on SLO names.
-     */
     readonly nameQuery?: string;
-    /**
-     * Filter results based on a single SLO tag.
-     */
     readonly tagsQuery?: string;
-    /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
-     */
     readonly type: string;
 }
 
@@ -97,20 +67,8 @@ export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOu
  * A collection of arguments for invoking getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveOutputArgs {
-    /**
-     * A SLO ID to limit the search.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Filter results based on SLO numerator and denominator.
-     */
     metricsQuery?: pulumi.Input<string>;
-    /**
-     * Filter results based on SLO names.
-     */
     nameQuery?: pulumi.Input<string>;
-    /**
-     * Filter results based on a single SLO tag.
-     */
     tagsQuery?: pulumi.Input<string>;
 }

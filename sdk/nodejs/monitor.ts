@@ -14,25 +14,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Create a new Datadog monitor
  * const foo = new datadog.Monitor("foo", {
  *     escalationMessage: "Escalation message @pagerduty",
  *     includeTags: true,
  *     message: "Monitor triggered. Notify: @hipchat-channel",
  *     monitorThresholds: {
  *         critical: "4",
- *         criticalRecovery: "3",
  *         warning: "2",
- *         warningRecovery: "1",
  *     },
  *     name: "Name for monitor foo",
- *     notifyAudit: false,
- *     notifyNoData: false,
  *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
- *     renotifyInterval: 60,
  *     tags: [
  *         "foo:bar",
- *         "baz",
+ *         "team:fooBar",
  *     ],
  *     type: "metric alert",
  * });
@@ -105,10 +99,13 @@ export class Monitor extends pulumi.CustomResource {
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+     *
+     * @deprecated Use `restricted_roles`.
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
     /**
-     * A message to include with notifications for this monitor.
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
      */
     public readonly message!: pulumi.Output<string>;
     /**
@@ -184,6 +181,12 @@ export class Monitor extends pulumi.CustomResource {
      * all times` and `in total` aggregation. `false` otherwise.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+     * field.
+     */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -191,7 +194,8 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+     * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+     * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
     /**
@@ -329,10 +333,13 @@ export interface MonitorState {
     includeTags?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+     *
+     * @deprecated Use `restricted_roles`.
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * A message to include with notifications for this monitor.
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
      */
     message?: pulumi.Input<string>;
     /**
@@ -408,6 +415,12 @@ export interface MonitorState {
      * all times` and `in total` aggregation. `false` otherwise.
      */
     requireFullWindow?: pulumi.Input<boolean>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+     * field.
+     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -415,7 +428,8 @@ export interface MonitorState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+     * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+     * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      */
     timeoutH?: pulumi.Input<number>;
     /**
@@ -467,10 +481,13 @@ export interface MonitorArgs {
     includeTags?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
+     *
+     * @deprecated Use `restricted_roles`.
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * A message to include with notifications for this monitor.
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
      */
     message: pulumi.Input<string>;
     /**
@@ -546,6 +563,12 @@ export interface MonitorArgs {
      * all times` and `in total` aggregation. `false` otherwise.
      */
     requireFullWindow?: pulumi.Input<boolean>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
+     * updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
+     * identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
+     * field.
+     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -553,7 +576,8 @@ export interface MonitorArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
+     * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
+     * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      */
     timeoutH?: pulumi.Input<number>;
     /**

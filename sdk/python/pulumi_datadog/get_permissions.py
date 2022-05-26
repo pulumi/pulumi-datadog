@@ -38,9 +38,6 @@ class GetPermissionsResult:
     @property
     @pulumi.getter
     def permissions(self) -> Mapping[str, str]:
-        """
-        Map of permissions names to their corresponding ID.
-        """
         return pulumi.get(self, "permissions")
 
 

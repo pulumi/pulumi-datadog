@@ -51,10 +51,13 @@ import (
 type SyntheticsPrivateLocation struct {
 	pulumi.CustomResourceState
 
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+	// this configuration.
 	Config pulumi.StringOutput `pulumi:"config"`
 	// Description of the private location.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The private location metadata
+	Metadata SyntheticsPrivateLocationMetadataPtrOutput `pulumi:"metadata"`
 	// Synthetics private location name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of tags to associate with your synthetics private location.
@@ -93,10 +96,13 @@ func GetSyntheticsPrivateLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
 type syntheticsPrivateLocationState struct {
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+	// this configuration.
 	Config *string `pulumi:"config"`
 	// Description of the private location.
 	Description *string `pulumi:"description"`
+	// The private location metadata
+	Metadata *SyntheticsPrivateLocationMetadata `pulumi:"metadata"`
 	// Synthetics private location name.
 	Name *string `pulumi:"name"`
 	// A list of tags to associate with your synthetics private location.
@@ -104,10 +110,13 @@ type syntheticsPrivateLocationState struct {
 }
 
 type SyntheticsPrivateLocationState struct {
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+	// this configuration.
 	Config pulumi.StringPtrInput
 	// Description of the private location.
 	Description pulumi.StringPtrInput
+	// The private location metadata
+	Metadata SyntheticsPrivateLocationMetadataPtrInput
 	// Synthetics private location name.
 	Name pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics private location.
@@ -121,6 +130,8 @@ func (SyntheticsPrivateLocationState) ElementType() reflect.Type {
 type syntheticsPrivateLocationArgs struct {
 	// Description of the private location.
 	Description *string `pulumi:"description"`
+	// The private location metadata
+	Metadata *SyntheticsPrivateLocationMetadata `pulumi:"metadata"`
 	// Synthetics private location name.
 	Name string `pulumi:"name"`
 	// A list of tags to associate with your synthetics private location.
@@ -131,6 +142,8 @@ type syntheticsPrivateLocationArgs struct {
 type SyntheticsPrivateLocationArgs struct {
 	// Description of the private location.
 	Description pulumi.StringPtrInput
+	// The private location metadata
+	Metadata SyntheticsPrivateLocationMetadataPtrInput
 	// Synthetics private location name.
 	Name pulumi.StringInput
 	// A list of tags to associate with your synthetics private location.
@@ -222,6 +235,32 @@ func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutput() Syn
 
 func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput {
 	return o
+}
+
+// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+// this configuration.
+func (o SyntheticsPrivateLocationOutput) Config() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.Config }).(pulumi.StringOutput)
+}
+
+// Description of the private location.
+func (o SyntheticsPrivateLocationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private location metadata
+func (o SyntheticsPrivateLocationOutput) Metadata() SyntheticsPrivateLocationMetadataPtrOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) SyntheticsPrivateLocationMetadataPtrOutput { return v.Metadata }).(SyntheticsPrivateLocationMetadataPtrOutput)
+}
+
+// Synthetics private location name.
+func (o SyntheticsPrivateLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of tags to associate with your synthetics private location.
+func (o SyntheticsPrivateLocationOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type SyntheticsPrivateLocationArrayOutput struct{ *pulumi.OutputState }

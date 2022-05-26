@@ -66,7 +66,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly customHeaders!: pulumi.Output<string | undefined>;
     /**
-     * Encoding type. Valid values are `json`, `form`.
+     * Encoding type.
      */
     public readonly encodeAs!: pulumi.Output<string>;
     /**
@@ -128,7 +128,7 @@ export interface WebhookState {
      */
     customHeaders?: pulumi.Input<string>;
     /**
-     * Encoding type. Valid values are `json`, `form`.
+     * Encoding type.
      */
     encodeAs?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface WebhookArgs {
      */
     customHeaders?: pulumi.Input<string>;
     /**
-     * Encoding type. Valid values are `json`, `form`.
+     * Encoding type.
      */
     encodeAs?: pulumi.Input<string>;
     /**

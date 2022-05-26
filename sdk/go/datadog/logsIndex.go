@@ -73,7 +73,8 @@ type LogsIndex struct {
 
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit pulumi.IntPtrOutput `pulumi:"dailyLimit"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+	// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
 	DisableDailyLimit pulumi.BoolOutput `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
@@ -122,7 +123,8 @@ func GetLogsIndex(ctx *pulumi.Context,
 type logsIndexState struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit *int `pulumi:"dailyLimit"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+	// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
 	DisableDailyLimit *bool `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
@@ -137,7 +139,8 @@ type logsIndexState struct {
 type LogsIndexState struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit pulumi.IntPtrInput
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+	// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
 	DisableDailyLimit pulumi.BoolPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
@@ -156,7 +159,8 @@ func (LogsIndexState) ElementType() reflect.Type {
 type logsIndexArgs struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit *int `pulumi:"dailyLimit"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+	// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
 	DisableDailyLimit *bool `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
@@ -172,7 +176,8 @@ type logsIndexArgs struct {
 type LogsIndexArgs struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit pulumi.IntPtrInput
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+	// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
 	DisableDailyLimit pulumi.BoolPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
@@ -269,6 +274,37 @@ func (o LogsIndexOutput) ToLogsIndexOutput() LogsIndexOutput {
 
 func (o LogsIndexOutput) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
 	return o
+}
+
+// The number of log events you can send in this index per day before you are rate-limited.
+func (o LogsIndexOutput) DailyLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.IntPtrOutput { return v.DailyLimit }).(pulumi.IntPtrOutput)
+}
+
+// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+func (o LogsIndexOutput) DisableDailyLimit() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.BoolOutput { return v.DisableDailyLimit }).(pulumi.BoolOutput)
+}
+
+// List of exclusion filters.
+func (o LogsIndexOutput) ExclusionFilters() LogsIndexExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *LogsIndex) LogsIndexExclusionFilterArrayOutput { return v.ExclusionFilters }).(LogsIndexExclusionFilterArrayOutput)
+}
+
+// Logs filter
+func (o LogsIndexOutput) Filters() LogsIndexFilterArrayOutput {
+	return o.ApplyT(func(v *LogsIndex) LogsIndexFilterArrayOutput { return v.Filters }).(LogsIndexFilterArrayOutput)
+}
+
+// The name of the index.
+func (o LogsIndexOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of days before logs are deleted from this index.
+func (o LogsIndexOutput) RetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.IntOutput { return v.RetentionDays }).(pulumi.IntOutput)
 }
 
 type LogsIndexArrayOutput struct{ *pulumi.OutputState }

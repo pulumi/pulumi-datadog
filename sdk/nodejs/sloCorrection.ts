@@ -83,7 +83,7 @@ export class SloCorrection extends pulumi.CustomResource {
     }
 
     /**
-     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+     * Category the SLO correction belongs to.
      */
     public readonly category!: pulumi.Output<string>;
     /**
@@ -99,7 +99,8 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     public readonly end!: pulumi.Output<number | undefined>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+     * `COUNT` and `UNTIL`.
      */
     public readonly rrule!: pulumi.Output<string | undefined>;
     /**
@@ -166,7 +167,7 @@ export class SloCorrection extends pulumi.CustomResource {
  */
 export interface SloCorrectionState {
     /**
-     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+     * Category the SLO correction belongs to.
      */
     category?: pulumi.Input<string>;
     /**
@@ -182,7 +183,8 @@ export interface SloCorrectionState {
      */
     end?: pulumi.Input<number>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+     * `COUNT` and `UNTIL`.
      */
     rrule?: pulumi.Input<string>;
     /**
@@ -204,7 +206,7 @@ export interface SloCorrectionState {
  */
 export interface SloCorrectionArgs {
     /**
-     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+     * Category the SLO correction belongs to.
      */
     category: pulumi.Input<string>;
     /**
@@ -220,7 +222,8 @@ export interface SloCorrectionArgs {
      */
     end?: pulumi.Input<number>;
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
+     * `COUNT` and `UNTIL`.
      */
     rrule?: pulumi.Input<string>;
     /**

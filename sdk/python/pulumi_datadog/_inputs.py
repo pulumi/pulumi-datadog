@@ -382,6 +382,8 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestArgs',
@@ -773,6 +775,8 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs',
+    'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs',
+    'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs',
     'DashboardWidgetScatterplotDefinitionArgs',
     'DashboardWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetScatterplotDefinitionRequestArgs',
@@ -1064,6 +1068,7 @@ __all__ = [
     'SecurityMonitoringRuleCaseArgs',
     'SecurityMonitoringRuleFilterArgs',
     'SecurityMonitoringRuleOptionsArgs',
+    'SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs',
     'SecurityMonitoringRuleOptionsNewValueOptionsArgs',
     'SecurityMonitoringRuleQueryArgs',
     'SecurityMonitoringRuleQueryAgentRuleArgs',
@@ -1071,6 +1076,7 @@ __all__ = [
     'ServiceLevelObjectiveThresholdArgs',
     'SyntheticsGlobalVariableParseTestOptionsArgs',
     'SyntheticsGlobalVariableParseTestOptionsParserArgs',
+    'SyntheticsPrivateLocationMetadataArgs',
     'SyntheticsTestApiStepArgs',
     'SyntheticsTestApiStepAssertionArgs',
     'SyntheticsTestApiStepAssertionTargetjsonpathArgs',
@@ -1108,9 +1114,6 @@ class ChildOrganizationApiKeyArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name for Child Organization after creation.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if name is not None:
@@ -1128,9 +1131,6 @@ class ChildOrganizationApiKeyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for Child Organization after creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1144,9 +1144,6 @@ class ChildOrganizationApplicationKeyArgs:
                  hash: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name for Child Organization after creation.
-        """
         if hash is not None:
             pulumi.set(__self__, "hash", hash)
         if name is not None:
@@ -1166,9 +1163,6 @@ class ChildOrganizationApplicationKeyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for Child Organization after creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1396,9 +1390,6 @@ class ChildOrganizationUserArgs:
                  access_role: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name for Child Organization after creation.
-        """
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
         if email is not None:
@@ -1427,9 +1418,6 @@ class ChildOrganizationUserArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for Child Organization after creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1442,19 +1430,12 @@ class DashboardListDashItemArgs:
     def __init__(__self__, *,
                  dash_id: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] dash_id: The ID of the dashboard to add
-        :param pulumi.Input[str] type: The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
-        """
         pulumi.set(__self__, "dash_id", dash_id)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dashId")
     def dash_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the dashboard to add
-        """
         return pulumi.get(self, "dash_id")
 
     @dash_id.setter
@@ -1464,9 +1445,6 @@ class DashboardListDashItemArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1481,12 +1459,6 @@ class DashboardTemplateVariableArgs:
                  available_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the variable.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] available_values: The list of values that the template variable drop-down is be limited to
-        :param pulumi.Input[str] default: The default value for the template variable on dashboard load.
-        :param pulumi.Input[str] prefix: The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
-        """
         pulumi.set(__self__, "name", name)
         if available_values is not None:
             pulumi.set(__self__, "available_values", available_values)
@@ -1498,9 +1470,6 @@ class DashboardTemplateVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1510,9 +1479,6 @@ class DashboardTemplateVariableArgs:
     @property
     @pulumi.getter(name="availableValues")
     def available_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of values that the template variable drop-down is be limited to
-        """
         return pulumi.get(self, "available_values")
 
     @available_values.setter
@@ -1522,9 +1488,6 @@ class DashboardTemplateVariableArgs:
     @property
     @pulumi.getter
     def default(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default value for the template variable on dashboard load.
-        """
         return pulumi.get(self, "default")
 
     @default.setter
@@ -1534,9 +1497,6 @@ class DashboardTemplateVariableArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -1549,10 +1509,6 @@ class DashboardTemplateVariablePresetArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetTemplateVariableArgs']]]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the preset.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetTemplateVariableArgs']]] template_variables: The template variable names and assumed values under the given preset
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if template_variables is not None:
@@ -1561,9 +1517,6 @@ class DashboardTemplateVariablePresetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the preset.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1573,9 +1526,6 @@ class DashboardTemplateVariablePresetArgs:
     @property
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetTemplateVariableArgs']]]]:
-        """
-        The template variable names and assumed values under the given preset
-        """
         return pulumi.get(self, "template_variables")
 
     @template_variables.setter
@@ -1588,9 +1538,6 @@ class DashboardTemplateVariablePresetTemplateVariableArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the variable.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -1599,9 +1546,6 @@ class DashboardTemplateVariablePresetTemplateVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1650,37 +1594,6 @@ class DashboardWidgetArgs:
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs']] = None,
                  treemap_definition: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetWidgetLayoutArgs']] = None):
-        """
-        :param pulumi.Input['DashboardWidgetAlertGraphDefinitionArgs'] alert_graph_definition: The definition for a Alert Graph widget.
-        :param pulumi.Input['DashboardWidgetAlertValueDefinitionArgs'] alert_value_definition: The definition for a Alert Value widget.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionArgs'] change_definition: The definition for a Change widget.
-        :param pulumi.Input['DashboardWidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
-        :param pulumi.Input['DashboardWidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
-        :param pulumi.Input['DashboardWidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
-        :param pulumi.Input['DashboardWidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
-        :param pulumi.Input['DashboardWidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
-        :param pulumi.Input['DashboardWidgetGeomapDefinitionArgs'] geomap_definition: The definition for a Geomap widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionArgs'] group_definition: The definition for a Group widget.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionArgs'] heatmap_definition: The definition for a Heatmap widget.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionArgs'] hostmap_definition: The definition for a Hostmap widget.
-        :param pulumi.Input[int] id: The ID of the widget.
-        :param pulumi.Input['DashboardWidgetIframeDefinitionArgs'] iframe_definition: The definition for an Iframe widget.
-        :param pulumi.Input['DashboardWidgetImageDefinitionArgs'] image_definition: The definition for an Image widget
-        :param pulumi.Input['DashboardWidgetLogStreamDefinitionArgs'] log_stream_definition: The definition for an Log Stream widget.
-        :param pulumi.Input['DashboardWidgetManageStatusDefinitionArgs'] manage_status_definition: The definition for an Manage Status widget.
-        :param pulumi.Input['DashboardWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
-        :param pulumi.Input['DashboardWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
-        :param pulumi.Input['DashboardWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionArgs'] sunburst_definition: The definition for a Sunburst widget.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionArgs'] timeseries_definition: The definition for a Timeseries widget.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionArgs'] toplist_definition: The definition for a Toplist widget.
-        :param pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs'] trace_service_definition: The definition for a Trace Service widget.
-        :param pulumi.Input['DashboardWidgetTreemapDefinitionArgs'] treemap_definition: The definition for a Treemap widget.
-        :param pulumi.Input['DashboardWidgetWidgetLayoutArgs'] widget_layout: The layout of the widget on a 'free' dashboard.
-        """
         if alert_graph_definition is not None:
             pulumi.set(__self__, "alert_graph_definition", alert_graph_definition)
         if alert_value_definition is not None:
@@ -1743,9 +1656,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="alertGraphDefinition")
     def alert_graph_definition(self) -> Optional[pulumi.Input['DashboardWidgetAlertGraphDefinitionArgs']]:
-        """
-        The definition for a Alert Graph widget.
-        """
         return pulumi.get(self, "alert_graph_definition")
 
     @alert_graph_definition.setter
@@ -1755,9 +1665,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="alertValueDefinition")
     def alert_value_definition(self) -> Optional[pulumi.Input['DashboardWidgetAlertValueDefinitionArgs']]:
-        """
-        The definition for a Alert Value widget.
-        """
         return pulumi.get(self, "alert_value_definition")
 
     @alert_value_definition.setter
@@ -1767,9 +1674,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="changeDefinition")
     def change_definition(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionArgs']]:
-        """
-        The definition for a Change widget.
-        """
         return pulumi.get(self, "change_definition")
 
     @change_definition.setter
@@ -1779,9 +1683,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="checkStatusDefinition")
     def check_status_definition(self) -> Optional[pulumi.Input['DashboardWidgetCheckStatusDefinitionArgs']]:
-        """
-        The definition for a Check Status widget.
-        """
         return pulumi.get(self, "check_status_definition")
 
     @check_status_definition.setter
@@ -1791,9 +1692,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="distributionDefinition")
     def distribution_definition(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionArgs']]:
-        """
-        The definition for a Distribution widget.
-        """
         return pulumi.get(self, "distribution_definition")
 
     @distribution_definition.setter
@@ -1803,9 +1701,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="eventStreamDefinition")
     def event_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetEventStreamDefinitionArgs']]:
-        """
-        The definition for a Event Stream widget.
-        """
         return pulumi.get(self, "event_stream_definition")
 
     @event_stream_definition.setter
@@ -1815,9 +1710,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="eventTimelineDefinition")
     def event_timeline_definition(self) -> Optional[pulumi.Input['DashboardWidgetEventTimelineDefinitionArgs']]:
-        """
-        The definition for a Event Timeline widget.
-        """
         return pulumi.get(self, "event_timeline_definition")
 
     @event_timeline_definition.setter
@@ -1827,9 +1719,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="freeTextDefinition")
     def free_text_definition(self) -> Optional[pulumi.Input['DashboardWidgetFreeTextDefinitionArgs']]:
-        """
-        The definition for a Free Text widget.
-        """
         return pulumi.get(self, "free_text_definition")
 
     @free_text_definition.setter
@@ -1839,9 +1728,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="geomapDefinition")
     def geomap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGeomapDefinitionArgs']]:
-        """
-        The definition for a Geomap widget.
-        """
         return pulumi.get(self, "geomap_definition")
 
     @geomap_definition.setter
@@ -1851,9 +1737,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="groupDefinition")
     def group_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionArgs']]:
-        """
-        The definition for a Group widget.
-        """
         return pulumi.get(self, "group_definition")
 
     @group_definition.setter
@@ -1863,9 +1746,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="heatmapDefinition")
     def heatmap_definition(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionArgs']]:
-        """
-        The definition for a Heatmap widget.
-        """
         return pulumi.get(self, "heatmap_definition")
 
     @heatmap_definition.setter
@@ -1875,9 +1755,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="hostmapDefinition")
     def hostmap_definition(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionArgs']]:
-        """
-        The definition for a Hostmap widget.
-        """
         return pulumi.get(self, "hostmap_definition")
 
     @hostmap_definition.setter
@@ -1887,9 +1764,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ID of the widget.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1899,9 +1773,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="iframeDefinition")
     def iframe_definition(self) -> Optional[pulumi.Input['DashboardWidgetIframeDefinitionArgs']]:
-        """
-        The definition for an Iframe widget.
-        """
         return pulumi.get(self, "iframe_definition")
 
     @iframe_definition.setter
@@ -1911,9 +1782,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="imageDefinition")
     def image_definition(self) -> Optional[pulumi.Input['DashboardWidgetImageDefinitionArgs']]:
-        """
-        The definition for an Image widget
-        """
         return pulumi.get(self, "image_definition")
 
     @image_definition.setter
@@ -1923,9 +1791,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="logStreamDefinition")
     def log_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetLogStreamDefinitionArgs']]:
-        """
-        The definition for an Log Stream widget.
-        """
         return pulumi.get(self, "log_stream_definition")
 
     @log_stream_definition.setter
@@ -1935,9 +1800,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="manageStatusDefinition")
     def manage_status_definition(self) -> Optional[pulumi.Input['DashboardWidgetManageStatusDefinitionArgs']]:
-        """
-        The definition for an Manage Status widget.
-        """
         return pulumi.get(self, "manage_status_definition")
 
     @manage_status_definition.setter
@@ -1947,9 +1809,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="noteDefinition")
     def note_definition(self) -> Optional[pulumi.Input['DashboardWidgetNoteDefinitionArgs']]:
-        """
-        The definition for a Note widget.
-        """
         return pulumi.get(self, "note_definition")
 
     @note_definition.setter
@@ -1959,9 +1818,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="queryTableDefinition")
     def query_table_definition(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionArgs']]:
-        """
-        The definition for a Query Table widget.
-        """
         return pulumi.get(self, "query_table_definition")
 
     @query_table_definition.setter
@@ -1971,9 +1827,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="queryValueDefinition")
     def query_value_definition(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionArgs']]:
-        """
-        The definition for a Query Value widget.
-        """
         return pulumi.get(self, "query_value_definition")
 
     @query_value_definition.setter
@@ -1983,9 +1836,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="scatterplotDefinition")
     def scatterplot_definition(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionArgs']]:
-        """
-        The definition for a Scatterplot widget.
-        """
         return pulumi.get(self, "scatterplot_definition")
 
     @scatterplot_definition.setter
@@ -1995,9 +1845,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="serviceLevelObjectiveDefinition")
     def service_level_objective_definition(self) -> Optional[pulumi.Input['DashboardWidgetServiceLevelObjectiveDefinitionArgs']]:
-        """
-        The definition for a Service Level Objective widget.
-        """
         return pulumi.get(self, "service_level_objective_definition")
 
     @service_level_objective_definition.setter
@@ -2007,9 +1854,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="servicemapDefinition")
     def servicemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetServicemapDefinitionArgs']]:
-        """
-        The definition for a Service Map widget.
-        """
         return pulumi.get(self, "servicemap_definition")
 
     @servicemap_definition.setter
@@ -2019,9 +1863,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="sunburstDefinition")
     def sunburst_definition(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionArgs']]:
-        """
-        The definition for a Sunburst widget.
-        """
         return pulumi.get(self, "sunburst_definition")
 
     @sunburst_definition.setter
@@ -2031,9 +1872,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="timeseriesDefinition")
     def timeseries_definition(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionArgs']]:
-        """
-        The definition for a Timeseries widget.
-        """
         return pulumi.get(self, "timeseries_definition")
 
     @timeseries_definition.setter
@@ -2043,9 +1881,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="toplistDefinition")
     def toplist_definition(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionArgs']]:
-        """
-        The definition for a Toplist widget.
-        """
         return pulumi.get(self, "toplist_definition")
 
     @toplist_definition.setter
@@ -2055,9 +1890,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="traceServiceDefinition")
     def trace_service_definition(self) -> Optional[pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs']]:
-        """
-        The definition for a Trace Service widget.
-        """
         return pulumi.get(self, "trace_service_definition")
 
     @trace_service_definition.setter
@@ -2067,9 +1899,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="treemapDefinition")
     def treemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']]:
-        """
-        The definition for a Treemap widget.
-        """
         return pulumi.get(self, "treemap_definition")
 
     @treemap_definition.setter
@@ -2079,9 +1908,6 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="widgetLayout")
     def widget_layout(self) -> Optional[pulumi.Input['DashboardWidgetWidgetLayoutArgs']]:
-        """
-        The layout of the widget on a 'free' dashboard.
-        """
         return pulumi.get(self, "widget_layout")
 
     @widget_layout.setter
@@ -2098,9 +1924,6 @@ class DashboardWidgetAlertGraphDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "alert_id", alert_id)
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
@@ -2142,9 +1965,6 @@ class DashboardWidgetAlertGraphDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -2180,9 +2000,6 @@ class DashboardWidgetAlertValueDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "alert_id", alert_id)
         if precision is not None:
             pulumi.set(__self__, "precision", precision)
@@ -2227,9 +2044,6 @@ class DashboardWidgetAlertValueDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -2273,9 +2087,6 @@ class DashboardWidgetChangeDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -2319,9 +2130,6 @@ class DashboardWidgetChangeDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -4410,9 +4218,6 @@ class DashboardWidgetCheckStatusDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "check", check)
         pulumi.set(__self__, "grouping", grouping)
         if group is not None:
@@ -4487,9 +4292,6 @@ class DashboardWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -4525,9 +4327,6 @@ class DashboardWidgetDistributionDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
         if live_span is not None:
@@ -4582,9 +4381,6 @@ class DashboardWidgetDistributionDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -5822,9 +5618,6 @@ class DashboardWidgetEventStreamDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
@@ -5878,9 +5671,6 @@ class DashboardWidgetEventStreamDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -5915,9 +5705,6 @@ class DashboardWidgetEventTimelineDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
@@ -5960,9 +5747,6 @@ class DashboardWidgetEventTimelineDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -6051,9 +5835,6 @@ class DashboardWidgetGeomapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "view", view)
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
@@ -6118,9 +5899,6 @@ class DashboardWidgetGeomapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -7641,11 +7419,6 @@ class DashboardWidgetGroupDefinitionArgs:
                  banner_img: Optional[pulumi.Input[str]] = None,
                  show_title: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "layout_type", layout_type)
         pulumi.set(__self__, "widgets", widgets)
         if background_color is not None:
@@ -7660,9 +7433,6 @@ class DashboardWidgetGroupDefinitionArgs:
     @property
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Input[str]:
-        """
-        The layout type of the dashboard. Valid values are `ordered`, `free`.
-        """
         return pulumi.get(self, "layout_type")
 
     @layout_type.setter
@@ -7672,9 +7442,6 @@ class DashboardWidgetGroupDefinitionArgs:
     @property
     @pulumi.getter
     def widgets(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]:
-        """
-        The list of widgets to display on the dashboard.
-        """
         return pulumi.get(self, "widgets")
 
     @widgets.setter
@@ -7711,9 +7478,6 @@ class DashboardWidgetGroupDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -7752,36 +7516,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs']] = None,
                  treemap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs']] = None):
-        """
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs'] alert_graph_definition: The definition for a Alert Graph widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs'] alert_value_definition: The definition for a Alert Value widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs'] change_definition: The definition for a Change widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs'] geomap_definition: The definition for a Geomap widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs'] heatmap_definition: The definition for a Heatmap widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs'] hostmap_definition: The definition for a Hostmap widget.
-        :param pulumi.Input[int] id: The ID of the widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs'] iframe_definition: The definition for an Iframe widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs'] image_definition: The definition for an Image widget
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs'] log_stream_definition: The definition for an Log Stream widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs'] manage_status_definition: The definition for an Manage Status widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs'] sunburst_definition: The definition for a Sunburst widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs'] timeseries_definition: The definition for a Timeseries widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs'] toplist_definition: The definition for a Toplist widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs'] trace_service_definition: The definition for a Trace Service widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs'] treemap_definition: The definition for a Treemap widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs'] widget_layout: The layout of the widget on a 'free' dashboard.
-        """
         if alert_graph_definition is not None:
             pulumi.set(__self__, "alert_graph_definition", alert_graph_definition)
         if alert_value_definition is not None:
@@ -7842,9 +7576,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="alertGraphDefinition")
     def alert_graph_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs']]:
-        """
-        The definition for a Alert Graph widget.
-        """
         return pulumi.get(self, "alert_graph_definition")
 
     @alert_graph_definition.setter
@@ -7854,9 +7585,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="alertValueDefinition")
     def alert_value_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs']]:
-        """
-        The definition for a Alert Value widget.
-        """
         return pulumi.get(self, "alert_value_definition")
 
     @alert_value_definition.setter
@@ -7866,9 +7594,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="changeDefinition")
     def change_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs']]:
-        """
-        The definition for a Change widget.
-        """
         return pulumi.get(self, "change_definition")
 
     @change_definition.setter
@@ -7878,9 +7603,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="checkStatusDefinition")
     def check_status_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs']]:
-        """
-        The definition for a Check Status widget.
-        """
         return pulumi.get(self, "check_status_definition")
 
     @check_status_definition.setter
@@ -7890,9 +7612,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="distributionDefinition")
     def distribution_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs']]:
-        """
-        The definition for a Distribution widget.
-        """
         return pulumi.get(self, "distribution_definition")
 
     @distribution_definition.setter
@@ -7902,9 +7621,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="eventStreamDefinition")
     def event_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs']]:
-        """
-        The definition for a Event Stream widget.
-        """
         return pulumi.get(self, "event_stream_definition")
 
     @event_stream_definition.setter
@@ -7914,9 +7630,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="eventTimelineDefinition")
     def event_timeline_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs']]:
-        """
-        The definition for a Event Timeline widget.
-        """
         return pulumi.get(self, "event_timeline_definition")
 
     @event_timeline_definition.setter
@@ -7926,9 +7639,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="freeTextDefinition")
     def free_text_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs']]:
-        """
-        The definition for a Free Text widget.
-        """
         return pulumi.get(self, "free_text_definition")
 
     @free_text_definition.setter
@@ -7938,9 +7648,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="geomapDefinition")
     def geomap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs']]:
-        """
-        The definition for a Geomap widget.
-        """
         return pulumi.get(self, "geomap_definition")
 
     @geomap_definition.setter
@@ -7950,9 +7657,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="heatmapDefinition")
     def heatmap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs']]:
-        """
-        The definition for a Heatmap widget.
-        """
         return pulumi.get(self, "heatmap_definition")
 
     @heatmap_definition.setter
@@ -7962,9 +7666,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="hostmapDefinition")
     def hostmap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs']]:
-        """
-        The definition for a Hostmap widget.
-        """
         return pulumi.get(self, "hostmap_definition")
 
     @hostmap_definition.setter
@@ -7974,9 +7675,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
-        """
-        The ID of the widget.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -7986,9 +7684,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="iframeDefinition")
     def iframe_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs']]:
-        """
-        The definition for an Iframe widget.
-        """
         return pulumi.get(self, "iframe_definition")
 
     @iframe_definition.setter
@@ -7998,9 +7693,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="imageDefinition")
     def image_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs']]:
-        """
-        The definition for an Image widget
-        """
         return pulumi.get(self, "image_definition")
 
     @image_definition.setter
@@ -8010,9 +7702,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="logStreamDefinition")
     def log_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs']]:
-        """
-        The definition for an Log Stream widget.
-        """
         return pulumi.get(self, "log_stream_definition")
 
     @log_stream_definition.setter
@@ -8022,9 +7711,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="manageStatusDefinition")
     def manage_status_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs']]:
-        """
-        The definition for an Manage Status widget.
-        """
         return pulumi.get(self, "manage_status_definition")
 
     @manage_status_definition.setter
@@ -8034,9 +7720,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="noteDefinition")
     def note_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs']]:
-        """
-        The definition for a Note widget.
-        """
         return pulumi.get(self, "note_definition")
 
     @note_definition.setter
@@ -8046,9 +7729,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="queryTableDefinition")
     def query_table_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs']]:
-        """
-        The definition for a Query Table widget.
-        """
         return pulumi.get(self, "query_table_definition")
 
     @query_table_definition.setter
@@ -8058,9 +7738,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="queryValueDefinition")
     def query_value_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs']]:
-        """
-        The definition for a Query Value widget.
-        """
         return pulumi.get(self, "query_value_definition")
 
     @query_value_definition.setter
@@ -8070,9 +7747,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="scatterplotDefinition")
     def scatterplot_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs']]:
-        """
-        The definition for a Scatterplot widget.
-        """
         return pulumi.get(self, "scatterplot_definition")
 
     @scatterplot_definition.setter
@@ -8082,9 +7756,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="serviceLevelObjectiveDefinition")
     def service_level_objective_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs']]:
-        """
-        The definition for a Service Level Objective widget.
-        """
         return pulumi.get(self, "service_level_objective_definition")
 
     @service_level_objective_definition.setter
@@ -8094,9 +7765,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="servicemapDefinition")
     def servicemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs']]:
-        """
-        The definition for a Service Map widget.
-        """
         return pulumi.get(self, "servicemap_definition")
 
     @servicemap_definition.setter
@@ -8106,9 +7774,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="sunburstDefinition")
     def sunburst_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs']]:
-        """
-        The definition for a Sunburst widget.
-        """
         return pulumi.get(self, "sunburst_definition")
 
     @sunburst_definition.setter
@@ -8118,9 +7783,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="timeseriesDefinition")
     def timeseries_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs']]:
-        """
-        The definition for a Timeseries widget.
-        """
         return pulumi.get(self, "timeseries_definition")
 
     @timeseries_definition.setter
@@ -8130,9 +7792,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="toplistDefinition")
     def toplist_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs']]:
-        """
-        The definition for a Toplist widget.
-        """
         return pulumi.get(self, "toplist_definition")
 
     @toplist_definition.setter
@@ -8142,9 +7801,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="traceServiceDefinition")
     def trace_service_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs']]:
-        """
-        The definition for a Trace Service widget.
-        """
         return pulumi.get(self, "trace_service_definition")
 
     @trace_service_definition.setter
@@ -8154,9 +7810,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="treemapDefinition")
     def treemap_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']]:
-        """
-        The definition for a Treemap widget.
-        """
         return pulumi.get(self, "treemap_definition")
 
     @treemap_definition.setter
@@ -8166,9 +7819,6 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @property
     @pulumi.getter(name="widgetLayout")
     def widget_layout(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs']]:
-        """
-        The layout of the widget on a 'free' dashboard.
-        """
         return pulumi.get(self, "widget_layout")
 
     @widget_layout.setter
@@ -8185,9 +7835,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "alert_id", alert_id)
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
@@ -8229,9 +7876,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -8267,9 +7911,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "alert_id", alert_id)
         if precision is not None:
             pulumi.set(__self__, "precision", precision)
@@ -8314,9 +7955,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -8360,9 +7998,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -8406,9 +8041,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -10497,9 +10129,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "check", check)
         pulumi.set(__self__, "grouping", grouping)
         if group is not None:
@@ -10574,9 +10203,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -10612,9 +10238,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
         if live_span is not None:
@@ -10669,9 +10292,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -11909,9 +11529,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
@@ -11965,9 +11582,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -12002,9 +11616,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
@@ -12047,9 +11658,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -12138,9 +11746,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "view", view)
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
@@ -12205,9 +11810,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -13732,9 +13334,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -13813,9 +13412,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -15064,9 +14660,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
@@ -15165,9 +14758,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -17382,17 +16972,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyleArgs:
 class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] url: The URL of the dashboard.
-        """
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the dashboard.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -17411,9 +16995,6 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs:
                  sizing: Optional[pulumi.Input[str]] = None,
                  url_dark_theme: Optional[pulumi.Input[str]] = None,
                  vertical_align: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] url: The URL of the dashboard.
-        """
         pulumi.set(__self__, "url", url)
         if has_background is not None:
             pulumi.set(__self__, "has_background", has_background)
@@ -17433,9 +17014,6 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the dashboard.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -17520,9 +17098,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if indexes is not None:
@@ -17621,9 +17196,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -17689,9 +17261,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
@@ -17778,9 +17347,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -17928,9 +17494,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if has_search_bar is not None:
@@ -17985,9 +17548,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -20332,12 +19892,10 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
                  precision: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestArgs']]]] = None,
                  text_align: Optional[pulumi.Input[str]] = None,
+                 timeseries_background: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
         if custom_links is not None:
@@ -20352,6 +19910,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
             pulumi.set(__self__, "requests", requests)
         if text_align is not None:
             pulumi.set(__self__, "text_align", text_align)
+        if timeseries_background is not None:
+            pulumi.set(__self__, "timeseries_background", timeseries_background)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -20423,11 +19983,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
         pulumi.set(self, "text_align", value)
 
     @property
+    @pulumi.getter(name="timeseriesBackground")
+    def timeseries_background(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs']]:
+        return pulumi.get(self, "timeseries_background")
+
+    @timeseries_background.setter
+    def timeseries_background(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs']]):
+        pulumi.set(self, "timeseries_background", value)
+
+    @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -22803,6 +22369,99 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if yaxis is not None:
+            pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def yaxis(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']]:
+        return pulumi.get(self, "yaxis")
+
+    @yaxis.setter
+    def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']]):
+        pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs:
+    def __init__(__self__, *,
+                 include_zero: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input[str]] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_zero")
+
+    @include_zero.setter
+    def include_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_zero", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
     def __init__(__self__, *,
                  color_by_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -22814,9 +22473,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
                  title_size: Optional[pulumi.Input[str]] = None,
                  xaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxisArgs']] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
         if custom_links is not None:
@@ -22875,9 +22531,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -25973,9 +25626,6 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
@@ -26048,9 +25698,6 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -26085,9 +25732,6 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
         if custom_links is not None:
@@ -26129,9 +25773,6 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -26222,9 +25863,6 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if hide_total is not None:
@@ -26301,9 +25939,6 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -28853,9 +28488,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -28978,9 +28610,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -31790,9 +31419,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -31836,9 +31462,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -34248,9 +33871,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "env", env)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "span_name", span_name)
@@ -34390,9 +34010,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -34423,9 +34040,6 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs:
     def __init__(__self__, *,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if title is not None:
@@ -34443,9 +34057,6 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -35433,9 +35044,6 @@ class DashboardWidgetHeatmapDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -35514,9 +35122,6 @@ class DashboardWidgetHeatmapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -36765,9 +36370,6 @@ class DashboardWidgetHostmapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
@@ -36866,9 +36468,6 @@ class DashboardWidgetHostmapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -39083,17 +38682,11 @@ class DashboardWidgetHostmapDefinitionStyleArgs:
 class DashboardWidgetIframeDefinitionArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] url: The URL of the dashboard.
-        """
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the dashboard.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -39112,9 +38705,6 @@ class DashboardWidgetImageDefinitionArgs:
                  sizing: Optional[pulumi.Input[str]] = None,
                  url_dark_theme: Optional[pulumi.Input[str]] = None,
                  vertical_align: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] url: The URL of the dashboard.
-        """
         pulumi.set(__self__, "url", url)
         if has_background is not None:
             pulumi.set(__self__, "has_background", has_background)
@@ -39134,9 +38724,6 @@ class DashboardWidgetImageDefinitionArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the dashboard.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -39221,9 +38808,6 @@ class DashboardWidgetLogStreamDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if indexes is not None:
@@ -39322,9 +38906,6 @@ class DashboardWidgetLogStreamDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -39390,9 +38971,6 @@ class DashboardWidgetManageStatusDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
@@ -39479,9 +39057,6 @@ class DashboardWidgetManageStatusDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -39629,9 +39204,6 @@ class DashboardWidgetQueryTableDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if has_search_bar is not None:
@@ -39686,9 +39258,6 @@ class DashboardWidgetQueryTableDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -42033,12 +41602,10 @@ class DashboardWidgetQueryValueDefinitionArgs:
                  precision: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestArgs']]]] = None,
                  text_align: Optional[pulumi.Input[str]] = None,
+                 timeseries_background: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
         if custom_links is not None:
@@ -42053,6 +41620,8 @@ class DashboardWidgetQueryValueDefinitionArgs:
             pulumi.set(__self__, "requests", requests)
         if text_align is not None:
             pulumi.set(__self__, "text_align", text_align)
+        if timeseries_background is not None:
+            pulumi.set(__self__, "timeseries_background", timeseries_background)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -42124,11 +41693,17 @@ class DashboardWidgetQueryValueDefinitionArgs:
         pulumi.set(self, "text_align", value)
 
     @property
+    @pulumi.getter(name="timeseriesBackground")
+    def timeseries_background(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs']]:
+        return pulumi.get(self, "timeseries_background")
+
+    @timeseries_background.setter
+    def timeseries_background(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs']]):
+        pulumi.set(self, "timeseries_background", value)
+
+    @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -44504,6 +44079,99 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 yaxis: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if yaxis is not None:
+            pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def yaxis(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']]:
+        return pulumi.get(self, "yaxis")
+
+    @yaxis.setter
+    def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs']]):
+        pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs:
+    def __init__(__self__, *,
+                 include_zero: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input[str]] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_zero")
+
+    @include_zero.setter
+    def include_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_zero", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionArgs:
     def __init__(__self__, *,
                  color_by_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -44515,9 +44183,6 @@ class DashboardWidgetScatterplotDefinitionArgs:
                  title_size: Optional[pulumi.Input[str]] = None,
                  xaxis: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionXaxisArgs']] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
         if custom_links is not None:
@@ -44576,9 +44241,6 @@ class DashboardWidgetScatterplotDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -47674,9 +47336,6 @@ class DashboardWidgetServiceLevelObjectiveDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
@@ -47749,9 +47408,6 @@ class DashboardWidgetServiceLevelObjectiveDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -47786,9 +47442,6 @@ class DashboardWidgetServicemapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
         if custom_links is not None:
@@ -47830,9 +47483,6 @@ class DashboardWidgetServicemapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -47923,9 +47573,6 @@ class DashboardWidgetSunburstDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if hide_total is not None:
@@ -48002,9 +47649,6 @@ class DashboardWidgetSunburstDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -50554,9 +50198,6 @@ class DashboardWidgetTimeseriesDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionYaxisArgs']] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -50679,9 +50320,6 @@ class DashboardWidgetTimeseriesDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -53491,9 +53129,6 @@ class DashboardWidgetToplistDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -53537,9 +53172,6 @@ class DashboardWidgetToplistDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -55949,9 +55581,6 @@ class DashboardWidgetTraceServiceDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         pulumi.set(__self__, "env", env)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "span_name", span_name)
@@ -56091,9 +55720,6 @@ class DashboardWidgetTraceServiceDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -56124,9 +55750,6 @@ class DashboardWidgetTreemapDefinitionArgs:
     def __init__(__self__, *,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] title: The title of the dashboard.
-        """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if title is not None:
@@ -56144,9 +55767,6 @@ class DashboardWidgetTreemapDefinitionArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The title of the dashboard.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -57130,14 +56750,6 @@ class DowntimeRecurrenceArgs:
                  until_date: Optional[pulumi.Input[int]] = None,
                  until_occurrences: Optional[pulumi.Input[int]] = None,
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] type: One of `days`, `weeks`, `months`, or `years`
-        :param pulumi.Input[int] period: How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
-        :param pulumi.Input[str] rrule: The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
-        :param pulumi.Input[int] until_date: The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        :param pulumi.Input[int] until_occurrences: How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
-        """
         pulumi.set(__self__, "type", type)
         if period is not None:
             pulumi.set(__self__, "period", period)
@@ -57153,9 +56765,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        One of `days`, `weeks`, `months`, or `years`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -57165,9 +56774,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[int]]:
-        """
-        How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -57177,9 +56783,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter
     def rrule(self) -> Optional[pulumi.Input[str]]:
-        """
-        The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
-        """
         return pulumi.get(self, "rrule")
 
     @rrule.setter
@@ -57189,9 +56792,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter(name="untilDate")
     def until_date(self) -> Optional[pulumi.Input[int]]:
-        """
-        The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        """
         return pulumi.get(self, "until_date")
 
     @until_date.setter
@@ -57201,9 +56801,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter(name="untilOccurrences")
     def until_occurrences(self) -> Optional[pulumi.Input[int]]:
-        """
-        How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        """
         return pulumi.get(self, "until_occurrences")
 
     @until_occurrences.setter
@@ -57213,9 +56810,6 @@ class DowntimeRecurrenceArgs:
     @property
     @pulumi.getter(name="weekDays")
     def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
-        """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
@@ -57231,13 +56825,6 @@ class LogsArchiveAzureArchiveArgs:
                  storage_account: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] client_id: Your client id.
-        :param pulumi.Input[str] container: The container where the archive will be stored.
-        :param pulumi.Input[str] storage_account: The associated storage account.
-        :param pulumi.Input[str] tenant_id: Your tenant id.
-        :param pulumi.Input[str] path: The path where the archive will be stored.
-        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "storage_account", storage_account)
@@ -57248,9 +56835,6 @@ class LogsArchiveAzureArchiveArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
-        """
-        Your client id.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -57260,9 +56844,6 @@ class LogsArchiveAzureArchiveArgs:
     @property
     @pulumi.getter
     def container(self) -> pulumi.Input[str]:
-        """
-        The container where the archive will be stored.
-        """
         return pulumi.get(self, "container")
 
     @container.setter
@@ -57272,9 +56853,6 @@ class LogsArchiveAzureArchiveArgs:
     @property
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> pulumi.Input[str]:
-        """
-        The associated storage account.
-        """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
@@ -57284,9 +56862,6 @@ class LogsArchiveAzureArchiveArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
-        """
-        Your tenant id.
-        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -57296,9 +56871,6 @@ class LogsArchiveAzureArchiveArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path where the archive will be stored.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -57313,12 +56885,6 @@ class LogsArchiveGcsArchiveArgs:
                  client_email: pulumi.Input[str],
                  path: pulumi.Input[str],
                  project_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] bucket: Name of your GCS bucket.
-        :param pulumi.Input[str] client_email: Your client email.
-        :param pulumi.Input[str] path: Path where the archive will be stored.
-        :param pulumi.Input[str] project_id: Your project id.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "client_email", client_email)
         pulumi.set(__self__, "path", path)
@@ -57327,9 +56893,6 @@ class LogsArchiveGcsArchiveArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        Name of your GCS bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -57339,9 +56902,6 @@ class LogsArchiveGcsArchiveArgs:
     @property
     @pulumi.getter(name="clientEmail")
     def client_email(self) -> pulumi.Input[str]:
-        """
-        Your client email.
-        """
         return pulumi.get(self, "client_email")
 
     @client_email.setter
@@ -57351,9 +56911,6 @@ class LogsArchiveGcsArchiveArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
-        """
-        Path where the archive will be stored.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -57363,9 +56920,6 @@ class LogsArchiveGcsArchiveArgs:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
-        """
-        Your project id.
-        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -57380,12 +56934,6 @@ class LogsArchiveS3ArchiveArgs:
                  bucket: pulumi.Input[str],
                  path: pulumi.Input[str],
                  role_name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] account_id: Your AWS account id.
-        :param pulumi.Input[str] bucket: Name of your s3 bucket.
-        :param pulumi.Input[str] path: Path where the archive will be stored.
-        :param pulumi.Input[str] role_name: Your AWS role name
-        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "path", path)
@@ -57394,9 +56942,6 @@ class LogsArchiveS3ArchiveArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
-        """
-        Your AWS account id.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -57406,9 +56951,6 @@ class LogsArchiveS3ArchiveArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        Name of your s3 bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -57418,9 +56960,6 @@ class LogsArchiveS3ArchiveArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
-        """
-        Path where the archive will be stored.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -57430,9 +56969,6 @@ class LogsArchiveS3ArchiveArgs:
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Input[str]:
-        """
-        Your AWS role name
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -57444,17 +56980,11 @@ class LogsArchiveS3ArchiveArgs:
 class LogsCustomPipelineFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Filter criteria of the category.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Filter criteria of the category.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -57480,22 +57010,6 @@ class LogsCustomPipelineProcessorArgs:
                  trace_id_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorTraceIdRemapperArgs']] = None,
                  url_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs']] = None,
                  user_agent_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorUserAgentParserArgs']] = None):
-        """
-        :param pulumi.Input['LogsCustomPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorGeoIpParserArgs'] geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorStringBuilderProcessorArgs'] string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorTraceIdRemapperArgs'] trace_id_remapper: Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorUserAgentParserArgs'] user_agent_parser: User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-        """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
         if attribute_remapper is not None:
@@ -57530,9 +57044,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="arithmeticProcessor")
     def arithmetic_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorArithmeticProcessorArgs']]:
-        """
-        Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-        """
         return pulumi.get(self, "arithmetic_processor")
 
     @arithmetic_processor.setter
@@ -57542,9 +57053,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorAttributeRemapperArgs']]:
-        """
-        Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-        """
         return pulumi.get(self, "attribute_remapper")
 
     @attribute_remapper.setter
@@ -57554,9 +57062,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="categoryProcessor")
     def category_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorCategoryProcessorArgs']]:
-        """
-        Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-        """
         return pulumi.get(self, "category_processor")
 
     @category_processor.setter
@@ -57566,9 +57071,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="dateRemapper")
     def date_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorDateRemapperArgs']]:
-        """
-        Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-        """
         return pulumi.get(self, "date_remapper")
 
     @date_remapper.setter
@@ -57578,9 +57080,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="geoIpParser")
     def geo_ip_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorGeoIpParserArgs']]:
-        """
-        Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-        """
         return pulumi.get(self, "geo_ip_parser")
 
     @geo_ip_parser.setter
@@ -57590,9 +57089,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="grokParser")
     def grok_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs']]:
-        """
-        Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-        """
         return pulumi.get(self, "grok_parser")
 
     @grok_parser.setter
@@ -57602,9 +57098,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="lookupProcessor")
     def lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs']]:
-        """
-        Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-        """
         return pulumi.get(self, "lookup_processor")
 
     @lookup_processor.setter
@@ -57614,9 +57107,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="messageRemapper")
     def message_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs']]:
-        """
-        Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-        """
         return pulumi.get(self, "message_remapper")
 
     @message_remapper.setter
@@ -57635,9 +57125,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="serviceRemapper")
     def service_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs']]:
-        """
-        Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-        """
         return pulumi.get(self, "service_remapper")
 
     @service_remapper.setter
@@ -57647,9 +57134,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="statusRemapper")
     def status_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs']]:
-        """
-        Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-        """
         return pulumi.get(self, "status_remapper")
 
     @status_remapper.setter
@@ -57659,9 +57143,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="stringBuilderProcessor")
     def string_builder_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorStringBuilderProcessorArgs']]:
-        """
-        String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-        """
         return pulumi.get(self, "string_builder_processor")
 
     @string_builder_processor.setter
@@ -57671,9 +57152,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="traceIdRemapper")
     def trace_id_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorTraceIdRemapperArgs']]:
-        """
-        Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-        """
         return pulumi.get(self, "trace_id_remapper")
 
     @trace_id_remapper.setter
@@ -57683,9 +57161,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="urlParser")
     def url_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs']]:
-        """
-        URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-        """
         return pulumi.get(self, "url_parser")
 
     @url_parser.setter
@@ -57695,9 +57170,6 @@ class LogsCustomPipelineProcessorArgs:
     @property
     @pulumi.getter(name="userAgentParser")
     def user_agent_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorUserAgentParserArgs']]:
-        """
-        User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-        """
         return pulumi.get(self, "user_agent_parser")
 
     @user_agent_parser.setter
@@ -57959,17 +57431,11 @@ class LogsCustomPipelineProcessorCategoryProcessorCategoryArgs:
 class LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Filter criteria of the category.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Filter criteria of the category.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -58327,17 +57793,11 @@ class LogsCustomPipelineProcessorPipelineArgs:
 class LogsCustomPipelineProcessorPipelineFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Filter criteria of the category.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Filter criteria of the category.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -58362,22 +57822,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
                  trace_id_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs']] = None,
                  url_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs']] = None,
                  user_agent_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs']] = None):
-        """
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs'] geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs'] string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs'] trace_id_remapper: Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs'] user_agent_parser: User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-        """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
         if attribute_remapper is not None:
@@ -58410,9 +57854,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="arithmeticProcessor")
     def arithmetic_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs']]:
-        """
-        Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-        """
         return pulumi.get(self, "arithmetic_processor")
 
     @arithmetic_processor.setter
@@ -58422,9 +57863,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs']]:
-        """
-        Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-        """
         return pulumi.get(self, "attribute_remapper")
 
     @attribute_remapper.setter
@@ -58434,9 +57872,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="categoryProcessor")
     def category_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs']]:
-        """
-        Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-        """
         return pulumi.get(self, "category_processor")
 
     @category_processor.setter
@@ -58446,9 +57881,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="dateRemapper")
     def date_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs']]:
-        """
-        Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-        """
         return pulumi.get(self, "date_remapper")
 
     @date_remapper.setter
@@ -58458,9 +57890,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="geoIpParser")
     def geo_ip_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs']]:
-        """
-        Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-        """
         return pulumi.get(self, "geo_ip_parser")
 
     @geo_ip_parser.setter
@@ -58470,9 +57899,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="grokParser")
     def grok_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs']]:
-        """
-        Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-        """
         return pulumi.get(self, "grok_parser")
 
     @grok_parser.setter
@@ -58482,9 +57908,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="lookupProcessor")
     def lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs']]:
-        """
-        Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-        """
         return pulumi.get(self, "lookup_processor")
 
     @lookup_processor.setter
@@ -58494,9 +57917,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="messageRemapper")
     def message_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs']]:
-        """
-        Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-        """
         return pulumi.get(self, "message_remapper")
 
     @message_remapper.setter
@@ -58506,9 +57926,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="serviceRemapper")
     def service_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs']]:
-        """
-        Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-        """
         return pulumi.get(self, "service_remapper")
 
     @service_remapper.setter
@@ -58518,9 +57935,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="statusRemapper")
     def status_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs']]:
-        """
-        Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-        """
         return pulumi.get(self, "status_remapper")
 
     @status_remapper.setter
@@ -58530,9 +57944,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="stringBuilderProcessor")
     def string_builder_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs']]:
-        """
-        String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-        """
         return pulumi.get(self, "string_builder_processor")
 
     @string_builder_processor.setter
@@ -58542,9 +57953,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="traceIdRemapper")
     def trace_id_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs']]:
-        """
-        Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-        """
         return pulumi.get(self, "trace_id_remapper")
 
     @trace_id_remapper.setter
@@ -58554,9 +57962,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="urlParser")
     def url_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs']]:
-        """
-        URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-        """
         return pulumi.get(self, "url_parser")
 
     @url_parser.setter
@@ -58566,9 +57971,6 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @property
     @pulumi.getter(name="userAgentParser")
     def user_agent_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs']]:
-        """
-        User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-        """
         return pulumi.get(self, "user_agent_parser")
 
     @user_agent_parser.setter
@@ -58830,17 +58232,11 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArgs:
 class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Filter criteria of the category.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Filter criteria of the category.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -59767,11 +59163,6 @@ class LogsIndexExclusionFilterArgs:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterFilterArgs']]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterFilterArgs']]] filters: Logs filter
-        :param pulumi.Input[bool] is_enabled: A boolean stating if the exclusion is active or not.
-        :param pulumi.Input[str] name: The name of the exclusion filter.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if is_enabled is not None:
@@ -59782,9 +59173,6 @@ class LogsIndexExclusionFilterArgs:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterFilterArgs']]]]:
-        """
-        Logs filter
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -59794,9 +59182,6 @@ class LogsIndexExclusionFilterArgs:
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean stating if the exclusion is active or not.
-        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -59806,9 +59191,6 @@ class LogsIndexExclusionFilterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the exclusion filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -59821,9 +59203,6 @@ class LogsIndexExclusionFilterFilterArgs:
     def __init__(__self__, *,
                  query: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[str] query: Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-        """
         if query is not None:
             pulumi.set(__self__, "query", query)
         if sample_rate is not None:
@@ -59832,9 +59211,6 @@ class LogsIndexExclusionFilterFilterArgs:
     @property
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
-        """
-        Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -59855,17 +59231,11 @@ class LogsIndexExclusionFilterFilterArgs:
 class LogsIndexFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -59878,10 +59248,6 @@ class LogsMetricComputeArgs:
     def __init__(__self__, *,
                  aggregation_type: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation_type: The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
-        :param pulumi.Input[str] path: The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-        """
         pulumi.set(__self__, "aggregation_type", aggregation_type)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -59889,9 +59255,6 @@ class LogsMetricComputeArgs:
     @property
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> pulumi.Input[str]:
-        """
-        The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
-        """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
@@ -59901,9 +59264,6 @@ class LogsMetricComputeArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -59915,17 +59275,11 @@ class LogsMetricComputeArgs:
 class LogsMetricFilterArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: The search query - following the log search syntax.
-        """
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        The search query - following the log search syntax.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -59938,19 +59292,12 @@ class LogsMetricGroupByArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  tag_name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] path: The path to the value the log-based metric will be aggregated over.
-        :param pulumi.Input[str] tag_name: Name of the tag that gets created.
-        """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "tag_name", tag_name)
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
-        """
-        The path to the value the log-based metric will be aggregated over.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -59960,9 +59307,6 @@ class LogsMetricGroupByArgs:
     @property
     @pulumi.getter(name="tagName")
     def tag_name(self) -> pulumi.Input[str]:
-        """
-        Name of the tag that gets created.
-        """
         return pulumi.get(self, "tag_name")
 
     @tag_name.setter
@@ -59975,19 +59319,12 @@ class MetricTagConfigurationAggregationArgs:
     def __init__(__self__, *,
                  space: pulumi.Input[str],
                  time: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] space: A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
-        :param pulumi.Input[str] time: A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
-        """
         pulumi.set(__self__, "space", space)
         pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
     def space(self) -> pulumi.Input[str]:
-        """
-        A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
-        """
         return pulumi.get(self, "space")
 
     @space.setter
@@ -59997,9 +59334,6 @@ class MetricTagConfigurationAggregationArgs:
     @property
     @pulumi.getter
     def time(self) -> pulumi.Input[str]:
-        """
-        A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
-        """
         return pulumi.get(self, "time")
 
     @time.setter
@@ -60012,10 +59346,6 @@ class MonitorMonitorThresholdWindowsArgs:
     def __init__(__self__, *,
                  recovery_window: Optional[pulumi.Input[str]] = None,
                  trigger_window: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] recovery_window: Describes how long an anomalous metric must be normal before the alert recovers.
-        :param pulumi.Input[str] trigger_window: Describes how long a metric must be anomalous before an alert triggers.
-        """
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
         if trigger_window is not None:
@@ -60024,9 +59354,6 @@ class MonitorMonitorThresholdWindowsArgs:
     @property
     @pulumi.getter(name="recoveryWindow")
     def recovery_window(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes how long an anomalous metric must be normal before the alert recovers.
-        """
         return pulumi.get(self, "recovery_window")
 
     @recovery_window.setter
@@ -60036,9 +59363,6 @@ class MonitorMonitorThresholdWindowsArgs:
     @property
     @pulumi.getter(name="triggerWindow")
     def trigger_window(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes how long a metric must be anomalous before an alert triggers.
-        """
         return pulumi.get(self, "trigger_window")
 
     @trigger_window.setter
@@ -60055,14 +59379,6 @@ class MonitorMonitorThresholdsArgs:
                  unknown: Optional[pulumi.Input[str]] = None,
                  warning: Optional[pulumi.Input[str]] = None,
                  warning_recovery: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] critical: The monitor `CRITICAL` threshold. Must be a number.
-        :param pulumi.Input[str] critical_recovery: The monitor `CRITICAL` recovery threshold. Must be a number.
-        :param pulumi.Input[str] ok: The monitor `OK` threshold. Must be a number.
-        :param pulumi.Input[str] unknown: The monitor `UNKNOWN` threshold. Must be a number.
-        :param pulumi.Input[str] warning: The monitor `WARNING` threshold. Must be a number.
-        :param pulumi.Input[str] warning_recovery: The monitor `WARNING` recovery threshold. Must be a number.
-        """
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
         if critical_recovery is not None:
@@ -60079,9 +59395,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter
     def critical(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `CRITICAL` threshold. Must be a number.
-        """
         return pulumi.get(self, "critical")
 
     @critical.setter
@@ -60091,9 +59404,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter(name="criticalRecovery")
     def critical_recovery(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `CRITICAL` recovery threshold. Must be a number.
-        """
         return pulumi.get(self, "critical_recovery")
 
     @critical_recovery.setter
@@ -60103,9 +59413,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter
     def ok(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `OK` threshold. Must be a number.
-        """
         return pulumi.get(self, "ok")
 
     @ok.setter
@@ -60115,9 +59422,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter
     def unknown(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `UNKNOWN` threshold. Must be a number.
-        """
         return pulumi.get(self, "unknown")
 
     @unknown.setter
@@ -60127,9 +59431,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `WARNING` threshold. Must be a number.
-        """
         return pulumi.get(self, "warning")
 
     @warning.setter
@@ -60139,9 +59440,6 @@ class MonitorMonitorThresholdsArgs:
     @property
     @pulumi.getter(name="warningRecovery")
     def warning_recovery(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor `WARNING` recovery threshold. Must be a number.
-        """
         return pulumi.get(self, "warning_recovery")
 
     @warning_recovery.setter
@@ -60162,18 +59460,6 @@ class OrganizationSettingsSettingsArgs:
                  saml_idp_endpoint: Optional[pulumi.Input[str]] = None,
                  saml_idp_metadata_uploaded: Optional[pulumi.Input[bool]] = None,
                  saml_login_url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input['OrganizationSettingsSettingsSamlArgs'] saml: SAML properties
-        :param pulumi.Input['OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs'] saml_autocreate_users_domains: List of domains where the SAML automated user creation is enabled.
-        :param pulumi.Input['OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs'] saml_idp_initiated_login: Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        :param pulumi.Input['OrganizationSettingsSettingsSamlStrictModeArgs'] saml_strict_mode: Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-        :param pulumi.Input[bool] private_widget_share: Whether or not the organization users can share widgets outside of Datadog.
-        :param pulumi.Input[str] saml_autocreate_access_role: The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-        :param pulumi.Input[bool] saml_can_be_enabled: Whether or not SAML can be enabled for this organization.
-        :param pulumi.Input[str] saml_idp_endpoint: Identity provider endpoint for SAML authentication.
-        :param pulumi.Input[bool] saml_idp_metadata_uploaded: Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        :param pulumi.Input[str] saml_login_url: URL for SAML logging.
-        """
         pulumi.set(__self__, "saml", saml)
         pulumi.set(__self__, "saml_autocreate_users_domains", saml_autocreate_users_domains)
         pulumi.set(__self__, "saml_idp_initiated_login", saml_idp_initiated_login)
@@ -60194,9 +59480,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter
     def saml(self) -> pulumi.Input['OrganizationSettingsSettingsSamlArgs']:
-        """
-        SAML properties
-        """
         return pulumi.get(self, "saml")
 
     @saml.setter
@@ -60206,9 +59489,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlAutocreateUsersDomains")
     def saml_autocreate_users_domains(self) -> pulumi.Input['OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs']:
-        """
-        List of domains where the SAML automated user creation is enabled.
-        """
         return pulumi.get(self, "saml_autocreate_users_domains")
 
     @saml_autocreate_users_domains.setter
@@ -60218,9 +59498,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlIdpInitiatedLogin")
     def saml_idp_initiated_login(self) -> pulumi.Input['OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs']:
-        """
-        Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        """
         return pulumi.get(self, "saml_idp_initiated_login")
 
     @saml_idp_initiated_login.setter
@@ -60230,9 +59507,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlStrictMode")
     def saml_strict_mode(self) -> pulumi.Input['OrganizationSettingsSettingsSamlStrictModeArgs']:
-        """
-        Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-        """
         return pulumi.get(self, "saml_strict_mode")
 
     @saml_strict_mode.setter
@@ -60242,9 +59516,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="privateWidgetShare")
     def private_widget_share(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not the organization users can share widgets outside of Datadog.
-        """
         return pulumi.get(self, "private_widget_share")
 
     @private_widget_share.setter
@@ -60254,9 +59525,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlAutocreateAccessRole")
     def saml_autocreate_access_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-        """
         return pulumi.get(self, "saml_autocreate_access_role")
 
     @saml_autocreate_access_role.setter
@@ -60266,9 +59534,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlCanBeEnabled")
     def saml_can_be_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not SAML can be enabled for this organization.
-        """
         return pulumi.get(self, "saml_can_be_enabled")
 
     @saml_can_be_enabled.setter
@@ -60278,9 +59543,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlIdpEndpoint")
     def saml_idp_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identity provider endpoint for SAML authentication.
-        """
         return pulumi.get(self, "saml_idp_endpoint")
 
     @saml_idp_endpoint.setter
@@ -60290,9 +59552,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlIdpMetadataUploaded")
     def saml_idp_metadata_uploaded(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-        """
         return pulumi.get(self, "saml_idp_metadata_uploaded")
 
     @saml_idp_metadata_uploaded.setter
@@ -60302,9 +59561,6 @@ class OrganizationSettingsSettingsArgs:
     @property
     @pulumi.getter(name="samlLoginUrl")
     def saml_login_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL for SAML logging.
-        """
         return pulumi.get(self, "saml_login_url")
 
     @saml_login_url.setter
@@ -60397,10 +59653,6 @@ class RolePermissionArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] id: ID of the permission to assign.
-        :param pulumi.Input[str] name: Name of the permission.
-        """
         pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -60408,9 +59660,6 @@ class RolePermissionArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
-        """
-        ID of the permission to assign.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -60420,9 +59669,6 @@ class RolePermissionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the permission.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60489,19 +59735,12 @@ class SecurityMonitoringFilterExclusionFilterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: Exclusion filter name.
-        :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Exclusion filter name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60511,9 +59750,6 @@ class SecurityMonitoringFilterExclusionFilterArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Exclusion filter query. Logs that match this query are excluded from the security filter.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -60619,6 +59855,7 @@ class SecurityMonitoringRuleOptionsArgs:
                  max_signal_duration: pulumi.Input[int],
                  detection_method: Optional[pulumi.Input[str]] = None,
                  evaluation_window: Optional[pulumi.Input[int]] = None,
+                 impossible_travel_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs']] = None,
                  new_value_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']] = None):
         pulumi.set(__self__, "keep_alive", keep_alive)
         pulumi.set(__self__, "max_signal_duration", max_signal_duration)
@@ -60626,6 +59863,8 @@ class SecurityMonitoringRuleOptionsArgs:
             pulumi.set(__self__, "detection_method", detection_method)
         if evaluation_window is not None:
             pulumi.set(__self__, "evaluation_window", evaluation_window)
+        if impossible_travel_options is not None:
+            pulumi.set(__self__, "impossible_travel_options", impossible_travel_options)
         if new_value_options is not None:
             pulumi.set(__self__, "new_value_options", new_value_options)
 
@@ -60666,6 +59905,15 @@ class SecurityMonitoringRuleOptionsArgs:
         pulumi.set(self, "evaluation_window", value)
 
     @property
+    @pulumi.getter(name="impossibleTravelOptions")
+    def impossible_travel_options(self) -> Optional[pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs']]:
+        return pulumi.get(self, "impossible_travel_options")
+
+    @impossible_travel_options.setter
+    def impossible_travel_options(self, value: Optional[pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs']]):
+        pulumi.set(self, "impossible_travel_options", value)
+
+    @property
     @pulumi.getter(name="newValueOptions")
     def new_value_options(self) -> Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']]:
         return pulumi.get(self, "new_value_options")
@@ -60673,6 +59921,23 @@ class SecurityMonitoringRuleOptionsArgs:
     @new_value_options.setter
     def new_value_options(self, value: Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']]):
         pulumi.set(self, "new_value_options", value)
+
+
+@pulumi.input_type
+class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs:
+    def __init__(__self__, *,
+                 baseline_user_locations: Optional[pulumi.Input[bool]] = None):
+        if baseline_user_locations is not None:
+            pulumi.set(__self__, "baseline_user_locations", baseline_user_locations)
+
+    @property
+    @pulumi.getter(name="baselineUserLocations")
+    def baseline_user_locations(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "baseline_user_locations")
+
+    @baseline_user_locations.setter
+    def baseline_user_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "baseline_user_locations", value)
 
 
 @pulumi.input_type
@@ -60835,19 +60100,12 @@ class ServiceLevelObjectiveQueryArgs:
     def __init__(__self__, *,
                  denominator: pulumi.Input[str],
                  numerator: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] denominator: The sum of the `total` events.
-        :param pulumi.Input[str] numerator: The sum of all the `good` events.
-        """
         pulumi.set(__self__, "denominator", denominator)
         pulumi.set(__self__, "numerator", numerator)
 
     @property
     @pulumi.getter
     def denominator(self) -> pulumi.Input[str]:
-        """
-        The sum of the `total` events.
-        """
         return pulumi.get(self, "denominator")
 
     @denominator.setter
@@ -60857,9 +60115,6 @@ class ServiceLevelObjectiveQueryArgs:
     @property
     @pulumi.getter
     def numerator(self) -> pulumi.Input[str]:
-        """
-        The sum of all the `good` events.
-        """
         return pulumi.get(self, "numerator")
 
     @numerator.setter
@@ -60875,13 +60130,6 @@ class ServiceLevelObjectiveThresholdArgs:
                  target_display: Optional[pulumi.Input[str]] = None,
                  warning: Optional[pulumi.Input[float]] = None,
                  warning_display: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[float] target: The objective's target in`[0,100]`.
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
-        :param pulumi.Input[str] target_display: A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
-        :param pulumi.Input[float] warning: The objective's warning value in `[0,100]`. This must be greater than the target value.
-        :param pulumi.Input[str] warning_display: A string representation of the warning target (see the description of the target_display field for details).
-        """
         pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "timeframe", timeframe)
         if target_display is not None:
@@ -60894,9 +60142,6 @@ class ServiceLevelObjectiveThresholdArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[float]:
-        """
-        The objective's target in`[0,100]`.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -60906,9 +60151,6 @@ class ServiceLevelObjectiveThresholdArgs:
     @property
     @pulumi.getter
     def timeframe(self) -> pulumi.Input[str]:
-        """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
-        """
         return pulumi.get(self, "timeframe")
 
     @timeframe.setter
@@ -60918,9 +60160,6 @@ class ServiceLevelObjectiveThresholdArgs:
     @property
     @pulumi.getter(name="targetDisplay")
     def target_display(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
-        """
         return pulumi.get(self, "target_display")
 
     @target_display.setter
@@ -60930,9 +60169,6 @@ class ServiceLevelObjectiveThresholdArgs:
     @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[float]]:
-        """
-        The objective's warning value in `[0,100]`. This must be greater than the target value.
-        """
         return pulumi.get(self, "warning")
 
     @warning.setter
@@ -60942,9 +60178,6 @@ class ServiceLevelObjectiveThresholdArgs:
     @property
     @pulumi.getter(name="warningDisplay")
     def warning_display(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string representation of the warning target (see the description of the target_display field for details).
-        """
         return pulumi.get(self, "warning_display")
 
     @warning_display.setter
@@ -60958,10 +60191,6 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
                  parser: pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs'],
                  type: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Defines the source to use to extract the value. Valid values are `http_body`, `http_header`.
-        :param pulumi.Input[str] field: Required when type = `http_header`. Defines the header to use to extract the value
-        """
         pulumi.set(__self__, "parser", parser)
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -60979,9 +60208,6 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Defines the source to use to extract the value. Valid values are `http_body`, `http_header`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -60991,9 +60217,6 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
-        """
-        Required when type = `http_header`. Defines the header to use to extract the value
-        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -61006,9 +60229,6 @@ class SyntheticsGlobalVariableParseTestOptionsParserArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: The value of the global variable.
-        """
         pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -61025,14 +60245,28 @@ class SyntheticsGlobalVariableParseTestOptionsParserArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the global variable.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SyntheticsPrivateLocationMetadataArgs:
+    def __init__(__self__, *,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
 
 
 @pulumi.input_type
@@ -61051,20 +60285,6 @@ class SyntheticsTestApiStepArgs:
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestApiStepRetryArgs']] = None,
                  subtype: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the step.
-        :param pulumi.Input[bool] allow_failure: Determines whether or not to continue with test if this step fails.
-        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepExtractedValueArgs']]] extracted_values: Values to parse and save as variables from the response.
-        :param pulumi.Input[bool] is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        :param pulumi.Input['SyntheticsTestApiStepRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs'] request_definition: The request for the api step.
-        :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input['SyntheticsTestApiStepRequestProxyArgs'] request_proxy: The proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
-        """
         pulumi.set(__self__, "name", name)
         if allow_failure is not None:
             pulumi.set(__self__, "allow_failure", allow_failure)
@@ -61094,9 +60314,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61106,9 +60323,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="allowFailure")
     def allow_failure(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not to continue with test if this step fails.
-        """
         return pulumi.get(self, "allow_failure")
 
     @allow_failure.setter
@@ -61118,9 +60332,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter
     def assertions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepAssertionArgs']]]]:
-        """
-        Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        """
         return pulumi.get(self, "assertions")
 
     @assertions.setter
@@ -61130,9 +60341,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="extractedValues")
     def extracted_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepExtractedValueArgs']]]]:
-        """
-        Values to parse and save as variables from the response.
-        """
         return pulumi.get(self, "extracted_values")
 
     @extracted_values.setter
@@ -61142,9 +60350,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="isCritical")
     def is_critical(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        """
         return pulumi.get(self, "is_critical")
 
     @is_critical.setter
@@ -61154,9 +60359,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestBasicauth")
     def request_basicauth(self) -> Optional[pulumi.Input['SyntheticsTestApiStepRequestBasicauthArgs']]:
-        """
-        The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        """
         return pulumi.get(self, "request_basicauth")
 
     @request_basicauth.setter
@@ -61166,9 +60368,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestClientCertificate")
     def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs']]:
-        """
-        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        """
         return pulumi.get(self, "request_client_certificate")
 
     @request_client_certificate.setter
@@ -61178,9 +60377,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestDefinition")
     def request_definition(self) -> Optional[pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs']]:
-        """
-        The request for the api step.
-        """
         return pulumi.get(self, "request_definition")
 
     @request_definition.setter
@@ -61190,9 +60386,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestHeaders")
     def request_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Header name and value map.
-        """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
@@ -61202,9 +60395,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestProxy")
     def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']]:
-        """
-        The proxy to perform the test.
-        """
         return pulumi.get(self, "request_proxy")
 
     @request_proxy.setter
@@ -61214,9 +60404,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter(name="requestQuery")
     def request_query(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Query arguments name and value map.
-        """
         return pulumi.get(self, "request_query")
 
     @request_query.setter
@@ -61235,9 +60422,6 @@ class SyntheticsTestApiStepArgs:
     @property
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subtype of the Synthetic multistep API test step. Valid values are `http`.
-        """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
@@ -61253,13 +60437,6 @@ class SyntheticsTestApiStepAssertionArgs:
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']] = None):
-        """
-        :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-        :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
-        :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-        :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-        """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
         if property is not None:
@@ -61272,9 +60449,6 @@ class SyntheticsTestApiStepAssertionArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
-        """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -61284,9 +60458,6 @@ class SyntheticsTestApiStepAssertionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -61296,9 +60467,6 @@ class SyntheticsTestApiStepAssertionArgs:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -61308,9 +60476,6 @@ class SyntheticsTestApiStepAssertionArgs:
     @property
     @pulumi.getter
     def targetjsonpath(self) -> Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']]:
-        """
-        Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-        """
         return pulumi.get(self, "targetjsonpath")
 
     @targetjsonpath.setter
@@ -61320,9 +60485,6 @@ class SyntheticsTestApiStepAssertionArgs:
     @property
     @pulumi.getter
     def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        If assertion type is `header`, this is the header name.
-        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -61375,10 +60537,6 @@ class SyntheticsTestApiStepExtractedValueArgs:
                  parser: pulumi.Input['SyntheticsTestApiStepExtractedValueParserArgs'],
                  type: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parser", parser)
         pulumi.set(__self__, "type", type)
@@ -61388,9 +60546,6 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of Datadog synthetics test.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61409,9 +60564,6 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Synthetics test type. Valid values are `api`, `browser`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -61433,9 +60585,6 @@ class SyntheticsTestApiStepExtractedValueParserArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
-        """
         pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -61443,9 +60592,6 @@ class SyntheticsTestApiStepExtractedValueParserArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Synthetics test type. Valid values are `api`, `browser`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -61475,18 +60621,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  workstation: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] access_key: Access key for `SIGV4` authentication.
-        :param pulumi.Input[str] domain: Domain for `ntlm` authentication.
-        :param pulumi.Input[str] password: Password for authentication.
-        :param pulumi.Input[str] region: Region for `SIGV4` authentication.
-        :param pulumi.Input[str] secret_key: Secret key for `SIGV4` authentication.
-        :param pulumi.Input[str] service_name: Service name for `SIGV4` authentication.
-        :param pulumi.Input[str] session_token: Session token for `SIGV4` authentication.
-        :param pulumi.Input[str] type: Type of basic authentication to use when performing the test.
-        :param pulumi.Input[str] username: Username for authentication.
-        :param pulumi.Input[str] workstation: Workstation for `ntlm` authentication.
-        """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
         if domain is not None:
@@ -61511,9 +60645,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Access key for `SIGV4` authentication.
-        """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
@@ -61523,9 +60654,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
-        """
-        Domain for `ntlm` authentication.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -61535,9 +60663,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Password for authentication.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -61547,9 +60672,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
-        """
-        Region for `SIGV4` authentication.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -61559,9 +60681,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret key for `SIGV4` authentication.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -61571,9 +60690,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Service name for `SIGV4` authentication.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -61583,9 +60699,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter(name="sessionToken")
     def session_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        Session token for `SIGV4` authentication.
-        """
         return pulumi.get(self, "session_token")
 
     @session_token.setter
@@ -61595,9 +60708,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of basic authentication to use when performing the test.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -61607,9 +60717,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Username for authentication.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -61619,9 +60726,6 @@ class SyntheticsTestApiStepRequestBasicauthArgs:
     @property
     @pulumi.getter
     def workstation(self) -> Optional[pulumi.Input[str]]:
-        """
-        Workstation for `ntlm` authentication.
-        """
         return pulumi.get(self, "workstation")
 
     @workstation.setter
@@ -61730,21 +60834,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
                  should_track_hops: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] body: The request body.
-        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
-        :param pulumi.Input[int] dns_server_port: DNS server port to use for DNS tests.
-        :param pulumi.Input[str] host: Host name to perform the test with.
-        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
-        :param pulumi.Input[str] method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        :param pulumi.Input[bool] no_saving_response_body: Determines whether or not to save the response body.
-        :param pulumi.Input[int] number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        :param pulumi.Input[int] port: Port to use when performing the test.
-        :param pulumi.Input[str] servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        :param pulumi.Input[bool] should_track_hops: This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to `60`.
-        :param pulumi.Input[str] url: The URL to send the request to.
-        """
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if body is not None:
@@ -61788,9 +60877,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The request body.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -61800,9 +60886,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS server to use for DNS tests (`subtype = "dns"`).
-        """
         return pulumi.get(self, "dns_server")
 
     @dns_server.setter
@@ -61812,9 +60895,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter(name="dnsServerPort")
     def dns_server_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        DNS server port to use for DNS tests.
-        """
         return pulumi.get(self, "dns_server_port")
 
     @dns_server_port.setter
@@ -61833,9 +60913,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
-        """
-        Host name to perform the test with.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -61845,9 +60922,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
-        """
-        For UDP and websocket tests, message to send with the request.
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -61857,9 +60931,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -61869,9 +60940,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter(name="noSavingResponseBody")
     def no_saving_response_body(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not to save the response body.
-        """
         return pulumi.get(self, "no_saving_response_body")
 
     @no_saving_response_body.setter
@@ -61881,9 +60949,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter(name="numberOfPackets")
     def number_of_packets(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        """
         return pulumi.get(self, "number_of_packets")
 
     @number_of_packets.setter
@@ -61893,9 +60958,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port to use when performing the test.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -61905,9 +60967,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def servername(self) -> Optional[pulumi.Input[str]]:
-        """
-        For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        """
         return pulumi.get(self, "servername")
 
     @servername.setter
@@ -61917,9 +60976,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter(name="shouldTrackHops")
     def should_track_hops(self) -> Optional[pulumi.Input[bool]]:
-        """
-        This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        """
         return pulumi.get(self, "should_track_hops")
 
     @should_track_hops.setter
@@ -61929,9 +60985,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Timeout in seconds for the test. Defaults to `60`.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -61941,9 +60994,6 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to send the request to.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -61956,10 +61006,6 @@ class SyntheticsTestApiStepRequestProxyArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input[str] url: URL of the proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
-        """
         pulumi.set(__self__, "url", url)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -61967,9 +61013,6 @@ class SyntheticsTestApiStepRequestProxyArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        URL of the proxy to perform the test.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -61979,9 +61022,6 @@ class SyntheticsTestApiStepRequestProxyArgs:
     @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Header name and value map.
-        """
         return pulumi.get(self, "headers")
 
     @headers.setter
@@ -62026,13 +61066,6 @@ class SyntheticsTestAssertionArgs:
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs']] = None):
-        """
-        :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-        :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
-        :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-        :param pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-        """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
         if property is not None:
@@ -62045,9 +61078,6 @@ class SyntheticsTestAssertionArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
-        """
-        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -62057,9 +61087,6 @@ class SyntheticsTestAssertionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -62069,9 +61096,6 @@ class SyntheticsTestAssertionArgs:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -62081,9 +61105,6 @@ class SyntheticsTestAssertionArgs:
     @property
     @pulumi.getter
     def targetjsonpath(self) -> Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs']]:
-        """
-        Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-        """
         return pulumi.get(self, "targetjsonpath")
 
     @targetjsonpath.setter
@@ -62093,9 +61114,6 @@ class SyntheticsTestAssertionArgs:
     @property
     @pulumi.getter
     def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        If assertion type is `header`, this is the header name.
-        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -62151,15 +61169,6 @@ class SyntheticsTestBrowserStepArgs:
                  force_element_update: Optional[pulumi.Input[bool]] = None,
                  is_critical: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the step.
-        :param pulumi.Input['SyntheticsTestBrowserStepParamsArgs'] params: Parameters for the step.
-        :param pulumi.Input[str] type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
-        :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
-        :param pulumi.Input[bool] force_element_update: Force update of the "element" parameter for the step
-        :param pulumi.Input[bool] is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "params", params)
         pulumi.set(__self__, "type", type)
@@ -62175,9 +61184,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62187,9 +61193,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter
     def params(self) -> pulumi.Input['SyntheticsTestBrowserStepParamsArgs']:
-        """
-        Parameters for the step.
-        """
         return pulumi.get(self, "params")
 
     @params.setter
@@ -62199,9 +61202,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -62211,9 +61211,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter(name="allowFailure")
     def allow_failure(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines if the step should be allowed to fail.
-        """
         return pulumi.get(self, "allow_failure")
 
     @allow_failure.setter
@@ -62223,9 +61220,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter(name="forceElementUpdate")
     def force_element_update(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Force update of the "element" parameter for the step
-        """
         return pulumi.get(self, "force_element_update")
 
     @force_element_update.setter
@@ -62235,9 +61229,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter(name="isCritical")
     def is_critical(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        """
         return pulumi.get(self, "is_critical")
 
     @is_critical.setter
@@ -62247,9 +61238,6 @@ class SyntheticsTestBrowserStepArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Used to override the default timeout of a step.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -62523,9 +61511,6 @@ class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
-        """
         pulumi.set(__self__, "value", value)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -62542,9 +61527,6 @@ class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Synthetics test type. Valid values are `api`, `browser`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -62557,9 +61539,6 @@ class SyntheticsTestBrowserStepParamsVariableArgs:
     def __init__(__self__, *,
                  example: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        """
         if example is not None:
             pulumi.set(__self__, "example", example)
         if name is not None:
@@ -62577,9 +61556,6 @@ class SyntheticsTestBrowserStepParamsVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of Datadog synthetics test.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62595,13 +61571,6 @@ class SyntheticsTestBrowserVariableArgs:
                  example: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
-        :param pulumi.Input[str] example: Example for the variable.
-        :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-        :param pulumi.Input[str] pattern: Pattern of the variable.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if example is not None:
@@ -62614,9 +61583,6 @@ class SyntheticsTestBrowserVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the variable.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62626,9 +61592,6 @@ class SyntheticsTestBrowserVariableArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -62638,9 +61601,6 @@ class SyntheticsTestBrowserVariableArgs:
     @property
     @pulumi.getter
     def example(self) -> Optional[pulumi.Input[str]]:
-        """
-        Example for the variable.
-        """
         return pulumi.get(self, "example")
 
     @example.setter
@@ -62650,9 +61610,6 @@ class SyntheticsTestBrowserVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -62662,9 +61619,6 @@ class SyntheticsTestBrowserVariableArgs:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        Pattern of the variable.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -62680,13 +61634,6 @@ class SyntheticsTestConfigVariableArgs:
                  example: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of test configuration variable. Valid values are `global`, `text`.
-        :param pulumi.Input[str] example: Example for the variable.
-        :param pulumi.Input[str] id: When type = `global`, ID of the global variable to use.
-        :param pulumi.Input[str] pattern: Pattern of the variable.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if example is not None:
@@ -62699,9 +61646,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the variable.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62711,9 +61655,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of test configuration variable. Valid values are `global`, `text`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -62723,9 +61664,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def example(self) -> Optional[pulumi.Input[str]]:
-        """
-        Example for the variable.
-        """
         return pulumi.get(self, "example")
 
     @example.setter
@@ -62735,9 +61673,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        When type = `global`, ID of the global variable to use.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -62747,9 +61682,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        Pattern of the variable.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -62771,18 +61703,8 @@ class SyntheticsTestOptionsListArgs:
                  monitor_options: Optional[pulumi.Input['SyntheticsTestOptionsListMonitorOptionsArgs']] = None,
                  monitor_priority: Optional[pulumi.Input[int]] = None,
                  no_screenshot: Optional[pulumi.Input[bool]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']] = None):
-        """
-        :param pulumi.Input[int] tick_every: How often the test should run (in seconds).
-        :param pulumi.Input[bool] accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
-        :param pulumi.Input[bool] allow_insecure: Allows loading insecure content for an HTTP test.
-        :param pulumi.Input[bool] check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-        :param pulumi.Input[bool] follow_redirects: Determines whether or not the API HTTP test should follow redirects.
-        :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
-        :param pulumi.Input[int] min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
-        :param pulumi.Input[str] monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-        :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the steps.
-        """
         pulumi.set(__self__, "tick_every", tick_every)
         if accept_self_signed is not None:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
@@ -62804,15 +61726,14 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "monitor_priority", monitor_priority)
         if no_screenshot is not None:
             pulumi.set(__self__, "no_screenshot", no_screenshot)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if retry is not None:
             pulumi.set(__self__, "retry", retry)
 
     @property
     @pulumi.getter(name="tickEvery")
     def tick_every(self) -> pulumi.Input[int]:
-        """
-        How often the test should run (in seconds).
-        """
         return pulumi.get(self, "tick_every")
 
     @tick_every.setter
@@ -62822,9 +61743,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="acceptSelfSigned")
     def accept_self_signed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        For SSL test, whether or not the test should allow self signed certificates.
-        """
         return pulumi.get(self, "accept_self_signed")
 
     @accept_self_signed.setter
@@ -62834,9 +61752,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="allowInsecure")
     def allow_insecure(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allows loading insecure content for an HTTP test.
-        """
         return pulumi.get(self, "allow_insecure")
 
     @allow_insecure.setter
@@ -62846,9 +61761,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="checkCertificateRevocation")
     def check_certificate_revocation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-        """
         return pulumi.get(self, "check_certificate_revocation")
 
     @check_certificate_revocation.setter
@@ -62858,9 +61770,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="followRedirects")
     def follow_redirects(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not the API HTTP test should follow redirects.
-        """
         return pulumi.get(self, "follow_redirects")
 
     @follow_redirects.setter
@@ -62870,9 +61779,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="minFailureDuration")
     def min_failure_duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum amount of time in failure required to trigger an alert. Default is `0`.
-        """
         return pulumi.get(self, "min_failure_duration")
 
     @min_failure_duration.setter
@@ -62882,9 +61788,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="minLocationFailed")
     def min_location_failed(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum number of locations in failure required to trigger an alert. Default is `1`.
-        """
         return pulumi.get(self, "min_location_failed")
 
     @min_location_failed.setter
@@ -62894,9 +61797,6 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-        """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
@@ -62924,14 +61824,20 @@ class SyntheticsTestOptionsListArgs:
     @property
     @pulumi.getter(name="noScreenshot")
     def no_screenshot(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Prevents saving screenshots of the steps.
-        """
         return pulumi.get(self, "no_screenshot")
 
     @no_screenshot.setter
     def no_screenshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "no_screenshot", value)
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
 
     @property
     @pulumi.getter
@@ -63002,18 +61908,6 @@ class SyntheticsTestRequestBasicauthArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  workstation: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] access_key: Access key for `SIGV4` authentication.
-        :param pulumi.Input[str] domain: Domain for `ntlm` authentication.
-        :param pulumi.Input[str] password: Password for authentication.
-        :param pulumi.Input[str] region: Region for `SIGV4` authentication.
-        :param pulumi.Input[str] secret_key: Secret key for `SIGV4` authentication.
-        :param pulumi.Input[str] service_name: Service name for `SIGV4` authentication.
-        :param pulumi.Input[str] session_token: Session token for `SIGV4` authentication.
-        :param pulumi.Input[str] type: Type of basic authentication to use when performing the test.
-        :param pulumi.Input[str] username: Username for authentication.
-        :param pulumi.Input[str] workstation: Workstation for `ntlm` authentication.
-        """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
         if domain is not None:
@@ -63038,9 +61932,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Access key for `SIGV4` authentication.
-        """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
@@ -63050,9 +61941,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
-        """
-        Domain for `ntlm` authentication.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -63062,9 +61950,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Password for authentication.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -63074,9 +61959,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
-        """
-        Region for `SIGV4` authentication.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63086,9 +61968,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret key for `SIGV4` authentication.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -63098,9 +61977,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Service name for `SIGV4` authentication.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -63110,9 +61986,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter(name="sessionToken")
     def session_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        Session token for `SIGV4` authentication.
-        """
         return pulumi.get(self, "session_token")
 
     @session_token.setter
@@ -63122,9 +61995,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of basic authentication to use when performing the test.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -63134,9 +62004,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Username for authentication.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -63146,9 +62013,6 @@ class SyntheticsTestRequestBasicauthArgs:
     @property
     @pulumi.getter
     def workstation(self) -> Optional[pulumi.Input[str]]:
-        """
-        Workstation for `ntlm` authentication.
-        """
         return pulumi.get(self, "workstation")
 
     @workstation.setter
@@ -63255,21 +62119,6 @@ class SyntheticsTestRequestDefinitionArgs:
                  should_track_hops: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] body: The request body.
-        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
-        :param pulumi.Input[int] dns_server_port: DNS server port to use for DNS tests.
-        :param pulumi.Input[str] host: Host name to perform the test with.
-        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
-        :param pulumi.Input[str] method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        :param pulumi.Input[bool] no_saving_response_body: Determines whether or not to save the response body.
-        :param pulumi.Input[int] number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        :param pulumi.Input[int] port: Port to use when performing the test.
-        :param pulumi.Input[str] servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        :param pulumi.Input[bool] should_track_hops: This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to `60`.
-        :param pulumi.Input[str] url: The URL to send the request to.
-        """
         if body is not None:
             pulumi.set(__self__, "body", body)
         if dns_server is not None:
@@ -63300,9 +62149,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The request body.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -63312,9 +62158,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS server to use for DNS tests (`subtype = "dns"`).
-        """
         return pulumi.get(self, "dns_server")
 
     @dns_server.setter
@@ -63324,9 +62167,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter(name="dnsServerPort")
     def dns_server_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        DNS server port to use for DNS tests.
-        """
         return pulumi.get(self, "dns_server_port")
 
     @dns_server_port.setter
@@ -63336,9 +62176,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
-        """
-        Host name to perform the test with.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -63348,9 +62185,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
-        """
-        For UDP and websocket tests, message to send with the request.
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -63360,9 +62194,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -63372,9 +62203,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter(name="noSavingResponseBody")
     def no_saving_response_body(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether or not to save the response body.
-        """
         return pulumi.get(self, "no_saving_response_body")
 
     @no_saving_response_body.setter
@@ -63384,9 +62212,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter(name="numberOfPackets")
     def number_of_packets(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-        """
         return pulumi.get(self, "number_of_packets")
 
     @number_of_packets.setter
@@ -63396,9 +62221,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port to use when performing the test.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -63408,9 +62230,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def servername(self) -> Optional[pulumi.Input[str]]:
-        """
-        For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-        """
         return pulumi.get(self, "servername")
 
     @servername.setter
@@ -63420,9 +62239,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter(name="shouldTrackHops")
     def should_track_hops(self) -> Optional[pulumi.Input[bool]]:
-        """
-        This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        """
         return pulumi.get(self, "should_track_hops")
 
     @should_track_hops.setter
@@ -63432,9 +62248,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Timeout in seconds for the test. Defaults to `60`.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -63444,9 +62257,6 @@ class SyntheticsTestRequestDefinitionArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to send the request to.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -63459,10 +62269,6 @@ class SyntheticsTestRequestProxyArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  headers: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input[str] url: URL of the proxy to perform the test.
-        :param pulumi.Input[Mapping[str, Any]] headers: Header name and value map.
-        """
         pulumi.set(__self__, "url", url)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -63470,9 +62276,6 @@ class SyntheticsTestRequestProxyArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        URL of the proxy to perform the test.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -63482,9 +62285,6 @@ class SyntheticsTestRequestProxyArgs:
     @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Header name and value map.
-        """
         return pulumi.get(self, "headers")
 
     @headers.setter

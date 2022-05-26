@@ -14,9 +14,6 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTreemapDefinition
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequest> Requests;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         public readonly string? Title;
 
         [OutputConstructor]

@@ -6,17 +6,11 @@ import { input as inputs, output as outputs } from "../types";
 
 export interface ChildOrganizationApiKey {
     key?: pulumi.Input<string>;
-    /**
-     * Name for Child Organization after creation.
-     */
     name?: pulumi.Input<string>;
 }
 
 export interface ChildOrganizationApplicationKey {
     hash?: pulumi.Input<string>;
-    /**
-     * Name for Child Organization after creation.
-     */
     name?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
 }
@@ -54,186 +48,66 @@ export interface ChildOrganizationSettingSamlStrictMode {
 export interface ChildOrganizationUser {
     accessRole?: pulumi.Input<string>;
     email?: pulumi.Input<string>;
-    /**
-     * Name for Child Organization after creation.
-     */
     name?: pulumi.Input<string>;
 }
 
 export interface DashboardListDashItem {
-    /**
-     * The ID of the dashboard to add
-     */
     dashId: pulumi.Input<string>;
-    /**
-     * The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface DashboardTemplateVariable {
-    /**
-     * The list of values that the template variable drop-down is be limited to
-     */
     availableValues?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The default value for the template variable on dashboard load.
-     */
     default?: pulumi.Input<string>;
-    /**
-     * The name of the variable.
-     */
     name: pulumi.Input<string>;
-    /**
-     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
-     */
     prefix?: pulumi.Input<string>;
 }
 
 export interface DashboardTemplateVariablePreset {
-    /**
-     * The name of the preset.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The template variable names and assumed values under the given preset
-     */
     templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePresetTemplateVariable>[]>;
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
-    /**
-     * The name of the variable.
-     */
     name?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
 }
 
 export interface DashboardWidget {
-    /**
-     * The definition for a Alert Graph widget.
-     */
     alertGraphDefinition?: pulumi.Input<inputs.DashboardWidgetAlertGraphDefinition>;
-    /**
-     * The definition for a Alert Value widget.
-     */
     alertValueDefinition?: pulumi.Input<inputs.DashboardWidgetAlertValueDefinition>;
-    /**
-     * The definition for a Change widget.
-     */
     changeDefinition?: pulumi.Input<inputs.DashboardWidgetChangeDefinition>;
-    /**
-     * The definition for a Check Status widget.
-     */
     checkStatusDefinition?: pulumi.Input<inputs.DashboardWidgetCheckStatusDefinition>;
-    /**
-     * The definition for a Distribution widget.
-     */
     distributionDefinition?: pulumi.Input<inputs.DashboardWidgetDistributionDefinition>;
-    /**
-     * The definition for a Event Stream widget.
-     */
     eventStreamDefinition?: pulumi.Input<inputs.DashboardWidgetEventStreamDefinition>;
-    /**
-     * The definition for a Event Timeline widget.
-     */
     eventTimelineDefinition?: pulumi.Input<inputs.DashboardWidgetEventTimelineDefinition>;
-    /**
-     * The definition for a Free Text widget.
-     */
     freeTextDefinition?: pulumi.Input<inputs.DashboardWidgetFreeTextDefinition>;
-    /**
-     * The definition for a Geomap widget.
-     */
     geomapDefinition?: pulumi.Input<inputs.DashboardWidgetGeomapDefinition>;
-    /**
-     * The definition for a Group widget.
-     */
     groupDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinition>;
-    /**
-     * The definition for a Heatmap widget.
-     */
     heatmapDefinition?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinition>;
-    /**
-     * The definition for a Hostmap widget.
-     */
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetHostmapDefinition>;
-    /**
-     * The ID of the widget.
-     */
     id?: pulumi.Input<number>;
-    /**
-     * The definition for an Iframe widget.
-     */
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetIframeDefinition>;
-    /**
-     * The definition for an Image widget
-     */
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetImageDefinition>;
-    /**
-     * The definition for an Log Stream widget.
-     */
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinition>;
-    /**
-     * The definition for an Manage Status widget.
-     */
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetManageStatusDefinition>;
-    /**
-     * The definition for a Note widget.
-     */
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetNoteDefinition>;
-    /**
-     * The definition for a Query Table widget.
-     */
     queryTableDefinition?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinition>;
-    /**
-     * The definition for a Query Value widget.
-     */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinition>;
-    /**
-     * The definition for a Scatterplot widget.
-     */
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinition>;
-    /**
-     * The definition for a Service Level Objective widget.
-     */
     serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetServiceLevelObjectiveDefinition>;
-    /**
-     * The definition for a Service Map widget.
-     */
     servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetServicemapDefinition>;
-    /**
-     * The definition for a Sunburst widget.
-     */
     sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetSunburstDefinition>;
-    /**
-     * The definition for a Timeseries widget.
-     */
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinition>;
-    /**
-     * The definition for a Toplist widget.
-     */
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetToplistDefinition>;
-    /**
-     * The definition for a Trace Service widget.
-     */
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinition>;
-    /**
-     * The definition for a Treemap widget.
-     */
     treemapDefinition?: pulumi.Input<inputs.DashboardWidgetTreemapDefinition>;
-    /**
-     * The layout of the widget on a 'free' dashboard.
-     */
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetWidgetLayout>;
 }
 
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -244,9 +118,6 @@ export interface DashboardWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
     precision?: pulumi.Input<number>;
     textAlign?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -257,9 +128,6 @@ export interface DashboardWidgetChangeDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -540,9 +408,6 @@ export interface DashboardWidgetCheckStatusDefinition {
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -553,9 +418,6 @@ export interface DashboardWidgetDistributionDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -733,9 +595,6 @@ export interface DashboardWidgetEventStreamDefinition {
     liveSpan?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -745,9 +604,6 @@ export interface DashboardWidgetEventTimelineDefinition {
     liveSpan?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -765,9 +621,6 @@ export interface DashboardWidgetGeomapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequest>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionStyle>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -974,142 +827,46 @@ export interface DashboardWidgetGeomapDefinitionView {
 export interface DashboardWidgetGroupDefinition {
     backgroundColor?: pulumi.Input<string>;
     bannerImg?: pulumi.Input<string>;
-    /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
-     */
     layoutType: pulumi.Input<string>;
     showTitle?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The list of widgets to display on the dashboard.
-     */
     widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidget>[]>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidget {
-    /**
-     * The definition for a Alert Graph widget.
-     */
     alertGraphDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition>;
-    /**
-     * The definition for a Alert Value widget.
-     */
     alertValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition>;
-    /**
-     * The definition for a Change widget.
-     */
     changeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition>;
-    /**
-     * The definition for a Check Status widget.
-     */
     checkStatusDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition>;
-    /**
-     * The definition for a Distribution widget.
-     */
     distributionDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition>;
-    /**
-     * The definition for a Event Stream widget.
-     */
     eventStreamDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition>;
-    /**
-     * The definition for a Event Timeline widget.
-     */
     eventTimelineDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition>;
-    /**
-     * The definition for a Free Text widget.
-     */
     freeTextDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition>;
-    /**
-     * The definition for a Geomap widget.
-     */
     geomapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition>;
-    /**
-     * The definition for a Heatmap widget.
-     */
     heatmapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition>;
-    /**
-     * The definition for a Hostmap widget.
-     */
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition>;
-    /**
-     * The ID of the widget.
-     */
     id?: pulumi.Input<number>;
-    /**
-     * The definition for an Iframe widget.
-     */
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition>;
-    /**
-     * The definition for an Image widget
-     */
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetImageDefinition>;
-    /**
-     * The definition for an Log Stream widget.
-     */
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition>;
-    /**
-     * The definition for an Manage Status widget.
-     */
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition>;
-    /**
-     * The definition for a Note widget.
-     */
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition>;
-    /**
-     * The definition for a Query Table widget.
-     */
     queryTableDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition>;
-    /**
-     * The definition for a Query Value widget.
-     */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition>;
-    /**
-     * The definition for a Scatterplot widget.
-     */
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition>;
-    /**
-     * The definition for a Service Level Objective widget.
-     */
     serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition>;
-    /**
-     * The definition for a Service Map widget.
-     */
     servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition>;
-    /**
-     * The definition for a Sunburst widget.
-     */
     sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition>;
-    /**
-     * The definition for a Timeseries widget.
-     */
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition>;
-    /**
-     * The definition for a Toplist widget.
-     */
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition>;
-    /**
-     * The definition for a Trace Service widget.
-     */
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition>;
-    /**
-     * The definition for a Treemap widget.
-     */
     treemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition>;
-    /**
-     * The layout of the widget on a 'free' dashboard.
-     */
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1120,9 +877,6 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
     precision?: pulumi.Input<number>;
     textAlign?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1133,9 +887,6 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1416,9 +1167,6 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1429,9 +1177,6 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1609,9 +1354,6 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     liveSpan?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1621,9 +1363,6 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     liveSpan?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1641,9 +1380,6 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1854,9 +1590,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2041,9 +1774,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest>;
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2357,9 +2087,6 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
-    /**
-     * The URL of the dashboard.
-     */
     url: pulumi.Input<string>;
 }
 
@@ -2369,9 +2096,6 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     horizontalAlign?: pulumi.Input<string>;
     margin?: pulumi.Input<string>;
     sizing?: pulumi.Input<string>;
-    /**
-     * The URL of the dashboard.
-     */
     url: pulumi.Input<string>;
     urlDarkTheme?: pulumi.Input<string>;
     verticalAlign?: pulumi.Input<string>;
@@ -2386,9 +2110,6 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     showDateColumn?: pulumi.Input<boolean>;
     showMessageColumn?: pulumi.Input<boolean>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2407,9 +2128,6 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     summaryType?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2432,9 +2150,6 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     hasSearchBar?: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2746,9 +2461,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     precision?: pulumi.Input<number>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest>[]>;
     textAlign?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
+    timeseriesBackground?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3063,14 +2776,24 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground {
+    type: pulumi.Input<string>;
+    yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    includeZero?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    max?: pulumi.Input<string>;
+    min?: pulumi.Input<string>;
+    scale?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3497,9 +3220,6 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3511,9 +3231,6 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink>[]>;
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3533,9 +3250,6 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
     legendTable?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3890,9 +3604,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest>[]>;
     rightYaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4273,9 +3984,6 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4607,9 +4315,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     showResourceList?: pulumi.Input<boolean>;
     sizeFormat?: pulumi.Input<string>;
     spanName: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4617,9 +4322,6 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
 }
 
@@ -4752,9 +4454,6 @@ export interface DashboardWidgetHeatmapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4939,9 +4638,6 @@ export interface DashboardWidgetHostmapDefinition {
     request?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequest>;
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionStyle>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5255,9 +4951,6 @@ export interface DashboardWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetIframeDefinition {
-    /**
-     * The URL of the dashboard.
-     */
     url: pulumi.Input<string>;
 }
 
@@ -5267,9 +4960,6 @@ export interface DashboardWidgetImageDefinition {
     horizontalAlign?: pulumi.Input<string>;
     margin?: pulumi.Input<string>;
     sizing?: pulumi.Input<string>;
-    /**
-     * The URL of the dashboard.
-     */
     url: pulumi.Input<string>;
     urlDarkTheme?: pulumi.Input<string>;
     verticalAlign?: pulumi.Input<string>;
@@ -5284,9 +4974,6 @@ export interface DashboardWidgetLogStreamDefinition {
     showDateColumn?: pulumi.Input<boolean>;
     showMessageColumn?: pulumi.Input<boolean>;
     sort?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionSort>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5305,9 +4992,6 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     summaryType?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5330,9 +5014,6 @@ export interface DashboardWidgetQueryTableDefinition {
     hasSearchBar?: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5644,9 +5325,7 @@ export interface DashboardWidgetQueryValueDefinition {
     precision?: pulumi.Input<number>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequest>[]>;
     textAlign?: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
+    timeseriesBackground?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5961,14 +5640,24 @@ export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCom
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetQueryValueDefinitionTimeseriesBackground {
+    type: pulumi.Input<string>;
+    yaxis?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    includeZero?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    max?: pulumi.Input<string>;
+    min?: pulumi.Input<string>;
+    scale?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     request?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequest>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6395,9 +6084,6 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6409,9 +6095,6 @@ export interface DashboardWidgetServicemapDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetServicemapDefinitionCustomLink>[]>;
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6431,9 +6114,6 @@ export interface DashboardWidgetSunburstDefinition {
     legendTable?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionLegendTable>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6788,9 +6468,6 @@ export interface DashboardWidgetTimeseriesDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequest>[]>;
     rightYaxis?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRightYaxis>;
     showLegend?: pulumi.Input<boolean>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7171,9 +6848,6 @@ export interface DashboardWidgetToplistDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionCustomLink>[]>;
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7505,9 +7179,6 @@ export interface DashboardWidgetTraceServiceDefinition {
     showResourceList?: pulumi.Input<boolean>;
     sizeFormat?: pulumi.Input<string>;
     spanName: pulumi.Input<string>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7515,9 +7186,6 @@ export interface DashboardWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetTreemapDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequest>[]>;
-    /**
-     * The title of the dashboard.
-     */
     title?: pulumi.Input<string>;
 }
 
@@ -7644,157 +7312,55 @@ export interface DashboardWidgetWidgetLayout {
 }
 
 export interface DowntimeRecurrence {
-    /**
-     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
-     */
     period?: pulumi.Input<number>;
-    /**
-     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
-     */
     rrule?: pulumi.Input<string>;
-    /**
-     * One of `days`, `weeks`, `months`, or `years`
-     */
     type: pulumi.Input<string>;
-    /**
-     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
-     */
     untilDate?: pulumi.Input<number>;
-    /**
-     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
-     */
     untilOccurrences?: pulumi.Input<number>;
-    /**
-     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
-     */
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface LogsArchiveAzureArchive {
-    /**
-     * Your client id.
-     */
     clientId: pulumi.Input<string>;
-    /**
-     * The container where the archive will be stored.
-     */
     container: pulumi.Input<string>;
-    /**
-     * The path where the archive will be stored.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * The associated storage account.
-     */
     storageAccount: pulumi.Input<string>;
-    /**
-     * Your tenant id.
-     */
     tenantId: pulumi.Input<string>;
 }
 
 export interface LogsArchiveGcsArchive {
-    /**
-     * Name of your GCS bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Your client email.
-     */
     clientEmail: pulumi.Input<string>;
-    /**
-     * Path where the archive will be stored.
-     */
     path: pulumi.Input<string>;
-    /**
-     * Your project id.
-     */
     projectId: pulumi.Input<string>;
 }
 
 export interface LogsArchiveS3Archive {
-    /**
-     * Your AWS account id.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Name of your s3 bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Path where the archive will be stored.
-     */
     path: pulumi.Input<string>;
-    /**
-     * Your AWS role name
-     */
     roleName: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessor {
-    /**
-     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-     */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorArithmeticProcessor>;
-    /**
-     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-     */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorAttributeRemapper>;
-    /**
-     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-     */
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessor>;
-    /**
-     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-     */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
-    /**
-     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-     */
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGeoIpParser>;
-    /**
-     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-     */
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParser>;
-    /**
-     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-     */
     lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorLookupProcessor>;
-    /**
-     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-     */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
     pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
-    /**
-     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-     */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
-    /**
-     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-     */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorStatusRemapper>;
-    /**
-     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-     */
     stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorStringBuilderProcessor>;
-    /**
-     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-     */
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorTraceIdRemapper>;
-    /**
-     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-     */
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUrlParser>;
-    /**
-     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-     */
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUserAgentParser>;
 }
 
@@ -7831,9 +7397,6 @@ export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: pulumi.Input<string>;
 }
 
@@ -7886,68 +7449,23 @@ export interface LogsCustomPipelineProcessorPipeline {
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
-    /**
-     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-     */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor>;
-    /**
-     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-     */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper>;
-    /**
-     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-     */
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor>;
-    /**
-     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-     */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
-    /**
-     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-     */
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser>;
-    /**
-     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-     */
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser>;
-    /**
-     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-     */
     lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor>;
-    /**
-     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-     */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
-    /**
-     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-     */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
-    /**
-     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-     */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
-    /**
-     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-     */
     stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor>;
-    /**
-     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-     */
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper>;
-    /**
-     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-     */
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser>;
-    /**
-     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-     */
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser>;
 }
 
@@ -7984,9 +7502,6 @@ export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCa
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
-    /**
-     * Filter criteria of the category.
-     */
     query: pulumi.Input<string>;
 }
 
@@ -8116,153 +7631,63 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 }
 
 export interface LogsIndexExclusionFilter {
-    /**
-     * Logs filter
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilterFilter>[]>;
-    /**
-     * A boolean stating if the exclusion is active or not.
-     */
     isEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the exclusion filter.
-     */
     name?: pulumi.Input<string>;
 }
 
 export interface LogsIndexExclusionFilterFilter {
-    /**
-     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-     */
     query?: pulumi.Input<string>;
     sampleRate?: pulumi.Input<number>;
 }
 
 export interface LogsIndexFilter {
-    /**
-     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-     */
     query: pulumi.Input<string>;
 }
 
 export interface LogsMetricCompute {
-    /**
-     * The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
-     */
     aggregationType: pulumi.Input<string>;
-    /**
-     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-     */
     path?: pulumi.Input<string>;
 }
 
 export interface LogsMetricFilter {
-    /**
-     * The search query - following the log search syntax.
-     */
     query: pulumi.Input<string>;
 }
 
 export interface LogsMetricGroupBy {
-    /**
-     * The path to the value the log-based metric will be aggregated over.
-     */
     path: pulumi.Input<string>;
-    /**
-     * Name of the tag that gets created.
-     */
     tagName: pulumi.Input<string>;
 }
 
 export interface MetricTagConfigurationAggregation {
-    /**
-     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
-     */
     space: pulumi.Input<string>;
-    /**
-     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
-     */
     time: pulumi.Input<string>;
 }
 
 export interface MonitorMonitorThresholdWindows {
-    /**
-     * Describes how long an anomalous metric must be normal before the alert recovers.
-     */
     recoveryWindow?: pulumi.Input<string>;
-    /**
-     * Describes how long a metric must be anomalous before an alert triggers.
-     */
     triggerWindow?: pulumi.Input<string>;
 }
 
 export interface MonitorMonitorThresholds {
-    /**
-     * The monitor `CRITICAL` threshold. Must be a number.
-     */
     critical?: pulumi.Input<string>;
-    /**
-     * The monitor `CRITICAL` recovery threshold. Must be a number.
-     */
     criticalRecovery?: pulumi.Input<string>;
-    /**
-     * The monitor `OK` threshold. Must be a number.
-     */
     ok?: pulumi.Input<string>;
-    /**
-     * The monitor `UNKNOWN` threshold. Must be a number.
-     */
     unknown?: pulumi.Input<string>;
-    /**
-     * The monitor `WARNING` threshold. Must be a number.
-     */
     warning?: pulumi.Input<string>;
-    /**
-     * The monitor `WARNING` recovery threshold. Must be a number.
-     */
     warningRecovery?: pulumi.Input<string>;
 }
 
 export interface OrganizationSettingsSettings {
-    /**
-     * Whether or not the organization users can share widgets outside of Datadog.
-     */
     privateWidgetShare?: pulumi.Input<boolean>;
-    /**
-     * SAML properties
-     */
     saml: pulumi.Input<inputs.OrganizationSettingsSettingsSaml>;
-    /**
-     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
-     */
     samlAutocreateAccessRole?: pulumi.Input<string>;
-    /**
-     * List of domains where the SAML automated user creation is enabled.
-     */
     samlAutocreateUsersDomains: pulumi.Input<inputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains>;
-    /**
-     * Whether or not SAML can be enabled for this organization.
-     */
     samlCanBeEnabled?: pulumi.Input<boolean>;
-    /**
-     * Identity provider endpoint for SAML authentication.
-     */
     samlIdpEndpoint?: pulumi.Input<string>;
-    /**
-     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-     */
     samlIdpInitiatedLogin: pulumi.Input<inputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin>;
-    /**
-     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
-     */
     samlIdpMetadataUploaded?: pulumi.Input<boolean>;
-    /**
-     * URL for SAML logging.
-     */
     samlLoginUrl?: pulumi.Input<string>;
-    /**
-     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
-     */
     samlStrictMode: pulumi.Input<inputs.OrganizationSettingsSettingsSamlStrictMode>;
 }
 
@@ -8284,13 +7709,7 @@ export interface OrganizationSettingsSettingsSamlStrictMode {
 }
 
 export interface RolePermission {
-    /**
-     * ID of the permission to assign.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Name of the permission.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -8305,13 +7724,7 @@ export interface SecurityMonitoringDefaultRuleFilter {
 }
 
 export interface SecurityMonitoringFilterExclusionFilter {
-    /**
-     * Exclusion filter name.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
-     */
     query: pulumi.Input<string>;
 }
 
@@ -8336,9 +7749,14 @@ export interface SecurityMonitoringRuleFilter {
 export interface SecurityMonitoringRuleOptions {
     detectionMethod?: pulumi.Input<string>;
     evaluationWindow?: pulumi.Input<number>;
+    impossibleTravelOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions>;
     keepAlive: pulumi.Input<number>;
     maxSignalDuration: pulumi.Input<number>;
     newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
+}
+
+export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+    baselineUserLocations?: pulumi.Input<boolean>;
 }
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
@@ -8371,131 +7789,54 @@ export interface SecurityMonitoringRuleQueryAgentRule {
 }
 
 export interface ServiceLevelObjectiveQuery {
-    /**
-     * The sum of the `total` events.
-     */
     denominator: pulumi.Input<string>;
-    /**
-     * The sum of all the `good` events.
-     */
     numerator: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveThreshold {
-    /**
-     * The objective's target in`[0,100]`.
-     */
     target: pulumi.Input<number>;
-    /**
-     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
-     */
     targetDisplay?: pulumi.Input<string>;
-    /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
-     */
     timeframe: pulumi.Input<string>;
-    /**
-     * The objective's warning value in `[0,100]`. This must be greater than the target value.
-     */
     warning?: pulumi.Input<number>;
-    /**
-     * A string representation of the warning target (see the description of the targetDisplay field for details).
-     */
     warningDisplay?: pulumi.Input<string>;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
-    /**
-     * Required when type = `httpHeader`. Defines the header to use to extract the value
-     */
     field?: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
-    /**
-     * Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
     type: pulumi.Input<string>;
-    /**
-     * The value of the global variable.
-     */
     value?: pulumi.Input<string>;
 }
 
+export interface SyntheticsPrivateLocationMetadata {
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface SyntheticsTestApiStep {
-    /**
-     * Determines whether or not to continue with test if this step fails.
-     */
     allowFailure?: pulumi.Input<boolean>;
-    /**
-     * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-     */
     assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepAssertion>[]>;
-    /**
-     * Values to parse and save as variables from the response.
-     */
     extractedValues?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepExtractedValue>[]>;
-    /**
-     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
-     */
     isCritical?: pulumi.Input<boolean>;
-    /**
-     * The name of the step.
-     */
     name: pulumi.Input<string>;
-    /**
-     * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-     */
     requestBasicauth?: pulumi.Input<inputs.SyntheticsTestApiStepRequestBasicauth>;
-    /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-     */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestApiStepRequestClientCertificate>;
-    /**
-     * The request for the api step.
-     */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestApiStepRequestDefinition>;
-    /**
-     * Header name and value map.
-     */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * The proxy to perform the test.
-     */
     requestProxy?: pulumi.Input<inputs.SyntheticsTestApiStepRequestProxy>;
-    /**
-     * Query arguments name and value map.
-     */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
-    /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
-     */
     subtype?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertion {
-    /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-     */
     operator: pulumi.Input<string>;
-    /**
-     * If assertion type is `header`, this is the header name.
-     */
     property?: pulumi.Input<string>;
-    /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-     */
     target?: pulumi.Input<string>;
-    /**
-     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-     */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetjsonpath>;
-    /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -8507,65 +7848,26 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
 
 export interface SyntheticsTestApiStepExtractedValue {
     field?: pulumi.Input<string>;
-    /**
-     * Name of Datadog synthetics test.
-     */
     name: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsTestApiStepExtractedValueParser>;
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type: pulumi.Input<string>;
     value?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepRequestBasicauth {
-    /**
-     * Access key for `SIGV4` authentication.
-     */
     accessKey?: pulumi.Input<string>;
-    /**
-     * Domain for `ntlm` authentication.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Password for authentication.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Region for `SIGV4` authentication.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Secret key for `SIGV4` authentication.
-     */
     secretKey?: pulumi.Input<string>;
-    /**
-     * Service name for `SIGV4` authentication.
-     */
     serviceName?: pulumi.Input<string>;
-    /**
-     * Session token for `SIGV4` authentication.
-     */
     sessionToken?: pulumi.Input<string>;
-    /**
-     * Type of basic authentication to use when performing the test.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * Username for authentication.
-     */
     username?: pulumi.Input<string>;
-    /**
-     * Workstation for `ntlm` authentication.
-     */
     workstation?: pulumi.Input<string>;
 }
 
@@ -8586,69 +7888,24 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     allowInsecure?: pulumi.Input<boolean>;
-    /**
-     * The request body.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * DNS server to use for DNS tests (`subtype = "dns"`).
-     */
     dnsServer?: pulumi.Input<string>;
-    /**
-     * DNS server port to use for DNS tests.
-     */
     dnsServerPort?: pulumi.Input<number>;
     followRedirects?: pulumi.Input<boolean>;
-    /**
-     * Host name to perform the test with.
-     */
     host?: pulumi.Input<string>;
-    /**
-     * For UDP and websocket tests, message to send with the request.
-     */
     message?: pulumi.Input<string>;
-    /**
-     * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-     */
     method?: pulumi.Input<string>;
-    /**
-     * Determines whether or not to save the response body.
-     */
     noSavingResponseBody?: pulumi.Input<boolean>;
-    /**
-     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-     */
     numberOfPackets?: pulumi.Input<number>;
-    /**
-     * Port to use when performing the test.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-     */
     servername?: pulumi.Input<string>;
-    /**
-     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-     */
     shouldTrackHops?: pulumi.Input<boolean>;
-    /**
-     * Timeout in seconds for the test. Defaults to `60`.
-     */
     timeout?: pulumi.Input<number>;
-    /**
-     * The URL to send the request to.
-     */
     url?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepRequestProxy {
-    /**
-     * Header name and value map.
-     */
     headers?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * URL of the proxy to perform the test.
-     */
     url: pulumi.Input<string>;
 }
 
@@ -8658,25 +7915,10 @@ export interface SyntheticsTestApiStepRetry {
 }
 
 export interface SyntheticsTestAssertion {
-    /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-     */
     operator: pulumi.Input<string>;
-    /**
-     * If assertion type is `header`, this is the header name.
-     */
     property?: pulumi.Input<string>;
-    /**
-     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
-     */
     target?: pulumi.Input<string>;
-    /**
-     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
-     */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetjsonpath>;
-    /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -8687,33 +7929,12 @@ export interface SyntheticsTestAssertionTargetjsonpath {
 }
 
 export interface SyntheticsTestBrowserStep {
-    /**
-     * Determines if the step should be allowed to fail.
-     */
     allowFailure?: pulumi.Input<boolean>;
-    /**
-     * Force update of the "element" parameter for the step
-     */
     forceElementUpdate?: pulumi.Input<boolean>;
-    /**
-     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
-     */
     isCritical?: pulumi.Input<boolean>;
-    /**
-     * Name of the step.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Parameters for the step.
-     */
     params: pulumi.Input<inputs.SyntheticsTestBrowserStepParams>;
-    /**
-     * Used to override the default timeout of a step.
-     */
     timeout?: pulumi.Input<number>;
-    /**
-     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -8745,106 +7966,44 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocator {
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
-    /**
-     * Synthetics test type. Valid values are `api`, `browser`.
-     */
     type?: pulumi.Input<string>;
     value: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
     example?: pulumi.Input<string>;
-    /**
-     * Name of Datadog synthetics test.
-     */
     name?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserVariable {
-    /**
-     * Example for the variable.
-     */
     example?: pulumi.Input<string>;
-    /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name of the variable.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: pulumi.Input<string>;
-    /**
-     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestConfigVariable {
-    /**
-     * Example for the variable.
-     */
     example?: pulumi.Input<string>;
-    /**
-     * When type = `global`, ID of the global variable to use.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name of the variable.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: pulumi.Input<string>;
-    /**
-     * Type of test configuration variable. Valid values are `global`, `text`.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestOptionsList {
-    /**
-     * For SSL test, whether or not the test should allow self signed certificates.
-     */
     acceptSelfSigned?: pulumi.Input<boolean>;
-    /**
-     * Allows loading insecure content for an HTTP test.
-     */
     allowInsecure?: pulumi.Input<boolean>;
-    /**
-     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
-     */
     checkCertificateRevocation?: pulumi.Input<boolean>;
-    /**
-     * Determines whether or not the API HTTP test should follow redirects.
-     */
     followRedirects?: pulumi.Input<boolean>;
-    /**
-     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
-     */
     minFailureDuration?: pulumi.Input<number>;
-    /**
-     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
-     */
     minLocationFailed?: pulumi.Input<number>;
-    /**
-     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-     */
     monitorName?: pulumi.Input<string>;
     monitorOptions?: pulumi.Input<inputs.SyntheticsTestOptionsListMonitorOptions>;
     monitorPriority?: pulumi.Input<number>;
-    /**
-     * Prevents saving screenshots of the steps.
-     */
     noScreenshot?: pulumi.Input<boolean>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     retry?: pulumi.Input<inputs.SyntheticsTestOptionsListRetry>;
-    /**
-     * How often the test should run (in seconds).
-     */
     tickEvery: pulumi.Input<number>;
 }
 
@@ -8858,45 +8017,15 @@ export interface SyntheticsTestOptionsListRetry {
 }
 
 export interface SyntheticsTestRequestBasicauth {
-    /**
-     * Access key for `SIGV4` authentication.
-     */
     accessKey?: pulumi.Input<string>;
-    /**
-     * Domain for `ntlm` authentication.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Password for authentication.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Region for `SIGV4` authentication.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Secret key for `SIGV4` authentication.
-     */
     secretKey?: pulumi.Input<string>;
-    /**
-     * Service name for `SIGV4` authentication.
-     */
     serviceName?: pulumi.Input<string>;
-    /**
-     * Session token for `SIGV4` authentication.
-     */
     sessionToken?: pulumi.Input<string>;
-    /**
-     * Type of basic authentication to use when performing the test.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * Username for authentication.
-     */
     username?: pulumi.Input<string>;
-    /**
-     * Workstation for `ntlm` authentication.
-     */
     workstation?: pulumi.Input<string>;
 }
 
@@ -8916,87 +8045,31 @@ export interface SyntheticsTestRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestRequestDefinition {
-    /**
-     * The request body.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * DNS server to use for DNS tests (`subtype = "dns"`).
-     */
     dnsServer?: pulumi.Input<string>;
-    /**
-     * DNS server port to use for DNS tests.
-     */
     dnsServerPort?: pulumi.Input<number>;
-    /**
-     * Host name to perform the test with.
-     */
     host?: pulumi.Input<string>;
-    /**
-     * For UDP and websocket tests, message to send with the request.
-     */
     message?: pulumi.Input<string>;
-    /**
-     * The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
-     */
     method?: pulumi.Input<string>;
-    /**
-     * Determines whether or not to save the response body.
-     */
     noSavingResponseBody?: pulumi.Input<boolean>;
-    /**
-     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
-     */
     numberOfPackets?: pulumi.Input<number>;
-    /**
-     * Port to use when performing the test.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
-     */
     servername?: pulumi.Input<string>;
-    /**
-     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-     */
     shouldTrackHops?: pulumi.Input<boolean>;
-    /**
-     * Timeout in seconds for the test. Defaults to `60`.
-     */
     timeout?: pulumi.Input<number>;
-    /**
-     * The URL to send the request to.
-     */
     url?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestRequestProxy {
-    /**
-     * Header name and value map.
-     */
     headers?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * URL of the proxy to perform the test.
-     */
     url: pulumi.Input<string>;
 }
+
 export namespace slack {
     export interface ChannelDisplay {
-        /**
-         * Show the main body of the alert event.
-         */
         message?: pulumi.Input<boolean>;
-        /**
-         * Show the list of @-handles in the alert event.
-         */
         notified?: pulumi.Input<boolean>;
-        /**
-         * Show the alert event's snapshot image.
-         */
         snapshot?: pulumi.Input<boolean>;
-        /**
-         * Show the scopes on which the monitor alerted.
-         */
         tags?: pulumi.Input<boolean>;
     }
 }

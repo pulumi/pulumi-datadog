@@ -35,13 +35,7 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyArgs {
-    /**
-     * Id for API Key.
-     */
     id?: string;
-    /**
-     * Name for API Key.
-     */
     name?: string;
 }
 
@@ -49,17 +43,8 @@ export interface GetApiKeyArgs {
  * A collection of values returned by getApiKey.
  */
 export interface GetApiKeyResult {
-    /**
-     * Id for API Key.
-     */
     readonly id?: string;
-    /**
-     * The value of the API Key.
-     */
     readonly key: string;
-    /**
-     * Name for API Key.
-     */
     readonly name?: string;
 }
 
@@ -71,12 +56,6 @@ export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyOutputArgs {
-    /**
-     * Id for API Key.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name for API Key.
-     */
     name?: pulumi.Input<string>;
 }

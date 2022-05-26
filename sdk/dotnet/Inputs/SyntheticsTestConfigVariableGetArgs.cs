@@ -12,33 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestConfigVariableGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Example for the variable.
-        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
-        /// <summary>
-        /// When type = `global`, ID of the global variable to use.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the variable.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Pattern of the variable.
-        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
-        /// <summary>
-        /// Type of test configuration variable. Valid values are `global`, `text`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -26,7 +26,7 @@ class ProviderArgs:
                path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx.
+        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
@@ -86,7 +86,7 @@ class ProviderArgs:
     @pulumi.getter(name="httpClientRetryEnabled")
     def http_client_retry_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables request retries on HTTP status codes 429 and 5xx.
+        Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         """
         return pulumi.get(self, "http_client_retry_enabled")
 
@@ -145,7 +145,7 @@ class Provider(pulumi.ProviderResource):
                path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx.
+        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.

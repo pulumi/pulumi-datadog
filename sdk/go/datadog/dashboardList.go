@@ -260,6 +260,16 @@ func (o DashboardListOutput) ToDashboardListOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A set of dashboard items that belong to this list
+func (o DashboardListOutput) DashItems() DashboardListDashItemArrayOutput {
+	return o.ApplyT(func(v *DashboardList) DashboardListDashItemArrayOutput { return v.DashItems }).(DashboardListDashItemArrayOutput)
+}
+
+// The name of the Dashboard List
+func (o DashboardListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DashboardList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type DashboardListArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardListArrayOutput) ElementType() reflect.Type {

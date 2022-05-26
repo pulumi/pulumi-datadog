@@ -123,9 +123,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetDashboardListArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A dashboard list name to limit the search.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -136,9 +133,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetDashboardListInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A dashboard list name to limit the search.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -155,9 +149,6 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A dashboard list name to limit the search.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -189,6 +189,11 @@ func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutputWithContex
 	return o
 }
 
+// Boolean value to enable your pipeline.
+func (o LogsIntegrationPipelineOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsIntegrationPipeline) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type LogsIntegrationPipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineArrayOutput) ElementType() reflect.Type {

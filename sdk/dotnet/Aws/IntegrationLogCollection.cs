@@ -54,7 +54,9 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+        /// A list of services to collect logs from. See the [api
+        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+        /// which services are supported.
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
@@ -115,7 +117,9 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _services;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+        /// A list of services to collect logs from. See the [api
+        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+        /// which services are supported.
         /// </summary>
         public InputList<string> Services
         {
@@ -140,7 +144,9 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _services;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
+        /// A list of services to collect logs from. See the [api
+        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+        /// which services are supported.
         /// </summary>
         public InputList<string> Services
         {

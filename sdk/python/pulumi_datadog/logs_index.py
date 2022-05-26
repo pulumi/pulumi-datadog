@@ -26,7 +26,8 @@ class LogsIndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+               value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """
@@ -81,7 +82,8 @@ class LogsIndexArgs:
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         """
         return pulumi.get(self, "disable_daily_limit")
 
@@ -126,7 +128,8 @@ class _LogsIndexState:
         """
         Input properties used for looking up and filtering LogsIndex resources.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+               value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -161,7 +164,8 @@ class _LogsIndexState:
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         """
         return pulumi.get(self, "disable_daily_limit")
 
@@ -273,7 +277,8 @@ class LogsIndex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+               value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -392,7 +397,8 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+               value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -422,7 +428,8 @@ class LogsIndex(pulumi.CustomResource):
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> pulumi.Output[bool]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
+        value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         """
         return pulumi.get(self, "disable_daily_limit")
 

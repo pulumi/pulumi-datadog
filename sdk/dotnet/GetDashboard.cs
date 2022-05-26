@@ -73,9 +73,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetDashboardArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The dashboard name to search for. Must only match one dashboard.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -86,9 +83,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The dashboard name to search for. Must only match one dashboard.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -105,17 +99,8 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The dashboard name to search for. Must only match one dashboard.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The name of the dashboard.
-        /// </summary>
         public readonly string Title;
-        /// <summary>
-        /// The URL to a specific dashboard.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

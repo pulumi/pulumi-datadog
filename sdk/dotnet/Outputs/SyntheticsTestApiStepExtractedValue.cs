@@ -14,14 +14,8 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepExtractedValue
     {
         public readonly string? Field;
-        /// <summary>
-        /// Name of Datadog synthetics test.
-        /// </summary>
         public readonly string Name;
         public readonly Outputs.SyntheticsTestApiStepExtractedValueParser Parser;
-        /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

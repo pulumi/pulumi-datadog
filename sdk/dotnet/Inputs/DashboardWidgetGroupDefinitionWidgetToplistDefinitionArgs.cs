@@ -31,9 +31,6 @@ namespace Pulumi.Datadog.Inputs
             set => _requests = value;
         }
 
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

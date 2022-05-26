@@ -20,9 +20,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly int? Precision;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest> Requests;
         public readonly string? TextAlign;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground? TimeseriesBackground;
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -43,6 +41,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? textAlign,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground? timeseriesBackground,
+
             string? title,
 
             string? titleAlign,
@@ -56,6 +56,7 @@ namespace Pulumi.Datadog.Outputs
             Precision = precision;
             Requests = requests;
             TextAlign = textAlign;
+            TimeseriesBackground = timeseriesBackground;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<bool?> _httpClientRetryEnabled = new __Value<bool?>(() => __config.GetBoolean("httpClientRetryEnabled"));
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         /// </summary>
         public static bool? HttpClientRetryEnabled
         {

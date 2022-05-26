@@ -49,7 +49,8 @@ import (
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
 
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayOutput `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -90,14 +91,16 @@ func GetLogsIndexOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndexOrder resources.
 type logsIndexOrderState struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes []string `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name *string `pulumi:"name"`
 }
 
 type LogsIndexOrderState struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayInput
 	// The unique name of the index order resource.
 	Name pulumi.StringPtrInput
@@ -108,7 +111,8 @@ func (LogsIndexOrderState) ElementType() reflect.Type {
 }
 
 type logsIndexOrderArgs struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes []string `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name string `pulumi:"name"`
@@ -116,7 +120,8 @@ type logsIndexOrderArgs struct {
 
 // The set of arguments for constructing a LogsIndexOrder resource.
 type LogsIndexOrderArgs struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayInput
 	// The unique name of the index order resource.
 	Name pulumi.StringInput
@@ -207,6 +212,17 @@ func (o LogsIndexOrderOutput) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
 
 func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
 	return o
+}
+
+// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+// list.
+func (o LogsIndexOrderOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsIndexOrder) pulumi.StringArrayOutput { return v.Indexes }).(pulumi.StringArrayOutput)
+}
+
+// The unique name of the index order resource.
+func (o LogsIndexOrderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsIndexOrder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type LogsIndexOrderArrayOutput struct{ *pulumi.OutputState }

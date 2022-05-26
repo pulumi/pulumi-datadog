@@ -76,7 +76,8 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+     * imported into Datadog.
      */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
     /**
@@ -159,7 +160,8 @@ export interface IntegrationState {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+     * imported into Datadog.
      */
     hostFilters?: pulumi.Input<string>;
     /**
@@ -193,7 +195,8 @@ export interface IntegrationArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+     * imported into Datadog.
      */
     hostFilters?: pulumi.Input<string>;
     /**

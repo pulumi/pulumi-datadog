@@ -27,7 +27,7 @@ class MetricMetadataArgs:
         :param pulumi.Input[str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
         :param pulumi.Input[str] short_name: A short name of the metric.
         :param pulumi.Input[int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
-        :param pulumi.Input[str] type: Type of the metric.
+        :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
         pulumi.set(__self__, "metric", metric)
@@ -108,7 +108,7 @@ class MetricMetadataArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the metric.
+        Metric type such as `gauge` or `rate`.
         """
         return pulumi.get(self, "type")
 
@@ -146,7 +146,7 @@ class _MetricMetadataState:
         :param pulumi.Input[str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
         :param pulumi.Input[str] short_name: A short name of the metric.
         :param pulumi.Input[int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
-        :param pulumi.Input[str] type: Type of the metric.
+        :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
         if description is not None:
@@ -228,7 +228,7 @@ class _MetricMetadataState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the metric.
+        Metric type such as `gauge` or `rate`.
         """
         return pulumi.get(self, "type")
 
@@ -287,7 +287,7 @@ class MetricMetadata(pulumi.CustomResource):
         :param pulumi.Input[str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
         :param pulumi.Input[str] short_name: A short name of the metric.
         :param pulumi.Input[int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
-        :param pulumi.Input[str] type: Type of the metric.
+        :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
         ...
@@ -386,7 +386,7 @@ class MetricMetadata(pulumi.CustomResource):
         :param pulumi.Input[str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
         :param pulumi.Input[str] short_name: A short name of the metric.
         :param pulumi.Input[int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
-        :param pulumi.Input[str] type: Type of the metric.
+        :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -446,7 +446,7 @@ class MetricMetadata(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of the metric.
+        Metric type such as `gauge` or `rate`.
         """
         return pulumi.get(self, "type")
 

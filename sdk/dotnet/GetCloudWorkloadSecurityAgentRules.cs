@@ -42,9 +42,6 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetCloudWorkloadSecurityAgentRulesResult
     {
-        /// <summary>
-        /// List of Agent rules.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudWorkloadSecurityAgentRulesAgentRuleResult> AgentRules;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

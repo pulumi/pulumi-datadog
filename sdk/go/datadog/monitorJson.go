@@ -203,6 +203,16 @@ func (o MonitorJsonOutput) ToMonitorJsonOutputWithContext(ctx context.Context) M
 	return o
 }
 
+// The JSON formatted definition of the monitor.
+func (o MonitorJsonOutput) Monitor() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorJson) pulumi.StringOutput { return v.Monitor }).(pulumi.StringOutput)
+}
+
+// The URL of the monitor.
+func (o MonitorJsonOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorJson) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 type MonitorJsonArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitorJsonArrayOutput) ElementType() reflect.Type {

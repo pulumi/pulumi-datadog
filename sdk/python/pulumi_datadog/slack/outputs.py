@@ -19,12 +19,6 @@ class ChannelDisplay(dict):
                  notified: Optional[bool] = None,
                  snapshot: Optional[bool] = None,
                  tags: Optional[bool] = None):
-        """
-        :param bool message: Show the main body of the alert event.
-        :param bool notified: Show the list of @-handles in the alert event.
-        :param bool snapshot: Show the alert event's snapshot image.
-        :param bool tags: Show the scopes on which the monitor alerted.
-        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if notified is not None:
@@ -37,33 +31,21 @@ class ChannelDisplay(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[bool]:
-        """
-        Show the main body of the alert event.
-        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
     def notified(self) -> Optional[bool]:
-        """
-        Show the list of @-handles in the alert event.
-        """
         return pulumi.get(self, "notified")
 
     @property
     @pulumi.getter
     def snapshot(self) -> Optional[bool]:
-        """
-        Show the alert event's snapshot image.
-        """
         return pulumi.get(self, "snapshot")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[bool]:
-        """
-        Show the scopes on which the monitor alerted.
-        """
         return pulumi.get(self, "tags")
 
 

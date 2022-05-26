@@ -37,9 +37,6 @@ class GetRoleResult:
     @property
     @pulumi.getter
     def filter(self) -> str:
-        """
-        A string on which to filter the roles.
-        """
         return pulumi.get(self, "filter")
 
     @property
@@ -53,17 +50,11 @@ class GetRoleResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the role.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="userCount")
     def user_count(self) -> int:
-        """
-        Number of users assigned to this role.
-        """
         return pulumi.get(self, "user_count")
 
 
@@ -92,9 +83,6 @@ def get_role(filter: Optional[str] = None,
 
     test = datadog.get_role(filter="Datadog Standard Role")
     ```
-
-
-    :param str filter: A string on which to filter the roles.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -125,8 +113,5 @@ def get_role_output(filter: Optional[pulumi.Input[str]] = None,
 
     test = datadog.get_role(filter="Datadog Standard Role")
     ```
-
-
-    :param str filter: A string on which to filter the roles.
     """
     ...

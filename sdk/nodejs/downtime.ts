@@ -66,7 +66,8 @@ export class Downtime extends pulumi.CustomResource {
      */
     public /*out*/ readonly active!: pulumi.Output<boolean>;
     /**
-     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+     * This field will only exist on recurring downtimes.
      */
     public /*out*/ readonly activeChildId!: pulumi.Output<number>;
     /**
@@ -90,9 +91,14 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+     * silenced
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * When true the first recovery notification during the downtime will be muted
+     */
+    public readonly muteFirstRecoveryNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Optional recurring schedule for this downtime
      */
@@ -135,6 +141,7 @@ export class Downtime extends pulumi.CustomResource {
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["monitorId"] = state ? state.monitorId : undefined;
             resourceInputs["monitorTags"] = state ? state.monitorTags : undefined;
+            resourceInputs["muteFirstRecoveryNotification"] = state ? state.muteFirstRecoveryNotification : undefined;
             resourceInputs["recurrence"] = state ? state.recurrence : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["start"] = state ? state.start : undefined;
@@ -150,6 +157,7 @@ export class Downtime extends pulumi.CustomResource {
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["monitorId"] = args ? args.monitorId : undefined;
             resourceInputs["monitorTags"] = args ? args.monitorTags : undefined;
+            resourceInputs["muteFirstRecoveryNotification"] = args ? args.muteFirstRecoveryNotification : undefined;
             resourceInputs["recurrence"] = args ? args.recurrence : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["start"] = args ? args.start : undefined;
@@ -173,7 +181,8 @@ export interface DowntimeState {
      */
     active?: pulumi.Input<boolean>;
     /**
-     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
+     * This field will only exist on recurring downtimes.
      */
     activeChildId?: pulumi.Input<number>;
     /**
@@ -197,9 +206,14 @@ export interface DowntimeState {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+     * silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When true the first recovery notification during the downtime will be muted
+     */
+    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
     /**
      * Optional recurring schedule for this downtime
      */
@@ -243,9 +257,14 @@ export interface DowntimeArgs {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
+     * silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When true the first recovery notification during the downtime will be muted
+     */
+    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
     /**
      * Optional recurring schedule for this downtime
      */

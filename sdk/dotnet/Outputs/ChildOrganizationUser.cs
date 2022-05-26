@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? AccessRole;
         public readonly string? Email;
-        /// <summary>
-        /// Name for Child Organization after creation.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

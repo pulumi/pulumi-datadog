@@ -43,49 +43,31 @@ class GetServiceLevelObjectiveResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        A SLO ID to limit the search.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="metricsQuery")
     def metrics_query(self) -> Optional[str]:
-        """
-        Filter results based on SLO numerator and denominator.
-        """
         return pulumi.get(self, "metrics_query")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the Datadog service level objective
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nameQuery")
     def name_query(self) -> Optional[str]:
-        """
-        Filter results based on SLO names.
-        """
         return pulumi.get(self, "name_query")
 
     @property
     @pulumi.getter(name="tagsQuery")
     def tags_query(self) -> Optional[str]:
-        """
-        Filter results based on a single SLO tag.
-        """
         return pulumi.get(self, "tags_query")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -121,12 +103,6 @@ def get_service_level_objective(id: Optional[str] = None,
         tags_query="foo:bar")
     api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
     ```
-
-
-    :param str id: A SLO ID to limit the search.
-    :param str metrics_query: Filter results based on SLO numerator and denominator.
-    :param str name_query: Filter results based on SLO names.
-    :param str tags_query: Filter results based on a single SLO tag.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -167,11 +143,5 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
         tags_query="foo:bar")
     api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
     ```
-
-
-    :param str id: A SLO ID to limit the search.
-    :param str metrics_query: Filter results based on SLO numerator and denominator.
-    :param str name_query: Filter results based on SLO names.
-    :param str tags_query: Filter results based on a single SLO tag.
     """
     ...

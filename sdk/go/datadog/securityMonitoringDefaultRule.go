@@ -217,6 +217,23 @@ func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutp
 	return o
 }
 
+// Cases of the rule, this is used to update notifications.
+func (o SecurityMonitoringDefaultRuleOutput) Cases() SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringDefaultRuleCaseArrayOutput)
+}
+
+// Enable the rule.
+func (o SecurityMonitoringDefaultRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Additional queries to filter matched events before they are processed.
+func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleFilterArrayOutput {
+		return v.Filters
+	}).(SecurityMonitoringDefaultRuleFilterArrayOutput)
+}
+
 type SecurityMonitoringDefaultRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringDefaultRuleArrayOutput) ElementType() reflect.Type {

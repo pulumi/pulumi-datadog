@@ -389,6 +389,22 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx cont
 	return o
 }
 
+func (o LogsCustomPipelineOutput) Filters() LogsCustomPipelineFilterArrayOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipelineFilterArrayOutput { return v.Filters }).(LogsCustomPipelineFilterArrayOutput)
+}
+
+func (o LogsCustomPipelineOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LogsCustomPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LogsCustomPipelineOutput) Processors() LogsCustomPipelineProcessorArrayOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipelineProcessorArrayOutput { return v.Processors }).(LogsCustomPipelineProcessorArrayOutput)
+}
+
 type LogsCustomPipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineArrayOutput) ElementType() reflect.Type {

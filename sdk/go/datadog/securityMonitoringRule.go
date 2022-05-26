@@ -329,6 +329,56 @@ func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutputWithContext(
 	return o
 }
 
+// Cases for generating signals.
+func (o SecurityMonitoringRuleOutput) Cases() SecurityMonitoringRuleCaseArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringRuleCaseArrayOutput)
+}
+
+// Whether the rule is enabled.
+func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Additional queries to filter matched events before they are processed.
+func (o SecurityMonitoringRuleOutput) Filters() SecurityMonitoringRuleFilterArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleFilterArrayOutput { return v.Filters }).(SecurityMonitoringRuleFilterArrayOutput)
+}
+
+// Whether the notifications include the triggering group-by values in their title.
+func (o SecurityMonitoringRuleOutput) HasExtendedTitle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.HasExtendedTitle }).(pulumi.BoolPtrOutput)
+}
+
+// Message for generated signals.
+func (o SecurityMonitoringRuleOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// The name of the rule.
+func (o SecurityMonitoringRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Options on rules.
+func (o SecurityMonitoringRuleOutput) Options() SecurityMonitoringRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringRuleOptionsPtrOutput)
+}
+
+// Queries for selecting logs which are part of the rule.
+func (o SecurityMonitoringRuleOutput) Queries() SecurityMonitoringRuleQueryArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleQueryArrayOutput { return v.Queries }).(SecurityMonitoringRuleQueryArrayOutput)
+}
+
+// Tags for generated signals.
+func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type SecurityMonitoringRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringRuleArrayOutput) ElementType() reflect.Type {
