@@ -104,7 +104,7 @@ import (
 // 				&LogsCustomPipelineProcessorArgs{
 // 					GrokParser: &LogsCustomPipelineProcessorGrokParserArgs{
 // 						Grok: &LogsCustomPipelineProcessorGrokParserGrokArgs{
-// 							MatchRules:   pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Rule ", "%{", "word:my_word2} ", "%{", "number:my_float2}")),
+// 							MatchRules:   pulumi.String(fmt.Sprintf("Rule %vword:my_word2} %vnumber:my_float2}", "%{", "%{")),
 // 							SupportRules: pulumi.String(""),
 // 						},
 // 						IsEnabled: pulumi.Bool(true),
@@ -185,7 +185,7 @@ import (
 // 						IsReplaceMissing: pulumi.Bool(false),
 // 						Name:             pulumi.String("sample string builder processor"),
 // 						Target:           pulumi.String("user_activity"),
-// 						Template:         pulumi.String(fmt.Sprintf("%v%v%v%v", "%{", "user.name} logged in at ", "%{", "timestamp}")),
+// 						Template:         pulumi.String(fmt.Sprintf("%vuser.name} logged in at %vtimestamp}", "%{", "%{")),
 // 					},
 // 				},
 // 				&LogsCustomPipelineProcessorArgs{

@@ -31,7 +31,7 @@ import (
 // 			ClientEmail:  pulumi.String("awesome-service-account@awesome-project-id.iam.gserviceaccount.com"),
 // 			ClientId:     pulumi.String("123456789012345678901"),
 // 			HostFilters:  pulumi.String("foo:bar,buzz:lightyear"),
-// 			PrivateKey:   pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN PRIVATE KEY-----\n", "...\n", "-----END PRIVATE KEY-----\n", "\n")),
+// 			PrivateKey:   pulumi.String(fmt.Sprintf("-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n\n")),
 // 			PrivateKeyId: pulumi.String("1234567890123456789012345678901234567890"),
 // 			ProjectId:    pulumi.String("awesome-project-id"),
 // 		})

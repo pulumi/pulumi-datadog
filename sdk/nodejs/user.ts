@@ -7,22 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog user resource. This can be used to create and manage Datadog users.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const roRole = datadog.getRole({
- *     filter: "Datadog Read Only Role",
- * });
- * // Create a new Datadog user
- * const foo = new datadog.User("foo", {
- *     email: "new@example.com",
- *     roles: [roRole.then(roRole => roRole.id)],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

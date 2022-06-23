@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create a new Datadog webhook
- * const foo = new datadog.Webhook("foo", {
- *     name: "test-webhook",
- *     url: "example.com",
- *     encodeAs: "json",
- *     customHeaders: JSON.stringify({
- *         custom: "header",
- *     }),
- *     payload: JSON.stringify({
- *         custom: "payload",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

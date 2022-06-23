@@ -195,7 +195,7 @@ import (
 // 						ShowTick:        pulumi.Bool(true),
 // 						TextAlign:       pulumi.String("center"),
 // 						TickEdge:        pulumi.String("left"),
-// 						TickPos:         pulumi.String(fmt.Sprintf("%v%v", "50", "%")),
+// 						TickPos:         pulumi.String(fmt.Sprintf("50%v", "%")),
 // 					},
 // 				},
 // 				&DashboardWidgetArgs{
@@ -443,7 +443,7 @@ import (
 // 									"showTick":        true,
 // 									"textAlign":       "center",
 // 									"tickEdge":        "left",
-// 									"tickPos":         fmt.Sprintf("%v%v", "50", "%"),
+// 									"tickPos":         fmt.Sprintf("50%v", "%"),
 // 								},
 // 							},
 // 							map[string]interface{}{
