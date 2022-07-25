@@ -101,7 +101,7 @@ type SecurityMonitoringRule struct {
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	// The rule type.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -164,7 +164,7 @@ type securityMonitoringRuleState struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	// The rule type.
 	Type *string `pulumi:"type"`
 }
 
@@ -187,7 +187,7 @@ type SecurityMonitoringRuleState struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	// The rule type.
 	Type pulumi.StringPtrInput
 }
 
@@ -214,7 +214,7 @@ type securityMonitoringRuleArgs struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	// The rule type.
 	Type *string `pulumi:"type"`
 }
 
@@ -238,7 +238,7 @@ type SecurityMonitoringRuleArgs struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	// The rule type.
 	Type pulumi.StringPtrInput
 }
 
@@ -374,7 +374,7 @@ func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+// The rule type.
 func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

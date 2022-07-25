@@ -14,9 +14,6 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleFilter
     {
         public readonly string Action;
-        /// <summary>
-        /// Queries for selecting logs which are part of the rule.
-        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

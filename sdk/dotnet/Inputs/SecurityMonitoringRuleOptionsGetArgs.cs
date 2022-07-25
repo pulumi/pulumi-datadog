@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleOptionsGetArgs : Pulumi.ResourceArgs
     {
+        [Input("decreaseCriticalityBasedOnEnv")]
+        public Input<bool>? DecreaseCriticalityBasedOnEnv { get; set; }
+
         [Input("detectionMethod")]
         public Input<string>? DetectionMethod { get; set; }
 

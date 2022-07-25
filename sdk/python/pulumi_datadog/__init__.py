@@ -74,6 +74,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_datadog.gcp as __gcp
     gcp = __gcp
+    import pulumi_datadog.opsgenie as __opsgenie
+    opsgenie = __opsgenie
     import pulumi_datadog.pagerduty as __pagerduty
     pagerduty = __pagerduty
     import pulumi_datadog.slack as __slack
@@ -83,6 +85,7 @@ else:
     azure = _utilities.lazy_import('pulumi_datadog.azure')
     config = _utilities.lazy_import('pulumi_datadog.config')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
+    opsgenie = _utilities.lazy_import('pulumi_datadog.opsgenie')
     pagerduty = _utilities.lazy_import('pulumi_datadog.pagerduty')
     slack = _utilities.lazy_import('pulumi_datadog.slack')
 
@@ -407,6 +410,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "opsgenie/serviceObject",
+  "fqn": "pulumi_datadog.opsgenie",
+  "classes": {
+   "datadog:opsgenie/serviceObject:ServiceObject": "ServiceObject"
   }
  },
  {

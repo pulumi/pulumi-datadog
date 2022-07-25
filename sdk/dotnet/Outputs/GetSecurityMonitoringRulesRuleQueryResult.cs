@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> DistinctFields;
         public readonly ImmutableArray<string> GroupByFields;
         public readonly string? Metric;
+        public readonly ImmutableArray<string> Metrics;
         public readonly string? Name;
         public readonly string Query;
 
@@ -33,6 +34,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? metric,
 
+            ImmutableArray<string> metrics,
+
             string? name,
 
             string query)
@@ -42,6 +45,7 @@ namespace Pulumi.Datadog.Outputs
             DistinctFields = distinctFields;
             GroupByFields = groupByFields;
             Metric = metric;
+            Metrics = metrics;
             Name = name;
             Query = query;
         }

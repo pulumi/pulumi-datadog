@@ -119,7 +119,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     * The rule type.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -217,7 +217,7 @@ export interface SecurityMonitoringRuleState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     * The rule type.
      */
     type?: pulumi.Input<string>;
 }
@@ -263,7 +263,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     * The rule type.
      */
     type?: pulumi.Input<string>;
 }

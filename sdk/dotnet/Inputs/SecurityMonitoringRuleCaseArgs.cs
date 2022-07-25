@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

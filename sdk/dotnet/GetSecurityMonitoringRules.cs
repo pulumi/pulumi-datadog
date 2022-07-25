@@ -83,33 +83,20 @@ namespace Pulumi.Datadog
 
     public sealed class GetSecurityMonitoringRulesArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Limit the search to default rules
-        /// </summary>
         [Input("defaultOnlyFilter")]
         public bool? DefaultOnlyFilter { get; set; }
 
-        /// <summary>
-        /// A rule name to limit the search
-        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search
-        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
             set => _tagsFilters = value;
         }
 
-        /// <summary>
-        /// Limit the search to user rules
-        /// </summary>
         [Input("userOnlyFilter")]
         public bool? UserOnlyFilter { get; set; }
 
@@ -120,33 +107,20 @@ namespace Pulumi.Datadog
 
     public sealed class GetSecurityMonitoringRulesInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Limit the search to default rules
-        /// </summary>
         [Input("defaultOnlyFilter")]
         public Input<bool>? DefaultOnlyFilter { get; set; }
 
-        /// <summary>
-        /// A rule name to limit the search
-        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
-
-        /// <summary>
-        /// A list of tags to limit the search
-        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
             set => _tagsFilters = value;
         }
 
-        /// <summary>
-        /// Limit the search to user rules
-        /// </summary>
         [Input("userOnlyFilter")]
         public Input<bool>? UserOnlyFilter { get; set; }
 
@@ -159,33 +133,15 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetSecurityMonitoringRulesResult
     {
-        /// <summary>
-        /// Limit the search to default rules
-        /// </summary>
         public readonly bool? DefaultOnlyFilter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A rule name to limit the search
-        /// </summary>
         public readonly string? NameFilter;
-        /// <summary>
-        /// List of IDs of the matched rules.
-        /// </summary>
         public readonly ImmutableArray<string> RuleIds;
-        /// <summary>
-        /// List of rules.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleResult> Rules;
-        /// <summary>
-        /// A list of tags to limit the search
-        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
-        /// <summary>
-        /// Limit the search to user rules
-        /// </summary>
         public readonly bool? UserOnlyFilter;
 
         [OutputConstructor]

@@ -17,12 +17,14 @@ class SecurityMonitoringDefaultRuleArgs:
     def __init__(__self__, *,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
+                 options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None):
         """
         The set of arguments for constructing a SecurityMonitoringDefaultRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
         :param pulumi.Input[bool] enabled: Enable the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
@@ -30,6 +32,8 @@ class SecurityMonitoringDefaultRuleArgs:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
@@ -66,6 +70,18 @@ class SecurityMonitoringDefaultRuleArgs:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]:
+        """
+        Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -73,12 +89,14 @@ class _SecurityMonitoringDefaultRuleState:
     def __init__(__self__, *,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
+                 options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringDefaultRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
         :param pulumi.Input[bool] enabled: Enable the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
@@ -86,6 +104,8 @@ class _SecurityMonitoringDefaultRuleState:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
@@ -122,6 +142,18 @@ class _SecurityMonitoringDefaultRuleState:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]:
+        """
+        Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 class SecurityMonitoringDefaultRule(pulumi.CustomResource):
@@ -132,6 +164,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
@@ -163,6 +196,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]] cases: Cases of the rule, this is used to update notifications.
         :param pulumi.Input[bool] enabled: Enable the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
         ...
     @overload
@@ -213,6 +247,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -228,6 +263,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
+            __props__.__dict__["options"] = options
         super(SecurityMonitoringDefaultRule, __self__).__init__(
             'datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule',
             resource_name,
@@ -240,7 +276,8 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]]] = None) -> 'SecurityMonitoringDefaultRule':
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]]] = None,
+            options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']]] = None) -> 'SecurityMonitoringDefaultRule':
         """
         Get an existing SecurityMonitoringDefaultRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -251,6 +288,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]] cases: Cases of the rule, this is used to update notifications.
         :param pulumi.Input[bool] enabled: Enable the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,6 +297,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         __props__.__dict__["cases"] = cases
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["filters"] = filters
+        __props__.__dict__["options"] = options
         return SecurityMonitoringDefaultRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -284,4 +323,12 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         Additional queries to filter matched events before they are processed.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Output[Optional['outputs.SecurityMonitoringDefaultRuleOptions']]:
+        """
+        Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        """
+        return pulumi.get(self, "options")
 

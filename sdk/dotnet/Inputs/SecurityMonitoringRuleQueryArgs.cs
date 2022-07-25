@@ -43,15 +43,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
+        [Input("metrics")]
+        private InputList<string>? _metrics;
+        public InputList<string> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<string>());
+            set => _metrics = value;
+        }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Queries for selecting logs which are part of the rule.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

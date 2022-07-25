@@ -586,6 +586,14 @@
                         }
                     }
                 },
+                "listStreamDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetListStreamDefinition:DashboardWidgetListStreamDefinition",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logStreamDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetLogStreamDefinition:DashboardWidgetLogStreamDefinition",
                     "language": {
@@ -5199,6 +5207,14 @@
                 },
                 "imageDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetImageDefinition:DashboardWidgetGroupDefinitionWidgetImageDefinition",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "listStreamDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinition:DashboardWidgetGroupDefinitionWidgetListStreamDefinition",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -12608,6 +12624,146 @@
             "type": "object",
             "required": [
                 "url"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinition:DashboardWidgetGroupDefinitionWidgetListStreamDefinition": {
+            "properties": {
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "responseFormat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "columns",
+                "query",
+                "responseFormat"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "width"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queryString": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetLogStreamDefinition:DashboardWidgetGroupDefinitionWidgetLogStreamDefinition": {
@@ -29697,6 +29853,146 @@
                 "url"
             ]
         },
+        "datadog:index/DashboardWidgetListStreamDefinition:DashboardWidgetListStreamDefinition": {
+            "properties": {
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetListStreamDefinitionRequest:DashboardWidgetListStreamDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "datadog:index/DashboardWidgetListStreamDefinitionRequest:DashboardWidgetListStreamDefinitionRequest": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetListStreamDefinitionRequestColumn:DashboardWidgetListStreamDefinitionRequestColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetListStreamDefinitionRequestQuery:DashboardWidgetListStreamDefinitionRequestQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "responseFormat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "columns",
+                "query",
+                "responseFormat"
+            ]
+        },
+        "datadog:index/DashboardWidgetListStreamDefinitionRequestColumn:DashboardWidgetListStreamDefinitionRequestColumn": {
+            "properties": {
+                "field": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "field",
+                "width"
+            ]
+        },
+        "datadog:index/DashboardWidgetListStreamDefinitionRequestQuery:DashboardWidgetListStreamDefinitionRequestQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queryString": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource"
+            ]
+        },
         "datadog:index/DashboardWidgetLogStreamDefinition:DashboardWidgetLogStreamDefinition": {
             "properties": {
                 "columns": {
@@ -46289,6 +46585,19 @@
                 "query"
             ]
         },
+        "datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions": {
+            "properties": {
+                "decreaseCriticalityBasedOnEnv": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/SecurityMonitoringFilterExclusionFilter:SecurityMonitoringFilterExclusionFilter": {
             "properties": {
                 "name": {
@@ -46326,7 +46635,6 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the rule.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -46370,7 +46678,6 @@
                 },
                 "query": {
                     "type": "string",
-                    "description": "Queries for selecting logs which are part of the rule.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -46386,6 +46693,14 @@
         },
         "datadog:index/SecurityMonitoringRuleOptions:SecurityMonitoringRuleOptions": {
             "properties": {
+                "decreaseCriticalityBasedOnEnv": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "detectionMethod": {
                     "type": "string",
                     "language": {
@@ -46471,12 +46786,27 @@
                             "mapCase": false
                         }
                     }
+                },
+                "learningMethod": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "learningThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
             "required": [
-                "forgetAfter",
-                "learningDuration"
+                "forgetAfter"
             ]
         },
         "datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery": {
@@ -46531,9 +46861,19 @@
                         }
                     }
                 },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "name": {
                     "type": "string",
-                    "description": "The name of the rule.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -46542,7 +46882,6 @@
                 },
                 "query": {
                     "type": "string",
-                    "description": "Queries for selecting logs which are part of the rule.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -47266,6 +47605,14 @@
                         }
                     }
                 },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "shouldTrackHops": {
                     "type": "boolean",
                     "language": {
@@ -47843,6 +48190,14 @@
                         }
                     }
                 },
+                "ci": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestOptionsListCi:SyntheticsTestOptionsListCi",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "followRedirects": {
                     "type": "boolean",
                     "language": {
@@ -47918,6 +48273,14 @@
                         }
                     }
                 },
+                "rumSettings": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestOptionsListRumSettings:SyntheticsTestOptionsListRumSettings",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "tickEvery": {
                     "type": "integer",
                     "language": {
@@ -47931,6 +48294,19 @@
             "required": [
                 "tickEvery"
             ]
+        },
+        "datadog:index/SyntheticsTestOptionsListCi:SyntheticsTestOptionsListCi": {
+            "properties": {
+                "executionRule": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "datadog:index/SyntheticsTestOptionsListMonitorOptions:SyntheticsTestOptionsListMonitorOptions": {
             "properties": {
@@ -47965,6 +48341,38 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/SyntheticsTestOptionsListRumSettings:SyntheticsTestOptionsListRumSettings": {
+            "properties": {
+                "applicationId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientTokenId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "isEnabled"
+            ]
         },
         "datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth": {
             "properties": {
@@ -48199,6 +48607,14 @@
                     }
                 },
                 "servername": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -48931,6 +49347,14 @@
         },
         "datadog:index/getSecurityMonitoringRulesRuleOptions:getSecurityMonitoringRulesRuleOptions": {
             "properties": {
+                "decreaseCriticalityBasedOnEnv": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "detectionMethod": {
                     "type": "string",
                     "language": {
@@ -49021,12 +49445,27 @@
                             "mapCase": false
                         }
                     }
+                },
+                "learningMethod": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "learningThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
             "required": [
-                "forgetAfter",
-                "learningDuration"
+                "forgetAfter"
             ],
             "language": {
                 "nodejs": {
@@ -49080,6 +49519,17 @@
                 },
                 "metric": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -52075,6 +52525,10 @@
                         "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleFilter:SecurityMonitoringDefaultRuleFilter"
                     },
                     "description": "Additional queries to filter matched events before they are processed.\n"
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions",
+                    "description": "Options on default rules. Note that only a subset of fields can be updated on default rule options.\n"
                 }
             },
             "inputProperties": {
@@ -52095,6 +52549,10 @@
                         "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleFilter:SecurityMonitoringDefaultRuleFilter"
                     },
                     "description": "Additional queries to filter matched events before they are processed.\n"
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions",
+                    "description": "Options on default rules. Note that only a subset of fields can be updated on default rule options.\n"
                 }
             },
             "stateInputs": {
@@ -52117,6 +52575,10 @@
                             "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleFilter:SecurityMonitoringDefaultRuleFilter"
                         },
                         "description": "Additional queries to filter matched events before they are processed.\n"
+                    },
+                    "options": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions",
+                        "description": "Options on default rules. Note that only a subset of fields can be updated on default rule options.\n"
                     }
                 },
                 "type": "object"
@@ -52276,7 +52738,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.\n"
+                    "description": "The rule type.\n"
                 }
             },
             "required": [
@@ -52336,7 +52798,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.\n"
+                    "description": "The rule type.\n"
                 }
             },
             "requiredInputs": [
@@ -52398,7 +52860,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.\n"
+                        "description": "The rule type.\n"
                     }
                 },
                 "type": "object"
@@ -53545,6 +54007,77 @@
                 "type": "object"
             }
         },
+        "datadog:opsgenie/serviceObject:ServiceObject": {
+            "description": "Resource for interacting with Datadog Opsgenie Service API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst fakeServiceName = new datadog.opsgenie.ServiceObject(\"fake_service_name\", {\n    name: \"fake_service_name\",\n    opsgenieApiKey: \"00000000-0000-0000-0000-000000000000\",\n    region: \"us\",\n});\nconst fakeServiceName2 = new datadog.opsgenie.ServiceObject(\"fake_service_name_2\", {\n    name: \"fake_service_name_2\",\n    opsgenieApiKey: \"11111111-1111-1111-1111-111111111111\",\n    region: \"eu\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nfake_service_name = datadog.opsgenie.ServiceObject(\"fakeServiceName\",\n    name=\"fake_service_name\",\n    opsgenie_api_key=\"00000000-0000-0000-0000-000000000000\",\n    region=\"us\")\nfake_service_name2 = datadog.opsgenie.ServiceObject(\"fakeServiceName2\",\n    name=\"fake_service_name_2\",\n    opsgenie_api_key=\"11111111-1111-1111-1111-111111111111\",\n    region=\"eu\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fakeServiceName = new Datadog.OpsGenie.ServiceObject(\"fakeServiceName\", new Datadog.OpsGenie.ServiceObjectArgs\n        {\n            Name = \"fake_service_name\",\n            OpsgenieApiKey = \"00000000-0000-0000-0000-000000000000\",\n            Region = \"us\",\n        });\n        var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject(\"fakeServiceName2\", new Datadog.OpsGenie.ServiceObjectArgs\n        {\n            Name = \"fake_service_name_2\",\n            OpsgenieApiKey = \"11111111-1111-1111-1111-111111111111\",\n            Region = \"eu\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := opsgenie.NewServiceObject(ctx, \"fakeServiceName\", \u0026opsgenie.ServiceObjectArgs{\n\t\t\tName:           pulumi.String(\"fake_service_name\"),\n\t\t\tOpsgenieApiKey: pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tRegion:         pulumi.String(\"us\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewServiceObject(ctx, \"fakeServiceName2\", \u0026opsgenie.ServiceObjectArgs{\n\t\t\tName:           pulumi.String(\"fake_service_name_2\"),\n\t\t\tOpsgenieApiKey: pulumi.String(\"11111111-1111-1111-1111-111111111111\"),\n\t\t\tRegion:         pulumi.String(\"eu\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fakeServiceName = new ServiceObject(\"fakeServiceName\", ServiceObjectArgs.builder()        \n            .name(\"fake_service_name\")\n            .opsgenieApiKey(\"00000000-0000-0000-0000-000000000000\")\n            .region(\"us\")\n            .build());\n\n        var fakeServiceName2 = new ServiceObject(\"fakeServiceName2\", ServiceObjectArgs.builder()        \n            .name(\"fake_service_name_2\")\n            .opsgenieApiKey(\"11111111-1111-1111-1111-111111111111\")\n            .region(\"eu\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fakeServiceName:\n    type: datadog:opsgenie:ServiceObject\n    properties:\n      name: fake_service_name\n      opsgenieApiKey: 00000000-0000-0000-0000-000000000000\n      region: us\n  fakeServiceName2:\n    type: datadog:opsgenie:ServiceObject\n    properties:\n      name: fake_service_name_2\n      opsgenieApiKey: 11111111-1111-1111-1111-111111111111\n      region: eu\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "customUrl": {
+                    "type": "string",
+                    "description": "The custom url for a custom region.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Opsgenie service.\n"
+                },
+                "opsgenieApiKey": {
+                    "type": "string",
+                    "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is\nimpossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way\nto solve a drift is to manually mark the Service Object resource with [terraform\ntaint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region for the Opsgenie service.\n"
+                }
+            },
+            "required": [
+                "name",
+                "opsgenieApiKey",
+                "region"
+            ],
+            "inputProperties": {
+                "customUrl": {
+                    "type": "string",
+                    "description": "The custom url for a custom region.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Opsgenie service.\n"
+                },
+                "opsgenieApiKey": {
+                    "type": "string",
+                    "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is\nimpossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way\nto solve a drift is to manually mark the Service Object resource with [terraform\ntaint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region for the Opsgenie service.\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "opsgenieApiKey",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceObject resources.\n",
+                "properties": {
+                    "customUrl": {
+                        "type": "string",
+                        "description": "The custom url for a custom region.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name for the Opsgenie service.\n"
+                    },
+                    "opsgenieApiKey": {
+                        "type": "string",
+                        "description": "The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is\nimpossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way\nto solve a drift is to manually mark the Service Object resource with [terraform\ntaint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The region for the Opsgenie service.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:pagerduty/integration:Integration": {
             "description": "Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\nconst testingFoo = new datadog.pagerduty.ServiceObject(\"testing_foo\", {\n    serviceKey: \"9876543210123456789\",\n    serviceName: \"testing_foo\",\n}, { dependsOn: [pd] });\nconst testingBar = new datadog.pagerduty.ServiceObject(\"testing_bar\", {\n    serviceKey: \"54321098765432109876\",\n    serviceName: \"testing_bar\",\n}, { dependsOn: [pd] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\ntesting_foo = datadog.pagerduty.ServiceObject(\"testingFoo\",\n    service_key=\"9876543210123456789\",\n    service_name=\"testing_foo\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\ntesting_bar = datadog.pagerduty.ServiceObject(\"testingBar\",\n    service_key=\"54321098765432109876\",\n    service_name=\"testing_bar\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n        var testingFoo = new Datadog.PagerDuty.ServiceObject(\"testingFoo\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"9876543210123456789\",\n            ServiceName = \"testing_foo\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n        var testingBar = new Datadog.PagerDuty.ServiceObject(\"testingBar\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"54321098765432109876\",\n            ServiceName = \"testing_bar\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken: pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingFoo\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"9876543210123456789\"),\n\t\t\tServiceName: pulumi.String(\"testing_foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tpulumi.Resource(\"datadog_integration_pagerduty.pd\"),\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingBar\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"54321098765432109876\"),\n\t\t\tServiceName: pulumi.String(\"testing_bar\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tpulumi.Resource(\"datadog_integration_pagerduty.pd\"),\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\nimport com.pulumi.resources.CustomResourceOptions;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var pd = new Integration(\"pd\", IntegrationArgs.builder()        \n            .apiToken(\"38457822378273432587234242874\")\n            .schedules(            \n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\")\n            .subdomain(\"ddog\")\n            .build());\n\n        var testingFoo = new ServiceObject(\"testingFoo\", ServiceObjectArgs.builder()        \n            .serviceKey(\"9876543210123456789\")\n            .serviceName(\"testing_foo\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(\"datadog_integration_pagerduty.pd\")\n                .build());\n\n        var testingBar = new ServiceObject(\"testingBar\", ServiceObjectArgs.builder()        \n            .serviceKey(\"54321098765432109876\")\n            .serviceName(\"testing_bar\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(\"datadog_integration_pagerduty.pd\")\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  pd:\n    type: datadog:pagerduty:Integration\n    properties:\n      apiToken: 38457822378273432587234242874\n      schedules:\n        - https://ddog.pagerduty.com/schedules/X123VF\n        - https://ddog.pagerduty.com/schedules/X321XX\n      subdomain: ddog\n  testingFoo:\n    type: datadog:pagerduty:ServiceObject\n    properties:\n      serviceKey: 9876543210123456789\n      serviceName: testing_foo\n    options:\n      dependson:\n        - datadog_integration_pagerduty.pd\n  testingBar:\n    type: datadog:pagerduty:ServiceObject\n    properties:\n      serviceKey: 54321098765432109876\n      serviceName: testing_bar\n    options:\n      dependson:\n        - datadog_integration_pagerduty.pd\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -54410,23 +54943,19 @@
                 "description": "A collection of arguments for invoking getSecurityMonitoringRules.\n",
                 "properties": {
                     "defaultOnlyFilter": {
-                        "type": "boolean",
-                        "description": "Limit the search to default rules\n"
+                        "type": "boolean"
                     },
                     "nameFilter": {
-                        "type": "string",
-                        "description": "A rule name to limit the search\n"
+                        "type": "string"
                     },
                     "tagsFilters": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "description": "A list of tags to limit the search\n"
+                        }
                     },
                     "userOnlyFilter": {
-                        "type": "boolean",
-                        "description": "Limit the search to user rules\n"
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -54435,41 +54964,35 @@
                 "description": "A collection of values returned by getSecurityMonitoringRules.\n",
                 "properties": {
                     "defaultOnlyFilter": {
-                        "type": "boolean",
-                        "description": "Limit the search to default rules\n"
+                        "type": "boolean"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "nameFilter": {
-                        "type": "string",
-                        "description": "A rule name to limit the search\n"
+                        "type": "string"
                     },
                     "ruleIds": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "description": "List of IDs of the matched rules.\n"
+                        }
                     },
                     "rules": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRule:getSecurityMonitoringRulesRule"
-                        },
-                        "description": "List of rules.\n"
+                        }
                     },
                     "tagsFilters": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "description": "A list of tags to limit the search\n"
+                        }
                     },
                     "userOnlyFilter": {
-                        "type": "boolean",
-                        "description": "Limit the search to user rules\n"
+                        "type": "boolean"
                     }
                 },
                 "type": "object",
@@ -54747,6 +55270,7 @@
                 "datadog": "Datadog",
                 "gcp": "Gcp",
                 "index": "index",
+                "opsgenie": "OpsGenie",
                 "pagerduty": "PagerDuty",
                 "slack": "Slack"
             },

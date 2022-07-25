@@ -295,6 +295,10 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyleArgs',
     'DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs',
+    'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs',
+    'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs',
     'DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs',
@@ -688,6 +692,10 @@ __all__ = [
     'DashboardWidgetHostmapDefinitionStyleArgs',
     'DashboardWidgetIframeDefinitionArgs',
     'DashboardWidgetImageDefinitionArgs',
+    'DashboardWidgetListStreamDefinitionArgs',
+    'DashboardWidgetListStreamDefinitionRequestArgs',
+    'DashboardWidgetListStreamDefinitionRequestColumnArgs',
+    'DashboardWidgetListStreamDefinitionRequestQueryArgs',
     'DashboardWidgetLogStreamDefinitionArgs',
     'DashboardWidgetLogStreamDefinitionSortArgs',
     'DashboardWidgetManageStatusDefinitionArgs',
@@ -1064,6 +1072,7 @@ __all__ = [
     'RolePermissionArgs',
     'SecurityMonitoringDefaultRuleCaseArgs',
     'SecurityMonitoringDefaultRuleFilterArgs',
+    'SecurityMonitoringDefaultRuleOptionsArgs',
     'SecurityMonitoringFilterExclusionFilterArgs',
     'SecurityMonitoringRuleCaseArgs',
     'SecurityMonitoringRuleFilterArgs',
@@ -1099,8 +1108,10 @@ __all__ = [
     'SyntheticsTestBrowserVariableArgs',
     'SyntheticsTestConfigVariableArgs',
     'SyntheticsTestOptionsListArgs',
+    'SyntheticsTestOptionsListCiArgs',
     'SyntheticsTestOptionsListMonitorOptionsArgs',
     'SyntheticsTestOptionsListRetryArgs',
+    'SyntheticsTestOptionsListRumSettingsArgs',
     'SyntheticsTestRequestBasicauthArgs',
     'SyntheticsTestRequestClientCertificateArgs',
     'SyntheticsTestRequestClientCertificateCertArgs',
@@ -1580,6 +1591,7 @@ class DashboardWidgetArgs:
                  id: Optional[pulumi.Input[int]] = None,
                  iframe_definition: Optional[pulumi.Input['DashboardWidgetIframeDefinitionArgs']] = None,
                  image_definition: Optional[pulumi.Input['DashboardWidgetImageDefinitionArgs']] = None,
+                 list_stream_definition: Optional[pulumi.Input['DashboardWidgetListStreamDefinitionArgs']] = None,
                  log_stream_definition: Optional[pulumi.Input['DashboardWidgetLogStreamDefinitionArgs']] = None,
                  manage_status_definition: Optional[pulumi.Input['DashboardWidgetManageStatusDefinitionArgs']] = None,
                  note_definition: Optional[pulumi.Input['DashboardWidgetNoteDefinitionArgs']] = None,
@@ -1624,6 +1636,8 @@ class DashboardWidgetArgs:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
             pulumi.set(__self__, "image_definition", image_definition)
+        if list_stream_definition is not None:
+            pulumi.set(__self__, "list_stream_definition", list_stream_definition)
         if log_stream_definition is not None:
             pulumi.set(__self__, "log_stream_definition", log_stream_definition)
         if manage_status_definition is not None:
@@ -1787,6 +1801,15 @@ class DashboardWidgetArgs:
     @image_definition.setter
     def image_definition(self, value: Optional[pulumi.Input['DashboardWidgetImageDefinitionArgs']]):
         pulumi.set(self, "image_definition", value)
+
+    @property
+    @pulumi.getter(name="listStreamDefinition")
+    def list_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetListStreamDefinitionArgs']]:
+        return pulumi.get(self, "list_stream_definition")
+
+    @list_stream_definition.setter
+    def list_stream_definition(self, value: Optional[pulumi.Input['DashboardWidgetListStreamDefinitionArgs']]):
+        pulumi.set(self, "list_stream_definition", value)
 
     @property
     @pulumi.getter(name="logStreamDefinition")
@@ -7502,6 +7525,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  id: Optional[pulumi.Input[int]] = None,
                  iframe_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs']] = None,
                  image_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs']] = None,
+                 list_stream_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs']] = None,
                  log_stream_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs']] = None,
                  manage_status_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs']] = None,
                  note_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs']] = None,
@@ -7544,6 +7568,8 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
             pulumi.set(__self__, "image_definition", image_definition)
+        if list_stream_definition is not None:
+            pulumi.set(__self__, "list_stream_definition", list_stream_definition)
         if log_stream_definition is not None:
             pulumi.set(__self__, "log_stream_definition", log_stream_definition)
         if manage_status_definition is not None:
@@ -7698,6 +7724,15 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @image_definition.setter
     def image_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs']]):
         pulumi.set(self, "image_definition", value)
+
+    @property
+    @pulumi.getter(name="listStreamDefinition")
+    def list_stream_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs']]:
+        return pulumi.get(self, "list_stream_definition")
+
+    @list_stream_definition.setter
+    def list_stream_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs']]):
+        pulumi.set(self, "list_stream_definition", value)
 
     @property
     @pulumi.getter(name="logStreamDefinition")
@@ -17082,6 +17117,163 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs:
     @vertical_align.setter
     def vertical_align(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vertical_align", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs:
+    def __init__(__self__, *,
+                 requests: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs']]],
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs']]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs']]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs']]],
+                 query: pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs'],
+                 response_format: pulumi.Input[str]):
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "response_format", response_format)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs']]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs']]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs']:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="responseFormat")
+    def response_format(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "response_format")
+
+    @response_format.setter
+    def response_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "response_format", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs:
+    def __init__(__self__, *,
+                 field: pulumi.Input[str],
+                 width: pulumi.Input[str]):
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def field(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[str]):
+        pulumi.set(self, "width", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string", value)
 
 
 @pulumi.input_type
@@ -38795,6 +38987,163 @@ class DashboardWidgetImageDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetListStreamDefinitionArgs:
+    def __init__(__self__, *,
+                 requests: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestArgs']]],
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestArgs']]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestArgs']]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetListStreamDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestColumnArgs']]],
+                 query: pulumi.Input['DashboardWidgetListStreamDefinitionRequestQueryArgs'],
+                 response_format: pulumi.Input[str]):
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "response_format", response_format)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestColumnArgs']]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestColumnArgs']]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['DashboardWidgetListStreamDefinitionRequestQueryArgs']:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['DashboardWidgetListStreamDefinitionRequestQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="responseFormat")
+    def response_format(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "response_format")
+
+    @response_format.setter
+    def response_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "response_format", value)
+
+
+@pulumi.input_type
+class DashboardWidgetListStreamDefinitionRequestColumnArgs:
+    def __init__(__self__, *,
+                 field: pulumi.Input[str],
+                 width: pulumi.Input[str]):
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def field(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[str]):
+        pulumi.set(self, "width", value)
+
+
+@pulumi.input_type
+class DashboardWidgetListStreamDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string", value)
+
+
+@pulumi.input_type
 class DashboardWidgetLogStreamDefinitionArgs:
     def __init__(__self__, *,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -59731,6 +60080,23 @@ class SecurityMonitoringDefaultRuleFilterArgs:
 
 
 @pulumi.input_type
+class SecurityMonitoringDefaultRuleOptionsArgs:
+    def __init__(__self__, *,
+                 decrease_criticality_based_on_env: Optional[pulumi.Input[bool]] = None):
+        if decrease_criticality_based_on_env is not None:
+            pulumi.set(__self__, "decrease_criticality_based_on_env", decrease_criticality_based_on_env)
+
+    @property
+    @pulumi.getter(name="decreaseCriticalityBasedOnEnv")
+    def decrease_criticality_based_on_env(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "decrease_criticality_based_on_env")
+
+    @decrease_criticality_based_on_env.setter
+    def decrease_criticality_based_on_env(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "decrease_criticality_based_on_env", value)
+
+
+@pulumi.input_type
 class SecurityMonitoringFilterExclusionFilterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -59764,9 +60130,6 @@ class SecurityMonitoringRuleCaseArgs:
                  condition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the rule.
-        """
         pulumi.set(__self__, "status", status)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -59796,9 +60159,6 @@ class SecurityMonitoringRuleCaseArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -59820,9 +60180,6 @@ class SecurityMonitoringRuleFilterArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] query: Queries for selecting logs which are part of the rule.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "query", query)
 
@@ -59838,9 +60195,6 @@ class SecurityMonitoringRuleFilterArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Queries for selecting logs which are part of the rule.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -59853,12 +60207,15 @@ class SecurityMonitoringRuleOptionsArgs:
     def __init__(__self__, *,
                  keep_alive: pulumi.Input[int],
                  max_signal_duration: pulumi.Input[int],
+                 decrease_criticality_based_on_env: Optional[pulumi.Input[bool]] = None,
                  detection_method: Optional[pulumi.Input[str]] = None,
                  evaluation_window: Optional[pulumi.Input[int]] = None,
                  impossible_travel_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs']] = None,
                  new_value_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']] = None):
         pulumi.set(__self__, "keep_alive", keep_alive)
         pulumi.set(__self__, "max_signal_duration", max_signal_duration)
+        if decrease_criticality_based_on_env is not None:
+            pulumi.set(__self__, "decrease_criticality_based_on_env", decrease_criticality_based_on_env)
         if detection_method is not None:
             pulumi.set(__self__, "detection_method", detection_method)
         if evaluation_window is not None:
@@ -59885,6 +60242,15 @@ class SecurityMonitoringRuleOptionsArgs:
     @max_signal_duration.setter
     def max_signal_duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_signal_duration", value)
+
+    @property
+    @pulumi.getter(name="decreaseCriticalityBasedOnEnv")
+    def decrease_criticality_based_on_env(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "decrease_criticality_based_on_env")
+
+    @decrease_criticality_based_on_env.setter
+    def decrease_criticality_based_on_env(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "decrease_criticality_based_on_env", value)
 
     @property
     @pulumi.getter(name="detectionMethod")
@@ -59944,9 +60310,16 @@ class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs:
 class SecurityMonitoringRuleOptionsNewValueOptionsArgs:
     def __init__(__self__, *,
                  forget_after: pulumi.Input[int],
-                 learning_duration: pulumi.Input[int]):
+                 learning_duration: Optional[pulumi.Input[int]] = None,
+                 learning_method: Optional[pulumi.Input[str]] = None,
+                 learning_threshold: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "forget_after", forget_after)
-        pulumi.set(__self__, "learning_duration", learning_duration)
+        if learning_duration is not None:
+            pulumi.set(__self__, "learning_duration", learning_duration)
+        if learning_method is not None:
+            pulumi.set(__self__, "learning_method", learning_method)
+        if learning_threshold is not None:
+            pulumi.set(__self__, "learning_threshold", learning_threshold)
 
     @property
     @pulumi.getter(name="forgetAfter")
@@ -59959,12 +60332,30 @@ class SecurityMonitoringRuleOptionsNewValueOptionsArgs:
 
     @property
     @pulumi.getter(name="learningDuration")
-    def learning_duration(self) -> pulumi.Input[int]:
+    def learning_duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "learning_duration")
 
     @learning_duration.setter
-    def learning_duration(self, value: pulumi.Input[int]):
+    def learning_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "learning_duration", value)
+
+    @property
+    @pulumi.getter(name="learningMethod")
+    def learning_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "learning_method")
+
+    @learning_method.setter
+    def learning_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "learning_method", value)
+
+    @property
+    @pulumi.getter(name="learningThreshold")
+    def learning_threshold(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "learning_threshold")
+
+    @learning_threshold.setter
+    def learning_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "learning_threshold", value)
 
 
 @pulumi.input_type
@@ -59976,11 +60367,8 @@ class SecurityMonitoringRuleQueryArgs:
                  distinct_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  group_by_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] query: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[str] name: The name of the rule.
-        """
         pulumi.set(__self__, "query", query)
         if agent_rules is not None:
             warnings.warn("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""", DeprecationWarning)
@@ -59995,15 +60383,14 @@ class SecurityMonitoringRuleQueryArgs:
             pulumi.set(__self__, "group_by_fields", group_by_fields)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        Queries for selecting logs which are part of the rule.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -60057,10 +60444,16 @@ class SecurityMonitoringRuleQueryArgs:
 
     @property
     @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "metrics", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60831,6 +61224,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
                  number_of_packets: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  servername: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
                  should_track_hops: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -60858,6 +61252,8 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
             pulumi.set(__self__, "port", port)
         if servername is not None:
             pulumi.set(__self__, "servername", servername)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
         if should_track_hops is not None:
             pulumi.set(__self__, "should_track_hops", should_track_hops)
         if timeout is not None:
@@ -60972,6 +61368,15 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @servername.setter
     def servername(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "servername", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service", value)
 
     @property
     @pulumi.getter(name="shouldTrackHops")
@@ -61696,6 +62101,7 @@ class SyntheticsTestOptionsListArgs:
                  accept_self_signed: Optional[pulumi.Input[bool]] = None,
                  allow_insecure: Optional[pulumi.Input[bool]] = None,
                  check_certificate_revocation: Optional[pulumi.Input[bool]] = None,
+                 ci: Optional[pulumi.Input['SyntheticsTestOptionsListCiArgs']] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
                  min_failure_duration: Optional[pulumi.Input[int]] = None,
                  min_location_failed: Optional[pulumi.Input[int]] = None,
@@ -61704,7 +62110,8 @@ class SyntheticsTestOptionsListArgs:
                  monitor_priority: Optional[pulumi.Input[int]] = None,
                  no_screenshot: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 retry: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']] = None):
+                 retry: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']] = None,
+                 rum_settings: Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']] = None):
         pulumi.set(__self__, "tick_every", tick_every)
         if accept_self_signed is not None:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
@@ -61712,6 +62119,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if check_certificate_revocation is not None:
             pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
+        if ci is not None:
+            pulumi.set(__self__, "ci", ci)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
         if min_failure_duration is not None:
@@ -61730,6 +62139,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
         if retry is not None:
             pulumi.set(__self__, "retry", retry)
+        if rum_settings is not None:
+            pulumi.set(__self__, "rum_settings", rum_settings)
 
     @property
     @pulumi.getter(name="tickEvery")
@@ -61766,6 +62177,15 @@ class SyntheticsTestOptionsListArgs:
     @check_certificate_revocation.setter
     def check_certificate_revocation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "check_certificate_revocation", value)
+
+    @property
+    @pulumi.getter
+    def ci(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListCiArgs']]:
+        return pulumi.get(self, "ci")
+
+    @ci.setter
+    def ci(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListCiArgs']]):
+        pulumi.set(self, "ci", value)
 
     @property
     @pulumi.getter(name="followRedirects")
@@ -61848,6 +62268,32 @@ class SyntheticsTestOptionsListArgs:
     def retry(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']]):
         pulumi.set(self, "retry", value)
 
+    @property
+    @pulumi.getter(name="rumSettings")
+    def rum_settings(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']]:
+        return pulumi.get(self, "rum_settings")
+
+    @rum_settings.setter
+    def rum_settings(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']]):
+        pulumi.set(self, "rum_settings", value)
+
+
+@pulumi.input_type
+class SyntheticsTestOptionsListCiArgs:
+    def __init__(__self__, *,
+                 execution_rule: Optional[pulumi.Input[str]] = None):
+        if execution_rule is not None:
+            pulumi.set(__self__, "execution_rule", execution_rule)
+
+    @property
+    @pulumi.getter(name="executionRule")
+    def execution_rule(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_rule")
+
+    @execution_rule.setter
+    def execution_rule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_rule", value)
+
 
 @pulumi.input_type
 class SyntheticsTestOptionsListMonitorOptionsArgs:
@@ -61893,6 +62339,46 @@ class SyntheticsTestOptionsListRetryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class SyntheticsTestOptionsListRumSettingsArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool],
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 client_token_id: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if client_token_id is not None:
+            pulumi.set(__self__, "client_token_id", client_token_id)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="clientTokenId")
+    def client_token_id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "client_token_id")
+
+    @client_token_id.setter
+    def client_token_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "client_token_id", value)
 
 
 @pulumi.input_type
@@ -62116,6 +62602,7 @@ class SyntheticsTestRequestDefinitionArgs:
                  number_of_packets: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  servername: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
                  should_track_hops: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -62139,6 +62626,8 @@ class SyntheticsTestRequestDefinitionArgs:
             pulumi.set(__self__, "port", port)
         if servername is not None:
             pulumi.set(__self__, "servername", servername)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
         if should_track_hops is not None:
             pulumi.set(__self__, "should_track_hops", should_track_hops)
         if timeout is not None:
@@ -62235,6 +62724,15 @@ class SyntheticsTestRequestDefinitionArgs:
     @servername.setter
     def servername(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "servername", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service", value)
 
     @property
     @pulumi.getter(name="shouldTrackHops")

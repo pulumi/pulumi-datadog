@@ -25,6 +25,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly int? NumberOfPackets;
         public readonly int? Port;
         public readonly string? Servername;
+        public readonly string? Service;
         public readonly bool? ShouldTrackHops;
         public readonly int? Timeout;
         public readonly string? Url;
@@ -55,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? servername,
 
+            string? service,
+
             bool? shouldTrackHops,
 
             int? timeout,
@@ -73,6 +76,7 @@ namespace Pulumi.Datadog.Outputs
             NumberOfPackets = numberOfPackets;
             Port = port;
             Servername = servername;
+            Service = service;
             ShouldTrackHops = shouldTrackHops;
             Timeout = timeout;
             Url = url;

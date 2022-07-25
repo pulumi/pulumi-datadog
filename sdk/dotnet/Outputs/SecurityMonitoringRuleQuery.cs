@@ -18,13 +18,8 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> DistinctFields;
         public readonly ImmutableArray<string> GroupByFields;
         public readonly string? Metric;
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
+        public readonly ImmutableArray<string> Metrics;
         public readonly string? Name;
-        /// <summary>
-        /// Queries for selecting logs which are part of the rule.
-        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]
@@ -39,6 +34,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? metric,
 
+            ImmutableArray<string> metrics,
+
             string? name,
 
             string query)
@@ -48,6 +45,7 @@ namespace Pulumi.Datadog.Outputs
             DistinctFields = distinctFields;
             GroupByFields = groupByFields;
             Metric = metric;
+            Metrics = metrics;
             Name = name;
             Query = query;
         }

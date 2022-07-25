@@ -144,7 +144,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// The rule type.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// The rule type.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// The rule type.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

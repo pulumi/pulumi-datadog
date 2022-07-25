@@ -71,6 +71,12 @@ namespace Pulumi.Datadog
         [Output("filters")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringDefaultRuleFilter>> Filters { get; private set; } = null!;
 
+        /// <summary>
+        /// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.SecurityMonitoringDefaultRuleOptions?> Options { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityMonitoringDefaultRule resource with the given unique name, arguments, and options.
@@ -147,6 +153,12 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.SecurityMonitoringDefaultRuleOptionsArgs>? Options { get; set; }
+
         public SecurityMonitoringDefaultRuleArgs()
         {
         }
@@ -183,6 +195,12 @@ namespace Pulumi.Datadog
             get => _filters ?? (_filters = new InputList<Inputs.SecurityMonitoringDefaultRuleFilterGetArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.SecurityMonitoringDefaultRuleOptionsGetArgs>? Options { get; set; }
 
         public SecurityMonitoringDefaultRuleState()
         {

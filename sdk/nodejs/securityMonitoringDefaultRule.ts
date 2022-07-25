@@ -72,6 +72,10 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      * Additional queries to filter matched events before they are processed.
      */
     public readonly filters!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleFilter[] | undefined>;
+    /**
+     * Options on default rules. Note that only a subset of fields can be updated on default rule options.
+     */
+    public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions | undefined>;
 
     /**
      * Create a SecurityMonitoringDefaultRule resource with the given unique name, arguments, and options.
@@ -89,11 +93,13 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
             resourceInputs["cases"] = state ? state.cases : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringDefaultRuleArgs | undefined;
             resourceInputs["cases"] = args ? args.cases : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringDefaultRule.__pulumiType, name, resourceInputs, opts);
@@ -116,6 +122,10 @@ export interface SecurityMonitoringDefaultRuleState {
      * Additional queries to filter matched events before they are processed.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    /**
+     * Options on default rules. Note that only a subset of fields can be updated on default rule options.
+     */
+    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
 }
 
 /**
@@ -134,4 +144,8 @@ export interface SecurityMonitoringDefaultRuleArgs {
      * Additional queries to filter matched events before they are processed.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    /**
+     * Options on default rules. Note that only a subset of fields can be updated on default rule options.
+     */
+    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
 }

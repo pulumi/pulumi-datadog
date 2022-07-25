@@ -57,6 +57,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("imageDefinition")]
         public Input<Inputs.DashboardWidgetImageDefinitionArgs>? ImageDefinition { get; set; }
 
+        [Input("listStreamDefinition")]
+        public Input<Inputs.DashboardWidgetListStreamDefinitionArgs>? ListStreamDefinition { get; set; }
+
         [Input("logStreamDefinition")]
         public Input<Inputs.DashboardWidgetLogStreamDefinitionArgs>? LogStreamDefinition { get; set; }
 
