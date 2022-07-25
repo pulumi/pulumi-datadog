@@ -36,7 +36,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        :param pulumi.Input[str] type: The rule type.
         """
         pulumi.set(__self__, "cases", cases)
         pulumi.set(__self__, "message", message)
@@ -167,7 +167,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        The rule type.
         """
         return pulumi.get(self, "type")
 
@@ -200,7 +200,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        :param pulumi.Input[str] type: The rule type.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
@@ -335,7 +335,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        The rule type.
         """
         return pulumi.get(self, "type")
 
@@ -419,7 +419,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        :param pulumi.Input[str] type: The rule type.
         """
         ...
     @overload
@@ -566,7 +566,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        :param pulumi.Input[str] type: The rule type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -660,7 +660,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        The rule type.
         """
         return pulumi.get(self, "type")
 

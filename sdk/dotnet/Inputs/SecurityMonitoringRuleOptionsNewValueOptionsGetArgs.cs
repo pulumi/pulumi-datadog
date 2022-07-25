@@ -15,8 +15,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("forgetAfter", required: true)]
         public Input<int> ForgetAfter { get; set; } = null!;
 
-        [Input("learningDuration", required: true)]
-        public Input<int> LearningDuration { get; set; } = null!;
+        [Input("learningDuration")]
+        public Input<int>? LearningDuration { get; set; }
+
+        [Input("learningMethod")]
+        public Input<string>? LearningMethod { get; set; }
+
+        [Input("learningThreshold")]
+        public Input<int>? LearningThreshold { get; set; }
 
         public SecurityMonitoringRuleOptionsNewValueOptionsGetArgs()
         {

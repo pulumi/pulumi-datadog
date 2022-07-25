@@ -17,12 +17,13 @@ const (
 	// packages:
 	datadogPkg = "datadog"
 	// modules:
-	datadogMod = "index"
-	gcpMod     = "Gcp"
-	awsMod     = "Aws"
-	azureMod   = "Azure"
-	pdMod      = "PagerDuty"
-	slackMod   = "Slack"
+	datadogMod  = "index"
+	gcpMod      = "Gcp"
+	awsMod      = "Aws"
+	azureMod    = "Azure"
+	pdMod       = "PagerDuty"
+	slackMod    = "Slack"
+	opsGenieMod = "OpsGenie"
 )
 
 var namespaceMap = map[string]string{
@@ -126,6 +127,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Slack Integrations
 			"datadog_integration_slack_channel": {Tok: makeResource(slackMod, "Channel")},
+
+			// OpsGenie
+			"datadog_integration_opsgenie_service_object": {Tok: makeResource(opsGenieMod, "ServiceObject")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_ip_ranges": {

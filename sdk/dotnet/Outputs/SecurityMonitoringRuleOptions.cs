@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringRuleOptions
     {
+        public readonly bool? DecreaseCriticalityBasedOnEnv;
         public readonly string? DetectionMethod;
         public readonly int? EvaluationWindow;
         public readonly Outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions? ImpossibleTravelOptions;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SecurityMonitoringRuleOptions(
+            bool? decreaseCriticalityBasedOnEnv,
+
             string? detectionMethod,
 
             int? evaluationWindow,
@@ -34,6 +37,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SecurityMonitoringRuleOptionsNewValueOptions? newValueOptions)
         {
+            DecreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             DetectionMethod = detectionMethod;
             EvaluationWindow = evaluationWindow;
             ImpossibleTravelOptions = impossibleTravelOptions;

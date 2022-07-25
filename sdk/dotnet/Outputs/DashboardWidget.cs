@@ -28,6 +28,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly int? Id;
         public readonly Outputs.DashboardWidgetIframeDefinition? IframeDefinition;
         public readonly Outputs.DashboardWidgetImageDefinition? ImageDefinition;
+        public readonly Outputs.DashboardWidgetListStreamDefinition? ListStreamDefinition;
         public readonly Outputs.DashboardWidgetLogStreamDefinition? LogStreamDefinition;
         public readonly Outputs.DashboardWidgetManageStatusDefinition? ManageStatusDefinition;
         public readonly Outputs.DashboardWidgetNoteDefinition? NoteDefinition;
@@ -75,6 +76,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetImageDefinition? imageDefinition,
 
+            Outputs.DashboardWidgetListStreamDefinition? listStreamDefinition,
+
             Outputs.DashboardWidgetLogStreamDefinition? logStreamDefinition,
 
             Outputs.DashboardWidgetManageStatusDefinition? manageStatusDefinition,
@@ -118,6 +121,7 @@ namespace Pulumi.Datadog.Outputs
             Id = id;
             IframeDefinition = iframeDefinition;
             ImageDefinition = imageDefinition;
+            ListStreamDefinition = listStreamDefinition;
             LogStreamDefinition = logStreamDefinition;
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;

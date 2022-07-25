@@ -48,6 +48,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("servername")]
         public Input<string>? Servername { get; set; }
 
+        [Input("service")]
+        public Input<string>? Service { get; set; }
+
         [Input("shouldTrackHops")]
         public Input<bool>? ShouldTrackHops { get; set; }
 

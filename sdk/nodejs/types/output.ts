@@ -89,6 +89,7 @@ export interface DashboardWidget {
     id: number;
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
+    listStreamDefinition?: outputs.DashboardWidgetListStreamDefinition;
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
@@ -848,6 +849,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     id: number;
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
+    listStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinition;
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
@@ -2099,6 +2101,30 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     url: string;
     urlDarkTheme?: string;
     verticalAlign?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
+    requests: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest {
+    columns: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn[];
+    query: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery;
+    responseFormat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn {
+    field: string;
+    width: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
+    dataSource: string;
+    indexes?: string[];
+    queryString?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
@@ -4965,6 +4991,30 @@ export interface DashboardWidgetImageDefinition {
     verticalAlign?: string;
 }
 
+export interface DashboardWidgetListStreamDefinition {
+    requests: outputs.DashboardWidgetListStreamDefinitionRequest[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequest {
+    columns: outputs.DashboardWidgetListStreamDefinitionRequestColumn[];
+    query: outputs.DashboardWidgetListStreamDefinitionRequestQuery;
+    responseFormat: string;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestColumn {
+    field: string;
+    width: string;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQuery {
+    dataSource: string;
+    indexes?: string[];
+    queryString?: string;
+}
+
 export interface DashboardWidgetLogStreamDefinition {
     columns?: string[];
     indexes?: string[];
@@ -7417,6 +7467,7 @@ export interface GetSecurityMonitoringRulesRuleFilter {
 }
 
 export interface GetSecurityMonitoringRulesRuleOptions {
+    decreaseCriticalityBasedOnEnv?: boolean;
     detectionMethod?: string;
     evaluationWindow?: number;
     impossibleTravelOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions;
@@ -7431,7 +7482,9 @@ export interface GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
 
 export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
     forgetAfter: number;
-    learningDuration: number;
+    learningDuration?: number;
+    learningMethod?: string;
+    learningThreshold?: number;
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
@@ -7443,6 +7496,7 @@ export interface GetSecurityMonitoringRulesRuleQuery {
     distinctFields?: string[];
     groupByFields?: string[];
     metric?: string;
+    metrics?: string[];
     name?: string;
     query: string;
 }
@@ -7861,6 +7915,10 @@ export interface SecurityMonitoringDefaultRuleFilter {
     query: string;
 }
 
+export interface SecurityMonitoringDefaultRuleOptions {
+    decreaseCriticalityBasedOnEnv?: boolean;
+}
+
 export interface SecurityMonitoringFilterExclusionFilter {
     name: string;
     query: string;
@@ -7868,9 +7926,6 @@ export interface SecurityMonitoringFilterExclusionFilter {
 
 export interface SecurityMonitoringRuleCase {
     condition?: string;
-    /**
-     * The name of the rule.
-     */
     name?: string;
     notifications?: string[];
     status: string;
@@ -7878,13 +7933,11 @@ export interface SecurityMonitoringRuleCase {
 
 export interface SecurityMonitoringRuleFilter {
     action: string;
-    /**
-     * Queries for selecting logs which are part of the rule.
-     */
     query: string;
 }
 
 export interface SecurityMonitoringRuleOptions {
+    decreaseCriticalityBasedOnEnv?: boolean;
     detectionMethod?: string;
     evaluationWindow?: number;
     impossibleTravelOptions?: outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
@@ -7899,7 +7952,9 @@ export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
     forgetAfter: number;
-    learningDuration: number;
+    learningDuration?: number;
+    learningMethod?: string;
+    learningThreshold?: number;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -7911,13 +7966,8 @@ export interface SecurityMonitoringRuleQuery {
     distinctFields?: string[];
     groupByFields?: string[];
     metric?: string;
-    /**
-     * The name of the rule.
-     */
+    metrics?: string[];
     name?: string;
-    /**
-     * Queries for selecting logs which are part of the rule.
-     */
     query: string;
 }
 
@@ -8037,6 +8087,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
     numberOfPackets?: number;
     port?: number;
     servername?: string;
+    service?: string;
     shouldTrackHops?: boolean;
     timeout?: number;
     url?: string;
@@ -8133,6 +8184,7 @@ export interface SyntheticsTestOptionsList {
     acceptSelfSigned?: boolean;
     allowInsecure?: boolean;
     checkCertificateRevocation?: boolean;
+    ci?: outputs.SyntheticsTestOptionsListCi;
     followRedirects?: boolean;
     minFailureDuration?: number;
     minLocationFailed?: number;
@@ -8142,7 +8194,12 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: boolean;
     restrictedRoles?: string[];
     retry?: outputs.SyntheticsTestOptionsListRetry;
+    rumSettings?: outputs.SyntheticsTestOptionsListRumSettings;
     tickEvery: number;
+}
+
+export interface SyntheticsTestOptionsListCi {
+    executionRule?: string;
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
@@ -8152,6 +8209,12 @@ export interface SyntheticsTestOptionsListMonitorOptions {
 export interface SyntheticsTestOptionsListRetry {
     count?: number;
     interval?: number;
+}
+
+export interface SyntheticsTestOptionsListRumSettings {
+    applicationId?: string;
+    clientTokenId?: number;
+    isEnabled: boolean;
 }
 
 export interface SyntheticsTestRequestBasicauth {
@@ -8193,6 +8256,7 @@ export interface SyntheticsTestRequestDefinition {
     numberOfPackets?: number;
     port?: number;
     servername?: string;
+    service?: string;
     shouldTrackHops?: boolean;
     timeout?: number;
     url?: string;
@@ -8202,7 +8266,6 @@ export interface SyntheticsTestRequestProxy {
     headers?: {[key: string]: any};
     url: string;
 }
-
 export namespace slack {
     export interface ChannelDisplay {
         message?: boolean;

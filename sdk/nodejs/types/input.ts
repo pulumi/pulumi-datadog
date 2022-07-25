@@ -89,6 +89,7 @@ export interface DashboardWidget {
     id?: pulumi.Input<number>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetImageDefinition>;
+    listStreamDefinition?: pulumi.Input<inputs.DashboardWidgetListStreamDefinition>;
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinition>;
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetManageStatusDefinition>;
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetNoteDefinition>;
@@ -848,6 +849,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     id?: pulumi.Input<number>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetImageDefinition>;
+    listStreamDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinition>;
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition>;
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition>;
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition>;
@@ -2099,6 +2101,30 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     url: pulumi.Input<string>;
     urlDarkTheme?: pulumi.Input<string>;
     verticalAlign?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
+    requests: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest {
+    columns: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn>[]>;
+    query: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery>;
+    responseFormat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn {
+    field: pulumi.Input<string>;
+    width: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
+    dataSource: pulumi.Input<string>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    queryString?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
@@ -4965,6 +4991,30 @@ export interface DashboardWidgetImageDefinition {
     verticalAlign?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetListStreamDefinition {
+    requests: pulumi.Input<pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequest>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequest {
+    columns: pulumi.Input<pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestColumn>[]>;
+    query: pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestQuery>;
+    responseFormat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestColumn {
+    field: pulumi.Input<string>;
+    width: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQuery {
+    dataSource: pulumi.Input<string>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    queryString?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetLogStreamDefinition {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -7723,6 +7773,10 @@ export interface SecurityMonitoringDefaultRuleFilter {
     query: pulumi.Input<string>;
 }
 
+export interface SecurityMonitoringDefaultRuleOptions {
+    decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
+}
+
 export interface SecurityMonitoringFilterExclusionFilter {
     name: pulumi.Input<string>;
     query: pulumi.Input<string>;
@@ -7730,9 +7784,6 @@ export interface SecurityMonitoringFilterExclusionFilter {
 
 export interface SecurityMonitoringRuleCase {
     condition?: pulumi.Input<string>;
-    /**
-     * The name of the rule.
-     */
     name?: pulumi.Input<string>;
     notifications?: pulumi.Input<pulumi.Input<string>[]>;
     status: pulumi.Input<string>;
@@ -7740,13 +7791,11 @@ export interface SecurityMonitoringRuleCase {
 
 export interface SecurityMonitoringRuleFilter {
     action: pulumi.Input<string>;
-    /**
-     * Queries for selecting logs which are part of the rule.
-     */
     query: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleOptions {
+    decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
     detectionMethod?: pulumi.Input<string>;
     evaluationWindow?: pulumi.Input<number>;
     impossibleTravelOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions>;
@@ -7761,7 +7810,9 @@ export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
     forgetAfter: pulumi.Input<number>;
-    learningDuration: pulumi.Input<number>;
+    learningDuration?: pulumi.Input<number>;
+    learningMethod?: pulumi.Input<string>;
+    learningThreshold?: pulumi.Input<number>;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -7773,13 +7824,8 @@ export interface SecurityMonitoringRuleQuery {
     distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
     groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
     metric?: pulumi.Input<string>;
-    /**
-     * The name of the rule.
-     */
+    metrics?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
-    /**
-     * Queries for selecting logs which are part of the rule.
-     */
     query: pulumi.Input<string>;
 }
 
@@ -7899,6 +7945,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
     numberOfPackets?: pulumi.Input<number>;
     port?: pulumi.Input<number>;
     servername?: pulumi.Input<string>;
+    service?: pulumi.Input<string>;
     shouldTrackHops?: pulumi.Input<boolean>;
     timeout?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
@@ -7995,6 +8042,7 @@ export interface SyntheticsTestOptionsList {
     acceptSelfSigned?: pulumi.Input<boolean>;
     allowInsecure?: pulumi.Input<boolean>;
     checkCertificateRevocation?: pulumi.Input<boolean>;
+    ci?: pulumi.Input<inputs.SyntheticsTestOptionsListCi>;
     followRedirects?: pulumi.Input<boolean>;
     minFailureDuration?: pulumi.Input<number>;
     minLocationFailed?: pulumi.Input<number>;
@@ -8004,7 +8052,12 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: pulumi.Input<boolean>;
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     retry?: pulumi.Input<inputs.SyntheticsTestOptionsListRetry>;
+    rumSettings?: pulumi.Input<inputs.SyntheticsTestOptionsListRumSettings>;
     tickEvery: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestOptionsListCi {
+    executionRule?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
@@ -8014,6 +8067,12 @@ export interface SyntheticsTestOptionsListMonitorOptions {
 export interface SyntheticsTestOptionsListRetry {
     count?: pulumi.Input<number>;
     interval?: pulumi.Input<number>;
+}
+
+export interface SyntheticsTestOptionsListRumSettings {
+    applicationId?: pulumi.Input<string>;
+    clientTokenId?: pulumi.Input<number>;
+    isEnabled: pulumi.Input<boolean>;
 }
 
 export interface SyntheticsTestRequestBasicauth {
@@ -8055,6 +8114,7 @@ export interface SyntheticsTestRequestDefinition {
     numberOfPackets?: pulumi.Input<number>;
     port?: pulumi.Input<number>;
     servername?: pulumi.Input<string>;
+    service?: pulumi.Input<string>;
     shouldTrackHops?: pulumi.Input<boolean>;
     timeout?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
@@ -8064,7 +8124,6 @@ export interface SyntheticsTestRequestProxy {
     headers?: pulumi.Input<{[key: string]: any}>;
     url: pulumi.Input<string>;
 }
-
 export namespace slack {
     export interface ChannelDisplay {
         message?: pulumi.Input<boolean>;

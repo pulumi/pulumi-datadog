@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("checkCertificateRevocation")]
         public Input<bool>? CheckCertificateRevocation { get; set; }
 
+        [Input("ci")]
+        public Input<Inputs.SyntheticsTestOptionsListCiArgs>? Ci { get; set; }
+
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 
@@ -52,6 +55,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("retry")]
         public Input<Inputs.SyntheticsTestOptionsListRetryArgs>? Retry { get; set; }
+
+        [Input("rumSettings")]
+        public Input<Inputs.SyntheticsTestOptionsListRumSettingsArgs>? RumSettings { get; set; }
 
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;

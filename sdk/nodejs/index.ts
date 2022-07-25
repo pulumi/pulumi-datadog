@@ -67,6 +67,7 @@ import * as aws from "./aws";
 import * as azure from "./azure";
 import * as config from "./config";
 import * as gcp from "./gcp";
+import * as opsgenie from "./opsgenie";
 import * as pagerduty from "./pagerduty";
 import * as slack from "./slack";
 import * as types from "./types";
@@ -76,6 +77,7 @@ export {
     azure,
     config,
     gcp,
+    opsgenie,
     pagerduty,
     slack,
     types,

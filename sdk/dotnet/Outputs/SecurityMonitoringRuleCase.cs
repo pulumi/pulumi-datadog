@@ -14,9 +14,6 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleCase
     {
         public readonly string? Condition;
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
         public readonly string? Name;
         public readonly ImmutableArray<string> Notifications;
         public readonly string Status;

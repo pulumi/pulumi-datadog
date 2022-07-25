@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// Queries for selecting logs which are part of the rule.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

@@ -67,6 +67,8 @@
         "metricTagConfiguration.ts",
         "monitor.ts",
         "monitorJson.ts",
+        "opsgenie/index.ts",
+        "opsgenie/serviceObject.ts",
         "organizationSettings.ts",
         "pagerduty/index.ts",
         "pagerduty/integration.ts",

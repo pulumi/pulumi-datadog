@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? AcceptSelfSigned;
         public readonly bool? AllowInsecure;
         public readonly bool? CheckCertificateRevocation;
+        public readonly Outputs.SyntheticsTestOptionsListCi? Ci;
         public readonly bool? FollowRedirects;
         public readonly int? MinFailureDuration;
         public readonly int? MinLocationFailed;
@@ -25,6 +26,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? NoScreenshot;
         public readonly ImmutableArray<string> RestrictedRoles;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
+        public readonly Outputs.SyntheticsTestOptionsListRumSettings? RumSettings;
         public readonly int TickEvery;
 
         [OutputConstructor]
@@ -34,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
             bool? allowInsecure,
 
             bool? checkCertificateRevocation,
+
+            Outputs.SyntheticsTestOptionsListCi? ci,
 
             bool? followRedirects,
 
@@ -53,11 +57,14 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestOptionsListRetry? retry,
 
+            Outputs.SyntheticsTestOptionsListRumSettings? rumSettings,
+
             int tickEvery)
         {
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
             CheckCertificateRevocation = checkCertificateRevocation;
+            Ci = ci;
             FollowRedirects = followRedirects;
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;
@@ -67,6 +74,7 @@ namespace Pulumi.Datadog.Outputs
             NoScreenshot = noScreenshot;
             RestrictedRoles = restrictedRoles;
             Retry = retry;
+            RumSettings = rumSettings;
             TickEvery = tickEvery;
         }
     }

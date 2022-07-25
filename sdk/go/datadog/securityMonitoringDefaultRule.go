@@ -59,6 +59,8 @@ type SecurityMonitoringDefaultRule struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
+	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+	Options SecurityMonitoringDefaultRuleOptionsPtrOutput `pulumi:"options"`
 }
 
 // NewSecurityMonitoringDefaultRule registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +98,8 @@ type securityMonitoringDefaultRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
+	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+	Options *SecurityMonitoringDefaultRuleOptions `pulumi:"options"`
 }
 
 type SecurityMonitoringDefaultRuleState struct {
@@ -105,6 +109,8 @@ type SecurityMonitoringDefaultRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
+	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+	Options SecurityMonitoringDefaultRuleOptionsPtrInput
 }
 
 func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
@@ -118,6 +124,8 @@ type securityMonitoringDefaultRuleArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
+	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+	Options *SecurityMonitoringDefaultRuleOptions `pulumi:"options"`
 }
 
 // The set of arguments for constructing a SecurityMonitoringDefaultRule resource.
@@ -128,6 +136,8 @@ type SecurityMonitoringDefaultRuleArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
+	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+	Options SecurityMonitoringDefaultRuleOptionsPtrInput
 }
 
 func (SecurityMonitoringDefaultRuleArgs) ElementType() reflect.Type {
@@ -232,6 +242,11 @@ func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefault
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleFilterArrayOutput {
 		return v.Filters
 	}).(SecurityMonitoringDefaultRuleFilterArrayOutput)
+}
+
+// Options on default rules. Note that only a subset of fields can be updated on default rule options.
+func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
 }
 
 type SecurityMonitoringDefaultRuleArrayOutput struct{ *pulumi.OutputState }

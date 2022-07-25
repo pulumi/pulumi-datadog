@@ -14,16 +14,24 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult
     {
         public readonly int ForgetAfter;
-        public readonly int LearningDuration;
+        public readonly int? LearningDuration;
+        public readonly string? LearningMethod;
+        public readonly int? LearningThreshold;
 
         [OutputConstructor]
         private GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult(
             int forgetAfter,
 
-            int learningDuration)
+            int? learningDuration,
+
+            string? learningMethod,
+
+            int? learningThreshold)
         {
             ForgetAfter = forgetAfter;
             LearningDuration = learningDuration;
+            LearningMethod = learningMethod;
+            LearningThreshold = learningThreshold;
         }
     }
 }

@@ -40,21 +40,9 @@ export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs
  * A collection of arguments for invoking getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesArgs {
-    /**
-     * Limit the search to default rules
-     */
     defaultOnlyFilter?: boolean;
-    /**
-     * A rule name to limit the search
-     */
     nameFilter?: string;
-    /**
-     * A list of tags to limit the search
-     */
     tagsFilters?: string[];
-    /**
-     * Limit the search to user rules
-     */
     userOnlyFilter?: boolean;
 }
 
@@ -62,33 +50,15 @@ export interface GetSecurityMonitoringRulesArgs {
  * A collection of values returned by getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesResult {
-    /**
-     * Limit the search to default rules
-     */
     readonly defaultOnlyFilter?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * A rule name to limit the search
-     */
     readonly nameFilter?: string;
-    /**
-     * List of IDs of the matched rules.
-     */
     readonly ruleIds: string[];
-    /**
-     * List of rules.
-     */
     readonly rules: outputs.GetSecurityMonitoringRulesRule[];
-    /**
-     * A list of tags to limit the search
-     */
     readonly tagsFilters?: string[];
-    /**
-     * Limit the search to user rules
-     */
     readonly userOnlyFilter?: boolean;
 }
 
@@ -100,20 +70,8 @@ export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRul
  * A collection of arguments for invoking getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesOutputArgs {
-    /**
-     * Limit the search to default rules
-     */
     defaultOnlyFilter?: pulumi.Input<boolean>;
-    /**
-     * A rule name to limit the search
-     */
     nameFilter?: pulumi.Input<string>;
-    /**
-     * A list of tags to limit the search
-     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Limit the search to user rules
-     */
     userOnlyFilter?: pulumi.Input<boolean>;
 }
