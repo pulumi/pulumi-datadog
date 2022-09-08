@@ -309,7 +309,6 @@ namespace Pulumi.Datadog
     ///             Type = "api",
     ///         });
     ///         // Example Usage (Synthetics Browser test)
-    ///         // Support for Synthetics Browser test steps is limited (see below)
     ///         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
     ///         var testBrowser = new Datadog.SyntheticsTest("testBrowser", new Datadog.SyntheticsTestArgs
     ///         {
@@ -425,9 +424,9 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [Datadog
-        /// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        /// `aws:eu-central-1`).
+        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        /// retrieve the list of locations.
         /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
@@ -645,9 +644,9 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [Datadog
-        /// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        /// `aws:eu-central-1`).
+        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        /// retrieve the list of locations.
         /// </summary>
         public InputList<string> Locations
         {
@@ -841,9 +840,9 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [Datadog
-        /// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        /// `aws:eu-central-1`).
+        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        /// retrieve the list of locations.
         /// </summary>
         public InputList<string> Locations
         {

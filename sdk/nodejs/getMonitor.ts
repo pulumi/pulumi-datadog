@@ -50,6 +50,7 @@ export interface GetMonitorResult {
     readonly enableLogsSample: boolean;
     readonly escalationMessage: string;
     readonly evaluationDelay: number;
+    readonly groupRetentionDuration: string;
     readonly groupbySimpleMonitor: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -68,6 +69,7 @@ export interface GetMonitorResult {
     readonly noDataTimeframe: number;
     readonly notifyAudit: boolean;
     readonly notifyNoData: boolean;
+    readonly onMissingData: string;
     readonly query: string;
     readonly renotifyInterval: number;
     readonly renotifyOccurrences: number;

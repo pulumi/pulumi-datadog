@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewMetricTagConfiguration(ctx, "exampleDistMetric", &datadog.MetricTagConfigurationArgs{
-// 			IncludePercentiles: pulumi.Bool(false),
-// 			MetricName:         pulumi.String("example.terraform.dist.metric"),
-// 			MetricType:         pulumi.String("distribution"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("sport"),
-// 				pulumi.String("datacenter"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
-// 			Aggregations: MetricTagConfigurationAggregationArray{
-// 				&MetricTagConfigurationAggregationArgs{
-// 					Space: pulumi.String("min"),
-// 					Time:  pulumi.String("avg"),
-// 				},
-// 				&MetricTagConfigurationAggregationArgs{
-// 					Space: pulumi.String("max"),
-// 					Time:  pulumi.String("avg"),
-// 				},
-// 			},
-// 			MetricName: pulumi.String("example.terraform.count.metric"),
-// 			MetricType: pulumi.String("count"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("sport"),
-// 				pulumi.String("datacenter"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMetricTagConfiguration(ctx, "exampleDistMetric", &datadog.MetricTagConfigurationArgs{
+//				IncludePercentiles: pulumi.Bool(false),
+//				MetricName:         pulumi.String("example.terraform.dist.metric"),
+//				MetricType:         pulumi.String("distribution"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sport"),
+//					pulumi.String("datacenter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
+//				Aggregations: MetricTagConfigurationAggregationArray{
+//					&MetricTagConfigurationAggregationArgs{
+//						Space: pulumi.String("min"),
+//						Time:  pulumi.String("avg"),
+//					},
+//					&MetricTagConfigurationAggregationArgs{
+//						Space: pulumi.String("max"),
+//						Time:  pulumi.String("avg"),
+//					},
+//				},
+//				MetricName: pulumi.String("example.terraform.count.metric"),
+//				MetricType: pulumi.String("count"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sport"),
+//					pulumi.String("datacenter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MetricTagConfiguration struct {
 	pulumi.CustomResourceState
@@ -212,7 +215,7 @@ func (i *MetricTagConfiguration) ToMetricTagConfigurationOutputWithContext(ctx c
 // MetricTagConfigurationArrayInput is an input type that accepts MetricTagConfigurationArray and MetricTagConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricTagConfigurationArrayInput` via:
 //
-//          MetricTagConfigurationArray{ MetricTagConfigurationArgs{...} }
+//	MetricTagConfigurationArray{ MetricTagConfigurationArgs{...} }
 type MetricTagConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +240,7 @@ func (i MetricTagConfigurationArray) ToMetricTagConfigurationArrayOutputWithCont
 // MetricTagConfigurationMapInput is an input type that accepts MetricTagConfigurationMap and MetricTagConfigurationMapOutput values.
 // You can construct a concrete instance of `MetricTagConfigurationMapInput` via:
 //
-//          MetricTagConfigurationMap{ "key": MetricTagConfigurationArgs{...} }
+//	MetricTagConfigurationMap{ "key": MetricTagConfigurationArgs{...} }
 type MetricTagConfigurationMapInput interface {
 	pulumi.Input
 

@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
-// 			ArchiveIds: pulumi.StringArray{
-// 				pulumi.Any(datadog_logs_archive.Sample_archive_1.Id),
-// 				pulumi.Any(datadog_logs_archive.Sample_archive_2.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
+//				ArchiveIds: pulumi.StringArray{
+//					pulumi.Any(datadog_logs_archive.Sample_archive_1.Id),
+//					pulumi.Any(datadog_logs_archive.Sample_archive_2.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
 //
 // ```sh
-//  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
+//
+//	$ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
+//
 // ```
 type LogsArchiveOrder struct {
 	pulumi.CustomResourceState
@@ -141,7 +146,7 @@ func (i *LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Conte
 // LogsArchiveOrderArrayInput is an input type that accepts LogsArchiveOrderArray and LogsArchiveOrderArrayOutput values.
 // You can construct a concrete instance of `LogsArchiveOrderArrayInput` via:
 //
-//          LogsArchiveOrderArray{ LogsArchiveOrderArgs{...} }
+//	LogsArchiveOrderArray{ LogsArchiveOrderArgs{...} }
 type LogsArchiveOrderArrayInput interface {
 	pulumi.Input
 
@@ -166,7 +171,7 @@ func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutputWithContext(ctx cont
 // LogsArchiveOrderMapInput is an input type that accepts LogsArchiveOrderMap and LogsArchiveOrderMapOutput values.
 // You can construct a concrete instance of `LogsArchiveOrderMapInput` via:
 //
-//          LogsArchiveOrderMap{ "key": LogsArchiveOrderArgs{...} }
+//	LogsArchiveOrderMap{ "key": LogsArchiveOrderArgs{...} }
 type LogsArchiveOrderMapInput interface {
 	pulumi.Input
 

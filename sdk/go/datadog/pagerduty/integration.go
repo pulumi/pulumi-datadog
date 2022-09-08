@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
-// 			ApiToken: pulumi.String("38457822378273432587234242874"),
-// 			Schedules: pulumi.StringArray{
-// 				pulumi.String("https://ddog.pagerduty.com/schedules/X123VF"),
-// 				pulumi.String("https://ddog.pagerduty.com/schedules/X321XX"),
-// 			},
-// 			Subdomain: pulumi.String("ddog"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
-// 			ServiceKey:  pulumi.String("9876543210123456789"),
-// 			ServiceName: pulumi.String("testing_foo"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			pulumi.Resource("datadog_integration_pagerduty.pd"),
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
-// 			ServiceKey:  pulumi.String("54321098765432109876"),
-// 			ServiceName: pulumi.String("testing_bar"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			pulumi.Resource("datadog_integration_pagerduty.pd"),
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
+//				ApiToken: pulumi.String("38457822378273432587234242874"),
+//				Schedules: pulumi.StringArray{
+//					pulumi.String("https://ddog.pagerduty.com/schedules/X123VF"),
+//					pulumi.String("https://ddog.pagerduty.com/schedules/X321XX"),
+//				},
+//				Subdomain: pulumi.String("ddog"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
+//				ServiceKey:  pulumi.String("9876543210123456789"),
+//				ServiceName: pulumi.String("testing_foo"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				pulumi.Resource("datadog_integration_pagerduty.pd"),
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
+//				ServiceKey:  pulumi.String("54321098765432109876"),
+//				ServiceName: pulumi.String("testing_bar"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				pulumi.Resource("datadog_integration_pagerduty.pd"),
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Integration struct {
 	pulumi.CustomResourceState
@@ -167,7 +170,7 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
 // You can construct a concrete instance of `IntegrationArrayInput` via:
 //
-//          IntegrationArray{ IntegrationArgs{...} }
+//	IntegrationArray{ IntegrationArgs{...} }
 type IntegrationArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +195,7 @@ func (i IntegrationArray) ToIntegrationArrayOutputWithContext(ctx context.Contex
 // IntegrationMapInput is an input type that accepts IntegrationMap and IntegrationMapOutput values.
 // You can construct a concrete instance of `IntegrationMapInput` via:
 //
-//          IntegrationMap{ "key": IntegrationArgs{...} }
+//	IntegrationMap{ "key": IntegrationArgs{...} }
 type IntegrationMapInput interface {
 	pulumi.Input
 

@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/gcp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/gcp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gcp.NewIntegration(ctx, "awesomeGcpProjectIntegration", &gcp.IntegrationArgs{
-// 			ClientEmail:  pulumi.String("awesome-service-account@awesome-project-id.iam.gserviceaccount.com"),
-// 			ClientId:     pulumi.String("123456789012345678901"),
-// 			HostFilters:  pulumi.String("foo:bar,buzz:lightyear"),
-// 			PrivateKey:   pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN PRIVATE KEY-----\n", "...\n", "-----END PRIVATE KEY-----\n", "\n")),
-// 			PrivateKeyId: pulumi.String("1234567890123456789012345678901234567890"),
-// 			ProjectId:    pulumi.String("awesome-project-id"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gcp.NewIntegration(ctx, "awesomeGcpProjectIntegration", &gcp.IntegrationArgs{
+//				ClientEmail:  pulumi.String("awesome-service-account@awesome-project-id.iam.gserviceaccount.com"),
+//				ClientId:     pulumi.String("123456789012345678901"),
+//				HostFilters:  pulumi.String("foo:bar,buzz:lightyear"),
+//				PrivateKey:   pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN PRIVATE KEY-----\n", "...\n", "-----END PRIVATE KEY-----\n", "\n")),
+//				PrivateKeyId: pulumi.String("1234567890123456789012345678901234567890"),
+//				ProjectId:    pulumi.String("awesome-project-id"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # Google Cloud Platform integrations can be imported using their project ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+//
+//	$ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+//
 // ```
 type Integration struct {
 	pulumi.CustomResourceState
@@ -216,7 +221,7 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
 // You can construct a concrete instance of `IntegrationArrayInput` via:
 //
-//          IntegrationArray{ IntegrationArgs{...} }
+//	IntegrationArray{ IntegrationArgs{...} }
 type IntegrationArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i IntegrationArray) ToIntegrationArrayOutputWithContext(ctx context.Contex
 // IntegrationMapInput is an input type that accepts IntegrationMap and IntegrationMapOutput values.
 // You can construct a concrete instance of `IntegrationMapInput` via:
 //
-//          IntegrationMap{ "key": IntegrationArgs{...} }
+//	IntegrationMap{ "key": IntegrationArgs{...} }
 type IntegrationMapInput interface {
 	pulumi.Input
 

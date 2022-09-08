@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.NewIntegrationTagFilter(ctx, "foo", &aws.IntegrationTagFilterArgs{
-// 			AccountId:    pulumi.String("123456789010"),
-// 			Namespace:    pulumi.String("sqs"),
-// 			TagFilterStr: pulumi.String("key:value"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewIntegrationTagFilter(ctx, "foo", &aws.IntegrationTagFilterArgs{
+//				AccountId:    pulumi.String("123456789010"),
+//				Namespace:    pulumi.String("sqs"),
+//				TagFilterStr: pulumi.String("key:value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // # Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 //
 // ```sh
-//  $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+//
+//	$ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+//
 // ```
 type IntegrationTagFilter struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *IntegrationTagFilter) ToIntegrationTagFilterOutputWithContext(ctx conte
 // IntegrationTagFilterArrayInput is an input type that accepts IntegrationTagFilterArray and IntegrationTagFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationTagFilterArrayInput` via:
 //
-//          IntegrationTagFilterArray{ IntegrationTagFilterArgs{...} }
+//	IntegrationTagFilterArray{ IntegrationTagFilterArgs{...} }
 type IntegrationTagFilterArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i IntegrationTagFilterArray) ToIntegrationTagFilterArrayOutputWithContext(
 // IntegrationTagFilterMapInput is an input type that accepts IntegrationTagFilterMap and IntegrationTagFilterMapOutput values.
 // You can construct a concrete instance of `IntegrationTagFilterMapInput` via:
 //
-//          IntegrationTagFilterMap{ "key": IntegrationTagFilterArgs{...} }
+//	IntegrationTagFilterMap{ "key": IntegrationTagFilterArgs{...} }
 type IntegrationTagFilterMapInput interface {
 	pulumi.Input
 

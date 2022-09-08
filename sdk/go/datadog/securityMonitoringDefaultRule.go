@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, "adefaultrule", &datadog.SecurityMonitoringDefaultRuleArgs{
-// 			Cases: SecurityMonitoringDefaultRuleCaseArray{
-// 				&SecurityMonitoringDefaultRuleCaseArgs{
-// 					Notifications: pulumi.StringArray{
-// 						pulumi.String("@me"),
-// 					},
-// 					Status: pulumi.String("high"),
-// 				},
-// 			},
-// 			Enabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, "adefaultrule", &datadog.SecurityMonitoringDefaultRuleArgs{
+//				Cases: SecurityMonitoringDefaultRuleCaseArray{
+//					&SecurityMonitoringDefaultRuleCaseArgs{
+//						Notifications: pulumi.StringArray{
+//							pulumi.String("@me"),
+//						},
+//						Status: pulumi.String("high"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
 //
 // ```sh
-//  $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
+//
+//	$ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
+//
 // ```
 type SecurityMonitoringDefaultRule struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRuleOutputWit
 // SecurityMonitoringDefaultRuleArrayInput is an input type that accepts SecurityMonitoringDefaultRuleArray and SecurityMonitoringDefaultRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringDefaultRuleArrayInput` via:
 //
-//          SecurityMonitoringDefaultRuleArray{ SecurityMonitoringDefaultRuleArgs{...} }
+//	SecurityMonitoringDefaultRuleArray{ SecurityMonitoringDefaultRuleArgs{...} }
 type SecurityMonitoringDefaultRuleArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i SecurityMonitoringDefaultRuleArray) ToSecurityMonitoringDefaultRuleArray
 // SecurityMonitoringDefaultRuleMapInput is an input type that accepts SecurityMonitoringDefaultRuleMap and SecurityMonitoringDefaultRuleMapOutput values.
 // You can construct a concrete instance of `SecurityMonitoringDefaultRuleMapInput` via:
 //
-//          SecurityMonitoringDefaultRuleMap{ "key": SecurityMonitoringDefaultRuleArgs{...} }
+//	SecurityMonitoringDefaultRuleMap{ "key": SecurityMonitoringDefaultRuleArgs{...} }
 type SecurityMonitoringDefaultRuleMapInput interface {
 	pulumi.Input
 

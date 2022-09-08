@@ -27,7 +27,7 @@ class ProviderArgs:
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
-        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
+        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
         """
@@ -98,7 +98,7 @@ class ProviderArgs:
     @pulumi.getter(name="httpClientRetryTimeout")
     def http_client_retry_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The HTTP request retry timeout period.
+        The HTTP request retry timeout period. Defaults to 60 seconds.
         """
         return pulumi.get(self, "http_client_retry_timeout")
 
@@ -146,7 +146,7 @@ class Provider(pulumi.ProviderResource):
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
-        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
+        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
         """

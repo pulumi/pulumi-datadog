@@ -18,43 +18,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := datadog.LookupDashboardList(ctx, &GetDashboardListArgs{
-// 			Name: "My super list",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
-// 			DashboardLists: pulumi.IntArray{
-// 				pulumi.String(test.Id),
-// 			},
-// 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
-// 			IsReadOnly:  pulumi.Bool(true),
-// 			LayoutType:  pulumi.String("ordered"),
-// 			Title:       pulumi.String("TF Test Layout Dashboard"),
-// 			Widgets: DashboardWidgetArray{
-// 				&DashboardWidgetArgs{
-// 					AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
-// 						AlertId:  pulumi.String("1234"),
-// 						LiveSpan: pulumi.String("1h"),
-// 						Title:    pulumi.String("Widget Title"),
-// 						VizType:  pulumi.String("timeseries"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := datadog.LookupDashboardList(ctx, &GetDashboardListArgs{
+//				Name: "My super list",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
+//				DashboardLists: pulumi.IntArray{
+//					pulumi.String(test.Id),
+//				},
+//				Description: pulumi.String("Created using the Datadog provider in Terraform"),
+//				IsReadOnly:  pulumi.Bool(true),
+//				LayoutType:  pulumi.String("ordered"),
+//				Title:       pulumi.String("TF Test Layout Dashboard"),
+//				Widgets: DashboardWidgetArray{
+//					&DashboardWidgetArgs{
+//						AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
+//							AlertId:  pulumi.String("1234"),
+//							LiveSpan: pulumi.String("1h"),
+//							Title:    pulumi.String("Widget Title"),
+//							VizType:  pulumi.String("timeseries"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opts ...pulumi.InvokeOption) (*LookupDashboardListResult, error) {
 	var rv LookupDashboardListResult

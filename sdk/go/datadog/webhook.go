@@ -19,47 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"custom": "header",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"custom": "payload",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err := datadog.NewWebhook(ctx, "foo", &datadog.WebhookArgs{
-// 			Name:          pulumi.String("test-webhook"),
-// 			Url:           pulumi.String("example.com"),
-// 			EncodeAs:      pulumi.String("json"),
-// 			CustomHeaders: pulumi.String(json0),
-// 			Payload:       pulumi.String(json1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"custom": "header",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"custom": "payload",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err := datadog.NewWebhook(ctx, "foo", &datadog.WebhookArgs{
+//				Name:          pulumi.String("test-webhook"),
+//				Url:           pulumi.String("example.com"),
+//				EncodeAs:      pulumi.String("json"),
+//				CustomHeaders: pulumi.String(json0),
+//				Payload:       pulumi.String(json1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/webhook:Webhook foo example-webhook
+//
+//	$ pulumi import datadog:index/webhook:Webhook foo example-webhook
+//
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 // WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
 // You can construct a concrete instance of `WebhookArrayInput` via:
 //
-//          WebhookArray{ WebhookArgs{...} }
+//	WebhookArray{ WebhookArgs{...} }
 type WebhookArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i WebhookArray) ToWebhookArrayOutputWithContext(ctx context.Context) Webho
 // WebhookMapInput is an input type that accepts WebhookMap and WebhookMapOutput values.
 // You can construct a concrete instance of `WebhookMapInput` via:
 //
-//          WebhookMap{ "key": WebhookArgs{...} }
+//	WebhookMap{ "key": WebhookArgs{...} }
 type WebhookMapInput interface {
 	pulumi.Input
 

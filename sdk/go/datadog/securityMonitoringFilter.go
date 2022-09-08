@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSecurityMonitoringFilter(ctx, "myFilter", &datadog.SecurityMonitoringFilterArgs{
-// 			ExclusionFilters: SecurityMonitoringFilterExclusionFilterArray{
-// 				&SecurityMonitoringFilterExclusionFilterArgs{
-// 					Name:  pulumi.String("first"),
-// 					Query: pulumi.String("exclude some logs"),
-// 				},
-// 				&SecurityMonitoringFilterExclusionFilterArgs{
-// 					Name:  pulumi.String("second"),
-// 					Query: pulumi.String("exclude some other logs"),
-// 				},
-// 			},
-// 			IsEnabled: pulumi.Bool(true),
-// 			Name:      pulumi.String("My filter"),
-// 			Query:     pulumi.String("The filter is filtering."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityMonitoringFilter(ctx, "myFilter", &datadog.SecurityMonitoringFilterArgs{
+//				ExclusionFilters: SecurityMonitoringFilterExclusionFilterArray{
+//					&SecurityMonitoringFilterExclusionFilterArgs{
+//						Name:  pulumi.String("first"),
+//						Query: pulumi.String("exclude some logs"),
+//					},
+//					&SecurityMonitoringFilterExclusionFilterArgs{
+//						Name:  pulumi.String("second"),
+//						Query: pulumi.String("exclude some other logs"),
+//					},
+//				},
+//				IsEnabled: pulumi.Bool(true),
+//				Name:      pulumi.String("My filter"),
+//				Query:     pulumi.String("The filter is filtering."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // # Security monitoring filters can be imported using ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
+//
+//	$ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
+//
 // ```
 type SecurityMonitoringFilter struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *SecurityMonitoringFilter) ToSecurityMonitoringFilterOutputWithContext(c
 // SecurityMonitoringFilterArrayInput is an input type that accepts SecurityMonitoringFilterArray and SecurityMonitoringFilterArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringFilterArrayInput` via:
 //
-//          SecurityMonitoringFilterArray{ SecurityMonitoringFilterArgs{...} }
+//	SecurityMonitoringFilterArray{ SecurityMonitoringFilterArgs{...} }
 type SecurityMonitoringFilterArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i SecurityMonitoringFilterArray) ToSecurityMonitoringFilterArrayOutputWith
 // SecurityMonitoringFilterMapInput is an input type that accepts SecurityMonitoringFilterMap and SecurityMonitoringFilterMapOutput values.
 // You can construct a concrete instance of `SecurityMonitoringFilterMapInput` via:
 //
-//          SecurityMonitoringFilterMap{ "key": SecurityMonitoringFilterArgs{...} }
+//	SecurityMonitoringFilterMap{ "key": SecurityMonitoringFilterArgs{...} }
 type SecurityMonitoringFilterMapInput interface {
 	pulumi.Input
 

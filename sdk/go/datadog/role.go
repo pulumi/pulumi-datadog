@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bar, err := datadog.GetPermissions(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
-// 			Name: pulumi.String("foo"),
-// 			Permissions: RolePermissionArray{
-// 				&RolePermissionArgs{
-// 					Id: pulumi.String(bar.Permissions.MonitorsDowntime),
-// 				},
-// 				&RolePermissionArgs{
-// 					Id: pulumi.String(bar.Permissions.MonitorsWrite),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := datadog.GetPermissions(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
+//				Name: pulumi.String("foo"),
+//				Permissions: RolePermissionArray{
+//					&RolePermissionArgs{
+//						Id: pulumi.String(bar.Permissions.MonitorsDowntime),
+//					},
+//					&RolePermissionArgs{
+//						Id: pulumi.String(bar.Permissions.MonitorsWrite),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // # Roles can be imported using their ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
+//
 // ```
 type Role struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 // RoleArrayInput is an input type that accepts RoleArray and RoleArrayOutput values.
 // You can construct a concrete instance of `RoleArrayInput` via:
 //
-//          RoleArray{ RoleArgs{...} }
+//	RoleArray{ RoleArgs{...} }
 type RoleArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i RoleArray) ToRoleArrayOutputWithContext(ctx context.Context) RoleArrayOu
 // RoleMapInput is an input type that accepts RoleMap and RoleMapOutput values.
 // You can construct a concrete instance of `RoleMapInput` via:
 //
-//          RoleMap{ "key": RoleArgs{...} }
+//	RoleMap{ "key": RoleArgs{...} }
 type RoleMapInput interface {
 	pulumi.Input
 

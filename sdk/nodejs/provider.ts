@@ -86,7 +86,7 @@ export interface ProviderArgs {
      */
     httpClientRetryEnabled?: pulumi.Input<boolean>;
     /**
-     * The HTTP request retry timeout period.
+     * The HTTP request retry timeout period. Defaults to 60 seconds.
      */
     httpClientRetryTimeout?: pulumi.Input<number>;
     /**

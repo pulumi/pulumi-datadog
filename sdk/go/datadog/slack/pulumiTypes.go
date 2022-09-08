@@ -20,7 +20,7 @@ type ChannelDisplay struct {
 // ChannelDisplayInput is an input type that accepts ChannelDisplayArgs and ChannelDisplayOutput values.
 // You can construct a concrete instance of `ChannelDisplayInput` via:
 //
-//          ChannelDisplayArgs{...}
+//	ChannelDisplayArgs{...}
 type ChannelDisplayInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ChannelDisplayArgs) ToChannelDisplayPtrOutputWithContext(ctx context.Con
 // ChannelDisplayPtrInput is an input type that accepts ChannelDisplayArgs, ChannelDisplayPtr and ChannelDisplayPtrOutput values.
 // You can construct a concrete instance of `ChannelDisplayPtrInput` via:
 //
-//          ChannelDisplayArgs{...}
+//	        ChannelDisplayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ChannelDisplayPtrInput interface {
 	pulumi.Input
 

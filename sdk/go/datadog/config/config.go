@@ -30,7 +30,7 @@ func GetHttpClientRetryEnabled(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "datadog:httpClientRetryEnabled")
 }
 
-// The HTTP request retry timeout period.
+// The HTTP request retry timeout period. Defaults to 60 seconds.
 func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "datadog:httpClientRetryTimeout")
 }

@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<int?> _httpClientRetryTimeout = new __Value<int?>(() => __config.GetInt32("httpClientRetryTimeout"));
         /// <summary>
-        /// The HTTP request retry timeout period.
+        /// The HTTP request retry timeout period. Defaults to 60 seconds.
         /// </summary>
         public static int? HttpClientRetryTimeout
         {

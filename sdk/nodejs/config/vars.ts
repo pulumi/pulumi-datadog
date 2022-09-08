@@ -54,7 +54,7 @@ Object.defineProperty(exports, "httpClientRetryEnabled", {
 });
 
 /**
- * The HTTP request retry timeout period.
+ * The HTTP request retry timeout period. Defaults to 60 seconds.
  */
 export declare const httpClientRetryTimeout: number | undefined;
 Object.defineProperty(exports, "httpClientRetryTimeout", {

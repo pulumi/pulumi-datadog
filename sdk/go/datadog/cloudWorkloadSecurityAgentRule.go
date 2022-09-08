@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, "myAgentRule", &datadog.CloudWorkloadSecurityAgentRuleArgs{
-// 			Description: pulumi.String("My agent rule"),
-// 			Enabled:     pulumi.Bool(true),
-// 			Expression:  pulumi.String("exec.file.name == \"java\""),
-// 			Name:        pulumi.String("my_agent_rule"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, "myAgentRule", &datadog.CloudWorkloadSecurityAgentRuleArgs{
+//				Description: pulumi.String("My agent rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Expression:  pulumi.String("exec.file.name == \"java\""),
+//				Name:        pulumi.String("my_agent_rule"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # Cloud Workload Security Agent rules can be imported using ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
+//
+//	$ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
+//
 // ```
 type CloudWorkloadSecurityAgentRule struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *CloudWorkloadSecurityAgentRule) ToCloudWorkloadSecurityAgentRuleOutputW
 // CloudWorkloadSecurityAgentRuleArrayInput is an input type that accepts CloudWorkloadSecurityAgentRuleArray and CloudWorkloadSecurityAgentRuleArrayOutput values.
 // You can construct a concrete instance of `CloudWorkloadSecurityAgentRuleArrayInput` via:
 //
-//          CloudWorkloadSecurityAgentRuleArray{ CloudWorkloadSecurityAgentRuleArgs{...} }
+//	CloudWorkloadSecurityAgentRuleArray{ CloudWorkloadSecurityAgentRuleArgs{...} }
 type CloudWorkloadSecurityAgentRuleArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i CloudWorkloadSecurityAgentRuleArray) ToCloudWorkloadSecurityAgentRuleArr
 // CloudWorkloadSecurityAgentRuleMapInput is an input type that accepts CloudWorkloadSecurityAgentRuleMap and CloudWorkloadSecurityAgentRuleMapOutput values.
 // You can construct a concrete instance of `CloudWorkloadSecurityAgentRuleMapInput` via:
 //
-//          CloudWorkloadSecurityAgentRuleMap{ "key": CloudWorkloadSecurityAgentRuleArgs{...} }
+//	CloudWorkloadSecurityAgentRuleMap{ "key": CloudWorkloadSecurityAgentRuleArgs{...} }
 type CloudWorkloadSecurityAgentRuleMapInput interface {
 	pulumi.Input
 

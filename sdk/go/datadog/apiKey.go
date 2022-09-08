@@ -19,27 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewApiKey(ctx, "foo", &datadog.ApiKeyArgs{
-// 			Name: pulumi.String("foo-application"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewApiKey(ctx, "foo", &datadog.ApiKeyArgs{
+//				Name: pulumi.String("foo-application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/apiKey:ApiKey foo 11111111-2222-3333-4444-555555555555
+//
+//	$ pulumi import datadog:index/apiKey:ApiKey foo 11111111-2222-3333-4444-555555555555
+//
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState
@@ -136,7 +141,7 @@ func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 // ApiKeyArrayInput is an input type that accepts ApiKeyArray and ApiKeyArrayOutput values.
 // You can construct a concrete instance of `ApiKeyArrayInput` via:
 //
-//          ApiKeyArray{ ApiKeyArgs{...} }
+//	ApiKeyArray{ ApiKeyArgs{...} }
 type ApiKeyArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +166,7 @@ func (i ApiKeyArray) ToApiKeyArrayOutputWithContext(ctx context.Context) ApiKeyA
 // ApiKeyMapInput is an input type that accepts ApiKeyMap and ApiKeyMapOutput values.
 // You can construct a concrete instance of `ApiKeyMapInput` via:
 //
-//          ApiKeyMap{ "key": ApiKeyArgs{...} }
+//	ApiKeyMap{ "key": ApiKeyArgs{...} }
 type ApiKeyMapInput interface {
 	pulumi.Input
 

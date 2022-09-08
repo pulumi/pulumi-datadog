@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/azure"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/azure"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
-// 			ClientId:     pulumi.String("<azure_client_id>"),
-// 			ClientSecret: pulumi.String("<azure_client_secret_key>"),
-// 			HostFilters:  pulumi.String("examplefilter:true,example:true"),
-// 			TenantName:   pulumi.String("<azure_tenant_name>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
+//				ClientId:     pulumi.String("<azure_client_id>"),
+//				ClientSecret: pulumi.String("<azure_client_secret_key>"),
+//				HostFilters:  pulumi.String("examplefilter:true,example:true"),
+//				TenantName:   pulumi.String("<azure_tenant_name>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
 //
 // ```sh
-//  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
+//
+//	$ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
+//
 // ```
 type Integration struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
 // You can construct a concrete instance of `IntegrationArrayInput` via:
 //
-//          IntegrationArray{ IntegrationArgs{...} }
+//	IntegrationArray{ IntegrationArgs{...} }
 type IntegrationArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i IntegrationArray) ToIntegrationArrayOutputWithContext(ctx context.Contex
 // IntegrationMapInput is an input type that accepts IntegrationMap and IntegrationMapOutput values.
 // You can construct a concrete instance of `IntegrationMapInput` via:
 //
-//          IntegrationMap{ "key": IntegrationArgs{...} }
+//	IntegrationMap{ "key": IntegrationArgs{...} }
 type IntegrationMapInput interface {
 	pulumi.Input
 

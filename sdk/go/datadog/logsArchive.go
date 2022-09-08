@@ -19,34 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
-// 			Name:  pulumi.String("my s3 archive"),
-// 			Query: pulumi.String("service:myservice"),
-// 			S3Archive: &LogsArchiveS3ArchiveArgs{
-// 				AccountId: pulumi.String("001234567888"),
-// 				Bucket:    pulumi.String("my-bucket"),
-// 				Path:      pulumi.String("/path/foo"),
-// 				RoleName:  pulumi.String("my-role-name"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
+//				Name:  pulumi.String("my s3 archive"),
+//				Query: pulumi.String("service:myservice"),
+//				S3Archive: &LogsArchiveS3ArchiveArgs{
+//					AccountId: pulumi.String("001234567888"),
+//					Bucket:    pulumi.String("my-bucket"),
+//					Path:      pulumi.String("/path/foo"),
+//					RoleName:  pulumi.String("my-role-name"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+//
+//	$ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+//
 // ```
 type LogsArchive struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsAr
 // LogsArchiveArrayInput is an input type that accepts LogsArchiveArray and LogsArchiveArrayOutput values.
 // You can construct a concrete instance of `LogsArchiveArrayInput` via:
 //
-//          LogsArchiveArray{ LogsArchiveArgs{...} }
+//	LogsArchiveArray{ LogsArchiveArgs{...} }
 type LogsArchiveArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i LogsArchiveArray) ToLogsArchiveArrayOutputWithContext(ctx context.Contex
 // LogsArchiveMapInput is an input type that accepts LogsArchiveMap and LogsArchiveMapOutput values.
 // You can construct a concrete instance of `LogsArchiveMapInput` via:
 //
-//          LogsArchiveMap{ "key": LogsArchiveArgs{...} }
+//	LogsArchiveMap{ "key": LogsArchiveArgs{...} }
 type LogsArchiveMapInput interface {
 	pulumi.Input
 

@@ -19,86 +19,91 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		time, err := datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
-// 			Title:       pulumi.String("TF Test Layout Dashboard"),
-// 			Description: pulumi.String("Created using the Datadog provider"),
-// 			LayoutType:  pulumi.String("ordered"),
-// 			IsReadOnly:  pulumi.Bool(true),
-// 			Widgets: DashboardWidgetArray{
-// 				&DashboardWidgetArgs{
-// 					AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
-// 						AlertId:  pulumi.String("1234"),
-// 						VizType:  pulumi.String("timeseries"),
-// 						Title:    pulumi.String("Widget Title"),
-// 						LiveSpan: pulumi.String("1h"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		screen, err := datadog.NewDashboard(ctx, "screen", &datadog.DashboardArgs{
-// 			Title:       pulumi.String("TF Test Free Layout Dashboard"),
-// 			Description: pulumi.String("Created using the Datadog provider"),
-// 			LayoutType:  pulumi.String("free"),
-// 			IsReadOnly:  pulumi.Bool(false),
-// 			Widgets: DashboardWidgetArray{
-// 				&DashboardWidgetArgs{
-// 					EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
-// 						Query:      pulumi.String("*"),
-// 						EventSize:  pulumi.String("l"),
-// 						Title:      pulumi.String("Widget Title"),
-// 						TitleSize:  pulumi.String("16"),
-// 						TitleAlign: pulumi.String("left"),
-// 						LiveSpan:   pulumi.String("1h"),
-// 					},
-// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-// 						Height: pulumi.Int(43),
-// 						Width:  pulumi.Int(32),
-// 						X:      pulumi.Int(5),
-// 						Y:      pulumi.Int(5),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
-// 			Name: pulumi.String("Automated Created List"),
-// 			DashItems: DashboardListDashItemArray{
-// 				&DashboardListDashItemArgs{
-// 					Type:   pulumi.String("custom_timeboard"),
-// 					DashId: time.ID(),
-// 				},
-// 				&DashboardListDashItemArgs{
-// 					Type:   pulumi.String("custom_screenboard"),
-// 					DashId: screen.ID(),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			screen,
-// 			time,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			time, err := datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
+//				Title:       pulumi.String("TF Test Layout Dashboard"),
+//				Description: pulumi.String("Created using the Datadog provider"),
+//				LayoutType:  pulumi.String("ordered"),
+//				IsReadOnly:  pulumi.Bool(true),
+//				Widgets: DashboardWidgetArray{
+//					&DashboardWidgetArgs{
+//						AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
+//							AlertId:  pulumi.String("1234"),
+//							VizType:  pulumi.String("timeseries"),
+//							Title:    pulumi.String("Widget Title"),
+//							LiveSpan: pulumi.String("1h"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			screen, err := datadog.NewDashboard(ctx, "screen", &datadog.DashboardArgs{
+//				Title:       pulumi.String("TF Test Free Layout Dashboard"),
+//				Description: pulumi.String("Created using the Datadog provider"),
+//				LayoutType:  pulumi.String("free"),
+//				IsReadOnly:  pulumi.Bool(false),
+//				Widgets: DashboardWidgetArray{
+//					&DashboardWidgetArgs{
+//						EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
+//							Query:      pulumi.String("*"),
+//							EventSize:  pulumi.String("l"),
+//							Title:      pulumi.String("Widget Title"),
+//							TitleSize:  pulumi.String("16"),
+//							TitleAlign: pulumi.String("left"),
+//							LiveSpan:   pulumi.String("1h"),
+//						},
+//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
+//							Height: pulumi.Int(43),
+//							Width:  pulumi.Int(32),
+//							X:      pulumi.Int(5),
+//							Y:      pulumi.Int(5),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
+//				Name: pulumi.String("Automated Created List"),
+//				DashItems: DashboardListDashItemArray{
+//					&DashboardListDashItemArgs{
+//						Type:   pulumi.String("custom_timeboard"),
+//						DashId: time.ID(),
+//					},
+//					&DashboardListDashItemArgs{
+//						Type:   pulumi.String("custom_screenboard"),
+//						DashId: screen.ID(),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				screen,
+//				time,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+//
+//	$ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+//
 // ```
 type DashboardList struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *DashboardList) ToDashboardListOutputWithContext(ctx context.Context) Da
 // DashboardListArrayInput is an input type that accepts DashboardListArray and DashboardListArrayOutput values.
 // You can construct a concrete instance of `DashboardListArrayInput` via:
 //
-//          DashboardListArray{ DashboardListArgs{...} }
+//	DashboardListArray{ DashboardListArgs{...} }
 type DashboardListArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i DashboardListArray) ToDashboardListArrayOutputWithContext(ctx context.Co
 // DashboardListMapInput is an input type that accepts DashboardListMap and DashboardListMapOutput values.
 // You can construct a concrete instance of `DashboardListMapInput` via:
 //
-//          DashboardListMap{ "key": DashboardListArgs{...} }
+//	DashboardListMap{ "key": DashboardListArgs{...} }
 type DashboardListMapInput interface {
 	pulumi.Input
 

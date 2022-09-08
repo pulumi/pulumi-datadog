@@ -53,7 +53,7 @@ type providerArgs struct {
 	AppKey *string `pulumi:"appKey"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 	HttpClientRetryEnabled *bool `pulumi:"httpClientRetryEnabled"`
-	// The HTTP request retry timeout period.
+	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
 	// and app_key won't be checked.
@@ -72,7 +72,7 @@ type ProviderArgs struct {
 	AppKey pulumi.StringPtrInput
 	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.BoolPtrInput
-	// The HTTP request retry timeout period.
+	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
 	// and app_key won't be checked.

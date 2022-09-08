@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewMetricMetadata(ctx, "requestTime", &datadog.MetricMetadataArgs{
-// 			Description: pulumi.String("99th percentile request time in millseconds"),
-// 			Metric:      pulumi.String("request.time"),
-// 			ShortName:   pulumi.String("Request time"),
-// 			Type:        pulumi.String("gauge"),
-// 			Unit:        pulumi.String("millisecond"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMetricMetadata(ctx, "requestTime", &datadog.MetricMetadataArgs{
+//				Description: pulumi.String("99th percentile request time in millseconds"),
+//				Metric:      pulumi.String("request.time"),
+//				ShortName:   pulumi.String("Request time"),
+//				Type:        pulumi.String("gauge"),
+//				Unit:        pulumi.String("millisecond"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MetricMetadata struct {
 	pulumi.CustomResourceState
@@ -188,7 +191,7 @@ func (i *MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) 
 // MetricMetadataArrayInput is an input type that accepts MetricMetadataArray and MetricMetadataArrayOutput values.
 // You can construct a concrete instance of `MetricMetadataArrayInput` via:
 //
-//          MetricMetadataArray{ MetricMetadataArgs{...} }
+//	MetricMetadataArray{ MetricMetadataArgs{...} }
 type MetricMetadataArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +216,7 @@ func (i MetricMetadataArray) ToMetricMetadataArrayOutputWithContext(ctx context.
 // MetricMetadataMapInput is an input type that accepts MetricMetadataMap and MetricMetadataMapOutput values.
 // You can construct a concrete instance of `MetricMetadataMapInput` via:
 //
-//          MetricMetadataMap{ "key": MetricMetadataArgs{...} }
+//	MetricMetadataMap{ "key": MetricMetadataArgs{...} }
 type MetricMetadataMapInput interface {
 	pulumi.Input
 

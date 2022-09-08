@@ -18,37 +18,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
-// 			AccountId: pulumi.String("1234567890"),
-// 			AccountSpecificNamespaceRules: pulumi.AnyMap{
-// 				"auto_scaling": pulumi.Any(false),
-// 				"opsworks":     pulumi.Any(false),
-// 			},
-// 			ExcludedRegions: pulumi.StringArray{
-// 				pulumi.String("us-east-1"),
-// 				pulumi.String("us-west-2"),
-// 			},
-// 			FilterTags: pulumi.StringArray{
-// 				pulumi.String("key:value"),
-// 			},
-// 			HostTags: pulumi.StringArray{
-// 				pulumi.String("key:value"),
-// 				pulumi.String("key2:value2"),
-// 			},
-// 			RoleName: pulumi.String("DatadogAWSIntegrationRole"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
+//				AccountId: pulumi.String("1234567890"),
+//				AccountSpecificNamespaceRules: pulumi.AnyMap{
+//					"auto_scaling": pulumi.Any(false),
+//					"opsworks":     pulumi.Any(false),
+//				},
+//				ExcludedRegions: pulumi.StringArray{
+//					pulumi.String("us-east-1"),
+//					pulumi.String("us-west-2"),
+//				},
+//				FilterTags: pulumi.StringArray{
+//					pulumi.String("key:value"),
+//				},
+//				HostTags: pulumi.StringArray{
+//					pulumi.String("key:value"),
+//					pulumi.String("key2:value2"),
+//				},
+//				RoleName: pulumi.String("DatadogAWSIntegrationRole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
 //
 // ```sh
-//  $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+//
+//	$ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+//
 // ```
 type Integration struct {
 	pulumi.CustomResourceState
@@ -283,7 +288,7 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
 // You can construct a concrete instance of `IntegrationArrayInput` via:
 //
-//          IntegrationArray{ IntegrationArgs{...} }
+//	IntegrationArray{ IntegrationArgs{...} }
 type IntegrationArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +313,7 @@ func (i IntegrationArray) ToIntegrationArrayOutputWithContext(ctx context.Contex
 // IntegrationMapInput is an input type that accepts IntegrationMap and IntegrationMapOutput values.
 // You can construct a concrete instance of `IntegrationMapInput` via:
 //
-//          IntegrationMap{ "key": IntegrationArgs{...} }
+//	IntegrationMap{ "key": IntegrationArgs{...} }
 type IntegrationMapInput interface {
 	pulumi.Input
 

@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		roRole, err := datadog.LookupRole(ctx, &GetRoleArgs{
-// 			Filter: "Datadog Read Only Role",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewAuthnMapping(ctx, "devRoRoleMapping", &datadog.AuthnMappingArgs{
-// 			Key:   pulumi.String("Member-of"),
-// 			Value: pulumi.String("Development"),
-// 			Role:  pulumi.String(roRole.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			roRole, err := datadog.LookupRole(ctx, &GetRoleArgs{
+//				Filter: "Datadog Read Only Role",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewAuthnMapping(ctx, "devRoRoleMapping", &datadog.AuthnMappingArgs{
+//				Key:   pulumi.String("Member-of"),
+//				Value: pulumi.String("Development"),
+//				Role:  pulumi.String(roRole.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // # AuthN mappings can be imported using their ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
+//
 // ```
 type AuthnMapping struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *AuthnMapping) ToAuthnMappingOutputWithContext(ctx context.Context) Auth
 // AuthnMappingArrayInput is an input type that accepts AuthnMappingArray and AuthnMappingArrayOutput values.
 // You can construct a concrete instance of `AuthnMappingArrayInput` via:
 //
-//          AuthnMappingArray{ AuthnMappingArgs{...} }
+//	AuthnMappingArray{ AuthnMappingArgs{...} }
 type AuthnMappingArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i AuthnMappingArray) ToAuthnMappingArrayOutputWithContext(ctx context.Cont
 // AuthnMappingMapInput is an input type that accepts AuthnMappingMap and AuthnMappingMapOutput values.
 // You can construct a concrete instance of `AuthnMappingMapInput` via:
 //
-//          AuthnMappingMap{ "key": AuthnMappingArgs{...} }
+//	AuthnMappingMap{ "key": AuthnMappingArgs{...} }
 type AuthnMappingMapInput interface {
 	pulumi.Input
 
