@@ -19,27 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewApplicationKey(ctx, "foo", &datadog.ApplicationKeyArgs{
-// 			Name: pulumi.String("foo-application"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewApplicationKey(ctx, "foo", &datadog.ApplicationKeyArgs{
+//				Name: pulumi.String("foo-application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
+//
+//	$ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
+//
 // ```
 type ApplicationKey struct {
 	pulumi.CustomResourceState
@@ -136,7 +141,7 @@ func (i *ApplicationKey) ToApplicationKeyOutputWithContext(ctx context.Context) 
 // ApplicationKeyArrayInput is an input type that accepts ApplicationKeyArray and ApplicationKeyArrayOutput values.
 // You can construct a concrete instance of `ApplicationKeyArrayInput` via:
 //
-//          ApplicationKeyArray{ ApplicationKeyArgs{...} }
+//	ApplicationKeyArray{ ApplicationKeyArgs{...} }
 type ApplicationKeyArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +166,7 @@ func (i ApplicationKeyArray) ToApplicationKeyArrayOutputWithContext(ctx context.
 // ApplicationKeyMapInput is an input type that accepts ApplicationKeyMap and ApplicationKeyMapOutput values.
 // You can construct a concrete instance of `ApplicationKeyMapInput` via:
 //
-//          ApplicationKeyMap{ "key": ApplicationKeyArgs{...} }
+//	ApplicationKeyMap{ "key": ApplicationKeyArgs{...} }
 type ApplicationKeyMapInput interface {
 	pulumi.Input
 

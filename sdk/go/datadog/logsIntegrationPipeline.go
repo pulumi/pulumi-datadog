@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsIntegrationPipeline(ctx, "python", &datadog.LogsIntegrationPipelineArgs{
-// 			IsEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsIntegrationPipeline(ctx, "python", &datadog.LogsIntegrationPipelineArgs{
+//				IsEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // # To find the pipeline ID, click the "view" button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
 //
 // ```sh
-//  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
+//
+//	$ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
+//
 // ```
 type LogsIntegrationPipeline struct {
 	pulumi.CustomResourceState
@@ -128,7 +133,7 @@ func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutputWithContext(ctx
 // LogsIntegrationPipelineArrayInput is an input type that accepts LogsIntegrationPipelineArray and LogsIntegrationPipelineArrayOutput values.
 // You can construct a concrete instance of `LogsIntegrationPipelineArrayInput` via:
 //
-//          LogsIntegrationPipelineArray{ LogsIntegrationPipelineArgs{...} }
+//	LogsIntegrationPipelineArray{ LogsIntegrationPipelineArgs{...} }
 type LogsIntegrationPipelineArrayInput interface {
 	pulumi.Input
 
@@ -153,7 +158,7 @@ func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutputWithCo
 // LogsIntegrationPipelineMapInput is an input type that accepts LogsIntegrationPipelineMap and LogsIntegrationPipelineMapOutput values.
 // You can construct a concrete instance of `LogsIntegrationPipelineMapInput` via:
 //
-//          LogsIntegrationPipelineMap{ "key": LogsIntegrationPipelineArgs{...} }
+//	LogsIntegrationPipelineMap{ "key": LogsIntegrationPipelineArgs{...} }
 type LogsIntegrationPipelineMapInput interface {
 	pulumi.Input
 

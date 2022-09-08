@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsGlobalVariable(ctx, "testVariable", &datadog.SyntheticsGlobalVariableArgs{
-// 			Description: pulumi.String("Description of the variable"),
-// 			Name:        pulumi.String("EXAMPLE_VARIABLE"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Value: pulumi.String("variable-value"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "testVariable", &datadog.SyntheticsGlobalVariableArgs{
+//				Description: pulumi.String("Description of the variable"),
+//				Name:        pulumi.String("EXAMPLE_VARIABLE"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("env:test"),
+//				},
+//				Value: pulumi.String("variable-value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // # Synthetics global variables can be imported using their string ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+//
+//	$ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+//
 // ```
 type SyntheticsGlobalVariable struct {
 	pulumi.CustomResourceState
@@ -211,7 +216,7 @@ func (i *SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutputWithContext(c
 // SyntheticsGlobalVariableArrayInput is an input type that accepts SyntheticsGlobalVariableArray and SyntheticsGlobalVariableArrayOutput values.
 // You can construct a concrete instance of `SyntheticsGlobalVariableArrayInput` via:
 //
-//          SyntheticsGlobalVariableArray{ SyntheticsGlobalVariableArgs{...} }
+//	SyntheticsGlobalVariableArray{ SyntheticsGlobalVariableArgs{...} }
 type SyntheticsGlobalVariableArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +241,7 @@ func (i SyntheticsGlobalVariableArray) ToSyntheticsGlobalVariableArrayOutputWith
 // SyntheticsGlobalVariableMapInput is an input type that accepts SyntheticsGlobalVariableMap and SyntheticsGlobalVariableMapOutput values.
 // You can construct a concrete instance of `SyntheticsGlobalVariableMapInput` via:
 //
-//          SyntheticsGlobalVariableMap{ "key": SyntheticsGlobalVariableArgs{...} }
+//	SyntheticsGlobalVariableMap{ "key": SyntheticsGlobalVariableArgs{...} }
 type SyntheticsGlobalVariableMapInput interface {
 	pulumi.Input
 

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewChildOrganization(ctx, "organization", &datadog.ChildOrganizationArgs{
-// 			Name: pulumi.String("foo-organization"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewChildOrganization(ctx, "organization", &datadog.ChildOrganizationArgs{
+//				Name: pulumi.String("foo-organization"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ChildOrganization struct {
 	pulumi.CustomResourceState
@@ -160,7 +163,7 @@ func (i *ChildOrganization) ToChildOrganizationOutputWithContext(ctx context.Con
 // ChildOrganizationArrayInput is an input type that accepts ChildOrganizationArray and ChildOrganizationArrayOutput values.
 // You can construct a concrete instance of `ChildOrganizationArrayInput` via:
 //
-//          ChildOrganizationArray{ ChildOrganizationArgs{...} }
+//	ChildOrganizationArray{ ChildOrganizationArgs{...} }
 type ChildOrganizationArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +188,7 @@ func (i ChildOrganizationArray) ToChildOrganizationArrayOutputWithContext(ctx co
 // ChildOrganizationMapInput is an input type that accepts ChildOrganizationMap and ChildOrganizationMapOutput values.
 // You can construct a concrete instance of `ChildOrganizationMapInput` via:
 //
-//          ChildOrganizationMap{ "key": ChildOrganizationArgs{...} }
+//	ChildOrganizationMap{ "key": ChildOrganizationArgs{...} }
 type ChildOrganizationMapInput interface {
 	pulumi.Input
 

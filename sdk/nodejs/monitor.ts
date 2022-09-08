@@ -88,6 +88,12 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
+     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+     * and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+     * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     */
+    public readonly groupRetentionDuration!: pulumi.Output<string | undefined>;
+    /**
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
      * `false`.
      */
@@ -149,6 +155,15 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
     /**
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+     * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+     * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+     * `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     */
+    public readonly onMissingData!: pulumi.Output<string | undefined>;
+    /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
@@ -208,6 +223,7 @@ export class Monitor extends pulumi.CustomResource {
      * If set to `false`, skip the validation call done during plan.
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
+    public readonly variables!: pulumi.Output<outputs.MonitorVariables | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -226,6 +242,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["escalationMessage"] = state ? state.escalationMessage : undefined;
             resourceInputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["groupRetentionDuration"] = state ? state.groupRetentionDuration : undefined;
             resourceInputs["groupbySimpleMonitor"] = state ? state.groupbySimpleMonitor : undefined;
             resourceInputs["includeTags"] = state ? state.includeTags : undefined;
             resourceInputs["locked"] = state ? state.locked : undefined;
@@ -238,6 +255,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
             resourceInputs["notifyAudit"] = state ? state.notifyAudit : undefined;
             resourceInputs["notifyNoData"] = state ? state.notifyNoData : undefined;
+            resourceInputs["onMissingData"] = state ? state.onMissingData : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
             resourceInputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
@@ -249,6 +267,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["timeoutH"] = state ? state.timeoutH : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
             if ((!args || args.message === undefined) && !opts.urn) {
@@ -267,6 +286,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["escalationMessage"] = args ? args.escalationMessage : undefined;
             resourceInputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["groupRetentionDuration"] = args ? args.groupRetentionDuration : undefined;
             resourceInputs["groupbySimpleMonitor"] = args ? args.groupbySimpleMonitor : undefined;
             resourceInputs["includeTags"] = args ? args.includeTags : undefined;
             resourceInputs["locked"] = args ? args.locked : undefined;
@@ -279,6 +299,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
             resourceInputs["notifyAudit"] = args ? args.notifyAudit : undefined;
             resourceInputs["notifyNoData"] = args ? args.notifyNoData : undefined;
+            resourceInputs["onMissingData"] = args ? args.onMissingData : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
@@ -290,6 +311,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["timeoutH"] = args ? args.timeoutH : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
@@ -321,6 +343,12 @@ export interface MonitorState {
      * composite monitor).
      */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+     * and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+     * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     */
+    groupRetentionDuration?: pulumi.Input<string>;
     /**
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
      * `false`.
@@ -383,6 +411,15 @@ export interface MonitorState {
      */
     notifyNoData?: pulumi.Input<boolean>;
     /**
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+     * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+     * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+     * `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     */
+    onMissingData?: pulumi.Input<string>;
+    /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     priority?: pulumi.Input<number>;
@@ -442,6 +479,7 @@ export interface MonitorState {
      * If set to `false`, skip the validation call done during plan.
      */
     validate?: pulumi.Input<boolean>;
+    variables?: pulumi.Input<inputs.MonitorVariables>;
 }
 
 /**
@@ -469,6 +507,12 @@ export interface MonitorArgs {
      * composite monitor).
      */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+     * and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+     * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     */
+    groupRetentionDuration?: pulumi.Input<string>;
     /**
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
      * `false`.
@@ -531,6 +575,15 @@ export interface MonitorArgs {
      */
     notifyNoData?: pulumi.Input<boolean>;
     /**
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+     * in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+     * evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+     * `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+     * available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+     * `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     */
+    onMissingData?: pulumi.Input<string>;
+    /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     priority?: pulumi.Input<number>;
@@ -590,4 +643,5 @@ export interface MonitorArgs {
      * If set to `false`, skip the validation call done during plan.
      */
     validate?: pulumi.Input<boolean>;
+    variables?: pulumi.Input<inputs.MonitorVariables>;
 }

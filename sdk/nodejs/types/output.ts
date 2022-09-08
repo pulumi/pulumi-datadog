@@ -2152,6 +2152,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     hideZeroCounts?: boolean;
     query: string;
     showLastTriggered?: boolean;
+    showPriority?: boolean;
     sort?: string;
     summaryType?: string;
     title?: string;
@@ -5040,6 +5041,7 @@ export interface DashboardWidgetManageStatusDefinition {
     hideZeroCounts?: boolean;
     query: string;
     showLastTriggered?: boolean;
+    showPriority?: boolean;
     sort?: string;
     summaryType?: string;
     title?: string;
@@ -7496,7 +7498,7 @@ export interface GetSecurityMonitoringRulesRuleQuery {
     distinctFields?: string[];
     groupByFields?: string[];
     metric?: string;
-    metrics?: string[];
+    metrics: string[];
     name?: string;
     query: string;
 }
@@ -7870,6 +7872,41 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: string;
 }
 
+export interface MonitorVariables {
+    eventQueries?: outputs.MonitorVariablesEventQuery[];
+}
+
+export interface MonitorVariablesEventQuery {
+    computes: outputs.MonitorVariablesEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.MonitorVariablesEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.MonitorVariablesEventQuerySearch;
+}
+
+export interface MonitorVariablesEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface MonitorVariablesEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.MonitorVariablesEventQueryGroupBySort;
+}
+
+export interface MonitorVariablesEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface MonitorVariablesEventQuerySearch {
+    query: string;
+}
+
 export interface OrganizationSettingsSettings {
     privateWidgetShare?: boolean;
     saml: outputs.OrganizationSettingsSettingsSaml;
@@ -7966,7 +8003,7 @@ export interface SecurityMonitoringRuleQuery {
     distinctFields?: string[];
     groupByFields?: string[];
     metric?: string;
-    metrics?: string[];
+    metrics: string[];
     name?: string;
     query: string;
 }
@@ -8266,6 +8303,7 @@ export interface SyntheticsTestRequestProxy {
     headers?: {[key: string]: any};
     url: string;
 }
+
 export namespace slack {
     export interface ChannelDisplay {
         message?: boolean;

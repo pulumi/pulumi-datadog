@@ -17,56 +17,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
-// 			DailyLimit: pulumi.Int(200000),
-// 			ExclusionFilters: LogsIndexExclusionFilterArray{
-// 				&LogsIndexExclusionFilterArgs{
-// 					Filters: LogsIndexExclusionFilterFilterArray{
-// 						&LogsIndexExclusionFilterFilterArgs{
-// 							Query:      pulumi.String("app:coredns"),
-// 							SampleRate: pulumi.Float64(0.97),
-// 						},
-// 					},
-// 					IsEnabled: pulumi.Bool(true),
-// 					Name:      pulumi.String("Filter coredns logs"),
-// 				},
-// 				&LogsIndexExclusionFilterArgs{
-// 					Filters: LogsIndexExclusionFilterFilterArray{
-// 						&LogsIndexExclusionFilterFilterArgs{
-// 							Query:      pulumi.String("service:kube_apiserver"),
-// 							SampleRate: pulumi.Float64(1),
-// 						},
-// 					},
-// 					IsEnabled: pulumi.Bool(true),
-// 					Name:      pulumi.String("Kubernetes apiserver"),
-// 				},
-// 			},
-// 			Filters: LogsIndexFilterArray{
-// 				&LogsIndexFilterArgs{
-// 					Query: pulumi.String("*"),
-// 				},
-// 			},
-// 			Name:          pulumi.String("your index"),
-// 			RetentionDays: pulumi.Int(7),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
+//				DailyLimit: pulumi.Int(200000),
+//				ExclusionFilters: LogsIndexExclusionFilterArray{
+//					&LogsIndexExclusionFilterArgs{
+//						Filters: LogsIndexExclusionFilterFilterArray{
+//							&LogsIndexExclusionFilterFilterArgs{
+//								Query:      pulumi.String("app:coredns"),
+//								SampleRate: pulumi.Float64(0.97),
+//							},
+//						},
+//						IsEnabled: pulumi.Bool(true),
+//						Name:      pulumi.String("Filter coredns logs"),
+//					},
+//					&LogsIndexExclusionFilterArgs{
+//						Filters: LogsIndexExclusionFilterFilterArray{
+//							&LogsIndexExclusionFilterFilterArgs{
+//								Query:      pulumi.String("service:kube_apiserver"),
+//								SampleRate: pulumi.Float64(1),
+//							},
+//						},
+//						IsEnabled: pulumi.Bool(true),
+//						Name:      pulumi.String("Kubernetes apiserver"),
+//					},
+//				},
+//				Filters: LogsIndexFilterArray{
+//					&LogsIndexFilterArgs{
+//						Query: pulumi.String("*"),
+//					},
+//				},
+//				Name:          pulumi.String("your index"),
+//				RetentionDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
+//
+//	$ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
+//
 // ```
 type LogsIndex struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *LogsIndex) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexO
 // LogsIndexArrayInput is an input type that accepts LogsIndexArray and LogsIndexArrayOutput values.
 // You can construct a concrete instance of `LogsIndexArrayInput` via:
 //
-//          LogsIndexArray{ LogsIndexArgs{...} }
+//	LogsIndexArray{ LogsIndexArgs{...} }
 type LogsIndexArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i LogsIndexArray) ToLogsIndexArrayOutputWithContext(ctx context.Context) L
 // LogsIndexMapInput is an input type that accepts LogsIndexMap and LogsIndexMapOutput values.
 // You can construct a concrete instance of `LogsIndexMapInput` via:
 //
-//          LogsIndexMap{ "key": LogsIndexArgs{...} }
+//	LogsIndexMap{ "key": LogsIndexArgs{...} }
 type LogsIndexMapInput interface {
 	pulumi.Input
 

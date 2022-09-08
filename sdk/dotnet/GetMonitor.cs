@@ -138,6 +138,7 @@ namespace Pulumi.Datadog
         public readonly bool EnableLogsSample;
         public readonly string EscalationMessage;
         public readonly int EvaluationDelay;
+        public readonly string GroupRetentionDuration;
         public readonly bool GroupbySimpleMonitor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -156,6 +157,7 @@ namespace Pulumi.Datadog
         public readonly int NoDataTimeframe;
         public readonly bool NotifyAudit;
         public readonly bool NotifyNoData;
+        public readonly string OnMissingData;
         public readonly string Query;
         public readonly int RenotifyInterval;
         public readonly int RenotifyOccurrences;
@@ -174,6 +176,8 @@ namespace Pulumi.Datadog
             string escalationMessage,
 
             int evaluationDelay,
+
+            string groupRetentionDuration,
 
             bool groupbySimpleMonitor,
 
@@ -205,6 +209,8 @@ namespace Pulumi.Datadog
 
             bool notifyNoData,
 
+            string onMissingData,
+
             string query,
 
             int renotifyInterval,
@@ -228,6 +234,7 @@ namespace Pulumi.Datadog
             EnableLogsSample = enableLogsSample;
             EscalationMessage = escalationMessage;
             EvaluationDelay = evaluationDelay;
+            GroupRetentionDuration = groupRetentionDuration;
             GroupbySimpleMonitor = groupbySimpleMonitor;
             Id = id;
             IncludeTags = includeTags;
@@ -243,6 +250,7 @@ namespace Pulumi.Datadog
             NoDataTimeframe = noDataTimeframe;
             NotifyAudit = notifyAudit;
             NotifyNoData = notifyNoData;
+            OnMissingData = onMissingData;
             Query = query;
             RenotifyInterval = renotifyInterval;
             RenotifyOccurrences = renotifyOccurrences;

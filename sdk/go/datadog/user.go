@@ -19,36 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		roRole, err := datadog.LookupRole(ctx, &GetRoleArgs{
-// 			Filter: "Datadog Read Only Role",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
-// 			Email: pulumi.String("new@example.com"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String(roRole.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			roRole, err := datadog.LookupRole(ctx, &GetRoleArgs{
+//				Filter: "Datadog Read Only Role",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
+//				Email: pulumi.String("new@example.com"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String(roRole.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+//
+//	$ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

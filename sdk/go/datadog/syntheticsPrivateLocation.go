@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsPrivateLocation(ctx, "privateLocation", &datadog.SyntheticsPrivateLocationArgs{
-// 			Description: pulumi.String("Description of the private location"),
-// 			Name:        pulumi.String("First private location"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("env:test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSyntheticsPrivateLocation(ctx, "privateLocation", &datadog.SyntheticsPrivateLocationArgs{
+//				Description: pulumi.String("Description of the private location"),
+//				Name:        pulumi.String("First private location"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("env:test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // # Synthetics private locations can be imported using their string ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
+//
+//	$ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
+//
 // ```
 type SyntheticsPrivateLocation struct {
 	pulumi.CustomResourceState
@@ -176,7 +181,7 @@ func (i *SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutputWithContext
 // SyntheticsPrivateLocationArrayInput is an input type that accepts SyntheticsPrivateLocationArray and SyntheticsPrivateLocationArrayOutput values.
 // You can construct a concrete instance of `SyntheticsPrivateLocationArrayInput` via:
 //
-//          SyntheticsPrivateLocationArray{ SyntheticsPrivateLocationArgs{...} }
+//	SyntheticsPrivateLocationArray{ SyntheticsPrivateLocationArgs{...} }
 type SyntheticsPrivateLocationArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +206,7 @@ func (i SyntheticsPrivateLocationArray) ToSyntheticsPrivateLocationArrayOutputWi
 // SyntheticsPrivateLocationMapInput is an input type that accepts SyntheticsPrivateLocationMap and SyntheticsPrivateLocationMapOutput values.
 // You can construct a concrete instance of `SyntheticsPrivateLocationMapInput` via:
 //
-//          SyntheticsPrivateLocationMap{ "key": SyntheticsPrivateLocationArgs{...} }
+//	SyntheticsPrivateLocationMap{ "key": SyntheticsPrivateLocationArgs{...} }
 type SyntheticsPrivateLocationMapInput interface {
 	pulumi.Input
 

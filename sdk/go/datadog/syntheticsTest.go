@@ -24,14 +24,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // to
@@ -40,14 +43,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // which you can now use in your request definition:
@@ -55,14 +61,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Example Usage
@@ -71,266 +80,269 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
-// 			Assertions: SyntheticsTestAssertionArray{
-// 				&SyntheticsTestAssertionArgs{
-// 					Operator: pulumi.String("is"),
-// 					Target:   pulumi.String("200"),
-// 					Type:     pulumi.String("statusCode"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				MonitorOptions: &SyntheticsTestOptionsListMonitorOptionsArgs{
-// 					RenotifyInterval: pulumi.Int(120),
-// 				},
-// 				Retry: &SyntheticsTestOptionsListRetryArgs{
-// 					Count:    pulumi.Int(2),
-// 					Interval: pulumi.Int(300),
-// 				},
-// 				TickEvery: pulumi.Int(900),
-// 			},
-// 			RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
-// 				Method: pulumi.String("GET"),
-// 				Url:    pulumi.String("https://www.example.org"),
-// 			},
-// 			RequestHeaders: pulumi.AnyMap{
-// 				"Authentication": pulumi.Any("Token: 1234566789"),
-// 				"Content-Type":   pulumi.Any("application/json"),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("http"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
-// 			Assertions: SyntheticsTestAssertionArray{
-// 				&SyntheticsTestAssertionArgs{
-// 					Operator: pulumi.String("isInMoreThan"),
-// 					Target:   pulumi.String("30"),
-// 					Type:     pulumi.String("certificate"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				AcceptSelfSigned: pulumi.Bool(true),
-// 				TickEvery:        pulumi.Int(900),
-// 			},
-// 			RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
-// 				Host: pulumi.String("example.org"),
-// 				Port: pulumi.Int(443),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("ssl"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
-// 			Assertions: SyntheticsTestAssertionArray{
-// 				&SyntheticsTestAssertionArgs{
-// 					Operator: pulumi.String("lessThan"),
-// 					Target:   pulumi.String("2000"),
-// 					Type:     pulumi.String("responseTime"),
-// 				},
-// 			},
-// 			ConfigVariables: SyntheticsTestConfigVariableArray{
-// 				&SyntheticsTestConfigVariableArgs{
-// 					Id:   pulumi.String("76636cd1-82e2-4aeb-9cfe-51366a8198a2"),
-// 					Name: pulumi.String("MY_GLOBAL_VAR"),
-// 					Type: pulumi.String("global"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				TickEvery: pulumi.Int(900),
-// 			},
-// 			RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
-// 				Host: pulumi.String("example.org"),
-// 				Port: pulumi.Int(443),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("tcp"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSyntheticsTest(ctx, "testDns", &datadog.SyntheticsTestArgs{
-// 			Assertions: SyntheticsTestAssertionArray{
-// 				&SyntheticsTestAssertionArgs{
-// 					Operator: pulumi.String("is"),
-// 					Property: pulumi.String("A"),
-// 					Target:   pulumi.String("0.0.0.0"),
-// 					Type:     pulumi.String("recordSome"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				TickEvery: pulumi.Int(900),
-// 			},
-// 			RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
-// 				Host: pulumi.String("example.org"),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("dns"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSyntheticsTest(ctx, "test", &datadog.SyntheticsTestArgs{
-// 			ApiSteps: SyntheticsTestApiStepArray{
-// 				&SyntheticsTestApiStepArgs{
-// 					Assertions: SyntheticsTestApiStepAssertionArray{
-// 						&SyntheticsTestApiStepAssertionArgs{
-// 							Operator: pulumi.String("is"),
-// 							Target:   pulumi.String("200"),
-// 							Type:     pulumi.String("statusCode"),
-// 						},
-// 					},
-// 					Name: pulumi.String("An API test on example.org"),
-// 					RequestDefinition: &SyntheticsTestApiStepRequestDefinitionArgs{
-// 						Method: pulumi.String("GET"),
-// 						Url:    pulumi.String("https://example.org"),
-// 					},
-// 					RequestHeaders: pulumi.AnyMap{
-// 						"Authentication": pulumi.Any("Token: 1234566789"),
-// 						"Content-Type":   pulumi.Any("application/json"),
-// 					},
-// 					Subtype: pulumi.String("http"),
-// 				},
-// 				&SyntheticsTestApiStepArgs{
-// 					Assertions: SyntheticsTestApiStepAssertionArray{
-// 						&SyntheticsTestApiStepAssertionArgs{
-// 							Operator: pulumi.String("is"),
-// 							Target:   pulumi.String("200"),
-// 							Type:     pulumi.String("statusCode"),
-// 						},
-// 					},
-// 					Name: pulumi.String("An API test on example.org"),
-// 					RequestDefinition: &SyntheticsTestApiStepRequestDefinitionArgs{
-// 						Method: pulumi.String("GET"),
-// 						Url:    pulumi.String("http://example.org"),
-// 					},
-// 					Subtype: pulumi.String("http"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Name: pulumi.String("Multistep API test"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				AcceptSelfSigned: pulumi.Bool(true),
-// 				TickEvery:        pulumi.Int(900),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("multi"),
-// 			Type:    pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSyntheticsTest(ctx, "testBrowser", &datadog.SyntheticsTestArgs{
-// 			BrowserSteps: SyntheticsTestBrowserStepArray{
-// 				&SyntheticsTestBrowserStepArgs{
-// 					Name: pulumi.String("Check current url"),
-// 					Params: &SyntheticsTestBrowserStepParamsArgs{
-// 						Check: pulumi.String("contains"),
-// 						Value: pulumi.String("datadoghq"),
-// 					},
-// 					Type: pulumi.String("assertCurrentUrl"),
-// 				},
-// 			},
-// 			BrowserVariables: SyntheticsTestBrowserVariableArray{
-// 				&SyntheticsTestBrowserVariableArgs{
-// 					Example: pulumi.String("597"),
-// 					Name:    pulumi.String("MY_PATTERN_VAR"),
-// 					Pattern: pulumi.String("{{numeric(3)}}"),
-// 					Type:    pulumi.String("text"),
-// 				},
-// 				&SyntheticsTestBrowserVariableArgs{
-// 					Example: pulumi.String("jd8-afe-ydv.4546132139@synthetics.dtdg.co"),
-// 					Name:    pulumi.String("MY_EMAIL_VAR"),
-// 					Pattern: pulumi.String("jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co"),
-// 					Type:    pulumi.String("email"),
-// 				},
-// 				&SyntheticsTestBrowserVariableArgs{
-// 					Id:   pulumi.String("76636cd1-82e2-4aeb-9cfe-51366a8198a2"),
-// 					Name: pulumi.String("MY_GLOBAL_VAR"),
-// 					Type: pulumi.String("global"),
-// 				},
-// 			},
-// 			DeviceIds: pulumi.StringArray{
-// 				pulumi.String("laptop_large"),
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @qa"),
-// 			Name:    pulumi.String("A Browser test on example.org"),
-// 			OptionsList: &SyntheticsTestOptionsListArgs{
-// 				TickEvery: pulumi.Int(3600),
-// 			},
-// 			RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
-// 				Method: pulumi.String("GET"),
-// 				Url:    pulumi.String("https://app.datadoghq.com"),
-// 			},
-// 			Status: pulumi.String("paused"),
-// 			Tags:   pulumi.StringArray{},
-// 			Type:   pulumi.String("browser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+//				Assertions: SyntheticsTestAssertionArray{
+//					&SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("200"),
+//						Type:     pulumi.String("statusCode"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Name:    pulumi.String("An API test on example.org"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					MonitorOptions: &SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//					Retry: &SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					TickEvery: pulumi.Int(900),
+//				},
+//				RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
+//					Method: pulumi.String("GET"),
+//					Url:    pulumi.String("https://www.example.org"),
+//				},
+//				RequestHeaders: pulumi.AnyMap{
+//					"Authentication": pulumi.Any("Token: 1234566789"),
+//					"Content-Type":   pulumi.Any("application/json"),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("http"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
+//				Assertions: SyntheticsTestAssertionArray{
+//					&SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("isInMoreThan"),
+//						Target:   pulumi.String("30"),
+//						Type:     pulumi.String("certificate"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Name:    pulumi.String("An API test on example.org"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					AcceptSelfSigned: pulumi.Bool(true),
+//					TickEvery:        pulumi.Int(900),
+//				},
+//				RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
+//					Host: pulumi.String("example.org"),
+//					Port: pulumi.Int(443),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("ssl"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
+//				Assertions: SyntheticsTestAssertionArray{
+//					&SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("2000"),
+//						Type:     pulumi.String("responseTime"),
+//					},
+//				},
+//				ConfigVariables: SyntheticsTestConfigVariableArray{
+//					&SyntheticsTestConfigVariableArgs{
+//						Id:   pulumi.String("76636cd1-82e2-4aeb-9cfe-51366a8198a2"),
+//						Name: pulumi.String("MY_GLOBAL_VAR"),
+//						Type: pulumi.String("global"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Name:    pulumi.String("An API test on example.org"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//				},
+//				RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
+//					Host: pulumi.String("example.org"),
+//					Port: pulumi.Int(443),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("tcp"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "testDns", &datadog.SyntheticsTestArgs{
+//				Assertions: SyntheticsTestAssertionArray{
+//					&SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Property: pulumi.String("A"),
+//						Target:   pulumi.String("0.0.0.0"),
+//						Type:     pulumi.String("recordSome"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Name:    pulumi.String("An API test on example.org"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//				},
+//				RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
+//					Host: pulumi.String("example.org"),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("dns"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "test", &datadog.SyntheticsTestArgs{
+//				ApiSteps: SyntheticsTestApiStepArray{
+//					&SyntheticsTestApiStepArgs{
+//						Assertions: SyntheticsTestApiStepAssertionArray{
+//							&SyntheticsTestApiStepAssertionArgs{
+//								Operator: pulumi.String("is"),
+//								Target:   pulumi.String("200"),
+//								Type:     pulumi.String("statusCode"),
+//							},
+//						},
+//						Name: pulumi.String("An API test on example.org"),
+//						RequestDefinition: &SyntheticsTestApiStepRequestDefinitionArgs{
+//							Method: pulumi.String("GET"),
+//							Url:    pulumi.String("https://example.org"),
+//						},
+//						RequestHeaders: pulumi.AnyMap{
+//							"Authentication": pulumi.Any("Token: 1234566789"),
+//							"Content-Type":   pulumi.Any("application/json"),
+//						},
+//						Subtype: pulumi.String("http"),
+//					},
+//					&SyntheticsTestApiStepArgs{
+//						Assertions: SyntheticsTestApiStepAssertionArray{
+//							&SyntheticsTestApiStepAssertionArgs{
+//								Operator: pulumi.String("is"),
+//								Target:   pulumi.String("200"),
+//								Type:     pulumi.String("statusCode"),
+//							},
+//						},
+//						Name: pulumi.String("An API test on example.org"),
+//						RequestDefinition: &SyntheticsTestApiStepRequestDefinitionArgs{
+//							Method: pulumi.String("GET"),
+//							Url:    pulumi.String("http://example.org"),
+//						},
+//						Subtype: pulumi.String("http"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Name: pulumi.String("Multistep API test"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					AcceptSelfSigned: pulumi.Bool(true),
+//					TickEvery:        pulumi.Int(900),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("multi"),
+//				Type:    pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "testBrowser", &datadog.SyntheticsTestArgs{
+//				BrowserSteps: SyntheticsTestBrowserStepArray{
+//					&SyntheticsTestBrowserStepArgs{
+//						Name: pulumi.String("Check current url"),
+//						Params: &SyntheticsTestBrowserStepParamsArgs{
+//							Check: pulumi.String("contains"),
+//							Value: pulumi.String("datadoghq"),
+//						},
+//						Type: pulumi.String("assertCurrentUrl"),
+//					},
+//				},
+//				BrowserVariables: SyntheticsTestBrowserVariableArray{
+//					&SyntheticsTestBrowserVariableArgs{
+//						Example: pulumi.String("597"),
+//						Name:    pulumi.String("MY_PATTERN_VAR"),
+//						Pattern: pulumi.String("{{numeric(3)}}"),
+//						Type:    pulumi.String("text"),
+//					},
+//					&SyntheticsTestBrowserVariableArgs{
+//						Example: pulumi.String("jd8-afe-ydv.4546132139@synthetics.dtdg.co"),
+//						Name:    pulumi.String("MY_EMAIL_VAR"),
+//						Pattern: pulumi.String("jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co"),
+//						Type:    pulumi.String("email"),
+//					},
+//					&SyntheticsTestBrowserVariableArgs{
+//						Id:   pulumi.String("76636cd1-82e2-4aeb-9cfe-51366a8198a2"),
+//						Name: pulumi.String("MY_GLOBAL_VAR"),
+//						Type: pulumi.String("global"),
+//					},
+//				},
+//				DeviceIds: pulumi.StringArray{
+//					pulumi.String("laptop_large"),
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @qa"),
+//				Name:    pulumi.String("A Browser test on example.org"),
+//				OptionsList: &SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(3600),
+//				},
+//				RequestDefinition: &SyntheticsTestRequestDefinitionArgs{
+//					Method: pulumi.String("GET"),
+//					Url:    pulumi.String("https://app.datadoghq.com"),
+//				},
+//				Status: pulumi.String("paused"),
+//				Tags:   pulumi.StringArray{},
+//				Type:   pulumi.String("browser"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -338,7 +350,9 @@ import (
 // # Synthetics tests can be imported using their public string ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+//
+//	$ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+//
 // ```
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
@@ -355,9 +369,9 @@ type SyntheticsTest struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayOutput `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [Datadog
-	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-	// `aws:eu-central-1`).
+	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+	// retrieve the list of locations.
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
 	// using the same `@username` notation as events.
@@ -447,9 +461,9 @@ type syntheticsTestState struct {
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds []string `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [Datadog
-	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-	// `aws:eu-central-1`).
+	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+	// retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
 	// using the same `@username` notation as events.
@@ -499,9 +513,9 @@ type SyntheticsTestState struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayInput
-	// Array of locations used to run the test. Refer to [Datadog
-	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-	// `aws:eu-central-1`).
+	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+	// retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
 	// using the same `@username` notation as events.
@@ -555,9 +569,9 @@ type syntheticsTestArgs struct {
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds []string `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [Datadog
-	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-	// `aws:eu-central-1`).
+	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+	// retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
 	// using the same `@username` notation as events.
@@ -606,9 +620,9 @@ type SyntheticsTestArgs struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test.
 	DeviceIds pulumi.StringArrayInput
-	// Array of locations used to run the test. Refer to [Datadog
-	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-	// `aws:eu-central-1`).
+	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+	// retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
 	// using the same `@username` notation as events.
@@ -669,7 +683,7 @@ func (i *SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) 
 // SyntheticsTestArrayInput is an input type that accepts SyntheticsTestArray and SyntheticsTestArrayOutput values.
 // You can construct a concrete instance of `SyntheticsTestArrayInput` via:
 //
-//          SyntheticsTestArray{ SyntheticsTestArgs{...} }
+//	SyntheticsTestArray{ SyntheticsTestArgs{...} }
 type SyntheticsTestArrayInput interface {
 	pulumi.Input
 
@@ -694,7 +708,7 @@ func (i SyntheticsTestArray) ToSyntheticsTestArrayOutputWithContext(ctx context.
 // SyntheticsTestMapInput is an input type that accepts SyntheticsTestMap and SyntheticsTestMapOutput values.
 // You can construct a concrete instance of `SyntheticsTestMapInput` via:
 //
-//          SyntheticsTestMap{ "key": SyntheticsTestArgs{...} }
+//	SyntheticsTestMap{ "key": SyntheticsTestArgs{...} }
 type SyntheticsTestMapInput interface {
 	pulumi.Input
 
@@ -760,9 +774,9 @@ func (o SyntheticsTestOutput) DeviceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.DeviceIds }).(pulumi.StringArrayOutput)
 }
 
-// Array of locations used to run the test. Refer to [Datadog
-// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-// `aws:eu-central-1`).
+// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+// retrieve the list of locations.
 func (o SyntheticsTestOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
 }

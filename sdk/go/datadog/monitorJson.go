@@ -19,29 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewMonitorJson(ctx, "monitorJson", &datadog.MonitorJsonArgs{
-// 			Monitor: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"name\": \"Example monitor - service check\",\n", "    \"type\": \"service check\",\n", "    \"query\": \"\\\"ntp.in_sync\\\".by(\\\"*\\\").last(2).count_by_status()\",\n", "    \"message\": \"Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.\\n\\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.\",\n", "    \"tags\": [],\n", "    \"multi\": true,\n", "	\"restricted_roles\": null,\n", "    \"options\": {\n", "        \"include_tags\": true,\n", "        \"locked\": false,\n", "        \"new_host_delay\": 150,\n", "        \"notify_audit\": false,\n", "        \"notify_no_data\": false,\n", "        \"thresholds\": {\n", "            \"warning\": 1,\n", "            \"ok\": 1,\n", "            \"critical\": 1\n", "        }\n", "    },\n", "    \"priority\": null,\n", "    \"classification\": \"custom\"\n", "}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMonitorJson(ctx, "monitorJson", &datadog.MonitorJsonArgs{
+//				Monitor: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"name\": \"Example monitor - service check\",\n", "    \"type\": \"service check\",\n", "    \"query\": \"\\\"ntp.in_sync\\\".by(\\\"*\\\").last(2).count_by_status()\",\n", "    \"message\": \"Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.\\n\\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.\",\n", "    \"tags\": [],\n", "    \"multi\": true,\n", "	\"restricted_roles\": null,\n", "    \"options\": {\n", "        \"include_tags\": true,\n", "        \"locked\": false,\n", "        \"new_host_delay\": 150,\n", "        \"notify_audit\": false,\n", "        \"notify_no_data\": false,\n", "        \"thresholds\": {\n", "            \"warning\": 1,\n", "            \"ok\": 1,\n", "            \"critical\": 1\n", "        }\n", "    },\n", "    \"priority\": null,\n", "    \"classification\": \"custom\"\n", "}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
+//
+//	$ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
+//
 // ```
 type MonitorJson struct {
 	pulumi.CustomResourceState
@@ -142,7 +147,7 @@ func (i *MonitorJson) ToMonitorJsonOutputWithContext(ctx context.Context) Monito
 // MonitorJsonArrayInput is an input type that accepts MonitorJsonArray and MonitorJsonArrayOutput values.
 // You can construct a concrete instance of `MonitorJsonArrayInput` via:
 //
-//          MonitorJsonArray{ MonitorJsonArgs{...} }
+//	MonitorJsonArray{ MonitorJsonArgs{...} }
 type MonitorJsonArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +172,7 @@ func (i MonitorJsonArray) ToMonitorJsonArrayOutputWithContext(ctx context.Contex
 // MonitorJsonMapInput is an input type that accepts MonitorJsonMap and MonitorJsonMapOutput values.
 // You can construct a concrete instance of `MonitorJsonMapInput` via:
 //
-//          MonitorJsonMap{ "key": MonitorJsonArgs{...} }
+//	MonitorJsonMap{ "key": MonitorJsonArgs{...} }
 type MonitorJsonMapInput interface {
 	pulumi.Input
 

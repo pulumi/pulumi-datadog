@@ -50,6 +50,7 @@ from .monitor_json import *
 from .organization_settings import *
 from .provider import *
 from .role import *
+from .rum_application import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
@@ -322,6 +323,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/role:Role": "Role"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumApplication",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumApplication:RumApplication": "RumApplication"
   }
  },
  {

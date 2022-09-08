@@ -85,6 +85,14 @@ namespace Pulumi.Datadog
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
         /// <summary>
+        /// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        /// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        /// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        /// </summary>
+        [Output("groupRetentionDuration")]
+        public Output<string?> GroupRetentionDuration { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
         /// `false`.
         /// </summary>
@@ -164,6 +172,17 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("notifyNoData")]
         public Output<bool?> NotifyNoData { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        /// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        /// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        /// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        /// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        /// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// </summary>
+        [Output("onMissingData")]
+        public Output<string?> OnMissingData { get; private set; } = null!;
 
         /// <summary>
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
@@ -247,6 +266,9 @@ namespace Pulumi.Datadog
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
 
+        [Output("variables")]
+        public Output<Outputs.MonitorVariables?> Variables { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Monitor resource with the given unique name, arguments, and options.
@@ -321,6 +343,14 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
+
+        /// <summary>
+        /// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        /// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        /// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        /// </summary>
+        [Input("groupRetentionDuration")]
+        public Input<string>? GroupRetentionDuration { get; set; }
 
         /// <summary>
         /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
@@ -402,6 +432,17 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
+
+        /// <summary>
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        /// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        /// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        /// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        /// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        /// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// </summary>
+        [Input("onMissingData")]
+        public Input<string>? OnMissingData { get; set; }
 
         /// <summary>
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
@@ -503,6 +544,9 @@ namespace Pulumi.Datadog
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
 
+        [Input("variables")]
+        public Input<Inputs.MonitorVariablesArgs>? Variables { get; set; }
+
         public MonitorArgs()
         {
         }
@@ -538,6 +582,14 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
+
+        /// <summary>
+        /// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        /// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        /// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        /// </summary>
+        [Input("groupRetentionDuration")]
+        public Input<string>? GroupRetentionDuration { get; set; }
 
         /// <summary>
         /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
@@ -619,6 +671,17 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
+
+        /// <summary>
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        /// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        /// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        /// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        /// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        /// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// </summary>
+        [Input("onMissingData")]
+        public Input<string>? OnMissingData { get; set; }
 
         /// <summary>
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
@@ -719,6 +782,9 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
+
+        [Input("variables")]
+        public Input<Inputs.MonitorVariablesGetArgs>? Variables { get; set; }
 
         public MonitorState()
         {

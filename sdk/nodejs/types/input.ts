@@ -2152,6 +2152,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
     showLastTriggered?: pulumi.Input<boolean>;
+    showPriority?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     summaryType?: pulumi.Input<string>;
     title?: pulumi.Input<string>;
@@ -5040,6 +5041,7 @@ export interface DashboardWidgetManageStatusDefinition {
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
     showLastTriggered?: pulumi.Input<boolean>;
+    showPriority?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     summaryType?: pulumi.Input<string>;
     title?: pulumi.Input<string>;
@@ -7726,6 +7728,41 @@ export interface MonitorMonitorThresholds {
     unknown?: pulumi.Input<string>;
     warning?: pulumi.Input<string>;
     warningRecovery?: pulumi.Input<string>;
+}
+
+export interface MonitorVariables {
+    eventQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQuery>[]>;
+}
+
+export interface MonitorVariablesEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.MonitorVariablesEventQuerySearch>;
+}
+
+export interface MonitorVariablesEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface MonitorVariablesEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.MonitorVariablesEventQueryGroupBySort>;
+}
+
+export interface MonitorVariablesEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface MonitorVariablesEventQuerySearch {
+    query: pulumi.Input<string>;
 }
 
 export interface OrganizationSettingsSettings {

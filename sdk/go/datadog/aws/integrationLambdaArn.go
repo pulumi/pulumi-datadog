@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.NewIntegrationLambdaArn(ctx, "mainCollector", &aws.IntegrationLambdaArnArgs{
-// 			AccountId: pulumi.String("1234567890"),
-// 			LambdaArn: pulumi.String("arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewIntegrationLambdaArn(ctx, "mainCollector", &aws.IntegrationLambdaArnArgs{
+//				AccountId: pulumi.String("1234567890"),
+//				LambdaArn: pulumi.String("arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
 //
 // ```sh
-//  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
+//
+//	$ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
+//
 // ```
 type IntegrationLambdaArn struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx conte
 // IntegrationLambdaArnArrayInput is an input type that accepts IntegrationLambdaArnArray and IntegrationLambdaArnArrayOutput values.
 // You can construct a concrete instance of `IntegrationLambdaArnArrayInput` via:
 //
-//          IntegrationLambdaArnArray{ IntegrationLambdaArnArgs{...} }
+//	IntegrationLambdaArnArray{ IntegrationLambdaArnArgs{...} }
 type IntegrationLambdaArnArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i IntegrationLambdaArnArray) ToIntegrationLambdaArnArrayOutputWithContext(
 // IntegrationLambdaArnMapInput is an input type that accepts IntegrationLambdaArnMap and IntegrationLambdaArnMapOutput values.
 // You can construct a concrete instance of `IntegrationLambdaArnMapInput` via:
 //
-//          IntegrationLambdaArnMap{ "key": IntegrationLambdaArnArgs{...} }
+//	IntegrationLambdaArnMap{ "key": IntegrationLambdaArnArgs{...} }
 type IntegrationLambdaArnMapInput interface {
 	pulumi.Input
 

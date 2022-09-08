@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsPipelineOrder(ctx, "samplePipelineOrder", &datadog.LogsPipelineOrderArgs{
-// 			Name: pulumi.String("sample_pipeline_order"),
-// 			Pipelines: pulumi.StringArray{
-// 				pulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),
-// 				pulumi.Any(datadog_logs_integration_pipeline.Python.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsPipelineOrder(ctx, "samplePipelineOrder", &datadog.LogsPipelineOrderArgs{
+//				Name: pulumi.String("sample_pipeline_order"),
+//				Pipelines: pulumi.StringArray{
+//					pulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),
+//					pulumi.Any(datadog_logs_integration_pipeline.Python.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // # There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
 //
 // ```sh
-//  $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
+//
+//	$ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
+//
 // ```
 type LogsPipelineOrder struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *LogsPipelineOrder) ToLogsPipelineOrderOutputWithContext(ctx context.Con
 // LogsPipelineOrderArrayInput is an input type that accepts LogsPipelineOrderArray and LogsPipelineOrderArrayOutput values.
 // You can construct a concrete instance of `LogsPipelineOrderArrayInput` via:
 //
-//          LogsPipelineOrderArray{ LogsPipelineOrderArgs{...} }
+//	LogsPipelineOrderArray{ LogsPipelineOrderArgs{...} }
 type LogsPipelineOrderArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutputWithContext(ctx co
 // LogsPipelineOrderMapInput is an input type that accepts LogsPipelineOrderMap and LogsPipelineOrderMapOutput values.
 // You can construct a concrete instance of `LogsPipelineOrderMapInput` via:
 //
-//          LogsPipelineOrderMap{ "key": LogsPipelineOrderArgs{...} }
+//	LogsPipelineOrderMap{ "key": LogsPipelineOrderArgs{...} }
 type LogsPipelineOrderMapInput interface {
 	pulumi.Input
 

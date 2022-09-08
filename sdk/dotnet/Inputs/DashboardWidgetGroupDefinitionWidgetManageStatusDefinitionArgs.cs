@@ -27,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("showLastTriggered")]
         public Input<bool>? ShowLastTriggered { get; set; }
 
+        [Input("showPriority")]
+        public Input<bool>? ShowPriority { get; set; }
+
         [Input("sort")]
         public Input<string>? Sort { get; set; }
 

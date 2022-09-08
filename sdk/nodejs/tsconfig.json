@@ -75,6 +75,7 @@
         "pagerduty/serviceObject.ts",
         "provider.ts",
         "role.ts",
+        "rumApplication.ts",
         "securityMonitoringDefaultRule.ts",
         "securityMonitoringFilter.ts",
         "securityMonitoringRule.ts",

@@ -19,40 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
-// 			EscalationMessage: pulumi.String("Escalation message @pagerduty"),
-// 			IncludeTags:       pulumi.Bool(true),
-// 			Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
-// 			MonitorThresholds: &MonitorMonitorThresholdsArgs{
-// 				Critical: pulumi.String("4"),
-// 				Warning:  pulumi.String("2"),
-// 			},
-// 			Name:  pulumi.String("Name for monitor foo"),
-// 			Query: pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("team:fooBar"),
-// 			},
-// 			Type: pulumi.String("metric alert"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
+//				EscalationMessage: pulumi.String("Escalation message @pagerduty"),
+//				IncludeTags:       pulumi.Bool(true),
+//				Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
+//				MonitorThresholds: &MonitorMonitorThresholdsArgs{
+//					Critical: pulumi.String("4"),
+//					Warning:  pulumi.String("2"),
+//				},
+//				Name:  pulumi.String("Name for monitor foo"),
+//				Query: pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("team:fooBar"),
+//				},
+//				Type: pulumi.String("metric alert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+//
+//	$ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+//
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState
@@ -70,6 +75,10 @@ type Monitor struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+	// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+	// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+	GroupRetentionDuration pulumi.StringPtrOutput `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrOutput `pulumi:"groupbySimpleMonitor"`
@@ -107,6 +116,13 @@ type Monitor struct {
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
+	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	OnMissingData pulumi.StringPtrOutput `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
@@ -144,7 +160,8 @@ type Monitor struct {
 	// cannot be changed after a monitor is created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// If set to `false`, skip the validation call done during plan.
-	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
+	Validate  pulumi.BoolPtrOutput      `pulumi:"validate"`
+	Variables MonitorVariablesPtrOutput `pulumi:"variables"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -201,6 +218,10 @@ type monitorState struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete *bool `pulumi:"forceDelete"`
+	// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+	// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+	// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+	GroupRetentionDuration *string `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
 	// `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
@@ -238,6 +259,13 @@ type monitorState struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority *int `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
@@ -275,7 +303,8 @@ type monitorState struct {
 	// cannot be changed after a monitor is created.
 	Type *string `pulumi:"type"`
 	// If set to `false`, skip the validation call done during plan.
-	Validate *bool `pulumi:"validate"`
+	Validate  *bool             `pulumi:"validate"`
+	Variables *MonitorVariables `pulumi:"variables"`
 }
 
 type MonitorState struct {
@@ -292,6 +321,10 @@ type MonitorState struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrInput
+	// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+	// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+	// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+	GroupRetentionDuration pulumi.StringPtrInput
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
@@ -329,6 +362,13 @@ type MonitorState struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
+	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
@@ -366,7 +406,8 @@ type MonitorState struct {
 	// cannot be changed after a monitor is created.
 	Type pulumi.StringPtrInput
 	// If set to `false`, skip the validation call done during plan.
-	Validate pulumi.BoolPtrInput
+	Validate  pulumi.BoolPtrInput
+	Variables MonitorVariablesPtrInput
 }
 
 func (MonitorState) ElementType() reflect.Type {
@@ -387,6 +428,10 @@ type monitorArgs struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete *bool `pulumi:"forceDelete"`
+	// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+	// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+	// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+	GroupRetentionDuration *string `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
 	// `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
@@ -424,6 +469,13 @@ type monitorArgs struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority *int `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
@@ -461,7 +513,8 @@ type monitorArgs struct {
 	// cannot be changed after a monitor is created.
 	Type string `pulumi:"type"`
 	// If set to `false`, skip the validation call done during plan.
-	Validate *bool `pulumi:"validate"`
+	Validate  *bool             `pulumi:"validate"`
+	Variables *MonitorVariables `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Monitor resource.
@@ -479,6 +532,10 @@ type MonitorArgs struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrInput
+	// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+	// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+	// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+	GroupRetentionDuration pulumi.StringPtrInput
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
@@ -516,6 +573,13 @@ type MonitorArgs struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
+	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
@@ -553,7 +617,8 @@ type MonitorArgs struct {
 	// cannot be changed after a monitor is created.
 	Type pulumi.StringInput
 	// If set to `false`, skip the validation call done during plan.
-	Validate pulumi.BoolPtrInput
+	Validate  pulumi.BoolPtrInput
+	Variables MonitorVariablesPtrInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -582,7 +647,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 // MonitorArrayInput is an input type that accepts MonitorArray and MonitorArrayOutput values.
 // You can construct a concrete instance of `MonitorArrayInput` via:
 //
-//          MonitorArray{ MonitorArgs{...} }
+//	MonitorArray{ MonitorArgs{...} }
 type MonitorArrayInput interface {
 	pulumi.Input
 
@@ -607,7 +672,7 @@ func (i MonitorArray) ToMonitorArrayOutputWithContext(ctx context.Context) Monit
 // MonitorMapInput is an input type that accepts MonitorMap and MonitorMapOutput values.
 // You can construct a concrete instance of `MonitorMapInput` via:
 //
-//          MonitorMap{ "key": MonitorArgs{...} }
+//	MonitorMap{ "key": MonitorArgs{...} }
 type MonitorMapInput interface {
 	pulumi.Input
 
@@ -666,6 +731,13 @@ func (o MonitorOutput) EvaluationDelay() pulumi.IntOutput {
 // composite monitor).
 func (o MonitorOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+}
+
+// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+// and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+// Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+func (o MonitorOutput) GroupRetentionDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.GroupRetentionDuration }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
@@ -741,6 +813,16 @@ func (o MonitorOutput) NotifyNoData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.NotifyNoData }).(pulumi.BoolPtrOutput)
 }
 
+// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+func (o MonitorOutput) OnMissingData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.OnMissingData }).(pulumi.StringPtrOutput)
+}
+
 // Integer from 1 (high) to 5 (low) indicating alert severity.
 func (o MonitorOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
@@ -810,6 +892,10 @@ func (o MonitorOutput) Type() pulumi.StringOutput {
 // If set to `false`, skip the validation call done during plan.
 func (o MonitorOutput) Validate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
+}
+
+func (o MonitorOutput) Variables() MonitorVariablesPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorVariablesPtrOutput { return v.Variables }).(MonitorVariablesPtrOutput)
 }
 
 type MonitorArrayOutput struct{ *pulumi.OutputState }

@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
-// 			Name: pulumi.String("sample_index_order"),
-// 			Indexes: pulumi.StringArray{
-// 				pulumi.Any(datadog_logs_index.Sample_index.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
+//				Name: pulumi.String("sample_index_order"),
+//				Indexes: pulumi.StringArray{
+//					pulumi.Any(datadog_logs_index.Sample_index.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
 //
 // ```sh
-//  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
+//
+//	$ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
+//
 // ```
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) 
 // LogsIndexOrderArrayInput is an input type that accepts LogsIndexOrderArray and LogsIndexOrderArrayOutput values.
 // You can construct a concrete instance of `LogsIndexOrderArrayInput` via:
 //
-//          LogsIndexOrderArray{ LogsIndexOrderArgs{...} }
+//	LogsIndexOrderArray{ LogsIndexOrderArgs{...} }
 type LogsIndexOrderArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i LogsIndexOrderArray) ToLogsIndexOrderArrayOutputWithContext(ctx context.
 // LogsIndexOrderMapInput is an input type that accepts LogsIndexOrderMap and LogsIndexOrderMapOutput values.
 // You can construct a concrete instance of `LogsIndexOrderMapInput` via:
 //
-//          LogsIndexOrderMap{ "key": LogsIndexOrderArgs{...} }
+//	LogsIndexOrderMap{ "key": LogsIndexOrderArgs{...} }
 type LogsIndexOrderMapInput interface {
 	pulumi.Input
 

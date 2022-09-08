@@ -108,6 +108,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_webhook_custom_variable":            {Tok: makeResource(datadogMod, "WebhookCustomVariable")},
 			"datadog_authn_mapping":                      {Tok: makeResource(datadogMod, "AuthnMapping")},
 			"datadog_cloud_workload_security_agent_rule": {Tok: makeResource(datadogMod, "CloudWorkloadSecurityAgentRule")},
+			"datadog_rum_application":                    {Tok: makeResource(datadogMod, "RumApplication")},
 
 			// GCP Integrations
 			"datadog_integration_gcp": {Tok: makeResource(gcpMod, "Integration")},

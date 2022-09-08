@@ -21,7 +21,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, tags=None, tags_filters=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, group_retention_duration=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, on_missing_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -31,6 +31,9 @@ class GetMonitorResult:
         if evaluation_delay and not isinstance(evaluation_delay, int):
             raise TypeError("Expected argument 'evaluation_delay' to be a int")
         pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+        if group_retention_duration and not isinstance(group_retention_duration, str):
+            raise TypeError("Expected argument 'group_retention_duration' to be a str")
+        pulumi.set(__self__, "group_retention_duration", group_retention_duration)
         if groupby_simple_monitor and not isinstance(groupby_simple_monitor, bool):
             raise TypeError("Expected argument 'groupby_simple_monitor' to be a bool")
         pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
@@ -76,6 +79,9 @@ class GetMonitorResult:
         if notify_no_data and not isinstance(notify_no_data, bool):
             raise TypeError("Expected argument 'notify_no_data' to be a bool")
         pulumi.set(__self__, "notify_no_data", notify_no_data)
+        if on_missing_data and not isinstance(on_missing_data, str):
+            raise TypeError("Expected argument 'on_missing_data' to be a str")
+        pulumi.set(__self__, "on_missing_data", on_missing_data)
         if query and not isinstance(query, str):
             raise TypeError("Expected argument 'query' to be a str")
         pulumi.set(__self__, "query", query)
@@ -121,6 +127,11 @@ class GetMonitorResult:
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> int:
         return pulumi.get(self, "evaluation_delay")
+
+    @property
+    @pulumi.getter(name="groupRetentionDuration")
+    def group_retention_duration(self) -> str:
+        return pulumi.get(self, "group_retention_duration")
 
     @property
     @pulumi.getter(name="groupbySimpleMonitor")
@@ -201,6 +212,11 @@ class GetMonitorResult:
         return pulumi.get(self, "notify_no_data")
 
     @property
+    @pulumi.getter(name="onMissingData")
+    def on_missing_data(self) -> str:
+        return pulumi.get(self, "on_missing_data")
+
+    @property
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
@@ -260,6 +276,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             enable_logs_sample=self.enable_logs_sample,
             escalation_message=self.escalation_message,
             evaluation_delay=self.evaluation_delay,
+            group_retention_duration=self.group_retention_duration,
             groupby_simple_monitor=self.groupby_simple_monitor,
             id=self.id,
             include_tags=self.include_tags,
@@ -275,6 +292,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             no_data_timeframe=self.no_data_timeframe,
             notify_audit=self.notify_audit,
             notify_no_data=self.notify_no_data,
+            on_missing_data=self.on_missing_data,
             query=self.query,
             renotify_interval=self.renotify_interval,
             renotify_occurrences=self.renotify_occurrences,
@@ -318,6 +336,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         enable_logs_sample=__ret__.enable_logs_sample,
         escalation_message=__ret__.escalation_message,
         evaluation_delay=__ret__.evaluation_delay,
+        group_retention_duration=__ret__.group_retention_duration,
         groupby_simple_monitor=__ret__.groupby_simple_monitor,
         id=__ret__.id,
         include_tags=__ret__.include_tags,
@@ -333,6 +352,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         no_data_timeframe=__ret__.no_data_timeframe,
         notify_audit=__ret__.notify_audit,
         notify_no_data=__ret__.notify_no_data,
+        on_missing_data=__ret__.on_missing_data,
         query=__ret__.query,
         renotify_interval=__ret__.renotify_interval,
         renotify_occurrences=__ret__.renotify_occurrences,

@@ -23,6 +23,7 @@ class MonitorArgs:
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 group_retention_duration: Optional[pulumi.Input[str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +34,7 @@ class MonitorArgs:
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
+                 on_missing_data: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  renotify_occurrences: Optional[pulumi.Input[int]] = None,
@@ -41,7 +43,8 @@ class MonitorArgs:
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
-                 validate: Optional[pulumi.Input[bool]] = None):
+                 validate: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
@@ -66,6 +69,9 @@ class MonitorArgs:
                data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
                composite monitor).
+        :param pulumi.Input[str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
@@ -84,6 +90,12 @@ class MonitorArgs:
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
@@ -114,6 +126,8 @@ class MonitorArgs:
             pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if group_retention_duration is not None:
+            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
@@ -140,6 +154,8 @@ class MonitorArgs:
             pulumi.set(__self__, "notify_audit", notify_audit)
         if notify_no_data is not None:
             pulumi.set(__self__, "notify_no_data", notify_no_data)
+        if on_missing_data is not None:
+            pulumi.set(__self__, "on_missing_data", on_missing_data)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if renotify_interval is not None:
@@ -158,6 +174,8 @@ class MonitorArgs:
             pulumi.set(__self__, "timeout_h", timeout_h)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -268,6 +286,20 @@ class MonitorArgs:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="groupRetentionDuration")
+    def group_retention_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        """
+        return pulumi.get(self, "group_retention_duration")
+
+    @group_retention_duration.setter
+    def group_retention_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_retention_duration", value)
 
     @property
     @pulumi.getter(name="groupbySimpleMonitor")
@@ -398,6 +430,23 @@ class MonitorArgs:
         pulumi.set(self, "notify_no_data", value)
 
     @property
+    @pulumi.getter(name="onMissingData")
+    def on_missing_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        """
+        return pulumi.get(self, "on_missing_data")
+
+    @on_missing_data.setter
+    def on_missing_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_missing_data", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
@@ -513,6 +562,15 @@ class MonitorArgs:
     def validate(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate", value)
 
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input['MonitorVariablesArgs']]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input['MonitorVariablesArgs']]):
+        pulumi.set(self, "variables", value)
+
 
 @pulumi.input_type
 class _MonitorState:
@@ -521,6 +579,7 @@ class _MonitorState:
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 group_retention_duration: Optional[pulumi.Input[str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
@@ -533,6 +592,7 @@ class _MonitorState:
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
+                 on_missing_data: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
@@ -543,7 +603,8 @@ class _MonitorState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 validate: Optional[pulumi.Input[bool]] = None):
+                 validate: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
@@ -555,6 +616,9 @@ class _MonitorState:
                data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
                composite monitor).
+        :param pulumi.Input[str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
@@ -576,6 +640,12 @@ class _MonitorState:
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
                on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
@@ -612,6 +682,8 @@ class _MonitorState:
             pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if group_retention_duration is not None:
+            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
@@ -642,6 +714,8 @@ class _MonitorState:
             pulumi.set(__self__, "notify_audit", notify_audit)
         if notify_no_data is not None:
             pulumi.set(__self__, "notify_no_data", notify_no_data)
+        if on_missing_data is not None:
+            pulumi.set(__self__, "on_missing_data", on_missing_data)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if query is not None:
@@ -664,6 +738,8 @@ class _MonitorState:
             pulumi.set(__self__, "type", type)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter(name="enableLogsSample")
@@ -717,6 +793,20 @@ class _MonitorState:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="groupRetentionDuration")
+    def group_retention_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        """
+        return pulumi.get(self, "group_retention_duration")
+
+    @group_retention_duration.setter
+    def group_retention_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_retention_duration", value)
 
     @property
     @pulumi.getter(name="groupbySimpleMonitor")
@@ -872,6 +962,23 @@ class _MonitorState:
         pulumi.set(self, "notify_no_data", value)
 
     @property
+    @pulumi.getter(name="onMissingData")
+    def on_missing_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        """
+        return pulumi.get(self, "on_missing_data")
+
+    @on_missing_data.setter
+    def on_missing_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_missing_data", value)
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1019,6 +1126,15 @@ class _MonitorState:
     def validate(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate", value)
 
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input['MonitorVariablesArgs']]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input['MonitorVariablesArgs']]):
+        pulumi.set(self, "variables", value)
+
 
 class Monitor(pulumi.CustomResource):
     @overload
@@ -1029,6 +1145,7 @@ class Monitor(pulumi.CustomResource):
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 group_retention_duration: Optional[pulumi.Input[str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
@@ -1041,6 +1158,7 @@ class Monitor(pulumi.CustomResource):
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
+                 on_missing_data: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
@@ -1052,6 +1170,7 @@ class Monitor(pulumi.CustomResource):
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input[pulumi.InputType['MonitorVariablesArgs']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
@@ -1096,6 +1215,9 @@ class Monitor(pulumi.CustomResource):
                data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
                composite monitor).
+        :param pulumi.Input[str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
@@ -1117,6 +1239,12 @@ class Monitor(pulumi.CustomResource):
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
                on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
@@ -1202,6 +1330,7 @@ class Monitor(pulumi.CustomResource):
                  escalation_message: Optional[pulumi.Input[str]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 group_retention_duration: Optional[pulumi.Input[str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
@@ -1214,6 +1343,7 @@ class Monitor(pulumi.CustomResource):
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
+                 on_missing_data: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
@@ -1225,6 +1355,7 @@ class Monitor(pulumi.CustomResource):
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input[pulumi.InputType['MonitorVariablesArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1241,6 +1372,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["escalation_message"] = escalation_message
             __props__.__dict__["evaluation_delay"] = evaluation_delay
             __props__.__dict__["force_delete"] = force_delete
+            __props__.__dict__["group_retention_duration"] = group_retention_duration
             __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
             __props__.__dict__["include_tags"] = include_tags
             if locked is not None and not opts.urn:
@@ -1263,6 +1395,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["no_data_timeframe"] = no_data_timeframe
             __props__.__dict__["notify_audit"] = notify_audit
             __props__.__dict__["notify_no_data"] = notify_no_data
+            __props__.__dict__["on_missing_data"] = on_missing_data
             __props__.__dict__["priority"] = priority
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
@@ -1278,6 +1411,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
+            __props__.__dict__["variables"] = variables
         super(Monitor, __self__).__init__(
             'datadog:index/monitor:Monitor',
             resource_name,
@@ -1292,6 +1426,7 @@ class Monitor(pulumi.CustomResource):
             escalation_message: Optional[pulumi.Input[str]] = None,
             evaluation_delay: Optional[pulumi.Input[int]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
+            group_retention_duration: Optional[pulumi.Input[str]] = None,
             groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
             include_tags: Optional[pulumi.Input[bool]] = None,
             locked: Optional[pulumi.Input[bool]] = None,
@@ -1304,6 +1439,7 @@ class Monitor(pulumi.CustomResource):
             no_data_timeframe: Optional[pulumi.Input[int]] = None,
             notify_audit: Optional[pulumi.Input[bool]] = None,
             notify_no_data: Optional[pulumi.Input[bool]] = None,
+            on_missing_data: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             query: Optional[pulumi.Input[str]] = None,
             renotify_interval: Optional[pulumi.Input[int]] = None,
@@ -1314,7 +1450,8 @@ class Monitor(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             timeout_h: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            validate: Optional[pulumi.Input[bool]] = None) -> 'Monitor':
+            validate: Optional[pulumi.Input[bool]] = None,
+            variables: Optional[pulumi.Input[pulumi.InputType['MonitorVariablesArgs']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1331,6 +1468,9 @@ class Monitor(pulumi.CustomResource):
                data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
                composite monitor).
+        :param pulumi.Input[str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+               and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+               Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
@@ -1352,6 +1492,12 @@ class Monitor(pulumi.CustomResource):
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+               in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+               evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+               `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+               available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+               `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
                on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
@@ -1388,6 +1534,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["escalation_message"] = escalation_message
         __props__.__dict__["evaluation_delay"] = evaluation_delay
         __props__.__dict__["force_delete"] = force_delete
+        __props__.__dict__["group_retention_duration"] = group_retention_duration
         __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
         __props__.__dict__["include_tags"] = include_tags
         __props__.__dict__["locked"] = locked
@@ -1400,6 +1547,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["no_data_timeframe"] = no_data_timeframe
         __props__.__dict__["notify_audit"] = notify_audit
         __props__.__dict__["notify_no_data"] = notify_no_data
+        __props__.__dict__["on_missing_data"] = on_missing_data
         __props__.__dict__["priority"] = priority
         __props__.__dict__["query"] = query
         __props__.__dict__["renotify_interval"] = renotify_interval
@@ -1411,6 +1559,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["timeout_h"] = timeout_h
         __props__.__dict__["type"] = type
         __props__.__dict__["validate"] = validate
+        __props__.__dict__["variables"] = variables
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1449,6 +1598,16 @@ class Monitor(pulumi.CustomResource):
         composite monitor).
         """
         return pulumi.get(self, "force_delete")
+
+    @property
+    @pulumi.getter(name="groupRetentionDuration")
+    def group_retention_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour,
+        and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace
+        Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        """
+        return pulumi.get(self, "group_retention_duration")
 
     @property
     @pulumi.getter(name="groupbySimpleMonitor")
@@ -1556,6 +1715,19 @@ class Monitor(pulumi.CustomResource):
         return pulumi.get(self, "notify_no_data")
 
     @property
+    @pulumi.getter(name="onMissingData")
+    def on_missing_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
+        in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
+        evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
+        `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
+        available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
+        `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        """
+        return pulumi.get(self, "on_missing_data")
+
+    @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1658,4 +1830,9 @@ class Monitor(pulumi.CustomResource):
         If set to `false`, skip the validation call done during plan.
         """
         return pulumi.get(self, "validate")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Output[Optional['outputs.MonitorVariables']]:
+        return pulumi.get(self, "variables")
 

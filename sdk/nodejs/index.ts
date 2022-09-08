@@ -50,6 +50,7 @@ export * from "./monitorJson";
 export * from "./organizationSettings";
 export * from "./provider";
 export * from "./role";
+export * from "./rumApplication";
 export * from "./securityMonitoringDefaultRule";
 export * from "./securityMonitoringFilter";
 export * from "./securityMonitoringRule";
@@ -107,6 +108,7 @@ import { Monitor } from "./monitor";
 import { MonitorJson } from "./monitorJson";
 import { OrganizationSettings } from "./organizationSettings";
 import { Role } from "./role";
+import { RumApplication } from "./rumApplication";
 import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
 import { SecurityMonitoringFilter } from "./securityMonitoringFilter";
 import { SecurityMonitoringRule } from "./securityMonitoringRule";
@@ -169,6 +171,8 @@ const _module = {
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
+            case "datadog:index/rumApplication:RumApplication":
+                return new RumApplication(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -219,6 +223,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)

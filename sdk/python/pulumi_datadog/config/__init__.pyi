@@ -32,7 +32,7 @@ Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 
 httpClientRetryTimeout: Optional[int]
 """
-The HTTP request retry timeout period.
+The HTTP request retry timeout period. Defaults to 60 seconds.
 """
 
 validate: Optional[bool]

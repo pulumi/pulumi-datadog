@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
-// 			Cases: SecurityMonitoringRuleCaseArray{
-// 				&SecurityMonitoringRuleCaseArgs{
-// 					Condition: pulumi.String("errors > 3 && warnings > 10"),
-// 					Notifications: pulumi.StringArray{
-// 						pulumi.String("@user"),
-// 					},
-// 					Status: pulumi.String("high"),
-// 				},
-// 			},
-// 			Enabled: pulumi.Bool(true),
-// 			Message: pulumi.String("The rule has triggered."),
-// 			Name:    pulumi.String("My rule"),
-// 			Options: &SecurityMonitoringRuleOptionsArgs{
-// 				EvaluationWindow:  pulumi.Int(300),
-// 				KeepAlive:         pulumi.Int(600),
-// 				MaxSignalDuration: pulumi.Int(900),
-// 			},
-// 			Queries: SecurityMonitoringRuleQueryArray{
-// 				&SecurityMonitoringRuleQueryArgs{
-// 					Aggregation: pulumi.String("count"),
-// 					GroupByFields: pulumi.StringArray{
-// 						pulumi.String("host"),
-// 					},
-// 					Name:  pulumi.String("errors"),
-// 					Query: pulumi.String("status:error"),
-// 				},
-// 				&SecurityMonitoringRuleQueryArgs{
-// 					Aggregation: pulumi.String("count"),
-// 					GroupByFields: pulumi.StringArray{
-// 						pulumi.String("host"),
-// 					},
-// 					Name:  pulumi.String("warnings"),
-// 					Query: pulumi.String("status:warning"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("type:dos"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
+//				Cases: SecurityMonitoringRuleCaseArray{
+//					&SecurityMonitoringRuleCaseArgs{
+//						Condition: pulumi.String("errors > 3 && warnings > 10"),
+//						Notifications: pulumi.StringArray{
+//							pulumi.String("@user"),
+//						},
+//						Status: pulumi.String("high"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//				Message: pulumi.String("The rule has triggered."),
+//				Name:    pulumi.String("My rule"),
+//				Options: &SecurityMonitoringRuleOptionsArgs{
+//					EvaluationWindow:  pulumi.Int(300),
+//					KeepAlive:         pulumi.Int(600),
+//					MaxSignalDuration: pulumi.Int(900),
+//				},
+//				Queries: SecurityMonitoringRuleQueryArray{
+//					&SecurityMonitoringRuleQueryArgs{
+//						Aggregation: pulumi.String("count"),
+//						GroupByFields: pulumi.StringArray{
+//							pulumi.String("host"),
+//						},
+//						Name:  pulumi.String("errors"),
+//						Query: pulumi.String("status:error"),
+//					},
+//					&SecurityMonitoringRuleQueryArgs{
+//						Aggregation: pulumi.String("count"),
+//						GroupByFields: pulumi.StringArray{
+//							pulumi.String("host"),
+//						},
+//						Name:  pulumi.String("warnings"),
+//						Query: pulumi.String("status:warning"),
+//					},
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("type:dos"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // # Security monitoring rules can be imported using ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
+//
+//	$ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
+//
 // ```
 type SecurityMonitoringRule struct {
 	pulumi.CustomResourceState
@@ -268,7 +273,7 @@ func (i *SecurityMonitoringRule) ToSecurityMonitoringRuleOutputWithContext(ctx c
 // SecurityMonitoringRuleArrayInput is an input type that accepts SecurityMonitoringRuleArray and SecurityMonitoringRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringRuleArrayInput` via:
 //
-//          SecurityMonitoringRuleArray{ SecurityMonitoringRuleArgs{...} }
+//	SecurityMonitoringRuleArray{ SecurityMonitoringRuleArgs{...} }
 type SecurityMonitoringRuleArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +298,7 @@ func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutputWithCont
 // SecurityMonitoringRuleMapInput is an input type that accepts SecurityMonitoringRuleMap and SecurityMonitoringRuleMapOutput values.
 // You can construct a concrete instance of `SecurityMonitoringRuleMapInput` via:
 //
-//          SecurityMonitoringRuleMap{ "key": SecurityMonitoringRuleArgs{...} }
+//	SecurityMonitoringRuleMap{ "key": SecurityMonitoringRuleArgs{...} }
 type SecurityMonitoringRuleMapInput interface {
 	pulumi.Input
 

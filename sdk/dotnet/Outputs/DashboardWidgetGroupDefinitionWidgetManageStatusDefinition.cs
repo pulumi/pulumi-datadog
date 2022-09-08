@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? HideZeroCounts;
         public readonly string Query;
         public readonly bool? ShowLastTriggered;
+        public readonly bool? ShowPriority;
         public readonly string? Sort;
         public readonly string? SummaryType;
         public readonly string? Title;
@@ -36,6 +37,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? showLastTriggered,
 
+            bool? showPriority,
+
             string? sort,
 
             string? summaryType,
@@ -51,6 +54,7 @@ namespace Pulumi.Datadog.Outputs
             HideZeroCounts = hideZeroCounts;
             Query = query;
             ShowLastTriggered = showLastTriggered;
+            ShowPriority = showPriority;
             Sort = sort;
             SummaryType = summaryType;
             Title = title;

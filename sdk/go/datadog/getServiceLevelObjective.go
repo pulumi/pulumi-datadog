@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
-// 			NameQuery: pulumi.StringRef("My test SLO"),
-// 			TagsQuery: pulumi.StringRef("foo:bar"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
-// 			Id: pulumi.StringRef(data.Terraform_remote_state.Api.Outputs.Slo),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
+//				NameQuery: pulumi.StringRef("My test SLO"),
+//				TagsQuery: pulumi.StringRef("foo:bar"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
+//				Id: pulumi.StringRef(data.Terraform_remote_state.Api.Outputs.Slo),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupServiceLevelObjective(ctx *pulumi.Context, args *LookupServiceLevelObjectiveArgs, opts ...pulumi.InvokeOption) (*LookupServiceLevelObjectiveResult, error) {
 	var rv LookupServiceLevelObjectiveResult

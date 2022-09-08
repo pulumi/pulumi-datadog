@@ -19,44 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
-// 			Compute: &LogsMetricComputeArgs{
-// 				AggregationType: pulumi.String("distribution"),
-// 				Path:            pulumi.String("@duration"),
-// 			},
-// 			Filter: &LogsMetricFilterArgs{
-// 				Query: pulumi.String("service:test"),
-// 			},
-// 			GroupBies: LogsMetricGroupByArray{
-// 				&LogsMetricGroupByArgs{
-// 					Path:    pulumi.String("@status"),
-// 					TagName: pulumi.String("status"),
-// 				},
-// 				&LogsMetricGroupByArgs{
-// 					Path:    pulumi.String("@version"),
-// 					TagName: pulumi.String("version"),
-// 				},
-// 			},
-// 			Name: pulumi.String("testing.logs.metric"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
+//				Compute: &LogsMetricComputeArgs{
+//					AggregationType: pulumi.String("distribution"),
+//					Path:            pulumi.String("@duration"),
+//				},
+//				Filter: &LogsMetricFilterArgs{
+//					Query: pulumi.String("service:test"),
+//				},
+//				GroupBies: LogsMetricGroupByArray{
+//					&LogsMetricGroupByArgs{
+//						Path:    pulumi.String("@status"),
+//						TagName: pulumi.String("status"),
+//					},
+//					&LogsMetricGroupByArgs{
+//						Path:    pulumi.String("@version"),
+//						TagName: pulumi.String("version"),
+//					},
+//				},
+//				Name: pulumi.String("testing.logs.metric"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+//
+//	$ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+//
 // ```
 type LogsMetric struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *LogsMetric) ToLogsMetricOutputWithContext(ctx context.Context) LogsMetr
 // LogsMetricArrayInput is an input type that accepts LogsMetricArray and LogsMetricArrayOutput values.
 // You can construct a concrete instance of `LogsMetricArrayInput` via:
 //
-//          LogsMetricArray{ LogsMetricArgs{...} }
+//	LogsMetricArray{ LogsMetricArgs{...} }
 type LogsMetricArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i LogsMetricArray) ToLogsMetricArrayOutputWithContext(ctx context.Context)
 // LogsMetricMapInput is an input type that accepts LogsMetricMap and LogsMetricMapOutput values.
 // You can construct a concrete instance of `LogsMetricMapInput` via:
 //
-//          LogsMetricMap{ "key": LogsMetricArgs{...} }
+//	LogsMetricMap{ "key": LogsMetricArgs{...} }
 type LogsMetricMapInput interface {
 	pulumi.Input
 

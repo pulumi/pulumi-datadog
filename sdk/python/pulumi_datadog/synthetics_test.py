@@ -38,9 +38,9 @@ class SyntheticsTestArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SyntheticsTest resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
-               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-               `aws:eu-central-1`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+               source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+               retrieve the list of locations.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
         :param pulumi.Input[str] type: Synthetics test type.
@@ -108,9 +108,9 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Array of locations used to run the test. Refer to [Datadog
-        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        retrieve the list of locations.
         """
         return pulumi.get(self, "locations")
 
@@ -393,9 +393,9 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
-               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-               `aws:eu-central-1`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+               source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+               retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
                using the same `@username` notation as events.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
@@ -536,9 +536,9 @@ class _SyntheticsTestState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations used to run the test. Refer to [Datadog
-        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        retrieve the list of locations.
         """
         return pulumi.get(self, "locations")
 
@@ -952,7 +952,6 @@ class SyntheticsTest(pulumi.CustomResource):
             subtype="multi",
             type="api")
         # Example Usage (Synthetics Browser test)
-        # Support for Synthetics Browser test steps is limited (see below)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
         test_browser = datadog.SyntheticsTest("testBrowser",
             browser_steps=[datadog.SyntheticsTestBrowserStepArgs(
@@ -1014,9 +1013,9 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
-               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-               `aws:eu-central-1`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+               source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+               retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
                using the same `@username` notation as events.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
@@ -1238,7 +1237,6 @@ class SyntheticsTest(pulumi.CustomResource):
             subtype="multi",
             type="api")
         # Example Usage (Synthetics Browser test)
-        # Support for Synthetics Browser test steps is limited (see below)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
         test_browser = datadog.SyntheticsTest("testBrowser",
             browser_steps=[datadog.SyntheticsTestBrowserStepArgs(
@@ -1415,9 +1413,9 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
-               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-               `aws:eu-central-1`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+               source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+               retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
                using the same `@username` notation as events.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
@@ -1517,9 +1515,9 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Sequence[str]]:
         """
-        Array of locations used to run the test. Refer to [Datadog
-        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-        `aws:eu-central-1`).
+        Array of locations used to run the test. Refer to [the Datadog Synthetics location data
+        source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
+        retrieve the list of locations.
         """
         return pulumi.get(self, "locations")
 

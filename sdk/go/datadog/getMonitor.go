@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.LookupMonitor(ctx, &GetMonitorArgs{
-// 			MonitorTagsFilters: []string{
-// 				"foo:bar",
-// 			},
-// 			NameFilter: pulumi.StringRef("My awesome monitor"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.LookupMonitor(ctx, &GetMonitorArgs{
+//				MonitorTagsFilters: []string{
+//					"foo:bar",
+//				},
+//				NameFilter: pulumi.StringRef("My awesome monitor"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
@@ -55,10 +58,11 @@ type LookupMonitorArgs struct {
 
 // A collection of values returned by getMonitor.
 type LookupMonitorResult struct {
-	EnableLogsSample     bool   `pulumi:"enableLogsSample"`
-	EscalationMessage    string `pulumi:"escalationMessage"`
-	EvaluationDelay      int    `pulumi:"evaluationDelay"`
-	GroupbySimpleMonitor bool   `pulumi:"groupbySimpleMonitor"`
+	EnableLogsSample       bool   `pulumi:"enableLogsSample"`
+	EscalationMessage      string `pulumi:"escalationMessage"`
+	EvaluationDelay        int    `pulumi:"evaluationDelay"`
+	GroupRetentionDuration string `pulumi:"groupRetentionDuration"`
+	GroupbySimpleMonitor   bool   `pulumi:"groupbySimpleMonitor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string                             `pulumi:"id"`
 	IncludeTags             bool                               `pulumi:"includeTags"`
@@ -74,6 +78,7 @@ type LookupMonitorResult struct {
 	NoDataTimeframe         int                                `pulumi:"noDataTimeframe"`
 	NotifyAudit             bool                               `pulumi:"notifyAudit"`
 	NotifyNoData            bool                               `pulumi:"notifyNoData"`
+	OnMissingData           string                             `pulumi:"onMissingData"`
 	Query                   string                             `pulumi:"query"`
 	RenotifyInterval        int                                `pulumi:"renotifyInterval"`
 	RenotifyOccurrences     int                                `pulumi:"renotifyOccurrences"`
@@ -137,6 +142,10 @@ func (o LookupMonitorResultOutput) EvaluationDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.EvaluationDelay }).(pulumi.IntOutput)
 }
 
+func (o LookupMonitorResultOutput) GroupRetentionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.GroupRetentionDuration }).(pulumi.StringOutput)
+}
+
 func (o LookupMonitorResultOutput) GroupbySimpleMonitor() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.GroupbySimpleMonitor }).(pulumi.BoolOutput)
 }
@@ -196,6 +205,10 @@ func (o LookupMonitorResultOutput) NotifyAudit() pulumi.BoolOutput {
 
 func (o LookupMonitorResultOutput) NotifyNoData() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.NotifyNoData }).(pulumi.BoolOutput)
+}
+
+func (o LookupMonitorResultOutput) OnMissingData() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.OnMissingData }).(pulumi.StringOutput)
 }
 
 func (o LookupMonitorResultOutput) Query() pulumi.StringOutput {

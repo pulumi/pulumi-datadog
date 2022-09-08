@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/slack"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/slack"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := slack.NewChannel(ctx, "testChannel", &slack.ChannelArgs{
-// 			AccountName: pulumi.String("foo"),
-// 			ChannelName: pulumi.String("#test_channel"),
-// 			Display: &slack.ChannelDisplayArgs{
-// 				Message:  pulumi.Bool(true),
-// 				Notified: pulumi.Bool(false),
-// 				Snapshot: pulumi.Bool(false),
-// 				Tags:     pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := slack.NewChannel(ctx, "testChannel", &slack.ChannelArgs{
+//				AccountName: pulumi.String("foo"),
+//				ChannelName: pulumi.String("#test_channel"),
+//				Display: &slack.ChannelDisplayArgs{
+//					Message:  pulumi.Bool(true),
+//					Notified: pulumi.Bool(false),
+//					Snapshot: pulumi.Bool(false),
+//					Tags:     pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
 //
 // ```sh
-//  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
+//
+//	$ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
+//
 // ```
 type Channel struct {
 	pulumi.CustomResourceState
@@ -165,7 +170,7 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 // ChannelArrayInput is an input type that accepts ChannelArray and ChannelArrayOutput values.
 // You can construct a concrete instance of `ChannelArrayInput` via:
 //
-//          ChannelArray{ ChannelArgs{...} }
+//	ChannelArray{ ChannelArgs{...} }
 type ChannelArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +195,7 @@ func (i ChannelArray) ToChannelArrayOutputWithContext(ctx context.Context) Chann
 // ChannelMapInput is an input type that accepts ChannelMap and ChannelMapOutput values.
 // You can construct a concrete instance of `ChannelMapInput` via:
 //
-//          ChannelMap{ "key": ChannelArgs{...} }
+//	ChannelMap{ "key": ChannelArgs{...} }
 type ChannelMapInput interface {
 	pulumi.Input
 

@@ -19,66 +19,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
-// 			Name:        pulumi.String("example slo"),
-// 			Type:        pulumi.String("metric"),
-// 			Description: pulumi.String("some updated description about example_slo SLO"),
-// 			Query: &ServiceLevelObjectiveQueryArgs{
-// 				Numerator:   pulumi.String("sum:my.metric{type:good}.as_count()"),
-// 				Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
-// 			},
-// 			Thresholds: ServiceLevelObjectiveThresholdArray{
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Timeframe: pulumi.String("7d"),
-// 					Target:    pulumi.Float64(99.5),
-// 					Warning:   pulumi.Float64(99.8),
-// 				},
-// 			},
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrection", &datadog.SloCorrectionArgs{
-// 			Category:    pulumi.String("Scheduled Maintenance"),
-// 			Description: pulumi.String("correction example"),
-// 			Start:       pulumi.Int(1735707000),
-// 			End:         pulumi.Int(1735718600),
-// 			SloId:       exampleSlo.ID(),
-// 			Timezone:    pulumi.String("UTC"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrectionWithRecurrence", &datadog.SloCorrectionArgs{
-// 			Category:    pulumi.String("Scheduled Maintenance"),
-// 			Description: pulumi.String("correction example with recurrence"),
-// 			Start:       pulumi.Int(1735707000),
-// 			Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;COUNT=3"),
-// 			Duration:    pulumi.Int(3600),
-// 			SloId:       exampleSlo.ID(),
-// 			Timezone:    pulumi.String("UTC"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
+//				Name:        pulumi.String("example slo"),
+//				Type:        pulumi.String("metric"),
+//				Description: pulumi.String("some updated description about example_slo SLO"),
+//				Query: &ServiceLevelObjectiveQueryArgs{
+//					Numerator:   pulumi.String("sum:my.metric{type:good}.as_count()"),
+//					Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
+//				},
+//				Thresholds: ServiceLevelObjectiveThresholdArray{
+//					&ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("7d"),
+//						Target:    pulumi.Float64(99.5),
+//						Warning:   pulumi.Float64(99.8),
+//					},
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrection", &datadog.SloCorrectionArgs{
+//				Category:    pulumi.String("Scheduled Maintenance"),
+//				Description: pulumi.String("correction example"),
+//				Start:       pulumi.Int(1735707000),
+//				End:         pulumi.Int(1735718600),
+//				SloId:       exampleSlo.ID(),
+//				Timezone:    pulumi.String("UTC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrectionWithRecurrence", &datadog.SloCorrectionArgs{
+//				Category:    pulumi.String("Scheduled Maintenance"),
+//				Description: pulumi.String("correction example with recurrence"),
+//				Start:       pulumi.Int(1735707000),
+//				Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;COUNT=3"),
+//				Duration:    pulumi.Int(3600),
+//				SloId:       exampleSlo.ID(),
+//				Timezone:    pulumi.String("UTC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+//
+//	$ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+//
 // ```
 type SloCorrection struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *SloCorrection) ToSloCorrectionOutputWithContext(ctx context.Context) Sl
 // SloCorrectionArrayInput is an input type that accepts SloCorrectionArray and SloCorrectionArrayOutput values.
 // You can construct a concrete instance of `SloCorrectionArrayInput` via:
 //
-//          SloCorrectionArray{ SloCorrectionArgs{...} }
+//	SloCorrectionArray{ SloCorrectionArgs{...} }
 type SloCorrectionArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i SloCorrectionArray) ToSloCorrectionArrayOutputWithContext(ctx context.Co
 // SloCorrectionMapInput is an input type that accepts SloCorrectionMap and SloCorrectionMapOutput values.
 // You can construct a concrete instance of `SloCorrectionMapInput` via:
 //
-//          SloCorrectionMap{ "key": SloCorrectionArgs{...} }
+//	SloCorrectionMap{ "key": SloCorrectionArgs{...} }
 type SloCorrectionMapInput interface {
 	pulumi.Input
 

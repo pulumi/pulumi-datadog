@@ -66,6 +66,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationSettings{}
 	case "datadog:index/role:Role":
 		r = &Role{}
+	case "datadog:index/rumApplication:RumApplication":
+		r = &RumApplication{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
 		r = &SecurityMonitoringDefaultRule{}
 	case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -229,6 +231,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/role",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumApplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

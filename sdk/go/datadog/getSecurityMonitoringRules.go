@@ -18,25 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.GetSecurityMonitoringRules(ctx, &GetSecurityMonitoringRulesArgs{
-// 			DefaultOnlyFilter: pulumi.BoolRef(true),
-// 			NameFilter:        pulumi.StringRef("attack"),
-// 			TagsFilters: []string{
-// 				"foo:bar",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetSecurityMonitoringRules(ctx, &GetSecurityMonitoringRulesArgs{
+//				DefaultOnlyFilter: pulumi.BoolRef(true),
+//				NameFilter:        pulumi.StringRef("attack"),
+//				TagsFilters: []string{
+//					"foo:bar",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoringRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringRulesResult, error) {
 	var rv GetSecurityMonitoringRulesResult

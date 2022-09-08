@@ -93,7 +93,7 @@ namespace Pulumi.Datadog
         public Input<bool>? HttpClientRetryEnabled { get; set; }
 
         /// <summary>
-        /// The HTTP request retry timeout period.
+        /// The HTTP request retry timeout period. Defaults to 60 seconds.
         /// </summary>
         [Input("httpClientRetryTimeout", json: true)]
         public Input<int>? HttpClientRetryTimeout { get; set; }

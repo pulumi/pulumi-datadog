@@ -47,7 +47,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def http_client_retry_timeout(self) -> Optional[int]:
         """
-        The HTTP request retry timeout period.
+        The HTTP request retry timeout period. Defaults to 60 seconds.
         """
         return __config__.get_int('httpClientRetryTimeout')
 

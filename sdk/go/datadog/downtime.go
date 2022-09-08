@@ -19,35 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
-// 			End: pulumi.Int(1483365600),
-// 			Recurrence: &DowntimeRecurrenceArgs{
-// 				Period: pulumi.Int(1),
-// 				Type:   pulumi.String("days"),
-// 			},
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("*"),
-// 			},
-// 			Start: pulumi.Int(1483308000),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
+//				End: pulumi.Int(1483365600),
+//				Recurrence: &DowntimeRecurrenceArgs{
+//					Period: pulumi.Int(1),
+//					Type:   pulumi.String("days"),
+//				},
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("*"),
+//				},
+//				Start: pulumi.Int(1483308000),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+//
+//	$ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+//
 // ```
 type Downtime struct {
 	pulumi.CustomResourceState
@@ -264,7 +269,7 @@ func (i *Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutp
 // DowntimeArrayInput is an input type that accepts DowntimeArray and DowntimeArrayOutput values.
 // You can construct a concrete instance of `DowntimeArrayInput` via:
 //
-//          DowntimeArray{ DowntimeArgs{...} }
+//	DowntimeArray{ DowntimeArgs{...} }
 type DowntimeArrayInput interface {
 	pulumi.Input
 
@@ -289,7 +294,7 @@ func (i DowntimeArray) ToDowntimeArrayOutputWithContext(ctx context.Context) Dow
 // DowntimeMapInput is an input type that accepts DowntimeMap and DowntimeMapOutput values.
 // You can construct a concrete instance of `DowntimeMapInput` via:
 //
-//          DowntimeMap{ "key": DowntimeArgs{...} }
+//	DowntimeMap{ "key": DowntimeArgs{...} }
 type DowntimeMapInput interface {
 	pulumi.Input
 

@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.GetServiceLevelObjectives(ctx, &GetServiceLevelObjectivesArgs{
-// 			TagsQuery: pulumi.StringRef("owner:ft-foo"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetServiceLevelObjectives(ctx, &GetServiceLevelObjectivesArgs{
+//				TagsQuery: pulumi.StringRef("owner:ft-foo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServiceLevelObjectives(ctx *pulumi.Context, args *GetServiceLevelObjectivesArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelObjectivesResult, error) {
 	var rv GetServiceLevelObjectivesResult

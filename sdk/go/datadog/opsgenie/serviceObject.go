@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewServiceObject(ctx, "fakeServiceName", &opsgenie.ServiceObjectArgs{
-// 			Name:           pulumi.String("fake_service_name"),
-// 			OpsgenieApiKey: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Region:         pulumi.String("us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewServiceObject(ctx, "fakeServiceName2", &opsgenie.ServiceObjectArgs{
-// 			Name:           pulumi.String("fake_service_name_2"),
-// 			OpsgenieApiKey: pulumi.String("11111111-1111-1111-1111-111111111111"),
-// 			Region:         pulumi.String("eu"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewServiceObject(ctx, "fakeServiceName", &opsgenie.ServiceObjectArgs{
+//				Name:           pulumi.String("fake_service_name"),
+//				OpsgenieApiKey: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Region:         pulumi.String("us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewServiceObject(ctx, "fakeServiceName2", &opsgenie.ServiceObjectArgs{
+//				Name:           pulumi.String("fake_service_name_2"),
+//				OpsgenieApiKey: pulumi.String("11111111-1111-1111-1111-111111111111"),
+//				Region:         pulumi.String("eu"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ServiceObject struct {
 	pulumi.CustomResourceState
@@ -185,7 +188,7 @@ func (i *ServiceObject) ToServiceObjectOutputWithContext(ctx context.Context) Se
 // ServiceObjectArrayInput is an input type that accepts ServiceObjectArray and ServiceObjectArrayOutput values.
 // You can construct a concrete instance of `ServiceObjectArrayInput` via:
 //
-//          ServiceObjectArray{ ServiceObjectArgs{...} }
+//	ServiceObjectArray{ ServiceObjectArgs{...} }
 type ServiceObjectArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +213,7 @@ func (i ServiceObjectArray) ToServiceObjectArrayOutputWithContext(ctx context.Co
 // ServiceObjectMapInput is an input type that accepts ServiceObjectMap and ServiceObjectMapOutput values.
 // You can construct a concrete instance of `ServiceObjectMapInput` via:
 //
-//          ServiceObjectMap{ "key": ServiceObjectArgs{...} }
+//	ServiceObjectMap{ "key": ServiceObjectArgs{...} }
 type ServiceObjectMapInput interface {
 	pulumi.Input
 

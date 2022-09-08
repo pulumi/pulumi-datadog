@@ -19,29 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewWebhookCustomVariable(ctx, "foo", &datadog.WebhookCustomVariableArgs{
-// 			IsSecret: pulumi.Bool(true),
-// 			Name:     pulumi.String("EXAMPLE_VARIABLE"),
-// 			Value:    pulumi.String("EXAMPLE-VALUE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewWebhookCustomVariable(ctx, "foo", &datadog.WebhookCustomVariableArgs{
+//				IsSecret: pulumi.Bool(true),
+//				Name:     pulumi.String("EXAMPLE_VARIABLE"),
+//				Value:    pulumi.String("EXAMPLE-VALUE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
+//
+//	$ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
+//
 // ```
 type WebhookCustomVariable struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *WebhookCustomVariable) ToWebhookCustomVariableOutputWithContext(ctx con
 // WebhookCustomVariableArrayInput is an input type that accepts WebhookCustomVariableArray and WebhookCustomVariableArrayOutput values.
 // You can construct a concrete instance of `WebhookCustomVariableArrayInput` via:
 //
-//          WebhookCustomVariableArray{ WebhookCustomVariableArgs{...} }
+//	WebhookCustomVariableArray{ WebhookCustomVariableArgs{...} }
 type WebhookCustomVariableArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i WebhookCustomVariableArray) ToWebhookCustomVariableArrayOutputWithContex
 // WebhookCustomVariableMapInput is an input type that accepts WebhookCustomVariableMap and WebhookCustomVariableMapOutput values.
 // You can construct a concrete instance of `WebhookCustomVariableMapInput` via:
 //
-//          WebhookCustomVariableMap{ "key": WebhookCustomVariableArgs{...} }
+//	WebhookCustomVariableMap{ "key": WebhookCustomVariableArgs{...} }
 type WebhookCustomVariableMapInput interface {
 	pulumi.Input
 

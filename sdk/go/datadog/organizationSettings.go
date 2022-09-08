@@ -18,27 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewOrganizationSettings(ctx, "organization", &datadog.OrganizationSettingsArgs{
-// 			Name: pulumi.String("foo-organization"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewOrganizationSettings(ctx, "organization", &datadog.OrganizationSettingsArgs{
+//				Name: pulumi.String("foo-organization"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
+//
+//	$ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
+//
 // ```
 type OrganizationSettings struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *OrganizationSettings) ToOrganizationSettingsOutputWithContext(ctx conte
 // OrganizationSettingsArrayInput is an input type that accepts OrganizationSettingsArray and OrganizationSettingsArrayOutput values.
 // You can construct a concrete instance of `OrganizationSettingsArrayInput` via:
 //
-//          OrganizationSettingsArray{ OrganizationSettingsArgs{...} }
+//	OrganizationSettingsArray{ OrganizationSettingsArgs{...} }
 type OrganizationSettingsArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i OrganizationSettingsArray) ToOrganizationSettingsArrayOutputWithContext(
 // OrganizationSettingsMapInput is an input type that accepts OrganizationSettingsMap and OrganizationSettingsMapOutput values.
 // You can construct a concrete instance of `OrganizationSettingsMapInput` via:
 //
-//          OrganizationSettingsMap{ "key": OrganizationSettingsArgs{...} }
+//	OrganizationSettingsMap{ "key": OrganizationSettingsArgs{...} }
 type OrganizationSettingsMapInput interface {
 	pulumi.Input
 

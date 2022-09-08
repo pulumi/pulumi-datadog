@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.NewIntegrationLogCollection(ctx, "main", &aws.IntegrationLogCollectionArgs{
-// 			AccountId: pulumi.String("1234567890"),
-// 			Services: pulumi.StringArray{
-// 				pulumi.String("lambda"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewIntegrationLogCollection(ctx, "main", &aws.IntegrationLogCollectionArgs{
+//				AccountId: pulumi.String("1234567890"),
+//				Services: pulumi.StringArray{
+//					pulumi.String("lambda"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # Amazon Web Services log collection integrations can be imported using the `account ID`.
 //
 // ```sh
-//  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
+//
+//	$ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
+//
 // ```
 type IntegrationLogCollection struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(c
 // IntegrationLogCollectionArrayInput is an input type that accepts IntegrationLogCollectionArray and IntegrationLogCollectionArrayOutput values.
 // You can construct a concrete instance of `IntegrationLogCollectionArrayInput` via:
 //
-//          IntegrationLogCollectionArray{ IntegrationLogCollectionArgs{...} }
+//	IntegrationLogCollectionArray{ IntegrationLogCollectionArgs{...} }
 type IntegrationLogCollectionArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutputWith
 // IntegrationLogCollectionMapInput is an input type that accepts IntegrationLogCollectionMap and IntegrationLogCollectionMapOutput values.
 // You can construct a concrete instance of `IntegrationLogCollectionMapInput` via:
 //
-//          IntegrationLogCollectionMap{ "key": IntegrationLogCollectionArgs{...} }
+//	IntegrationLogCollectionMap{ "key": IntegrationLogCollectionArgs{...} }
 type IntegrationLogCollectionMapInput interface {
 	pulumi.Input
 

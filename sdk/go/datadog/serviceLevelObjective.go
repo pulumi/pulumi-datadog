@@ -19,76 +19,79 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewServiceLevelObjective(ctx, "foo", &datadog.ServiceLevelObjectiveArgs{
-// 			Description: pulumi.String("My custom metric SLO"),
-// 			Name:        pulumi.String("Example Metric SLO"),
-// 			Query: &ServiceLevelObjectiveQueryArgs{
-// 				Denominator: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
-// 				Numerator:   pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
-// 			},
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("baz"),
-// 			},
-// 			Thresholds: ServiceLevelObjectiveThresholdArray{
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Target:         pulumi.Float64(99.9),
-// 					TargetDisplay:  pulumi.String("99.900"),
-// 					Timeframe:      pulumi.String("7d"),
-// 					Warning:        pulumi.Float64(99.99),
-// 					WarningDisplay: pulumi.String("99.990"),
-// 				},
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Target:         pulumi.Float64(99.9),
-// 					TargetDisplay:  pulumi.String("99.900"),
-// 					Timeframe:      pulumi.String("30d"),
-// 					Warning:        pulumi.Float64(99.99),
-// 					WarningDisplay: pulumi.String("99.990"),
-// 				},
-// 			},
-// 			Type: pulumi.String("metric"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
-// 			Description: pulumi.String("My custom monitor SLO"),
-// 			MonitorIds: pulumi.IntArray{
-// 				pulumi.Int(1),
-// 				pulumi.Int(2),
-// 				pulumi.Int(3),
-// 			},
-// 			Name: pulumi.String("Example Monitor SLO"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("baz"),
-// 			},
-// 			Thresholds: ServiceLevelObjectiveThresholdArray{
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Target:    pulumi.Float64(99.9),
-// 					Timeframe: pulumi.String("7d"),
-// 					Warning:   pulumi.Float64(99.99),
-// 				},
-// 				&ServiceLevelObjectiveThresholdArgs{
-// 					Target:    pulumi.Float64(99.9),
-// 					Timeframe: pulumi.String("30d"),
-// 					Warning:   pulumi.Float64(99.99),
-// 				},
-// 			},
-// 			Type: pulumi.String("monitor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewServiceLevelObjective(ctx, "foo", &datadog.ServiceLevelObjectiveArgs{
+//				Description: pulumi.String("My custom metric SLO"),
+//				Name:        pulumi.String("Example Metric SLO"),
+//				Query: &ServiceLevelObjectiveQueryArgs{
+//					Denominator: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
+//					Numerator:   pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//				Thresholds: ServiceLevelObjectiveThresholdArray{
+//					&ServiceLevelObjectiveThresholdArgs{
+//						Target:         pulumi.Float64(99.9),
+//						TargetDisplay:  pulumi.String("99.900"),
+//						Timeframe:      pulumi.String("7d"),
+//						Warning:        pulumi.Float64(99.99),
+//						WarningDisplay: pulumi.String("99.990"),
+//					},
+//					&ServiceLevelObjectiveThresholdArgs{
+//						Target:         pulumi.Float64(99.9),
+//						TargetDisplay:  pulumi.String("99.900"),
+//						Timeframe:      pulumi.String("30d"),
+//						Warning:        pulumi.Float64(99.99),
+//						WarningDisplay: pulumi.String("99.990"),
+//					},
+//				},
+//				Type: pulumi.String("metric"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
+//				Description: pulumi.String("My custom monitor SLO"),
+//				MonitorIds: pulumi.IntArray{
+//					pulumi.Int(1),
+//					pulumi.Int(2),
+//					pulumi.Int(3),
+//				},
+//				Name: pulumi.String("Example Monitor SLO"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//				Thresholds: ServiceLevelObjectiveThresholdArray{
+//					&ServiceLevelObjectiveThresholdArgs{
+//						Target:    pulumi.Float64(99.9),
+//						Timeframe: pulumi.String("7d"),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//					&ServiceLevelObjectiveThresholdArgs{
+//						Target:    pulumi.Float64(99.9),
+//						Timeframe: pulumi.String("30d"),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//				},
+//				Type: pulumi.String("monitor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +99,9 @@ import (
 // # Service Level Objectives can be imported using their string ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+//
+//	$ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+//
 // ```
 type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
@@ -303,7 +308,7 @@ func (i *ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx con
 // ServiceLevelObjectiveArrayInput is an input type that accepts ServiceLevelObjectiveArray and ServiceLevelObjectiveArrayOutput values.
 // You can construct a concrete instance of `ServiceLevelObjectiveArrayInput` via:
 //
-//          ServiceLevelObjectiveArray{ ServiceLevelObjectiveArgs{...} }
+//	ServiceLevelObjectiveArray{ ServiceLevelObjectiveArgs{...} }
 type ServiceLevelObjectiveArrayInput interface {
 	pulumi.Input
 
@@ -328,7 +333,7 @@ func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutputWithContex
 // ServiceLevelObjectiveMapInput is an input type that accepts ServiceLevelObjectiveMap and ServiceLevelObjectiveMapOutput values.
 // You can construct a concrete instance of `ServiceLevelObjectiveMapInput` via:
 //
-//          ServiceLevelObjectiveMap{ "key": ServiceLevelObjectiveArgs{...} }
+//	ServiceLevelObjectiveMap{ "key": ServiceLevelObjectiveArgs{...} }
 type ServiceLevelObjectiveMapInput interface {
 	pulumi.Input
 

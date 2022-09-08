@@ -1064,6 +1064,12 @@ __all__ = [
     'MetricTagConfigurationAggregationArgs',
     'MonitorMonitorThresholdWindowsArgs',
     'MonitorMonitorThresholdsArgs',
+    'MonitorVariablesArgs',
+    'MonitorVariablesEventQueryArgs',
+    'MonitorVariablesEventQueryComputeArgs',
+    'MonitorVariablesEventQueryGroupByArgs',
+    'MonitorVariablesEventQueryGroupBySortArgs',
+    'MonitorVariablesEventQuerySearchArgs',
     'OrganizationSettingsSettingsArgs',
     'OrganizationSettingsSettingsSamlArgs',
     'OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs',
@@ -17448,6 +17454,7 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
                  display_format: Optional[pulumi.Input[str]] = None,
                  hide_zero_counts: Optional[pulumi.Input[bool]] = None,
                  show_last_triggered: Optional[pulumi.Input[bool]] = None,
+                 show_priority: Optional[pulumi.Input[bool]] = None,
                  sort: Optional[pulumi.Input[str]] = None,
                  summary_type: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -17462,6 +17469,8 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
             pulumi.set(__self__, "hide_zero_counts", hide_zero_counts)
         if show_last_triggered is not None:
             pulumi.set(__self__, "show_last_triggered", show_last_triggered)
+        if show_priority is not None:
+            pulumi.set(__self__, "show_priority", show_priority)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if summary_type is not None:
@@ -17517,6 +17526,15 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
     @show_last_triggered.setter
     def show_last_triggered(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "show_last_triggered", value)
+
+    @property
+    @pulumi.getter(name="showPriority")
+    def show_priority(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_priority")
+
+    @show_priority.setter
+    def show_priority(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_priority", value)
 
     @property
     @pulumi.getter
@@ -39315,6 +39333,7 @@ class DashboardWidgetManageStatusDefinitionArgs:
                  display_format: Optional[pulumi.Input[str]] = None,
                  hide_zero_counts: Optional[pulumi.Input[bool]] = None,
                  show_last_triggered: Optional[pulumi.Input[bool]] = None,
+                 show_priority: Optional[pulumi.Input[bool]] = None,
                  sort: Optional[pulumi.Input[str]] = None,
                  summary_type: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -39329,6 +39348,8 @@ class DashboardWidgetManageStatusDefinitionArgs:
             pulumi.set(__self__, "hide_zero_counts", hide_zero_counts)
         if show_last_triggered is not None:
             pulumi.set(__self__, "show_last_triggered", show_last_triggered)
+        if show_priority is not None:
+            pulumi.set(__self__, "show_priority", show_priority)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if summary_type is not None:
@@ -39384,6 +39405,15 @@ class DashboardWidgetManageStatusDefinitionArgs:
     @show_last_triggered.setter
     def show_last_triggered(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "show_last_triggered", value)
+
+    @property
+    @pulumi.getter(name="showPriority")
+    def show_priority(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_priority")
+
+    @show_priority.setter
+    def show_priority(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_priority", value)
 
     @property
     @pulumi.getter
@@ -59794,6 +59824,233 @@ class MonitorMonitorThresholdsArgs:
     @warning_recovery.setter
     def warning_recovery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warning_recovery", value)
+
+
+@pulumi.input_type
+class MonitorVariablesArgs:
+    def __init__(__self__, *,
+                 event_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]] = None):
+        if event_queries is not None:
+            pulumi.set(__self__, "event_queries", event_queries)
+
+    @property
+    @pulumi.getter(name="eventQueries")
+    def event_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]]:
+        return pulumi.get(self, "event_queries")
+
+    @event_queries.setter
+    def event_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]]):
+        pulumi.set(self, "event_queries", value)
+
+
+@pulumi.input_type
+class MonitorVariablesEventQueryArgs:
+    def __init__(__self__, *,
+                 computes: pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]],
+                 data_source: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 search: Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']] = None):
+        pulumi.set(__self__, "computes", computes)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if search is not None:
+            pulumi.set(__self__, "search", search)
+
+    @property
+    @pulumi.getter
+    def computes(self) -> pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]]:
+        return pulumi.get(self, "computes")
+
+    @computes.setter
+    def computes(self, value: pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]]):
+        pulumi.set(self, "computes", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]]]:
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter
+    def search(self) -> Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']]:
+        return pulumi.get(self, "search")
+
+    @search.setter
+    def search(self, value: Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']]):
+        pulumi.set(self, "search", value)
+
+
+@pulumi.input_type
+class MonitorVariablesEventQueryComputeArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 interval: Optional[pulumi.Input[int]] = None,
+                 metric: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+
+@pulumi.input_type
+class MonitorVariablesEventQueryGroupByArgs:
+    def __init__(__self__, *,
+                 facet: pulumi.Input[str],
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['MonitorVariablesEventQueryGroupBySortArgs']] = None):
+        pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: pulumi.Input[str]):
+        pulumi.set(self, "facet", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['MonitorVariablesEventQueryGroupBySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['MonitorVariablesEventQueryGroupBySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class MonitorVariablesEventQueryGroupBySortArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 metric: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class MonitorVariablesEventQuerySearchArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
