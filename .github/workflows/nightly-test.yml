@@ -24,8 +24,6 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-      with:
-        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -56,6 +54,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        cache: gradle
+        distribution: temurin
+        java-version: ${{matrix.javaversion}}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -99,11 +103,14 @@ jobs:
         - 3.1.301
         goversion:
         - 1.19.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
         nodeversion:
         - 16.x
         pythonversion:
@@ -114,8 +121,6 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-      with:
-        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -191,8 +196,6 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-      with:
-        lfs: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v2
       with:
@@ -223,6 +226,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        cache: gradle
+        distribution: temurin
+        java-version: ${{matrix.javaversion}}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -272,11 +281,14 @@ jobs:
         - 3.1.301
         goversion:
         - 1.19.x
+        javaversion:
+        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
+        - java
         nodeversion:
         - 16.x
         pythonversion:
