@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly bool? AllowInsecure;
         public readonly string? Body;
+        public readonly ImmutableArray<string> CertificateDomains;
         public readonly string? DnsServer;
         public readonly int? DnsServerPort;
         public readonly bool? FollowRedirects;
@@ -35,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
             bool? allowInsecure,
 
             string? body,
+
+            ImmutableArray<string> certificateDomains,
 
             string? dnsServer,
 
@@ -66,6 +69,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AllowInsecure = allowInsecure;
             Body = body;
+            CertificateDomains = certificateDomains;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             FollowRedirects = followRedirects;

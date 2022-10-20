@@ -101,6 +101,7 @@ export interface DashboardWidget {
     sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetSunburstDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetToplistDefinition>;
+    topologyMapDefinition?: pulumi.Input<inputs.DashboardWidgetTopologyMapDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinition>;
     treemapDefinition?: pulumi.Input<inputs.DashboardWidgetTreemapDefinition>;
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetWidgetLayout>;
@@ -831,7 +832,7 @@ export interface DashboardWidgetGroupDefinition {
     layoutType: pulumi.Input<string>;
     showTitle?: pulumi.Input<boolean>;
     title?: pulumi.Input<string>;
-    widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidget>[]>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidget {
@@ -861,6 +862,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition>;
+    topologyMapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition>;
     treemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition>;
     widgetLayout?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout>;
@@ -4329,6 +4331,32 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSty
     palette?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink>[]>;
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
+    queries: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery>[]>;
+    requestType: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery {
+    dataSource: pulumi.Input<string>;
+    filters: pulumi.Input<pulumi.Input<string>[]>;
+    service: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     displayFormat?: pulumi.Input<string>;
     env: pulumi.Input<string>;
@@ -7218,6 +7246,32 @@ export interface DashboardWidgetToplistDefinitionRequestStyle {
     palette?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetTopologyMapDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTopologyMapDefinitionCustomLink>[]>;
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTopologyMapDefinitionRequest>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionRequest {
+    queries: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTopologyMapDefinitionRequestQuery>[]>;
+    requestType: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionRequestQuery {
+    dataSource: pulumi.Input<string>;
+    filters: pulumi.Input<pulumi.Input<string>[]>;
+    service: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetTraceServiceDefinition {
     displayFormat?: pulumi.Input<string>;
     env: pulumi.Input<string>;
@@ -7886,7 +7940,8 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsGlobalVariableParseTestOptions {
     field?: pulumi.Input<string>;
-    parser: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
+    localVariableName?: pulumi.Input<string>;
+    parser?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
     type: pulumi.Input<string>;
 }
 
@@ -7972,6 +8027,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 export interface SyntheticsTestApiStepRequestDefinition {
     allowInsecure?: pulumi.Input<boolean>;
     body?: pulumi.Input<string>;
+    certificateDomains?: pulumi.Input<pulumi.Input<string>[]>;
     dnsServer?: pulumi.Input<string>;
     dnsServerPort?: pulumi.Input<number>;
     followRedirects?: pulumi.Input<boolean>;
@@ -8080,7 +8136,10 @@ export interface SyntheticsTestOptionsList {
     allowInsecure?: pulumi.Input<boolean>;
     checkCertificateRevocation?: pulumi.Input<boolean>;
     ci?: pulumi.Input<inputs.SyntheticsTestOptionsListCi>;
+    disableCsp?: pulumi.Input<boolean>;
     followRedirects?: pulumi.Input<boolean>;
+    ignoreServerCertificateError?: pulumi.Input<boolean>;
+    initialNavigationTimeout?: pulumi.Input<number>;
     minFailureDuration?: pulumi.Input<number>;
     minLocationFailed?: pulumi.Input<number>;
     monitorName?: pulumi.Input<string>;
@@ -8142,6 +8201,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
 
 export interface SyntheticsTestRequestDefinition {
     body?: pulumi.Input<string>;
+    certificateDomains?: pulumi.Input<pulumi.Input<string>[]>;
     dnsServer?: pulumi.Input<string>;
     dnsServerPort?: pulumi.Input<number>;
     host?: pulumi.Input<string>;

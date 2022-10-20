@@ -90,6 +90,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("toplistDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs>? ToplistDefinition { get; set; }
 
+        [Input("topologyMapDefinition")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs>? TopologyMapDefinition { get; set; }
+
         [Input("traceServiceDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs>? TraceServiceDefinition { get; set; }
 

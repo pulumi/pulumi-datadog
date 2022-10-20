@@ -40,6 +40,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetSunburstDefinition? SunburstDefinition;
         public readonly Outputs.DashboardWidgetTimeseriesDefinition? TimeseriesDefinition;
         public readonly Outputs.DashboardWidgetToplistDefinition? ToplistDefinition;
+        public readonly Outputs.DashboardWidgetTopologyMapDefinition? TopologyMapDefinition;
         public readonly Outputs.DashboardWidgetTraceServiceDefinition? TraceServiceDefinition;
         public readonly Outputs.DashboardWidgetTreemapDefinition? TreemapDefinition;
         public readonly Outputs.DashboardWidgetWidgetLayout? WidgetLayout;
@@ -100,6 +101,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetToplistDefinition? toplistDefinition,
 
+            Outputs.DashboardWidgetTopologyMapDefinition? topologyMapDefinition,
+
             Outputs.DashboardWidgetTraceServiceDefinition? traceServiceDefinition,
 
             Outputs.DashboardWidgetTreemapDefinition? treemapDefinition,
@@ -133,6 +136,7 @@ namespace Pulumi.Datadog.Outputs
             SunburstDefinition = sunburstDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
+            TopologyMapDefinition = topologyMapDefinition;
             TraceServiceDefinition = traceServiceDefinition;
             TreemapDefinition = treemapDefinition;
             WidgetLayout = widgetLayout;

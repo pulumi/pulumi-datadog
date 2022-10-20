@@ -77,6 +77,12 @@ namespace Pulumi.Datadog
         [Output("options")]
         public Output<Outputs.SecurityMonitoringDefaultRuleOptions?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule type.
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityMonitoringDefaultRule resource with the given unique name, arguments, and options.
@@ -201,6 +207,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("options")]
         public Input<Inputs.SecurityMonitoringDefaultRuleOptionsGetArgs>? Options { get; set; }
+
+        /// <summary>
+        /// The rule type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SecurityMonitoringDefaultRuleState()
         {

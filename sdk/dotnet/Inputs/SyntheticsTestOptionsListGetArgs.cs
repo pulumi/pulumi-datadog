@@ -24,8 +24,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("ci")]
         public Input<Inputs.SyntheticsTestOptionsListCiGetArgs>? Ci { get; set; }
 
+        [Input("disableCsp")]
+        public Input<bool>? DisableCsp { get; set; }
+
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
+
+        [Input("ignoreServerCertificateError")]
+        public Input<bool>? IgnoreServerCertificateError { get; set; }
+
+        [Input("initialNavigationTimeout")]
+        public Input<int>? InitialNavigationTimeout { get; set; }
 
         [Input("minFailureDuration")]
         public Input<int>? MinFailureDuration { get; set; }

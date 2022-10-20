@@ -76,6 +76,10 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
     public readonly options!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleOptions | undefined>;
+    /**
+     * The rule type.
+     */
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a SecurityMonitoringDefaultRule resource with the given unique name, arguments, and options.
@@ -94,12 +98,14 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringDefaultRuleArgs | undefined;
             resourceInputs["cases"] = args ? args.cases : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringDefaultRule.__pulumiType, name, resourceInputs, opts);
@@ -126,6 +132,10 @@ export interface SecurityMonitoringDefaultRuleState {
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
     options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
+    /**
+     * The rule type.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**

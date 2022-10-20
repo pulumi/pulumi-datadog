@@ -682,6 +682,14 @@
                         }
                     }
                 },
+                "topologyMapDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTopologyMapDefinition:DashboardWidgetTopologyMapDefinition",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "traceServiceDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTraceServiceDefinition:DashboardWidgetTraceServiceDefinition",
                     "language": {
@@ -5095,8 +5103,7 @@
             },
             "type": "object",
             "required": [
-                "layoutType",
-                "widgets"
+                "layoutType"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidget:DashboardWidgetGroupDefinitionWidget": {
@@ -5303,6 +5310,14 @@
                 },
                 "toplistDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinition:DashboardWidgetGroupDefinitionWidgetToplistDefinition",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "topologyMapDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -25976,6 +25991,159 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition": {
+            "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest": {
+            "properties": {
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requestType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "queries",
+                "requestType"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "filters",
+                "service"
+            ]
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition:DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition": {
             "properties": {
                 "displayFormat": {
@@ -43211,6 +43379,159 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetTopologyMapDefinition:DashboardWidgetTopologyMapDefinition": {
+            "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTopologyMapDefinitionCustomLink:DashboardWidgetTopologyMapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTopologyMapDefinitionRequest:DashboardWidgetTopologyMapDefinitionRequest"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTopologyMapDefinitionCustomLink:DashboardWidgetTopologyMapDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetTopologyMapDefinitionRequest:DashboardWidgetTopologyMapDefinitionRequest": {
+            "properties": {
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTopologyMapDefinitionRequestQuery:DashboardWidgetTopologyMapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requestType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "queries",
+                "requestType"
+            ]
+        },
+        "datadog:index/DashboardWidgetTopologyMapDefinitionRequestQuery:DashboardWidgetTopologyMapDefinitionRequestQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "filters",
+                "service"
+            ]
+        },
         "datadog:index/DashboardWidgetTraceServiceDefinition:DashboardWidgetTraceServiceDefinition": {
             "properties": {
                 "displayFormat": {
@@ -47232,6 +47553,14 @@
                         }
                     }
                 },
+                "localVariableName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "parser": {
                     "$ref": "#/types/datadog:index/SyntheticsGlobalVariableParseTestOptionsParser:SyntheticsGlobalVariableParseTestOptionsParser",
                     "language": {
@@ -47251,7 +47580,6 @@
             },
             "type": "object",
             "required": [
-                "parser",
                 "type"
             ]
         },
@@ -47738,6 +48066,17 @@
                 },
                 "body": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "certificateDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48417,8 +48756,32 @@
                         }
                     }
                 },
+                "disableCsp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "followRedirects": {
                     "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreServerCertificateError": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialNavigationTimeout": {
+                    "type": "integer",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48761,6 +49124,17 @@
                         }
                     }
                 },
+                "certificateDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "dnsServer": {
                     "type": "string",
                     "language": {
@@ -49087,6 +49461,96 @@
             }
         },
         "datadog:index/getLogsIndexesLogsIndexFilter:getLogsIndexesLogsIndexFilter": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsPipelinesLogsPipeline:getLogsPipelinesLogsPipeline": {
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getLogsPipelinesLogsPipelineFilter:getLogsPipelinesLogsPipelineFilter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isReadOnly": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "filters",
+                "id",
+                "isEnabled",
+                "isReadOnly",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getLogsPipelinesLogsPipelineFilter:getLogsPipelinesLogsPipelineFilter": {
             "properties": {
                 "query": {
                     "type": "string",
@@ -50391,7 +50855,7 @@
             }
         },
         "datadog:gcp/integration:Integration": {
-            "description": "Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Google Cloud Platform integration\nconst awesomeGcpProjectIntegration = new datadog.gcp.Integration(\"awesome_gcp_project_integration\", {\n    clientEmail: \"awesome-service-account@awesome-project-id.iam.gserviceaccount.com\",\n    clientId: \"123456789012345678901\",\n    hostFilters: \"foo:bar,buzz:lightyear\",\n    privateKey: `-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n`,\n    privateKeyId: \"1234567890123456789012345678901234567890\",\n    projectId: \"awesome-project-id\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Google Cloud Platform integration\nawesome_gcp_project_integration = datadog.gcp.Integration(\"awesomeGcpProjectIntegration\",\n    client_email=\"awesome-service-account@awesome-project-id.iam.gserviceaccount.com\",\n    client_id=\"123456789012345678901\",\n    host_filters=\"foo:bar,buzz:lightyear\",\n    private_key=\"\"\"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n\n\"\"\",\n    private_key_id=\"1234567890123456789012345678901234567890\",\n    project_id=\"awesome-project-id\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog - Google Cloud Platform integration\n        var awesomeGcpProjectIntegration = new Datadog.Gcp.Integration(\"awesomeGcpProjectIntegration\", new Datadog.Gcp.IntegrationArgs\n        {\n            ClientEmail = \"awesome-service-account@awesome-project-id.iam.gserviceaccount.com\",\n            ClientId = \"123456789012345678901\",\n            HostFilters = \"foo:bar,buzz:lightyear\",\n            PrivateKey = @\"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n\n\",\n            PrivateKeyId = \"1234567890123456789012345678901234567890\",\n            ProjectId = \"awesome-project-id\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/gcp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := gcp.NewIntegration(ctx, \"awesomeGcpProjectIntegration\", \u0026gcp.IntegrationArgs{\n\t\t\tClientEmail:  pulumi.String(\"awesome-service-account@awesome-project-id.iam.gserviceaccount.com\"),\n\t\t\tClientId:     pulumi.String(\"123456789012345678901\"),\n\t\t\tHostFilters:  pulumi.String(\"foo:bar,buzz:lightyear\"),\n\t\t\tPrivateKey:   pulumi.String(fmt.Sprintf(\"%v%v%v%v\", \"-----BEGIN PRIVATE KEY-----\\n\", \"...\\n\", \"-----END PRIVATE KEY-----\\n\", \"\\n\")),\n\t\t\tPrivateKeyId: pulumi.String(\"1234567890123456789012345678901234567890\"),\n\t\t\tProjectId:    pulumi.String(\"awesome-project-id\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var awesomeGcpProjectIntegration = new Integration(\"awesomeGcpProjectIntegration\", IntegrationArgs.builder()        \n            .clientEmail(\"awesome-service-account@awesome-project-id.iam.gserviceaccount.com\")\n            .clientId(\"123456789012345678901\")\n            .hostFilters(\"foo:bar,buzz:lightyear\")\n            .privateKey(\"\"\"\n-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n\n            \"\"\")\n            .privateKeyId(\"1234567890123456789012345678901234567890\")\n            .projectId(\"awesome-project-id\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  awesomeGcpProjectIntegration:\n    type: datadog:gcp:Integration\n    properties:\n      clientEmail: awesome-service-account@awesome-project-id.iam.gserviceaccount.com\n      clientId: 123456789012345678901\n      hostFilters: foo:bar,buzz:lightyear\n      privateKey: |+\n        -----BEGIN PRIVATE KEY-----\n        ...\n        -----END PRIVATE KEY-----\n\n      privateKeyId: 1234567890123456789012345678901234567890\n      projectId: awesome-project-id\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# Google Cloud Platform integrations can be imported using their project ID, e.g.\n\n```sh\n $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id\n```\n\n ",
+            "description": "Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.\n\n\n## Import\n\n# Google Cloud Platform integrations can be imported using their project ID, e.g.\n\n```sh\n $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id\n```\n\n ",
             "properties": {
                 "automute": {
                     "type": "boolean",
@@ -52834,8 +53298,15 @@
                 "options": {
                     "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions",
                     "description": "Options on default rules. Note that only a subset of fields can be updated on default rule options.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The rule type.\n"
                 }
             },
+            "required": [
+                "type"
+            ],
             "inputProperties": {
                 "cases": {
                     "type": "array",
@@ -52884,6 +53355,10 @@
                     "options": {
                         "$ref": "#/types/datadog:index/SecurityMonitoringDefaultRuleOptions:SecurityMonitoringDefaultRuleOptions",
                         "description": "Options on default rules. Note that only a subset of fields can be updated on default rule options.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The rule type.\n"
                     }
                 },
                 "type": "object"
@@ -53166,6 +53641,37 @@
                     "type": {
                         "type": "string",
                         "description": "The rule type.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": {
+            "description": "Provides a Datadog service definition resource. This can be used to create and manage Datadog service definitions in the service catalog using the YAML/JSON definition.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst serviceDefinition = new datadog.ServiceDefinitionYaml(\"service_definition\", {\n    serviceDefinition: `schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nservice_definition = datadog.ServiceDefinitionYaml(\"serviceDefinition\", service_definition=\"\"\"schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n\"\"\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var serviceDefinition = new Datadog.ServiceDefinitionYaml(\"serviceDefinition\", new Datadog.ServiceDefinitionYamlArgs\n        {\n            ServiceDefinition = @\"schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceDefinitionYaml(ctx, \"serviceDefinition\", \u0026datadog.ServiceDefinitionYamlArgs{\n\t\t\tServiceDefinition: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v\", \"schema-version: v2\\n\", \"dd-service: shopping-cart\\n\", \"team: E Commerce\\n\", \"contacts:\\n\", \"  - name: Support Email\\n\", \"    type: email\\n\", \"    contact: team@shopping.com\\n\", \"  - name: Support Slack\\n\", \"    type: slack\\n\", \"    contact: https://www.slack.com/archives/shopping-cart\\n\", \"repos:\\n\", \"  - name: shopping-cart source code\\n\", \"    provider: github\\n\", \"    url: http://github/shopping-cart\\n\", \"docs:\\n\", \"  - name: shopping-cart architecture\\n\", \"    provider: gdoc\\n\", \"    url: https://google.drive/shopping-cart-architecture\\n\", \"  - name: shopping-cart service Wiki\\n\", \"    provider: wiki\\n\", \"    url: https://wiki/shopping-cart\\n\", \"links:\\n\", \"  - name: shopping-cart runbook\\n\", \"    type: runbook\\n\", \"    url: https://runbook/shopping-cart\\n\", \"tags:\\n\", \"  - business-unit:retail\\n\", \"  - cost-center:engineering\\n\", \"integrations:\\n\", \"  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\\n\", \"extensions:\\n\", \"  datadoghq.com/shopping-cart:\\n\", \"    customField: customValue\\n\", \"\\n\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var serviceDefinition = new ServiceDefinitionYaml(\"serviceDefinition\", ServiceDefinitionYamlArgs.builder()        \n            .serviceDefinition(\"\"\"\nschema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  serviceDefinition:\n    type: datadog:ServiceDefinitionYaml\n    properties:\n      serviceDefinition: |+\n        schema-version: v2\n        dd-service: shopping-cart\n        team: E Commerce\n        contacts:\n          - name: Support Email\n            type: email\n            contact: team@shopping.com\n          - name: Support Slack\n            type: slack\n            contact: https://www.slack.com/archives/shopping-cart\n        repos:\n          - name: shopping-cart source code\n            provider: github\n            url: http://github/shopping-cart\n        docs:\n          - name: shopping-cart architecture\n            provider: gdoc\n            url: https://google.drive/shopping-cart-architecture\n          - name: shopping-cart service Wiki\n            provider: wiki\n            url: https://wiki/shopping-cart\n        links:\n          - name: shopping-cart runbook\n            type: runbook\n            url: https://runbook/shopping-cart\n        tags:\n          - business-unit:retail\n          - cost-center:engineering\n        integrations:\n          pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\n        extensions:\n          datadoghq.com/shopping-cart:\n            customField: customValue\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition \"\u003cdd-service\u003e\"\n```\n\n ",
+            "properties": {
+                "serviceDefinition": {
+                    "type": "string",
+                    "description": "The YAML/JSON formatted definition of the service\n"
+                }
+            },
+            "required": [
+                "serviceDefinition"
+            ],
+            "inputProperties": {
+                "serviceDefinition": {
+                    "type": "string",
+                    "description": "The YAML/JSON formatted definition of the service\n"
+                }
+            },
+            "requiredInputs": [
+                "serviceDefinition"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceDefinitionYaml resources.\n",
+                "properties": {
+                    "serviceDefinition": {
+                        "type": "string",
+                        "description": "The YAML/JSON formatted definition of the service\n"
                     }
                 },
                 "type": "object"
@@ -54888,6 +55394,41 @@
                 "type": "object",
                 "required": [
                     "indexNames",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getLogsPipelines:getLogsPipelines": {
+            "description": "Use this data source to list all existing logs pipelines for use in other resources.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLogsPipelines.\n",
+                "properties": {
+                    "isReadOnly": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLogsPipelines.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "isReadOnly": {
+                        "type": "string"
+                    },
+                    "logsPipelines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getLogsPipelinesLogsPipeline:getLogsPipelinesLogsPipeline"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "logsPipelines",
                     "id"
                 ]
             }

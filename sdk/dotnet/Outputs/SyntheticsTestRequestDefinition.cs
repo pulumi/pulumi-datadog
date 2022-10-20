@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestRequestDefinition
     {
         public readonly string? Body;
+        public readonly ImmutableArray<string> CertificateDomains;
         public readonly string? DnsServer;
         public readonly int? DnsServerPort;
         public readonly string? Host;
@@ -31,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private SyntheticsTestRequestDefinition(
             string? body,
+
+            ImmutableArray<string> certificateDomains,
 
             string? dnsServer,
 
@@ -59,6 +62,7 @@ namespace Pulumi.Datadog.Outputs
             string? url)
         {
             Body = body;
+            CertificateDomains = certificateDomains;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             Host = host;
