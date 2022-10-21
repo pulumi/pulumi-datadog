@@ -109,6 +109,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_authn_mapping":                      {Tok: makeResource(datadogMod, "AuthnMapping")},
 			"datadog_cloud_workload_security_agent_rule": {Tok: makeResource(datadogMod, "CloudWorkloadSecurityAgentRule")},
 			"datadog_rum_application":                    {Tok: makeResource(datadogMod, "RumApplication")},
+			"datadog_service_definition_yaml":            {Tok: makeResource(datadogMod, "ServiceDefinitionYaml")},
 
 			// GCP Integrations
 			"datadog_integration_gcp": {Tok: makeResource(gcpMod, "Integration")},
@@ -156,6 +157,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_roles":                               {Tok: makeDataSource(datadogMod, "getRoles")},
 			"datadog_logs_indexes":                        {Tok: makeDataSource(datadogMod, "getLogsIndexes")},
 			"datadog_logs_indexes_order":                  {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
+			"datadog_logs_pipelines":                      {Tok: makeDataSource(datadogMod, "getLogsPipelines")},
 			"datadog_cloud_workload_security_agent_rules": {Tok: makeDataSource(datadogMod, "getCloudWorkloadSecurityAgentRules")},
 			"datadog_synthetics_test":                     {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
 		},

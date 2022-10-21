@@ -15,8 +15,11 @@ namespace Pulumi.Datadog.Inputs
         [Input("field")]
         public Input<string>? Field { get; set; }
 
-        [Input("parser", required: true)]
-        public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsParserArgs> Parser { get; set; } = null!;
+        [Input("localVariableName")]
+        public Input<string>? LocalVariableName { get; set; }
+
+        [Input("parser")]
+        public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsParserArgs>? Parser { get; set; }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

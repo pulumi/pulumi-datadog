@@ -15,6 +15,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        [Input("certificateDomains")]
+        private InputList<string>? _certificateDomains;
+        public InputList<string> CertificateDomains
+        {
+            get => _certificateDomains ?? (_certificateDomains = new InputList<string>());
+            set => _certificateDomains = value;
+        }
+
         [Input("dnsServer")]
         public Input<string>? DnsServer { get; set; }
 

@@ -74,6 +74,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityMonitoringFilter{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
 		r = &SecurityMonitoringRule{}
+	case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
+		r = &ServiceDefinitionYaml{}
 	case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
 		r = &ServiceLevelObjective{}
 	case "datadog:index/sloCorrection:SloCorrection":
@@ -251,6 +253,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityMonitoringRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/serviceDefinitionYaml",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

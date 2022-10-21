@@ -599,6 +599,10 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinition',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest',
@@ -996,6 +1000,10 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetToplistDefinitionRequestStyle',
+    'DashboardWidgetTopologyMapDefinition',
+    'DashboardWidgetTopologyMapDefinitionCustomLink',
+    'DashboardWidgetTopologyMapDefinitionRequest',
+    'DashboardWidgetTopologyMapDefinitionRequestQuery',
     'DashboardWidgetTraceServiceDefinition',
     'DashboardWidgetTreemapDefinition',
     'DashboardWidgetTreemapDefinitionRequest',
@@ -1130,6 +1138,8 @@ __all__ = [
     'GetLogsIndexesLogsIndexExclusionFilterResult',
     'GetLogsIndexesLogsIndexExclusionFilterFilterResult',
     'GetLogsIndexesLogsIndexFilterResult',
+    'GetLogsPipelinesLogsPipelineResult',
+    'GetLogsPipelinesLogsPipelineFilterResult',
     'GetMonitorMonitorThresholdResult',
     'GetMonitorMonitorThresholdWindowResult',
     'GetMonitorsMonitorResult',
@@ -1626,6 +1636,8 @@ class DashboardWidget(dict):
             suggest = "timeseries_definition"
         elif key == "toplistDefinition":
             suggest = "toplist_definition"
+        elif key == "topologyMapDefinition":
+            suggest = "topology_map_definition"
         elif key == "traceServiceDefinition":
             suggest = "trace_service_definition"
         elif key == "treemapDefinition":
@@ -1672,6 +1684,7 @@ class DashboardWidget(dict):
                  sunburst_definition: Optional['outputs.DashboardWidgetSunburstDefinition'] = None,
                  timeseries_definition: Optional['outputs.DashboardWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetToplistDefinition'] = None,
+                 topology_map_definition: Optional['outputs.DashboardWidgetTopologyMapDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetTraceServiceDefinition'] = None,
                  treemap_definition: Optional['outputs.DashboardWidgetTreemapDefinition'] = None,
                  widget_layout: Optional['outputs.DashboardWidgetWidgetLayout'] = None):
@@ -1729,6 +1742,8 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
+        if topology_map_definition is not None:
+            pulumi.set(__self__, "topology_map_definition", topology_map_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
         if treemap_definition is not None:
@@ -1870,6 +1885,11 @@ class DashboardWidget(dict):
     @pulumi.getter(name="toplistDefinition")
     def toplist_definition(self) -> Optional['outputs.DashboardWidgetToplistDefinition']:
         return pulumi.get(self, "toplist_definition")
+
+    @property
+    @pulumi.getter(name="topologyMapDefinition")
+    def topology_map_definition(self) -> Optional['outputs.DashboardWidgetTopologyMapDefinition']:
+        return pulumi.get(self, "topology_map_definition")
 
     @property
     @pulumi.getter(name="traceServiceDefinition")
@@ -6882,13 +6902,12 @@ class DashboardWidgetGroupDefinition(dict):
 
     def __init__(__self__, *,
                  layout_type: str,
-                 widgets: Sequence['outputs.DashboardWidgetGroupDefinitionWidget'],
                  background_color: Optional[str] = None,
                  banner_img: Optional[str] = None,
                  show_title: Optional[bool] = None,
-                 title: Optional[str] = None):
+                 title: Optional[str] = None,
+                 widgets: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidget']] = None):
         pulumi.set(__self__, "layout_type", layout_type)
-        pulumi.set(__self__, "widgets", widgets)
         if background_color is not None:
             pulumi.set(__self__, "background_color", background_color)
         if banner_img is not None:
@@ -6897,16 +6916,13 @@ class DashboardWidgetGroupDefinition(dict):
             pulumi.set(__self__, "show_title", show_title)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
 
     @property
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> str:
         return pulumi.get(self, "layout_type")
-
-    @property
-    @pulumi.getter
-    def widgets(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidget']:
-        return pulumi.get(self, "widgets")
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -6927,6 +6943,11 @@ class DashboardWidgetGroupDefinition(dict):
     @pulumi.getter
     def title(self) -> Optional[str]:
         return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidget']]:
+        return pulumi.get(self, "widgets")
 
 
 @pulumi.output_type
@@ -6984,6 +7005,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             suggest = "timeseries_definition"
         elif key == "toplistDefinition":
             suggest = "toplist_definition"
+        elif key == "topologyMapDefinition":
+            suggest = "topology_map_definition"
         elif key == "traceServiceDefinition":
             suggest = "trace_service_definition"
         elif key == "treemapDefinition":
@@ -7029,6 +7052,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  sunburst_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition'] = None,
                  timeseries_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition'] = None,
                  toplist_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition'] = None,
+                 topology_map_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition'] = None,
                  trace_service_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition'] = None,
                  treemap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition'] = None,
                  widget_layout: Optional['outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout'] = None):
@@ -7084,6 +7108,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
+        if topology_map_definition is not None:
+            pulumi.set(__self__, "topology_map_definition", topology_map_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
         if treemap_definition is not None:
@@ -7220,6 +7246,11 @@ class DashboardWidgetGroupDefinitionWidget(dict):
     @pulumi.getter(name="toplistDefinition")
     def toplist_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition']:
         return pulumi.get(self, "toplist_definition")
+
+    @property
+    @pulumi.getter(name="topologyMapDefinition")
+    def topology_map_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition']:
+        return pulumi.get(self, "topology_map_definition")
 
     @property
     @pulumi.getter(name="traceServiceDefinition")
@@ -30823,6 +30854,207 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest']] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestType":
+            suggest = "request_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queries: Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery'],
+                 request_type: str):
+        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery']:
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> str:
+        return pulumi.get(self, "request_type")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 filters: Sequence[str],
+                 service: str):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Sequence[str]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -50480,6 +50712,207 @@ class DashboardWidgetToplistDefinitionRequestStyle(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetTopologyMapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTopologyMapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTopologyMapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTopologyMapDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetTopologyMapDefinitionCustomLink']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetTopologyMapDefinitionRequest']] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetTopologyMapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetTopologyMapDefinitionRequest']]:
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetTopologyMapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTopologyMapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTopologyMapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTopologyMapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetTopologyMapDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestType":
+            suggest = "request_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTopologyMapDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTopologyMapDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTopologyMapDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queries: Sequence['outputs.DashboardWidgetTopologyMapDefinitionRequestQuery'],
+                 request_type: str):
+        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Sequence['outputs.DashboardWidgetTopologyMapDefinitionRequestQuery']:
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> str:
+        return pulumi.get(self, "request_type")
+
+
+@pulumi.output_type
+class DashboardWidgetTopologyMapDefinitionRequestQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTopologyMapDefinitionRequestQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTopologyMapDefinitionRequestQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTopologyMapDefinitionRequestQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 filters: Sequence[str],
+                 service: str):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Sequence[str]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
 class DashboardWidgetTraceServiceDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -55144,19 +55577,35 @@ class ServiceLevelObjectiveThreshold(dict):
 
 @pulumi.output_type
 class SyntheticsGlobalVariableParseTestOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localVariableName":
+            suggest = "local_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsGlobalVariableParseTestOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsGlobalVariableParseTestOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsGlobalVariableParseTestOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 parser: 'outputs.SyntheticsGlobalVariableParseTestOptionsParser',
                  type: str,
-                 field: Optional[str] = None):
-        pulumi.set(__self__, "parser", parser)
+                 field: Optional[str] = None,
+                 local_variable_name: Optional[str] = None,
+                 parser: Optional['outputs.SyntheticsGlobalVariableParseTestOptionsParser'] = None):
         pulumi.set(__self__, "type", type)
         if field is not None:
             pulumi.set(__self__, "field", field)
-
-    @property
-    @pulumi.getter
-    def parser(self) -> 'outputs.SyntheticsGlobalVariableParseTestOptionsParser':
-        return pulumi.get(self, "parser")
+        if local_variable_name is not None:
+            pulumi.set(__self__, "local_variable_name", local_variable_name)
+        if parser is not None:
+            pulumi.set(__self__, "parser", parser)
 
     @property
     @pulumi.getter
@@ -55167,6 +55616,16 @@ class SyntheticsGlobalVariableParseTestOptions(dict):
     @pulumi.getter
     def field(self) -> Optional[str]:
         return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter(name="localVariableName")
+    def local_variable_name(self) -> Optional[str]:
+        return pulumi.get(self, "local_variable_name")
+
+    @property
+    @pulumi.getter
+    def parser(self) -> Optional['outputs.SyntheticsGlobalVariableParseTestOptionsParser']:
+        return pulumi.get(self, "parser")
 
 
 @pulumi.output_type
@@ -55657,6 +56116,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         suggest = None
         if key == "allowInsecure":
             suggest = "allow_insecure"
+        elif key == "certificateDomains":
+            suggest = "certificate_domains"
         elif key == "dnsServer":
             suggest = "dns_server"
         elif key == "dnsServerPort":
@@ -55684,6 +56145,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     def __init__(__self__, *,
                  allow_insecure: Optional[bool] = None,
                  body: Optional[str] = None,
+                 certificate_domains: Optional[Sequence[str]] = None,
                  dns_server: Optional[str] = None,
                  dns_server_port: Optional[int] = None,
                  follow_redirects: Optional[bool] = None,
@@ -55702,6 +56164,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if certificate_domains is not None:
+            pulumi.set(__self__, "certificate_domains", certificate_domains)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
@@ -55740,6 +56204,11 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter
     def body(self) -> Optional[str]:
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="certificateDomains")
+    def certificate_domains(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "certificate_domains")
 
     @property
     @pulumi.getter(name="dnsServer")
@@ -56360,8 +56829,14 @@ class SyntheticsTestOptionsList(dict):
             suggest = "allow_insecure"
         elif key == "checkCertificateRevocation":
             suggest = "check_certificate_revocation"
+        elif key == "disableCsp":
+            suggest = "disable_csp"
         elif key == "followRedirects":
             suggest = "follow_redirects"
+        elif key == "ignoreServerCertificateError":
+            suggest = "ignore_server_certificate_error"
+        elif key == "initialNavigationTimeout":
+            suggest = "initial_navigation_timeout"
         elif key == "minFailureDuration":
             suggest = "min_failure_duration"
         elif key == "minLocationFailed":
@@ -56396,7 +56871,10 @@ class SyntheticsTestOptionsList(dict):
                  allow_insecure: Optional[bool] = None,
                  check_certificate_revocation: Optional[bool] = None,
                  ci: Optional['outputs.SyntheticsTestOptionsListCi'] = None,
+                 disable_csp: Optional[bool] = None,
                  follow_redirects: Optional[bool] = None,
+                 ignore_server_certificate_error: Optional[bool] = None,
+                 initial_navigation_timeout: Optional[int] = None,
                  min_failure_duration: Optional[int] = None,
                  min_location_failed: Optional[int] = None,
                  monitor_name: Optional[str] = None,
@@ -56415,8 +56893,14 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if ci is not None:
             pulumi.set(__self__, "ci", ci)
+        if disable_csp is not None:
+            pulumi.set(__self__, "disable_csp", disable_csp)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
+        if ignore_server_certificate_error is not None:
+            pulumi.set(__self__, "ignore_server_certificate_error", ignore_server_certificate_error)
+        if initial_navigation_timeout is not None:
+            pulumi.set(__self__, "initial_navigation_timeout", initial_navigation_timeout)
         if min_failure_duration is not None:
             pulumi.set(__self__, "min_failure_duration", min_failure_duration)
         if min_location_failed is not None:
@@ -56462,9 +56946,24 @@ class SyntheticsTestOptionsList(dict):
         return pulumi.get(self, "ci")
 
     @property
+    @pulumi.getter(name="disableCsp")
+    def disable_csp(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_csp")
+
+    @property
     @pulumi.getter(name="followRedirects")
     def follow_redirects(self) -> Optional[bool]:
         return pulumi.get(self, "follow_redirects")
+
+    @property
+    @pulumi.getter(name="ignoreServerCertificateError")
+    def ignore_server_certificate_error(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_server_certificate_error")
+
+    @property
+    @pulumi.getter(name="initialNavigationTimeout")
+    def initial_navigation_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "initial_navigation_timeout")
 
     @property
     @pulumi.getter(name="minFailureDuration")
@@ -56814,7 +57313,9 @@ class SyntheticsTestRequestDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dnsServer":
+        if key == "certificateDomains":
+            suggest = "certificate_domains"
+        elif key == "dnsServer":
             suggest = "dns_server"
         elif key == "dnsServerPort":
             suggest = "dns_server_port"
@@ -56838,6 +57339,7 @@ class SyntheticsTestRequestDefinition(dict):
 
     def __init__(__self__, *,
                  body: Optional[str] = None,
+                 certificate_domains: Optional[Sequence[str]] = None,
                  dns_server: Optional[str] = None,
                  dns_server_port: Optional[int] = None,
                  host: Optional[str] = None,
@@ -56853,6 +57355,8 @@ class SyntheticsTestRequestDefinition(dict):
                  url: Optional[str] = None):
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if certificate_domains is not None:
+            pulumi.set(__self__, "certificate_domains", certificate_domains)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
@@ -56884,6 +57388,11 @@ class SyntheticsTestRequestDefinition(dict):
     @pulumi.getter
     def body(self) -> Optional[str]:
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="certificateDomains")
+    def certificate_domains(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "certificate_domains")
 
     @property
     @pulumi.getter(name="dnsServer")
@@ -57099,6 +57608,65 @@ class GetLogsIndexesLogsIndexExclusionFilterFilterResult(dict):
 
 @pulumi.output_type
 class GetLogsIndexesLogsIndexFilterResult(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class GetLogsPipelinesLogsPipelineResult(dict):
+    def __init__(__self__, *,
+                 filters: Sequence['outputs.GetLogsPipelinesLogsPipelineFilterResult'],
+                 id: str,
+                 is_enabled: bool,
+                 is_read_only: bool,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "is_read_only", is_read_only)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Sequence['outputs.GetLogsPipelinesLogsPipelineFilterResult']:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> bool:
+        return pulumi.get(self, "is_read_only")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetLogsPipelinesLogsPipelineFilterResult(dict):
     def __init__(__self__, *,
                  query: str):
         pulumi.set(__self__, "query", query)

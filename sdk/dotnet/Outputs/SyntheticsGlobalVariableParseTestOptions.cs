@@ -14,18 +14,22 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsGlobalVariableParseTestOptions
     {
         public readonly string? Field;
-        public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser Parser;
+        public readonly string? LocalVariableName;
+        public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser? Parser;
         public readonly string Type;
 
         [OutputConstructor]
         private SyntheticsGlobalVariableParseTestOptions(
             string? field,
 
-            Outputs.SyntheticsGlobalVariableParseTestOptionsParser parser,
+            string? localVariableName,
+
+            Outputs.SyntheticsGlobalVariableParseTestOptionsParser? parser,
 
             string type)
         {
             Field = field;
+            LocalVariableName = localVariableName;
             Parser = parser;
             Type = type;
         }

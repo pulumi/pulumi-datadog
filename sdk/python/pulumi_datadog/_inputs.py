@@ -598,6 +598,10 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs',
+    'DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestArgs',
@@ -995,6 +999,10 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestStyleArgs',
+    'DashboardWidgetTopologyMapDefinitionArgs',
+    'DashboardWidgetTopologyMapDefinitionCustomLinkArgs',
+    'DashboardWidgetTopologyMapDefinitionRequestArgs',
+    'DashboardWidgetTopologyMapDefinitionRequestQueryArgs',
     'DashboardWidgetTraceServiceDefinitionArgs',
     'DashboardWidgetTreemapDefinitionArgs',
     'DashboardWidgetTreemapDefinitionRequestArgs',
@@ -1609,6 +1617,7 @@ class DashboardWidgetArgs:
                  sunburst_definition: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionArgs']] = None,
                  timeseries_definition: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionArgs']] = None,
                  toplist_definition: Optional[pulumi.Input['DashboardWidgetToplistDefinitionArgs']] = None,
+                 topology_map_definition: Optional[pulumi.Input['DashboardWidgetTopologyMapDefinitionArgs']] = None,
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetTraceServiceDefinitionArgs']] = None,
                  treemap_definition: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetWidgetLayoutArgs']] = None):
@@ -1666,6 +1675,8 @@ class DashboardWidgetArgs:
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
+        if topology_map_definition is not None:
+            pulumi.set(__self__, "topology_map_definition", topology_map_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
         if treemap_definition is not None:
@@ -1915,6 +1926,15 @@ class DashboardWidgetArgs:
     @toplist_definition.setter
     def toplist_definition(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionArgs']]):
         pulumi.set(self, "toplist_definition", value)
+
+    @property
+    @pulumi.getter(name="topologyMapDefinition")
+    def topology_map_definition(self) -> Optional[pulumi.Input['DashboardWidgetTopologyMapDefinitionArgs']]:
+        return pulumi.get(self, "topology_map_definition")
+
+    @topology_map_definition.setter
+    def topology_map_definition(self, value: Optional[pulumi.Input['DashboardWidgetTopologyMapDefinitionArgs']]):
+        pulumi.set(self, "topology_map_definition", value)
 
     @property
     @pulumi.getter(name="traceServiceDefinition")
@@ -7443,13 +7463,12 @@ class DashboardWidgetGeomapDefinitionViewArgs:
 class DashboardWidgetGroupDefinitionArgs:
     def __init__(__self__, *,
                  layout_type: pulumi.Input[str],
-                 widgets: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]],
                  background_color: Optional[pulumi.Input[str]] = None,
                  banner_img: Optional[pulumi.Input[str]] = None,
                  show_title: Optional[pulumi.Input[bool]] = None,
-                 title: Optional[pulumi.Input[str]] = None):
+                 title: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]] = None):
         pulumi.set(__self__, "layout_type", layout_type)
-        pulumi.set(__self__, "widgets", widgets)
         if background_color is not None:
             pulumi.set(__self__, "background_color", background_color)
         if banner_img is not None:
@@ -7458,6 +7477,8 @@ class DashboardWidgetGroupDefinitionArgs:
             pulumi.set(__self__, "show_title", show_title)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
 
     @property
     @pulumi.getter(name="layoutType")
@@ -7467,15 +7488,6 @@ class DashboardWidgetGroupDefinitionArgs:
     @layout_type.setter
     def layout_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "layout_type", value)
-
-    @property
-    @pulumi.getter
-    def widgets(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]:
-        return pulumi.get(self, "widgets")
-
-    @widgets.setter
-    def widgets(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]):
-        pulumi.set(self, "widgets", value)
 
     @property
     @pulumi.getter(name="backgroundColor")
@@ -7513,6 +7525,15 @@ class DashboardWidgetGroupDefinitionArgs:
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]]:
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetArgs']]]]):
+        pulumi.set(self, "widgets", value)
+
 
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetArgs:
@@ -7543,6 +7564,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  sunburst_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs']] = None,
                  timeseries_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs']] = None,
                  toplist_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs']] = None,
+                 topology_map_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs']] = None,
                  trace_service_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs']] = None,
                  treemap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs']] = None,
                  widget_layout: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs']] = None):
@@ -7598,6 +7620,8 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "timeseries_definition", timeseries_definition)
         if toplist_definition is not None:
             pulumi.set(__self__, "toplist_definition", toplist_definition)
+        if topology_map_definition is not None:
+            pulumi.set(__self__, "topology_map_definition", topology_map_definition)
         if trace_service_definition is not None:
             pulumi.set(__self__, "trace_service_definition", trace_service_definition)
         if treemap_definition is not None:
@@ -7838,6 +7862,15 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @toplist_definition.setter
     def toplist_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs']]):
         pulumi.set(self, "toplist_definition", value)
+
+    @property
+    @pulumi.getter(name="topologyMapDefinition")
+    def topology_map_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs']]:
+        return pulumi.get(self, "topology_map_definition")
+
+    @topology_map_definition.setter
+    def topology_map_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs']]):
+        pulumi.set(self, "topology_map_definition", value)
 
     @property
     @pulumi.getter(name="traceServiceDefinition")
@@ -34064,6 +34097,189 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs:
+    def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs']]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 override_label: Optional[pulumi.Input[str]] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_label", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 queries: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs']]],
+                 request_type: pulumi.Input[str]):
+        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs']]]:
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs']]]):
+        pulumi.set(self, "queries", value)
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "request_type")
+
+    @request_type.setter
+    def request_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "request_type", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 filters: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 service: pulumi.Input[str]):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs:
     def __init__(__self__, *,
                  env: pulumi.Input[str],
@@ -55943,6 +56159,189 @@ class DashboardWidgetToplistDefinitionRequestStyleArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetTopologyMapDefinitionArgs:
+    def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionCustomLinkArgs']]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestArgs']]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestArgs']]]]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTopologyMapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 override_label: Optional[pulumi.Input[str]] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_label", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTopologyMapDefinitionRequestArgs:
+    def __init__(__self__, *,
+                 queries: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestQueryArgs']]],
+                 request_type: pulumi.Input[str]):
+        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "request_type", request_type)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestQueryArgs']]]:
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTopologyMapDefinitionRequestQueryArgs']]]):
+        pulumi.set(self, "queries", value)
+
+    @property
+    @pulumi.getter(name="requestType")
+    def request_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "request_type")
+
+    @request_type.setter
+    def request_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "request_type", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTopologyMapDefinitionRequestQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 filters: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 service: pulumi.Input[str]):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
 class DashboardWidgetTraceServiceDefinitionArgs:
     def __init__(__self__, *,
                  env: pulumi.Input[str],
@@ -60838,22 +61237,17 @@ class ServiceLevelObjectiveThresholdArgs:
 @pulumi.input_type
 class SyntheticsGlobalVariableParseTestOptionsArgs:
     def __init__(__self__, *,
-                 parser: pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs'],
                  type: pulumi.Input[str],
-                 field: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "parser", parser)
+                 field: Optional[pulumi.Input[str]] = None,
+                 local_variable_name: Optional[pulumi.Input[str]] = None,
+                 parser: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']] = None):
         pulumi.set(__self__, "type", type)
         if field is not None:
             pulumi.set(__self__, "field", field)
-
-    @property
-    @pulumi.getter
-    def parser(self) -> pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']:
-        return pulumi.get(self, "parser")
-
-    @parser.setter
-    def parser(self, value: pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']):
-        pulumi.set(self, "parser", value)
+        if local_variable_name is not None:
+            pulumi.set(__self__, "local_variable_name", local_variable_name)
+        if parser is not None:
+            pulumi.set(__self__, "parser", parser)
 
     @property
     @pulumi.getter
@@ -60872,6 +61266,24 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @field.setter
     def field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter(name="localVariableName")
+    def local_variable_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_variable_name")
+
+    @local_variable_name.setter
+    def local_variable_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_variable_name", value)
+
+    @property
+    @pulumi.getter
+    def parser(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']]:
+        return pulumi.get(self, "parser")
+
+    @parser.setter
+    def parser(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']]):
+        pulumi.set(self, "parser", value)
 
 
 @pulumi.input_type
@@ -61471,6 +61883,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     def __init__(__self__, *,
                  allow_insecure: Optional[pulumi.Input[bool]] = None,
                  body: Optional[pulumi.Input[str]] = None,
+                 certificate_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_server: Optional[pulumi.Input[str]] = None,
                  dns_server_port: Optional[pulumi.Input[int]] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
@@ -61489,6 +61902,8 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if certificate_domains is not None:
+            pulumi.set(__self__, "certificate_domains", certificate_domains)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
@@ -61535,6 +61950,15 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="certificateDomains")
+    def certificate_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "certificate_domains")
+
+    @certificate_domains.setter
+    def certificate_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificate_domains", value)
 
     @property
     @pulumi.getter(name="dnsServer")
@@ -62359,7 +62783,10 @@ class SyntheticsTestOptionsListArgs:
                  allow_insecure: Optional[pulumi.Input[bool]] = None,
                  check_certificate_revocation: Optional[pulumi.Input[bool]] = None,
                  ci: Optional[pulumi.Input['SyntheticsTestOptionsListCiArgs']] = None,
+                 disable_csp: Optional[pulumi.Input[bool]] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
+                 ignore_server_certificate_error: Optional[pulumi.Input[bool]] = None,
+                 initial_navigation_timeout: Optional[pulumi.Input[int]] = None,
                  min_failure_duration: Optional[pulumi.Input[int]] = None,
                  min_location_failed: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -62378,8 +62805,14 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
         if ci is not None:
             pulumi.set(__self__, "ci", ci)
+        if disable_csp is not None:
+            pulumi.set(__self__, "disable_csp", disable_csp)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
+        if ignore_server_certificate_error is not None:
+            pulumi.set(__self__, "ignore_server_certificate_error", ignore_server_certificate_error)
+        if initial_navigation_timeout is not None:
+            pulumi.set(__self__, "initial_navigation_timeout", initial_navigation_timeout)
         if min_failure_duration is not None:
             pulumi.set(__self__, "min_failure_duration", min_failure_duration)
         if min_location_failed is not None:
@@ -62445,6 +62878,15 @@ class SyntheticsTestOptionsListArgs:
         pulumi.set(self, "ci", value)
 
     @property
+    @pulumi.getter(name="disableCsp")
+    def disable_csp(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_csp")
+
+    @disable_csp.setter
+    def disable_csp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_csp", value)
+
+    @property
     @pulumi.getter(name="followRedirects")
     def follow_redirects(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "follow_redirects")
@@ -62452,6 +62894,24 @@ class SyntheticsTestOptionsListArgs:
     @follow_redirects.setter
     def follow_redirects(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "follow_redirects", value)
+
+    @property
+    @pulumi.getter(name="ignoreServerCertificateError")
+    def ignore_server_certificate_error(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ignore_server_certificate_error")
+
+    @ignore_server_certificate_error.setter
+    def ignore_server_certificate_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_server_certificate_error", value)
+
+    @property
+    @pulumi.getter(name="initialNavigationTimeout")
+    def initial_navigation_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_navigation_timeout")
+
+    @initial_navigation_timeout.setter
+    def initial_navigation_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_navigation_timeout", value)
 
     @property
     @pulumi.getter(name="minFailureDuration")
@@ -62850,6 +63310,7 @@ class SyntheticsTestRequestClientCertificateKeyArgs:
 class SyntheticsTestRequestDefinitionArgs:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
+                 certificate_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_server: Optional[pulumi.Input[str]] = None,
                  dns_server_port: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
@@ -62865,6 +63326,8 @@ class SyntheticsTestRequestDefinitionArgs:
                  url: Optional[pulumi.Input[str]] = None):
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if certificate_domains is not None:
+            pulumi.set(__self__, "certificate_domains", certificate_domains)
         if dns_server is not None:
             pulumi.set(__self__, "dns_server", dns_server)
         if dns_server_port is not None:
@@ -62900,6 +63363,15 @@ class SyntheticsTestRequestDefinitionArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="certificateDomains")
+    def certificate_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "certificate_domains")
+
+    @certificate_domains.setter
+    def certificate_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificate_domains", value)
 
     @property
     @pulumi.getter(name="dnsServer")

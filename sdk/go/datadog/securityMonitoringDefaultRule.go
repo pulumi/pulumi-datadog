@@ -66,6 +66,8 @@ type SecurityMonitoringDefaultRule struct {
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options SecurityMonitoringDefaultRuleOptionsPtrOutput `pulumi:"options"`
+	// The rule type.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewSecurityMonitoringDefaultRule registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type securityMonitoringDefaultRuleState struct {
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options *SecurityMonitoringDefaultRuleOptions `pulumi:"options"`
+	// The rule type.
+	Type *string `pulumi:"type"`
 }
 
 type SecurityMonitoringDefaultRuleState struct {
@@ -116,6 +120,8 @@ type SecurityMonitoringDefaultRuleState struct {
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
 	Options SecurityMonitoringDefaultRuleOptionsPtrInput
+	// The rule type.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
@@ -252,6 +258,11 @@ func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefault
 // Options on default rules. Note that only a subset of fields can be updated on default rule options.
 func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+// The rule type.
+func (o SecurityMonitoringDefaultRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type SecurityMonitoringDefaultRuleArrayOutput struct{ *pulumi.OutputState }

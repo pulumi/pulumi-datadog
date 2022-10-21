@@ -22,6 +22,7 @@ from .get_dashboard_list import *
 from .get_ip_ranges import *
 from .get_logs_indexes import *
 from .get_logs_indexes_order import *
+from .get_logs_pipelines import *
 from .get_monitor import *
 from .get_monitors import *
 from .get_permissions import *
@@ -54,6 +55,7 @@ from .rum_application import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
+from .service_definition_yaml import *
 from .service_level_objective import *
 from .slo_correction import *
 from .synthetics_global_variable import *
@@ -355,6 +357,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "SecurityMonitoringRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/serviceDefinitionYaml",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": "ServiceDefinitionYaml"
   }
  },
  {

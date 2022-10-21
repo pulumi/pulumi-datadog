@@ -27,7 +27,7 @@ namespace Pulumi.Datadog.Inputs
         [Input("title")]
         public Input<string>? Title { get; set; }
 
-        [Input("widgets", required: true)]
+        [Input("widgets")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs> Widgets
         {

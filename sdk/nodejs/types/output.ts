@@ -101,6 +101,7 @@ export interface DashboardWidget {
     sunburstDefinition?: outputs.DashboardWidgetSunburstDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
+    topologyMapDefinition?: outputs.DashboardWidgetTopologyMapDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
     treemapDefinition?: outputs.DashboardWidgetTreemapDefinition;
     widgetLayout?: outputs.DashboardWidgetWidgetLayout;
@@ -831,7 +832,7 @@ export interface DashboardWidgetGroupDefinition {
     layoutType: string;
     showTitle?: boolean;
     title?: string;
-    widgets: outputs.DashboardWidgetGroupDefinitionWidget[];
+    widgets?: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
 
 export interface DashboardWidgetGroupDefinitionWidget {
@@ -861,6 +862,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     sunburstDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
+    topologyMapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
     treemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition;
     widgetLayout?: outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout;
@@ -4329,6 +4331,32 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSty
     palette?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink[];
+    requests?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
+    queries: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery[];
+    requestType: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery {
+    dataSource: string;
+    filters: string[];
+    service: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     displayFormat?: string;
     env: string;
@@ -7218,6 +7246,32 @@ export interface DashboardWidgetToplistDefinitionRequestStyle {
     palette?: string;
 }
 
+export interface DashboardWidgetTopologyMapDefinition {
+    customLinks?: outputs.DashboardWidgetTopologyMapDefinitionCustomLink[];
+    requests?: outputs.DashboardWidgetTopologyMapDefinitionRequest[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionRequest {
+    queries: outputs.DashboardWidgetTopologyMapDefinitionRequestQuery[];
+    requestType: string;
+}
+
+export interface DashboardWidgetTopologyMapDefinitionRequestQuery {
+    dataSource: string;
+    filters: string[];
+    service: string;
+}
+
 export interface DashboardWidgetTraceServiceDefinition {
     displayFormat?: string;
     env: string;
@@ -7400,6 +7454,19 @@ export interface GetLogsIndexesLogsIndexExclusionFilterFilter {
 }
 
 export interface GetLogsIndexesLogsIndexFilter {
+    query: string;
+}
+
+export interface GetLogsPipelinesLogsPipeline {
+    filters: outputs.GetLogsPipelinesLogsPipelineFilter[];
+    id: string;
+    isEnabled: boolean;
+    isReadOnly: boolean;
+    name: string;
+    type: string;
+}
+
+export interface GetLogsPipelinesLogsPipelineFilter {
     query: string;
 }
 
@@ -8028,7 +8095,8 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsGlobalVariableParseTestOptions {
     field?: string;
-    parser: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
+    localVariableName?: string;
+    parser?: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
     type: string;
 }
 
@@ -8114,6 +8182,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 export interface SyntheticsTestApiStepRequestDefinition {
     allowInsecure?: boolean;
     body?: string;
+    certificateDomains?: string[];
     dnsServer?: string;
     dnsServerPort?: number;
     followRedirects?: boolean;
@@ -8222,7 +8291,10 @@ export interface SyntheticsTestOptionsList {
     allowInsecure?: boolean;
     checkCertificateRevocation?: boolean;
     ci?: outputs.SyntheticsTestOptionsListCi;
+    disableCsp?: boolean;
     followRedirects?: boolean;
+    ignoreServerCertificateError?: boolean;
+    initialNavigationTimeout?: number;
     minFailureDuration?: number;
     minLocationFailed?: number;
     monitorName?: string;
@@ -8284,6 +8356,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
 
 export interface SyntheticsTestRequestDefinition {
     body?: string;
+    certificateDomains?: string[];
     dnsServer?: string;
     dnsServerPort?: number;
     host?: string;

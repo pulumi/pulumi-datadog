@@ -22,6 +22,7 @@ export * from "./getDashboardList";
 export * from "./getIpRanges";
 export * from "./getLogsIndexes";
 export * from "./getLogsIndexesOrder";
+export * from "./getLogsPipelines";
 export * from "./getMonitor";
 export * from "./getMonitors";
 export * from "./getPermissions";
@@ -54,6 +55,7 @@ export * from "./rumApplication";
 export * from "./securityMonitoringDefaultRule";
 export * from "./securityMonitoringFilter";
 export * from "./securityMonitoringRule";
+export * from "./serviceDefinitionYaml";
 export * from "./serviceLevelObjective";
 export * from "./sloCorrection";
 export * from "./syntheticsGlobalVariable";
@@ -112,6 +114,7 @@ import { RumApplication } from "./rumApplication";
 import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
 import { SecurityMonitoringFilter } from "./securityMonitoringFilter";
 import { SecurityMonitoringRule } from "./securityMonitoringRule";
+import { ServiceDefinitionYaml } from "./serviceDefinitionYaml";
 import { ServiceLevelObjective } from "./serviceLevelObjective";
 import { SloCorrection } from "./sloCorrection";
 import { SyntheticsGlobalVariable } from "./syntheticsGlobalVariable";
@@ -179,6 +182,8 @@ const _module = {
                 return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
+            case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
+                return new ServiceDefinitionYaml(name, <any>undefined, { urn })
             case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
             case "datadog:index/sloCorrection:SloCorrection":
@@ -227,6 +232,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)

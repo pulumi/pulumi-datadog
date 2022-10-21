@@ -17,7 +17,10 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? AllowInsecure;
         public readonly bool? CheckCertificateRevocation;
         public readonly Outputs.SyntheticsTestOptionsListCi? Ci;
+        public readonly bool? DisableCsp;
         public readonly bool? FollowRedirects;
+        public readonly bool? IgnoreServerCertificateError;
+        public readonly int? InitialNavigationTimeout;
         public readonly int? MinFailureDuration;
         public readonly int? MinLocationFailed;
         public readonly string? MonitorName;
@@ -39,7 +42,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestOptionsListCi? ci,
 
+            bool? disableCsp,
+
             bool? followRedirects,
+
+            bool? ignoreServerCertificateError,
+
+            int? initialNavigationTimeout,
 
             int? minFailureDuration,
 
@@ -65,7 +74,10 @@ namespace Pulumi.Datadog.Outputs
             AllowInsecure = allowInsecure;
             CheckCertificateRevocation = checkCertificateRevocation;
             Ci = ci;
+            DisableCsp = disableCsp;
             FollowRedirects = followRedirects;
+            IgnoreServerCertificateError = ignoreServerCertificateError;
+            InitialNavigationTimeout = initialNavigationTimeout;
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;
             MonitorName = monitorName;
