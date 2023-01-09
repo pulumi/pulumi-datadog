@@ -15,23 +15,47 @@ public final class GetMonitorsPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetMonitorsPlainArgs Empty = new GetMonitorsPlainArgs();
 
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     @Import(name="monitorTagsFilters")
     private @Nullable List<String> monitorTagsFilters;
 
+    /**
+     * @return A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     public Optional<List<String>> monitorTagsFilters() {
         return Optional.ofNullable(this.monitorTagsFilters);
     }
 
+    /**
+     * A monitor name to limit the search.
+     * 
+     */
     @Import(name="nameFilter")
     private @Nullable String nameFilter;
 
+    /**
+     * @return A monitor name to limit the search.
+     * 
+     */
     public Optional<String> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
 
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     @Import(name="tagsFilters")
     private @Nullable List<String> tagsFilters;
 
+    /**
+     * @return A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     public Optional<List<String>> tagsFilters() {
         return Optional.ofNullable(this.tagsFilters);
     }
@@ -62,25 +86,55 @@ public final class GetMonitorsPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetMonitorsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param monitorTagsFilters A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorTagsFilters(@Nullable List<String> monitorTagsFilters) {
             $.monitorTagsFilters = monitorTagsFilters;
             return this;
         }
 
+        /**
+         * @param monitorTagsFilters A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorTagsFilters(String... monitorTagsFilters) {
             return monitorTagsFilters(List.of(monitorTagsFilters));
         }
 
+        /**
+         * @param nameFilter A monitor name to limit the search.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameFilter(@Nullable String nameFilter) {
             $.nameFilter = nameFilter;
             return this;
         }
 
+        /**
+         * @param tagsFilters A list of tags to limit the search. This filters on the monitor scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsFilters(@Nullable List<String> tagsFilters) {
             $.tagsFilters = tagsFilters;
             return this;
         }
 
+        /**
+         * @param tagsFilters A list of tags to limit the search. This filters on the monitor scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsFilters(String... tagsFilters) {
             return tagsFilters(List.of(tagsFilters));
         }

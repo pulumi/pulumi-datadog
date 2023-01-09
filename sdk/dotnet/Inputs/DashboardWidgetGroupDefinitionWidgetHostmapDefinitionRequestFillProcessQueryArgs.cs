@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterBies")]
         private InputList<string>? _filterBies;
@@ -32,5 +32,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs Empty => new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs();
     }
 }

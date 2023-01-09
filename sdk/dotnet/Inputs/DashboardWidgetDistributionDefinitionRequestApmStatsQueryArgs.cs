@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<Inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs>? _columns;
@@ -41,5 +41,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs()
         {
         }
+        public static new DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs Empty => new DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs();
     }
 }

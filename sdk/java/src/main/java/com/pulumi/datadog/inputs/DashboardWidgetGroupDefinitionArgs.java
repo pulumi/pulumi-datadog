@@ -32,9 +32,17 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.bannerImg);
     }
 
+    /**
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * 
+     */
     @Import(name="layoutType", required=true)
     private Output<String> layoutType;
 
+    /**
+     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * 
+     */
     public Output<String> layoutType() {
         return this.layoutType;
     }
@@ -46,16 +54,32 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.showTitle);
     }
 
+    /**
+     * The title of the dashboard.
+     * 
+     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The list of widgets to display on the dashboard.
+     * 
+     */
     @Import(name="widgets")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetArgs>> widgets;
 
+    /**
+     * @return The list of widgets to display on the dashboard.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetArgs>>> widgets() {
         return Optional.ofNullable(this.widgets);
     }
@@ -107,11 +131,23 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
             return bannerImg(Output.of(bannerImg));
         }
 
+        /**
+         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder layoutType(Output<String> layoutType) {
             $.layoutType = layoutType;
             return this;
         }
 
+        /**
+         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder layoutType(String layoutType) {
             return layoutType(Output.of(layoutType));
         }
@@ -125,24 +161,54 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
             return showTitle(Output.of(showTitle));
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(String title) {
             return title(Output.of(title));
         }
 
+        /**
+         * @param widgets The list of widgets to display on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder widgets(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetArgs>> widgets) {
             $.widgets = widgets;
             return this;
         }
 
+        /**
+         * @param widgets The list of widgets to display on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder widgets(List<DashboardWidgetGroupDefinitionWidgetArgs> widgets) {
             return widgets(Output.of(widgets));
         }
 
+        /**
+         * @param widgets The list of widgets to display on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder widgets(DashboardWidgetGroupDefinitionWidgetArgs... widgets) {
             return widgets(List.of(widgets));
         }

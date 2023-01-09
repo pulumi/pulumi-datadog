@@ -32,9 +32,9 @@ import (
 //				Description: pulumi.String("Created using the Datadog provider"),
 //				LayoutType:  pulumi.String("ordered"),
 //				IsReadOnly:  pulumi.Bool(true),
-//				Widgets: DashboardWidgetArray{
-//					&DashboardWidgetArgs{
-//						AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
+//				Widgets: datadog.DashboardWidgetArray{
+//					&datadog.DashboardWidgetArgs{
+//						AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
 //							AlertId:  pulumi.String("1234"),
 //							VizType:  pulumi.String("timeseries"),
 //							Title:    pulumi.String("Widget Title"),
@@ -51,9 +51,9 @@ import (
 //				Description: pulumi.String("Created using the Datadog provider"),
 //				LayoutType:  pulumi.String("free"),
 //				IsReadOnly:  pulumi.Bool(false),
-//				Widgets: DashboardWidgetArray{
-//					&DashboardWidgetArgs{
-//						EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
+//				Widgets: datadog.DashboardWidgetArray{
+//					&datadog.DashboardWidgetArgs{
+//						EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{
 //							Query:      pulumi.String("*"),
 //							EventSize:  pulumi.String("l"),
 //							Title:      pulumi.String("Widget Title"),
@@ -61,7 +61,7 @@ import (
 //							TitleAlign: pulumi.String("left"),
 //							LiveSpan:   pulumi.String("1h"),
 //						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
+//						WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 //							Height: pulumi.Int(43),
 //							Width:  pulumi.Int(32),
 //							X:      pulumi.Int(5),
@@ -75,12 +75,12 @@ import (
 //			}
 //			_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
 //				Name: pulumi.String("Automated Created List"),
-//				DashItems: DashboardListDashItemArray{
-//					&DashboardListDashItemArgs{
+//				DashItems: datadog.DashboardListDashItemArray{
+//					&datadog.DashboardListDashItemArgs{
 //						Type:   pulumi.String("custom_timeboard"),
 //						DashId: time.ID(),
 //					},
-//					&DashboardListDashItemArgs{
+//					&datadog.DashboardListDashItemArgs{
 //						Type:   pulumi.String("custom_screenboard"),
 //						DashId: screen.ID(),
 //					},

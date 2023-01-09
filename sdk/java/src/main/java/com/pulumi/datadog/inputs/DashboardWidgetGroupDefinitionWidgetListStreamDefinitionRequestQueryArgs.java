@@ -37,12 +37,20 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         return Optional.ofNullable(this.queryString);
     }
 
+    @Import(name="storage")
+    private @Nullable Output<String> storage;
+
+    public Optional<Output<String>> storage() {
+        return Optional.ofNullable(this.storage);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs $) {
         this.dataSource = $.dataSource;
         this.indexes = $.indexes;
         this.queryString = $.queryString;
+        this.storage = $.storage;
     }
 
     public static Builder builder() {
@@ -92,6 +100,15 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
+        }
+
+        public Builder storage(@Nullable Output<String> storage) {
+            $.storage = storage;
+            return this;
+        }
+
+        public Builder storage(String storage) {
+            return storage(Output.of(storage));
         }
 
         public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs build() {

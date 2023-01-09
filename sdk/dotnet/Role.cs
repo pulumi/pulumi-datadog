@@ -15,45 +15,44 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var bar = Output.Create(Datadog.GetPermissions.InvokeAsync());
-    ///         // Create a new Datadog role
-    ///         var foo = new Datadog.Role("foo", new Datadog.RoleArgs
-    ///         {
-    ///             Name = "foo",
-    ///             Permissions = 
-    ///             {
-    ///                 new Datadog.Inputs.RolePermissionArgs
-    ///                 {
-    ///                     Id = bar.Apply(bar =&gt; bar.Permissions?.MonitorsDowntime),
-    ///                 },
-    ///                 new Datadog.Inputs.RolePermissionArgs
-    ///                 {
-    ///                     Id = bar.Apply(bar =&gt; bar.Permissions?.MonitorsWrite),
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var bar = Datadog.GetPermissions.Invoke();
     /// 
-    /// }
+    ///     // Create a new Datadog role
+    ///     var foo = new Datadog.Role("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Datadog.Inputs.RolePermissionArgs
+    ///             {
+    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsDowntime),
+    ///             },
+    ///             new Datadog.Inputs.RolePermissionArgs
+    ///             {
+    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsWrite),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Roles can be imported using their ID, e.g.
+    /// Roles can be imported using their ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/role:Role")]
-    public partial class Role : Pulumi.CustomResource
+    public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the role.
@@ -117,7 +116,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the role.
@@ -140,9 +139,10 @@ namespace Pulumi.Datadog
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 
-    public sealed class RoleState : Pulumi.ResourceArgs
+    public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the role.
@@ -171,5 +171,6 @@ namespace Pulumi.Datadog
         public RoleState()
         {
         }
+        public static new RoleState Empty => new RoleState();
     }
 }

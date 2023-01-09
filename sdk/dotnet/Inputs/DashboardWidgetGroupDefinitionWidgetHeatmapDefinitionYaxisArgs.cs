@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs : global::Pulumi.ResourceArgs
     {
         [Input("includeZero")]
         public Input<bool>? IncludeZero { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs Empty => new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs();
     }
 }

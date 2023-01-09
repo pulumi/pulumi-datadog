@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.MonitorState;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholdWindows;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholds;
+import com.pulumi.datadog.outputs.MonitorSchedulingOption;
 import com.pulumi.datadog.outputs.MonitorVariables;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -27,10 +28,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.Monitor;
+ * import com.pulumi.datadog.MonitorArgs;
+ * import com.pulumi.datadog.inputs.MonitorMonitorThresholdsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -82,6 +91,22 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enableLogsSample() {
         return Codegen.optional(this.enableLogsSample);
+    }
+    /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    @Export(name="enableSamples", type=Boolean.class, parameters={})
+    private Output<Boolean> enableSamples;
+
+    /**
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    public Output<Boolean> enableSamples() {
+        return this.enableSamples;
     }
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -202,16 +227,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locked);
     }
     /**
-     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * A message to include with notifications for this monitor.
      * 
      */
     @Export(name="message", type=String.class, parameters={})
     private Output<String> message;
 
     /**
-     * @return A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * @return A message to include with notifications for this monitor.
      * 
      */
     public Output<String> message() {
@@ -330,6 +353,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> notifyAudit() {
         return Codegen.optional(this.notifyAudit);
+    }
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    @Export(name="notifyBies", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> notifyBies;
+
+    /**
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    public Output<Optional<List<String>>> notifyBies() {
+        return Codegen.optional(this.notifyBies);
     }
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
@@ -490,6 +535,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> restrictedRoles() {
         return Codegen.optional(this.restrictedRoles);
+    }
+    /**
+     * Configuration options for scheduling.
+     * 
+     */
+    @Export(name="schedulingOptions", type=List.class, parameters={MonitorSchedulingOption.class})
+    private Output</* @Nullable */ List<MonitorSchedulingOption>> schedulingOptions;
+
+    /**
+     * @return Configuration options for scheduling.
+     * 
+     */
+    public Output<Optional<List<MonitorSchedulingOption>>> schedulingOptions() {
+        return Codegen.optional(this.schedulingOptions);
     }
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors

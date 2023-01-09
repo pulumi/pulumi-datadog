@@ -22,19 +22,26 @@ func GetMonitors(ctx *pulumi.Context, args *GetMonitorsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getMonitors.
 type GetMonitorsArgs struct {
+	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
-	NameFilter         *string  `pulumi:"nameFilter"`
-	TagsFilters        []string `pulumi:"tagsFilters"`
+	// A monitor name to limit the search.
+	NameFilter *string `pulumi:"nameFilter"`
+	// A list of tags to limit the search. This filters on the monitor scope.
+	TagsFilters []string `pulumi:"tagsFilters"`
 }
 
 // A collection of values returned by getMonitors.
 type GetMonitorsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string               `pulumi:"id"`
-	MonitorTagsFilters []string             `pulumi:"monitorTagsFilters"`
-	Monitors           []GetMonitorsMonitor `pulumi:"monitors"`
-	NameFilter         *string              `pulumi:"nameFilter"`
-	TagsFilters        []string             `pulumi:"tagsFilters"`
+	Id string `pulumi:"id"`
+	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
+	// List of monitors
+	Monitors []GetMonitorsMonitor `pulumi:"monitors"`
+	// A monitor name to limit the search.
+	NameFilter *string `pulumi:"nameFilter"`
+	// A list of tags to limit the search. This filters on the monitor scope.
+	TagsFilters []string `pulumi:"tagsFilters"`
 }
 
 func GetMonitorsOutput(ctx *pulumi.Context, args GetMonitorsOutputArgs, opts ...pulumi.InvokeOption) GetMonitorsResultOutput {
@@ -52,9 +59,12 @@ func GetMonitorsOutput(ctx *pulumi.Context, args GetMonitorsOutputArgs, opts ...
 
 // A collection of arguments for invoking getMonitors.
 type GetMonitorsOutputArgs struct {
+	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters pulumi.StringArrayInput `pulumi:"monitorTagsFilters"`
-	NameFilter         pulumi.StringPtrInput   `pulumi:"nameFilter"`
-	TagsFilters        pulumi.StringArrayInput `pulumi:"tagsFilters"`
+	// A monitor name to limit the search.
+	NameFilter pulumi.StringPtrInput `pulumi:"nameFilter"`
+	// A list of tags to limit the search. This filters on the monitor scope.
+	TagsFilters pulumi.StringArrayInput `pulumi:"tagsFilters"`
 }
 
 func (GetMonitorsOutputArgs) ElementType() reflect.Type {
@@ -81,18 +91,22 @@ func (o GetMonitorsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 func (o GetMonitorsResultOutput) MonitorTagsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetMonitorsResult) []string { return v.MonitorTagsFilters }).(pulumi.StringArrayOutput)
 }
 
+// List of monitors
 func (o GetMonitorsResultOutput) Monitors() GetMonitorsMonitorArrayOutput {
 	return o.ApplyT(func(v GetMonitorsResult) []GetMonitorsMonitor { return v.Monitors }).(GetMonitorsMonitorArrayOutput)
 }
 
+// A monitor name to limit the search.
 func (o GetMonitorsResultOutput) NameFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetMonitorsResult) *string { return v.NameFilter }).(pulumi.StringPtrOutput)
 }
 
+// A list of tags to limit the search. This filters on the monitor scope.
 func (o GetMonitorsResultOutput) TagsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetMonitorsResult) []string { return v.TagsFilters }).(pulumi.StringArrayOutput)
 }

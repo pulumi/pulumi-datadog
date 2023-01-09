@@ -15,43 +15,41 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new()
     ///     {
-    ///         var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new Datadog.SecurityMonitoringDefaultRuleArgs
+    ///         Cases = new[]
     ///         {
-    ///             Cases = 
+    ///             new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs
     ///             {
-    ///                 new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs
+    ///                 Notifications = new[]
     ///                 {
-    ///                     Notifications = 
-    ///                     {
-    ///                         "@me",
-    ///                     },
-    ///                     Status = "high",
+    ///                     "@me",
     ///                 },
+    ///                 Status = "high",
     ///             },
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         },
+    ///         Enabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
+    /// Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule")]
-    public partial class SecurityMonitoringDefaultRule : Pulumi.CustomResource
+    public partial class SecurityMonitoringDefaultRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cases of the rule, this is used to update notifications.
@@ -127,7 +125,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SecurityMonitoringDefaultRuleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringDefaultRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cases")]
         private InputList<Inputs.SecurityMonitoringDefaultRuleCaseArgs>? _cases;
@@ -168,9 +166,10 @@ namespace Pulumi.Datadog
         public SecurityMonitoringDefaultRuleArgs()
         {
         }
+        public static new SecurityMonitoringDefaultRuleArgs Empty => new SecurityMonitoringDefaultRuleArgs();
     }
 
-    public sealed class SecurityMonitoringDefaultRuleState : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringDefaultRuleState : global::Pulumi.ResourceArgs
     {
         [Input("cases")]
         private InputList<Inputs.SecurityMonitoringDefaultRuleCaseGetArgs>? _cases;
@@ -217,5 +216,6 @@ namespace Pulumi.Datadog
         public SecurityMonitoringDefaultRuleState()
         {
         }
+        public static new SecurityMonitoringDefaultRuleState Empty => new SecurityMonitoringDefaultRuleState();
     }
 }

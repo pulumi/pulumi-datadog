@@ -29,6 +29,10 @@ public final class DashboardWidgetTimeseriesDefinition {
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequest> requests;
     private @Nullable DashboardWidgetTimeseriesDefinitionRightYaxis rightYaxis;
     private @Nullable Boolean showLegend;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -65,6 +69,10 @@ public final class DashboardWidgetTimeseriesDefinition {
     public Optional<Boolean> showLegend() {
         return Optional.ofNullable(this.showLegend);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

@@ -15,79 +15,77 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myrule = new Datadog.SecurityMonitoringRule("myrule", new()
     ///     {
-    ///         var myrule = new Datadog.SecurityMonitoringRule("myrule", new Datadog.SecurityMonitoringRuleArgs
+    ///         Cases = new[]
     ///         {
-    ///             Cases = 
+    ///             new Datadog.Inputs.SecurityMonitoringRuleCaseArgs
     ///             {
-    ///                 new Datadog.Inputs.SecurityMonitoringRuleCaseArgs
+    ///                 Condition = "errors &gt; 3 &amp;&amp; warnings &gt; 10",
+    ///                 Notifications = new[]
     ///                 {
-    ///                     Condition = "errors &gt; 3 &amp;&amp; warnings &gt; 10",
-    ///                     Notifications = 
-    ///                     {
-    ///                         "@user",
-    ///                     },
-    ///                     Status = "high",
+    ///                     "@user",
     ///                 },
+    ///                 Status = "high",
     ///             },
-    ///             Enabled = true,
-    ///             Message = "The rule has triggered.",
-    ///             Name = "My rule",
-    ///             Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
+    ///         },
+    ///         Enabled = true,
+    ///         Message = "The rule has triggered.",
+    ///         Name = "My rule",
+    ///         Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
+    ///         {
+    ///             EvaluationWindow = 300,
+    ///             KeepAlive = 600,
+    ///             MaxSignalDuration = 900,
+    ///         },
+    ///         Queries = new[]
+    ///         {
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
     ///             {
-    ///                 EvaluationWindow = 300,
-    ///                 KeepAlive = 600,
-    ///                 MaxSignalDuration = 900,
-    ///             },
-    ///             Queries = 
-    ///             {
-    ///                 new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
     ///                 {
-    ///                     Aggregation = "count",
-    ///                     GroupByFields = 
-    ///                     {
-    ///                         "host",
-    ///                     },
-    ///                     Name = "errors",
-    ///                     Query = "status:error",
+    ///                     "host",
     ///                 },
-    ///                 new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
-    ///                 {
-    ///                     Aggregation = "count",
-    ///                     GroupByFields = 
-    ///                     {
-    ///                         "host",
-    ///                     },
-    ///                     Name = "warnings",
-    ///                     Query = "status:warning",
-    ///                 },
+    ///                 Name = "errors",
+    ///                 Query = "status:error",
     ///             },
-    ///             Tags = 
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
     ///             {
-    ///                 "type:dos",
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
+    ///                 {
+    ///                     "host",
+    ///                 },
+    ///                 Name = "warnings",
+    ///                 Query = "status:warning",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "type:dos",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Security monitoring rules can be imported using ID, e.g.
+    /// Security monitoring rules can be imported using ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringRule:SecurityMonitoringRule")]
-    public partial class SecurityMonitoringRule : Pulumi.CustomResource
+    public partial class SecurityMonitoringRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cases for generating signals.
@@ -138,13 +136,19 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleQuery>> Queries { get; private set; } = null!;
 
         /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        [Output("signalQueries")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringRuleSignalQuery>> SignalQueries { get; private set; } = null!;
+
+        /// <summary>
         /// Tags for generated signals.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type.
+        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -193,7 +197,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SecurityMonitoringRuleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cases", required: true)]
         private InputList<Inputs.SecurityMonitoringRuleCaseArgs>? _cases;
@@ -249,7 +253,7 @@ namespace Pulumi.Datadog
         [Input("options")]
         public Input<Inputs.SecurityMonitoringRuleOptionsArgs>? Options { get; set; }
 
-        [Input("queries", required: true)]
+        [Input("queries")]
         private InputList<Inputs.SecurityMonitoringRuleQueryArgs>? _queries;
 
         /// <summary>
@@ -259,6 +263,18 @@ namespace Pulumi.Datadog
         {
             get => _queries ?? (_queries = new InputList<Inputs.SecurityMonitoringRuleQueryArgs>());
             set => _queries = value;
+        }
+
+        [Input("signalQueries")]
+        private InputList<Inputs.SecurityMonitoringRuleSignalQueryArgs>? _signalQueries;
+
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleSignalQueryArgs> SignalQueries
+        {
+            get => _signalQueries ?? (_signalQueries = new InputList<Inputs.SecurityMonitoringRuleSignalQueryArgs>());
+            set => _signalQueries = value;
         }
 
         [Input("tags")]
@@ -274,7 +290,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type.
+        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -282,9 +298,10 @@ namespace Pulumi.Datadog
         public SecurityMonitoringRuleArgs()
         {
         }
+        public static new SecurityMonitoringRuleArgs Empty => new SecurityMonitoringRuleArgs();
     }
 
-    public sealed class SecurityMonitoringRuleState : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleState : global::Pulumi.ResourceArgs
     {
         [Input("cases")]
         private InputList<Inputs.SecurityMonitoringRuleCaseGetArgs>? _cases;
@@ -352,6 +369,18 @@ namespace Pulumi.Datadog
             set => _queries = value;
         }
 
+        [Input("signalQueries")]
+        private InputList<Inputs.SecurityMonitoringRuleSignalQueryGetArgs>? _signalQueries;
+
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleSignalQueryGetArgs> SignalQueries
+        {
+            get => _signalQueries ?? (_signalQueries = new InputList<Inputs.SecurityMonitoringRuleSignalQueryGetArgs>());
+            set => _signalQueries = value;
+        }
+
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -365,7 +394,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type.
+        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -373,5 +402,6 @@ namespace Pulumi.Datadog
         public SecurityMonitoringRuleState()
         {
         }
+        public static new SecurityMonitoringRuleState Empty => new SecurityMonitoringRuleState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetQueryTableDefinitionCustomLinkArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetQueryTableDefinitionCustomLinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("isHidden")]
         public Input<bool>? IsHidden { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetQueryTableDefinitionCustomLinkArgs()
         {
         }
+        public static new DashboardWidgetQueryTableDefinitionCustomLinkArgs Empty => new DashboardWidgetQueryTableDefinitionCustomLinkArgs();
     }
 }

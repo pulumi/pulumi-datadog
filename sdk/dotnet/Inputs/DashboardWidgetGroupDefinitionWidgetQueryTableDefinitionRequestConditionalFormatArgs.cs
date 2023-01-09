@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparator", required: true)]
         public Input<string> Comparator { get; set; } = null!;
@@ -42,5 +42,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs Empty => new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs();
     }
 }

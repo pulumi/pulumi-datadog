@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

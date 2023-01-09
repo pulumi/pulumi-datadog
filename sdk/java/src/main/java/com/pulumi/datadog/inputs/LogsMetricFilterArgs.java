@@ -13,9 +13,17 @@ public final class LogsMetricFilterArgs extends com.pulumi.resources.ResourceArg
 
     public static final LogsMetricFilterArgs Empty = new LogsMetricFilterArgs();
 
+    /**
+     * The search query - following the log search syntax.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return The search query - following the log search syntax.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -44,11 +52,23 @@ public final class LogsMetricFilterArgs extends com.pulumi.resources.ResourceArg
             $ = new LogsMetricFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query The search query - following the log search syntax.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query The search query - following the log search syntax.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

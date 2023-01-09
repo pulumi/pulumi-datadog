@@ -31,7 +31,7 @@ import (
 //				EscalationMessage: pulumi.String("Escalation message @pagerduty"),
 //				IncludeTags:       pulumi.Bool(true),
 //				Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
-//				MonitorThresholds: &MonitorMonitorThresholdsArgs{
+//				MonitorThresholds: &datadog.MonitorMonitorThresholdsArgs{
 //					Critical: pulumi.String("4"),
 //					Warning:  pulumi.String("2"),
 //				},
@@ -65,6 +65,9 @@ type Monitor struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
 	// monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrOutput `pulumi:"enableLogsSample"`
+	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+	// monitors.
+	EnableSamples pulumi.BoolOutput `pulumi:"enableSamples"`
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -89,8 +92,7 @@ type Monitor struct {
 	//
 	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
-	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-	// same `@username` notation as events.
+	// A message to include with notifications for this monitor.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -114,6 +116,12 @@ type Monitor struct {
 	NoDataTimeframe pulumi.IntPtrOutput `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+	// to `[*]` configures the monitor to notify as a simple-alert.
+	NotifyBies pulumi.StringArrayOutput `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
@@ -149,6 +157,8 @@ type Monitor struct {
 	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
 	// field.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
+	// Configuration options for scheduling.
+	SchedulingOptions MonitorSchedulingOptionArrayOutput `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -208,6 +218,9 @@ type monitorState struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
 	// monitors. Defaults to `false`.
 	EnableLogsSample *bool `pulumi:"enableLogsSample"`
+	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+	// monitors.
+	EnableSamples *bool `pulumi:"enableSamples"`
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -232,8 +245,7 @@ type monitorState struct {
 	//
 	// Deprecated: Use `restricted_roles`.
 	Locked *bool `pulumi:"locked"`
-	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-	// same `@username` notation as events.
+	// A message to include with notifications for this monitor.
 	Message *string `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -257,6 +269,12 @@ type monitorState struct {
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+	// to `[*]` configures the monitor to notify as a simple-alert.
+	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
@@ -292,6 +310,8 @@ type monitorState struct {
 	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
 	// field.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// Configuration options for scheduling.
+	SchedulingOptions []MonitorSchedulingOption `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
@@ -311,6 +331,9 @@ type MonitorState struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
 	// monitors. Defaults to `false`.
 	EnableLogsSample pulumi.BoolPtrInput
+	// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+	// monitors.
+	EnableSamples pulumi.BoolPtrInput
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
@@ -335,8 +358,7 @@ type MonitorState struct {
 	//
 	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrInput
-	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-	// same `@username` notation as events.
+	// A message to include with notifications for this monitor.
 	Message pulumi.StringPtrInput
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -360,6 +382,12 @@ type MonitorState struct {
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+	// to `[*]` configures the monitor to notify as a simple-alert.
+	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
@@ -395,6 +423,8 @@ type MonitorState struct {
 	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
 	// field.
 	RestrictedRoles pulumi.StringArrayInput
+	// Configuration options for scheduling.
+	SchedulingOptions MonitorSchedulingOptionArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
@@ -442,8 +472,7 @@ type monitorArgs struct {
 	//
 	// Deprecated: Use `restricted_roles`.
 	Locked *bool `pulumi:"locked"`
-	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-	// same `@username` notation as events.
+	// A message to include with notifications for this monitor.
 	Message string `pulumi:"message"`
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -467,6 +496,12 @@ type monitorArgs struct {
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+	// to `[*]` configures the monitor to notify as a simple-alert.
+	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
@@ -502,6 +537,8 @@ type monitorArgs struct {
 	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
 	// field.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// Configuration options for scheduling.
+	SchedulingOptions []MonitorSchedulingOption `pulumi:"schedulingOptions"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
@@ -546,8 +583,7 @@ type MonitorArgs struct {
 	//
 	// Deprecated: Use `restricted_roles`.
 	Locked pulumi.BoolPtrInput
-	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-	// same `@username` notation as events.
+	// A message to include with notifications for this monitor.
 	Message pulumi.StringInput
 	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
 	// required for, anomaly monitors.
@@ -571,6 +607,12 @@ type MonitorArgs struct {
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+	// to `[*]` configures the monitor to notify as a simple-alert.
+	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
@@ -606,6 +648,8 @@ type MonitorArgs struct {
 	// identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
 	// field.
 	RestrictedRoles pulumi.StringArrayInput
+	// Configuration options for scheduling.
+	SchedulingOptions MonitorSchedulingOptionArrayInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
@@ -714,6 +758,12 @@ func (o MonitorOutput) EnableLogsSample() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.EnableLogsSample }).(pulumi.BoolPtrOutput)
 }
 
+// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+// monitors.
+func (o MonitorOutput) EnableSamples() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolOutput { return v.EnableSamples }).(pulumi.BoolOutput)
+}
+
 // A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 func (o MonitorOutput) EscalationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.EscalationMessage }).(pulumi.StringPtrOutput)
@@ -759,8 +809,7 @@ func (o MonitorOutput) Locked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.Locked }).(pulumi.BoolPtrOutput)
 }
 
-// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-// same `@username` notation as events.
+// A message to include with notifications for this monitor.
 func (o MonitorOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }
@@ -806,6 +855,15 @@ func (o MonitorOutput) NoDataTimeframe() pulumi.IntPtrOutput {
 // A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 func (o MonitorOutput) NotifyAudit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.NotifyAudit }).(pulumi.BoolPtrOutput)
+}
+
+// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+// to `[*]` configures the monitor to notify as a simple-alert.
+func (o MonitorOutput) NotifyBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.NotifyBies }).(pulumi.StringArrayOutput)
 }
 
 // A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
@@ -868,6 +926,11 @@ func (o MonitorOutput) RequireFullWindow() pulumi.BoolPtrOutput {
 // field.
 func (o MonitorOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// Configuration options for scheduling.
+func (o MonitorOutput) SchedulingOptions() MonitorSchedulingOptionArrayOutput {
+	return o.ApplyT(func(v *Monitor) MonitorSchedulingOptionArrayOutput { return v.SchedulingOptions }).(MonitorSchedulingOptionArrayOutput)
 }
 
 // A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors

@@ -10,16 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestBrowserStepParamsVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestBrowserStepParamsVariableGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("example")]
         public Input<string>? Example { get; set; }
 
+        /// <summary>
+        /// Name of Datadog synthetics test.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public SyntheticsTestBrowserStepParamsVariableGetArgs()
         {
         }
+        public static new SyntheticsTestBrowserStepParamsVariableGetArgs Empty => new SyntheticsTestBrowserStepParamsVariableGetArgs();
     }
 }

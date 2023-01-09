@@ -22,57 +22,153 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStep {
+    /**
+     * @return Determines whether or not to continue with test if this step fails.
+     * 
+     */
     private @Nullable Boolean allowFailure;
+    /**
+     * @return Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+     * 
+     */
     private @Nullable List<SyntheticsTestApiStepAssertion> assertions;
+    /**
+     * @return Values to parse and save as variables from the response.
+     * 
+     */
     private @Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues;
+    /**
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     private @Nullable Boolean isCritical;
+    /**
+     * @return The name of the step.
+     * 
+     */
     private String name;
+    /**
+     * @return The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     private @Nullable SyntheticsTestApiStepRequestBasicauth requestBasicauth;
+    /**
+     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     private @Nullable SyntheticsTestApiStepRequestClientCertificate requestClientCertificate;
+    /**
+     * @return The request for the api step.
+     * 
+     */
     private @Nullable SyntheticsTestApiStepRequestDefinition requestDefinition;
+    /**
+     * @return Header name and value map.
+     * 
+     */
     private @Nullable Map<String,Object> requestHeaders;
+    /**
+     * @return The proxy to perform the test.
+     * 
+     */
     private @Nullable SyntheticsTestApiStepRequestProxy requestProxy;
+    /**
+     * @return Query arguments name and value map.
+     * 
+     */
     private @Nullable Map<String,Object> requestQuery;
     private @Nullable SyntheticsTestApiStepRetry retry;
+    /**
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * 
+     */
     private @Nullable String subtype;
 
     private SyntheticsTestApiStep() {}
+    /**
+     * @return Determines whether or not to continue with test if this step fails.
+     * 
+     */
     public Optional<Boolean> allowFailure() {
         return Optional.ofNullable(this.allowFailure);
     }
+    /**
+     * @return Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+     * 
+     */
     public List<SyntheticsTestApiStepAssertion> assertions() {
         return this.assertions == null ? List.of() : this.assertions;
     }
+    /**
+     * @return Values to parse and save as variables from the response.
+     * 
+     */
     public List<SyntheticsTestApiStepExtractedValue> extractedValues() {
         return this.extractedValues == null ? List.of() : this.extractedValues;
     }
+    /**
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     public Optional<Boolean> isCritical() {
         return Optional.ofNullable(this.isCritical);
     }
+    /**
+     * @return The name of the step.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     public Optional<SyntheticsTestApiStepRequestBasicauth> requestBasicauth() {
         return Optional.ofNullable(this.requestBasicauth);
     }
+    /**
+     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     public Optional<SyntheticsTestApiStepRequestClientCertificate> requestClientCertificate() {
         return Optional.ofNullable(this.requestClientCertificate);
     }
+    /**
+     * @return The request for the api step.
+     * 
+     */
     public Optional<SyntheticsTestApiStepRequestDefinition> requestDefinition() {
         return Optional.ofNullable(this.requestDefinition);
     }
+    /**
+     * @return Header name and value map.
+     * 
+     */
     public Map<String,Object> requestHeaders() {
         return this.requestHeaders == null ? Map.of() : this.requestHeaders;
     }
+    /**
+     * @return The proxy to perform the test.
+     * 
+     */
     public Optional<SyntheticsTestApiStepRequestProxy> requestProxy() {
         return Optional.ofNullable(this.requestProxy);
     }
+    /**
+     * @return Query arguments name and value map.
+     * 
+     */
     public Map<String,Object> requestQuery() {
         return this.requestQuery == null ? Map.of() : this.requestQuery;
     }
     public Optional<SyntheticsTestApiStepRetry> retry() {
         return Optional.ofNullable(this.retry);
     }
+    /**
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * 
+     */
     public Optional<String> subtype() {
         return Optional.ofNullable(this.subtype);
     }

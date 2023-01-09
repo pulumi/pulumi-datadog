@@ -24,10 +24,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.MetricTagConfiguration;
+ * import com.pulumi.datadog.MetricTagConfigurationArgs;
+ * import com.pulumi.datadog.inputs.MetricTagConfigurationAggregationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -69,34 +77,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/metricTagConfiguration:MetricTagConfiguration")
 public class MetricTagConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
      * 
      */
     @Export(name="aggregations", type=List.class, parameters={MetricTagConfigurationAggregation.class})
     private Output<List<MetricTagConfigurationAggregation>> aggregations;
 
     /**
-     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
      * 
      */
     public Output<List<MetricTagConfigurationAggregation>> aggregations() {
         return this.aggregations;
     }
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
     @Export(name="includePercentiles", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
     public Output<Optional<Boolean>> includePercentiles() {
@@ -117,14 +119,14 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
         return this.metricName;
     }
     /**
-     * The metric&#39;s type. This field can&#39;t be updated after creation.
+     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      * 
      */
     @Export(name="metricType", type=String.class, parameters={})
     private Output<String> metricType;
 
     /**
-     * @return The metric&#39;s type. This field can&#39;t be updated after creation.
+     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      * 
      */
     public Output<String> metricType() {

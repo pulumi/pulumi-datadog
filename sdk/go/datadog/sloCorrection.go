@@ -31,12 +31,12 @@ import (
 //				Name:        pulumi.String("example slo"),
 //				Type:        pulumi.String("metric"),
 //				Description: pulumi.String("some updated description about example_slo SLO"),
-//				Query: &ServiceLevelObjectiveQueryArgs{
+//				Query: &datadog.ServiceLevelObjectiveQueryArgs{
 //					Numerator:   pulumi.String("sum:my.metric{type:good}.as_count()"),
 //					Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
 //				},
-//				Thresholds: ServiceLevelObjectiveThresholdArray{
-//					&ServiceLevelObjectiveThresholdArgs{
+//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
 //						Timeframe: pulumi.String("7d"),
 //						Target:    pulumi.Float64(99.5),
 //						Warning:   pulumi.Float64(99.8),
@@ -88,7 +88,7 @@ import (
 type SloCorrection struct {
 	pulumi.CustomResourceState
 
-	// Category the SLO correction belongs to.
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringOutput `pulumi:"category"`
 	// Description of the correction being made.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -96,8 +96,7 @@ type SloCorrection struct {
 	Duration pulumi.IntPtrOutput `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrOutput `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-	// `COUNT` and `UNTIL`.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrOutput `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringOutput `pulumi:"sloId"`
@@ -145,7 +144,7 @@ func GetSloCorrection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SloCorrection resources.
 type sloCorrectionState struct {
-	// Category the SLO correction belongs to.
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category *string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
@@ -153,8 +152,7 @@ type sloCorrectionState struct {
 	Duration *int `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End *int `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-	// `COUNT` and `UNTIL`.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId *string `pulumi:"sloId"`
@@ -165,7 +163,7 @@ type sloCorrectionState struct {
 }
 
 type SloCorrectionState struct {
-	// Category the SLO correction belongs to.
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringPtrInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
@@ -173,8 +171,7 @@ type SloCorrectionState struct {
 	Duration pulumi.IntPtrInput
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrInput
-	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-	// `COUNT` and `UNTIL`.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringPtrInput
@@ -189,7 +186,7 @@ func (SloCorrectionState) ElementType() reflect.Type {
 }
 
 type sloCorrectionArgs struct {
-	// Category the SLO correction belongs to.
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
@@ -197,8 +194,7 @@ type sloCorrectionArgs struct {
 	Duration *int `pulumi:"duration"`
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End *int `pulumi:"end"`
-	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-	// `COUNT` and `UNTIL`.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId string `pulumi:"sloId"`
@@ -210,7 +206,7 @@ type sloCorrectionArgs struct {
 
 // The set of arguments for constructing a SloCorrection resource.
 type SloCorrectionArgs struct {
-	// Category the SLO correction belongs to.
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
@@ -218,8 +214,7 @@ type SloCorrectionArgs struct {
 	Duration pulumi.IntPtrInput
 	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrInput
-	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-	// `COUNT` and `UNTIL`.
+	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringInput
@@ -316,7 +311,7 @@ func (o SloCorrectionOutput) ToSloCorrectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Category the SLO correction belongs to.
+// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 func (o SloCorrectionOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
 }
@@ -336,8 +331,7 @@ func (o SloCorrectionOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.IntPtrOutput { return v.End }).(pulumi.IntPtrOutput)
 }
 
-// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-// `COUNT` and `UNTIL`.
+// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 func (o SloCorrectionOutput) Rrule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.StringPtrOutput { return v.Rrule }).(pulumi.StringPtrOutput)
 }

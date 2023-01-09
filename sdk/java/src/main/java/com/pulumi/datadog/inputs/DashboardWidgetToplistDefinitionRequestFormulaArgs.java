@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaArgs extends co
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetToplistDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetToplistDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetToplistDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetToplistDefinitionRequestFormulaArgs(DashboardWidgetToplistDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaArgs extends co
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaArgs extends co
 
         public Builder limit(DashboardWidgetToplistDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetToplistDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetToplistDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetToplistDefinitionRequestFormulaArgs build() {

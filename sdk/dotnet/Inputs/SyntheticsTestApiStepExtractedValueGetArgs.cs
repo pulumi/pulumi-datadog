@@ -10,22 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepExtractedValueGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepExtractedValueGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// Name of Datadog synthetics test.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parser", required: true)]
         public Input<Inputs.SyntheticsTestApiStepExtractedValueParserGetArgs> Parser { get; set; } = null!;
 
+        /// <summary>
+        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public SyntheticsTestApiStepExtractedValueGetArgs()
         {
         }
+        public static new SyntheticsTestApiStepExtractedValueGetArgs Empty => new SyntheticsTestApiStepExtractedValueGetArgs();
     }
 }

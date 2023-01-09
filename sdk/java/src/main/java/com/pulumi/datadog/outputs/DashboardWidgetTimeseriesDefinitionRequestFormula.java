@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetTimeseriesDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
     public Optional<DashboardWidgetTimeseriesDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetTimeseriesDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetTimeseriesDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetTimeseriesDefinitionRequestFormula build() {
             final var o = new DashboardWidgetTimeseriesDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

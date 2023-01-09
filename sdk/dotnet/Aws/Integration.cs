@@ -15,53 +15,51 @@ namespace Pulumi.Datadog.Aws
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog - Amazon Web Services integration
+    ///     var sandbox = new Datadog.Aws.Integration("sandbox", new()
     ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration
-    ///         var sandbox = new Datadog.Aws.Integration("sandbox", new Datadog.Aws.IntegrationArgs
+    ///         AccountId = "1234567890",
+    ///         AccountSpecificNamespaceRules = 
     ///         {
-    ///             AccountId = "1234567890",
-    ///             AccountSpecificNamespaceRules = 
-    ///             {
-    ///                 { "auto_scaling", false },
-    ///                 { "opsworks", false },
-    ///             },
-    ///             ExcludedRegions = 
-    ///             {
-    ///                 "us-east-1",
-    ///                 "us-west-2",
-    ///             },
-    ///             FilterTags = 
-    ///             {
-    ///                 "key:value",
-    ///             },
-    ///             HostTags = 
-    ///             {
-    ///                 "key:value",
-    ///                 "key2:value2",
-    ///             },
-    ///             RoleName = "DatadogAWSIntegrationRole",
-    ///         });
-    ///     }
+    ///             { "auto_scaling", false },
+    ///             { "opsworks", false },
+    ///         },
+    ///         ExcludedRegions = new[]
+    ///         {
+    ///             "us-east-1",
+    ///             "us-west-2",
+    ///         },
+    ///         FilterTags = new[]
+    ///         {
+    ///             "key:value",
+    ///         },
+    ///         HostTags = new[]
+    ///         {
+    ///             "key:value",
+    ///             "key2:value2",
+    ///         },
+    ///         RoleName = "DatadogAWSIntegrationRole",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+    /// Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
     /// 
     /// ```sh
     ///  $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -76,16 +74,13 @@ namespace Pulumi.Datadog.Aws
         public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        /// found at the [available namespace rules API
-        /// endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         [Output("accountSpecificNamespaceRules")]
         public Output<ImmutableDictionary<string, object>?> AccountSpecificNamespaceRules { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-        /// resources not covered under the general resource_collection.
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         /// </summary>
         [Output("cspmResourceCollectionEnabled")]
         public Output<string> CspmResourceCollectionEnabled { get; private set; } = null!;
@@ -104,10 +99,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> ExternalId { get; private set; } = null!;
 
         /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         [Output("filterTags")]
         public Output<ImmutableArray<string>> FilterTags { get; private set; } = null!;
@@ -165,6 +157,10 @@ namespace Pulumi.Datadog.Aws
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "secretAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -186,7 +182,7 @@ namespace Pulumi.Datadog.Aws
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -204,9 +200,7 @@ namespace Pulumi.Datadog.Aws
         private InputMap<object>? _accountSpecificNamespaceRules;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        /// found at the [available namespace rules API
-        /// endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {
@@ -215,8 +209,7 @@ namespace Pulumi.Datadog.Aws
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-        /// resources not covered under the general resource_collection.
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<string>? CspmResourceCollectionEnabled { get; set; }
@@ -237,10 +230,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _filterTags;
 
         /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         public InputList<string> FilterTags
         {
@@ -278,18 +268,29 @@ namespace Pulumi.Datadog.Aws
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
+        [Input("secretAccessKey")]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         /// </summary>
-        [Input("secretAccessKey")]
-        public Input<string>? SecretAccessKey { get; set; }
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -307,9 +308,7 @@ namespace Pulumi.Datadog.Aws
         private InputMap<object>? _accountSpecificNamespaceRules;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        /// found at the [available namespace rules API
-        /// endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {
@@ -318,8 +317,7 @@ namespace Pulumi.Datadog.Aws
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-        /// resources not covered under the general resource_collection.
+        /// Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<string>? CspmResourceCollectionEnabled { get; set; }
@@ -347,10 +345,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _filterTags;
 
         /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         public InputList<string> FilterTags
         {
@@ -388,14 +383,25 @@ namespace Pulumi.Datadog.Aws
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
+        [Input("secretAccessKey")]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         /// </summary>
-        [Input("secretAccessKey")]
-        public Input<string>? SecretAccessKey { get; set; }
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

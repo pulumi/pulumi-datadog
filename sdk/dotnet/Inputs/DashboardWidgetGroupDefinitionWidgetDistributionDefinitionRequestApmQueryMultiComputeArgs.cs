@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs Empty => new DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs();
     }
 }

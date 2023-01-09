@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetRoles(ctx, &GetRolesArgs{
+//			_, err := datadog.GetRoles(ctx, &datadog.GetRolesArgs{
 //				Filter: pulumi.StringRef("Datadog"),
 //			}, nil)
 //			if err != nil {
@@ -48,14 +48,17 @@ func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getRoles.
 type GetRolesArgs struct {
+	// Filter all roles by the given string.
 	Filter *string `pulumi:"filter"`
 }
 
 // A collection of values returned by getRoles.
 type GetRolesResult struct {
+	// Filter all roles by the given string.
 	Filter *string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string         `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// List of Roles
 	Roles []GetRolesRole `pulumi:"roles"`
 }
 
@@ -74,6 +77,7 @@ func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getRoles.
 type GetRolesOutputArgs struct {
+	// Filter all roles by the given string.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
@@ -96,6 +100,7 @@ func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Filter all roles by the given string.
 func (o GetRolesResultOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRolesResult) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +110,7 @@ func (o GetRolesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of Roles
 func (o GetRolesResultOutput) Roles() GetRolesRoleArrayOutput {
 	return o.ApplyT(func(v GetRolesResult) []GetRolesRole { return v.Roles }).(GetRolesRoleArrayOutput)
 }

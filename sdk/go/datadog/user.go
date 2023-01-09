@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			roRole, err := datadog.LookupRole(ctx, &GetRoleArgs{
+//			roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
 //				Filter: "Datadog Read Only Role",
 //			}, nil)
 //			if err != nil {
@@ -36,7 +36,7 @@ import (
 //			_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
 //				Email: pulumi.String("new@example.com"),
 //				Roles: pulumi.StringArray{
-//					pulumi.String(roRole.Id),
+//					*pulumi.String(roRole.Id),
 //				},
 //			})
 //			if err != nil {

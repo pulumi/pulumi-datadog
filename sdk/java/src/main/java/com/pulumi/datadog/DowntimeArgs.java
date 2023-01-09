@@ -20,14 +20,14 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
     public static final DowntimeArgs Empty = new DowntimeArgs();
 
     /**
-     * Optionally specify an end date when this downtime should expire
+     * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      * 
      */
     @Import(name="end")
     private @Nullable Output<Integer> end;
 
     /**
-     * @return Optionally specify an end date when this downtime should expire
+     * @return Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      * 
      */
     public Optional<Output<Integer>> end() {
@@ -80,16 +80,14 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      * 
      */
     @Import(name="monitorTags")
     private @Nullable Output<List<String>> monitorTags;
 
     /**
-     * @return A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * @return A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      * 
      */
     public Optional<Output<List<String>>> monitorTags() {
@@ -142,14 +140,14 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify when this downtime should start
+     * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      * 
      */
     @Import(name="start")
     private @Nullable Output<Integer> start;
 
     /**
-     * @return Specify when this downtime should start
+     * @return Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      * 
      */
     public Optional<Output<Integer>> start() {
@@ -172,14 +170,14 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timezone for the downtime, default UTC
+     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The timezone for the downtime, default UTC
+     * @return The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -221,7 +219,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param end Optionally specify an end date when this downtime should expire
+         * @param end Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
          * 
          * @return builder
          * 
@@ -232,7 +230,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param end Optionally specify an end date when this downtime should expire
+         * @param end Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
          * 
          * @return builder
          * 
@@ -305,8 +303,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-         * silenced
+         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
          * 
          * @return builder
          * 
@@ -317,8 +314,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-         * silenced
+         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
          * 
          * @return builder
          * 
@@ -328,8 +324,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-         * silenced
+         * @param monitorTags A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
          * 
          * @return builder
          * 
@@ -412,7 +407,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param start Specify when this downtime should start
+         * @param start Specify when this downtime should start. Accepts a Unix timestamp in UTC.
          * 
          * @return builder
          * 
@@ -423,7 +418,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param start Specify when this downtime should start
+         * @param start Specify when this downtime should start. Accepts a Unix timestamp in UTC.
          * 
          * @return builder
          * 
@@ -454,7 +449,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone The timezone for the downtime, default UTC
+         * @param timezone The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
          * 
          * @return builder
          * 
@@ -465,7 +460,7 @@ public final class DowntimeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone The timezone for the downtime, default UTC
+         * @param timezone The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
          * 
          * @return builder
          * 

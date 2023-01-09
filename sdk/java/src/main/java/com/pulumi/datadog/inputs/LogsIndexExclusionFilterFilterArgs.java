@@ -16,9 +16,17 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
 
     public static final LogsIndexExclusionFilterFilterArgs Empty = new LogsIndexExclusionFilterFilterArgs();
 
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     @Import(name="query")
     private @Nullable Output<String> query;
 
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     public Optional<Output<String>> query() {
         return Optional.ofNullable(this.query);
     }
@@ -55,11 +63,23 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
             $ = new LogsIndexExclusionFilterFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(@Nullable Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

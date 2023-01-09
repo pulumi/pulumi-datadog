@@ -13,9 +13,17 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs exte
 
     public static final DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs();
 
+    /**
+     * The URL of the dashboard.
+     * 
+     */
     @Import(name="url", required=true)
     private Output<String> url;
 
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }
@@ -44,11 +52,23 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs exte
             $ = new DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param url The URL of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url The URL of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

@@ -13,16 +13,32 @@ public final class MetricTagConfigurationAggregationArgs extends com.pulumi.reso
 
     public static final MetricTagConfigurationAggregationArgs Empty = new MetricTagConfigurationAggregationArgs();
 
+    /**
+     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     * 
+     */
     @Import(name="space", required=true)
     private Output<String> space;
 
+    /**
+     * @return A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     * 
+     */
     public Output<String> space() {
         return this.space;
     }
 
+    /**
+     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     * 
+     */
     @Import(name="time", required=true)
     private Output<String> time;
 
+    /**
+     * @return A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     * 
+     */
     public Output<String> time() {
         return this.time;
     }
@@ -52,20 +68,44 @@ public final class MetricTagConfigurationAggregationArgs extends com.pulumi.reso
             $ = new MetricTagConfigurationAggregationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param space A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder space(Output<String> space) {
             $.space = space;
             return this;
         }
 
+        /**
+         * @param space A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder space(String space) {
             return space(Output.of(space));
         }
 
+        /**
+         * @param time A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder time(Output<String> time) {
             $.time = time;
             return this;
         }
 
+        /**
+         * @param time A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder time(String time) {
             return time(Output.of(time));
         }

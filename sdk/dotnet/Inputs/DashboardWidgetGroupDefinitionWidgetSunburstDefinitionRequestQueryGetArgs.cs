@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("apmDependencyStatsQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryGetArgs();
     }
 }

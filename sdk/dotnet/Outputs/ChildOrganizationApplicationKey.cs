@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ChildOrganizationApplicationKey
     {
         public readonly string? Hash;
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
         public readonly string? Name;
         public readonly string? Owner;
 

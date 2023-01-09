@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetNoteDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetNoteDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetNoteDefinitionArgs()
         {
         }
+        public static new DashboardWidgetNoteDefinitionArgs Empty => new DashboardWidgetNoteDefinitionArgs();
     }
 }

@@ -14,6 +14,7 @@ import com.pulumi.datadog.outputs.SecurityMonitoringRuleCase;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleFilter;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleQuery;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleSignalQuery;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -27,10 +28,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SecurityMonitoringRule;
+ * import com.pulumi.datadog.SecurityMonitoringRuleArgs;
+ * import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;
+ * import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
+ * import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -74,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Security monitoring rules can be imported using ID, e.g.
+ * Security monitoring rules can be imported using ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
@@ -186,14 +197,28 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="queries", type=List.class, parameters={SecurityMonitoringRuleQuery.class})
-    private Output<List<SecurityMonitoringRuleQuery>> queries;
+    private Output</* @Nullable */ List<SecurityMonitoringRuleQuery>> queries;
 
     /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
-    public Output<List<SecurityMonitoringRuleQuery>> queries() {
-        return this.queries;
+    public Output<Optional<List<SecurityMonitoringRuleQuery>>> queries() {
+        return Codegen.optional(this.queries);
+    }
+    /**
+     * Queries for selecting logs which are part of the rule.
+     * 
+     */
+    @Export(name="signalQueries", type=List.class, parameters={SecurityMonitoringRuleSignalQuery.class})
+    private Output</* @Nullable */ List<SecurityMonitoringRuleSignalQuery>> signalQueries;
+
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
+    public Output<Optional<List<SecurityMonitoringRuleSignalQuery>>> signalQueries() {
+        return Codegen.optional(this.signalQueries);
     }
     /**
      * Tags for generated signals.
@@ -210,14 +235,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.tags);
     }
     /**
-     * The rule type.
+     * The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The rule type.
+     * @return The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
      * 
      */
     public Output<Optional<String>> type() {

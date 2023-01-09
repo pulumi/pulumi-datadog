@@ -12,9 +12,17 @@ public final class GetDashboardPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetDashboardPlainArgs Empty = new GetDashboardPlainArgs();
 
+    /**
+     * The dashboard name to search for. Must only match one dashboard.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The dashboard name to search for. Must only match one dashboard.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetDashboardPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetDashboardPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The dashboard name to search for. Must only match one dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

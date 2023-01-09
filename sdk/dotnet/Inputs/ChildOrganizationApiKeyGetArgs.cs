@@ -10,16 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ChildOrganizationApiKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationApiKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
-        public Input<string>? Key { get; set; }
+        private Input<string>? _key;
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public ChildOrganizationApiKeyGetArgs()
         {
         }
+        public static new ChildOrganizationApiKeyGetArgs Empty => new ChildOrganizationApiKeyGetArgs();
     }
 }

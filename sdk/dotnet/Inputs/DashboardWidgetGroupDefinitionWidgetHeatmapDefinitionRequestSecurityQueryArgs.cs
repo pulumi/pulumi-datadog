@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs>? ComputeQuery { get; set; }
@@ -40,5 +40,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs Empty => new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs();
     }
 }

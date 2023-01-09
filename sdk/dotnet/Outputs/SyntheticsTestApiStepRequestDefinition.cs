@@ -14,21 +14,74 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepRequestDefinition
     {
         public readonly bool? AllowInsecure;
+        /// <summary>
+        /// The request body.
+        /// </summary>
         public readonly string? Body;
+        /// <summary>
+        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+        /// </summary>
+        public readonly string? BodyType;
+        /// <summary>
+        /// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+        /// </summary>
+        public readonly string? CallType;
+        /// <summary>
+        /// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+        /// </summary>
         public readonly ImmutableArray<string> CertificateDomains;
+        /// <summary>
+        /// DNS server to use for DNS tests (`subtype = "dns"`).
+        /// </summary>
         public readonly string? DnsServer;
+        /// <summary>
+        /// DNS server port to use for DNS tests.
+        /// </summary>
         public readonly int? DnsServerPort;
         public readonly bool? FollowRedirects;
+        /// <summary>
+        /// Host name to perform the test with.
+        /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// For UDP and websocket tests, message to send with the request.
+        /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+        /// </summary>
         public readonly string? Method;
+        /// <summary>
+        /// Determines whether or not to save the response body.
+        /// </summary>
         public readonly bool? NoSavingResponseBody;
+        /// <summary>
+        /// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+        /// </summary>
         public readonly int? NumberOfPackets;
+        /// <summary>
+        /// Port to use when performing the test.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+        /// </summary>
         public readonly string? Servername;
+        /// <summary>
+        /// The gRPC service on which you want to perform the gRPC call.
+        /// </summary>
         public readonly string? Service;
+        /// <summary>
+        /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+        /// </summary>
         public readonly bool? ShouldTrackHops;
+        /// <summary>
+        /// Timeout in seconds for the test. Defaults to `60`.
+        /// </summary>
         public readonly int? Timeout;
+        /// <summary>
+        /// The URL to send the request to.
+        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]
@@ -36,6 +89,10 @@ namespace Pulumi.Datadog.Outputs
             bool? allowInsecure,
 
             string? body,
+
+            string? bodyType,
+
+            string? callType,
 
             ImmutableArray<string> certificateDomains,
 
@@ -69,6 +126,8 @@ namespace Pulumi.Datadog.Outputs
         {
             AllowInsecure = allowInsecure;
             Body = body;
+            BodyType = bodyType;
+            CallType = callType;
             CertificateDomains = certificateDomains;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;

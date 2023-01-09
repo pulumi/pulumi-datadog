@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetScatterplotDefinitionRequestXProcessQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetScatterplotDefinitionRequestXProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterBies")]
         private InputList<string>? _filterBies;
@@ -32,5 +32,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetScatterplotDefinitionRequestXProcessQueryGetArgs()
         {
         }
+        public static new DashboardWidgetScatterplotDefinitionRequestXProcessQueryGetArgs Empty => new DashboardWidgetScatterplotDefinitionRequestXProcessQueryGetArgs();
     }
 }

@@ -22,14 +22,17 @@ func GetLogsPipelines(ctx *pulumi.Context, args *GetLogsPipelinesArgs, opts ...p
 
 // A collection of arguments for invoking getLogsPipelines.
 type GetLogsPipelinesArgs struct {
+	// Filter parameter for retrieved pipelines
 	IsReadOnly *string `pulumi:"isReadOnly"`
 }
 
 // A collection of values returned by getLogsPipelines.
 type GetLogsPipelinesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id            string                         `pulumi:"id"`
-	IsReadOnly    *string                        `pulumi:"isReadOnly"`
+	Id string `pulumi:"id"`
+	// Filter parameter for retrieved pipelines
+	IsReadOnly *string `pulumi:"isReadOnly"`
+	// List of logs pipelines
 	LogsPipelines []GetLogsPipelinesLogsPipeline `pulumi:"logsPipelines"`
 }
 
@@ -48,6 +51,7 @@ func GetLogsPipelinesOutput(ctx *pulumi.Context, args GetLogsPipelinesOutputArgs
 
 // A collection of arguments for invoking getLogsPipelines.
 type GetLogsPipelinesOutputArgs struct {
+	// Filter parameter for retrieved pipelines
 	IsReadOnly pulumi.StringPtrInput `pulumi:"isReadOnly"`
 }
 
@@ -75,10 +79,12 @@ func (o GetLogsPipelinesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filter parameter for retrieved pipelines
 func (o GetLogsPipelinesResultOutput) IsReadOnly() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLogsPipelinesResult) *string { return v.IsReadOnly }).(pulumi.StringPtrOutput)
 }
 
+// List of logs pipelines
 func (o GetLogsPipelinesResultOutput) LogsPipelines() GetLogsPipelinesLogsPipelineArrayOutput {
 	return o.ApplyT(func(v GetLogsPipelinesResult) []GetLogsPipelinesLogsPipeline { return v.LogsPipelines }).(GetLogsPipelinesLogsPipelineArrayOutput)
 }

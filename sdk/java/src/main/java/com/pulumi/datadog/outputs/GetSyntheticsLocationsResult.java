@@ -16,6 +16,10 @@ public final class GetSyntheticsLocationsResult {
      * 
      */
     private String id;
+    /**
+     * @return A map of available Synthetics location IDs to names for Synthetics tests.
+     * 
+     */
     private Map<String,Object> locations;
 
     private GetSyntheticsLocationsResult() {}
@@ -26,6 +30,10 @@ public final class GetSyntheticsLocationsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A map of available Synthetics location IDs to names for Synthetics tests.
+     * 
+     */
     public Map<String,Object> locations() {
         return this.locations;
     }

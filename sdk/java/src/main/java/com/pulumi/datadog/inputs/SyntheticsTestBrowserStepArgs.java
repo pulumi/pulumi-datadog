@@ -18,51 +18,107 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
 
     public static final SyntheticsTestBrowserStepArgs Empty = new SyntheticsTestBrowserStepArgs();
 
+    /**
+     * Determines if the step should be allowed to fail.
+     * 
+     */
     @Import(name="allowFailure")
     private @Nullable Output<Boolean> allowFailure;
 
+    /**
+     * @return Determines if the step should be allowed to fail.
+     * 
+     */
     public Optional<Output<Boolean>> allowFailure() {
         return Optional.ofNullable(this.allowFailure);
     }
 
+    /**
+     * Force update of the &#34;element&#34; parameter for the step
+     * 
+     */
     @Import(name="forceElementUpdate")
     private @Nullable Output<Boolean> forceElementUpdate;
 
+    /**
+     * @return Force update of the &#34;element&#34; parameter for the step
+     * 
+     */
     public Optional<Output<Boolean>> forceElementUpdate() {
         return Optional.ofNullable(this.forceElementUpdate);
     }
 
+    /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     @Import(name="isCritical")
     private @Nullable Output<Boolean> isCritical;
 
+    /**
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     public Optional<Output<Boolean>> isCritical() {
         return Optional.ofNullable(this.isCritical);
     }
 
+    /**
+     * Name of the step.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the step.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Parameters for the step.
+     * 
+     */
     @Import(name="params", required=true)
     private Output<SyntheticsTestBrowserStepParamsArgs> params;
 
+    /**
+     * @return Parameters for the step.
+     * 
+     */
     public Output<SyntheticsTestBrowserStepParamsArgs> params() {
         return this.params;
     }
 
+    /**
+     * Used to override the default timeout of a step.
+     * 
+     */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
+    /**
+     * @return Used to override the default timeout of a step.
+     * 
+     */
     public Optional<Output<Integer>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
 
+    /**
+     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -97,65 +153,149 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
             $ = new SyntheticsTestBrowserStepArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowFailure Determines if the step should be allowed to fail.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowFailure(@Nullable Output<Boolean> allowFailure) {
             $.allowFailure = allowFailure;
             return this;
         }
 
+        /**
+         * @param allowFailure Determines if the step should be allowed to fail.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowFailure(Boolean allowFailure) {
             return allowFailure(Output.of(allowFailure));
         }
 
+        /**
+         * @param forceElementUpdate Force update of the &#34;element&#34; parameter for the step
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceElementUpdate(@Nullable Output<Boolean> forceElementUpdate) {
             $.forceElementUpdate = forceElementUpdate;
             return this;
         }
 
+        /**
+         * @param forceElementUpdate Force update of the &#34;element&#34; parameter for the step
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceElementUpdate(Boolean forceElementUpdate) {
             return forceElementUpdate(Output.of(forceElementUpdate));
         }
 
+        /**
+         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isCritical(@Nullable Output<Boolean> isCritical) {
             $.isCritical = isCritical;
             return this;
         }
 
+        /**
+         * @param isCritical Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isCritical(Boolean isCritical) {
             return isCritical(Output.of(isCritical));
         }
 
+        /**
+         * @param name Name of the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param params Parameters for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder params(Output<SyntheticsTestBrowserStepParamsArgs> params) {
             $.params = params;
             return this;
         }
 
+        /**
+         * @param params Parameters for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder params(SyntheticsTestBrowserStepParamsArgs params) {
             return params(Output.of(params));
         }
 
+        /**
+         * @param timeout Used to override the default timeout of a step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(@Nullable Output<Integer> timeout) {
             $.timeout = timeout;
             return this;
         }
 
+        /**
+         * @param timeout Used to override the default timeout of a step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
         }
 
+        /**
+         * @param type Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

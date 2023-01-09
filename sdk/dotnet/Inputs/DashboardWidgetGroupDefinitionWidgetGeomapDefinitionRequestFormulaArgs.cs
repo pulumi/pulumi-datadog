@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs : global::Pulumi.ResourceArgs
     {
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -32,8 +32,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("limit")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs>? Limit { get; set; }
 
+        [Input("style")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs>? Style { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs Empty => new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs();
     }
 }

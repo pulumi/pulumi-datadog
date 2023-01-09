@@ -21,6 +21,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     private @Nullable List<String> indexes;
     private String name;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch search;
+    private @Nullable String storage;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery() {}
     public List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute> computes() {
@@ -41,6 +42,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch> search() {
         return Optional.ofNullable(this.search);
     }
+    public Optional<String> storage() {
+        return Optional.ofNullable(this.storage);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -57,6 +61,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch search;
+        private @Nullable String storage;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,6 +71,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     	      this.indexes = defaults.indexes;
     	      this.name = defaults.name;
     	      this.search = defaults.search;
+    	      this.storage = defaults.storage;
         }
 
         @CustomType.Setter
@@ -107,6 +113,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             this.search = search;
             return this;
         }
+        @CustomType.Setter
+        public Builder storage(@Nullable String storage) {
+            this.storage = storage;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery();
             o.computes = computes;
@@ -115,6 +126,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             o.indexes = indexes;
             o.name = name;
             o.search = search;
+            o.storage = storage;
             return o;
         }
     }

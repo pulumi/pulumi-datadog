@@ -21,14 +21,18 @@ import * as utilities from "../utilities";
  *     ],
  *     subdomain: "ddog",
  * });
- * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
  *     serviceKey: "9876543210123456789",
  *     serviceName: "testing_foo",
- * }, { dependsOn: [pd] });
- * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
  *     serviceKey: "54321098765432109876",
  *     serviceName: "testing_bar",
- * }, { dependsOn: [pd] });
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
  * ```
  */
 export class Integration extends pulumi.CustomResource {
@@ -93,11 +97,13 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.subdomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
+            resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
             resourceInputs["schedules"] = args ? args.schedules : undefined;
             resourceInputs["subdomain"] = args ? args.subdomain : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

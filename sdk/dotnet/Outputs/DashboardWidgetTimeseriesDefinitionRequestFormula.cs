@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit? Limit;
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinitionRequestFormula(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             string formulaExpression,
 
-            Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit? limit)
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit? limit,
+
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            Style = style;
         }
     }
 }

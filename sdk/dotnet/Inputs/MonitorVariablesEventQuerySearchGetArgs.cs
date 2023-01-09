@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class MonitorVariablesEventQuerySearchGetArgs : Pulumi.ResourceArgs
+    public sealed class MonitorVariablesEventQuerySearchGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public MonitorVariablesEventQuerySearchGetArgs()
         {
         }
+        public static new MonitorVariablesEventQuerySearchGetArgs Empty => new MonitorVariablesEventQuerySearchGetArgs();
     }
 }

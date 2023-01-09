@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs Empty => new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs();
     }
 }

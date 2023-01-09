@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,20 +15,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getSecurityMonitoringRules({
+ * const test = datadog.getSecurityMonitoringRules({
  *     defaultOnlyFilter: true,
  *     nameFilter: "attack",
  *     tagsFilters: ["foo:bar"],
- * }));
+ * });
  * ```
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", {
         "defaultOnlyFilter": args.defaultOnlyFilter,
         "nameFilter": args.nameFilter,
@@ -40,9 +38,21 @@ export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs
  * A collection of arguments for invoking getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesArgs {
+    /**
+     * Limit the search to default rules
+     */
     defaultOnlyFilter?: boolean;
+    /**
+     * A rule name to limit the search
+     */
     nameFilter?: string;
+    /**
+     * A list of tags to limit the search
+     */
     tagsFilters?: string[];
+    /**
+     * Limit the search to user rules
+     */
     userOnlyFilter?: boolean;
 }
 
@@ -50,28 +60,73 @@ export interface GetSecurityMonitoringRulesArgs {
  * A collection of values returned by getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesResult {
+    /**
+     * Limit the search to default rules
+     */
     readonly defaultOnlyFilter?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A rule name to limit the search
+     */
     readonly nameFilter?: string;
+    /**
+     * List of IDs of the matched rules.
+     */
     readonly ruleIds: string[];
+    /**
+     * List of rules.
+     */
     readonly rules: outputs.GetSecurityMonitoringRulesRule[];
+    /**
+     * A list of tags to limit the search
+     */
     readonly tagsFilters?: string[];
+    /**
+     * Limit the search to user rules
+     */
     readonly userOnlyFilter?: boolean;
 }
-
+/**
+ * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getSecurityMonitoringRules({
+ *     defaultOnlyFilter: true,
+ *     nameFilter: "attack",
+ *     tagsFilters: ["foo:bar"],
+ * });
+ * ```
+ */
 export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
-    return pulumi.output(args).apply(a => getSecurityMonitoringRules(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityMonitoringRules(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getSecurityMonitoringRules.
  */
 export interface GetSecurityMonitoringRulesOutputArgs {
+    /**
+     * Limit the search to default rules
+     */
     defaultOnlyFilter?: pulumi.Input<boolean>;
+    /**
+     * A rule name to limit the search
+     */
     nameFilter?: pulumi.Input<string>;
+    /**
+     * A list of tags to limit the search
+     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Limit the search to user rules
+     */
     userOnlyFilter?: pulumi.Input<boolean>;
 }

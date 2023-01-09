@@ -10,22 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Slack.Inputs
 {
 
-    public sealed class ChannelDisplayGetArgs : Pulumi.ResourceArgs
+    public sealed class ChannelDisplayGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Show the main body of the alert event.
+        /// </summary>
         [Input("message")]
         public Input<bool>? Message { get; set; }
 
+        /// <summary>
+        /// Show the list of @-handles in the alert event.
+        /// </summary>
         [Input("notified")]
         public Input<bool>? Notified { get; set; }
 
+        /// <summary>
+        /// Show the alert event's snapshot image.
+        /// </summary>
         [Input("snapshot")]
         public Input<bool>? Snapshot { get; set; }
 
+        /// <summary>
+        /// Show the scopes on which the monitor alerted.
+        /// </summary>
         [Input("tags")]
         public Input<bool>? Tags { get; set; }
 
         public ChannelDisplayGetArgs()
         {
         }
+        public static new ChannelDisplayGetArgs Empty => new ChannelDisplayGetArgs();
     }
 }

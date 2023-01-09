@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -50,5 +50,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryGetArgs()
         {
         }
+        public static new DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryGetArgs Empty => new DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryGetArgs();
     }
 }

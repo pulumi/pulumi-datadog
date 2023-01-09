@@ -13,9 +13,17 @@ public final class LogsIndexFilterArgs extends com.pulumi.resources.ResourceArgs
 
     public static final LogsIndexFilterArgs Empty = new LogsIndexFilterArgs();
 
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -44,11 +52,23 @@ public final class LogsIndexFilterArgs extends com.pulumi.resources.ResourceArgs
             $ = new LogsIndexFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

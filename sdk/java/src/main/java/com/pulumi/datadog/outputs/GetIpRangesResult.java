@@ -12,44 +12,132 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIpRangesResult {
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
+     * 
+     */
     private List<String> agentsIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
+     * 
+     */
     private List<String> agentsIpv6s;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
+     * 
+     */
     private List<String> apiIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
+     * 
+     */
     private List<String> apiIpv6s;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
+     * 
+     */
     private List<String> apmIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
+     * 
+     */
     private List<String> apmIpv6s;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
+     * 
+     */
     private List<String> logsIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
+     * 
+     */
     private List<String> logsIpv6s;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
+     * 
+     */
     private List<String> processIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
+     * 
+     */
     private List<String> processIpv6s;
+    /**
+     * @return A map of IPv4 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
+     * 
+     */
     private Map<String,Object> syntheticsIpv4ByLocation;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+     * 
+     */
     private List<String> syntheticsIpv4s;
+    /**
+     * @return A map of IPv6 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
+     * 
+     */
     private Map<String,Object> syntheticsIpv6ByLocation;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+     * 
+     */
     private List<String> syntheticsIpv6s;
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+     * 
+     */
     private List<String> webhooksIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+     * 
+     */
     private List<String> webhooksIpv6s;
 
     private GetIpRangesResult() {}
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
+     * 
+     */
     public List<String> agentsIpv4s() {
         return this.agentsIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
+     * 
+     */
     public List<String> agentsIpv6s() {
         return this.agentsIpv6s;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
+     * 
+     */
     public List<String> apiIpv4s() {
         return this.apiIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
+     * 
+     */
     public List<String> apiIpv6s() {
         return this.apiIpv6s;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
+     * 
+     */
     public List<String> apmIpv4s() {
         return this.apmIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
+     * 
+     */
     public List<String> apmIpv6s() {
         return this.apmIpv6s;
     }
@@ -60,33 +148,73 @@ public final class GetIpRangesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
+     * 
+     */
     public List<String> logsIpv4s() {
         return this.logsIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
+     * 
+     */
     public List<String> logsIpv6s() {
         return this.logsIpv6s;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
+     * 
+     */
     public List<String> processIpv4s() {
         return this.processIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
+     * 
+     */
     public List<String> processIpv6s() {
         return this.processIpv6s;
     }
+    /**
+     * @return A map of IPv4 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
+     * 
+     */
     public Map<String,Object> syntheticsIpv4ByLocation() {
         return this.syntheticsIpv4ByLocation;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+     * 
+     */
     public List<String> syntheticsIpv4s() {
         return this.syntheticsIpv4s;
     }
+    /**
+     * @return A map of IPv6 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
+     * 
+     */
     public Map<String,Object> syntheticsIpv6ByLocation() {
         return this.syntheticsIpv6ByLocation;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+     * 
+     */
     public List<String> syntheticsIpv6s() {
         return this.syntheticsIpv6s;
     }
+    /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+     * 
+     */
     public List<String> webhooksIpv4s() {
         return this.webhooksIpv4s;
     }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+     * 
+     */
     public List<String> webhooksIpv6s() {
         return this.webhooksIpv6s;
     }

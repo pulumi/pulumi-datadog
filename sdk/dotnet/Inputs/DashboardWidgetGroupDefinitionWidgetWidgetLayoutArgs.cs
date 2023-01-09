@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs : global::Pulumi.ResourceArgs
     {
         [Input("height", required: true)]
         public Input<int> Height { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs Empty => new DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs();
     }
 }

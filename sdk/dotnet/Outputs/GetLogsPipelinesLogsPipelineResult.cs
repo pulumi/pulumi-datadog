@@ -14,8 +14,14 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetLogsPipelinesLogsPipelineResult
     {
         public readonly ImmutableArray<Outputs.GetLogsPipelinesLogsPipelineFilterResult> Filters;
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         public readonly string Id;
         public readonly bool IsEnabled;
+        /// <summary>
+        /// Filter parameter for retrieved pipelines
+        /// </summary>
         public readonly bool IsReadOnly;
         public readonly string Name;
         public readonly string Type;

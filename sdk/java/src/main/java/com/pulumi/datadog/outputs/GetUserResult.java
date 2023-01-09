@@ -9,19 +9,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return Email of the user.
+     * 
+     */
     private String email;
+    /**
+     * @return Filter all users by the given string.
+     * 
+     */
     private String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Name of the user.
+     * 
+     */
     private String name;
 
     private GetUserResult() {}
+    /**
+     * @return Email of the user.
+     * 
+     */
     public String email() {
         return this.email;
     }
+    /**
+     * @return Filter all users by the given string.
+     * 
+     */
     public String filter() {
         return this.filter;
     }
@@ -32,6 +52,10 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the user.
+     * 
+     */
     public String name() {
         return this.name;
     }

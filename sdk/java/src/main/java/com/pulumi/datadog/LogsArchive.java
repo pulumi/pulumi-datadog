@@ -27,10 +27,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsArchive;
+ * import com.pulumi.datadog.LogsArchiveArgs;
+ * import com.pulumi.datadog.inputs.LogsArchiveS3ArchiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -91,16 +99,14 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.gcsArchive);
     }
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-     * are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      * 
      */
     @Export(name="includeTags", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> includeTags;
 
     /**
-     * @return To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-     * are sent to the archive.
+     * @return To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      * 
      */
     public Output<Optional<Boolean>> includeTags() {

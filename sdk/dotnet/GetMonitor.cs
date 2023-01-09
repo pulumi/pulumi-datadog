@@ -19,30 +19,28 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetMonitor.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetMonitor.InvokeAsync(new Datadog.GetMonitorArgs
+        ///         MonitorTagsFilters = new[]
         ///         {
-        ///             MonitorTagsFilters = 
-        ///             {
-        ///                 "foo:bar",
-        ///             },
-        ///             NameFilter = "My awesome monitor",
-        ///         }));
-        ///     }
+        ///             "foo:bar",
+        ///         },
+        ///         NameFilter = "My awesome monitor",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing monitor for use in other resources.
@@ -52,48 +50,57 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetMonitor.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetMonitor.InvokeAsync(new Datadog.GetMonitorArgs
+        ///         MonitorTagsFilters = new[]
         ///         {
-        ///             MonitorTagsFilters = 
-        ///             {
-        ///                 "foo:bar",
-        ///             },
-        ///             NameFilter = "My awesome monitor",
-        ///         }));
-        ///     }
+        ///             "foo:bar",
+        ///         },
+        ///         NameFilter = "My awesome monitor",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorTagsFilters")]
         private List<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public List<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new List<string>());
             set => _monitorTagsFilters = value;
         }
 
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
@@ -103,23 +110,35 @@ namespace Pulumi.Datadog
         public GetMonitorArgs()
         {
         }
+        public static new GetMonitorArgs Empty => new GetMonitorArgs();
     }
 
-    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorTagsFilters")]
         private InputList<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public InputList<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
             set => _monitorTagsFilters = value;
         }
 
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
@@ -129,49 +148,148 @@ namespace Pulumi.Datadog
         public GetMonitorInvokeArgs()
         {
         }
+        public static new GetMonitorInvokeArgs Empty => new GetMonitorInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+        /// </summary>
         public readonly bool EnableLogsSample;
+        /// <summary>
+        /// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
+        /// </summary>
+        public readonly bool EnableSamples;
+        /// <summary>
+        /// Message included with a re-notification for this monitor.
+        /// </summary>
         public readonly string EscalationMessage;
+        /// <summary>
+        /// Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+        /// </summary>
         public readonly int EvaluationDelay;
+        /// <summary>
+        /// The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+        /// </summary>
         public readonly string GroupRetentionDuration;
+        /// <summary>
+        /// Whether or not to trigger one alert if any source breaches a threshold.
+        /// </summary>
         public readonly bool GroupbySimpleMonitor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+        /// </summary>
         public readonly bool IncludeTags;
+        /// <summary>
+        /// Whether or not changes to the monitor are restricted to the creator or admins.
+        /// </summary>
         public readonly bool Locked;
+        /// <summary>
+        /// Message included with notifications for this monitor
+        /// </summary>
         public readonly string Message;
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public readonly ImmutableArray<string> MonitorTagsFilters;
+        /// <summary>
+        /// Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdWindowResult> MonitorThresholdWindows;
+        /// <summary>
+        /// Alert thresholds of the monitor.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdResult> MonitorThresholds;
+        /// <summary>
+        /// Name of the monitor
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         public readonly string? NameFilter;
+        /// <summary>
+        /// Time (in seconds) to skip evaluations for new groups.
+        /// </summary>
         public readonly int NewGroupDelay;
+        /// <summary>
+        /// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+        /// </summary>
         public readonly int NewHostDelay;
+        /// <summary>
+        /// The number of minutes before the monitor notifies when data stops reporting.
+        /// </summary>
         public readonly int NoDataTimeframe;
+        /// <summary>
+        /// Whether or not tagged users are notified on changes to the monitor.
+        /// </summary>
         public readonly bool NotifyAudit;
+        /// <summary>
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+        /// </summary>
+        public readonly ImmutableArray<string> NotifyBies;
+        /// <summary>
+        /// Whether or not this monitor notifies when data stops reporting.
+        /// </summary>
         public readonly bool NotifyNoData;
+        /// <summary>
+        /// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+        /// </summary>
         public readonly string OnMissingData;
+        /// <summary>
+        /// Query of the monitor.
+        /// </summary>
         public readonly string Query;
+        /// <summary>
+        /// The number of minutes after the last notification before the monitor re-notifies on the current status.
+        /// </summary>
         public readonly int RenotifyInterval;
+        /// <summary>
+        /// The number of re-notification messages that should be sent on the current status.
+        /// </summary>
         public readonly int RenotifyOccurrences;
+        /// <summary>
+        /// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+        /// </summary>
         public readonly ImmutableArray<string> RenotifyStatuses;
+        /// <summary>
+        /// Whether or not the monitor needs a full window of data before it is evaluated.
+        /// </summary>
         public readonly bool RequireFullWindow;
         public readonly ImmutableArray<string> RestrictedRoles;
+        /// <summary>
+        /// Configuration options for scheduling.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetMonitorSchedulingOptionResult> SchedulingOptions;
+        /// <summary>
+        /// List of tags associated with the monitor.
+        /// </summary>
         public readonly ImmutableArray<string> Tags;
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
+        /// <summary>
+        /// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+        /// </summary>
         public readonly int TimeoutH;
+        /// <summary>
+        /// Type of the monitor.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetMonitorResult(
             bool enableLogsSample,
+
+            bool enableSamples,
 
             string escalationMessage,
 
@@ -207,6 +325,8 @@ namespace Pulumi.Datadog
 
             bool notifyAudit,
 
+            ImmutableArray<string> notifyBies,
+
             bool notifyNoData,
 
             string onMissingData,
@@ -223,6 +343,8 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> restrictedRoles,
 
+            ImmutableArray<Outputs.GetMonitorSchedulingOptionResult> schedulingOptions,
+
             ImmutableArray<string> tags,
 
             ImmutableArray<string> tagsFilters,
@@ -232,6 +354,7 @@ namespace Pulumi.Datadog
             string type)
         {
             EnableLogsSample = enableLogsSample;
+            EnableSamples = enableSamples;
             EscalationMessage = escalationMessage;
             EvaluationDelay = evaluationDelay;
             GroupRetentionDuration = groupRetentionDuration;
@@ -249,6 +372,7 @@ namespace Pulumi.Datadog
             NewHostDelay = newHostDelay;
             NoDataTimeframe = noDataTimeframe;
             NotifyAudit = notifyAudit;
+            NotifyBies = notifyBies;
             NotifyNoData = notifyNoData;
             OnMissingData = onMissingData;
             Query = query;
@@ -257,6 +381,7 @@ namespace Pulumi.Datadog
             RenotifyStatuses = renotifyStatuses;
             RequireFullWindow = requireFullWindow;
             RestrictedRoles = restrictedRoles;
+            SchedulingOptions = schedulingOptions;
             Tags = tags;
             TagsFilters = tagsFilters;
             TimeoutH = timeoutH;

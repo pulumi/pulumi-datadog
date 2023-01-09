@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetChangeDefinitionRequestFormulaLimitGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetChangeDefinitionRequestFormulaLimitGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetChangeDefinitionRequestFormulaLimitGetArgs()
         {
         }
+        public static new DashboardWidgetChangeDefinitionRequestFormulaLimitGetArgs Empty => new DashboardWidgetChangeDefinitionRequestFormulaLimitGetArgs();
     }
 }

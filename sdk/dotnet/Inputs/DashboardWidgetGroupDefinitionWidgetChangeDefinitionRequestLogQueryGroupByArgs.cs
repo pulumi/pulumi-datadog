@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupByArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupByArgs : global::Pulumi.ResourceArgs
     {
         [Input("facet")]
         public Input<string>? Facet { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupByArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupByArgs Empty => new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupByArgs();
     }
 }

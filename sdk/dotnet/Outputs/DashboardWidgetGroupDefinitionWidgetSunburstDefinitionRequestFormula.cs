@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit? Limit;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             string formulaExpression,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit? limit)
+            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit? limit,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            Style = style;
         }
     }
 }

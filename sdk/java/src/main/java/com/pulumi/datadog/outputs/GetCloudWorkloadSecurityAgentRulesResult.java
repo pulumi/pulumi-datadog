@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudWorkloadSecurityAgentRulesResult {
+    /**
+     * @return List of Agent rules.
+     * 
+     */
     private List<GetCloudWorkloadSecurityAgentRulesAgentRule> agentRules;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -19,6 +23,10 @@ public final class GetCloudWorkloadSecurityAgentRulesResult {
     private String id;
 
     private GetCloudWorkloadSecurityAgentRulesResult() {}
+    /**
+     * @return List of Agent rules.
+     * 
+     */
     public List<GetCloudWorkloadSecurityAgentRulesAgentRule> agentRules() {
         return this.agentRules;
     }

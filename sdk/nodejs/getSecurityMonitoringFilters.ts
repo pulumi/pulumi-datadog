@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,15 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getSecurityMonitoringFilters());
+ * const test = datadog.getSecurityMonitoringFilters({});
  * ```
  */
 export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringFiltersResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", {
     }, opts);
 }
@@ -31,7 +29,13 @@ export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promi
  * A collection of values returned by getSecurityMonitoringFilters.
  */
 export interface GetSecurityMonitoringFiltersResult {
+    /**
+     * List of filters.
+     */
     readonly filters: outputs.GetSecurityMonitoringFiltersFilter[];
+    /**
+     * List of IDs of filters.
+     */
     readonly filtersIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

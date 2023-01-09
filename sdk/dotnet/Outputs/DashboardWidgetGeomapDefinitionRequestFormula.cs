@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit? Limit;
+        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinitionRequestFormula(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             string formulaExpression,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit? limit)
+            Outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit? limit,
+
+            Outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            Style = style;
         }
     }
 }

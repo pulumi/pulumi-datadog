@@ -17,6 +17,10 @@ public final class DashboardWidgetChangeDefinition {
     private @Nullable List<DashboardWidgetChangeDefinitionCustomLink> customLinks;
     private @Nullable String liveSpan;
     private @Nullable List<DashboardWidgetChangeDefinitionRequest> requests;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -31,6 +35,10 @@ public final class DashboardWidgetChangeDefinition {
     public List<DashboardWidgetChangeDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

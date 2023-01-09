@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
 
         public Builder limit(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs build() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHeatmapDefinitionRequestStyleGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHeatmapDefinitionRequestStyleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("palette")]
         public Input<string>? Palette { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHeatmapDefinitionRequestStyleGetArgs()
         {
         }
+        public static new DashboardWidgetHeatmapDefinitionRequestStyleGetArgs Empty => new DashboardWidgetHeatmapDefinitionRequestStyleGetArgs();
     }
 }

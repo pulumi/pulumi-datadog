@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs : global::Pulumi.ResourceArgs
     {
         [Input("facet")]
         public Input<string>? Facet { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs()
         {
         }
+        public static new DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs Empty => new DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs();
     }
 }

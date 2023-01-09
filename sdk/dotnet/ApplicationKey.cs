@@ -15,21 +15,19 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog Application Key
+    ///     var foo = new Datadog.ApplicationKey("foo", new()
     ///     {
-    ///         // Create a new Datadog Application Key
-    ///         var foo = new Datadog.ApplicationKey("foo", new Datadog.ApplicationKeyArgs
-    ///         {
-    ///             Name = "foo-application",
-    ///         });
-    ///     }
+    ///         Name = "foo-application",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +37,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/applicationKey:ApplicationKey")]
-    public partial class ApplicationKey : Pulumi.CustomResource
+    public partial class ApplicationKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The value of the Application Key.
@@ -76,6 +74,10 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "key",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -97,7 +99,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class ApplicationKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for Application Key.
@@ -108,15 +110,26 @@ namespace Pulumi.Datadog
         public ApplicationKeyArgs()
         {
         }
+        public static new ApplicationKeyArgs Empty => new ApplicationKeyArgs();
     }
 
-    public sealed class ApplicationKeyState : Pulumi.ResourceArgs
+    public sealed class ApplicationKeyState : global::Pulumi.ResourceArgs
     {
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// The value of the Application Key.
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Name for Application Key.
@@ -127,5 +140,6 @@ namespace Pulumi.Datadog
         public ApplicationKeyState()
         {
         }
+        public static new ApplicationKeyState Empty => new ApplicationKeyState();
     }
 }

@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringRuleFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of filtering action. Valid values are `require`, `suppress`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// Query for selecting logs to apply the filtering action.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         public SecurityMonitoringRuleFilterGetArgs()
         {
         }
+        public static new SecurityMonitoringRuleFilterGetArgs Empty => new SecurityMonitoringRuleFilterGetArgs();
     }
 }

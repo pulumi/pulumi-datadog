@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsArchiveAzureArchive
     {
+        /// <summary>
+        /// Your client id.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The container where the archive is stored.
+        /// </summary>
         public readonly string Container;
+        /// <summary>
+        /// The path where the archive is stored.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The associated storage account.
+        /// </summary>
         public readonly string StorageAccount;
+        /// <summary>
+        /// Your tenant id.
+        /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]

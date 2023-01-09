@@ -10,21 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepRequestProxyGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepRequestProxyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("headers")]
         private InputMap<object>? _headers;
+
+        /// <summary>
+        /// Header name and value map.
+        /// </summary>
         public InputMap<object> Headers
         {
             get => _headers ?? (_headers = new InputMap<object>());
             set => _headers = value;
         }
 
+        /// <summary>
+        /// URL of the proxy to perform the test.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         public SyntheticsTestApiStepRequestProxyGetArgs()
         {
         }
+        public static new SyntheticsTestApiStepRequestProxyGetArgs Empty => new SyntheticsTestApiStepRequestProxyGetArgs();
     }
 }

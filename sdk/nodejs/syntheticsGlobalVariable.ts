@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testVariable = new datadog.SyntheticsGlobalVariable("test_variable", {
+ * const testVariable = new datadog.SyntheticsGlobalVariable("testVariable", {
  *     description: "Description of the variable",
  *     name: "EXAMPLE_VARIABLE",
  *     tags: [
@@ -27,7 +28,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Synthetics global variables can be imported using their string ID, e.g.
+ * Synthetics global variables can be imported using their string ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
@@ -130,9 +131,11 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
             resourceInputs["secure"] = args ? args.secure : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["value"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SyntheticsGlobalVariable.__pulumiType, name, resourceInputs, opts);
     }
 }

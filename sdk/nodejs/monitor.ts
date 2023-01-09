@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -72,6 +73,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly enableLogsSample!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     */
+    public /*out*/ readonly enableSamples!: pulumi.Output<boolean>;
+    /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */
     public readonly escalationMessage!: pulumi.Output<string | undefined>;
@@ -110,8 +116,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
     /**
-     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * A message to include with notifications for this monitor.
      */
     public readonly message!: pulumi.Output<string>;
     /**
@@ -150,6 +155,14 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
     public readonly notifyAudit!: pulumi.Output<boolean | undefined>;
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     */
+    public readonly notifyBies!: pulumi.Output<string[] | undefined>;
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
@@ -204,6 +217,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
+     * Configuration options for scheduling.
+     */
+    public readonly schedulingOptions!: pulumi.Output<outputs.MonitorSchedulingOption[] | undefined>;
+    /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -239,6 +256,7 @@ export class Monitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
             resourceInputs["enableLogsSample"] = state ? state.enableLogsSample : undefined;
+            resourceInputs["enableSamples"] = state ? state.enableSamples : undefined;
             resourceInputs["escalationMessage"] = state ? state.escalationMessage : undefined;
             resourceInputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
@@ -254,6 +272,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["newHostDelay"] = state ? state.newHostDelay : undefined;
             resourceInputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
             resourceInputs["notifyAudit"] = state ? state.notifyAudit : undefined;
+            resourceInputs["notifyBies"] = state ? state.notifyBies : undefined;
             resourceInputs["notifyNoData"] = state ? state.notifyNoData : undefined;
             resourceInputs["onMissingData"] = state ? state.onMissingData : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
@@ -263,6 +282,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["renotifyStatuses"] = state ? state.renotifyStatuses : undefined;
             resourceInputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
             resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
+            resourceInputs["schedulingOptions"] = state ? state.schedulingOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timeoutH"] = state ? state.timeoutH : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -298,6 +318,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["newHostDelay"] = args ? args.newHostDelay : undefined;
             resourceInputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
             resourceInputs["notifyAudit"] = args ? args.notifyAudit : undefined;
+            resourceInputs["notifyBies"] = args ? args.notifyBies : undefined;
             resourceInputs["notifyNoData"] = args ? args.notifyNoData : undefined;
             resourceInputs["onMissingData"] = args ? args.onMissingData : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
@@ -307,11 +328,13 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["renotifyStatuses"] = args ? args.renotifyStatuses : undefined;
             resourceInputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
             resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
+            resourceInputs["schedulingOptions"] = args ? args.schedulingOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutH"] = args ? args.timeoutH : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["enableSamples"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
@@ -327,6 +350,11 @@ export interface MonitorState {
      * monitors. Defaults to `false`.
      */
     enableLogsSample?: pulumi.Input<boolean>;
+    /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     */
+    enableSamples?: pulumi.Input<boolean>;
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */
@@ -366,8 +394,7 @@ export interface MonitorState {
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * A message to include with notifications for this monitor.
      */
     message?: pulumi.Input<string>;
     /**
@@ -406,6 +433,14 @@ export interface MonitorState {
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
     notifyAudit?: pulumi.Input<boolean>;
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     */
+    notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
@@ -459,6 +494,10 @@ export interface MonitorState {
      * field.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration options for scheduling.
+     */
+    schedulingOptions?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOption>[]>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -530,8 +569,7 @@ export interface MonitorArgs {
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * A message to include with notifications for this monitor.
      */
     message: pulumi.Input<string>;
     /**
@@ -570,6 +608,14 @@ export interface MonitorArgs {
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
     notifyAudit?: pulumi.Input<boolean>;
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     */
+    notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
@@ -623,6 +669,10 @@ export interface MonitorArgs {
      * field.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration options for scheduling.
+     */
+    schedulingOptions?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOption>[]>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API

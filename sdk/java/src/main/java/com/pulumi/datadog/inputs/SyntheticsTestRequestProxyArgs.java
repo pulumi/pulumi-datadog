@@ -17,16 +17,32 @@ public final class SyntheticsTestRequestProxyArgs extends com.pulumi.resources.R
 
     public static final SyntheticsTestRequestProxyArgs Empty = new SyntheticsTestRequestProxyArgs();
 
+    /**
+     * Header name and value map.
+     * 
+     */
     @Import(name="headers")
     private @Nullable Output<Map<String,Object>> headers;
 
+    /**
+     * @return Header name and value map.
+     * 
+     */
     public Optional<Output<Map<String,Object>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
+    /**
+     * URL of the proxy to perform the test.
+     * 
+     */
     @Import(name="url", required=true)
     private Output<String> url;
 
+    /**
+     * @return URL of the proxy to perform the test.
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }
@@ -56,20 +72,44 @@ public final class SyntheticsTestRequestProxyArgs extends com.pulumi.resources.R
             $ = new SyntheticsTestRequestProxyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param headers Header name and value map.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(@Nullable Output<Map<String,Object>> headers) {
             $.headers = headers;
             return this;
         }
 
+        /**
+         * @param headers Header name and value map.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(Map<String,Object> headers) {
             return headers(Output.of(headers));
         }
 
+        /**
+         * @param url URL of the proxy to perform the test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url URL of the proxy to perform the test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

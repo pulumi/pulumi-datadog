@@ -10,13 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not to continue with test if this step fails.
+        /// </summary>
         [Input("allowFailure")]
         public Input<bool>? AllowFailure { get; set; }
 
         [Input("assertions")]
         private InputList<Inputs.SyntheticsTestApiStepAssertionGetArgs>? _assertions;
+
+        /// <summary>
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        /// </summary>
         public InputList<Inputs.SyntheticsTestApiStepAssertionGetArgs> Assertions
         {
             get => _assertions ?? (_assertions = new InputList<Inputs.SyntheticsTestApiStepAssertionGetArgs>());
@@ -25,40 +32,70 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("extractedValues")]
         private InputList<Inputs.SyntheticsTestApiStepExtractedValueGetArgs>? _extractedValues;
+
+        /// <summary>
+        /// Values to parse and save as variables from the response.
+        /// </summary>
         public InputList<Inputs.SyntheticsTestApiStepExtractedValueGetArgs> ExtractedValues
         {
             get => _extractedValues ?? (_extractedValues = new InputList<Inputs.SyntheticsTestApiStepExtractedValueGetArgs>());
             set => _extractedValues = value;
         }
 
+        /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
         [Input("isCritical")]
         public Input<bool>? IsCritical { get; set; }
 
+        /// <summary>
+        /// The name of the step.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        /// </summary>
         [Input("requestBasicauth")]
         public Input<Inputs.SyntheticsTestApiStepRequestBasicauthGetArgs>? RequestBasicauth { get; set; }
 
+        /// <summary>
+        /// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        /// </summary>
         [Input("requestClientCertificate")]
         public Input<Inputs.SyntheticsTestApiStepRequestClientCertificateGetArgs>? RequestClientCertificate { get; set; }
 
+        /// <summary>
+        /// The request for the api step.
+        /// </summary>
         [Input("requestDefinition")]
         public Input<Inputs.SyntheticsTestApiStepRequestDefinitionGetArgs>? RequestDefinition { get; set; }
 
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
+
+        /// <summary>
+        /// Header name and value map.
+        /// </summary>
         public InputMap<object> RequestHeaders
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
             set => _requestHeaders = value;
         }
 
+        /// <summary>
+        /// The proxy to perform the test.
+        /// </summary>
         [Input("requestProxy")]
         public Input<Inputs.SyntheticsTestApiStepRequestProxyGetArgs>? RequestProxy { get; set; }
 
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;
+
+        /// <summary>
+        /// Query arguments name and value map.
+        /// </summary>
         public InputMap<object> RequestQuery
         {
             get => _requestQuery ?? (_requestQuery = new InputMap<object>());
@@ -68,11 +105,15 @@ namespace Pulumi.Datadog.Inputs
         [Input("retry")]
         public Input<Inputs.SyntheticsTestApiStepRetryGetArgs>? Retry { get; set; }
 
+        /// <summary>
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 
         public SyntheticsTestApiStepGetArgs()
         {
         }
+        public static new SyntheticsTestApiStepGetArgs Empty => new SyntheticsTestApiStepGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryGetArgs()
         {
         }
+        public static new DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryGetArgs Empty => new DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryGetArgs();
     }
 }

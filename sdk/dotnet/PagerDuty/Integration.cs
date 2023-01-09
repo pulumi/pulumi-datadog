@@ -15,52 +15,52 @@ namespace Pulumi.Datadog.PagerDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var pd = new Datadog.PagerDuty.Integration("pd", new()
     ///     {
-    ///         var pd = new Datadog.PagerDuty.Integration("pd", new Datadog.PagerDuty.IntegrationArgs
+    ///         ApiToken = "38457822378273432587234242874",
+    ///         Schedules = new[]
     ///         {
-    ///             ApiToken = "38457822378273432587234242874",
-    ///             Schedules = 
-    ///             {
-    ///                 "https://ddog.pagerduty.com/schedules/X123VF",
-    ///                 "https://ddog.pagerduty.com/schedules/X321XX",
-    ///             },
-    ///             Subdomain = "ddog",
-    ///         });
-    ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "9876543210123456789",
-    ///             ServiceName = "testing_foo",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
-    ///         });
-    ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "54321098765432109876",
-    ///             ServiceName = "testing_bar",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
-    ///         });
-    ///     }
+    ///             "https://ddog.pagerduty.com/schedules/X123VF",
+    ///             "https://ddog.pagerduty.com/schedules/X321XX",
+    ///         },
+    ///         Subdomain = "ddog",
+    ///     });
     /// 
-    /// }
+    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
+    ///     {
+    ///         ServiceKey = "9876543210123456789",
+    ///         ServiceName = "testing_foo",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             "datadog_integration_pagerduty.pd",
+    ///         },
+    ///     });
+    /// 
+    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
+    ///     {
+    ///         ServiceKey = "54321098765432109876",
+    ///         ServiceName = "testing_bar",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             "datadog_integration_pagerduty.pd",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your PagerDuty API token.
@@ -103,6 +103,10 @@ namespace Pulumi.Datadog.PagerDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -124,13 +128,23 @@ namespace Pulumi.Datadog.PagerDuty
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiToken")]
+        private Input<string>? _apiToken;
+
         /// <summary>
         /// Your PagerDuty API token.
         /// </summary>
-        [Input("apiToken")]
-        public Input<string>? ApiToken { get; set; }
+        public Input<string>? ApiToken
+        {
+            get => _apiToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("schedules")]
         private InputList<string>? _schedules;
@@ -153,15 +167,26 @@ namespace Pulumi.Datadog.PagerDuty
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
+        [Input("apiToken")]
+        private Input<string>? _apiToken;
+
         /// <summary>
         /// Your PagerDuty API token.
         /// </summary>
-        [Input("apiToken")]
-        public Input<string>? ApiToken { get; set; }
+        public Input<string>? ApiToken
+        {
+            get => _apiToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("schedules")]
         private InputList<string>? _schedules;
@@ -184,5 +209,6 @@ namespace Pulumi.Datadog.PagerDuty
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

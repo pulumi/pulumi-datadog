@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
+// Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
 //
 // ```sh
 //
@@ -54,7 +54,7 @@ import (
 type IntegrationLambdaArn struct {
 	pulumi.CustomResourceState
 
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringOutput `pulumi:"lambdaArn"`
@@ -95,14 +95,14 @@ func GetIntegrationLambdaArn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationLambdaArn resources.
 type integrationLambdaArnState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn *string `pulumi:"lambdaArn"`
 }
 
 type IntegrationLambdaArnState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringPtrInput
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (IntegrationLambdaArnState) ElementType() reflect.Type {
 }
 
 type integrationLambdaArnArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId string `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -121,7 +121,7 @@ type integrationLambdaArnArgs struct {
 
 // The set of arguments for constructing a IntegrationLambdaArn resource.
 type IntegrationLambdaArnArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringInput
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringInput
@@ -214,7 +214,7 @@ func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutputWithContext(ctx 
 	return o
 }
 
-// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 func (o IntegrationLambdaArnOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationLambdaArn) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

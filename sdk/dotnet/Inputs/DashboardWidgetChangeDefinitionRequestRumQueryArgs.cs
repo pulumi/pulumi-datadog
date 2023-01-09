@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetChangeDefinitionRequestRumQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetChangeDefinitionRequestRumQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs>? ComputeQuery { get; set; }
@@ -40,5 +40,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetChangeDefinitionRequestRumQueryArgs()
         {
         }
+        public static new DashboardWidgetChangeDefinitionRequestRumQueryArgs Empty => new DashboardWidgetChangeDefinitionRequestRumQueryArgs();
     }
 }

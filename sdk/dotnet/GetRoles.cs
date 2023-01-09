@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetRoles.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetRoles.InvokeAsync(new Datadog.GetRolesArgs
-        ///         {
-        ///             Filter = "Datadog",
-        ///         }));
-        ///     }
+        ///         Filter = "Datadog",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about multiple roles for use in other resources.
@@ -48,58 +46,70 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetRoles.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetRoles.InvokeAsync(new Datadog.GetRolesArgs
-        ///         {
-        ///             Filter = "Datadog",
-        ///         }));
-        ///     }
+        ///         Filter = "Datadog",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetRolesArgs : Pulumi.InvokeArgs
+    public sealed class GetRolesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter all roles by the given string.
+        /// </summary>
         [Input("filter")]
         public string? Filter { get; set; }
 
         public GetRolesArgs()
         {
         }
+        public static new GetRolesArgs Empty => new GetRolesArgs();
     }
 
-    public sealed class GetRolesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRolesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter all roles by the given string.
+        /// </summary>
         [Input("filter")]
         public Input<string>? Filter { get; set; }
 
         public GetRolesInvokeArgs()
         {
         }
+        public static new GetRolesInvokeArgs Empty => new GetRolesInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetRolesResult
     {
+        /// <summary>
+        /// Filter all roles by the given string.
+        /// </summary>
         public readonly string? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of Roles
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRolesRoleResult> Roles;
 
         [OutputConstructor]

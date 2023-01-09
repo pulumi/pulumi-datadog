@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableGetArgs();
     }
 }

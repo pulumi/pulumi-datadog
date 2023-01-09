@@ -12,9 +12,17 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
+    /**
+     * Filter all users by the given string.
+     * 
+     */
     @Import(name="filter", required=true)
     private String filter;
 
+    /**
+     * @return Filter all users by the given string.
+     * 
+     */
     public String filter() {
         return this.filter;
     }
@@ -43,6 +51,12 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filter Filter all users by the given string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(String filter) {
             $.filter = filter;
             return this;

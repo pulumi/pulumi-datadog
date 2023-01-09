@@ -15,30 +15,62 @@ public final class GetServiceLevelObjectiveArgs extends com.pulumi.resources.Inv
 
     public static final GetServiceLevelObjectiveArgs Empty = new GetServiceLevelObjectiveArgs();
 
+    /**
+     * A SLO ID to limit the search.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return A SLO ID to limit the search.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Filter results based on SLO numerator and denominator.
+     * 
+     */
     @Import(name="metricsQuery")
     private @Nullable Output<String> metricsQuery;
 
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     public Optional<Output<String>> metricsQuery() {
         return Optional.ofNullable(this.metricsQuery);
     }
 
+    /**
+     * Filter results based on SLO names.
+     * 
+     */
     @Import(name="nameQuery")
     private @Nullable Output<String> nameQuery;
 
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     public Optional<Output<String>> nameQuery() {
         return Optional.ofNullable(this.nameQuery);
     }
 
+    /**
+     * Filter results based on a single SLO tag.
+     * 
+     */
     @Import(name="tagsQuery")
     private @Nullable Output<String> tagsQuery;
 
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     public Optional<Output<String>> tagsQuery() {
         return Optional.ofNullable(this.tagsQuery);
     }
@@ -70,38 +102,86 @@ public final class GetServiceLevelObjectiveArgs extends com.pulumi.resources.Inv
             $ = new GetServiceLevelObjectiveArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id A SLO ID to limit the search.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id A SLO ID to limit the search.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param metricsQuery Filter results based on SLO numerator and denominator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricsQuery(@Nullable Output<String> metricsQuery) {
             $.metricsQuery = metricsQuery;
             return this;
         }
 
+        /**
+         * @param metricsQuery Filter results based on SLO numerator and denominator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricsQuery(String metricsQuery) {
             return metricsQuery(Output.of(metricsQuery));
         }
 
+        /**
+         * @param nameQuery Filter results based on SLO names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameQuery(@Nullable Output<String> nameQuery) {
             $.nameQuery = nameQuery;
             return this;
         }
 
+        /**
+         * @param nameQuery Filter results based on SLO names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameQuery(String nameQuery) {
             return nameQuery(Output.of(nameQuery));
         }
 
+        /**
+         * @param tagsQuery Filter results based on a single SLO tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsQuery(@Nullable Output<String> tagsQuery) {
             $.tagsQuery = tagsQuery;
             return this;
         }
 
+        /**
+         * @param tagsQuery Filter results based on a single SLO tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsQuery(String tagsQuery) {
             return tagsQuery(Output.of(tagsQuery));
         }

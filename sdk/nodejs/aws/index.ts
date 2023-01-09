@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./integration";
-export * from "./integrationLambdaArn";
-export * from "./integrationLogCollection";
-export * from "./integrationTagFilter";
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
-// Import resources to register:
-import { Integration } from "./integration";
-import { IntegrationLambdaArn } from "./integrationLambdaArn";
-import { IntegrationLogCollection } from "./integrationLogCollection";
-import { IntegrationTagFilter } from "./integrationTagFilter";
+export { IntegrationLambdaArnArgs, IntegrationLambdaArnState } from "./integrationLambdaArn";
+export type IntegrationLambdaArn = import("./integrationLambdaArn").IntegrationLambdaArn;
+export const IntegrationLambdaArn: typeof import("./integrationLambdaArn").IntegrationLambdaArn = null as any;
+utilities.lazyLoad(exports, ["IntegrationLambdaArn"], () => require("./integrationLambdaArn"));
+
+export { IntegrationLogCollectionArgs, IntegrationLogCollectionState } from "./integrationLogCollection";
+export type IntegrationLogCollection = import("./integrationLogCollection").IntegrationLogCollection;
+export const IntegrationLogCollection: typeof import("./integrationLogCollection").IntegrationLogCollection = null as any;
+utilities.lazyLoad(exports, ["IntegrationLogCollection"], () => require("./integrationLogCollection"));
+
+export { IntegrationTagFilterArgs, IntegrationTagFilterState } from "./integrationTagFilter";
+export type IntegrationTagFilter = import("./integrationTagFilter").IntegrationTagFilter;
+export const IntegrationTagFilter: typeof import("./integrationTagFilter").IntegrationTagFilter = null as any;
+utilities.lazyLoad(exports, ["IntegrationTagFilter"], () => require("./integrationTagFilter"));
+
 
 const _module = {
     version: utilities.getVersion(),

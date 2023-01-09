@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("scatterplotTables")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs>? _scatterplotTables;
@@ -39,5 +39,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs();
     }
 }

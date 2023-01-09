@@ -10,31 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringRuleOptionsArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+        /// </summary>
         [Input("decreaseCriticalityBasedOnEnv")]
         public Input<bool>? DecreaseCriticalityBasedOnEnv { get; set; }
 
+        /// <summary>
+        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+        /// </summary>
         [Input("detectionMethod")]
         public Input<string>? DetectionMethod { get; set; }
 
+        /// <summary>
+        /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+        /// </summary>
         [Input("evaluationWindow")]
         public Input<int>? EvaluationWindow { get; set; }
 
+        /// <summary>
+        /// Options for rules using the impossible travel detection method.
+        /// </summary>
         [Input("impossibleTravelOptions")]
         public Input<Inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs>? ImpossibleTravelOptions { get; set; }
 
+        /// <summary>
+        /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        /// </summary>
         [Input("keepAlive", required: true)]
         public Input<int> KeepAlive { get; set; } = null!;
 
+        /// <summary>
+        /// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+        /// </summary>
         [Input("maxSignalDuration", required: true)]
         public Input<int> MaxSignalDuration { get; set; } = null!;
 
+        /// <summary>
+        /// New value rules specific options.
+        /// </summary>
         [Input("newValueOptions")]
         public Input<Inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs>? NewValueOptions { get; set; }
 
         public SecurityMonitoringRuleOptionsArgs()
         {
         }
+        public static new SecurityMonitoringRuleOptionsArgs Empty => new SecurityMonitoringRuleOptionsArgs();
     }
 }

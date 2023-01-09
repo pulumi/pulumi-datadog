@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGeomapDefinitionViewArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGeomapDefinitionViewArgs : global::Pulumi.ResourceArgs
     {
         [Input("focus", required: true)]
         public Input<string> Focus { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGeomapDefinitionViewArgs()
         {
         }
+        public static new DashboardWidgetGeomapDefinitionViewArgs Empty => new DashboardWidgetGeomapDefinitionViewArgs();
     }
 }

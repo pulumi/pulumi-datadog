@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs>? _customLinks;
@@ -67,6 +67,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -82,5 +85,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs Empty => new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs();
     }
 }

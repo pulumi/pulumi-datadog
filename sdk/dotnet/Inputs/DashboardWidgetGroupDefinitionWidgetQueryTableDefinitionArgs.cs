@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs>? _customLinks;
@@ -34,6 +34,9 @@ namespace Pulumi.Datadog.Inputs
             set => _requests = value;
         }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -46,5 +49,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs Empty => new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs();
     }
 }

@@ -23,6 +23,10 @@ public final class DashboardWidgetSunburstDefinition {
     private @Nullable DashboardWidgetSunburstDefinitionLegendTable legendTable;
     private @Nullable String liveSpan;
     private @Nullable List<DashboardWidgetSunburstDefinitionRequest> requests;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -46,6 +50,10 @@ public final class DashboardWidgetSunburstDefinition {
     public List<DashboardWidgetSunburstDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

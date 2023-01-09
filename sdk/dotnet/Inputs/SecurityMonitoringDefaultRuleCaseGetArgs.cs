@@ -10,21 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringDefaultRuleCaseGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringDefaultRuleCaseGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("notifications", required: true)]
         private InputList<string>? _notifications;
+
+        /// <summary>
+        /// Notification targets for each rule case.
+        /// </summary>
         public InputList<string> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<string>());
             set => _notifications = value;
         }
 
+        /// <summary>
+        /// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         public SecurityMonitoringDefaultRuleCaseGetArgs()
         {
         }
+        public static new SecurityMonitoringDefaultRuleCaseGetArgs Empty => new SecurityMonitoringDefaultRuleCaseGetArgs();
     }
 }

@@ -15,21 +15,19 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Manage Datadog Organization
+    ///     var organization = new Datadog.OrganizationSettings("organization", new()
     ///     {
-    ///         // Manage Datadog Organization
-    ///         var organization = new Datadog.OrganizationSettings("organization", new Datadog.OrganizationSettingsArgs
-    ///         {
-    ///             Name = "foo-organization",
-    ///         });
-    ///     }
+    ///         Name = "foo-organization",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +37,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/organizationSettings:OrganizationSettings")]
-    public partial class OrganizationSettings : Pulumi.CustomResource
+    public partial class OrganizationSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the organization.
@@ -109,7 +107,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class OrganizationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for Organization.
@@ -126,9 +124,10 @@ namespace Pulumi.Datadog
         public OrganizationSettingsArgs()
         {
         }
+        public static new OrganizationSettingsArgs Empty => new OrganizationSettingsArgs();
     }
 
-    public sealed class OrganizationSettingsState : Pulumi.ResourceArgs
+    public sealed class OrganizationSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the organization.
@@ -157,5 +156,6 @@ namespace Pulumi.Datadog
         public OrganizationSettingsState()
         {
         }
+        public static new OrganizationSettingsState Empty => new OrganizationSettingsState();
     }
 }

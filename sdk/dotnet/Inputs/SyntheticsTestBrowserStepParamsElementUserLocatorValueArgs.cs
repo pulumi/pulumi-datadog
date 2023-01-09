@@ -10,8 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -21,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs()
         {
         }
+        public static new SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs Empty => new SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs();
     }
 }

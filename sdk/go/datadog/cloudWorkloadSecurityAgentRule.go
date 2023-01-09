@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// # Cloud Workload Security Agent rules can be imported using ID, e.g.
+// Cloud Workload Security Agent rules can be imported using ID, e.g.
 //
 // ```sh
 //

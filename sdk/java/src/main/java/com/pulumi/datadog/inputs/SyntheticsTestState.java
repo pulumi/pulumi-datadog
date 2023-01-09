@@ -105,14 +105,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      * 
      */
     @Import(name="deviceIds")
     private @Nullable Output<List<String>> deviceIds;
 
     /**
-     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      * 
      */
     public Optional<Output<List<String>>> deviceIds() {
@@ -139,16 +139,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
     public Optional<Output<String>> message() {
@@ -208,16 +206,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      * 
      */
     @Import(name="requestClientCertificate")
     private @Nullable Output<SyntheticsTestRequestClientCertificateArgs> requestClientCertificate;
 
     /**
-     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      * 
      */
     public Optional<Output<SyntheticsTestRequestClientCertificateArgs>> requestClientCertificate() {
@@ -285,16 +281,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      * 
      */
     @Import(name="setCookie")
     private @Nullable Output<String> setCookie;
 
     /**
-     * @return Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * @return Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      * 
      */
     public Optional<Output<String>> setCookie() {
@@ -302,14 +296,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * @return Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -317,14 +311,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic API test. Defaults to `http`.
+     * @return The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     public Optional<Output<String>> subtype() {
@@ -332,16 +326,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * @return A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -349,14 +341,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Synthetics test type.
+     * Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Synthetics test type.
+     * @return Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -564,7 +556,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
          * 
          * @return builder
          * 
@@ -575,7 +567,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
          * 
          * @return builder
          * 
@@ -585,7 +577,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+         * @param deviceIds Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
          * 
          * @return builder
          * 
@@ -632,8 +624,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-         * using the same `@username` notation as events.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
          * 
          * @return builder
          * 
@@ -644,8 +635,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-         * using the same `@username` notation as events.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
          * 
          * @return builder
          * 
@@ -727,8 +717,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestClientCertificate Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-         * below.
+         * @param requestClientCertificate Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
          * 
          * @return builder
          * 
@@ -739,8 +728,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestClientCertificate Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-         * below.
+         * @param requestClientCertificate Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
          * 
          * @return builder
          * 
@@ -834,8 +822,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param setCookie Cookies to be used for a browser test request, using the
-         * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+         * @param setCookie Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
          * 
          * @return builder
          * 
@@ -846,8 +833,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param setCookie Cookies to be used for a browser test request, using the
-         * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+         * @param setCookie Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
          * 
          * @return builder
          * 
@@ -857,7 +843,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+         * @param status Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
          * 
          * @return builder
          * 
@@ -868,7 +854,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+         * @param status Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
          * 
          * @return builder
          * 
@@ -878,7 +864,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subtype The subtype of the Synthetic API test. Defaults to `http`.
+         * @param subtype The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
          * 
          * @return builder
          * 
@@ -889,7 +875,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subtype The subtype of the Synthetic API test. Defaults to `http`.
+         * @param subtype The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
          * 
          * @return builder
          * 
@@ -899,8 +885,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-         * synthetics page of the UI. Default is an empty list (`[]`).
+         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -911,8 +896,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-         * synthetics page of the UI. Default is an empty list (`[]`).
+         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -922,8 +906,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-         * synthetics page of the UI. Default is an empty list (`[]`).
+         * @param tags A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -933,7 +916,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Synthetics test type.
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
          * 
          * @return builder
          * 
@@ -944,7 +927,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Synthetics test type.
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
          * 
          * @return builder
          * 

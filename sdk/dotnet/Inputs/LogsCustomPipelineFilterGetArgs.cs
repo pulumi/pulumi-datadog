@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Filter criteria of the category.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         public LogsCustomPipelineFilterGetArgs()
         {
         }
+        public static new LogsCustomPipelineFilterGetArgs Empty => new LogsCustomPipelineFilterGetArgs();
     }
 }

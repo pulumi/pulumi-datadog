@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringRuleOptionsNewValueOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleOptionsNewValueOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("forgetAfter", required: true)]
         public Input<int> ForgetAfter { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public SecurityMonitoringRuleOptionsNewValueOptionsGetArgs()
         {
         }
+        public static new SecurityMonitoringRuleOptionsNewValueOptionsGetArgs Empty => new SecurityMonitoringRuleOptionsNewValueOptionsGetArgs();
     }
 }

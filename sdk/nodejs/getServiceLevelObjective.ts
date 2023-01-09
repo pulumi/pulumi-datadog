@@ -24,11 +24,8 @@ import * as utilities from "./utilities";
  */
 export function getServiceLevelObjective(args?: GetServiceLevelObjectiveArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectiveResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceLevelObjective:getServiceLevelObjective", {
         "id": args.id,
         "metricsQuery": args.metricsQuery,
@@ -41,9 +38,21 @@ export function getServiceLevelObjective(args?: GetServiceLevelObjectiveArgs, op
  * A collection of arguments for invoking getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveArgs {
+    /**
+     * A SLO ID to limit the search.
+     */
     id?: string;
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     metricsQuery?: string;
+    /**
+     * Filter results based on SLO names.
+     */
     nameQuery?: string;
+    /**
+     * Filter results based on a single SLO tag.
+     */
     tagsQuery?: string;
 }
 
@@ -51,24 +60,71 @@ export interface GetServiceLevelObjectiveArgs {
  * A collection of values returned by getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveResult {
+    /**
+     * A SLO ID to limit the search.
+     */
     readonly id?: string;
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     readonly metricsQuery?: string;
+    /**
+     * Name of the Datadog service level objective
+     */
     readonly name: string;
+    /**
+     * Filter results based on SLO names.
+     */
     readonly nameQuery?: string;
+    /**
+     * Filter results based on a single SLO tag.
+     */
     readonly tagsQuery?: string;
+    /**
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+     */
     readonly type: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing SLO for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getServiceLevelObjective({
+ *     nameQuery: "My test SLO",
+ *     tagsQuery: "foo:bar",
+ * });
+ * const apiSlo = datadog.getServiceLevelObjective({
+ *     id: data.terraform_remote_state.api.outputs.slo,
+ * });
+ * ```
+ */
 export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
-    return pulumi.output(args).apply(a => getServiceLevelObjective(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceLevelObjective(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getServiceLevelObjective.
  */
 export interface GetServiceLevelObjectiveOutputArgs {
+    /**
+     * A SLO ID to limit the search.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     metricsQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on SLO names.
+     */
     nameQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on a single SLO tag.
+     */
     tagsQuery?: pulumi.Input<string>;
 }

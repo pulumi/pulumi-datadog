@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHeatmapDefinitionRequestArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHeatmapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHeatmapDefinitionRequestArgs()
         {
         }
+        public static new DashboardWidgetHeatmapDefinitionRequestArgs Empty => new DashboardWidgetHeatmapDefinitionRequestArgs();
     }
 }

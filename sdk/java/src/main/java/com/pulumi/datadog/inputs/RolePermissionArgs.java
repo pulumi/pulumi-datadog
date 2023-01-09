@@ -15,16 +15,32 @@ public final class RolePermissionArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RolePermissionArgs Empty = new RolePermissionArgs();
 
+    /**
+     * ID of the permission to assign.
+     * 
+     */
     @Import(name="id", required=true)
     private Output<String> id;
 
+    /**
+     * @return ID of the permission to assign.
+     * 
+     */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * Name of the permission.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the permission.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class RolePermissionArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RolePermissionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id ID of the permission to assign.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id ID of the permission to assign.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param name Name of the permission.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the permission.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

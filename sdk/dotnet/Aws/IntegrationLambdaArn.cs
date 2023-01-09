@@ -17,34 +17,32 @@ namespace Pulumi.Datadog.Aws
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog - Amazon Web Services integration Lambda ARN
+    ///     var mainCollector = new Datadog.Aws.IntegrationLambdaArn("mainCollector", new()
     ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration Lambda ARN
-    ///         var mainCollector = new Datadog.Aws.IntegrationLambdaArn("mainCollector", new Datadog.Aws.IntegrationLambdaArnArgs
-    ///         {
-    ///             AccountId = "1234567890",
-    ///             LambdaArn = "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
-    ///         });
-    ///     }
+    ///         AccountId = "1234567890",
+    ///         LambdaArn = "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
+    /// Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
     /// 
     /// ```sh
     ///  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integrationLambdaArn:IntegrationLambdaArn")]
-    public partial class IntegrationLambdaArn : Pulumi.CustomResource
+    public partial class IntegrationLambdaArn : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -102,7 +100,7 @@ namespace Pulumi.Datadog.Aws
         }
     }
 
-    public sealed class IntegrationLambdaArnArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationLambdaArnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -119,9 +117,10 @@ namespace Pulumi.Datadog.Aws
         public IntegrationLambdaArnArgs()
         {
         }
+        public static new IntegrationLambdaArnArgs Empty => new IntegrationLambdaArnArgs();
     }
 
-    public sealed class IntegrationLambdaArnState : Pulumi.ResourceArgs
+    public sealed class IntegrationLambdaArnState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -138,5 +137,6 @@ namespace Pulumi.Datadog.Aws
         public IntegrationLambdaArnState()
         {
         }
+        public static new IntegrationLambdaArnState Empty => new IntegrationLambdaArnState();
     }
 }

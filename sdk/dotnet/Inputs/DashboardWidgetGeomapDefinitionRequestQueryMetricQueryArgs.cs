@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs()
         {
         }
+        public static new DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs Empty => new DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs();
     }
 }

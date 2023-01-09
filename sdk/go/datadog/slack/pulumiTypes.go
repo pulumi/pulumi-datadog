@@ -11,10 +11,14 @@ import (
 )
 
 type ChannelDisplay struct {
-	Message  *bool `pulumi:"message"`
+	// Show the main body of the alert event.
+	Message *bool `pulumi:"message"`
+	// Show the list of @-handles in the alert event.
 	Notified *bool `pulumi:"notified"`
+	// Show the alert event's snapshot image.
 	Snapshot *bool `pulumi:"snapshot"`
-	Tags     *bool `pulumi:"tags"`
+	// Show the scopes on which the monitor alerted.
+	Tags *bool `pulumi:"tags"`
 }
 
 // ChannelDisplayInput is an input type that accepts ChannelDisplayArgs and ChannelDisplayOutput values.
@@ -29,10 +33,14 @@ type ChannelDisplayInput interface {
 }
 
 type ChannelDisplayArgs struct {
-	Message  pulumi.BoolPtrInput `pulumi:"message"`
+	// Show the main body of the alert event.
+	Message pulumi.BoolPtrInput `pulumi:"message"`
+	// Show the list of @-handles in the alert event.
 	Notified pulumi.BoolPtrInput `pulumi:"notified"`
+	// Show the alert event's snapshot image.
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
-	Tags     pulumi.BoolPtrInput `pulumi:"tags"`
+	// Show the scopes on which the monitor alerted.
+	Tags pulumi.BoolPtrInput `pulumi:"tags"`
 }
 
 func (ChannelDisplayArgs) ElementType() reflect.Type {
@@ -112,18 +120,22 @@ func (o ChannelDisplayOutput) ToChannelDisplayPtrOutputWithContext(ctx context.C
 	}).(ChannelDisplayPtrOutput)
 }
 
+// Show the main body of the alert event.
 func (o ChannelDisplayOutput) Message() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Message }).(pulumi.BoolPtrOutput)
 }
 
+// Show the list of @-handles in the alert event.
 func (o ChannelDisplayOutput) Notified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Notified }).(pulumi.BoolPtrOutput)
 }
 
+// Show the alert event's snapshot image.
 func (o ChannelDisplayOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
+// Show the scopes on which the monitor alerted.
 func (o ChannelDisplayOutput) Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Tags }).(pulumi.BoolPtrOutput)
 }
@@ -152,6 +164,7 @@ func (o ChannelDisplayPtrOutput) Elem() ChannelDisplayOutput {
 	}).(ChannelDisplayOutput)
 }
 
+// Show the main body of the alert event.
 func (o ChannelDisplayPtrOutput) Message() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -161,6 +174,7 @@ func (o ChannelDisplayPtrOutput) Message() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Show the list of @-handles in the alert event.
 func (o ChannelDisplayPtrOutput) Notified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -170,6 +184,7 @@ func (o ChannelDisplayPtrOutput) Notified() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Show the alert event's snapshot image.
 func (o ChannelDisplayPtrOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -179,6 +194,7 @@ func (o ChannelDisplayPtrOutput) Snapshot() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Show the scopes on which the monitor alerted.
 func (o ChannelDisplayPtrOutput) Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {

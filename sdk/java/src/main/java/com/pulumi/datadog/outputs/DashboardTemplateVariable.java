@@ -12,21 +12,73 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardTemplateVariable {
+    /**
+     * @return The list of values that the template variable drop-down is be limited to
+     * 
+     */
     private @Nullable List<String> availableValues;
+    /**
+     * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+     * 
+     * @deprecated
+     * Use `defaults` instead.
+     * 
+     */
+    @Deprecated /* Use `defaults` instead. */
     private @Nullable String default_;
+    /**
+     * @return One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+     * 
+     */
+    private @Nullable List<String> defaults;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+     * 
+     */
     private @Nullable String prefix;
 
     private DashboardTemplateVariable() {}
+    /**
+     * @return The list of values that the template variable drop-down is be limited to
+     * 
+     */
     public List<String> availableValues() {
         return this.availableValues == null ? List.of() : this.availableValues;
     }
+    /**
+     * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+     * 
+     * @deprecated
+     * Use `defaults` instead.
+     * 
+     */
+    @Deprecated /* Use `defaults` instead. */
     public Optional<String> default_() {
         return Optional.ofNullable(this.default_);
     }
+    /**
+     * @return One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+     * 
+     */
+    public List<String> defaults() {
+        return this.defaults == null ? List.of() : this.defaults;
+    }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -42,6 +94,7 @@ public final class DashboardTemplateVariable {
     public static final class Builder {
         private @Nullable List<String> availableValues;
         private @Nullable String default_;
+        private @Nullable List<String> defaults;
         private String name;
         private @Nullable String prefix;
         public Builder() {}
@@ -49,6 +102,7 @@ public final class DashboardTemplateVariable {
     	      Objects.requireNonNull(defaults);
     	      this.availableValues = defaults.availableValues;
     	      this.default_ = defaults.default_;
+    	      this.defaults = defaults.defaults;
     	      this.name = defaults.name;
     	      this.prefix = defaults.prefix;
         }
@@ -67,6 +121,14 @@ public final class DashboardTemplateVariable {
             return this;
         }
         @CustomType.Setter
+        public Builder defaults(@Nullable List<String> defaults) {
+            this.defaults = defaults;
+            return this;
+        }
+        public Builder defaults(String... defaults) {
+            return defaults(List.of(defaults));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -80,6 +142,7 @@ public final class DashboardTemplateVariable {
             final var o = new DashboardTemplateVariable();
             o.availableValues = availableValues;
             o.default_ = default_;
+            o.defaults = defaults;
             o.name = name;
             o.prefix = prefix;
             return o;

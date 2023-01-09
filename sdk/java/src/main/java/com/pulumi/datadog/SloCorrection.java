@@ -22,10 +22,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.ServiceLevelObjective;
+ * import com.pulumi.datadog.ServiceLevelObjectiveArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
+ * import com.pulumi.datadog.SloCorrection;
+ * import com.pulumi.datadog.SloCorrectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -82,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/sloCorrection:SloCorrection")
 public class SloCorrection extends com.pulumi.resources.CustomResource {
     /**
-     * Category the SLO correction belongs to.
+     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      * 
      */
     @Export(name="category", type=String.class, parameters={})
     private Output<String> category;
 
     /**
-     * @return Category the SLO correction belongs to.
+     * @return Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      * 
      */
     public Output<String> category() {
@@ -138,16 +149,14 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.end);
     }
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-     * `COUNT` and `UNTIL`.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      * 
      */
     @Export(name="rrule", type=String.class, parameters={})
     private Output</* @Nullable */ String> rrule;
 
     /**
-     * @return Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-     * `COUNT` and `UNTIL`.
+     * @return Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      * 
      */
     public Output<Optional<String>> rrule() {

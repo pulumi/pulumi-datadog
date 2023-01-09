@@ -13,14 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const python = new datadog.LogsIntegrationPipeline("python", {
- *     isEnabled: true,
- * });
+ * const python = new datadog.LogsIntegrationPipeline("python", {isEnabled: true});
  * ```
  *
  * ## Import
  *
- * # To find the pipeline ID, click the "view" button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
+ * To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.
  *
  * ```sh
  *  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>

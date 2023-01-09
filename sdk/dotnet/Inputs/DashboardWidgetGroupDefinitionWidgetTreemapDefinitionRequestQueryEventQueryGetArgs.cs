@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("computes", required: true)]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeGetArgs>? _computes;
@@ -45,8 +45,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("search")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchGetArgs>? Search { get; set; }
 
+        [Input("storage")]
+        public Input<string>? Storage { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGetArgs();
     }
 }

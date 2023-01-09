@@ -10,8 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepExtractedValueParserArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepExtractedValueParserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -21,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestApiStepExtractedValueParserArgs()
         {
         }
+        public static new SyntheticsTestApiStepExtractedValueParserArgs Empty => new SyntheticsTestApiStepExtractedValueParserArgs();
     }
 }

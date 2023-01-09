@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -38,7 +39,7 @@ import * as utilities from "./utilities";
  *
  * // Example Usage (Synthetics API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testApi = new datadog.SyntheticsTest("test_api", {
+ * const testApi = new datadog.SyntheticsTest("testApi", {
  *     assertions: [{
  *         operator: "is",
  *         target: "200",
@@ -76,7 +77,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics SSL test)
  * // Create a new Datadog Synthetics API/SSL test on example.org
- * const testSsl = new datadog.SyntheticsTest("test_ssl", {
+ * const testSsl = new datadog.SyntheticsTest("testSsl", {
  *     assertions: [{
  *         operator: "isInMoreThan",
  *         target: "30",
@@ -104,7 +105,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics TCP test)
  * // Create a new Datadog Synthetics API/TCP test on example.org
- * const testTcp = new datadog.SyntheticsTest("test_tcp", {
+ * const testTcp = new datadog.SyntheticsTest("testTcp", {
  *     assertions: [{
  *         operator: "lessThan",
  *         target: "2000",
@@ -136,7 +137,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics DNS test)
  * // Create a new Datadog Synthetics API/DNS test on example.org
- * const testDns = new datadog.SyntheticsTest("test_dns", {
+ * const testDns = new datadog.SyntheticsTest("testDns", {
  *     assertions: [{
  *         operator: "is",
  *         property: "A",
@@ -208,7 +209,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics Browser test)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
- * const testBrowser = new datadog.SyntheticsTest("test_browser", {
+ * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
  *     browserSteps: [{
  *         name: "Check current url",
  *         params: {
@@ -255,7 +256,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Synthetics tests can be imported using their public string ID, e.g.
+ * Synthetics tests can be imported using their public string ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
@@ -306,11 +307,11 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly browserVariables!: pulumi.Output<outputs.SyntheticsTestBrowserVariable[] | undefined>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     public readonly configVariables!: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
     /**
-     * Required if `type = "browser"`. Array with the different device IDs used to run the test.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -320,8 +321,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly locations!: pulumi.Output<string[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
@@ -338,8 +338,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
@@ -359,25 +358,23 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
     public readonly setCookie!: pulumi.Output<string | undefined>;
     /**
-     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * Synthetics test type.
+     * Synthetics test type. Valid values are `api`, `browser`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -479,11 +476,11 @@ export interface SyntheticsTestState {
      */
     browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Required if `type = "browser"`. Array with the different device IDs used to run the test.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -493,8 +490,7 @@ export interface SyntheticsTestState {
      */
     locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     message?: pulumi.Input<string>;
     /**
@@ -511,8 +507,7 @@ export interface SyntheticsTestState {
      */
     requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
@@ -532,25 +527,23 @@ export interface SyntheticsTestState {
      */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
     setCookie?: pulumi.Input<string>;
     /**
-     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     subtype?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type.
+     * Synthetics test type. Valid values are `api`, `browser`.
      */
     type?: pulumi.Input<string>;
 }
@@ -576,11 +569,11 @@ export interface SyntheticsTestArgs {
      */
     browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Required if `type = "browser"`. Array with the different device IDs used to run the test.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -590,8 +583,7 @@ export interface SyntheticsTestArgs {
      */
     locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     message?: pulumi.Input<string>;
     /**
@@ -604,8 +596,7 @@ export interface SyntheticsTestArgs {
      */
     requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
@@ -625,25 +616,23 @@ export interface SyntheticsTestArgs {
      */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
     setCookie?: pulumi.Input<string>;
     /**
-     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     subtype?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type.
+     * Synthetics test type. Valid values are `api`, `browser`.
      */
     type: pulumi.Input<string>;
 }

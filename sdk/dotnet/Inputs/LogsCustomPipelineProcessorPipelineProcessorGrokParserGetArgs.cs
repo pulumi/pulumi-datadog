@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("grok", required: true)]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokGetArgs> Grok { get; set; } = null!;
@@ -35,5 +35,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs()
         {
         }
+        public static new LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs Empty => new LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs();
     }
 }

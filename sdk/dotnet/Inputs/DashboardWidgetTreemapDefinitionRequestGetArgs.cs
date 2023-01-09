@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTreemapDefinitionRequestGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTreemapDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetTreemapDefinitionRequestFormulaGetArgs>? _formulas;
@@ -31,5 +31,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTreemapDefinitionRequestGetArgs()
         {
         }
+        public static new DashboardWidgetTreemapDefinitionRequestGetArgs Empty => new DashboardWidgetTreemapDefinitionRequestGetArgs();
     }
 }

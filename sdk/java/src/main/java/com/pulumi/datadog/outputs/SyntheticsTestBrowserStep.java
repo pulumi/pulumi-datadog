@@ -14,33 +14,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStep {
+    /**
+     * @return Determines if the step should be allowed to fail.
+     * 
+     */
     private @Nullable Boolean allowFailure;
+    /**
+     * @return Force update of the &#34;element&#34; parameter for the step
+     * 
+     */
     private @Nullable Boolean forceElementUpdate;
+    /**
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     private @Nullable Boolean isCritical;
+    /**
+     * @return Name of the step.
+     * 
+     */
     private String name;
+    /**
+     * @return Parameters for the step.
+     * 
+     */
     private SyntheticsTestBrowserStepParams params;
+    /**
+     * @return Used to override the default timeout of a step.
+     * 
+     */
     private @Nullable Integer timeout;
+    /**
+     * @return Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * 
+     */
     private String type;
 
     private SyntheticsTestBrowserStep() {}
+    /**
+     * @return Determines if the step should be allowed to fail.
+     * 
+     */
     public Optional<Boolean> allowFailure() {
         return Optional.ofNullable(this.allowFailure);
     }
+    /**
+     * @return Force update of the &#34;element&#34; parameter for the step
+     * 
+     */
     public Optional<Boolean> forceElementUpdate() {
         return Optional.ofNullable(this.forceElementUpdate);
     }
+    /**
+     * @return Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+     * 
+     */
     public Optional<Boolean> isCritical() {
         return Optional.ofNullable(this.isCritical);
     }
+    /**
+     * @return Name of the step.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Parameters for the step.
+     * 
+     */
     public SyntheticsTestBrowserStepParams params() {
         return this.params;
     }
+    /**
+     * @return Used to override the default timeout of a step.
+     * 
+     */
     public Optional<Integer> timeout() {
         return Optional.ofNullable(this.timeout);
     }
+    /**
+     * @return Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     * 
+     */
     public String type() {
         return this.type;
     }

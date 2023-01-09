@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleCase;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleFilter;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQuery;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSignalQuery;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -24,7 +25,8 @@ public final class GetSecurityMonitoringRulesRule {
     private String message;
     private String name;
     private @Nullable GetSecurityMonitoringRulesRuleOptions options;
-    private List<GetSecurityMonitoringRulesRuleQuery> queries;
+    private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
+    private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
     private @Nullable List<String> tags;
     private @Nullable String type;
 
@@ -51,7 +53,10 @@ public final class GetSecurityMonitoringRulesRule {
         return Optional.ofNullable(this.options);
     }
     public List<GetSecurityMonitoringRulesRuleQuery> queries() {
-        return this.queries;
+        return this.queries == null ? List.of() : this.queries;
+    }
+    public List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries() {
+        return this.signalQueries == null ? List.of() : this.signalQueries;
     }
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
@@ -76,7 +81,8 @@ public final class GetSecurityMonitoringRulesRule {
         private String message;
         private String name;
         private @Nullable GetSecurityMonitoringRulesRuleOptions options;
-        private List<GetSecurityMonitoringRulesRuleQuery> queries;
+        private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
+        private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
         private @Nullable List<String> tags;
         private @Nullable String type;
         public Builder() {}
@@ -90,6 +96,7 @@ public final class GetSecurityMonitoringRulesRule {
     	      this.name = defaults.name;
     	      this.options = defaults.options;
     	      this.queries = defaults.queries;
+    	      this.signalQueries = defaults.signalQueries;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -136,12 +143,20 @@ public final class GetSecurityMonitoringRulesRule {
             return this;
         }
         @CustomType.Setter
-        public Builder queries(List<GetSecurityMonitoringRulesRuleQuery> queries) {
-            this.queries = Objects.requireNonNull(queries);
+        public Builder queries(@Nullable List<GetSecurityMonitoringRulesRuleQuery> queries) {
+            this.queries = queries;
             return this;
         }
         public Builder queries(GetSecurityMonitoringRulesRuleQuery... queries) {
             return queries(List.of(queries));
+        }
+        @CustomType.Setter
+        public Builder signalQueries(@Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries) {
+            this.signalQueries = signalQueries;
+            return this;
+        }
+        public Builder signalQueries(GetSecurityMonitoringRulesRuleSignalQuery... signalQueries) {
+            return signalQueries(List.of(signalQueries));
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
@@ -166,6 +181,7 @@ public final class GetSecurityMonitoringRulesRule {
             o.name = name;
             o.options = options;
             o.queries = queries;
+            o.signalQueries = signalQueries;
             o.tags = tags;
             o.type = type;
             return o;

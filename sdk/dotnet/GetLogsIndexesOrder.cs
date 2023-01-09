@@ -19,23 +19,21 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Datadog.GetLogsIndexesOrder.InvokeAsync());
-        ///     }
+        ///     var test = Datadog.GetLogsIndexesOrder.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogsIndexesOrderResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -46,6 +44,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+        /// </summary>
         public readonly ImmutableArray<string> IndexNames;
 
         [OutputConstructor]

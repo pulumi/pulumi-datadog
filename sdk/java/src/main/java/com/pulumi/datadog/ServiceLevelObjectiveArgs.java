@@ -111,18 +111,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level
-     * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-     * when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level
-     * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-     * when querying via the API
+     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -145,18 +141,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-     * found in the Datadog API [documentation
-     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-     * found in the Datadog API [documentation
-     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      * 
      */
     public Output<String> type() {
@@ -358,9 +350,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level
-         * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-         * when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
          * 
          * @return builder
          * 
@@ -371,9 +361,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level
-         * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-         * when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
          * 
          * @return builder
          * 
@@ -383,9 +371,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level
-         * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-         * when querying via the API
+         * @param tags A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
          * 
          * @return builder
          * 
@@ -426,9 +412,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-         * found in the Datadog API [documentation
-         * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+         * @param type The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
          * 
          * @return builder
          * 
@@ -439,9 +423,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-         * found in the Datadog API [documentation
-         * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+         * @param type The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
          * 
          * @return builder
          * 

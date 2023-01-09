@@ -22,15 +22,19 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
+	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	Email  string `pulumi:"email"`
+	// Email of the user.
+	Email string `pulumi:"email"`
+	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the user.
 	Name string `pulumi:"name"`
 }
 
@@ -49,6 +53,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
+	// Filter all users by the given string.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -71,10 +76,12 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+// Email of the user.
 func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// Filter all users by the given string.
 func (o LookupUserResultOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -84,6 +91,7 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the user.
 func (o LookupUserResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
 }

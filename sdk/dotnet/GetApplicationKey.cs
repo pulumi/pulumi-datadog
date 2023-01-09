@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetApplicationKey.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetApplicationKey.InvokeAsync(new Datadog.GetApplicationKeyArgs
-        ///         {
-        ///             Name = "foo-application",
-        ///         }));
-        ///     }
+        ///         Name = "foo-application",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationKeyResult> InvokeAsync(GetApplicationKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing application key.
@@ -48,61 +46,82 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetApplicationKey.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetApplicationKey.InvokeAsync(new Datadog.GetApplicationKeyArgs
-        ///         {
-        ///             Name = "foo-application",
-        ///         }));
-        ///     }
+        ///         Name = "foo-application",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationKeyResult> Invoke(GetApplicationKeyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetApplicationKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id for Application Key.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Name for Application Key.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         public GetApplicationKeyArgs()
         {
         }
+        public static new GetApplicationKeyArgs Empty => new GetApplicationKeyArgs();
     }
 
-    public sealed class GetApplicationKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id for Application Key.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Name for Application Key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public GetApplicationKeyInvokeArgs()
         {
         }
+        public static new GetApplicationKeyInvokeArgs Empty => new GetApplicationKeyInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetApplicationKeyResult
     {
+        /// <summary>
+        /// Id for Application Key.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The value of the Application Key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Name for Application Key.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

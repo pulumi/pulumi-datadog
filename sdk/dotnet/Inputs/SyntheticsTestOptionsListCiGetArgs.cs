@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestOptionsListCiGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestOptionsListCiGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("executionRule")]
         public Input<string>? ExecutionRule { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestOptionsListCiGetArgs()
         {
         }
+        public static new SyntheticsTestOptionsListCiGetArgs Empty => new SyntheticsTestOptionsListCiGetArgs();
     }
 }

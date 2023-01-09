@@ -15,37 +15,35 @@ namespace Pulumi.Datadog.Aws
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog - Amazon Web Services integration log collection
+    ///     var main = new Datadog.Aws.IntegrationLogCollection("main", new()
     ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration log collection
-    ///         var main = new Datadog.Aws.IntegrationLogCollection("main", new Datadog.Aws.IntegrationLogCollectionArgs
+    ///         AccountId = "1234567890",
+    ///         Services = new[]
     ///         {
-    ///             AccountId = "1234567890",
-    ///             Services = 
-    ///             {
-    ///                 "lambda",
-    ///             },
-    ///         });
-    ///     }
+    ///             "lambda",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Amazon Web Services log collection integrations can be imported using the `account ID`.
+    /// Amazon Web Services log collection integrations can be imported using the `account ID`.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integrationLogCollection:IntegrationLogCollection")]
-    public partial class IntegrationLogCollection : Pulumi.CustomResource
+    public partial class IntegrationLogCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -54,9 +52,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api
-        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-        /// which services are supported.
+        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
@@ -105,7 +101,7 @@ namespace Pulumi.Datadog.Aws
         }
     }
 
-    public sealed class IntegrationLogCollectionArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationLogCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -117,9 +113,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _services;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api
-        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-        /// which services are supported.
+        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         /// </summary>
         public InputList<string> Services
         {
@@ -130,9 +124,10 @@ namespace Pulumi.Datadog.Aws
         public IntegrationLogCollectionArgs()
         {
         }
+        public static new IntegrationLogCollectionArgs Empty => new IntegrationLogCollectionArgs();
     }
 
-    public sealed class IntegrationLogCollectionState : Pulumi.ResourceArgs
+    public sealed class IntegrationLogCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -144,9 +139,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _services;
 
         /// <summary>
-        /// A list of services to collect logs from. See the [api
-        /// docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-        /// which services are supported.
+        /// A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         /// </summary>
         public InputList<string> Services
         {
@@ -157,5 +150,6 @@ namespace Pulumi.Datadog.Aws
         public IntegrationLogCollectionState()
         {
         }
+        public static new IntegrationLogCollectionState Empty => new IntegrationLogCollectionState();
     }
 }

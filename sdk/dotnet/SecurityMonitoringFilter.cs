@@ -15,47 +15,45 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myFilter = new Datadog.SecurityMonitoringFilter("myFilter", new()
     ///     {
-    ///         var myFilter = new Datadog.SecurityMonitoringFilter("myFilter", new Datadog.SecurityMonitoringFilterArgs
+    ///         ExclusionFilters = new[]
     ///         {
-    ///             ExclusionFilters = 
+    ///             new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
     ///             {
-    ///                 new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
-    ///                 {
-    ///                     Name = "first",
-    ///                     Query = "exclude some logs",
-    ///                 },
-    ///                 new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
-    ///                 {
-    ///                     Name = "second",
-    ///                     Query = "exclude some other logs",
-    ///                 },
+    ///                 Name = "first",
+    ///                 Query = "exclude some logs",
     ///             },
-    ///             IsEnabled = true,
-    ///             Name = "My filter",
-    ///             Query = "The filter is filtering.",
-    ///         });
-    ///     }
+    ///             new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
+    ///             {
+    ///                 Name = "second",
+    ///                 Query = "exclude some other logs",
+    ///             },
+    ///         },
+    ///         IsEnabled = true,
+    ///         Name = "My filter",
+    ///         Query = "The filter is filtering.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Security monitoring filters can be imported using ID, e.g.
+    /// Security monitoring filters can be imported using ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter")]
-    public partial class SecurityMonitoringFilter : Pulumi.CustomResource
+    public partial class SecurityMonitoringFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Exclusion filters to exclude some logs from the security filter.
@@ -64,7 +62,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringFilterExclusionFilter>> ExclusionFilters { get; private set; } = null!;
 
         /// <summary>
-        /// The filtered data type.
+        /// The filtered data type. Valid values are `logs`.
         /// </summary>
         [Output("filteredDataType")]
         public Output<string?> FilteredDataType { get; private set; } = null!;
@@ -137,7 +135,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SecurityMonitoringFilterArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.SecurityMonitoringFilterExclusionFilterArgs>? _exclusionFilters;
@@ -152,7 +150,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The filtered data type.
+        /// The filtered data type. Valid values are `logs`.
         /// </summary>
         [Input("filteredDataType")]
         public Input<string>? FilteredDataType { get; set; }
@@ -178,9 +176,10 @@ namespace Pulumi.Datadog
         public SecurityMonitoringFilterArgs()
         {
         }
+        public static new SecurityMonitoringFilterArgs Empty => new SecurityMonitoringFilterArgs();
     }
 
-    public sealed class SecurityMonitoringFilterState : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringFilterState : global::Pulumi.ResourceArgs
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.SecurityMonitoringFilterExclusionFilterGetArgs>? _exclusionFilters;
@@ -195,7 +194,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The filtered data type.
+        /// The filtered data type. Valid values are `logs`.
         /// </summary>
         [Input("filteredDataType")]
         public Input<string>? FilteredDataType { get; set; }
@@ -227,5 +226,6 @@ namespace Pulumi.Datadog
         public SecurityMonitoringFilterState()
         {
         }
+        public static new SecurityMonitoringFilterState Empty => new SecurityMonitoringFilterState();
     }
 }

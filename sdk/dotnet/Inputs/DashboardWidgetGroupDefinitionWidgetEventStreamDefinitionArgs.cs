@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
@@ -24,6 +24,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("tagsExecution")]
         public Input<string>? TagsExecution { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -36,5 +39,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs Empty => new DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs();
     }
 }

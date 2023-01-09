@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs : global::Pulumi.ResourceArgs
     {
         [Input("includeZero")]
         public Input<bool>? IncludeZero { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs Empty => new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs();
     }
 }

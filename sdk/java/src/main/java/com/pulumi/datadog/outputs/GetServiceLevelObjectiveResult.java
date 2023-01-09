@@ -11,29 +11,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceLevelObjectiveResult {
+    /**
+     * @return A SLO ID to limit the search.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     private @Nullable String metricsQuery;
+    /**
+     * @return Name of the Datadog service level objective
+     * 
+     */
     private String name;
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     private @Nullable String nameQuery;
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     private @Nullable String tagsQuery;
+    /**
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+     * 
+     */
     private String type;
 
     private GetServiceLevelObjectiveResult() {}
+    /**
+     * @return A SLO ID to limit the search.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     public Optional<String> metricsQuery() {
         return Optional.ofNullable(this.metricsQuery);
     }
+    /**
+     * @return Name of the Datadog service level objective
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     public Optional<String> nameQuery() {
         return Optional.ofNullable(this.nameQuery);
     }
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     public Optional<String> tagsQuery() {
         return Optional.ofNullable(this.tagsQuery);
     }
+    /**
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelDisplay {
+    /**
+     * @return Show the main body of the alert event.
+     * 
+     */
     private @Nullable Boolean message;
+    /**
+     * @return Show the list of @-handles in the alert event.
+     * 
+     */
     private @Nullable Boolean notified;
+    /**
+     * @return Show the alert event&#39;s snapshot image.
+     * 
+     */
     private @Nullable Boolean snapshot;
+    /**
+     * @return Show the scopes on which the monitor alerted.
+     * 
+     */
     private @Nullable Boolean tags;
 
     private ChannelDisplay() {}
+    /**
+     * @return Show the main body of the alert event.
+     * 
+     */
     public Optional<Boolean> message() {
         return Optional.ofNullable(this.message);
     }
+    /**
+     * @return Show the list of @-handles in the alert event.
+     * 
+     */
     public Optional<Boolean> notified() {
         return Optional.ofNullable(this.notified);
     }
+    /**
+     * @return Show the alert event&#39;s snapshot image.
+     * 
+     */
     public Optional<Boolean> snapshot() {
         return Optional.ofNullable(this.snapshot);
     }
+    /**
+     * @return Show the scopes on which the monitor alerted.
+     * 
+     */
     public Optional<Boolean> tags() {
         return Optional.ofNullable(this.tags);
     }

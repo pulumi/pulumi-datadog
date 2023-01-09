@@ -15,9 +15,17 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
 
     public static final SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs Empty = new SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs();
 
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -54,11 +62,23 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
             $ = new SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

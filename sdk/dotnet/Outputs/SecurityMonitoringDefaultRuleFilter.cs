@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringDefaultRuleFilter
     {
+        /// <summary>
+        /// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// Query for selecting logs to apply the filtering action.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

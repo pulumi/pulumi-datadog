@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorVariables
     {
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQuery> EventQueries;
 
         [OutputConstructor]

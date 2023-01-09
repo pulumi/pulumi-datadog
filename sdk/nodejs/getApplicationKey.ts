@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const foo = pulumi.output(datadog.getApplicationKey({
+ * const foo = datadog.getApplicationKey({
  *     name: "foo-application",
- * }));
+ * });
  * ```
  */
 export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationKeyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApplicationKey:getApplicationKey", {
         "id": args.id,
         "name": args.name,
@@ -35,7 +32,13 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyArgs {
+    /**
+     * Id for Application Key.
+     */
     id?: string;
+    /**
+     * Name for Application Key.
+     */
     name?: string;
 }
 
@@ -43,19 +46,47 @@ export interface GetApplicationKeyArgs {
  * A collection of values returned by getApplicationKey.
  */
 export interface GetApplicationKeyResult {
+    /**
+     * Id for Application Key.
+     */
     readonly id?: string;
+    /**
+     * The value of the Application Key.
+     */
     readonly key: string;
+    /**
+     * Name for Application Key.
+     */
     readonly name?: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing application key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getApplicationKey({
+ *     name: "foo-application",
+ * });
+ * ```
+ */
 export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
-    return pulumi.output(args).apply(a => getApplicationKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationKey(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyOutputArgs {
+    /**
+     * Id for Application Key.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name for Application Key.
+     */
     name?: pulumi.Input<string>;
 }

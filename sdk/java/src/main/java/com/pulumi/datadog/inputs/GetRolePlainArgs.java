@@ -12,9 +12,17 @@ public final class GetRolePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRolePlainArgs Empty = new GetRolePlainArgs();
 
+    /**
+     * A string on which to filter the roles.
+     * 
+     */
     @Import(name="filter", required=true)
     private String filter;
 
+    /**
+     * @return A string on which to filter the roles.
+     * 
+     */
     public String filter() {
         return this.filter;
     }
@@ -43,6 +51,12 @@ public final class GetRolePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRolePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filter A string on which to filter the roles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(String filter) {
             $.filter = filter;
             return this;

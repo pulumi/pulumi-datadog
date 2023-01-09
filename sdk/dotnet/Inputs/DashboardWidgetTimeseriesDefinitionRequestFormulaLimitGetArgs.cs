@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs()
         {
         }
+        public static new DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs Empty => new DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs();
     }
 }

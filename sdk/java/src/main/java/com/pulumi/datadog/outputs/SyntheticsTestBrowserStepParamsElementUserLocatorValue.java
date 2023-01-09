@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     private @Nullable String type;
     private String value;
 
     private SyntheticsTestBrowserStepParamsElementUserLocatorValue() {}
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

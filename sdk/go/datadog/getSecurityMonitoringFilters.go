@@ -43,8 +43,10 @@ func GetSecurityMonitoringFilters(ctx *pulumi.Context, opts ...pulumi.InvokeOpti
 
 // A collection of values returned by getSecurityMonitoringFilters.
 type GetSecurityMonitoringFiltersResult struct {
-	Filters    []GetSecurityMonitoringFiltersFilter `pulumi:"filters"`
-	FiltersIds []string                             `pulumi:"filtersIds"`
+	// List of filters.
+	Filters []GetSecurityMonitoringFiltersFilter `pulumi:"filters"`
+	// List of IDs of filters.
+	FiltersIds []string `pulumi:"filtersIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }

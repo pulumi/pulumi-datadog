@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest> requests;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinition() {}
     public List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetSecurityMonitoringRules(ctx, &GetSecurityMonitoringRulesArgs{
+//			_, err := datadog.GetSecurityMonitoringRules(ctx, &datadog.GetSecurityMonitoringRulesArgs{
 //				DefaultOnlyFilter: pulumi.BoolRef(true),
 //				NameFilter:        pulumi.StringRef("attack"),
 //				TagsFilters: []string{
@@ -52,22 +52,32 @@ func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoring
 
 // A collection of arguments for invoking getSecurityMonitoringRules.
 type GetSecurityMonitoringRulesArgs struct {
-	DefaultOnlyFilter *bool    `pulumi:"defaultOnlyFilter"`
-	NameFilter        *string  `pulumi:"nameFilter"`
-	TagsFilters       []string `pulumi:"tagsFilters"`
-	UserOnlyFilter    *bool    `pulumi:"userOnlyFilter"`
+	// Limit the search to default rules
+	DefaultOnlyFilter *bool `pulumi:"defaultOnlyFilter"`
+	// A rule name to limit the search
+	NameFilter *string `pulumi:"nameFilter"`
+	// A list of tags to limit the search
+	TagsFilters []string `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter *bool `pulumi:"userOnlyFilter"`
 }
 
 // A collection of values returned by getSecurityMonitoringRules.
 type GetSecurityMonitoringRulesResult struct {
+	// Limit the search to default rules
 	DefaultOnlyFilter *bool `pulumi:"defaultOnlyFilter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string                           `pulumi:"id"`
-	NameFilter     *string                          `pulumi:"nameFilter"`
-	RuleIds        []string                         `pulumi:"ruleIds"`
-	Rules          []GetSecurityMonitoringRulesRule `pulumi:"rules"`
-	TagsFilters    []string                         `pulumi:"tagsFilters"`
-	UserOnlyFilter *bool                            `pulumi:"userOnlyFilter"`
+	Id string `pulumi:"id"`
+	// A rule name to limit the search
+	NameFilter *string `pulumi:"nameFilter"`
+	// List of IDs of the matched rules.
+	RuleIds []string `pulumi:"ruleIds"`
+	// List of rules.
+	Rules []GetSecurityMonitoringRulesRule `pulumi:"rules"`
+	// A list of tags to limit the search
+	TagsFilters []string `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter *bool `pulumi:"userOnlyFilter"`
 }
 
 func GetSecurityMonitoringRulesOutput(ctx *pulumi.Context, args GetSecurityMonitoringRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityMonitoringRulesResultOutput {
@@ -85,10 +95,14 @@ func GetSecurityMonitoringRulesOutput(ctx *pulumi.Context, args GetSecurityMonit
 
 // A collection of arguments for invoking getSecurityMonitoringRules.
 type GetSecurityMonitoringRulesOutputArgs struct {
-	DefaultOnlyFilter pulumi.BoolPtrInput     `pulumi:"defaultOnlyFilter"`
-	NameFilter        pulumi.StringPtrInput   `pulumi:"nameFilter"`
-	TagsFilters       pulumi.StringArrayInput `pulumi:"tagsFilters"`
-	UserOnlyFilter    pulumi.BoolPtrInput     `pulumi:"userOnlyFilter"`
+	// Limit the search to default rules
+	DefaultOnlyFilter pulumi.BoolPtrInput `pulumi:"defaultOnlyFilter"`
+	// A rule name to limit the search
+	NameFilter pulumi.StringPtrInput `pulumi:"nameFilter"`
+	// A list of tags to limit the search
+	TagsFilters pulumi.StringArrayInput `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter pulumi.BoolPtrInput `pulumi:"userOnlyFilter"`
 }
 
 func (GetSecurityMonitoringRulesOutputArgs) ElementType() reflect.Type {
@@ -110,6 +124,7 @@ func (o GetSecurityMonitoringRulesResultOutput) ToGetSecurityMonitoringRulesResu
 	return o
 }
 
+// Limit the search to default rules
 func (o GetSecurityMonitoringRulesResultOutput) DefaultOnlyFilter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *bool { return v.DefaultOnlyFilter }).(pulumi.BoolPtrOutput)
 }
@@ -119,22 +134,27 @@ func (o GetSecurityMonitoringRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A rule name to limit the search
 func (o GetSecurityMonitoringRulesResultOutput) NameFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *string { return v.NameFilter }).(pulumi.StringPtrOutput)
 }
 
+// List of IDs of the matched rules.
 func (o GetSecurityMonitoringRulesResultOutput) RuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []string { return v.RuleIds }).(pulumi.StringArrayOutput)
 }
 
+// List of rules.
 func (o GetSecurityMonitoringRulesResultOutput) Rules() GetSecurityMonitoringRulesRuleArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []GetSecurityMonitoringRulesRule { return v.Rules }).(GetSecurityMonitoringRulesRuleArrayOutput)
 }
 
+// A list of tags to limit the search
 func (o GetSecurityMonitoringRulesResultOutput) TagsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []string { return v.TagsFilters }).(pulumi.StringArrayOutput)
 }
 
+// Limit the search to user rules
 func (o GetSecurityMonitoringRulesResultOutput) UserOnlyFilter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *bool { return v.UserOnlyFilter }).(pulumi.BoolPtrOutput)
 }

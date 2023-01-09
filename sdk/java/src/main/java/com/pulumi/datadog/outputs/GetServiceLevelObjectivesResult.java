@@ -18,10 +18,30 @@ public final class GetServiceLevelObjectivesResult {
      * 
      */
     private String id;
+    /**
+     * @return An array of SLO IDs to limit the search.
+     * 
+     */
     private @Nullable List<String> ids;
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     private @Nullable String metricsQuery;
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     private @Nullable String nameQuery;
+    /**
+     * @return List of SLOs
+     * 
+     */
     private List<GetServiceLevelObjectivesSlo> slos;
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     private @Nullable String tagsQuery;
 
     private GetServiceLevelObjectivesResult() {}
@@ -32,18 +52,38 @@ public final class GetServiceLevelObjectivesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An array of SLO IDs to limit the search.
+     * 
+     */
     public List<String> ids() {
         return this.ids == null ? List.of() : this.ids;
     }
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     public Optional<String> metricsQuery() {
         return Optional.ofNullable(this.metricsQuery);
     }
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     public Optional<String> nameQuery() {
         return Optional.ofNullable(this.nameQuery);
     }
+    /**
+     * @return List of SLOs
+     * 
+     */
     public List<GetServiceLevelObjectivesSlo> slos() {
         return this.slos;
     }
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     public Optional<String> tagsQuery() {
         return Optional.ofNullable(this.tagsQuery);
     }

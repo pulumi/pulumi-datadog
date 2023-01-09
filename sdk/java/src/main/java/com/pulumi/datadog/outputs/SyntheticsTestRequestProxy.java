@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestRequestProxy {
+    /**
+     * @return Header name and value map.
+     * 
+     */
     private @Nullable Map<String,Object> headers;
+    /**
+     * @return URL of the proxy to perform the test.
+     * 
+     */
     private String url;
 
     private SyntheticsTestRequestProxy() {}
+    /**
+     * @return Header name and value map.
+     * 
+     */
     public Map<String,Object> headers() {
         return this.headers == null ? Map.of() : this.headers;
     }
+    /**
+     * @return URL of the proxy to perform the test.
+     * 
+     */
     public String url() {
         return this.url;
     }

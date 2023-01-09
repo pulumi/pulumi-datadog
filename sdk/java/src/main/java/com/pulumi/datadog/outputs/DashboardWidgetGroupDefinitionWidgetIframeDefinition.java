@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     private String url;
 
     private DashboardWidgetGroupDefinitionWidgetIframeDefinition() {}
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     public String url() {
         return this.url;
     }

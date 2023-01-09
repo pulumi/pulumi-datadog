@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequest> Requests;
         public readonly string? TextAlign;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground? TimeseriesBackground;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

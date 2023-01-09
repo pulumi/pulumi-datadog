@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -10,11 +11,8 @@ import * as utilities from "./utilities";
  */
 export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsPipelinesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsPipelines:getLogsPipelines", {
         "isReadOnly": args.isReadOnly,
     }, opts);
@@ -24,6 +22,9 @@ export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesArgs {
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     isReadOnly?: string;
 }
 
@@ -35,17 +36,28 @@ export interface GetLogsPipelinesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     readonly isReadOnly?: string;
+    /**
+     * List of logs pipelines
+     */
     readonly logsPipelines: outputs.GetLogsPipelinesLogsPipeline[];
 }
-
+/**
+ * Use this data source to list all existing logs pipelines for use in other resources.
+ */
 export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsPipelinesResult> {
-    return pulumi.output(args).apply(a => getLogsPipelines(a, opts))
+    return pulumi.output(args).apply((a: any) => getLogsPipelines(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesOutputArgs {
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     isReadOnly?: pulumi.Input<string>;
 }

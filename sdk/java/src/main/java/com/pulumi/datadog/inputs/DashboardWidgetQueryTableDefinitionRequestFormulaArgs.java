@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetQueryTableDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetQueryTableDefinitionRequestFormulaArgs(DashboardWidgetQueryTableDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
 
         public Builder limit(DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetQueryTableDefinitionRequestFormulaArgs build() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("computes", required: true)]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs>? _computes;
@@ -45,8 +45,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("search")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs>? Search { get; set; }
 
+        [Input("storage")]
+        public Input<string>? Storage { get; set; }
+
         public DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs()
         {
         }
+        public static new DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs Empty => new DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs();
     }
 }

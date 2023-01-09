@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetListStreamDefinitionRequestColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetListStreamDefinitionRequestColumnGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetListStreamDefinitionRequestColumnGetArgs()
         {
         }
+        public static new DashboardWidgetListStreamDefinitionRequestColumnGetArgs Empty => new DashboardWidgetListStreamDefinitionRequestColumnGetArgs();
     }
 }

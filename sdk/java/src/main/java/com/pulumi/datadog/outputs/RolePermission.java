@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RolePermission {
+    /**
+     * @return ID of the permission to assign.
+     * 
+     */
     private String id;
+    /**
+     * @return Name of the permission.
+     * 
+     */
     private @Nullable String name;
 
     private RolePermission() {}
+    /**
+     * @return ID of the permission to assign.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the permission.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringDefaultRuleCase
     {
+        /// <summary>
+        /// Notification targets for each rule case.
+        /// </summary>
         public readonly ImmutableArray<string> Notifications;
+        /// <summary>
+        /// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

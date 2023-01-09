@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineProcessorTraceIdRemapperGetArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineProcessorTraceIdRemapperGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsCustomPipelineProcessorTraceIdRemapperGetArgs()
         {
         }
+        public static new LogsCustomPipelineProcessorTraceIdRemapperGetArgs Empty => new LogsCustomPipelineProcessorTraceIdRemapperGetArgs();
     }
 }

@@ -19,30 +19,34 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Datadog.GetSecurityMonitoringFilters.InvokeAsync());
-        ///     }
+        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringFiltersResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
     [OutputType]
     public sealed class GetSecurityMonitoringFiltersResult
     {
+        /// <summary>
+        /// List of filters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringFiltersFilterResult> Filters;
+        /// <summary>
+        /// List of IDs of filters.
+        /// </summary>
         public readonly ImmutableArray<string> FiltersIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

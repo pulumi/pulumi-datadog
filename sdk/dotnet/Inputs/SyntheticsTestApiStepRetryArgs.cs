@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepRetryArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepRetryArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestApiStepRetryArgs()
         {
         }
+        public static new SyntheticsTestApiStepRetryArgs Empty => new SyntheticsTestApiStepRetryArgs();
     }
 }

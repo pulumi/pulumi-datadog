@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const privateLocation = new datadog.SyntheticsPrivateLocation("private_location", {
+ * const privateLocation = new datadog.SyntheticsPrivateLocation("privateLocation", {
  *     description: "Description of the private location",
  *     name: "First private location",
  *     tags: [
@@ -26,7 +27,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Synthetics private locations can be imported using their string ID, e.g.
+ * Synthetics private locations can be imported using their string ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -61,8 +62,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
     public /*out*/ readonly config!: pulumi.Output<string>;
     /**
@@ -112,6 +112,8 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             resourceInputs["config"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["config"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SyntheticsPrivateLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -121,8 +123,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
  */
 export interface SyntheticsPrivateLocationState {
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
     config?: pulumi.Input<string>;
     /**

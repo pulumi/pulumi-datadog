@@ -15,41 +15,37 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sampleArchiveOrder", new()
     ///     {
-    ///         var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sampleArchiveOrder", new Datadog.LogsArchiveOrderArgs
+    ///         ArchiveIds = new[]
     ///         {
-    ///             ArchiveIds = 
-    ///             {
-    ///                 datadog_logs_archive.Sample_archive_1.Id,
-    ///                 datadog_logs_archive.Sample_archive_2.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             datadog_logs_archive.Sample_archive_1.Id,
+    ///             datadog_logs_archive.Sample_archive_2.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
+    /// There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name&gt; archiveOrderID
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsArchiveOrder:LogsArchiveOrder")]
-    public partial class LogsArchiveOrder : Pulumi.CustomResource
+    public partial class LogsArchiveOrder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        /// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        /// will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         [Output("archiveIds")]
         public Output<ImmutableArray<string>> ArchiveIds { get; private set; } = null!;
@@ -98,15 +94,13 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsArchiveOrderArgs : Pulumi.ResourceArgs
+    public sealed class LogsArchiveOrderArgs : global::Pulumi.ResourceArgs
     {
         [Input("archiveIds")]
         private InputList<string>? _archiveIds;
 
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        /// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        /// will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         public InputList<string> ArchiveIds
         {
@@ -117,17 +111,16 @@ namespace Pulumi.Datadog
         public LogsArchiveOrderArgs()
         {
         }
+        public static new LogsArchiveOrderArgs Empty => new LogsArchiveOrderArgs();
     }
 
-    public sealed class LogsArchiveOrderState : Pulumi.ResourceArgs
+    public sealed class LogsArchiveOrderState : global::Pulumi.ResourceArgs
     {
         [Input("archiveIds")]
         private InputList<string>? _archiveIds;
 
         /// <summary>
-        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        /// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        /// will try to update the order.
+        /// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         /// </summary>
         public InputList<string> ArchiveIds
         {
@@ -138,5 +131,6 @@ namespace Pulumi.Datadog
         public LogsArchiveOrderState()
         {
         }
+        public static new LogsArchiveOrderState Empty => new LogsArchiveOrderState();
     }
 }

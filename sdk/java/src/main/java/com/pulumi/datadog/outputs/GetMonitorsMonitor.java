@@ -10,11 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorsMonitor {
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     private Integer id;
     private String name;
     private String type;
 
     private GetMonitorsMonitor() {}
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public Integer id() {
         return this.id;
     }

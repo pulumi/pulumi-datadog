@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaArgs(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
         public Builder limit(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaArgs build() {

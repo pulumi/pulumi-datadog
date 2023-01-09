@@ -16,30 +16,85 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
 
     public static final DashboardTemplateVariableArgs Empty = new DashboardTemplateVariableArgs();
 
+    /**
+     * The list of values that the template variable drop-down is be limited to
+     * 
+     */
     @Import(name="availableValues")
     private @Nullable Output<List<String>> availableValues;
 
+    /**
+     * @return The list of values that the template variable drop-down is be limited to
+     * 
+     */
     public Optional<Output<List<String>>> availableValues() {
         return Optional.ofNullable(this.availableValues);
     }
 
+    /**
+     * The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+     * 
+     * @deprecated
+     * Use `defaults` instead.
+     * 
+     */
+    @Deprecated /* Use `defaults` instead. */
     @Import(name="default")
     private @Nullable Output<String> default_;
 
+    /**
+     * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+     * 
+     * @deprecated
+     * Use `defaults` instead.
+     * 
+     */
+    @Deprecated /* Use `defaults` instead. */
     public Optional<Output<String>> default_() {
         return Optional.ofNullable(this.default_);
     }
 
+    /**
+     * One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+     * 
+     */
+    @Import(name="defaults")
+    private @Nullable Output<List<String>> defaults;
+
+    /**
+     * @return One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+     * 
+     */
+    public Optional<Output<List<String>>> defaults() {
+        return Optional.ofNullable(this.defaults);
+    }
+
+    /**
+     * The name of the variable.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -49,6 +104,7 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
     private DashboardTemplateVariableArgs(DashboardTemplateVariableArgs $) {
         this.availableValues = $.availableValues;
         this.default_ = $.default_;
+        this.defaults = $.defaults;
         this.name = $.name;
         this.prefix = $.prefix;
     }
@@ -71,42 +127,135 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
             $ = new DashboardTemplateVariableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * 
+         * @return builder
+         * 
+         */
         public Builder availableValues(@Nullable Output<List<String>> availableValues) {
             $.availableValues = availableValues;
             return this;
         }
 
+        /**
+         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * 
+         * @return builder
+         * 
+         */
         public Builder availableValues(List<String> availableValues) {
             return availableValues(Output.of(availableValues));
         }
 
+        /**
+         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * 
+         * @return builder
+         * 
+         */
         public Builder availableValues(String... availableValues) {
             return availableValues(List.of(availableValues));
         }
 
+        /**
+         * @param default_ The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `defaults` instead.
+         * 
+         */
+        @Deprecated /* Use `defaults` instead. */
         public Builder default_(@Nullable Output<String> default_) {
             $.default_ = default_;
             return this;
         }
 
+        /**
+         * @param default_ The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `defaults` instead.
+         * 
+         */
+        @Deprecated /* Use `defaults` instead. */
         public Builder default_(String default_) {
             return default_(Output.of(default_));
         }
 
+        /**
+         * @param defaults One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaults(@Nullable Output<List<String>> defaults) {
+            $.defaults = defaults;
+            return this;
+        }
+
+        /**
+         * @param defaults One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaults(List<String> defaults) {
+            return defaults(Output.of(defaults));
+        }
+
+        /**
+         * @param defaults One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaults(String... defaults) {
+            return defaults(List.of(defaults));
+        }
+
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param prefix The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

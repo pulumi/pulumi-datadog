@@ -20,6 +20,10 @@ public final class DashboardWidgetManageStatusDefinition {
     private @Nullable Boolean showPriority;
     private @Nullable String sort;
     private @Nullable String summaryType;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -49,6 +53,10 @@ public final class DashboardWidgetManageStatusDefinition {
     public Optional<String> summaryType() {
         return Optional.ofNullable(this.summaryType);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

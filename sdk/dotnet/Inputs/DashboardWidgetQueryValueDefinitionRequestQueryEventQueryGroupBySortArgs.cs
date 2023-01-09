@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs()
         {
         }
+        public static new DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs Empty => new DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs();
     }
 }

@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetIframeDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetIframeDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         public DashboardWidgetIframeDefinitionArgs()
         {
         }
+        public static new DashboardWidgetIframeDefinitionArgs Empty => new DashboardWidgetIframeDefinitionArgs();
     }
 }

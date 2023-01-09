@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class LogsIndexFilter {
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     private String query;
 
     private LogsIndexFilter() {}
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     public String query() {
         return this.query;
     }

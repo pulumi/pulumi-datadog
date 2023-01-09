@@ -24,6 +24,10 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest request;
     private @Nullable List<String> scopes;
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle style;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -53,6 +57,10 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle> style() {
         return Optional.ofNullable(this.style);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTopologyMapDefinitionRequestQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTopologyMapDefinitionRequestQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -29,5 +29,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTopologyMapDefinitionRequestQueryArgs()
         {
         }
+        public static new DashboardWidgetTopologyMapDefinitionRequestQueryArgs Empty => new DashboardWidgetTopologyMapDefinitionRequestQueryArgs();
     }
 }

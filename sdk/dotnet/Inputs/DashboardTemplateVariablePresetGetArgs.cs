@@ -10,13 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardTemplateVariablePresetGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardTemplateVariablePresetGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the preset.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("templateVariables")]
         private InputList<Inputs.DashboardTemplateVariablePresetTemplateVariableGetArgs>? _templateVariables;
+
+        /// <summary>
+        /// The template variable names and assumed values under the given preset
+        /// </summary>
         public InputList<Inputs.DashboardTemplateVariablePresetTemplateVariableGetArgs> TemplateVariables
         {
             get => _templateVariables ?? (_templateVariables = new InputList<Inputs.DashboardTemplateVariablePresetTemplateVariableGetArgs>());
@@ -26,5 +33,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardTemplateVariablePresetGetArgs()
         {
         }
+        public static new DashboardTemplateVariablePresetGetArgs Empty => new DashboardTemplateVariablePresetGetArgs();
     }
 }

@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelObjectiveThreshold {
+    /**
+     * @return The objective&#39;s target in`[0,100]`.
+     * 
+     */
     private Double target;
+    /**
+     * @return A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+     * 
+     */
     private @Nullable String targetDisplay;
+    /**
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
     private String timeframe;
+    /**
+     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * 
+     */
     private @Nullable Double warning;
+    /**
+     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * 
+     */
     private @Nullable String warningDisplay;
 
     private ServiceLevelObjectiveThreshold() {}
+    /**
+     * @return The objective&#39;s target in`[0,100]`.
+     * 
+     */
     public Double target() {
         return this.target;
     }
+    /**
+     * @return A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+     * 
+     */
     public Optional<String> targetDisplay() {
         return Optional.ofNullable(this.targetDisplay);
     }
+    /**
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
     public String timeframe() {
         return this.timeframe;
     }
+    /**
+     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * 
+     */
     public Optional<Double> warning() {
         return Optional.ofNullable(this.warning);
     }
+    /**
+     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * 
+     */
     public Optional<String> warningDisplay() {
         return Optional.ofNullable(this.warningDisplay);
     }

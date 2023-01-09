@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparator", required: true)]
         public Input<string> Comparator { get; set; } = null!;
@@ -42,5 +42,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatGetArgs()
         {
         }
+        public static new DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatGetArgs Empty => new DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatGetArgs();
     }
 }

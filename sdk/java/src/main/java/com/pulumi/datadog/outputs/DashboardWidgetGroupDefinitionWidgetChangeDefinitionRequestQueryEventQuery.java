@@ -21,6 +21,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
     private @Nullable List<String> indexes;
     private String name;
     private @Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch search;
+    private @Nullable String storage;
 
     private DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery() {}
     public List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute> computes() {
@@ -41,6 +42,9 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
     public Optional<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch> search() {
         return Optional.ofNullable(this.search);
     }
+    public Optional<String> storage() {
+        return Optional.ofNullable(this.storage);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -57,6 +61,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch search;
+        private @Nullable String storage;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,6 +71,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
     	      this.indexes = defaults.indexes;
     	      this.name = defaults.name;
     	      this.search = defaults.search;
+    	      this.storage = defaults.storage;
         }
 
         @CustomType.Setter
@@ -107,6 +113,11 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
             this.search = search;
             return this;
         }
+        @CustomType.Setter
+        public Builder storage(@Nullable String storage) {
+            this.storage = storage;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery();
             o.computes = computes;
@@ -115,6 +126,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
             o.indexes = indexes;
             o.name = name;
             o.search = search;
+            o.storage = storage;
             return o;
         }
     }

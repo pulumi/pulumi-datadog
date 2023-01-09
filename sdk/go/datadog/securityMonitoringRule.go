@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
-//				Cases: SecurityMonitoringRuleCaseArray{
-//					&SecurityMonitoringRuleCaseArgs{
+//				Cases: datadog.SecurityMonitoringRuleCaseArray{
+//					&datadog.SecurityMonitoringRuleCaseArgs{
 //						Condition: pulumi.String("errors > 3 && warnings > 10"),
 //						Notifications: pulumi.StringArray{
 //							pulumi.String("@user"),
@@ -40,13 +40,13 @@ import (
 //				Enabled: pulumi.Bool(true),
 //				Message: pulumi.String("The rule has triggered."),
 //				Name:    pulumi.String("My rule"),
-//				Options: &SecurityMonitoringRuleOptionsArgs{
+//				Options: &datadog.SecurityMonitoringRuleOptionsArgs{
 //					EvaluationWindow:  pulumi.Int(300),
 //					KeepAlive:         pulumi.Int(600),
 //					MaxSignalDuration: pulumi.Int(900),
 //				},
-//				Queries: SecurityMonitoringRuleQueryArray{
-//					&SecurityMonitoringRuleQueryArgs{
+//				Queries: datadog.SecurityMonitoringRuleQueryArray{
+//					&datadog.SecurityMonitoringRuleQueryArgs{
 //						Aggregation: pulumi.String("count"),
 //						GroupByFields: pulumi.StringArray{
 //							pulumi.String("host"),
@@ -54,7 +54,7 @@ import (
 //						Name:  pulumi.String("errors"),
 //						Query: pulumi.String("status:error"),
 //					},
-//					&SecurityMonitoringRuleQueryArgs{
+//					&datadog.SecurityMonitoringRuleQueryArgs{
 //						Aggregation: pulumi.String("count"),
 //						GroupByFields: pulumi.StringArray{
 //							pulumi.String("host"),
@@ -78,7 +78,7 @@ import (
 //
 // ## Import
 //
-// # Security monitoring rules can be imported using ID, e.g.
+// Security monitoring rules can be imported using ID, e.g.
 //
 // ```sh
 //
@@ -104,9 +104,11 @@ type SecurityMonitoringRule struct {
 	Options SecurityMonitoringRuleOptionsPtrOutput `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The rule type.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -125,9 +127,6 @@ func NewSecurityMonitoringRule(ctx *pulumi.Context,
 	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
-	}
-	if args.Queries == nil {
-		return nil, errors.New("invalid value for required argument 'Queries'")
 	}
 	var resource SecurityMonitoringRule
 	err := ctx.RegisterResource("datadog:index/securityMonitoringRule:SecurityMonitoringRule", name, args, &resource, opts...)
@@ -167,9 +166,11 @@ type securityMonitoringRuleState struct {
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 	Type *string `pulumi:"type"`
 }
 
@@ -190,9 +191,11 @@ type SecurityMonitoringRuleState struct {
 	Options SecurityMonitoringRuleOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 	Type pulumi.StringPtrInput
 }
 
@@ -217,9 +220,11 @@ type securityMonitoringRuleArgs struct {
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 	Type *string `pulumi:"type"`
 }
 
@@ -241,9 +246,11 @@ type SecurityMonitoringRuleArgs struct {
 	Options SecurityMonitoringRuleOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 	Type pulumi.StringPtrInput
 }
 
@@ -374,12 +381,17 @@ func (o SecurityMonitoringRuleOutput) Queries() SecurityMonitoringRuleQueryArray
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleQueryArrayOutput { return v.Queries }).(SecurityMonitoringRuleQueryArrayOutput)
 }
 
+// Queries for selecting logs which are part of the rule.
+func (o SecurityMonitoringRuleOutput) SignalQueries() SecurityMonitoringRuleSignalQueryArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleSignalQueryArrayOutput { return v.SignalQueries }).(SecurityMonitoringRuleSignalQueryArrayOutput)
+}
+
 // Tags for generated signals.
 func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The rule type.
+// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
 func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetTimeseriesDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetTimeseriesDefinitionRequestFormulaArgs(DashboardWidgetTimeseriesDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
 
         public Builder limit(DashboardWidgetTimeseriesDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetTimeseriesDefinitionRequestFormulaArgs build() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryGetArgs()
         {
         }
+        public static new DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryGetArgs Empty => new DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryGetArgs();
     }
 }

@@ -14,19 +14,47 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesResult {
+    /**
+     * @return Limit the search to default rules
+     * 
+     */
     private @Nullable Boolean defaultOnlyFilter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return A rule name to limit the search
+     * 
+     */
     private @Nullable String nameFilter;
+    /**
+     * @return List of IDs of the matched rules.
+     * 
+     */
     private List<String> ruleIds;
+    /**
+     * @return List of rules.
+     * 
+     */
     private List<GetSecurityMonitoringRulesRule> rules;
+    /**
+     * @return A list of tags to limit the search
+     * 
+     */
     private @Nullable List<String> tagsFilters;
+    /**
+     * @return Limit the search to user rules
+     * 
+     */
     private @Nullable Boolean userOnlyFilter;
 
     private GetSecurityMonitoringRulesResult() {}
+    /**
+     * @return Limit the search to default rules
+     * 
+     */
     public Optional<Boolean> defaultOnlyFilter() {
         return Optional.ofNullable(this.defaultOnlyFilter);
     }
@@ -37,18 +65,38 @@ public final class GetSecurityMonitoringRulesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A rule name to limit the search
+     * 
+     */
     public Optional<String> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
+    /**
+     * @return List of IDs of the matched rules.
+     * 
+     */
     public List<String> ruleIds() {
         return this.ruleIds;
     }
+    /**
+     * @return List of rules.
+     * 
+     */
     public List<GetSecurityMonitoringRulesRule> rules() {
         return this.rules;
     }
+    /**
+     * @return A list of tags to limit the search
+     * 
+     */
     public List<String> tagsFilters() {
         return this.tagsFilters == null ? List.of() : this.tagsFilters;
     }
+    /**
+     * @return Limit the search to user rules
+     * 
+     */
     public Optional<Boolean> userOnlyFilter() {
         return Optional.ofNullable(this.userOnlyFilter);
     }

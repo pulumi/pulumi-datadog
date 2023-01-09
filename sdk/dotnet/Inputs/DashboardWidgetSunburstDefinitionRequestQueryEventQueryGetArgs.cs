@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("computes", required: true)]
         private InputList<Inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeGetArgs>? _computes;
@@ -45,8 +45,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("search")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchGetArgs>? Search { get; set; }
 
+        [Input("storage")]
+        public Input<string>? Storage { get; set; }
+
         public DashboardWidgetSunburstDefinitionRequestQueryEventQueryGetArgs()
         {
         }
+        public static new DashboardWidgetSunburstDefinitionRequestQueryEventQueryGetArgs Empty => new DashboardWidgetSunburstDefinitionRequestQueryEventQueryGetArgs();
     }
 }

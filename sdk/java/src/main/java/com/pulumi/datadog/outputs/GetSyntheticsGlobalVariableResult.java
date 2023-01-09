@@ -15,7 +15,15 @@ public final class GetSyntheticsGlobalVariableResult {
      * 
      */
     private String id;
+    /**
+     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * 
+     */
     private String name;
+    /**
+     * @return A list of tags assigned to the Synthetics global variable.
+     * 
+     */
     private List<String> tags;
 
     private GetSyntheticsGlobalVariableResult() {}
@@ -26,9 +34,17 @@ public final class GetSyntheticsGlobalVariableResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A list of tags assigned to the Synthetics global variable.
+     * 
+     */
     public List<String> tags() {
         return this.tags;
     }

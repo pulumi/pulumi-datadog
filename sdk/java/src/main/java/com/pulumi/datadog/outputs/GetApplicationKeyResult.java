@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationKeyResult {
+    /**
+     * @return Id for Application Key.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return The value of the Application Key.
+     * 
+     */
     private String key;
+    /**
+     * @return Name for Application Key.
+     * 
+     */
     private @Nullable String name;
 
     private GetApplicationKeyResult() {}
+    /**
+     * @return Id for Application Key.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The value of the Application Key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Name for Application Key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

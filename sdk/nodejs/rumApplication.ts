@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const rumApplication = new datadog.RumApplication("rum_application", {
+ * const rumApplication = new datadog.RumApplication("rumApplication", {
  *     name: "my-application",
  *     type: "browser",
  * });

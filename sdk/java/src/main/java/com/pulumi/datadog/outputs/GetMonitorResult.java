@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetMonitorMonitorThreshold;
 import com.pulumi.datadog.outputs.GetMonitorMonitorThresholdWindow;
+import com.pulumi.datadog.outputs.GetMonitorSchedulingOption;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,54 +17,208 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMonitorResult {
+    /**
+     * @return Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+     * 
+     */
     private Boolean enableLogsSample;
+    /**
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
+     * 
+     */
+    private Boolean enableSamples;
+    /**
+     * @return Message included with a re-notification for this monitor.
+     * 
+     */
     private String escalationMessage;
+    /**
+     * @return Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+     * 
+     */
     private Integer evaluationDelay;
+    /**
+     * @return The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     * 
+     */
     private String groupRetentionDuration;
+    /**
+     * @return Whether or not to trigger one alert if any source breaches a threshold.
+     * 
+     */
     private Boolean groupbySimpleMonitor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+     * 
+     */
     private Boolean includeTags;
+    /**
+     * @return Whether or not changes to the monitor are restricted to the creator or admins.
+     * 
+     */
     private Boolean locked;
+    /**
+     * @return Message included with notifications for this monitor
+     * 
+     */
     private String message;
+    /**
+     * @return A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     private @Nullable List<String> monitorTagsFilters;
+    /**
+     * @return Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+     * 
+     */
     private List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows;
+    /**
+     * @return Alert thresholds of the monitor.
+     * 
+     */
     private List<GetMonitorMonitorThreshold> monitorThresholds;
+    /**
+     * @return Name of the monitor
+     * 
+     */
     private String name;
+    /**
+     * @return A monitor name to limit the search.
+     * 
+     */
     private @Nullable String nameFilter;
+    /**
+     * @return Time (in seconds) to skip evaluations for new groups.
+     * 
+     */
     private Integer newGroupDelay;
+    /**
+     * @return Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+     * 
+     */
     private Integer newHostDelay;
+    /**
+     * @return The number of minutes before the monitor notifies when data stops reporting.
+     * 
+     */
     private Integer noDataTimeframe;
+    /**
+     * @return Whether or not tagged users are notified on changes to the monitor.
+     * 
+     */
     private Boolean notifyAudit;
+    /**
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    private List<String> notifyBies;
+    /**
+     * @return Whether or not this monitor notifies when data stops reporting.
+     * 
+     */
     private Boolean notifyNoData;
+    /**
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * 
+     */
     private String onMissingData;
+    /**
+     * @return Query of the monitor.
+     * 
+     */
     private String query;
+    /**
+     * @return The number of minutes after the last notification before the monitor re-notifies on the current status.
+     * 
+     */
     private Integer renotifyInterval;
+    /**
+     * @return The number of re-notification messages that should be sent on the current status.
+     * 
+     */
     private Integer renotifyOccurrences;
+    /**
+     * @return The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+     * 
+     */
     private List<String> renotifyStatuses;
+    /**
+     * @return Whether or not the monitor needs a full window of data before it is evaluated.
+     * 
+     */
     private Boolean requireFullWindow;
     private List<String> restrictedRoles;
+    /**
+     * @return Configuration options for scheduling.
+     * 
+     */
+    private List<GetMonitorSchedulingOption> schedulingOptions;
+    /**
+     * @return List of tags associated with the monitor.
+     * 
+     */
     private List<String> tags;
+    /**
+     * @return A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     private @Nullable List<String> tagsFilters;
+    /**
+     * @return Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+     * 
+     */
     private Integer timeoutH;
+    /**
+     * @return Type of the monitor.
+     * 
+     */
     private String type;
 
     private GetMonitorResult() {}
+    /**
+     * @return Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+     * 
+     */
     public Boolean enableLogsSample() {
         return this.enableLogsSample;
     }
+    /**
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
+     * 
+     */
+    public Boolean enableSamples() {
+        return this.enableSamples;
+    }
+    /**
+     * @return Message included with a re-notification for this monitor.
+     * 
+     */
     public String escalationMessage() {
         return this.escalationMessage;
     }
+    /**
+     * @return Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+     * 
+     */
     public Integer evaluationDelay() {
         return this.evaluationDelay;
     }
+    /**
+     * @return The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     * 
+     */
     public String groupRetentionDuration() {
         return this.groupRetentionDuration;
     }
+    /**
+     * @return Whether or not to trigger one alert if any source breaches a threshold.
+     * 
+     */
     public Boolean groupbySimpleMonitor() {
         return this.groupbySimpleMonitor;
     }
@@ -74,75 +229,181 @@ public final class GetMonitorResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+     * 
+     */
     public Boolean includeTags() {
         return this.includeTags;
     }
+    /**
+     * @return Whether or not changes to the monitor are restricted to the creator or admins.
+     * 
+     */
     public Boolean locked() {
         return this.locked;
     }
+    /**
+     * @return Message included with notifications for this monitor
+     * 
+     */
     public String message() {
         return this.message;
     }
+    /**
+     * @return A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     public List<String> monitorTagsFilters() {
         return this.monitorTagsFilters == null ? List.of() : this.monitorTagsFilters;
     }
+    /**
+     * @return Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+     * 
+     */
     public List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows() {
         return this.monitorThresholdWindows;
     }
+    /**
+     * @return Alert thresholds of the monitor.
+     * 
+     */
     public List<GetMonitorMonitorThreshold> monitorThresholds() {
         return this.monitorThresholds;
     }
+    /**
+     * @return Name of the monitor
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A monitor name to limit the search.
+     * 
+     */
     public Optional<String> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
+    /**
+     * @return Time (in seconds) to skip evaluations for new groups.
+     * 
+     */
     public Integer newGroupDelay() {
         return this.newGroupDelay;
     }
+    /**
+     * @return Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+     * 
+     */
     public Integer newHostDelay() {
         return this.newHostDelay;
     }
+    /**
+     * @return The number of minutes before the monitor notifies when data stops reporting.
+     * 
+     */
     public Integer noDataTimeframe() {
         return this.noDataTimeframe;
     }
+    /**
+     * @return Whether or not tagged users are notified on changes to the monitor.
+     * 
+     */
     public Boolean notifyAudit() {
         return this.notifyAudit;
     }
+    /**
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    public List<String> notifyBies() {
+        return this.notifyBies;
+    }
+    /**
+     * @return Whether or not this monitor notifies when data stops reporting.
+     * 
+     */
     public Boolean notifyNoData() {
         return this.notifyNoData;
     }
+    /**
+     * @return Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+     * 
+     */
     public String onMissingData() {
         return this.onMissingData;
     }
+    /**
+     * @return Query of the monitor.
+     * 
+     */
     public String query() {
         return this.query;
     }
+    /**
+     * @return The number of minutes after the last notification before the monitor re-notifies on the current status.
+     * 
+     */
     public Integer renotifyInterval() {
         return this.renotifyInterval;
     }
+    /**
+     * @return The number of re-notification messages that should be sent on the current status.
+     * 
+     */
     public Integer renotifyOccurrences() {
         return this.renotifyOccurrences;
     }
+    /**
+     * @return The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+     * 
+     */
     public List<String> renotifyStatuses() {
         return this.renotifyStatuses;
     }
+    /**
+     * @return Whether or not the monitor needs a full window of data before it is evaluated.
+     * 
+     */
     public Boolean requireFullWindow() {
         return this.requireFullWindow;
     }
     public List<String> restrictedRoles() {
         return this.restrictedRoles;
     }
+    /**
+     * @return Configuration options for scheduling.
+     * 
+     */
+    public List<GetMonitorSchedulingOption> schedulingOptions() {
+        return this.schedulingOptions;
+    }
+    /**
+     * @return List of tags associated with the monitor.
+     * 
+     */
     public List<String> tags() {
         return this.tags;
     }
+    /**
+     * @return A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     public List<String> tagsFilters() {
         return this.tagsFilters == null ? List.of() : this.tagsFilters;
     }
+    /**
+     * @return Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+     * 
+     */
     public Integer timeoutH() {
         return this.timeoutH;
     }
+    /**
+     * @return Type of the monitor.
+     * 
+     */
     public String type() {
         return this.type;
     }
@@ -157,6 +418,7 @@ public final class GetMonitorResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enableLogsSample;
+        private Boolean enableSamples;
         private String escalationMessage;
         private Integer evaluationDelay;
         private String groupRetentionDuration;
@@ -174,6 +436,7 @@ public final class GetMonitorResult {
         private Integer newHostDelay;
         private Integer noDataTimeframe;
         private Boolean notifyAudit;
+        private List<String> notifyBies;
         private Boolean notifyNoData;
         private String onMissingData;
         private String query;
@@ -182,6 +445,7 @@ public final class GetMonitorResult {
         private List<String> renotifyStatuses;
         private Boolean requireFullWindow;
         private List<String> restrictedRoles;
+        private List<GetMonitorSchedulingOption> schedulingOptions;
         private List<String> tags;
         private @Nullable List<String> tagsFilters;
         private Integer timeoutH;
@@ -190,6 +454,7 @@ public final class GetMonitorResult {
         public Builder(GetMonitorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableLogsSample = defaults.enableLogsSample;
+    	      this.enableSamples = defaults.enableSamples;
     	      this.escalationMessage = defaults.escalationMessage;
     	      this.evaluationDelay = defaults.evaluationDelay;
     	      this.groupRetentionDuration = defaults.groupRetentionDuration;
@@ -207,6 +472,7 @@ public final class GetMonitorResult {
     	      this.newHostDelay = defaults.newHostDelay;
     	      this.noDataTimeframe = defaults.noDataTimeframe;
     	      this.notifyAudit = defaults.notifyAudit;
+    	      this.notifyBies = defaults.notifyBies;
     	      this.notifyNoData = defaults.notifyNoData;
     	      this.onMissingData = defaults.onMissingData;
     	      this.query = defaults.query;
@@ -215,6 +481,7 @@ public final class GetMonitorResult {
     	      this.renotifyStatuses = defaults.renotifyStatuses;
     	      this.requireFullWindow = defaults.requireFullWindow;
     	      this.restrictedRoles = defaults.restrictedRoles;
+    	      this.schedulingOptions = defaults.schedulingOptions;
     	      this.tags = defaults.tags;
     	      this.tagsFilters = defaults.tagsFilters;
     	      this.timeoutH = defaults.timeoutH;
@@ -224,6 +491,11 @@ public final class GetMonitorResult {
         @CustomType.Setter
         public Builder enableLogsSample(Boolean enableLogsSample) {
             this.enableLogsSample = Objects.requireNonNull(enableLogsSample);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableSamples(Boolean enableSamples) {
+            this.enableSamples = Objects.requireNonNull(enableSamples);
             return this;
         }
         @CustomType.Setter
@@ -321,6 +593,14 @@ public final class GetMonitorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder notifyBies(List<String> notifyBies) {
+            this.notifyBies = Objects.requireNonNull(notifyBies);
+            return this;
+        }
+        public Builder notifyBies(String... notifyBies) {
+            return notifyBies(List.of(notifyBies));
+        }
+        @CustomType.Setter
         public Builder notifyNoData(Boolean notifyNoData) {
             this.notifyNoData = Objects.requireNonNull(notifyNoData);
             return this;
@@ -367,6 +647,14 @@ public final class GetMonitorResult {
             return restrictedRoles(List.of(restrictedRoles));
         }
         @CustomType.Setter
+        public Builder schedulingOptions(List<GetMonitorSchedulingOption> schedulingOptions) {
+            this.schedulingOptions = Objects.requireNonNull(schedulingOptions);
+            return this;
+        }
+        public Builder schedulingOptions(GetMonitorSchedulingOption... schedulingOptions) {
+            return schedulingOptions(List.of(schedulingOptions));
+        }
+        @CustomType.Setter
         public Builder tags(List<String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -395,6 +683,7 @@ public final class GetMonitorResult {
         public GetMonitorResult build() {
             final var o = new GetMonitorResult();
             o.enableLogsSample = enableLogsSample;
+            o.enableSamples = enableSamples;
             o.escalationMessage = escalationMessage;
             o.evaluationDelay = evaluationDelay;
             o.groupRetentionDuration = groupRetentionDuration;
@@ -412,6 +701,7 @@ public final class GetMonitorResult {
             o.newHostDelay = newHostDelay;
             o.noDataTimeframe = noDataTimeframe;
             o.notifyAudit = notifyAudit;
+            o.notifyBies = notifyBies;
             o.notifyNoData = notifyNoData;
             o.onMissingData = onMissingData;
             o.query = query;
@@ -420,6 +710,7 @@ public final class GetMonitorResult {
             o.renotifyStatuses = renotifyStatuses;
             o.requireFullWindow = requireFullWindow;
             o.restrictedRoles = restrictedRoles;
+            o.schedulingOptions = schedulingOptions;
             o.tags = tags;
             o.tagsFilters = tagsFilters;
             o.timeoutH = timeoutH;

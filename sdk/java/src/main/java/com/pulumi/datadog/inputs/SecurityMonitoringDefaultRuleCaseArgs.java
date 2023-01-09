@@ -14,16 +14,32 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
 
     public static final SecurityMonitoringDefaultRuleCaseArgs Empty = new SecurityMonitoringDefaultRuleCaseArgs();
 
+    /**
+     * Notification targets for each rule case.
+     * 
+     */
     @Import(name="notifications", required=true)
     private Output<List<String>> notifications;
 
+    /**
+     * @return Notification targets for each rule case.
+     * 
+     */
     public Output<List<String>> notifications() {
         return this.notifications;
     }
 
+    /**
+     * Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -53,24 +69,54 @@ public final class SecurityMonitoringDefaultRuleCaseArgs extends com.pulumi.reso
             $ = new SecurityMonitoringDefaultRuleCaseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param notifications Notification targets for each rule case.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifications(Output<List<String>> notifications) {
             $.notifications = notifications;
             return this;
         }
 
+        /**
+         * @param notifications Notification targets for each rule case.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifications(List<String> notifications) {
             return notifications(Output.of(notifications));
         }
 
+        /**
+         * @param notifications Notification targets for each rule case.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifications(String... notifications) {
             return notifications(List.of(notifications));
         }
 
+        /**
+         * @param status Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

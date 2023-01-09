@@ -21,10 +21,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsArchiveOrder;
+ * import com.pulumi.datadog.LogsArchiveOrderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -44,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
+ * There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
  * 
  * ```sh
  *  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name&gt; archiveOrderID
@@ -54,18 +61,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/logsArchiveOrder:LogsArchiveOrder")
 public class LogsArchiveOrder extends com.pulumi.resources.CustomResource {
     /**
-     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-     * will try to update the order.
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      * 
      */
     @Export(name="archiveIds", type=List.class, parameters={String.class})
     private Output<List<String>> archiveIds;
 
     /**
-     * @return The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-     * will try to update the order.
+     * @return The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      * 
      */
     public Output<List<String>> archiveIds() {

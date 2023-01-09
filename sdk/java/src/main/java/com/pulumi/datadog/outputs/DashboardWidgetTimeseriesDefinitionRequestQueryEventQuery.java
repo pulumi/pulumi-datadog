@@ -21,6 +21,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
     private @Nullable List<String> indexes;
     private String name;
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch search;
+    private @Nullable String storage;
 
     private DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery() {}
     public List<DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute> computes() {
@@ -41,6 +42,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
     public Optional<DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch> search() {
         return Optional.ofNullable(this.search);
     }
+    public Optional<String> storage() {
+        return Optional.ofNullable(this.storage);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -57,6 +61,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch search;
+        private @Nullable String storage;
         public Builder() {}
         public Builder(DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,6 +71,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
     	      this.indexes = defaults.indexes;
     	      this.name = defaults.name;
     	      this.search = defaults.search;
+    	      this.storage = defaults.storage;
         }
 
         @CustomType.Setter
@@ -107,6 +113,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
             this.search = search;
             return this;
         }
+        @CustomType.Setter
+        public Builder storage(@Nullable String storage) {
+            this.storage = storage;
+            return this;
+        }
         public DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery build() {
             final var o = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery();
             o.computes = computes;
@@ -115,6 +126,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
             o.indexes = indexes;
             o.name = name;
             o.search = search;
+            o.storage = storage;
             return o;
         }
     }

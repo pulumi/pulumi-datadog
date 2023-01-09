@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepExtractedValueParser {
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     private String type;
     private @Nullable String value;
 
     private SyntheticsTestApiStepExtractedValueParser() {}
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public String type() {
         return this.type;
     }

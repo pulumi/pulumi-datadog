@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
     private @Nullable List<DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetGeomapDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
     public Optional<DashboardWidgetGeomapDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetGeomapDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
         private @Nullable List<DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetGeomapDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetGeomapDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetGeomapDefinitionRequestFormula build() {
             final var o = new DashboardWidgetGeomapDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

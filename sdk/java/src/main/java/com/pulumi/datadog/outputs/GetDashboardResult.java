@@ -14,8 +14,20 @@ public final class GetDashboardResult {
      * 
      */
     private String id;
+    /**
+     * @return The dashboard name to search for. Must only match one dashboard.
+     * 
+     */
     private String name;
+    /**
+     * @return The name of the dashboard.
+     * 
+     */
     private String title;
+    /**
+     * @return The URL to a specific dashboard.
+     * 
+     */
     private String url;
 
     private GetDashboardResult() {}
@@ -26,12 +38,24 @@ public final class GetDashboardResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The dashboard name to search for. Must only match one dashboard.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The name of the dashboard.
+     * 
+     */
     public String title() {
         return this.title;
     }
+    /**
+     * @return The URL to a specific dashboard.
+     * 
+     */
     public String url() {
         return this.url;
     }

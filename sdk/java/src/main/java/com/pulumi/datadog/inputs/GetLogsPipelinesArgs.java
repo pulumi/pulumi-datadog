@@ -15,9 +15,17 @@ public final class GetLogsPipelinesArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetLogsPipelinesArgs Empty = new GetLogsPipelinesArgs();
 
+    /**
+     * Filter parameter for retrieved pipelines
+     * 
+     */
     @Import(name="isReadOnly")
     private @Nullable Output<String> isReadOnly;
 
+    /**
+     * @return Filter parameter for retrieved pipelines
+     * 
+     */
     public Optional<Output<String>> isReadOnly() {
         return Optional.ofNullable(this.isReadOnly);
     }
@@ -46,11 +54,23 @@ public final class GetLogsPipelinesArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetLogsPipelinesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isReadOnly Filter parameter for retrieved pipelines
+         * 
+         * @return builder
+         * 
+         */
         public Builder isReadOnly(@Nullable Output<String> isReadOnly) {
             $.isReadOnly = isReadOnly;
             return this;
         }
 
+        /**
+         * @param isReadOnly Filter parameter for retrieved pipelines
+         * 
+         * @return builder
+         * 
+         */
         public Builder isReadOnly(String isReadOnly) {
             return isReadOnly(Output.of(isReadOnly));
         }

@@ -15,36 +15,34 @@ namespace Pulumi.Datadog.Azure
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog - Microsoft Azure integration
+    ///     var sandbox = new Datadog.Azure.Integration("sandbox", new()
     ///     {
-    ///         // Create a new Datadog - Microsoft Azure integration
-    ///         var sandbox = new Datadog.Azure.Integration("sandbox", new Datadog.Azure.IntegrationArgs
-    ///         {
-    ///             ClientId = "&lt;azure_client_id&gt;",
-    ///             ClientSecret = "&lt;azure_client_secret_key&gt;",
-    ///             HostFilters = "examplefilter:true,example:true",
-    ///             TenantName = "&lt;azure_tenant_name&gt;",
-    ///         });
-    ///     }
+    ///         ClientId = "&lt;azure_client_id&gt;",
+    ///         ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///         HostFilters = "examplefilter:true,example:true",
+    ///         TenantName = "&lt;azure_tenant_name&gt;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
+    /// Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
     /// 
     /// ```sh
     ///  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:azure/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
@@ -65,9 +63,7 @@ namespace Pulumi.Datadog.Azure
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Output("hostFilters")]
         public Output<string?> HostFilters { get; private set; } = null!;
@@ -101,6 +97,10 @@ namespace Pulumi.Datadog.Azure
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -122,7 +122,7 @@ namespace Pulumi.Datadog.Azure
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
@@ -136,16 +136,24 @@ namespace Pulumi.Datadog.Azure
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        [Input("clientSecret", required: true)]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// (Required for Initial Creation) Your Azure web application secret key.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -159,9 +167,10 @@ namespace Pulumi.Datadog.Azure
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
@@ -175,16 +184,24 @@ namespace Pulumi.Datadog.Azure
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// (Required for Initial Creation) Your Azure web application secret key.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -198,5 +215,6 @@ namespace Pulumi.Datadog.Azure
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

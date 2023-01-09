@@ -10,13 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestOptionsListRumSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestOptionsListRumSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         [Input("clientTokenId")]
-        public Input<int>? ClientTokenId { get; set; }
+        private Input<int>? _clientTokenId;
+        public Input<int>? ClientTokenId
+        {
+            get => _clientTokenId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientTokenId = Output.Tuple<Input<int>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
@@ -24,5 +33,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestOptionsListRumSettingsGetArgs()
         {
         }
+        public static new SyntheticsTestOptionsListRumSettingsGetArgs Empty => new SyntheticsTestOptionsListRumSettingsGetArgs();
     }
 }

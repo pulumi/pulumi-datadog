@@ -13,58 +13,56 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sampleIndex = new Datadog.LogsIndex("sampleIndex", new()
     ///     {
-    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
+    ///         DailyLimit = 200000,
+    ///         ExclusionFilters = new[]
     ///         {
-    ///             DailyLimit = 200000,
-    ///             ExclusionFilters = 
+    ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///             {
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 Filters = new[]
     ///                 {
-    ///                     Filters = 
+    ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
     ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "app:coredns",
-    ///                             SampleRate = 0.97,
-    ///                         },
+    ///                         Query = "app:coredns",
+    ///                         SampleRate = 0.97,
     ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Filter coredns logs",
     ///                 },
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
-    ///                 {
-    ///                     Filters = 
-    ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "service:kube_apiserver",
-    ///                             SampleRate = 1,
-    ///                         },
-    ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Kubernetes apiserver",
-    ///                 },
+    ///                 IsEnabled = true,
+    ///                 Name = "Filter coredns logs",
     ///             },
-    ///             Filters = 
+    ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///             {
-    ///                 new Datadog.Inputs.LogsIndexFilterArgs
+    ///                 Filters = new[]
     ///                 {
-    ///                     Query = "*",
+    ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                     {
+    ///                         Query = "service:kube_apiserver",
+    ///                         SampleRate = 1,
+    ///                     },
     ///                 },
+    ///                 IsEnabled = true,
+    ///                 Name = "Kubernetes apiserver",
     ///             },
-    ///             Name = "your index",
-    ///             RetentionDays = 7,
-    ///         });
-    ///     }
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsIndexFilterArgs
+    ///             {
+    ///                 Query = "*",
+    ///             },
+    ///         },
+    ///         Name = "your index",
+    ///         RetentionDays = 7,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +72,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsIndex:LogsIndex")]
-    public partial class LogsIndex : Pulumi.CustomResource
+    public partial class LogsIndex : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The number of log events you can send in this index per day before you are rate-limited.
@@ -83,8 +81,7 @@ namespace Pulumi.Datadog
         public Output<int?> DailyLimit { get; private set; } = null!;
 
         /// <summary>
-        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Output("disableDailyLimit")]
         public Output<bool> DisableDailyLimit { get; private set; } = null!;
@@ -157,7 +154,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsIndexArgs : Pulumi.ResourceArgs
+    public sealed class LogsIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of log events you can send in this index per day before you are rate-limited.
@@ -166,8 +163,7 @@ namespace Pulumi.Datadog
         public Input<int>? DailyLimit { get; set; }
 
         /// <summary>
-        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }
@@ -211,9 +207,10 @@ namespace Pulumi.Datadog
         public LogsIndexArgs()
         {
         }
+        public static new LogsIndexArgs Empty => new LogsIndexArgs();
     }
 
-    public sealed class LogsIndexState : Pulumi.ResourceArgs
+    public sealed class LogsIndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of log events you can send in this index per day before you are rate-limited.
@@ -222,8 +219,7 @@ namespace Pulumi.Datadog
         public Input<int>? DailyLimit { get; set; }
 
         /// <summary>
-        /// If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-        /// value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }
@@ -267,5 +263,6 @@ namespace Pulumi.Datadog
         public LogsIndexState()
         {
         }
+        public static new LogsIndexState Empty => new LogsIndexState();
     }
 }

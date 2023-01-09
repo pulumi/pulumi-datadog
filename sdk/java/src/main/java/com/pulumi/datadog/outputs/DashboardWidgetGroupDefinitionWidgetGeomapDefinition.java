@@ -20,6 +20,10 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     private @Nullable String liveSpan;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest> requests;
     private @Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle style;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -38,6 +42,10 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     public Optional<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle> style() {
         return Optional.ofNullable(this.style);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

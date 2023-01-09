@@ -17,6 +17,10 @@ public final class DashboardWidgetGroupDefinitionWidgetImageDefinition {
     private @Nullable String horizontalAlign;
     private @Nullable String margin;
     private @Nullable String sizing;
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     private String url;
     private @Nullable String urlDarkTheme;
     private @Nullable String verticalAlign;
@@ -37,6 +41,10 @@ public final class DashboardWidgetGroupDefinitionWidgetImageDefinition {
     public Optional<String> sizing() {
         return Optional.ofNullable(this.sizing);
     }
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     public String url() {
         return this.url;
     }

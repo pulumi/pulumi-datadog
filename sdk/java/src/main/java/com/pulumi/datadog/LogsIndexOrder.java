@@ -21,10 +21,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsIndexOrder;
+ * import com.pulumi.datadog.LogsIndexOrderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+ * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
  * 
  * ```sh
  *  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name&gt; &lt;name&gt;
@@ -53,16 +60,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/logsIndexOrder:LogsIndexOrder")
 public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
     @Export(name="indexes", type=List.class, parameters={String.class})
     private Output<List<String>> indexes;
 
     /**
-     * @return The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * @return The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
     public Output<List<String>> indexes() {

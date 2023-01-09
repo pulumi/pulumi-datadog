@@ -15,32 +15,30 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example: downtime for all monitors
+    ///     // Create a new daily 1700-0900 Datadog downtime for all monitors
+    ///     var foo = new Datadog.Downtime("foo", new()
     ///     {
-    ///         // Example: downtime for all monitors
-    ///         // Create a new daily 1700-0900 Datadog downtime for all monitors
-    ///         var foo = new Datadog.Downtime("foo", new Datadog.DowntimeArgs
+    ///         End = 1483365600,
+    ///         Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs
     ///         {
-    ///             End = 1483365600,
-    ///             Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs
-    ///             {
-    ///                 Period = 1,
-    ///                 Type = "days",
-    ///             },
-    ///             Scopes = 
-    ///             {
-    ///                 "*",
-    ///             },
-    ///             Start = 1483308000,
-    ///         });
-    ///     }
+    ///             Period = 1,
+    ///             Type = "days",
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "*",
+    ///         },
+    ///         Start = 1483308000,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/downtime:Downtime")]
-    public partial class Downtime : Pulumi.CustomResource
+    public partial class Downtime : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When true indicates this downtime is being actively applied
@@ -59,8 +57,7 @@ namespace Pulumi.Datadog
         public Output<bool> Active { get; private set; } = null!;
 
         /// <summary>
-        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-        /// This field will only exist on recurring downtimes.
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
         /// </summary>
         [Output("activeChildId")]
         public Output<int> ActiveChildId { get; private set; } = null!;
@@ -72,7 +69,7 @@ namespace Pulumi.Datadog
         public Output<bool> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// Optionally specify an end date when this downtime should expire
+        /// Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Output("end")]
         public Output<int?> End { get; private set; } = null!;
@@ -96,8 +93,7 @@ namespace Pulumi.Datadog
         public Output<int?> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-        /// silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         [Output("monitorTags")]
         public Output<ImmutableArray<string>> MonitorTags { get; private set; } = null!;
@@ -121,7 +117,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Specify when this downtime should start
+        /// Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Output("start")]
         public Output<int?> Start { get; private set; } = null!;
@@ -133,7 +129,7 @@ namespace Pulumi.Datadog
         public Output<string?> StartDate { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone for the downtime, default UTC
+        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -182,10 +178,10 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class DowntimeArgs : Pulumi.ResourceArgs
+    public sealed class DowntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optionally specify an end date when this downtime should expire
+        /// Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
@@ -212,8 +208,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-        /// silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         public InputList<string> MonitorTags
         {
@@ -246,7 +241,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Specify when this downtime should start
+        /// Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Input("start")]
         public Input<int>? Start { get; set; }
@@ -258,7 +253,7 @@ namespace Pulumi.Datadog
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The timezone for the downtime, default UTC
+        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -266,9 +261,10 @@ namespace Pulumi.Datadog
         public DowntimeArgs()
         {
         }
+        public static new DowntimeArgs Empty => new DowntimeArgs();
     }
 
-    public sealed class DowntimeState : Pulumi.ResourceArgs
+    public sealed class DowntimeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true indicates this downtime is being actively applied
@@ -277,8 +273,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-        /// This field will only exist on recurring downtimes.
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
         /// </summary>
         [Input("activeChildId")]
         public Input<int>? ActiveChildId { get; set; }
@@ -290,7 +285,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// Optionally specify an end date when this downtime should expire
+        /// Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
@@ -317,8 +312,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-        /// silenced
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         public InputList<string> MonitorTags
         {
@@ -351,7 +345,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Specify when this downtime should start
+        /// Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         /// </summary>
         [Input("start")]
         public Input<int>? Start { get; set; }
@@ -363,7 +357,7 @@ namespace Pulumi.Datadog
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The timezone for the downtime, default UTC
+        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -371,5 +365,6 @@ namespace Pulumi.Datadog
         public DowntimeState()
         {
         }
+        public static new DowntimeState Empty => new DowntimeState();
     }
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myFilter = new datadog.SecurityMonitoringFilter("my_filter", {
+ * const myFilter = new datadog.SecurityMonitoringFilter("myFilter", {
  *     exclusionFilters: [
  *         {
  *             name: "first",
@@ -33,7 +34,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Security monitoring filters can be imported using ID, e.g.
+ * Security monitoring filters can be imported using ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
@@ -72,7 +73,7 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
      */
     public readonly exclusionFilters!: pulumi.Output<outputs.SecurityMonitoringFilterExclusionFilter[] | undefined>;
     /**
-     * The filtered data type.
+     * The filtered data type. Valid values are `logs`.
      */
     public readonly filteredDataType!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +144,7 @@ export interface SecurityMonitoringFilterState {
      */
     exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
     /**
-     * The filtered data type.
+     * The filtered data type. Valid values are `logs`.
      */
     filteredDataType?: pulumi.Input<string>;
     /**
@@ -173,7 +174,7 @@ export interface SecurityMonitoringFilterArgs {
      */
     exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
     /**
-     * The filtered data type.
+     * The filtered data type. Valid values are `logs`.
      */
     filteredDataType?: pulumi.Input<string>;
     /**

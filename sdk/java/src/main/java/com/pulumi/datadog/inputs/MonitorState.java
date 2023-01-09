@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdWindowsArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdsArgs;
+import com.pulumi.datadog.inputs.MonitorSchedulingOptionArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -36,6 +37,23 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableLogsSample() {
         return Optional.ofNullable(this.enableLogsSample);
+    }
+
+    /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    @Import(name="enableSamples")
+    private @Nullable Output<Boolean> enableSamples;
+
+    /**
+     * @return Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+     * monitors.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSamples() {
+        return Optional.ofNullable(this.enableSamples);
     }
 
     /**
@@ -168,16 +186,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * A message to include with notifications for this monitor.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-     * same `@username` notation as events.
+     * @return A message to include with notifications for this monitor.
      * 
      */
     public Optional<Output<String>> message() {
@@ -307,6 +323,29 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> notifyAudit() {
         return Optional.ofNullable(this.notifyAudit);
+    }
+
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    @Import(name="notifyBies")
+    private @Nullable Output<List<String>> notifyBies;
+
+    /**
+     * @return Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+     * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+     * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+     * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+     * to `[*]` configures the monitor to notify as a simple-alert.
+     * 
+     */
+    public Optional<Output<List<String>>> notifyBies() {
+        return Optional.ofNullable(this.notifyBies);
     }
 
     /**
@@ -479,6 +518,21 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration options for scheduling.
+     * 
+     */
+    @Import(name="schedulingOptions")
+    private @Nullable Output<List<MonitorSchedulingOptionArgs>> schedulingOptions;
+
+    /**
+     * @return Configuration options for scheduling.
+     * 
+     */
+    public Optional<Output<List<MonitorSchedulingOptionArgs>>> schedulingOptions() {
+        return Optional.ofNullable(this.schedulingOptions);
+    }
+
+    /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
@@ -557,6 +611,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     private MonitorState(MonitorState $) {
         this.enableLogsSample = $.enableLogsSample;
+        this.enableSamples = $.enableSamples;
         this.escalationMessage = $.escalationMessage;
         this.evaluationDelay = $.evaluationDelay;
         this.forceDelete = $.forceDelete;
@@ -572,6 +627,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.newHostDelay = $.newHostDelay;
         this.noDataTimeframe = $.noDataTimeframe;
         this.notifyAudit = $.notifyAudit;
+        this.notifyBies = $.notifyBies;
         this.notifyNoData = $.notifyNoData;
         this.onMissingData = $.onMissingData;
         this.priority = $.priority;
@@ -581,6 +637,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.renotifyStatuses = $.renotifyStatuses;
         this.requireFullWindow = $.requireFullWindow;
         this.restrictedRoles = $.restrictedRoles;
+        this.schedulingOptions = $.schedulingOptions;
         this.tags = $.tags;
         this.timeoutH = $.timeoutH;
         this.type = $.type;
@@ -627,6 +684,29 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableLogsSample(Boolean enableLogsSample) {
             return enableLogsSample(Output.of(enableLogsSample));
+        }
+
+        /**
+         * @param enableSamples Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+         * monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSamples(@Nullable Output<Boolean> enableSamples) {
+            $.enableSamples = enableSamples;
+            return this;
+        }
+
+        /**
+         * @param enableSamples Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+         * monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSamples(Boolean enableSamples) {
+            return enableSamples(Output.of(enableSamples));
         }
 
         /**
@@ -801,8 +881,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-         * same `@username` notation as events.
+         * @param message A message to include with notifications for this monitor.
          * 
          * @return builder
          * 
@@ -813,8 +892,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-         * same `@username` notation as events.
+         * @param message A message to include with notifications for this monitor.
          * 
          * @return builder
          * 
@@ -988,6 +1066,49 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notifyAudit(Boolean notifyAudit) {
             return notifyAudit(Output.of(notifyAudit));
+        }
+
+        /**
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+         * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+         * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+         * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+         * to `[*]` configures the monitor to notify as a simple-alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyBies(@Nullable Output<List<String>> notifyBies) {
+            $.notifyBies = notifyBies;
+            return this;
+        }
+
+        /**
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+         * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+         * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+         * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+         * to `[*]` configures the monitor to notify as a simple-alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyBies(List<String> notifyBies) {
+            return notifyBies(Output.of(notifyBies));
+        }
+
+        /**
+         * @param notifyBies Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+         * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+         * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+         * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+         * to `[*]` configures the monitor to notify as a simple-alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyBies(String... notifyBies) {
+            return notifyBies(List.of(notifyBies));
         }
 
         /**
@@ -1234,6 +1355,37 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
+        }
+
+        /**
+         * @param schedulingOptions Configuration options for scheduling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingOptions(@Nullable Output<List<MonitorSchedulingOptionArgs>> schedulingOptions) {
+            $.schedulingOptions = schedulingOptions;
+            return this;
+        }
+
+        /**
+         * @param schedulingOptions Configuration options for scheduling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingOptions(List<MonitorSchedulingOptionArgs> schedulingOptions) {
+            return schedulingOptions(Output.of(schedulingOptions));
+        }
+
+        /**
+         * @param schedulingOptions Configuration options for scheduling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingOptions(MonitorSchedulingOptionArgs... schedulingOptions) {
+            return schedulingOptions(List.of(schedulingOptions));
         }
 
         /**

@@ -7,36 +7,70 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LogsArchiveS3ArchiveArgs Empty = new LogsArchiveS3ArchiveArgs();
 
+    /**
+     * Your AWS account id.
+     * 
+     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
+    /**
+     * @return Your AWS account id.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
+    /**
+     * Name of your s3 bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return Name of your s3 bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    @Import(name="path", required=true)
-    private Output<String> path;
+    /**
+     * Path where the archive is stored.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
-    public Output<String> path() {
-        return this.path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
     }
 
+    /**
+     * Your AWS role name
+     * 
+     */
     @Import(name="roleName", required=true)
     private Output<String> roleName;
 
+    /**
+     * @return Your AWS role name
+     * 
+     */
     public Output<String> roleName() {
         return this.roleName;
     }
@@ -68,38 +102,86 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
             $ = new LogsArchiveS3ArchiveArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId Your AWS account id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId Your AWS account id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param bucket Name of your s3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket Name of your s3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        public Builder path(Output<String> path) {
+        /**
+         * @param path Path where the archive is stored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Path where the archive is stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param roleName Your AWS role name
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleName(Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
+        /**
+         * @param roleName Your AWS role name
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
         }
@@ -107,7 +189,6 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         public LogsArchiveS3ArchiveArgs build() {
             $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
             $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
             $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
             return $;
         }

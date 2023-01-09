@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,16 +16,47 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
 
     public static final LogsMetricComputeArgs Empty = new LogsMetricComputeArgs();
 
+    /**
+     * The type of aggregation to use. This field can&#39;t be updated after creation. Valid values are `count`, `distribution`.
+     * 
+     */
     @Import(name="aggregationType", required=true)
     private Output<String> aggregationType;
 
+    /**
+     * @return The type of aggregation to use. This field can&#39;t be updated after creation. Valid values are `count`, `distribution`.
+     * 
+     */
     public Output<String> aggregationType() {
         return this.aggregationType;
     }
 
+    /**
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * 
+     */
+    @Import(name="includePercentiles")
+    private @Nullable Output<Boolean> includePercentiles;
+
+    /**
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+     * 
+     */
+    public Optional<Output<Boolean>> includePercentiles() {
+        return Optional.ofNullable(this.includePercentiles);
+    }
+
+    /**
+     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a &#34;distribution&#34;). This field can&#39;t be updated after creation.
+     * 
+     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
+    /**
+     * @return The path to the value the log-based metric will aggregate on (only used if the aggregation type is a &#34;distribution&#34;). This field can&#39;t be updated after creation.
+     * 
+     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -33,6 +65,7 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
 
     private LogsMetricComputeArgs(LogsMetricComputeArgs $) {
         this.aggregationType = $.aggregationType;
+        this.includePercentiles = $.includePercentiles;
         this.path = $.path;
     }
 
@@ -54,20 +87,65 @@ public final class LogsMetricComputeArgs extends com.pulumi.resources.ResourceAr
             $ = new LogsMetricComputeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregationType The type of aggregation to use. This field can&#39;t be updated after creation. Valid values are `count`, `distribution`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregationType(Output<String> aggregationType) {
             $.aggregationType = aggregationType;
             return this;
         }
 
+        /**
+         * @param aggregationType The type of aggregation to use. This field can&#39;t be updated after creation. Valid values are `count`, `distribution`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregationType(String aggregationType) {
             return aggregationType(Output.of(aggregationType));
         }
 
+        /**
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includePercentiles(@Nullable Output<Boolean> includePercentiles) {
+            $.includePercentiles = includePercentiles;
+            return this;
+        }
+
+        /**
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregation_type` of distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includePercentiles(Boolean includePercentiles) {
+            return includePercentiles(Output.of(includePercentiles));
+        }
+
+        /**
+         * @param path The path to the value the log-based metric will aggregate on (only used if the aggregation type is a &#34;distribution&#34;). This field can&#39;t be updated after creation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The path to the value the log-based metric will aggregate on (only used if the aggregation type is a &#34;distribution&#34;). This field can&#39;t be updated after creation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

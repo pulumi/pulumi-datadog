@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ServiceLevelObjectiveQueryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sum of the `total` events.
+        /// </summary>
         [Input("denominator", required: true)]
         public Input<string> Denominator { get; set; } = null!;
 
+        /// <summary>
+        /// The sum of all the `good` events.
+        /// </summary>
         [Input("numerator", required: true)]
         public Input<string> Numerator { get; set; } = null!;
 
         public ServiceLevelObjectiveQueryArgs()
         {
         }
+        public static new ServiceLevelObjectiveQueryArgs Empty => new ServiceLevelObjectiveQueryArgs();
     }
 }

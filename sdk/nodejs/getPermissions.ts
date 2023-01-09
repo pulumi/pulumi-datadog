@@ -13,15 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const permissions = pulumi.output(datadog.getPermissions());
+ * const permissions = datadog.getPermissions({});
  * ```
  */
 export function getPermissions(opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getPermissions:getPermissions", {
     }, opts);
 }
@@ -34,5 +31,8 @@ export interface GetPermissionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Map of permissions names to their corresponding ID.
+     */
     readonly permissions: {[key: string]: string};
 }

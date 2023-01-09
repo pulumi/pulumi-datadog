@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getDashboard({
+ * const test = datadog.getDashboard({
  *     name: "My super dashboard",
- * }));
+ * });
  * ```
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getDashboard:getDashboard", {
         "name": args.name,
     }, opts);
@@ -33,6 +30,9 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getDashboard.
  */
 export interface GetDashboardArgs {
+    /**
+     * The dashboard name to search for. Must only match one dashboard.
+     */
     name: string;
 }
 
@@ -44,18 +44,43 @@ export interface GetDashboardResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The dashboard name to search for. Must only match one dashboard.
+     */
     readonly name: string;
+    /**
+     * The name of the dashboard.
+     */
     readonly title: string;
+    /**
+     * The URL to a specific dashboard.
+     */
     readonly url: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getDashboard({
+ *     name: "My super dashboard",
+ * });
+ * ```
+ */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    return pulumi.output(args).apply(a => getDashboard(a, opts))
+    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getDashboard.
  */
 export interface GetDashboardOutputArgs {
+    /**
+     * The dashboard name to search for. Must only match one dashboard.
+     */
     name: pulumi.Input<string>;
 }

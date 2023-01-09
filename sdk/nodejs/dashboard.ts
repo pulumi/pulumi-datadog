@@ -2,705 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Example Ordered Layout
- * const orderedDashboard = new datadog.Dashboard("ordered_dashboard", {
- *     description: "Created using the Datadog provider in Terraform",
- *     isReadOnly: true,
- *     layoutType: "ordered",
- *     templateVariables: [
- *         {
- *             default: "aws",
- *             name: "var_1",
- *             prefix: "host",
- *         },
- *         {
- *             default: "autoscaling",
- *             name: "var_2",
- *             prefix: "service_name",
- *         },
- *     ],
- *     templateVariablePresets: [{
- *         name: "preset_1",
- *         templateVariables: [
- *             {
- *                 name: "var_1",
- *                 value: "host.dc",
- *             },
- *             {
- *                 name: "var_2",
- *                 value: "my_service",
- *             },
- *         ],
- *     }],
- *     title: "Ordered Layout Dashboard",
- *     widgets: [
- *         {
- *             alertGraphDefinition: {
- *                 alertId: "895605",
- *                 liveSpan: "1h",
- *                 title: "Widget Title",
- *                 vizType: "timeseries",
- *             },
- *         },
- *         {
- *             alertValueDefinition: {
- *                 alertId: "895605",
- *                 precision: 3,
- *                 textAlign: "center",
- *                 title: "Widget Title",
- *                 unit: "b",
- *             },
- *         },
- *         {
- *             alertValueDefinition: {
- *                 alertId: "895605",
- *                 precision: 3,
- *                 textAlign: "center",
- *                 title: "Widget Title",
- *                 unit: "b",
- *             },
- *         },
- *         {
- *             changeDefinition: {
- *                 liveSpan: "1h",
- *                 requests: [{
- *                     changeType: "absolute",
- *                     compareTo: "week_before",
- *                     increaseGood: true,
- *                     orderBy: "name",
- *                     orderDir: "desc",
- *                     q: "avg:system.load.1{env:staging} by {account}",
- *                     showPresent: true,
- *                 }],
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             distributionDefinition: {
- *                 liveSpan: "1h",
- *                 requests: [{
- *                     q: "avg:system.load.1{env:staging} by {account}",
- *                     style: {
- *                         palette: "warm",
- *                     },
- *                 }],
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             checkStatusDefinition: {
- *                 check: "aws.ecs.agent_connected",
- *                 groupBies: [
- *                     "account",
- *                     "cluster",
- *                 ],
- *                 grouping: "cluster",
- *                 liveSpan: "1h",
- *                 tags: [
- *                     "account:demo",
- *                     "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
- *                 ],
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             heatmapDefinition: {
- *                 liveSpan: "1h",
- *                 requests: [{
- *                     q: "avg:system.load.1{env:staging} by {account}",
- *                     style: {
- *                         palette: "warm",
- *                     },
- *                 }],
- *                 title: "Widget Title",
- *                 yaxis: {
- *                     includeZero: true,
- *                     max: "2",
- *                     min: "1",
- *                     scale: "sqrt",
- *                 },
- *             },
- *         },
- *         {
- *             hostmapDefinition: {
- *                 groups: [
- *                     "host",
- *                     "region",
- *                 ],
- *                 noGroupHosts: true,
- *                 noMetricHosts: true,
- *                 nodeType: "container",
- *                 request: {
- *                     fills: [{
- *                         q: "avg:system.load.1{*} by {host}",
- *                     }],
- *                     sizes: [{
- *                         q: "avg:memcache.uptime{*} by {host}",
- *                     }],
- *                 },
- *                 scopes: [
- *                     "region:us-east-1",
- *                     "aws_account:727006795293",
- *                 ],
- *                 style: {
- *                     fillMax: "20",
- *                     fillMin: "10",
- *                     palette: "yellow_to_green",
- *                     paletteFlip: true,
- *                 },
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             noteDefinition: {
- *                 backgroundColor: "pink",
- *                 content: "note text",
- *                 fontSize: "14",
- *                 showTick: true,
- *                 textAlign: "center",
- *                 tickEdge: "left",
- *                 tickPos: "50%",
- *             },
- *         },
- *         {
- *             queryValueDefinition: {
- *                 autoscale: true,
- *                 customUnit: "xx",
- *                 liveSpan: "1h",
- *                 precision: 4,
- *                 requests: [{
- *                     aggregator: "sum",
- *                     conditionalFormats: [
- *                         {
- *                             comparator: "<",
- *                             palette: "white_on_green",
- *                             value: 2,
- *                         },
- *                         {
- *                             comparator: ">",
- *                             palette: "white_on_red",
- *                             value: 2.2,
- *                         },
- *                     ],
- *                     q: "avg:system.load.1{env:staging} by {account}",
- *                 }],
- *                 textAlign: "right",
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             queryTableDefinition: {
- *                 liveSpan: "1h",
- *                 requests: [{
- *                     aggregator: "sum",
- *                     conditionalFormats: [
- *                         {
- *                             comparator: "<",
- *                             palette: "white_on_green",
- *                             value: 2,
- *                         },
- *                         {
- *                             comparator: ">",
- *                             palette: "white_on_red",
- *                             value: 2.2,
- *                         },
- *                     ],
- *                     limit: 10,
- *                     q: "avg:system.load.1{env:staging} by {account}",
- *                 }],
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             scatterplotDefinition: {
- *                 colorByGroups: [
- *                     "account",
- *                     "apm-role-group",
- *                 ],
- *                 liveSpan: "1h",
- *                 request: {
- *                     xes: [{
- *                         aggregator: "max",
- *                         q: "avg:system.cpu.user{*} by {service, account}",
- *                     }],
- *                     ys: [{
- *                         aggregator: "min",
- *                         q: "avg:system.mem.used{*} by {service, account}",
- *                     }],
- *                 },
- *                 title: "Widget Title",
- *                 xaxis: {
- *                     includeZero: true,
- *                     label: "x",
- *                     max: "2000",
- *                     min: "1",
- *                     scale: "pow",
- *                 },
- *                 yaxis: {
- *                     includeZero: false,
- *                     label: "y",
- *                     max: "2222",
- *                     min: "5",
- *                     scale: "log",
- *                 },
- *             },
- *         },
- *         {
- *             servicemapDefinition: {
- *                 filters: [
- *                     "env:prod",
- *                     "datacenter:dc1",
- *                 ],
- *                 service: "master-db",
- *                 title: "env: prod, datacenter:dc1, service: master-db",
- *                 titleAlign: "left",
- *                 titleSize: "16",
- *             },
- *         },
- *         {
- *             timeseriesDefinition: {
- *                 events: [
- *                     {
- *                         q: "sources:test tags:1",
- *                     },
- *                     {
- *                         q: "sources:test tags:2",
- *                     },
- *                 ],
- *                 legendSize: "2",
- *                 liveSpan: "1h",
- *                 markers: [
- *                     {
- *                         displayType: "error dashed",
- *                         label: " z=6 ",
- *                         value: "y = 4",
- *                     },
- *                     {
- *                         displayType: "ok solid",
- *                         label: " x=8 ",
- *                         value: "10 < y < 999",
- *                     },
- *                 ],
- *                 requests: [
- *                     {
- *                         displayType: "line",
- *                         metadatas: [{
- *                             aliasName: "Alpha",
- *                             expression: "avg:system.cpu.user{app:general} by {env}",
- *                         }],
- *                         q: "avg:system.cpu.user{app:general} by {env}",
- *                         style: {
- *                             lineType: "dashed",
- *                             lineWidth: "thin",
- *                             palette: "warm",
- *                         },
- *                     },
- *                     {
- *                         displayType: "area",
- *                         logQuery: {
- *                             computeQuery: {
- *                                 aggregation: "avg",
- *                                 facet: "@duration",
- *                                 interval: 5000,
- *                             },
- *                             groupBies: [{
- *                                 facet: "host",
- *                                 limit: 10,
- *                                 sortQuery: {
- *                                     aggregation: "avg",
- *                                     facet: "@duration",
- *                                     order: "desc",
- *                                 },
- *                             }],
- *                             index: "mcnulty",
- *                             searchQuery: "status:info",
- *                         },
- *                     },
- *                     {
- *                         apmQuery: {
- *                             computeQuery: {
- *                                 aggregation: "avg",
- *                                 facet: "@duration",
- *                                 interval: 5000,
- *                             },
- *                             groupBies: [{
- *                                 facet: "resource_name",
- *                                 limit: 50,
- *                                 sortQuery: {
- *                                     aggregation: "avg",
- *                                     facet: "@string_query.interval",
- *                                     order: "desc",
- *                                 },
- *                             }],
- *                             index: "apm-search",
- *                             searchQuery: "type:web",
- *                         },
- *                         displayType: "bars",
- *                     },
- *                     {
- *                         displayType: "area",
- *                         processQuery: {
- *                             filterBies: ["active"],
- *                             limit: 50,
- *                             metric: "process.stat.cpu.total_pct",
- *                             searchBy: "error",
- *                         },
- *                     },
- *                 ],
- *                 showLegend: true,
- *                 title: "Widget Title",
- *                 yaxis: {
- *                     includeZero: false,
- *                     max: "100",
- *                     scale: "log",
- *                 },
- *             },
- *         },
- *         {
- *             toplistDefinition: {
- *                 requests: [{
- *                     conditionalFormats: [
- *                         {
- *                             comparator: "<",
- *                             palette: "white_on_green",
- *                             value: 2,
- *                         },
- *                         {
- *                             comparator: ">",
- *                             palette: "white_on_red",
- *                             value: 2.2,
- *                         },
- *                     ],
- *                     q: "avg:system.cpu.user{app:general} by {env}",
- *                 }],
- *                 title: "Widget Title",
- *             },
- *         },
- *         {
- *             groupDefinition: {
- *                 layoutType: "ordered",
- *                 title: "Group Widget",
- *                 widgets: [
- *                     {
- *                         noteDefinition: {
- *                             backgroundColor: "pink",
- *                             content: "cluster note widget",
- *                             fontSize: "14",
- *                             showTick: true,
- *                             textAlign: "center",
- *                             tickEdge: "left",
- *                             tickPos: "50%",
- *                         },
- *                     },
- *                     {
- *                         alertGraphDefinition: {
- *                             alertId: "123",
- *                             liveSpan: "1h",
- *                             title: "Alert Graph",
- *                             vizType: "toplist",
- *                         },
- *                     },
- *                 ],
- *             },
- *         },
- *         {
- *             serviceLevelObjectiveDefinition: {
- *                 showErrorBudget: true,
- *                 sloId: "56789",
- *                 timeWindows: [
- *                     "7d",
- *                     "previous_week",
- *                 ],
- *                 title: "Widget Title",
- *                 viewMode: "overall",
- *                 viewType: "detail",
- *             },
- *         },
- *     ],
- * });
- * // Example Free Layout
- * const freeDashboard = new datadog.Dashboard("free_dashboard", {
- *     description: "Created using the Datadog provider in Terraform",
- *     isReadOnly: false,
- *     layoutType: "free",
- *     templateVariables: [
- *         {
- *             default: "aws",
- *             name: "var_1",
- *             prefix: "host",
- *         },
- *         {
- *             default: "autoscaling",
- *             name: "var_2",
- *             prefix: "service_name",
- *         },
- *     ],
- *     templateVariablePresets: [{
- *         name: "preset_1",
- *         templateVariables: [
- *             {
- *                 name: "var_1",
- *                 value: "host.dc",
- *             },
- *             {
- *                 name: "var_2",
- *                 value: "my_service",
- *             },
- *         ],
- *     }],
- *     title: "Free Layout Dashboard",
- *     widgets: [
- *         {
- *             eventStreamDefinition: {
- *                 eventSize: "l",
- *                 liveSpan: "1h",
- *                 query: "*",
- *                 title: "Widget Title",
- *                 titleAlign: "left",
- *                 titleSize: "16",
- *             },
- *             widgetLayout: {
- *                 height: 43,
- *                 width: 32,
- *                 x: 0,
- *                 y: 0,
- *             },
- *         },
- *         {
- *             eventTimelineDefinition: {
- *                 liveSpan: "1h",
- *                 query: "*",
- *                 title: "Widget Title",
- *                 titleAlign: "left",
- *                 titleSize: "16",
- *             },
- *             widgetLayout: {
- *                 height: 9,
- *                 width: 66,
- *                 x: 33,
- *                 y: 60,
- *             },
- *         },
- *         {
- *             freeTextDefinition: {
- *                 color: "#d00",
- *                 fontSize: "36",
- *                 text: "free text content",
- *                 textAlign: "left",
- *             },
- *             widgetLayout: {
- *                 height: 20,
- *                 width: 34,
- *                 x: 33,
- *                 y: 0,
- *             },
- *         },
- *         {
- *             iframeDefinition: {
- *                 url: "http://google.com",
- *             },
- *             widgetLayout: {
- *                 height: 46,
- *                 width: 39,
- *                 x: 101,
- *                 y: 0,
- *             },
- *         },
- *         {
- *             imageDefinition: {
- *                 margin: "small",
- *                 sizing: "fit",
- *                 url: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
- *             },
- *             widgetLayout: {
- *                 height: 20,
- *                 width: 30,
- *                 x: 69,
- *                 y: 0,
- *             },
- *         },
- *         {
- *             logStreamDefinition: {
- *                 columns: [
- *                     "core_host",
- *                     "core_service",
- *                     "tag_source",
- *                 ],
- *                 indexes: ["main"],
- *                 messageDisplay: "expanded-md",
- *                 query: "error",
- *                 showDateColumn: true,
- *                 showMessageColumn: true,
- *                 sort: {
- *                     column: "time",
- *                     order: "desc",
- *                 },
- *             },
- *             widgetLayout: {
- *                 height: 36,
- *                 width: 32,
- *                 x: 0,
- *                 y: 45,
- *             },
- *         },
- *         {
- *             manageStatusDefinition: {
- *                 colorPreference: "text",
- *                 displayFormat: "countsAndList",
- *                 hideZeroCounts: true,
- *                 query: "type:metric",
- *                 showLastTriggered: false,
- *                 sort: "status,asc",
- *                 summaryType: "monitors",
- *                 title: "Widget Title",
- *                 titleAlign: "left",
- *                 titleSize: "16",
- *             },
- *             widgetLayout: {
- *                 height: 40,
- *                 width: 30,
- *                 x: 101,
- *                 y: 48,
- *             },
- *         },
- *         {
- *             traceServiceDefinition: {
- *                 displayFormat: "three_column",
- *                 env: "datadog.com",
- *                 liveSpan: "1h",
- *                 service: "alerting-cassandra",
- *                 showBreakdown: true,
- *                 showDistribution: true,
- *                 showErrors: true,
- *                 showHits: true,
- *                 showLatency: false,
- *                 showResourceList: false,
- *                 sizeFormat: "large",
- *                 spanName: "cassandra.query",
- *                 title: "alerting-cassandra #env:datadog.com",
- *                 titleAlign: "center",
- *                 titleSize: "13",
- *             },
- *             widgetLayout: {
- *                 height: 38,
- *                 width: 66,
- *                 x: 33,
- *                 y: 21,
- *             },
- *         },
- *         {
- *             timeseriesDefinition: {
- *                 requests: [{
- *                     formulas: [
- *                         {
- *                             alias: "my ff query",
- *                             formulaExpression: "my_query_1 + my_query_2",
- *                         },
- *                         {
- *                             alias: "my second ff query",
- *                             formulaExpression: "my_query_1 * my_query_2",
- *                             limit: {
- *                                 count: 5,
- *                                 order: "desc",
- *                             },
- *                         },
- *                     ],
- *                     queries: [
- *                         {
- *                             metricQuery: {
- *                                 aggregator: "sum",
- *                                 dataSource: "metrics",
- *                                 name: "my_query_1",
- *                                 query: "avg:system.cpu.user{app:general} by {env}",
- *                             },
- *                         },
- *                         {
- *                             metricQuery: {
- *                                 aggregator: "sum",
- *                                 name: "my_query_2",
- *                                 query: "avg:system.cpu.user{app:general} by {env}",
- *                             },
- *                         },
- *                     ],
- *                 }],
- *             },
- *             widgetLayout: {
- *                 height: 16,
- *                 width: 25,
- *                 x: 58,
- *                 y: 83,
- *             },
- *         },
- *         {
- *             timeseriesDefinition: {
- *                 requests: [{
- *                     queries: [{
- *                         eventQuery: {
- *                             computes: [{
- *                                 aggregation: "count",
- *                             }],
- *                             dataSource: "logs",
- *                             groupBies: [{
- *                                 facet: "host",
- *                                 limit: 10,
- *                                 sort: {
- *                                     aggregation: "avg",
- *                                     metric: "@lambda.max_memory_used",
- *                                 },
- *                             }],
- *                             indexes: ["days-3"],
- *                             name: "my-query",
- *                         },
- *                     }],
- *                 }],
- *             },
- *             widgetLayout: {
- *                 height: 16,
- *                 width: 28,
- *                 x: 29,
- *                 y: 83,
- *             },
- *         },
- *         {
- *             timeseriesDefinition: {
- *                 requests: [{
- *                     queries: [{
- *                         processQuery: {
- *                             aggregator: "sum",
- *                             dataSource: "process",
- *                             isNormalizedCpu: true,
- *                             limit: 10,
- *                             metric: "process.stat.cpu.total_pct",
- *                             name: "my_process_query",
- *                             sort: "asc",
- *                             tagFilters: ["some_filter"],
- *                             textFilter: "abc",
- *                         },
- *                     }],
- *                 }],
- *             },
- *             widgetLayout: {
- *                 height: 16,
- *                 width: 28,
- *                 x: 0,
- *                 y: 83,
- *             },
- *         },
- *     ],
- * });
- * ```
  *
  * ## Import
  *
@@ -749,13 +56,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * The layout type of the dashboard.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
@@ -763,8 +70,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     public readonly reflowType!: pulumi.Output<string | undefined>;
     /**
@@ -862,13 +168,13 @@ export interface DashboardState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType?: pulumi.Input<string>;
     /**
@@ -876,8 +182,7 @@ export interface DashboardState {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     reflowType?: pulumi.Input<string>;
     /**
@@ -919,13 +224,13 @@ export interface DashboardArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType: pulumi.Input<string>;
     /**
@@ -933,8 +238,7 @@ export interface DashboardArgs {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     reflowType?: pulumi.Input<string>;
     /**

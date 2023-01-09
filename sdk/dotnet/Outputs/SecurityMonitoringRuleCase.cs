@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringRuleCase
     {
+        /// <summary>
+        /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+        /// </summary>
         public readonly string? Condition;
+        /// <summary>
+        /// Name of the case.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Notification targets for each rule case.
+        /// </summary>
         public readonly ImmutableArray<string> Notifications;
+        /// <summary>
+        /// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

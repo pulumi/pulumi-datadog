@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaArgs(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
         public Builder limit(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaArgs build() {

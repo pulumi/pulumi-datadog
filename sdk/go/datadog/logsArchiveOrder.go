@@ -28,8 +28,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
 //				ArchiveIds: pulumi.StringArray{
-//					pulumi.Any(datadog_logs_archive.Sample_archive_1.Id),
-//					pulumi.Any(datadog_logs_archive.Sample_archive_2.Id),
+//					datadog_logs_archive.Sample_archive_1.Id,
+//					datadog_logs_archive.Sample_archive_2.Id,
 //				},
 //			})
 //			if err != nil {
@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
+// There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
 //
 // ```sh
 //
@@ -53,9 +53,7 @@ import (
 type LogsArchiveOrder struct {
 	pulumi.CustomResourceState
 
-	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-	// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-	// will try to update the order.
+	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds pulumi.StringArrayOutput `pulumi:"archiveIds"`
 }
 
@@ -88,16 +86,12 @@ func GetLogsArchiveOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsArchiveOrder resources.
 type logsArchiveOrderState struct {
-	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-	// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-	// will try to update the order.
+	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds []string `pulumi:"archiveIds"`
 }
 
 type LogsArchiveOrderState struct {
-	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-	// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-	// will try to update the order.
+	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds pulumi.StringArrayInput
 }
 
@@ -106,17 +100,13 @@ func (LogsArchiveOrderState) ElementType() reflect.Type {
 }
 
 type logsArchiveOrderArgs struct {
-	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-	// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-	// will try to update the order.
+	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds []string `pulumi:"archiveIds"`
 }
 
 // The set of arguments for constructing a LogsArchiveOrder resource.
 type LogsArchiveOrderArgs struct {
-	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-	// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-	// will try to update the order.
+	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds pulumi.StringArrayInput
 }
 
@@ -207,9 +197,7 @@ func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutputWithContext(ctx context.
 	return o
 }
 
-// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-// `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-// will try to update the order.
+// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 func (o LogsArchiveOrderOutput) ArchiveIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsArchiveOrder) pulumi.StringArrayOutput { return v.ArchiveIds }).(pulumi.StringArrayOutput)
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,15 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getLogsIndexes());
+ * const test = datadog.getLogsIndexes({});
  * ```
  */
 export function getLogsIndexes(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getLogsIndexes:getLogsIndexes", {
     }, opts);
 }
@@ -35,5 +33,8 @@ export interface GetLogsIndexesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of logs indexes
+     */
     readonly logsIndexes: outputs.GetLogsIndexesLogsIndex[];
 }

@@ -15,16 +15,32 @@ public final class GetApplicationKeyArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetApplicationKeyArgs Empty = new GetApplicationKeyArgs();
 
+    /**
+     * Id for Application Key.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return Id for Application Key.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Name for Application Key.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name for Application Key.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class GetApplicationKeyArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetApplicationKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id Id for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id Id for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param name Name for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

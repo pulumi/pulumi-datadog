@@ -58,9 +58,17 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The title of the dashboard.
+     * 
+     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
@@ -173,11 +181,23 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
             return tags(List.of(tags));
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

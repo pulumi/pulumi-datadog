@@ -11,7 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecurityMonitoringFiltersResult {
+    /**
+     * @return List of filters.
+     * 
+     */
     private List<GetSecurityMonitoringFiltersFilter> filters;
+    /**
+     * @return List of IDs of filters.
+     * 
+     */
     private List<String> filtersIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,9 +28,17 @@ public final class GetSecurityMonitoringFiltersResult {
     private String id;
 
     private GetSecurityMonitoringFiltersResult() {}
+    /**
+     * @return List of filters.
+     * 
+     */
     public List<GetSecurityMonitoringFiltersFilter> filters() {
         return this.filters;
     }
+    /**
+     * @return List of IDs of filters.
+     * 
+     */
     public List<String> filtersIds() {
         return this.filtersIds;
     }

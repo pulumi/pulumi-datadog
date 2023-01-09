@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetDistributionDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetDistributionDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -41,5 +44,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetDistributionDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetDistributionDefinitionGetArgs Empty => new DashboardWidgetDistributionDefinitionGetArgs();
     }
 }

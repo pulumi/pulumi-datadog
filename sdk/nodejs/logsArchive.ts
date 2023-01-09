@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myS3Archive = new datadog.LogsArchive("my_s3_archive", {
+ * const myS3Archive = new datadog.LogsArchive("myS3Archive", {
  *     name: "my s3 archive",
  *     query: "service:myservice",
  *     s3Archive: {
@@ -69,8 +70,7 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     public readonly gcsArchive!: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-     * are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -150,8 +150,7 @@ export interface LogsArchiveState {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-     * are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -189,8 +188,7 @@ export interface LogsArchiveArgs {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-     * are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      */
     includeTags?: pulumi.Input<boolean>;
     /**

@@ -16,6 +16,10 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink> customLinks;
     private List<String> filters;
     private String service;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -30,6 +34,10 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     public String service() {
         return this.service;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

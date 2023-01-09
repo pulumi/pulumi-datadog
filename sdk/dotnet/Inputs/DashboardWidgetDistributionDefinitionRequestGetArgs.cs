@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetDistributionDefinitionRequestGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetDistributionDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetDistributionDefinitionRequestGetArgs()
         {
         }
+        public static new DashboardWidgetDistributionDefinitionRequestGetArgs Empty => new DashboardWidgetDistributionDefinitionRequestGetArgs();
     }
 }

@@ -8,11 +8,8 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about an existing user to use it in an other resources.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getUser:getUser", {
         "filter": args.filter,
     }, opts);
@@ -22,6 +19,9 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * Filter all users by the given string.
+     */
     filter: string;
 }
 
@@ -29,22 +29,36 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
+    /**
+     * Email of the user.
+     */
     readonly email: string;
+    /**
+     * Filter all users by the given string.
+     */
     readonly filter: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the user.
+     */
     readonly name: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing user to use it in an other resources.
+ */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply(a => getUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    /**
+     * Filter all users by the given string.
+     */
     filter: pulumi.Input<string>;
 }

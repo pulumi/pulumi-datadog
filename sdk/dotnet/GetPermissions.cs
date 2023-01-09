@@ -19,23 +19,21 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var permissions = Output.Create(Datadog.GetPermissions.InvokeAsync());
-        ///     }
+        ///     var permissions = Datadog.GetPermissions.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -46,6 +44,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Map of permissions names to their corresponding ID.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Permissions;
 
         [OutputConstructor]

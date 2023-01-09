@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionCustomLinkArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionCustomLinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("isHidden")]
         public Input<bool>? IsHidden { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionCustomLinkArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionCustomLinkArgs Empty => new DashboardWidgetHostmapDefinitionCustomLinkArgs();
     }
 }

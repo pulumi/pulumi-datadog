@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -66,8 +67,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public /*out*/ readonly active!: pulumi.Output<boolean>;
     /**
-     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-     * This field will only exist on recurring downtimes.
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      */
     public /*out*/ readonly activeChildId!: pulumi.Output<number>;
     /**
@@ -75,7 +75,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public /*out*/ readonly disabled!: pulumi.Output<boolean>;
     /**
-     * Optionally specify an end date when this downtime should expire
+     * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
     public readonly end!: pulumi.Output<number | undefined>;
     /**
@@ -91,8 +91,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
@@ -108,7 +107,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
-     * Specify when this downtime should start
+     * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
     public readonly start!: pulumi.Output<number | undefined>;
     /**
@@ -116,7 +115,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly startDate!: pulumi.Output<string | undefined>;
     /**
-     * The timezone for the downtime, default UTC
+     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -181,8 +180,7 @@ export interface DowntimeState {
      */
     active?: pulumi.Input<boolean>;
     /**
-     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-     * This field will only exist on recurring downtimes.
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      */
     activeChildId?: pulumi.Input<number>;
     /**
@@ -190,7 +188,7 @@ export interface DowntimeState {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * Optionally specify an end date when this downtime should expire
+     * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
     end?: pulumi.Input<number>;
     /**
@@ -206,8 +204,7 @@ export interface DowntimeState {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -223,7 +220,7 @@ export interface DowntimeState {
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify when this downtime should start
+     * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
     start?: pulumi.Input<number>;
     /**
@@ -231,7 +228,7 @@ export interface DowntimeState {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC
+     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      */
     timezone?: pulumi.Input<string>;
 }
@@ -241,7 +238,7 @@ export interface DowntimeState {
  */
 export interface DowntimeArgs {
     /**
-     * Optionally specify an end date when this downtime should expire
+     * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
     end?: pulumi.Input<number>;
     /**
@@ -257,8 +254,7 @@ export interface DowntimeArgs {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -274,7 +270,7 @@ export interface DowntimeArgs {
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify when this downtime should start
+     * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
     start?: pulumi.Input<number>;
     /**
@@ -282,7 +278,7 @@ export interface DowntimeArgs {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC
+     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      */
     timezone?: pulumi.Input<string>;
 }

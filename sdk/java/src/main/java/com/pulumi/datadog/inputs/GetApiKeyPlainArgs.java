@@ -14,16 +14,32 @@ public final class GetApiKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApiKeyPlainArgs Empty = new GetApiKeyPlainArgs();
 
+    /**
+     * Id for API Key.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return Id for API Key.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Name for API Key.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Name for API Key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -53,11 +69,23 @@ public final class GetApiKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApiKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id Id for API Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param name Name for API Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

@@ -12,21 +12,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsGlobalVariableParseTestOptions {
+    /**
+     * @return Required when type = `http_header`. Defines the header to use to extract the value
+     * 
+     */
     private @Nullable String field;
+    /**
+     * @return When type is `local_variable`, name of the local variable to use to extract the value.
+     * 
+     */
     private @Nullable String localVariableName;
     private @Nullable SyntheticsGlobalVariableParseTestOptionsParser parser;
+    /**
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * 
+     */
     private String type;
 
     private SyntheticsGlobalVariableParseTestOptions() {}
+    /**
+     * @return Required when type = `http_header`. Defines the header to use to extract the value
+     * 
+     */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
+    /**
+     * @return When type is `local_variable`, name of the local variable to use to extract the value.
+     * 
+     */
     public Optional<String> localVariableName() {
         return Optional.ofNullable(this.localVariableName);
     }
     public Optional<SyntheticsGlobalVariableParseTestOptionsParser> parser() {
         return Optional.ofNullable(this.parser);
     }
+    /**
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * 
+     */
     public String type() {
         return this.type;
     }

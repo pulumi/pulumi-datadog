@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestApiStepRequestClientCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestApiStepRequestClientCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cert", required: true)]
         public Input<Inputs.SyntheticsTestApiStepRequestClientCertificateCertGetArgs> Cert { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestApiStepRequestClientCertificateGetArgs()
         {
         }
+        public static new SyntheticsTestApiStepRequestClientCertificateGetArgs Empty => new SyntheticsTestApiStepRequestClientCertificateGetArgs();
     }
 }

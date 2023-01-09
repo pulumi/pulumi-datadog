@@ -5,21 +5,46 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardTemplateVariablePresetTemplateVariable {
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @deprecated
+     * Use `values` instead.
+     * 
+     */
+    @Deprecated /* Use `values` instead. */
     private @Nullable String value;
+    private @Nullable List<String> values;
 
     private DashboardTemplateVariablePresetTemplateVariable() {}
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @deprecated
+     * Use `values` instead.
+     * 
+     */
+    @Deprecated /* Use `values` instead. */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
+    }
+    public List<String> values() {
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -33,11 +58,13 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String value;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(DashboardTemplateVariablePresetTemplateVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
+    	      this.values = defaults.values;
         }
 
         @CustomType.Setter
@@ -50,10 +77,19 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
             this.value = value;
             return this;
         }
+        @CustomType.Setter
+        public Builder values(@Nullable List<String> values) {
+            this.values = values;
+            return this;
+        }
+        public Builder values(String... values) {
+            return values(List.of(values));
+        }
         public DashboardTemplateVariablePresetTemplateVariable build() {
             final var o = new DashboardTemplateVariablePresetTemplateVariable();
             o.name = name;
             o.value = value;
+            o.values = values;
             return o;
         }
     }

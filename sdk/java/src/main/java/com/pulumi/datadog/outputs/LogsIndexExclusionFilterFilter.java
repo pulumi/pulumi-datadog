@@ -12,10 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsIndexExclusionFilterFilter {
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     private @Nullable String query;
     private @Nullable Double sampleRate;
 
     private LogsIndexExclusionFilterFilter() {}
+    /**
+     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * 
+     */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }

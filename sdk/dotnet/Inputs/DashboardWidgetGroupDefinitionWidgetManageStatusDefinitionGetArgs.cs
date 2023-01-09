@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
@@ -36,6 +36,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -48,5 +51,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs();
     }
 }

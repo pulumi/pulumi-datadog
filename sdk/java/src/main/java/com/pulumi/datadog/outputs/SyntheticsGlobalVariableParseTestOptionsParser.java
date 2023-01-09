@@ -12,12 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsGlobalVariableParseTestOptionsParser {
     private String type;
+    /**
+     * @return The value of the global variable.
+     * 
+     */
     private @Nullable String value;
 
     private SyntheticsGlobalVariableParseTestOptionsParser() {}
     public String type() {
         return this.type;
     }
+    /**
+     * @return The value of the global variable.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -14,16 +14,32 @@ public final class GetApplicationKeyPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetApplicationKeyPlainArgs Empty = new GetApplicationKeyPlainArgs();
 
+    /**
+     * Id for Application Key.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return Id for Application Key.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Name for Application Key.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Name for Application Key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -53,11 +69,23 @@ public final class GetApplicationKeyPlainArgs extends com.pulumi.resources.Invok
             $ = new GetApplicationKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id Id for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param name Name for Application Key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

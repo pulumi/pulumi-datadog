@@ -17,16 +17,32 @@ public final class DashboardTemplateVariablePresetArgs extends com.pulumi.resour
 
     public static final DashboardTemplateVariablePresetArgs Empty = new DashboardTemplateVariablePresetArgs();
 
+    /**
+     * The name of the preset.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the preset.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The template variable names and assumed values under the given preset
+     * 
+     */
     @Import(name="templateVariables")
     private @Nullable Output<List<DashboardTemplateVariablePresetTemplateVariableArgs>> templateVariables;
 
+    /**
+     * @return The template variable names and assumed values under the given preset
+     * 
+     */
     public Optional<Output<List<DashboardTemplateVariablePresetTemplateVariableArgs>>> templateVariables() {
         return Optional.ofNullable(this.templateVariables);
     }
@@ -56,24 +72,54 @@ public final class DashboardTemplateVariablePresetArgs extends com.pulumi.resour
             $ = new DashboardTemplateVariablePresetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the preset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the preset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param templateVariables The template variable names and assumed values under the given preset
+         * 
+         * @return builder
+         * 
+         */
         public Builder templateVariables(@Nullable Output<List<DashboardTemplateVariablePresetTemplateVariableArgs>> templateVariables) {
             $.templateVariables = templateVariables;
             return this;
         }
 
+        /**
+         * @param templateVariables The template variable names and assumed values under the given preset
+         * 
+         * @return builder
+         * 
+         */
         public Builder templateVariables(List<DashboardTemplateVariablePresetTemplateVariableArgs> templateVariables) {
             return templateVariables(Output.of(templateVariables));
         }
 
+        /**
+         * @param templateVariables The template variable names and assumed values under the given preset
+         * 
+         * @return builder
+         * 
+         */
         public Builder templateVariables(DashboardTemplateVariablePresetTemplateVariableArgs... templateVariables) {
             return templateVariables(List.of(templateVariables));
         }

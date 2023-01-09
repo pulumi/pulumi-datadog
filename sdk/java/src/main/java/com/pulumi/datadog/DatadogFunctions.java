@@ -24,6 +24,8 @@ import com.pulumi.datadog.inputs.GetRoleArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
 import com.pulumi.datadog.inputs.GetRolesArgs;
 import com.pulumi.datadog.inputs.GetRolesPlainArgs;
+import com.pulumi.datadog.inputs.GetRumApplicationArgs;
+import com.pulumi.datadog.inputs.GetRumApplicationPlainArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
@@ -42,6 +44,7 @@ import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetIpRangesResult;
+import com.pulumi.datadog.outputs.GetLogsArchivesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesResult;
 import com.pulumi.datadog.outputs.GetLogsPipelinesResult;
@@ -50,6 +53,7 @@ import com.pulumi.datadog.outputs.GetMonitorsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetRoleResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
+import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
@@ -71,10 +75,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -82,9 +93,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -101,10 +112,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -112,9 +130,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -131,10 +149,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -142,9 +167,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -161,10 +186,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,9 +204,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -191,10 +223,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -202,9 +241,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -221,10 +260,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApiKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -232,9 +278,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -251,10 +297,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,9 +315,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -281,10 +334,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -292,9 +352,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -311,10 +371,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -322,9 +389,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -341,10 +408,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -352,9 +426,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +445,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -382,9 +463,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -401,10 +482,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetApplicationKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -412,9 +500,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
+     *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
      *             .name(&#34;foo-application&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -431,10 +519,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -442,7 +536,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -459,10 +553,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -470,7 +570,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -487,10 +587,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -498,7 +604,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -515,10 +621,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -526,7 +638,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -543,10 +655,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -554,7 +672,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -571,10 +689,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -582,7 +706,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getCloudWorkloadSecurityAgentRules());
+     *         final var test = DatadogFunctions.getCloudWorkloadSecurityAgentRules();
      * 
      *     }
      * }
@@ -599,10 +723,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -610,9 +741,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
      *             .name(&#34;My super dashboard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -629,10 +760,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -640,9 +778,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
      *             .name(&#34;My super dashboard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -659,10 +797,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -670,9 +815,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
      *             .name(&#34;My super dashboard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -689,10 +834,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -700,9 +852,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
      *             .name(&#34;My super dashboard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -719,10 +871,21 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardListArgs;
+     * import com.pulumi.datadog.Dashboard;
+     * import com.pulumi.datadog.DashboardArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -730,12 +893,12 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
+     *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
      *             .name(&#34;My super list&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.apply(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
@@ -765,10 +928,21 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardListArgs;
+     * import com.pulumi.datadog.Dashboard;
+     * import com.pulumi.datadog.DashboardArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -776,12 +950,12 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
+     *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
      *             .name(&#34;My super list&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.apply(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
@@ -811,10 +985,21 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardListArgs;
+     * import com.pulumi.datadog.Dashboard;
+     * import com.pulumi.datadog.DashboardArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -822,12 +1007,12 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
+     *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
      *             .name(&#34;My super list&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.apply(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
@@ -857,10 +1042,21 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetDashboardListArgs;
+     * import com.pulumi.datadog.Dashboard;
+     * import com.pulumi.datadog.DashboardArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+     * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -868,12 +1064,12 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
+     *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
      *             .name(&#34;My super list&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.apply(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
@@ -903,10 +1099,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -914,7 +1116,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -931,10 +1133,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -942,7 +1150,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -959,10 +1167,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -970,7 +1184,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -987,10 +1201,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -998,7 +1218,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -1015,10 +1235,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1026,7 +1252,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -1043,10 +1269,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1054,7 +1286,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getIpRanges());
+     *         final var test = DatadogFunctions.getIpRanges();
      * 
      *     }
      * }
@@ -1065,16 +1297,64 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static Output<GetLogsArchivesOrderResult> getLogsArchivesOrder() {
+        return getLogsArchivesOrder(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static CompletableFuture<GetLogsArchivesOrderResult> getLogsArchivesOrderPlain() {
+        return getLogsArchivesOrderPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static Output<GetLogsArchivesOrderResult> getLogsArchivesOrder(InvokeArgs args) {
+        return getLogsArchivesOrder(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static CompletableFuture<GetLogsArchivesOrderResult> getLogsArchivesOrderPlain(InvokeArgs args) {
+        return getLogsArchivesOrderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static Output<GetLogsArchivesOrderResult> getLogsArchivesOrder(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", TypeShape.of(GetLogsArchivesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the current order of your logs archives.
+     * 
+     */
+    public static CompletableFuture<GetLogsArchivesOrderResult> getLogsArchivesOrderPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", TypeShape.of(GetLogsArchivesOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1082,7 +1362,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1099,10 +1379,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1110,7 +1396,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1127,10 +1413,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1138,7 +1430,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1155,10 +1447,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1166,7 +1464,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1183,10 +1481,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1194,7 +1498,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1211,10 +1515,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1222,7 +1532,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexes());
+     *         final var test = DatadogFunctions.getLogsIndexes();
      * 
      *     }
      * }
@@ -1239,10 +1549,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1250,7 +1566,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1267,10 +1583,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1278,7 +1600,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1295,10 +1617,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1306,7 +1634,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1323,10 +1651,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1334,7 +1668,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1351,10 +1685,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1362,7 +1702,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1379,10 +1719,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1390,7 +1736,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getLogsIndexesOrder());
+     *         final var test = DatadogFunctions.getLogsIndexesOrder();
      * 
      *     }
      * }
@@ -1449,10 +1795,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1460,10 +1813,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1480,10 +1833,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1491,10 +1851,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1511,10 +1871,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1522,10 +1889,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1542,10 +1909,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1553,10 +1927,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1573,10 +1947,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1584,10 +1965,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1604,10 +1985,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetMonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1615,10 +2003,10 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getMonitor(GetMonitorArgs.builder()
+     *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
      *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1677,10 +2065,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1688,7 +2082,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1705,10 +2099,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1716,7 +2116,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1733,10 +2133,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1744,7 +2150,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1761,10 +2167,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1772,7 +2184,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1789,10 +2201,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1800,7 +2218,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1817,10 +2235,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1828,7 +2252,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var permissions = Output.of(DatadogFunctions.getPermissions());
+     *         final var permissions = DatadogFunctions.getPermissions();
      * 
      *     }
      * }
@@ -1845,10 +2269,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1856,9 +2287,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
      *             .filter(&#34;Datadog Standard Role&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1875,10 +2306,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1886,9 +2324,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
      *             .filter(&#34;Datadog Standard Role&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1905,10 +2343,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1916,9 +2361,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
      *             .filter(&#34;Datadog Standard Role&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1935,10 +2380,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1946,9 +2398,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+     *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
      *             .filter(&#34;Datadog Standard Role&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1965,10 +2417,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1976,9 +2435,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1995,10 +2454,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2006,9 +2472,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2025,10 +2491,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2036,9 +2509,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2055,10 +2528,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2066,9 +2546,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2085,10 +2565,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2096,9 +2583,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2115,10 +2602,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2126,9 +2620,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(DatadogFunctions.getRoles(GetRolesArgs.builder()
+     *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
      *             .filter(&#34;Datadog&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2139,16 +2633,64 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static Output<GetRumApplicationResult> getRumApplication() {
+        return getRumApplication(GetRumApplicationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static CompletableFuture<GetRumApplicationResult> getRumApplicationPlain() {
+        return getRumApplicationPlain(GetRumApplicationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static Output<GetRumApplicationResult> getRumApplication(GetRumApplicationArgs args) {
+        return getRumApplication(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static CompletableFuture<GetRumApplicationResult> getRumApplicationPlain(GetRumApplicationPlainArgs args) {
+        return getRumApplicationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static Output<GetRumApplicationResult> getRumApplication(GetRumApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRumApplication:getRumApplication", TypeShape.of(GetRumApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a Datadog RUM Application.
+     * 
+     */
+    public static CompletableFuture<GetRumApplicationResult> getRumApplicationPlain(GetRumApplicationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getRumApplication:getRumApplication", TypeShape.of(GetRumApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2156,7 +2698,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2173,10 +2715,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2184,7 +2732,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2201,10 +2749,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2212,7 +2766,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2229,10 +2783,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2240,7 +2800,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2257,10 +2817,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2268,7 +2834,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2285,10 +2851,16 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2296,7 +2868,7 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringFilters());
+     *         final var test = DatadogFunctions.getSecurityMonitoringFilters();
      * 
      *     }
      * }
@@ -2313,10 +2885,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2324,11 +2903,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2345,10 +2924,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2356,11 +2942,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2377,10 +2963,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2388,11 +2981,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2409,10 +3002,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2420,11 +3020,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2441,10 +3041,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2452,11 +3059,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2473,10 +3080,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2484,11 +3098,11 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
+     *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
      *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2505,10 +3119,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2516,14 +3137,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2540,10 +3161,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2551,14 +3179,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2575,10 +3203,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2586,14 +3221,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2610,10 +3245,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2621,14 +3263,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2645,10 +3287,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2656,14 +3305,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2680,10 +3329,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2691,14 +3347,14 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .nameQuery(&#34;My test SLO&#34;)
      *             .tagsQuery(&#34;foo:bar&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var apiSlo = Output.of(DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
+     *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
      *             .id(data.terraform_remote_state().api().outputs().slo())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2715,10 +3371,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2726,9 +3389,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2745,10 +3408,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2756,9 +3426,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2775,10 +3445,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2786,9 +3463,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2805,10 +3482,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2816,9 +3500,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2835,10 +3519,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2846,9 +3537,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2865,10 +3556,17 @@ public final class DatadogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2876,9 +3574,9 @@ public final class DatadogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ftFooSlos = Output.of(DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
+     *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
      *             .tagsQuery(&#34;owner:ft-foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

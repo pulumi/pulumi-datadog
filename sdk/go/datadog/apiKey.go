@@ -65,6 +65,10 @@ func NewApiKey(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"key",
+	})
+	opts = append(opts, secrets)
 	var resource ApiKey
 	err := ctx.RegisterResource("datadog:index/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {

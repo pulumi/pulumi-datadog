@@ -10,10 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class MonitorVariablesGetArgs : Pulumi.ResourceArgs
+    public sealed class MonitorVariablesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("eventQueries")]
         private InputList<Inputs.MonitorVariablesEventQueryGetArgs>? _eventQueries;
+
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         public InputList<Inputs.MonitorVariablesEventQueryGetArgs> EventQueries
         {
             get => _eventQueries ?? (_eventQueries = new InputList<Inputs.MonitorVariablesEventQueryGetArgs>());
@@ -23,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public MonitorVariablesGetArgs()
         {
         }
+        public static new MonitorVariablesGetArgs Empty => new MonitorVariablesGetArgs();
     }
 }

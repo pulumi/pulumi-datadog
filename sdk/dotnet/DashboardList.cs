@@ -15,90 +15,90 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var time = new Datadog.Dashboard("time", new()
     ///     {
-    ///         var time = new Datadog.Dashboard("time", new Datadog.DashboardArgs
+    ///         Title = "TF Test Layout Dashboard",
+    ///         Description = "Created using the Datadog provider",
+    ///         LayoutType = "ordered",
+    ///         IsReadOnly = true,
+    ///         Widgets = new[]
     ///         {
-    ///             Title = "TF Test Layout Dashboard",
-    ///             Description = "Created using the Datadog provider",
-    ///             LayoutType = "ordered",
-    ///             IsReadOnly = true,
-    ///             Widgets = 
+    ///             new Datadog.Inputs.DashboardWidgetArgs
     ///             {
-    ///                 new Datadog.Inputs.DashboardWidgetArgs
+    ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
     ///                 {
-    ///                     AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
-    ///                     {
-    ///                         AlertId = "1234",
-    ///                         VizType = "timeseries",
-    ///                         Title = "Widget Title",
-    ///                         LiveSpan = "1h",
-    ///                     },
+    ///                     AlertId = "1234",
+    ///                     VizType = "timeseries",
+    ///                     Title = "Widget Title",
+    ///                     LiveSpan = "1h",
     ///                 },
     ///             },
-    ///         });
-    ///         var screen = new Datadog.Dashboard("screen", new Datadog.DashboardArgs
-    ///         {
-    ///             Title = "TF Test Free Layout Dashboard",
-    ///             Description = "Created using the Datadog provider",
-    ///             LayoutType = "free",
-    ///             IsReadOnly = false,
-    ///             Widgets = 
-    ///             {
-    ///                 new Datadog.Inputs.DashboardWidgetArgs
-    ///                 {
-    ///                     EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs
-    ///                     {
-    ///                         Query = "*",
-    ///                         EventSize = "l",
-    ///                         Title = "Widget Title",
-    ///                         TitleSize = "16",
-    ///                         TitleAlign = "left",
-    ///                         LiveSpan = "1h",
-    ///                     },
-    ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                     {
-    ///                         Height = 43,
-    ///                         Width = 32,
-    ///                         X = 5,
-    ///                         Y = 5,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         // Create a new Dashboard List with two Dashboards
-    ///         var newList = new Datadog.DashboardList("newList", new Datadog.DashboardListArgs
-    ///         {
-    ///             Name = "Automated Created List",
-    ///             DashItems = 
-    ///             {
-    ///                 new Datadog.Inputs.DashboardListDashItemArgs
-    ///                 {
-    ///                     Type = "custom_timeboard",
-    ///                     DashId = time.Id,
-    ///                 },
-    ///                 new Datadog.Inputs.DashboardListDashItemArgs
-    ///                 {
-    ///                     Type = "custom_screenboard",
-    ///                     DashId = screen.Id,
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 screen,
-    ///                 time,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var screen = new Datadog.Dashboard("screen", new()
+    ///     {
+    ///         Title = "TF Test Free Layout Dashboard",
+    ///         Description = "Created using the Datadog provider",
+    ///         LayoutType = "free",
+    ///         IsReadOnly = false,
+    ///         Widgets = new[]
+    ///         {
+    ///             new Datadog.Inputs.DashboardWidgetArgs
+    ///             {
+    ///                 EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs
+    ///                 {
+    ///                     Query = "*",
+    ///                     EventSize = "l",
+    ///                     Title = "Widget Title",
+    ///                     TitleSize = "16",
+    ///                     TitleAlign = "left",
+    ///                     LiveSpan = "1h",
+    ///                 },
+    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
+    ///                 {
+    ///                     Height = 43,
+    ///                     Width = 32,
+    ///                     X = 5,
+    ///                     Y = 5,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Create a new Dashboard List with two Dashboards
+    ///     var newList = new Datadog.DashboardList("newList", new()
+    ///     {
+    ///         Name = "Automated Created List",
+    ///         DashItems = new[]
+    ///         {
+    ///             new Datadog.Inputs.DashboardListDashItemArgs
+    ///             {
+    ///                 Type = "custom_timeboard",
+    ///                 DashId = time.Id,
+    ///             },
+    ///             new Datadog.Inputs.DashboardListDashItemArgs
+    ///             {
+    ///                 Type = "custom_screenboard",
+    ///                 DashId = screen.Id,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             screen,
+    ///             time,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +108,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/dashboardList:DashboardList")]
-    public partial class DashboardList : Pulumi.CustomResource
+    public partial class DashboardList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of dashboard items that belong to this list
@@ -166,7 +166,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class DashboardListArgs : Pulumi.ResourceArgs
+    public sealed class DashboardListArgs : global::Pulumi.ResourceArgs
     {
         [Input("dashItems")]
         private InputList<Inputs.DashboardListDashItemArgs>? _dashItems;
@@ -189,9 +189,10 @@ namespace Pulumi.Datadog
         public DashboardListArgs()
         {
         }
+        public static new DashboardListArgs Empty => new DashboardListArgs();
     }
 
-    public sealed class DashboardListState : Pulumi.ResourceArgs
+    public sealed class DashboardListState : global::Pulumi.ResourceArgs
     {
         [Input("dashItems")]
         private InputList<Inputs.DashboardListDashItemGetArgs>? _dashItems;
@@ -214,5 +215,6 @@ namespace Pulumi.Datadog
         public DashboardListState()
         {
         }
+        public static new DashboardListState Empty => new DashboardListState();
     }
 }

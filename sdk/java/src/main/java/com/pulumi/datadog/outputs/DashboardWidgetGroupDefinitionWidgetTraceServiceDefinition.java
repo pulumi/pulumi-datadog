@@ -24,6 +24,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     private @Nullable Boolean showResourceList;
     private @Nullable String sizeFormat;
     private String spanName;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -65,6 +69,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     public String spanName() {
         return this.spanName;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

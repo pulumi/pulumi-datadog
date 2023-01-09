@@ -12,9 +12,17 @@ public final class GetSyntheticsGlobalVariablePlainArgs extends com.pulumi.resou
 
     public static final GetSyntheticsGlobalVariablePlainArgs Empty = new GetSyntheticsGlobalVariablePlainArgs();
 
+    /**
+     * The synthetics global variable name to search for. Must only match one global variable.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The synthetics global variable name to search for. Must only match one global variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetSyntheticsGlobalVariablePlainArgs extends com.pulumi.resou
             $ = new GetSyntheticsGlobalVariablePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The synthetics global variable name to search for. Must only match one global variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

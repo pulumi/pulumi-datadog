@@ -15,16 +15,14 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
     public static final LogsIndexOrderArgs Empty = new LogsIndexOrderArgs();
 
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
     @Import(name="indexes", required=true)
     private Output<List<String>> indexes;
 
     /**
-     * @return The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * @return The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
     public Output<List<String>> indexes() {
@@ -72,8 +70,7 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-         * list.
+         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
          * 
          * @return builder
          * 
@@ -84,8 +81,7 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-         * list.
+         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
          * 
          * @return builder
          * 
@@ -95,8 +91,7 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-         * list.
+         * @param indexes The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
          * 
          * @return builder
          * 

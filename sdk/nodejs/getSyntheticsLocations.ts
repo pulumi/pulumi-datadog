@@ -8,11 +8,8 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
  */
 export function getSyntheticsLocations(opts?: pulumi.InvokeOptions): Promise<GetSyntheticsLocationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsLocations:getSyntheticsLocations", {
     }, opts);
 }
@@ -25,5 +22,8 @@ export interface GetSyntheticsLocationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A map of available Synthetics location IDs to names for Synthetics tests.
+     */
     readonly locations: {[key: string]: any};
 }

@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsArchiveAzureArchive {
+    /**
+     * @return Your client id.
+     * 
+     */
     private String clientId;
+    /**
+     * @return The container where the archive is stored.
+     * 
+     */
     private String container;
+    /**
+     * @return The path where the archive is stored.
+     * 
+     */
     private @Nullable String path;
+    /**
+     * @return The associated storage account.
+     * 
+     */
     private String storageAccount;
+    /**
+     * @return Your tenant id.
+     * 
+     */
     private String tenantId;
 
     private LogsArchiveAzureArchive() {}
+    /**
+     * @return Your client id.
+     * 
+     */
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return The container where the archive is stored.
+     * 
+     */
     public String container() {
         return this.container;
     }
+    /**
+     * @return The path where the archive is stored.
+     * 
+     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
+    /**
+     * @return The associated storage account.
+     * 
+     */
     public String storageAccount() {
         return this.storageAccount;
     }
+    /**
+     * @return Your tenant id.
+     * 
+     */
     public String tenantId() {
         return this.tenantId;
     }

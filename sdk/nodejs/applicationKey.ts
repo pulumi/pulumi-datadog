@@ -14,9 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog Application Key
- * const foo = new datadog.ApplicationKey("foo", {
- *     name: "foo-application",
- * });
+ * const foo = new datadog.ApplicationKey("foo", {name: "foo-application"});
  * ```
  *
  * ## Import
@@ -86,6 +84,8 @@ export class ApplicationKey extends pulumi.CustomResource {
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["key"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ApplicationKey.__pulumiType, name, resourceInputs, opts);
     }
 }

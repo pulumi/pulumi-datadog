@@ -15,6 +15,10 @@ public final class DashboardWidgetAlertValueDefinition {
     private String alertId;
     private @Nullable Integer precision;
     private @Nullable String textAlign;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -30,6 +34,10 @@ public final class DashboardWidgetAlertValueDefinition {
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

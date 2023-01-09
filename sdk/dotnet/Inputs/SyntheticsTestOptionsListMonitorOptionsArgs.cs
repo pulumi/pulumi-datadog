@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestOptionsListMonitorOptionsArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestOptionsListMonitorOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("renotifyInterval")]
         public Input<int>? RenotifyInterval { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestOptionsListMonitorOptionsArgs()
         {
         }
+        public static new SyntheticsTestOptionsListMonitorOptionsArgs Empty => new SyntheticsTestOptionsListMonitorOptionsArgs();
     }
 }

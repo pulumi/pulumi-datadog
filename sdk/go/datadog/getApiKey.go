@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupApiKey(ctx, &GetApiKeyArgs{
+//			_, err := datadog.LookupApiKey(ctx, &datadog.LookupApiKeyArgs{
 //				Name: pulumi.StringRef("foo-application"),
 //			}, nil)
 //			if err != nil {
@@ -48,14 +48,19 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyArgs struct {
-	Id   *string `pulumi:"id"`
+	// Id for API Key.
+	Id *string `pulumi:"id"`
+	// Name for API Key.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getApiKey.
 type LookupApiKeyResult struct {
-	Id   *string `pulumi:"id"`
-	Key  string  `pulumi:"key"`
+	// Id for API Key.
+	Id *string `pulumi:"id"`
+	// The value of the API Key.
+	Key string `pulumi:"key"`
+	// Name for API Key.
 	Name *string `pulumi:"name"`
 }
 
@@ -74,7 +79,9 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyOutputArgs struct {
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// Id for API Key.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name for API Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -97,14 +104,17 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx cont
 	return o
 }
 
+// Id for API Key.
 func (o LookupApiKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The value of the API Key.
 func (o LookupApiKeyResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Name for API Key.
 func (o LookupApiKeyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

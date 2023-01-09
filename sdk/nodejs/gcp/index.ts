@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./integration";
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
-// Import resources to register:
-import { Integration } from "./integration";
 
 const _module = {
     version: utilities.getVersion(),

@@ -15,16 +15,15 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitorJson = new Datadog.MonitorJson("monitorJson", new()
     ///     {
-    ///         var monitorJson = new Datadog.MonitorJson("monitorJson", new Datadog.MonitorJsonArgs
-    ///         {
-    ///             Monitor = @"{
+    ///         Monitor = @"{
     ///     ""name"": ""Example monitor - service check"",
     ///     ""type"": ""service check"",
     ///     ""query"": ""\""ntp.in_sync\"".by(\""*\"").last(2).count_by_status()"",
@@ -48,10 +47,9 @@ namespace Pulumi.Datadog
     ///     ""classification"": ""custom""
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +59,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/monitorJson:MonitorJson")]
-    public partial class MonitorJson : Pulumi.CustomResource
+    public partial class MonitorJson : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The JSON formatted definition of the monitor.
@@ -119,7 +117,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class MonitorJsonArgs : Pulumi.ResourceArgs
+    public sealed class MonitorJsonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON formatted definition of the monitor.
@@ -136,9 +134,10 @@ namespace Pulumi.Datadog
         public MonitorJsonArgs()
         {
         }
+        public static new MonitorJsonArgs Empty => new MonitorJsonArgs();
     }
 
-    public sealed class MonitorJsonState : Pulumi.ResourceArgs
+    public sealed class MonitorJsonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON formatted definition of the monitor.
@@ -155,5 +154,6 @@ namespace Pulumi.Datadog
         public MonitorJsonState()
         {
         }
+        public static new MonitorJsonState Empty => new MonitorJsonState();
     }
 }

@@ -16,6 +16,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Description;
         public readonly bool Enabled;
         public readonly string Expression;
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         public readonly string Id;
         public readonly string Name;
 

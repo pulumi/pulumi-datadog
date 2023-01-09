@@ -13,23 +13,72 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptionsList
     {
+        /// <summary>
+        /// For SSL test, whether or not the test should allow self signed certificates.
+        /// </summary>
         public readonly bool? AcceptSelfSigned;
+        /// <summary>
+        /// Allows loading insecure content for an HTTP test.
+        /// </summary>
         public readonly bool? AllowInsecure;
+        /// <summary>
+        /// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+        /// </summary>
         public readonly bool? CheckCertificateRevocation;
+        /// <summary>
+        /// CI/CD options for a Synthetic test.
+        /// </summary>
         public readonly Outputs.SyntheticsTestOptionsListCi? Ci;
+        /// <summary>
+        /// Disable Cross-Origin Resource Sharing for browser tests.
+        /// </summary>
+        public readonly bool? DisableCors;
+        /// <summary>
+        /// Disable Content Security Policy for browser tests.
+        /// </summary>
         public readonly bool? DisableCsp;
+        /// <summary>
+        /// Determines whether or not the API HTTP test should follow redirects.
+        /// </summary>
         public readonly bool? FollowRedirects;
+        /// <summary>
+        /// Ignore server certificate error.
+        /// </summary>
         public readonly bool? IgnoreServerCertificateError;
+        /// <summary>
+        /// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+        /// </summary>
         public readonly int? InitialNavigationTimeout;
+        /// <summary>
+        /// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        /// </summary>
         public readonly int? MinFailureDuration;
+        /// <summary>
+        /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
+        /// </summary>
         public readonly int? MinLocationFailed;
+        /// <summary>
+        /// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        /// </summary>
         public readonly string? MonitorName;
         public readonly Outputs.SyntheticsTestOptionsListMonitorOptions? MonitorOptions;
         public readonly int? MonitorPriority;
+        /// <summary>
+        /// Prevents saving screenshots of the steps.
+        /// </summary>
         public readonly bool? NoScreenshot;
+        /// <summary>
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// </summary>
         public readonly ImmutableArray<string> RestrictedRoles;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
+        /// <summary>
+        /// The RUM data collection settings for the Synthetic browser test.
+        /// </summary>
         public readonly Outputs.SyntheticsTestOptionsListRumSettings? RumSettings;
+        /// <summary>
+        /// How often the test should run (in seconds).
+        /// </summary>
         public readonly int TickEvery;
 
         [OutputConstructor]
@@ -41,6 +90,8 @@ namespace Pulumi.Datadog.Outputs
             bool? checkCertificateRevocation,
 
             Outputs.SyntheticsTestOptionsListCi? ci,
+
+            bool? disableCors,
 
             bool? disableCsp,
 
@@ -74,6 +125,7 @@ namespace Pulumi.Datadog.Outputs
             AllowInsecure = allowInsecure;
             CheckCertificateRevocation = checkCertificateRevocation;
             Ci = ci;
+            DisableCors = disableCors;
             DisableCsp = disableCsp;
             FollowRedirects = followRedirects;
             IgnoreServerCertificateError = ignoreServerCertificateError;

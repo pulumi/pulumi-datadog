@@ -14,8 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Example Dashboard JSON
- * const dashboardJson = new datadog.DashboardJson("dashboard_json", {
- *     dashboard: `{
+ * const dashboardJson = new datadog.DashboardJson("dashboardJson", {dashboard: `{
  *    "title":"Ordered Layout Dashboard",
  *    "description":"Created using the Datadog provider in Terraform",
  *    "widgets":[
@@ -500,8 +499,14 @@ import * as utilities from "./utilities";
  *       }
  *    ]
  * }
- * `,
- * });
+ *
+ * `});
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
  * ```
  */
 export class DashboardJson extends pulumi.CustomResource {

@@ -23,6 +23,12 @@ public final class GetSecurityMonitoringRulesRuleQuery {
     private @Nullable String aggregation;
     private @Nullable List<String> distinctFields;
     private @Nullable List<String> groupByFields;
+    /**
+     * @deprecated
+     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     */
+    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     private @Nullable String metric;
     private List<String> metrics;
     private @Nullable String name;
@@ -47,6 +53,12 @@ public final class GetSecurityMonitoringRulesRuleQuery {
     public List<String> groupByFields() {
         return this.groupByFields == null ? List.of() : this.groupByFields;
     }
+    /**
+     * @deprecated
+     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     */
+    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }

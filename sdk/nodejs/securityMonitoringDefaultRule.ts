@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,7 +16,6 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const adefaultrule = new datadog.SecurityMonitoringDefaultRule("adefaultrule", {
- *     // Change the notifications for the high case
  *     cases: [{
  *         notifications: ["@me"],
  *         status: "high",
@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
+ * Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
  *
  * ```sh
  *  $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb

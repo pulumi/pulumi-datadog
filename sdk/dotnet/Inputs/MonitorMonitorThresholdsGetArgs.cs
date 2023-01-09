@@ -10,28 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class MonitorMonitorThresholdsGetArgs : Pulumi.ResourceArgs
+    public sealed class MonitorMonitorThresholdsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The monitor `CRITICAL` threshold. Must be a number.
+        /// </summary>
         [Input("critical")]
         public Input<string>? Critical { get; set; }
 
+        /// <summary>
+        /// The monitor `CRITICAL` recovery threshold. Must be a number.
+        /// </summary>
         [Input("criticalRecovery")]
         public Input<string>? CriticalRecovery { get; set; }
 
+        /// <summary>
+        /// The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
+        /// </summary>
         [Input("ok")]
         public Input<string>? Ok { get; set; }
 
+        /// <summary>
+        /// The monitor `UNKNOWN` threshold. Only supported in monitor type `service check`. Must be a number.
+        /// </summary>
         [Input("unknown")]
         public Input<string>? Unknown { get; set; }
 
+        /// <summary>
+        /// The monitor `WARNING` threshold. Must be a number.
+        /// </summary>
         [Input("warning")]
         public Input<string>? Warning { get; set; }
 
+        /// <summary>
+        /// The monitor `WARNING` recovery threshold. Must be a number.
+        /// </summary>
         [Input("warningRecovery")]
         public Input<string>? WarningRecovery { get; set; }
 
         public MonitorMonitorThresholdsGetArgs()
         {
         }
+        public static new MonitorMonitorThresholdsGetArgs Empty => new MonitorMonitorThresholdsGetArgs();
     }
 }

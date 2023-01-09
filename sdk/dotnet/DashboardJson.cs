@@ -15,17 +15,16 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example Dashboard JSON
+    ///     var dashboardJson = new Datadog.DashboardJson("dashboardJson", new()
     ///     {
-    ///         // Example Dashboard JSON
-    ///         var dashboardJson = new Datadog.DashboardJson("dashboardJson", new Datadog.DashboardJsonArgs
-    ///         {
-    ///             Dashboard = @"{
+    ///         Dashboard = @"{
     ///    ""title"":""Ordered Layout Dashboard"",
     ///    ""description"":""Created using the Datadog provider in Terraform"",
     ///    ""widgets"":[
@@ -512,14 +511,19 @@ namespace Pulumi.Datadog
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/dashboardJson:DashboardJson")]
-    public partial class DashboardJson : Pulumi.CustomResource
+    public partial class DashboardJson : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The JSON formatted definition of the Dashboard.
@@ -589,7 +593,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class DashboardJsonArgs : Pulumi.ResourceArgs
+    public sealed class DashboardJsonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON formatted definition of the Dashboard.
@@ -618,9 +622,10 @@ namespace Pulumi.Datadog
         public DashboardJsonArgs()
         {
         }
+        public static new DashboardJsonArgs Empty => new DashboardJsonArgs();
     }
 
-    public sealed class DashboardJsonState : Pulumi.ResourceArgs
+    public sealed class DashboardJsonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON formatted definition of the Dashboard.
@@ -661,5 +666,6 @@ namespace Pulumi.Datadog
         public DashboardJsonState()
         {
         }
+        public static new DashboardJsonState Empty => new DashboardJsonState();
     }
 }

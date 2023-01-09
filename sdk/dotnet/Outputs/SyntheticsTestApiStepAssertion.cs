@@ -13,10 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStepAssertion
     {
+        /// <summary>
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// If assertion type is `header`, this is the header name.
+        /// </summary>
         public readonly string? Property;
+        /// <summary>
+        /// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        /// </summary>
         public readonly string? Target;
+        /// <summary>
+        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? Targetjsonpath;
+        /// <summary>
+        /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestApiStepAssertionTargetxpath? Targetxpath;
+        /// <summary>
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -29,12 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? targetjsonpath,
 
+            Outputs.SyntheticsTestApiStepAssertionTargetxpath? targetxpath,
+
             string type)
         {
             Operator = @operator;
             Property = property;
             Target = target;
             Targetjsonpath = targetjsonpath;
+            Targetxpath = targetxpath;
             Type = type;
         }
     }

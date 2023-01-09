@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SecurityMonitoringDefaultRuleCase {
+    /**
+     * @return Notification targets for each rule case.
+     * 
+     */
     private List<String> notifications;
+    /**
+     * @return Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
     private String status;
 
     private SecurityMonitoringDefaultRuleCase() {}
+    /**
+     * @return Notification targets for each rule case.
+     * 
+     */
     public List<String> notifications() {
         return this.notifications;
     }
+    /**
+     * @return Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     * 
+     */
     public String status() {
         return this.status;
     }

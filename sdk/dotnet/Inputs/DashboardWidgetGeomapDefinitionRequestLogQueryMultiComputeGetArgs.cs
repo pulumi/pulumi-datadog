@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeGetArgs()
         {
         }
+        public static new DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeGetArgs Empty => new DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeGetArgs();
     }
 }

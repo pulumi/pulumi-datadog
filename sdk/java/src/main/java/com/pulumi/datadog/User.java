@@ -23,10 +23,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetRoleArgs;
+ * import com.pulumi.datadog.User;
+ * import com.pulumi.datadog.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var roRole = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+ *         final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()
  *             .filter(&#34;Datadog Read Only Role&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var foo = new User(&#34;foo&#34;, UserArgs.builder()        
  *             .email(&#34;new@example.com&#34;)
- *             .roles(roRole.apply(getRoleResult -&gt; getRoleResult.id()))
+ *             .roles(roRole.applyValue(getRoleResult -&gt; getRoleResult.id()))
  *             .build());
  * 
  *     }

@@ -67,14 +67,14 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region for the Opsgenie service.
+     * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return The region for the Opsgenie service.
+     * @return The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
     public Output<String> region() {
@@ -178,7 +178,7 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The region for the Opsgenie service.
+         * @param region The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The region for the Opsgenie service.
+         * @param region The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
          * 
          * @return builder
          * 

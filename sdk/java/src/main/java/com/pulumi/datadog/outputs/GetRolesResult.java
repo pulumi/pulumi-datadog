@@ -13,15 +13,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRolesResult {
+    /**
+     * @return Filter all roles by the given string.
+     * 
+     */
     private @Nullable String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return List of Roles
+     * 
+     */
     private List<GetRolesRole> roles;
 
     private GetRolesResult() {}
+    /**
+     * @return Filter all roles by the given string.
+     * 
+     */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
@@ -32,6 +44,10 @@ public final class GetRolesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of Roles
+     * 
+     */
     public List<GetRolesRole> roles() {
         return this.roles;
     }

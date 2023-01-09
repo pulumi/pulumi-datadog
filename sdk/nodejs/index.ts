@@ -5,65 +5,303 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./apiKey";
-export * from "./applicationKey";
-export * from "./authnMapping";
-export * from "./childOrganization";
-export * from "./cloudWorkloadSecurityAgentRule";
-export * from "./dashboard";
-export * from "./dashboardJson";
-export * from "./dashboardList";
-export * from "./downtime";
-export * from "./getApiKey";
-export * from "./getApplicationKey";
-export * from "./getCloudWorkloadSecurityAgentRules";
-export * from "./getDashboard";
-export * from "./getDashboardList";
-export * from "./getIpRanges";
-export * from "./getLogsIndexes";
-export * from "./getLogsIndexesOrder";
-export * from "./getLogsPipelines";
-export * from "./getMonitor";
-export * from "./getMonitors";
-export * from "./getPermissions";
-export * from "./getRole";
-export * from "./getRoles";
-export * from "./getSecurityMonitoringFilters";
-export * from "./getSecurityMonitoringRules";
-export * from "./getServiceLevelObjective";
-export * from "./getServiceLevelObjectives";
-export * from "./getSyntheticsGlobalVariable";
-export * from "./getSyntheticsLocations";
-export * from "./getSyntheticsTest";
-export * from "./getUser";
-export * from "./logsArchive";
-export * from "./logsArchiveOrder";
-export * from "./logsCustomPipeline";
-export * from "./logsIndex";
-export * from "./logsIndexOrder";
-export * from "./logsIntegrationPipeline";
-export * from "./logsMetric";
-export * from "./logsPipelineOrder";
-export * from "./metricMetadata";
-export * from "./metricTagConfiguration";
-export * from "./monitor";
-export * from "./monitorJson";
-export * from "./organizationSettings";
-export * from "./provider";
-export * from "./role";
-export * from "./rumApplication";
-export * from "./securityMonitoringDefaultRule";
-export * from "./securityMonitoringFilter";
-export * from "./securityMonitoringRule";
-export * from "./serviceDefinitionYaml";
-export * from "./serviceLevelObjective";
-export * from "./sloCorrection";
-export * from "./syntheticsGlobalVariable";
-export * from "./syntheticsPrivateLocation";
-export * from "./syntheticsTest";
-export * from "./user";
-export * from "./webhook";
-export * from "./webhookCustomVariable";
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
+export { ApplicationKeyArgs, ApplicationKeyState } from "./applicationKey";
+export type ApplicationKey = import("./applicationKey").ApplicationKey;
+export const ApplicationKey: typeof import("./applicationKey").ApplicationKey = null as any;
+utilities.lazyLoad(exports, ["ApplicationKey"], () => require("./applicationKey"));
+
+export { AuthnMappingArgs, AuthnMappingState } from "./authnMapping";
+export type AuthnMapping = import("./authnMapping").AuthnMapping;
+export const AuthnMapping: typeof import("./authnMapping").AuthnMapping = null as any;
+utilities.lazyLoad(exports, ["AuthnMapping"], () => require("./authnMapping"));
+
+export { ChildOrganizationArgs, ChildOrganizationState } from "./childOrganization";
+export type ChildOrganization = import("./childOrganization").ChildOrganization;
+export const ChildOrganization: typeof import("./childOrganization").ChildOrganization = null as any;
+utilities.lazyLoad(exports, ["ChildOrganization"], () => require("./childOrganization"));
+
+export { CloudWorkloadSecurityAgentRuleArgs, CloudWorkloadSecurityAgentRuleState } from "./cloudWorkloadSecurityAgentRule";
+export type CloudWorkloadSecurityAgentRule = import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule;
+export const CloudWorkloadSecurityAgentRule: typeof import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule = null as any;
+utilities.lazyLoad(exports, ["CloudWorkloadSecurityAgentRule"], () => require("./cloudWorkloadSecurityAgentRule"));
+
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
+export { DashboardJsonArgs, DashboardJsonState } from "./dashboardJson";
+export type DashboardJson = import("./dashboardJson").DashboardJson;
+export const DashboardJson: typeof import("./dashboardJson").DashboardJson = null as any;
+utilities.lazyLoad(exports, ["DashboardJson"], () => require("./dashboardJson"));
+
+export { DashboardListArgs, DashboardListState } from "./dashboardList";
+export type DashboardList = import("./dashboardList").DashboardList;
+export const DashboardList: typeof import("./dashboardList").DashboardList = null as any;
+utilities.lazyLoad(exports, ["DashboardList"], () => require("./dashboardList"));
+
+export { DowntimeArgs, DowntimeState } from "./downtime";
+export type Downtime = import("./downtime").Downtime;
+export const Downtime: typeof import("./downtime").Downtime = null as any;
+utilities.lazyLoad(exports, ["Downtime"], () => require("./downtime"));
+
+export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
+export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
+export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
+
+export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutputArgs } from "./getApplicationKey";
+export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
+export const getApplicationKeyOutput: typeof import("./getApplicationKey").getApplicationKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationKey","getApplicationKeyOutput"], () => require("./getApplicationKey"));
+
+export { GetCloudWorkloadSecurityAgentRulesResult } from "./getCloudWorkloadSecurityAgentRules";
+export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRules = null as any;
+utilities.lazyLoad(exports, ["getCloudWorkloadSecurityAgentRules"], () => require("./getCloudWorkloadSecurityAgentRules"));
+
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+
+export { GetDashboardListArgs, GetDashboardListResult, GetDashboardListOutputArgs } from "./getDashboardList";
+export const getDashboardList: typeof import("./getDashboardList").getDashboardList = null as any;
+export const getDashboardListOutput: typeof import("./getDashboardList").getDashboardListOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboardList","getDashboardListOutput"], () => require("./getDashboardList"));
+
+export { GetIpRangesResult } from "./getIpRanges";
+export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
+utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
+
+export { GetLogsArchivesOrderResult } from "./getLogsArchivesOrder";
+export const getLogsArchivesOrder: typeof import("./getLogsArchivesOrder").getLogsArchivesOrder = null as any;
+utilities.lazyLoad(exports, ["getLogsArchivesOrder"], () => require("./getLogsArchivesOrder"));
+
+export { GetLogsIndexesResult } from "./getLogsIndexes";
+export const getLogsIndexes: typeof import("./getLogsIndexes").getLogsIndexes = null as any;
+utilities.lazyLoad(exports, ["getLogsIndexes"], () => require("./getLogsIndexes"));
+
+export { GetLogsIndexesOrderResult } from "./getLogsIndexesOrder";
+export const getLogsIndexesOrder: typeof import("./getLogsIndexesOrder").getLogsIndexesOrder = null as any;
+utilities.lazyLoad(exports, ["getLogsIndexesOrder"], () => require("./getLogsIndexesOrder"));
+
+export { GetLogsPipelinesArgs, GetLogsPipelinesResult, GetLogsPipelinesOutputArgs } from "./getLogsPipelines";
+export const getLogsPipelines: typeof import("./getLogsPipelines").getLogsPipelines = null as any;
+export const getLogsPipelinesOutput: typeof import("./getLogsPipelines").getLogsPipelinesOutput = null as any;
+utilities.lazyLoad(exports, ["getLogsPipelines","getLogsPipelinesOutput"], () => require("./getLogsPipelines"));
+
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetMonitorsArgs, GetMonitorsResult, GetMonitorsOutputArgs } from "./getMonitors";
+export const getMonitors: typeof import("./getMonitors").getMonitors = null as any;
+export const getMonitorsOutput: typeof import("./getMonitors").getMonitorsOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitors","getMonitorsOutput"], () => require("./getMonitors"));
+
+export { GetPermissionsResult } from "./getPermissions";
+export const getPermissions: typeof import("./getPermissions").getPermissions = null as any;
+utilities.lazyLoad(exports, ["getPermissions"], () => require("./getPermissions"));
+
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+
+export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
+export const getRoles: typeof import("./getRoles").getRoles = null as any;
+export const getRolesOutput: typeof import("./getRoles").getRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getRoles","getRolesOutput"], () => require("./getRoles"));
+
+export { GetRumApplicationArgs, GetRumApplicationResult, GetRumApplicationOutputArgs } from "./getRumApplication";
+export const getRumApplication: typeof import("./getRumApplication").getRumApplication = null as any;
+export const getRumApplicationOutput: typeof import("./getRumApplication").getRumApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getRumApplication","getRumApplicationOutput"], () => require("./getRumApplication"));
+
+export { GetSecurityMonitoringFiltersResult } from "./getSecurityMonitoringFilters";
+export const getSecurityMonitoringFilters: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFilters = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringFilters"], () => require("./getSecurityMonitoringFilters"));
+
+export { GetSecurityMonitoringRulesArgs, GetSecurityMonitoringRulesResult, GetSecurityMonitoringRulesOutputArgs } from "./getSecurityMonitoringRules";
+export const getSecurityMonitoringRules: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRules = null as any;
+export const getSecurityMonitoringRulesOutput: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringRules","getSecurityMonitoringRulesOutput"], () => require("./getSecurityMonitoringRules"));
+
+export { GetServiceLevelObjectiveArgs, GetServiceLevelObjectiveResult, GetServiceLevelObjectiveOutputArgs } from "./getServiceLevelObjective";
+export const getServiceLevelObjective: typeof import("./getServiceLevelObjective").getServiceLevelObjective = null as any;
+export const getServiceLevelObjectiveOutput: typeof import("./getServiceLevelObjective").getServiceLevelObjectiveOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceLevelObjective","getServiceLevelObjectiveOutput"], () => require("./getServiceLevelObjective"));
+
+export { GetServiceLevelObjectivesArgs, GetServiceLevelObjectivesResult, GetServiceLevelObjectivesOutputArgs } from "./getServiceLevelObjectives";
+export const getServiceLevelObjectives: typeof import("./getServiceLevelObjectives").getServiceLevelObjectives = null as any;
+export const getServiceLevelObjectivesOutput: typeof import("./getServiceLevelObjectives").getServiceLevelObjectivesOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceLevelObjectives","getServiceLevelObjectivesOutput"], () => require("./getServiceLevelObjectives"));
+
+export { GetSyntheticsGlobalVariableArgs, GetSyntheticsGlobalVariableResult, GetSyntheticsGlobalVariableOutputArgs } from "./getSyntheticsGlobalVariable";
+export const getSyntheticsGlobalVariable: typeof import("./getSyntheticsGlobalVariable").getSyntheticsGlobalVariable = null as any;
+export const getSyntheticsGlobalVariableOutput: typeof import("./getSyntheticsGlobalVariable").getSyntheticsGlobalVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getSyntheticsGlobalVariable","getSyntheticsGlobalVariableOutput"], () => require("./getSyntheticsGlobalVariable"));
+
+export { GetSyntheticsLocationsResult } from "./getSyntheticsLocations";
+export const getSyntheticsLocations: typeof import("./getSyntheticsLocations").getSyntheticsLocations = null as any;
+utilities.lazyLoad(exports, ["getSyntheticsLocations"], () => require("./getSyntheticsLocations"));
+
+export { GetSyntheticsTestArgs, GetSyntheticsTestResult, GetSyntheticsTestOutputArgs } from "./getSyntheticsTest";
+export const getSyntheticsTest: typeof import("./getSyntheticsTest").getSyntheticsTest = null as any;
+export const getSyntheticsTestOutput: typeof import("./getSyntheticsTest").getSyntheticsTestOutput = null as any;
+utilities.lazyLoad(exports, ["getSyntheticsTest","getSyntheticsTestOutput"], () => require("./getSyntheticsTest"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { LogsArchiveArgs, LogsArchiveState } from "./logsArchive";
+export type LogsArchive = import("./logsArchive").LogsArchive;
+export const LogsArchive: typeof import("./logsArchive").LogsArchive = null as any;
+utilities.lazyLoad(exports, ["LogsArchive"], () => require("./logsArchive"));
+
+export { LogsArchiveOrderArgs, LogsArchiveOrderState } from "./logsArchiveOrder";
+export type LogsArchiveOrder = import("./logsArchiveOrder").LogsArchiveOrder;
+export const LogsArchiveOrder: typeof import("./logsArchiveOrder").LogsArchiveOrder = null as any;
+utilities.lazyLoad(exports, ["LogsArchiveOrder"], () => require("./logsArchiveOrder"));
+
+export { LogsCustomPipelineArgs, LogsCustomPipelineState } from "./logsCustomPipeline";
+export type LogsCustomPipeline = import("./logsCustomPipeline").LogsCustomPipeline;
+export const LogsCustomPipeline: typeof import("./logsCustomPipeline").LogsCustomPipeline = null as any;
+utilities.lazyLoad(exports, ["LogsCustomPipeline"], () => require("./logsCustomPipeline"));
+
+export { LogsIndexArgs, LogsIndexState } from "./logsIndex";
+export type LogsIndex = import("./logsIndex").LogsIndex;
+export const LogsIndex: typeof import("./logsIndex").LogsIndex = null as any;
+utilities.lazyLoad(exports, ["LogsIndex"], () => require("./logsIndex"));
+
+export { LogsIndexOrderArgs, LogsIndexOrderState } from "./logsIndexOrder";
+export type LogsIndexOrder = import("./logsIndexOrder").LogsIndexOrder;
+export const LogsIndexOrder: typeof import("./logsIndexOrder").LogsIndexOrder = null as any;
+utilities.lazyLoad(exports, ["LogsIndexOrder"], () => require("./logsIndexOrder"));
+
+export { LogsIntegrationPipelineArgs, LogsIntegrationPipelineState } from "./logsIntegrationPipeline";
+export type LogsIntegrationPipeline = import("./logsIntegrationPipeline").LogsIntegrationPipeline;
+export const LogsIntegrationPipeline: typeof import("./logsIntegrationPipeline").LogsIntegrationPipeline = null as any;
+utilities.lazyLoad(exports, ["LogsIntegrationPipeline"], () => require("./logsIntegrationPipeline"));
+
+export { LogsMetricArgs, LogsMetricState } from "./logsMetric";
+export type LogsMetric = import("./logsMetric").LogsMetric;
+export const LogsMetric: typeof import("./logsMetric").LogsMetric = null as any;
+utilities.lazyLoad(exports, ["LogsMetric"], () => require("./logsMetric"));
+
+export { LogsPipelineOrderArgs, LogsPipelineOrderState } from "./logsPipelineOrder";
+export type LogsPipelineOrder = import("./logsPipelineOrder").LogsPipelineOrder;
+export const LogsPipelineOrder: typeof import("./logsPipelineOrder").LogsPipelineOrder = null as any;
+utilities.lazyLoad(exports, ["LogsPipelineOrder"], () => require("./logsPipelineOrder"));
+
+export { MetricMetadataArgs, MetricMetadataState } from "./metricMetadata";
+export type MetricMetadata = import("./metricMetadata").MetricMetadata;
+export const MetricMetadata: typeof import("./metricMetadata").MetricMetadata = null as any;
+utilities.lazyLoad(exports, ["MetricMetadata"], () => require("./metricMetadata"));
+
+export { MetricTagConfigurationArgs, MetricTagConfigurationState } from "./metricTagConfiguration";
+export type MetricTagConfiguration = import("./metricTagConfiguration").MetricTagConfiguration;
+export const MetricTagConfiguration: typeof import("./metricTagConfiguration").MetricTagConfiguration = null as any;
+utilities.lazyLoad(exports, ["MetricTagConfiguration"], () => require("./metricTagConfiguration"));
+
+export { MonitorArgs, MonitorState } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { MonitorJsonArgs, MonitorJsonState } from "./monitorJson";
+export type MonitorJson = import("./monitorJson").MonitorJson;
+export const MonitorJson: typeof import("./monitorJson").MonitorJson = null as any;
+utilities.lazyLoad(exports, ["MonitorJson"], () => require("./monitorJson"));
+
+export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
+export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
+export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
+utilities.lazyLoad(exports, ["OrganizationSettings"], () => require("./organizationSettings"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+
+export { RumApplicationArgs, RumApplicationState } from "./rumApplication";
+export type RumApplication = import("./rumApplication").RumApplication;
+export const RumApplication: typeof import("./rumApplication").RumApplication = null as any;
+utilities.lazyLoad(exports, ["RumApplication"], () => require("./rumApplication"));
+
+export { SecurityMonitoringDefaultRuleArgs, SecurityMonitoringDefaultRuleState } from "./securityMonitoringDefaultRule";
+export type SecurityMonitoringDefaultRule = import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule;
+export const SecurityMonitoringDefaultRule: typeof import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringDefaultRule"], () => require("./securityMonitoringDefaultRule"));
+
+export { SecurityMonitoringFilterArgs, SecurityMonitoringFilterState } from "./securityMonitoringFilter";
+export type SecurityMonitoringFilter = import("./securityMonitoringFilter").SecurityMonitoringFilter;
+export const SecurityMonitoringFilter: typeof import("./securityMonitoringFilter").SecurityMonitoringFilter = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringFilter"], () => require("./securityMonitoringFilter"));
+
+export { SecurityMonitoringRuleArgs, SecurityMonitoringRuleState } from "./securityMonitoringRule";
+export type SecurityMonitoringRule = import("./securityMonitoringRule").SecurityMonitoringRule;
+export const SecurityMonitoringRule: typeof import("./securityMonitoringRule").SecurityMonitoringRule = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringRule"], () => require("./securityMonitoringRule"));
+
+export { ServiceDefinitionYamlArgs, ServiceDefinitionYamlState } from "./serviceDefinitionYaml";
+export type ServiceDefinitionYaml = import("./serviceDefinitionYaml").ServiceDefinitionYaml;
+export const ServiceDefinitionYaml: typeof import("./serviceDefinitionYaml").ServiceDefinitionYaml = null as any;
+utilities.lazyLoad(exports, ["ServiceDefinitionYaml"], () => require("./serviceDefinitionYaml"));
+
+export { ServiceLevelObjectiveArgs, ServiceLevelObjectiveState } from "./serviceLevelObjective";
+export type ServiceLevelObjective = import("./serviceLevelObjective").ServiceLevelObjective;
+export const ServiceLevelObjective: typeof import("./serviceLevelObjective").ServiceLevelObjective = null as any;
+utilities.lazyLoad(exports, ["ServiceLevelObjective"], () => require("./serviceLevelObjective"));
+
+export { SloCorrectionArgs, SloCorrectionState } from "./sloCorrection";
+export type SloCorrection = import("./sloCorrection").SloCorrection;
+export const SloCorrection: typeof import("./sloCorrection").SloCorrection = null as any;
+utilities.lazyLoad(exports, ["SloCorrection"], () => require("./sloCorrection"));
+
+export { SyntheticsGlobalVariableArgs, SyntheticsGlobalVariableState } from "./syntheticsGlobalVariable";
+export type SyntheticsGlobalVariable = import("./syntheticsGlobalVariable").SyntheticsGlobalVariable;
+export const SyntheticsGlobalVariable: typeof import("./syntheticsGlobalVariable").SyntheticsGlobalVariable = null as any;
+utilities.lazyLoad(exports, ["SyntheticsGlobalVariable"], () => require("./syntheticsGlobalVariable"));
+
+export { SyntheticsPrivateLocationArgs, SyntheticsPrivateLocationState } from "./syntheticsPrivateLocation";
+export type SyntheticsPrivateLocation = import("./syntheticsPrivateLocation").SyntheticsPrivateLocation;
+export const SyntheticsPrivateLocation: typeof import("./syntheticsPrivateLocation").SyntheticsPrivateLocation = null as any;
+utilities.lazyLoad(exports, ["SyntheticsPrivateLocation"], () => require("./syntheticsPrivateLocation"));
+
+export { SyntheticsTestArgs, SyntheticsTestState } from "./syntheticsTest";
+export type SyntheticsTest = import("./syntheticsTest").SyntheticsTest;
+export const SyntheticsTest: typeof import("./syntheticsTest").SyntheticsTest = null as any;
+utilities.lazyLoad(exports, ["SyntheticsTest"], () => require("./syntheticsTest"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { WebhookArgs, WebhookState } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
+export { WebhookCustomVariableArgs, WebhookCustomVariableState } from "./webhookCustomVariable";
+export type WebhookCustomVariable = import("./webhookCustomVariable").WebhookCustomVariable;
+export const WebhookCustomVariable: typeof import("./webhookCustomVariable").WebhookCustomVariable = null as any;
+utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookCustomVariable"));
+
 
 // Export sub-modules:
 import * as aws from "./aws";
@@ -85,44 +323,6 @@ export {
     slack,
     types,
 };
-
-// Import resources to register:
-import { ApiKey } from "./apiKey";
-import { ApplicationKey } from "./applicationKey";
-import { AuthnMapping } from "./authnMapping";
-import { ChildOrganization } from "./childOrganization";
-import { CloudWorkloadSecurityAgentRule } from "./cloudWorkloadSecurityAgentRule";
-import { Dashboard } from "./dashboard";
-import { DashboardJson } from "./dashboardJson";
-import { DashboardList } from "./dashboardList";
-import { Downtime } from "./downtime";
-import { LogsArchive } from "./logsArchive";
-import { LogsArchiveOrder } from "./logsArchiveOrder";
-import { LogsCustomPipeline } from "./logsCustomPipeline";
-import { LogsIndex } from "./logsIndex";
-import { LogsIndexOrder } from "./logsIndexOrder";
-import { LogsIntegrationPipeline } from "./logsIntegrationPipeline";
-import { LogsMetric } from "./logsMetric";
-import { LogsPipelineOrder } from "./logsPipelineOrder";
-import { MetricMetadata } from "./metricMetadata";
-import { MetricTagConfiguration } from "./metricTagConfiguration";
-import { Monitor } from "./monitor";
-import { MonitorJson } from "./monitorJson";
-import { OrganizationSettings } from "./organizationSettings";
-import { Role } from "./role";
-import { RumApplication } from "./rumApplication";
-import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
-import { SecurityMonitoringFilter } from "./securityMonitoringFilter";
-import { SecurityMonitoringRule } from "./securityMonitoringRule";
-import { ServiceDefinitionYaml } from "./serviceDefinitionYaml";
-import { ServiceLevelObjective } from "./serviceLevelObjective";
-import { SloCorrection } from "./sloCorrection";
-import { SyntheticsGlobalVariable } from "./syntheticsGlobalVariable";
-import { SyntheticsPrivateLocation } from "./syntheticsPrivateLocation";
-import { SyntheticsTest } from "./syntheticsTest";
-import { User } from "./user";
-import { Webhook } from "./webhook";
-import { WebhookCustomVariable } from "./webhookCustomVariable";
 
 const _module = {
     version: utilities.getVersion(),
@@ -241,9 +441,6 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("datadog", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

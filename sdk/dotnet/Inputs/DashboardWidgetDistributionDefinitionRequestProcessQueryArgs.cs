@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterBies")]
         private InputList<string>? _filterBies;
@@ -32,5 +32,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetDistributionDefinitionRequestProcessQueryArgs()
         {
         }
+        public static new DashboardWidgetDistributionDefinitionRequestProcessQueryArgs Empty => new DashboardWidgetDistributionDefinitionRequestProcessQueryArgs();
     }
 }

@@ -15,39 +15,38 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var roRole = Datadog.GetRole.Invoke(new()
     ///     {
-    ///         var roRole = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
-    ///         {
-    ///             Filter = "Datadog Read Only Role",
-    ///         }));
-    ///         // Create a new AuthN mapping
-    ///         var devRoRoleMapping = new Datadog.AuthnMapping("devRoRoleMapping", new Datadog.AuthnMappingArgs
-    ///         {
-    ///             Key = "Member-of",
-    ///             Value = "Development",
-    ///             Role = roRole.Apply(roRole =&gt; roRole.Id),
-    ///         });
-    ///     }
+    ///         Filter = "Datadog Read Only Role",
+    ///     });
     /// 
-    /// }
+    ///     // Create a new AuthN mapping
+    ///     var devRoRoleMapping = new Datadog.AuthnMapping("devRoRoleMapping", new()
+    ///     {
+    ///         Key = "Member-of",
+    ///         Value = "Development",
+    ///         Role = roRole.Apply(getRoleResult =&gt; getRoleResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # AuthN mappings can be imported using their ID, e.g.
+    /// AuthN mappings can be imported using their ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/authnMapping:AuthnMapping")]
-    public partial class AuthnMapping : Pulumi.CustomResource
+    public partial class AuthnMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identity provider key.
@@ -111,7 +110,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class AuthnMappingArgs : Pulumi.ResourceArgs
+    public sealed class AuthnMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity provider key.
@@ -134,9 +133,10 @@ namespace Pulumi.Datadog
         public AuthnMappingArgs()
         {
         }
+        public static new AuthnMappingArgs Empty => new AuthnMappingArgs();
     }
 
-    public sealed class AuthnMappingState : Pulumi.ResourceArgs
+    public sealed class AuthnMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identity provider key.
@@ -159,5 +159,6 @@ namespace Pulumi.Datadog
         public AuthnMappingState()
         {
         }
+        public static new AuthnMappingState Empty => new AuthnMappingState();
     }
 }

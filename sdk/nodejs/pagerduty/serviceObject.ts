@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
  *     serviceKey: "9876543210123456789",
  *     serviceName: "testing_foo",
  * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
+ * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
  *     serviceKey: "54321098765432109876",
  *     serviceName: "testing_bar",
  * });
@@ -52,10 +52,7 @@ export class ServiceObject extends pulumi.CustomResource {
     }
 
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      */
     public readonly serviceKey!: pulumi.Output<string>;
     /**
@@ -86,10 +83,12 @@ export class ServiceObject extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
+            resourceInputs["serviceKey"] = args?.serviceKey ? pulumi.secret(args.serviceKey) : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["serviceKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceObject.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -99,10 +98,7 @@ export class ServiceObject extends pulumi.CustomResource {
  */
 export interface ServiceObjectState {
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      */
     serviceKey?: pulumi.Input<string>;
     /**
@@ -116,10 +112,7 @@ export interface ServiceObjectState {
  */
 export interface ServiceObjectArgs {
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      */
     serviceKey: pulumi.Input<string>;
     /**

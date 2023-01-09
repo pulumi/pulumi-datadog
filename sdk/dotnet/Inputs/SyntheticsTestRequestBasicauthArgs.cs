@@ -10,40 +10,153 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestRequestBasicauthArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestRequestBasicauthArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessKey")]
-        public Input<string>? AccessKey { get; set; }
+        private Input<string>? _accessKey;
 
+        /// <summary>
+        /// Access key for `SIGV4` authentication.
+        /// </summary>
+        public Input<string>? AccessKey
+        {
+            get => _accessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Access token url for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        [Input("accessTokenUrl")]
+        public Input<string>? AccessTokenUrl { get; set; }
+
+        /// <summary>
+        /// Audience for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        [Input("audience")]
+        public Input<string>? Audience { get; set; }
+
+        /// <summary>
+        /// Client ID for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// Client secret for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Domain for `ntlm` authentication.
+        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         [Input("password")]
-        public Input<string>? Password { get; set; }
+        private Input<string>? _password;
 
+        /// <summary>
+        /// Password for authentication.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Region for `SIGV4` authentication.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        [Input("secretKey")]
-        public Input<string>? SecretKey { get; set; }
+        /// <summary>
+        /// Resource for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        [Input("resource")]
+        public Input<string>? Resource { get; set; }
 
+        /// <summary>
+        /// Scope for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        [Input("secretKey")]
+        private Input<string>? _secretKey;
+
+        /// <summary>
+        /// Secret key for `SIGV4` authentication.
+        /// </summary>
+        public Input<string>? SecretKey
+        {
+            get => _secretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Service name for `SIGV4` authentication.
+        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// Session token for `SIGV4` authentication.
+        /// </summary>
         [Input("sessionToken")]
         public Input<string>? SessionToken { get; set; }
 
+        /// <summary>
+        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        /// </summary>
+        [Input("tokenApiAuthentication")]
+        public Input<string>? TokenApiAuthentication { get; set; }
+
+        /// <summary>
+        /// Type of basic authentication to use when performing the test.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Username for authentication.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
+        /// <summary>
+        /// Workstation for `ntlm` authentication.
+        /// </summary>
         [Input("workstation")]
         public Input<string>? Workstation { get; set; }
 
         public SyntheticsTestRequestBasicauthArgs()
         {
         }
+        public static new SyntheticsTestRequestBasicauthArgs Empty => new SyntheticsTestRequestBasicauthArgs();
     }
 }

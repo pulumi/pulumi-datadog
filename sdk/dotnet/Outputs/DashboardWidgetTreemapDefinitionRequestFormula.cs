@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit? Limit;
+        public readonly Outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetTreemapDefinitionRequestFormula(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             string formulaExpression,
 
-            Outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit? limit)
+            Outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit? limit,
+
+            Outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            Style = style;
         }
     }
 }

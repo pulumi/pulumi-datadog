@@ -18,56 +18,172 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestOptionsList {
+    /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
     private @Nullable Boolean acceptSelfSigned;
+    /**
+     * @return Allows loading insecure content for an HTTP test.
+     * 
+     */
     private @Nullable Boolean allowInsecure;
+    /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
     private @Nullable Boolean checkCertificateRevocation;
+    /**
+     * @return CI/CD options for a Synthetic test.
+     * 
+     */
     private @Nullable SyntheticsTestOptionsListCi ci;
+    /**
+     * @return Disable Cross-Origin Resource Sharing for browser tests.
+     * 
+     */
+    private @Nullable Boolean disableCors;
+    /**
+     * @return Disable Content Security Policy for browser tests.
+     * 
+     */
     private @Nullable Boolean disableCsp;
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     private @Nullable Boolean followRedirects;
+    /**
+     * @return Ignore server certificate error.
+     * 
+     */
     private @Nullable Boolean ignoreServerCertificateError;
+    /**
+     * @return Timeout before declaring the initial step as failed (in seconds) for browser tests.
+     * 
+     */
     private @Nullable Integer initialNavigationTimeout;
+    /**
+     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * 
+     */
     private @Nullable Integer minFailureDuration;
+    /**
+     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * 
+     */
     private @Nullable Integer minLocationFailed;
+    /**
+     * @return The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     * 
+     */
     private @Nullable String monitorName;
     private @Nullable SyntheticsTestOptionsListMonitorOptions monitorOptions;
     private @Nullable Integer monitorPriority;
+    /**
+     * @return Prevents saving screenshots of the steps.
+     * 
+     */
     private @Nullable Boolean noScreenshot;
+    /**
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * 
+     */
     private @Nullable List<String> restrictedRoles;
     private @Nullable SyntheticsTestOptionsListRetry retry;
+    /**
+     * @return The RUM data collection settings for the Synthetic browser test.
+     * 
+     */
     private @Nullable SyntheticsTestOptionsListRumSettings rumSettings;
+    /**
+     * @return How often the test should run (in seconds).
+     * 
+     */
     private Integer tickEvery;
 
     private SyntheticsTestOptionsList() {}
+    /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
     public Optional<Boolean> acceptSelfSigned() {
         return Optional.ofNullable(this.acceptSelfSigned);
     }
+    /**
+     * @return Allows loading insecure content for an HTTP test.
+     * 
+     */
     public Optional<Boolean> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
     }
+    /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
     public Optional<Boolean> checkCertificateRevocation() {
         return Optional.ofNullable(this.checkCertificateRevocation);
     }
+    /**
+     * @return CI/CD options for a Synthetic test.
+     * 
+     */
     public Optional<SyntheticsTestOptionsListCi> ci() {
         return Optional.ofNullable(this.ci);
     }
+    /**
+     * @return Disable Cross-Origin Resource Sharing for browser tests.
+     * 
+     */
+    public Optional<Boolean> disableCors() {
+        return Optional.ofNullable(this.disableCors);
+    }
+    /**
+     * @return Disable Content Security Policy for browser tests.
+     * 
+     */
     public Optional<Boolean> disableCsp() {
         return Optional.ofNullable(this.disableCsp);
     }
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     public Optional<Boolean> followRedirects() {
         return Optional.ofNullable(this.followRedirects);
     }
+    /**
+     * @return Ignore server certificate error.
+     * 
+     */
     public Optional<Boolean> ignoreServerCertificateError() {
         return Optional.ofNullable(this.ignoreServerCertificateError);
     }
+    /**
+     * @return Timeout before declaring the initial step as failed (in seconds) for browser tests.
+     * 
+     */
     public Optional<Integer> initialNavigationTimeout() {
         return Optional.ofNullable(this.initialNavigationTimeout);
     }
+    /**
+     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * 
+     */
     public Optional<Integer> minFailureDuration() {
         return Optional.ofNullable(this.minFailureDuration);
     }
+    /**
+     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * 
+     */
     public Optional<Integer> minLocationFailed() {
         return Optional.ofNullable(this.minLocationFailed);
     }
+    /**
+     * @return The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     * 
+     */
     public Optional<String> monitorName() {
         return Optional.ofNullable(this.monitorName);
     }
@@ -77,18 +193,34 @@ public final class SyntheticsTestOptionsList {
     public Optional<Integer> monitorPriority() {
         return Optional.ofNullable(this.monitorPriority);
     }
+    /**
+     * @return Prevents saving screenshots of the steps.
+     * 
+     */
     public Optional<Boolean> noScreenshot() {
         return Optional.ofNullable(this.noScreenshot);
     }
+    /**
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * 
+     */
     public List<String> restrictedRoles() {
         return this.restrictedRoles == null ? List.of() : this.restrictedRoles;
     }
     public Optional<SyntheticsTestOptionsListRetry> retry() {
         return Optional.ofNullable(this.retry);
     }
+    /**
+     * @return The RUM data collection settings for the Synthetic browser test.
+     * 
+     */
     public Optional<SyntheticsTestOptionsListRumSettings> rumSettings() {
         return Optional.ofNullable(this.rumSettings);
     }
+    /**
+     * @return How often the test should run (in seconds).
+     * 
+     */
     public Integer tickEvery() {
         return this.tickEvery;
     }
@@ -106,6 +238,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable Boolean allowInsecure;
         private @Nullable Boolean checkCertificateRevocation;
         private @Nullable SyntheticsTestOptionsListCi ci;
+        private @Nullable Boolean disableCors;
         private @Nullable Boolean disableCsp;
         private @Nullable Boolean followRedirects;
         private @Nullable Boolean ignoreServerCertificateError;
@@ -127,6 +260,7 @@ public final class SyntheticsTestOptionsList {
     	      this.allowInsecure = defaults.allowInsecure;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
     	      this.ci = defaults.ci;
+    	      this.disableCors = defaults.disableCors;
     	      this.disableCsp = defaults.disableCsp;
     	      this.followRedirects = defaults.followRedirects;
     	      this.ignoreServerCertificateError = defaults.ignoreServerCertificateError;
@@ -161,6 +295,11 @@ public final class SyntheticsTestOptionsList {
         @CustomType.Setter
         public Builder ci(@Nullable SyntheticsTestOptionsListCi ci) {
             this.ci = ci;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableCors(@Nullable Boolean disableCors) {
+            this.disableCors = disableCors;
             return this;
         }
         @CustomType.Setter
@@ -242,6 +381,7 @@ public final class SyntheticsTestOptionsList {
             o.allowInsecure = allowInsecure;
             o.checkCertificateRevocation = checkCertificateRevocation;
             o.ci = ci;
+            o.disableCors = disableCors;
             o.disableCsp = disableCsp;
             o.followRedirects = followRedirects;
             o.ignoreServerCertificateError = ignoreServerCertificateError;

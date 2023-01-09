@@ -15,25 +15,23 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog Child Organization
+    ///     var organization = new Datadog.ChildOrganization("organization", new()
     ///     {
-    ///         // Create a new Datadog Child Organization
-    ///         var organization = new Datadog.ChildOrganization("organization", new Datadog.ChildOrganizationArgs
-    ///         {
-    ///             Name = "foo-organization",
-    ///         });
-    ///     }
+    ///         Name = "foo-organization",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/childOrganization:ChildOrganization")]
-    public partial class ChildOrganization : Pulumi.CustomResource
+    public partial class ChildOrganization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Datadog API key.
@@ -121,7 +119,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class ChildOrganizationArgs : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name for Child Organization after creation.
@@ -132,9 +130,10 @@ namespace Pulumi.Datadog
         public ChildOrganizationArgs()
         {
         }
+        public static new ChildOrganizationArgs Empty => new ChildOrganizationArgs();
     }
 
-    public sealed class ChildOrganizationState : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationState : global::Pulumi.ResourceArgs
     {
         [Input("apiKeys")]
         private InputList<Inputs.ChildOrganizationApiKeyGetArgs>? _apiKeys;
@@ -205,5 +204,6 @@ namespace Pulumi.Datadog
         public ChildOrganizationState()
         {
         }
+        public static new ChildOrganizationState Empty => new ChildOrganizationState();
     }
 }

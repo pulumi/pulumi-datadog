@@ -15,42 +15,40 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testingLogsMetric = new Datadog.LogsMetric("testingLogsMetric", new()
     ///     {
-    ///         var testingLogsMetric = new Datadog.LogsMetric("testingLogsMetric", new Datadog.LogsMetricArgs
+    ///         Compute = new Datadog.Inputs.LogsMetricComputeArgs
     ///         {
-    ///             Compute = new Datadog.Inputs.LogsMetricComputeArgs
+    ///             AggregationType = "distribution",
+    ///             Path = "@duration",
+    ///         },
+    ///         Filter = new Datadog.Inputs.LogsMetricFilterArgs
+    ///         {
+    ///             Query = "service:test",
+    ///         },
+    ///         GroupBies = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsMetricGroupByArgs
     ///             {
-    ///                 AggregationType = "distribution",
-    ///                 Path = "@duration",
+    ///                 Path = "@status",
+    ///                 TagName = "status",
     ///             },
-    ///             Filter = new Datadog.Inputs.LogsMetricFilterArgs
+    ///             new Datadog.Inputs.LogsMetricGroupByArgs
     ///             {
-    ///                 Query = "service:test",
+    ///                 Path = "@version",
+    ///                 TagName = "version",
     ///             },
-    ///             GroupBies = 
-    ///             {
-    ///                 new Datadog.Inputs.LogsMetricGroupByArgs
-    ///                 {
-    ///                     Path = "@status",
-    ///                     TagName = "status",
-    ///                 },
-    ///                 new Datadog.Inputs.LogsMetricGroupByArgs
-    ///                 {
-    ///                     Path = "@version",
-    ///                     TagName = "version",
-    ///                 },
-    ///             },
-    ///             Name = "testing.logs.metric",
-    ///         });
-    ///     }
+    ///         },
+    ///         Name = "testing.logs.metric",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +58,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsMetric:LogsMetric")]
-    public partial class LogsMetric : Pulumi.CustomResource
+    public partial class LogsMetric : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The compute rule to compute the log-based metric. This field can't be updated after creation.
@@ -130,7 +128,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsMetricArgs : Pulumi.ResourceArgs
+    public sealed class LogsMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute rule to compute the log-based metric. This field can't be updated after creation.
@@ -165,9 +163,10 @@ namespace Pulumi.Datadog
         public LogsMetricArgs()
         {
         }
+        public static new LogsMetricArgs Empty => new LogsMetricArgs();
     }
 
-    public sealed class LogsMetricState : Pulumi.ResourceArgs
+    public sealed class LogsMetricState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute rule to compute the log-based metric. This field can't be updated after creation.
@@ -202,5 +201,6 @@ namespace Pulumi.Datadog
         public LogsMetricState()
         {
         }
+        public static new LogsMetricState Empty => new LogsMetricState();
     }
 }

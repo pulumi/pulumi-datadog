@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultLookup")]
         public Input<string>? DefaultLookup { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs()
         {
         }
+        public static new LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs Empty => new LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs();
     }
 }

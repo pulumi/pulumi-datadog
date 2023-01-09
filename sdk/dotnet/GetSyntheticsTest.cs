@@ -15,34 +15,42 @@ namespace Pulumi.Datadog
         /// Use this data source to retrieve a Datadog Synthetic Test.
         /// </summary>
         public static Task<GetSyntheticsTestResult> InvokeAsync(GetSyntheticsTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a Datadog Synthetic Test.
         /// </summary>
         public static Output<GetSyntheticsTestResult> Invoke(GetSyntheticsTestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSyntheticsTestArgs : Pulumi.InvokeArgs
+    public sealed class GetSyntheticsTestArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The synthetic test id to search for
+        /// </summary>
         [Input("testId", required: true)]
         public string TestId { get; set; } = null!;
 
         public GetSyntheticsTestArgs()
         {
         }
+        public static new GetSyntheticsTestArgs Empty => new GetSyntheticsTestArgs();
     }
 
-    public sealed class GetSyntheticsTestInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSyntheticsTestInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The synthetic test id to search for
+        /// </summary>
         [Input("testId", required: true)]
         public Input<string> TestId { get; set; } = null!;
 
         public GetSyntheticsTestInvokeArgs()
         {
         }
+        public static new GetSyntheticsTestInvokeArgs Empty => new GetSyntheticsTestInvokeArgs();
     }
 
 
@@ -53,9 +61,21 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the synthetic test.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of tags assigned to the synthetic test.
+        /// </summary>
         public readonly ImmutableArray<string> Tags;
+        /// <summary>
+        /// The synthetic test id to search for
+        /// </summary>
         public readonly string TestId;
+        /// <summary>
+        /// The start URL of the synthetic test.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

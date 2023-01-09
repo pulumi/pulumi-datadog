@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
     public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
         private @Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

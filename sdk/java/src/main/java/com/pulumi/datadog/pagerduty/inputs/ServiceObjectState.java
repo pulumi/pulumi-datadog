@@ -16,20 +16,14 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
     public static final ServiceObjectState Empty = new ServiceObjectState();
 
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      * 
      */
     @Import(name="serviceKey")
     private @Nullable Output<String> serviceKey;
 
     /**
-     * @return Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * @return Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      * 
      */
     public Optional<Output<String>> serviceKey() {
@@ -77,10 +71,7 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-         * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-         * to solve a drift is to manually mark the Service Object resource with [terraform
-         * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
          * 
          * @return builder
          * 
@@ -91,10 +82,7 @@ public final class ServiceObjectState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-         * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-         * to solve a drift is to manually mark the Service Object resource with [terraform
-         * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
          * 
          * @return builder
          * 

@@ -82,6 +82,13 @@ func NewIntegration(ctx *pulumi.Context,
 	if args.Subdomain == nil {
 		return nil, errors.New("invalid value for required argument 'Subdomain'")
 	}
+	if args.ApiToken != nil {
+		args.ApiToken = pulumi.ToSecret(args.ApiToken).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiToken",
+	})
+	opts = append(opts, secrets)
 	var resource Integration
 	err := ctx.RegisterResource("datadog:pagerduty/integration:Integration", name, args, &resource, opts...)
 	if err != nil {

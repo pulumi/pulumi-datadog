@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const foo = pulumi.output(datadog.getApiKey({
+ * const foo = datadog.getApiKey({
  *     name: "foo-application",
- * }));
+ * });
  * ```
  */
 export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApiKey:getApiKey", {
         "id": args.id,
         "name": args.name,
@@ -35,7 +32,13 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyArgs {
+    /**
+     * Id for API Key.
+     */
     id?: string;
+    /**
+     * Name for API Key.
+     */
     name?: string;
 }
 
@@ -43,19 +46,47 @@ export interface GetApiKeyArgs {
  * A collection of values returned by getApiKey.
  */
 export interface GetApiKeyResult {
+    /**
+     * Id for API Key.
+     */
     readonly id?: string;
+    /**
+     * The value of the API Key.
+     */
     readonly key: string;
+    /**
+     * Name for API Key.
+     */
     readonly name?: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing api key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getApiKey({
+ *     name: "foo-application",
+ * });
+ * ```
+ */
 export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
-    return pulumi.output(args).apply(a => getApiKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiKey(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyOutputArgs {
+    /**
+     * Id for API Key.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name for API Key.
+     */
     name?: pulumi.Input<string>;
 }

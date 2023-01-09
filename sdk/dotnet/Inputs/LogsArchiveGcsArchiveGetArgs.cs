@@ -10,22 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsArchiveGcsArchiveGetArgs : Pulumi.ResourceArgs
+    public sealed class LogsArchiveGcsArchiveGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of your GCS bucket.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Your client email.
+        /// </summary>
         [Input("clientEmail", required: true)]
         public Input<string> ClientEmail { get; set; } = null!;
 
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        /// <summary>
+        /// Path where the archive is stored.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Your project id.
+        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
         public LogsArchiveGcsArchiveGetArgs()
         {
         }
+        public static new LogsArchiveGcsArchiveGetArgs Empty => new LogsArchiveGcsArchiveGetArgs();
     }
 }

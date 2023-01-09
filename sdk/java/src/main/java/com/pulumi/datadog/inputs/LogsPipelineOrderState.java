@@ -17,18 +17,14 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
     public static final LogsPipelineOrderState Empty = new LogsPipelineOrderState();
 
     /**
-     * The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-     * value as the resource name. No related field is available in [Logs Pipeline
-     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-     * value as the resource name. No related field is available in [Logs Pipeline
-     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     * @return The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,9 +72,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-         * value as the resource name. No related field is available in [Logs Pipeline
-         * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+         * @param name The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
          * 
          * @return builder
          * 
@@ -89,9 +83,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-         * value as the resource name. No related field is available in [Logs Pipeline
-         * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+         * @param name The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
          * 
          * @return builder
          * 

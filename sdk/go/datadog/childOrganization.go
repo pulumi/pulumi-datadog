@@ -49,7 +49,7 @@ type ChildOrganization struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for Child Organization after creation.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringOutput `pulumi:"publicId"`
 	// Organization settings
 	Settings ChildOrganizationSettingArrayOutput `pulumi:"settings"`
@@ -97,7 +97,7 @@ type childOrganizationState struct {
 	Description *string `pulumi:"description"`
 	// Name for Child Organization after creation.
 	Name *string `pulumi:"name"`
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId *string `pulumi:"publicId"`
 	// Organization settings
 	Settings []ChildOrganizationSetting `pulumi:"settings"`
@@ -114,7 +114,7 @@ type ChildOrganizationState struct {
 	Description pulumi.StringPtrInput
 	// Name for Child Organization after creation.
 	Name pulumi.StringPtrInput
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringPtrInput
 	// Organization settings
 	Settings ChildOrganizationSettingArrayInput
@@ -244,7 +244,7 @@ func (o ChildOrganizationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChildOrganization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The `public_id` of the organization you are operating within.
+// The `publicId` of the organization you are operating within.
 func (o ChildOrganizationOutput) PublicId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChildOrganization) pulumi.StringOutput { return v.PublicId }).(pulumi.StringOutput)
 }

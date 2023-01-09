@@ -25,10 +25,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.Downtime;
+ * import com.pulumi.datadog.DowntimeArgs;
+ * import com.pulumi.datadog.inputs.DowntimeRecurrenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -74,16 +82,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return this.active;
     }
     /**
-     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-     * This field will only exist on recurring downtimes.
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      * 
      */
     @Export(name="activeChildId", type=Integer.class, parameters={})
     private Output<Integer> activeChildId;
 
     /**
-     * @return The id corresponding to the downtime object definition of the active child for the original parent recurring downtime.
-     * This field will only exist on recurring downtimes.
+     * @return The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      * 
      */
     public Output<Integer> activeChildId() {
@@ -104,14 +110,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return this.disabled;
     }
     /**
-     * Optionally specify an end date when this downtime should expire
+     * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      * 
      */
     @Export(name="end", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> end;
 
     /**
-     * @return Optionally specify an end date when this downtime should expire
+     * @return Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      * 
      */
     public Output<Optional<Integer>> end() {
@@ -160,16 +166,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitorId);
     }
     /**
-     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      * 
      */
     @Export(name="monitorTags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> monitorTags;
 
     /**
-     * @return A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are
-     * silenced
+     * @return A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      * 
      */
     public Output<Optional<List<String>>> monitorTags() {
@@ -218,14 +222,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return this.scopes;
     }
     /**
-     * Specify when this downtime should start
+     * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      * 
      */
     @Export(name="start", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> start;
 
     /**
-     * @return Specify when this downtime should start
+     * @return Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      * 
      */
     public Output<Optional<Integer>> start() {
@@ -246,14 +250,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startDate);
     }
     /**
-     * The timezone for the downtime, default UTC
+     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      * 
      */
     @Export(name="timezone", type=String.class, parameters={})
     private Output</* @Nullable */ String> timezone;
 
     /**
-     * @return The timezone for the downtime, default UTC
+     * @return The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      * 
      */
     public Output<Optional<String>> timezone() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs()
         {
         }
+        public static new DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs Empty => new DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs();
     }
 }

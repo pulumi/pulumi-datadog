@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTreemapDefinitionRequestFormulaLimitGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTreemapDefinitionRequestFormulaLimitGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTreemapDefinitionRequestFormulaLimitGetArgs()
         {
         }
+        public static new DashboardWidgetTreemapDefinitionRequestFormulaLimitGetArgs Empty => new DashboardWidgetTreemapDefinitionRequestFormulaLimitGetArgs();
     }
 }

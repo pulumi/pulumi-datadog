@@ -19,18 +19,14 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
     public static final MetricTagConfigurationState Empty = new MetricTagConfigurationState();
 
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
      * 
      */
     @Import(name="aggregations")
     private @Nullable Output<List<MetricTagConfigurationAggregationArgs>> aggregations;
 
     /**
-     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
      * 
      */
     public Optional<Output<List<MetricTagConfigurationAggregationArgs>>> aggregations() {
@@ -38,16 +34,14 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
     @Import(name="includePercentiles")
     private @Nullable Output<Boolean> includePercentiles;
 
     /**
-     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * @return Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
     public Optional<Output<Boolean>> includePercentiles() {
@@ -70,14 +64,14 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The metric&#39;s type. This field can&#39;t be updated after creation.
+     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      * 
      */
     @Import(name="metricType")
     private @Nullable Output<String> metricType;
 
     /**
-     * @return The metric&#39;s type. This field can&#39;t be updated after creation.
+     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      * 
      */
     public Optional<Output<String>> metricType() {
@@ -128,9 +122,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-         * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-         * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
          * 
          * @return builder
          * 
@@ -141,9 +133,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-         * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-         * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
          * 
          * @return builder
          * 
@@ -153,9 +143,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-         * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-         * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+         * @param aggregations A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
          * 
          * @return builder
          * 
@@ -165,8 +153,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-         * have a `metric_type` of distribution.
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
          * 
          * @return builder
          * 
@@ -177,8 +164,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-         * have a `metric_type` of distribution.
+         * @param includePercentiles Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
          * 
          * @return builder
          * 
@@ -209,7 +195,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation.
+         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
          * 
          * @return builder
          * 
@@ -220,7 +206,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation.
+         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
          * 
          * @return builder
          * 

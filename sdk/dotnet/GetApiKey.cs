@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetApiKey.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetApiKey.InvokeAsync(new Datadog.GetApiKeyArgs
-        ///         {
-        ///             Name = "foo-application",
-        ///         }));
-        ///     }
+        ///         Name = "foo-application",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing api key.
@@ -48,61 +46,82 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Datadog.GetApiKey.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Datadog.GetApiKey.InvokeAsync(new Datadog.GetApiKeyArgs
-        ///         {
-        ///             Name = "foo-application",
-        ///         }));
-        ///     }
+        ///         Name = "foo-application",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("datadog:index/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetApiKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetApiKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id for API Key.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Name for API Key.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         public GetApiKeyArgs()
         {
         }
+        public static new GetApiKeyArgs Empty => new GetApiKeyArgs();
     }
 
-    public sealed class GetApiKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Id for API Key.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Name for API Key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public GetApiKeyInvokeArgs()
         {
         }
+        public static new GetApiKeyInvokeArgs Empty => new GetApiKeyInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetApiKeyResult
     {
+        /// <summary>
+        /// Id for API Key.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The value of the API Key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Name for API Key.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

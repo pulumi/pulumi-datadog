@@ -17,6 +17,10 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
     private @Nullable Boolean showErrorBudget;
     private String sloId;
     private List<String> timeWindows;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -36,6 +40,10 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
     public List<String> timeWindows() {
         return this.timeWindows;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

@@ -24,10 +24,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.aws.Integration;
+ * import com.pulumi.datadog.aws.IntegrationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -57,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+ * Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
  * 
  * ```sh
  *  $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
@@ -95,34 +102,28 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountId);
     }
     /**
-     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-     * found at the [available namespace rules API
-     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
     @Export(name="accountSpecificNamespaceRules", type=Map.class, parameters={String.class, Object.class})
     private Output</* @Nullable */ Map<String,Object>> accountSpecificNamespaceRules;
 
     /**
-     * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-     * found at the [available namespace rules API
-     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
     public Output<Optional<Map<String,Object>>> accountSpecificNamespaceRules() {
         return Codegen.optional(this.accountSpecificNamespaceRules);
     }
     /**
-     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-     * resources not covered under the general resource_collection.
+     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      * 
      */
     @Export(name="cspmResourceCollectionEnabled", type=String.class, parameters={})
     private Output<String> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-     * resources not covered under the general resource_collection.
+     * @return Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      * 
      */
     public Output<String> cspmResourceCollectionEnabled() {
@@ -159,20 +160,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.externalId;
     }
     /**
-     * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-     * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-     * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-     * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
     @Export(name="filterTags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> filterTags;
 
     /**
-     * @return Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-     * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-     * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-     * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     * @return Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
     public Output<Optional<List<String>>> filterTags() {
@@ -281,6 +276,9 @@ public class Integration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "secretAccessKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

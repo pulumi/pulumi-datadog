@@ -15,9 +15,17 @@ public final class SyntheticsTestApiStepExtractedValueParserArgs extends com.pul
 
     public static final SyntheticsTestApiStepExtractedValueParserArgs Empty = new SyntheticsTestApiStepExtractedValueParserArgs();
 
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -54,11 +62,23 @@ public final class SyntheticsTestApiStepExtractedValueParserArgs extends com.pul
             $ = new SyntheticsTestApiStepExtractedValueParserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

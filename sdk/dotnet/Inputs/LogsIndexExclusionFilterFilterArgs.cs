@@ -10,8 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsIndexExclusionFilterFilterArgs : Pulumi.ResourceArgs
+    public sealed class LogsIndexExclusionFilterFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
@@ -21,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsIndexExclusionFilterFilterArgs()
         {
         }
+        public static new LogsIndexExclusionFilterFilterArgs Empty => new LogsIndexExclusionFilterFilterArgs();
     }
 }

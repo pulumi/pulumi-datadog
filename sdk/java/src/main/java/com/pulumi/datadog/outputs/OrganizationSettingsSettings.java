@@ -16,45 +16,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationSettingsSettings {
+    /**
+     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * 
+     */
     private @Nullable Boolean privateWidgetShare;
+    /**
+     * @return SAML properties
+     * 
+     */
     private OrganizationSettingsSettingsSaml saml;
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * 
+     */
     private @Nullable String samlAutocreateAccessRole;
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     private OrganizationSettingsSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains;
+    /**
+     * @return Whether or not SAML can be enabled for this organization.
+     * 
+     */
     private @Nullable Boolean samlCanBeEnabled;
+    /**
+     * @return Identity provider endpoint for SAML authentication.
+     * 
+     */
     private @Nullable String samlIdpEndpoint;
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     private OrganizationSettingsSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin;
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     private @Nullable Boolean samlIdpMetadataUploaded;
+    /**
+     * @return URL for SAML logging.
+     * 
+     */
     private @Nullable String samlLoginUrl;
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     private OrganizationSettingsSettingsSamlStrictMode samlStrictMode;
 
     private OrganizationSettingsSettings() {}
+    /**
+     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * 
+     */
     public Optional<Boolean> privateWidgetShare() {
         return Optional.ofNullable(this.privateWidgetShare);
     }
+    /**
+     * @return SAML properties
+     * 
+     */
     public OrganizationSettingsSettingsSaml saml() {
         return this.saml;
     }
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * 
+     */
     public Optional<String> samlAutocreateAccessRole() {
         return Optional.ofNullable(this.samlAutocreateAccessRole);
     }
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     public OrganizationSettingsSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains() {
         return this.samlAutocreateUsersDomains;
     }
+    /**
+     * @return Whether or not SAML can be enabled for this organization.
+     * 
+     */
     public Optional<Boolean> samlCanBeEnabled() {
         return Optional.ofNullable(this.samlCanBeEnabled);
     }
+    /**
+     * @return Identity provider endpoint for SAML authentication.
+     * 
+     */
     public Optional<String> samlIdpEndpoint() {
         return Optional.ofNullable(this.samlIdpEndpoint);
     }
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public OrganizationSettingsSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin() {
         return this.samlIdpInitiatedLogin;
     }
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public Optional<Boolean> samlIdpMetadataUploaded() {
         return Optional.ofNullable(this.samlIdpMetadataUploaded);
     }
+    /**
+     * @return URL for SAML logging.
+     * 
+     */
     public Optional<String> samlLoginUrl() {
         return Optional.ofNullable(this.samlLoginUrl);
     }
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     public OrganizationSettingsSettingsSamlStrictMode samlStrictMode() {
         return this.samlStrictMode;
     }

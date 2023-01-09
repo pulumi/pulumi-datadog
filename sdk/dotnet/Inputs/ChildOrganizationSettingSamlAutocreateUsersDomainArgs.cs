@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ChildOrganizationSettingSamlAutocreateUsersDomainArgs : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationSettingSamlAutocreateUsersDomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("domains")]
         private InputList<string>? _domains;
@@ -26,5 +26,6 @@ namespace Pulumi.Datadog.Inputs
         public ChildOrganizationSettingSamlAutocreateUsersDomainArgs()
         {
         }
+        public static new ChildOrganizationSettingSamlAutocreateUsersDomainArgs Empty => new ChildOrganizationSettingSamlAutocreateUsersDomainArgs();
     }
 }

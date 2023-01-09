@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// # Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
+// Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 //
 // ```sh
 //
@@ -53,9 +53,9 @@ import (
 type IntegrationTagFilter struct {
 	pulumi.CustomResourceState
 
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr pulumi.StringOutput `pulumi:"tagFilterStr"`
@@ -99,18 +99,18 @@ func GetIntegrationTagFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationTagFilter resources.
 type integrationTagFilterState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId *string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace *string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr *string `pulumi:"tagFilterStr"`
 }
 
 type IntegrationTagFilterState struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringPtrInput
-	// The namespace associated with the tag filter entry.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringPtrInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringPtrInput
@@ -121,9 +121,9 @@ func (IntegrationTagFilterState) ElementType() reflect.Type {
 }
 
 type integrationTagFilterArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr string `pulumi:"tagFilterStr"`
@@ -131,9 +131,9 @@ type integrationTagFilterArgs struct {
 
 // The set of arguments for constructing a IntegrationTagFilter resource.
 type IntegrationTagFilterArgs struct {
-	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringInput
-	// The namespace associated with the tag filter entry.
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringInput
@@ -226,12 +226,12 @@ func (o IntegrationTagFilterOutput) ToIntegrationTagFilterOutputWithContext(ctx 
 	return o
 }
 
-// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 func (o IntegrationTagFilterOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationTagFilter) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The namespace associated with the tag filter entry.
+// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 func (o IntegrationTagFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationTagFilter) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }

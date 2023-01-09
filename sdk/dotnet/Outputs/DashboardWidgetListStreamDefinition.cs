@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetListStreamDefinition
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequest> Requests;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

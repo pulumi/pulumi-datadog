@@ -15,42 +15,39 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var privateLocation = new Datadog.SyntheticsPrivateLocation("privateLocation", new()
     ///     {
-    ///         var privateLocation = new Datadog.SyntheticsPrivateLocation("privateLocation", new Datadog.SyntheticsPrivateLocationArgs
+    ///         Description = "Description of the private location",
+    ///         Name = "First private location",
+    ///         Tags = new[]
     ///         {
-    ///             Description = "Description of the private location",
-    ///             Name = "First private location",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "env:test",
-    ///             },
-    ///         });
-    ///     }
+    ///             "foo:bar",
+    ///             "env:test",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Synthetics private locations can be imported using their string ID, e.g.
+    /// Synthetics private locations can be imported using their string ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")]
-    public partial class SyntheticsPrivateLocation : Pulumi.CustomResource
+    public partial class SyntheticsPrivateLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        /// this configuration.
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         /// </summary>
         [Output("config")]
         public Output<string> Config { get; private set; } = null!;
@@ -102,6 +99,10 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "config",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -123,7 +124,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SyntheticsPrivateLocationArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsPrivateLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the private location.
@@ -158,16 +159,26 @@ namespace Pulumi.Datadog
         public SyntheticsPrivateLocationArgs()
         {
         }
+        public static new SyntheticsPrivateLocationArgs Empty => new SyntheticsPrivateLocationArgs();
     }
 
-    public sealed class SyntheticsPrivateLocationState : Pulumi.ResourceArgs
+    public sealed class SyntheticsPrivateLocationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        /// this configuration.
-        /// </summary>
         [Input("config")]
-        public Input<string>? Config { get; set; }
+        private Input<string>? _config;
+
+        /// <summary>
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+        /// </summary>
+        public Input<string>? Config
+        {
+            get => _config;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _config = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Description of the private location.
@@ -202,5 +213,6 @@ namespace Pulumi.Datadog
         public SyntheticsPrivateLocationState()
         {
         }
+        public static new SyntheticsPrivateLocationState Empty => new SyntheticsPrivateLocationState();
     }
 }

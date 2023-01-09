@@ -19,29 +19,30 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Datadog.GetCloudWorkloadSecurityAgentRules.InvokeAsync());
-        ///     }
+        ///     var test = Datadog.GetCloudWorkloadSecurityAgentRules.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCloudWorkloadSecurityAgentRulesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudWorkloadSecurityAgentRulesResult>("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudWorkloadSecurityAgentRulesResult>("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
     [OutputType]
     public sealed class GetCloudWorkloadSecurityAgentRulesResult
     {
+        /// <summary>
+        /// List of Agent rules.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudWorkloadSecurityAgentRulesAgentRuleResult> AgentRules;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringRuleQueryAgentRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleQueryAgentRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentRuleId", required: true)]
         public Input<string> AgentRuleId { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public SecurityMonitoringRuleQueryAgentRuleGetArgs()
         {
         }
+        public static new SecurityMonitoringRuleQueryAgentRuleGetArgs Empty => new SecurityMonitoringRuleQueryAgentRuleGetArgs();
     }
 }

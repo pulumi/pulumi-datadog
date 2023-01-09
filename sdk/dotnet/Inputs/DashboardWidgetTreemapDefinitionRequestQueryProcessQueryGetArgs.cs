@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTreemapDefinitionRequestQueryProcessQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTreemapDefinitionRequestQueryProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
@@ -47,5 +47,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTreemapDefinitionRequestQueryProcessQueryGetArgs()
         {
         }
+        public static new DashboardWidgetTreemapDefinitionRequestQueryProcessQueryGetArgs Empty => new DashboardWidgetTreemapDefinitionRequestQueryProcessQueryGetArgs();
     }
 }

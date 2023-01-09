@@ -8,11 +8,8 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve a Datadog Synthetic Test.
  */
 export function getSyntheticsTest(args: GetSyntheticsTestArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsTestResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", {
         "testId": args.testId,
     }, opts);
@@ -22,6 +19,9 @@ export function getSyntheticsTest(args: GetSyntheticsTestArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSyntheticsTest.
  */
 export interface GetSyntheticsTestArgs {
+    /**
+     * The synthetic test id to search for
+     */
     testId: string;
 }
 
@@ -33,19 +33,36 @@ export interface GetSyntheticsTestResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the synthetic test.
+     */
     readonly name: string;
+    /**
+     * A list of tags assigned to the synthetic test.
+     */
     readonly tags: string[];
+    /**
+     * The synthetic test id to search for
+     */
     readonly testId: string;
+    /**
+     * The start URL of the synthetic test.
+     */
     readonly url: string;
 }
-
+/**
+ * Use this data source to retrieve a Datadog Synthetic Test.
+ */
 export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsTestResult> {
-    return pulumi.output(args).apply(a => getSyntheticsTest(a, opts))
+    return pulumi.output(args).apply((a: any) => getSyntheticsTest(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getSyntheticsTest.
  */
 export interface GetSyntheticsTestOutputArgs {
+    /**
+     * The synthetic test id to search for
+     */
     testId: pulumi.Input<string>;
 }

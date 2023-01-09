@@ -30,7 +30,494 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewDashboardJson(ctx, "dashboardJson", &datadog.DashboardJsonArgs{
-//				Dashboard: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "   \"title\":\"Ordered Layout Dashboard\",\n", "   \"description\":\"Created using the Datadog provider in Terraform\",\n", "   \"widgets\":[\n", "      {\n", "         \"id\":719369537777170,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"alert_graph\",\n", "            \"alert_id\":\"895605\",\n", "            \"viz_type\":\"timeseries\"\n", "         }\n", "      },\n", "      {\n", "         \"id\":2306240030393868,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"alert_value\",\n", "            \"alert_id\":\"895605\",\n", "            \"unit\":\"b\",\n", "            \"text_align\":\"center\",\n", "            \"precision\":3\n", "         }\n", "      },\n", "      {\n", "         \"id\":6990998850881326,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"alert_value\",\n", "            \"alert_id\":\"895605\",\n", "            \"unit\":\"b\",\n", "            \"text_align\":\"center\",\n", "            \"precision\":3\n", "         }\n", "      },\n", "      {\n", "         \"id\":3351284044659007,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"change\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.load.1{env:staging} by {account}\",\n", "                  \"compare_to\":\"week_before\",\n", "                  \"change_type\":\"absolute\",\n", "                  \"order_dir\":\"desc\",\n", "                  \"increase_good\":true,\n", "                  \"order_by\":\"name\",\n", "                  \"show_present\":true\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":6450290622996182,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"show_legend\":false,\n", "            \"type\":\"distribution\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.load.1{env:staging} by {account}\",\n", "                  \"style\":{\n", "                     \"palette\":\"warm\"\n", "                  }\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":4902842646291536,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"check_status\",\n", "            \"check\":\"aws.ecs.agent_connected\",\n", "            \"grouping\":\"cluster\",\n", "            \"group_by\":[\n", "               \"account\",\n", "               \"cluster\"\n", "            ],\n", "            \"tags\":[\n", "               \"account:demo\",\n", "               \"cluster:awseb-ruthebdog-env-8-dn3m6u3gvk\"\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":6392349954822644,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"show_legend\":false,\n", "            \"type\":\"heatmap\",\n", "            \"yaxis\":{\n", "               \"scale\":\"sqrt\",\n", "               \"include_zero\":true,\n", "               \"min\":\"1\",\n", "               \"max\":\"2\"\n", "            },\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.load.1{env:staging} by {account}\",\n", "                  \"style\":{\n", "                     \"palette\":\"warm\"\n", "                  }\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":5222961478940988,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"hostmap\",\n", "            \"requests\":{\n", "               \"fill\":{\n", "                  \"q\":\"avg:system.load.1{*} by {host}\"\n", "               },\n", "               \"size\":{\n", "                  \"q\":\"avg:memcache.uptime{*} by {host}\"\n", "               }\n", "            },\n", "            \"node_type\":\"container\",\n", "            \"no_metric_hosts\":true,\n", "            \"no_group_hosts\":true,\n", "            \"group\":[\n", "               \"host\",\n", "               \"region\"\n", "            ],\n", "            \"scope\":[\n", "               \"region:us-east-1\",\n", "               \"aws_account:727006795293\"\n", "            ],\n", "            \"style\":{\n", "               \"palette\":\"yellow_to_green\",\n", "               \"palette_flip\":true,\n", "               \"fill_min\":\"10\",\n", "               \"fill_max\":\"20\"\n", "            }\n", "         }\n", "      },\n", "      {\n", "         \"id\":8121199734227072,\n", "         \"definition\":{\n", "            \"type\":\"note\",\n", "            \"content\":\"note text\",\n", "            \"background_color\":\"pink\",\n", "            \"font_size\":\"14\",\n", "            \"text_align\":\"center\",\n", "            \"show_tick\":true,\n", "            \"tick_pos\":\"50", "%", "\",\n", "            \"tick_edge\":\"left\"\n", "         }\n", "      },\n", "      {\n", "         \"id\":1775856835833038,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"query_value\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.load.1{env:staging} by {account}\",\n", "                  \"aggregator\":\"sum\",\n", "                  \"conditional_formats\":[\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\"<\",\n", "                        \"palette\":\"white_on_green\",\n", "                        \"value\":2\n", "                     },\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\">\",\n", "                        \"palette\":\"white_on_red\",\n", "                        \"value\":2.2\n", "                     }\n", "                  ]\n", "               }\n", "            ],\n", "            \"autoscale\":true,\n", "            \"custom_unit\":\"xx\",\n", "            \"text_align\":\"right\",\n", "            \"precision\":4\n", "         }\n", "      },\n", "      {\n", "         \"id\":8461455966625581,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"query_table\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.load.1{env:staging} by {account}\",\n", "                  \"aggregator\":\"sum\",\n", "                  \"conditional_formats\":[\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\"<\",\n", "                        \"palette\":\"white_on_green\",\n", "                        \"value\":2\n", "                     },\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\">\",\n", "                        \"palette\":\"white_on_red\",\n", "                        \"value\":2.2\n", "                     }\n", "                  ],\n", "                  \"limit\":10\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":8660006349418736,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"scatterplot\",\n", "            \"requests\":{\n", "               \"x\":{\n", "                  \"q\":\"avg:system.cpu.user{*} by {service, account}\",\n", "                  \"aggregator\":\"max\"\n", "               },\n", "               \"y\":{\n", "                  \"q\":\"avg:system.mem.used{*} by {service, account}\",\n", "                  \"aggregator\":\"min\"\n", "               }\n", "            },\n", "            \"xaxis\":{\n", "               \"scale\":\"pow\",\n", "               \"label\":\"x\",\n", "               \"include_zero\":true,\n", "               \"min\":\"1\",\n", "               \"max\":\"2000\"\n", "            },\n", "            \"yaxis\":{\n", "               \"scale\":\"log\",\n", "               \"label\":\"y\",\n", "               \"include_zero\":false,\n", "               \"min\":\"5\",\n", "               \"max\":\"2222\"\n", "            },\n", "            \"color_by_groups\":[\n", "               \"account\",\n", "               \"apm-role-group\"\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":1669590772917638,\n", "         \"definition\":{\n", "            \"title\":\"env: prod, datacenter:dc1, service: master-db\",\n", "            \"title_size\":\"16\",\n", "            \"title_align\":\"left\",\n", "            \"type\":\"servicemap\",\n", "            \"service\":\"master-db\",\n", "            \"filters\":[\n", "               \"env:prod\",\n", "               \"datacenter:dc1\"\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":2138829058361817,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"show_legend\":true,\n", "            \"legend_size\":\"2\",\n", "            \"type\":\"timeseries\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.cpu.user{app:general} by {env}\",\n", "                  \"on_right_yaxis\":false,\n", "                  \"metadata\":[\n", "                     {\n", "                        \"expression\":\"avg:system.cpu.user{app:general} by {env}\",\n", "                        \"alias_name\":\"Alpha\"\n", "                     }\n", "                  ],\n", "                  \"style\":{\n", "                     \"palette\":\"warm\",\n", "                     \"line_type\":\"dashed\",\n", "                     \"line_width\":\"thin\"\n", "                  },\n", "                  \"display_type\":\"line\"\n", "               },\n", "               {\n", "                  \"on_right_yaxis\":false,\n", "                  \"log_query\":{\n", "                     \"index\":\"mcnulty\",\n", "                     \"search\":{\n", "                        \"query\":\"status:info\"\n", "                     },\n", "                     \"group_by\":[\n", "                        {\n", "                           \"facet\":\"host\",\n", "                           \"sort\":{\n", "                              \"facet\":\"@duration\",\n", "                              \"aggregation\":\"avg\",\n", "                              \"order\":\"desc\"\n", "                           },\n", "                           \"limit\":10\n", "                        }\n", "                     ],\n", "                     \"compute\":{\n", "                        \"facet\":\"@duration\",\n", "                        \"interval\":5000,\n", "                        \"aggregation\":\"avg\"\n", "                     }\n", "                  },\n", "                  \"display_type\":\"area\"\n", "               },\n", "               {\n", "                  \"on_right_yaxis\":false,\n", "                  \"apm_query\":{\n", "                     \"index\":\"apm-search\",\n", "                     \"search\":{\n", "                        \"query\":\"type:web\"\n", "                     },\n", "                     \"group_by\":[\n", "                        {\n", "                           \"facet\":\"resource_name\",\n", "                           \"sort\":{\n", "                              \"facet\":\"@string_query.interval\",\n", "                              \"aggregation\":\"avg\",\n", "                              \"order\":\"desc\"\n", "                           },\n", "                           \"limit\":50\n", "                        }\n", "                     ],\n", "                     \"compute\":{\n", "                        \"facet\":\"@duration\",\n", "                        \"interval\":5000,\n", "                        \"aggregation\":\"avg\"\n", "                     }\n", "                  },\n", "                  \"display_type\":\"bars\"\n", "               },\n", "               {\n", "                  \"on_right_yaxis\":false,\n", "                  \"process_query\":{\n", "                     \"search_by\":\"error\",\n", "                     \"metric\":\"process.stat.cpu.total_pct\",\n", "                     \"limit\":50,\n", "                     \"filter_by\":[\n", "                        \"active\"\n", "                     ]\n", "                  },\n", "                  \"display_type\":\"area\"\n", "               }\n", "            ],\n", "            \"yaxis\":{\n", "               \"scale\":\"log\",\n", "               \"include_zero\":false,\n", "               \"max\":\"100\"\n", "            },\n", "            \"events\":[\n", "               {\n", "                  \"q\":\"sources:test tags:1\"\n", "               },\n", "               {\n", "                  \"q\":\"sources:test tags:2\"\n", "               }\n", "            ],\n", "            \"markers\":[\n", "               {\n", "                  \"label\":\" z=6 \",\n", "                  \"value\":\"y = 4\",\n", "                  \"display_type\":\"error dashed\"\n", "               },\n", "               {\n", "                  \"label\":\" x=8 \",\n", "                  \"value\":\"10 < y < 999\",\n", "                  \"display_type\":\"ok solid\"\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":7307171374656551,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"toplist\",\n", "            \"requests\":[\n", "               {\n", "                  \"q\":\"avg:system.cpu.user{app:general} by {env}\",\n", "                  \"conditional_formats\":[\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\"<\",\n", "                        \"palette\":\"white_on_green\",\n", "                        \"value\":2\n", "                     },\n", "                     {\n", "                        \"hide_value\":false,\n", "                        \"comparator\":\">\",\n", "                        \"palette\":\"white_on_red\",\n", "                        \"value\":2.2\n", "                     }\n", "                  ]\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":7086674838553258,\n", "         \"definition\":{\n", "            \"title\":\"Group Widget\",\n", "            \"type\":\"group\",\n", "            \"layout_type\":\"ordered\",\n", "            \"widgets\":[\n", "               {\n", "                  \"id\":3726092277657502,\n", "                  \"definition\":{\n", "                     \"type\":\"note\",\n", "                     \"content\":\"cluster note widget\",\n", "                     \"background_color\":\"pink\",\n", "                     \"font_size\":\"14\",\n", "                     \"text_align\":\"center\",\n", "                     \"show_tick\":true,\n", "                     \"tick_pos\":\"50", "%", "\",\n", "                     \"tick_edge\":\"left\"\n", "                  }\n", "               },\n", "               {\n", "                  \"id\":6376384650558057,\n", "                  \"definition\":{\n", "                     \"title\":\"Alert Graph\",\n", "                     \"type\":\"alert_graph\",\n", "                     \"alert_id\":\"123\",\n", "                     \"viz_type\":\"toplist\"\n", "                  }\n", "               }\n", "            ]\n", "         }\n", "      },\n", "      {\n", "         \"id\":4668903563678912,\n", "         \"definition\":{\n", "            \"title\":\"Widget Title\",\n", "            \"type\":\"slo\",\n", "            \"view_type\":\"detail\",\n", "            \"time_windows\":[\n", "               \"7d\",\n", "               \"previous_week\"\n", "            ],\n", "            \"slo_id\":\"56789\",\n", "            \"show_error_budget\":true,\n", "            \"view_mode\":\"overall\",\n", "            \"global_time_target\":\"0\"\n", "         }\n", "      }\n", "   ],\n", "   \"template_variables\":[\n", "      {\n", "         \"name\":\"var_1\",\n", "         \"default\":\"aws\",\n", "         \"prefix\":\"host\"\n", "      },\n", "      {\n", "         \"name\":\"var_2\",\n", "         \"default\":\"autoscaling\",\n", "         \"prefix\":\"service_name\"\n", "      }\n", "   ],\n", "   \"layout_type\":\"ordered\",\n", "   \"is_read_only\":true,\n", "   \"notify_list\":[\n", "\n", "   ],\n", "   \"template_variable_presets\":[\n", "      {\n", "         \"name\":\"preset_1\",\n", "         \"template_variables\":[\n", "            {\n", "               \"name\":\"var_1\",\n", "               \"value\":\"host.dc\"\n", "            },\n", "            {\n", "               \"name\":\"var_2\",\n", "               \"value\":\"my_service\"\n", "            }\n", "         ]\n", "      }\n", "   ]\n", "}\n", "\n")),
+//				Dashboard: pulumi.String(fmt.Sprintf(`{
+//	   "title":"Ordered Layout Dashboard",
+//	   "description":"Created using the Datadog provider in Terraform",
+//	   "widgets":[
+//	      {
+//	         "id":719369537777170,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"alert_graph",
+//	            "alert_id":"895605",
+//	            "viz_type":"timeseries"
+//	         }
+//	      },
+//	      {
+//	         "id":2306240030393868,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"alert_value",
+//	            "alert_id":"895605",
+//	            "unit":"b",
+//	            "text_align":"center",
+//	            "precision":3
+//	         }
+//	      },
+//	      {
+//	         "id":6990998850881326,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"alert_value",
+//	            "alert_id":"895605",
+//	            "unit":"b",
+//	            "text_align":"center",
+//	            "precision":3
+//	         }
+//	      },
+//	      {
+//	         "id":3351284044659007,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"change",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.load.1{env:staging} by {account}",
+//	                  "compare_to":"week_before",
+//	                  "change_type":"absolute",
+//	                  "order_dir":"desc",
+//	                  "increase_good":true,
+//	                  "order_by":"name",
+//	                  "show_present":true
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":6450290622996182,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "show_legend":false,
+//	            "type":"distribution",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.load.1{env:staging} by {account}",
+//	                  "style":{
+//	                     "palette":"warm"
+//	                  }
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":4902842646291536,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"check_status",
+//	            "check":"aws.ecs.agent_connected",
+//	            "grouping":"cluster",
+//	            "group_by":[
+//	               "account",
+//	               "cluster"
+//	            ],
+//	            "tags":[
+//	               "account:demo",
+//	               "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk"
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":6392349954822644,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "show_legend":false,
+//	            "type":"heatmap",
+//	            "yaxis":{
+//	               "scale":"sqrt",
+//	               "include_zero":true,
+//	               "min":"1",
+//	               "max":"2"
+//	            },
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.load.1{env:staging} by {account}",
+//	                  "style":{
+//	                     "palette":"warm"
+//	                  }
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":5222961478940988,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"hostmap",
+//	            "requests":{
+//	               "fill":{
+//	                  "q":"avg:system.load.1{*} by {host}"
+//	               },
+//	               "size":{
+//	                  "q":"avg:memcache.uptime{*} by {host}"
+//	               }
+//	            },
+//	            "node_type":"container",
+//	            "no_metric_hosts":true,
+//	            "no_group_hosts":true,
+//	            "group":[
+//	               "host",
+//	               "region"
+//	            ],
+//	            "scope":[
+//	               "region:us-east-1",
+//	               "aws_account:727006795293"
+//	            ],
+//	            "style":{
+//	               "palette":"yellow_to_green",
+//	               "palette_flip":true,
+//	               "fill_min":"10",
+//	               "fill_max":"20"
+//	            }
+//	         }
+//	      },
+//	      {
+//	         "id":8121199734227072,
+//	         "definition":{
+//	            "type":"note",
+//	            "content":"note text",
+//	            "background_color":"pink",
+//	            "font_size":"14",
+//	            "text_align":"center",
+//	            "show_tick":true,
+//	            "tick_pos":"50%v",
+//	            "tick_edge":"left"
+//	         }
+//	      },
+//	      {
+//	         "id":1775856835833038,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"query_value",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.load.1{env:staging} by {account}",
+//	                  "aggregator":"sum",
+//	                  "conditional_formats":[
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":"<",
+//	                        "palette":"white_on_green",
+//	                        "value":2
+//	                     },
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":">",
+//	                        "palette":"white_on_red",
+//	                        "value":2.2
+//	                     }
+//	                  ]
+//	               }
+//	            ],
+//	            "autoscale":true,
+//	            "custom_unit":"xx",
+//	            "text_align":"right",
+//	            "precision":4
+//	         }
+//	      },
+//	      {
+//	         "id":8461455966625581,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"query_table",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.load.1{env:staging} by {account}",
+//	                  "aggregator":"sum",
+//	                  "conditional_formats":[
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":"<",
+//	                        "palette":"white_on_green",
+//	                        "value":2
+//	                     },
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":">",
+//	                        "palette":"white_on_red",
+//	                        "value":2.2
+//	                     }
+//	                  ],
+//	                  "limit":10
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":8660006349418736,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"scatterplot",
+//	            "requests":{
+//	               "x":{
+//	                  "q":"avg:system.cpu.user{*} by {service, account}",
+//	                  "aggregator":"max"
+//	               },
+//	               "y":{
+//	                  "q":"avg:system.mem.used{*} by {service, account}",
+//	                  "aggregator":"min"
+//	               }
+//	            },
+//	            "xaxis":{
+//	               "scale":"pow",
+//	               "label":"x",
+//	               "include_zero":true,
+//	               "min":"1",
+//	               "max":"2000"
+//	            },
+//	            "yaxis":{
+//	               "scale":"log",
+//	               "label":"y",
+//	               "include_zero":false,
+//	               "min":"5",
+//	               "max":"2222"
+//	            },
+//	            "color_by_groups":[
+//	               "account",
+//	               "apm-role-group"
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":1669590772917638,
+//	         "definition":{
+//	            "title":"env: prod, datacenter:dc1, service: master-db",
+//	            "title_size":"16",
+//	            "title_align":"left",
+//	            "type":"servicemap",
+//	            "service":"master-db",
+//	            "filters":[
+//	               "env:prod",
+//	               "datacenter:dc1"
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":2138829058361817,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "show_legend":true,
+//	            "legend_size":"2",
+//	            "type":"timeseries",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.cpu.user{app:general} by {env}",
+//	                  "on_right_yaxis":false,
+//	                  "metadata":[
+//	                     {
+//	                        "expression":"avg:system.cpu.user{app:general} by {env}",
+//	                        "alias_name":"Alpha"
+//	                     }
+//	                  ],
+//	                  "style":{
+//	                     "palette":"warm",
+//	                     "line_type":"dashed",
+//	                     "line_width":"thin"
+//	                  },
+//	                  "display_type":"line"
+//	               },
+//	               {
+//	                  "on_right_yaxis":false,
+//	                  "log_query":{
+//	                     "index":"mcnulty",
+//	                     "search":{
+//	                        "query":"status:info"
+//	                     },
+//	                     "group_by":[
+//	                        {
+//	                           "facet":"host",
+//	                           "sort":{
+//	                              "facet":"@duration",
+//	                              "aggregation":"avg",
+//	                              "order":"desc"
+//	                           },
+//	                           "limit":10
+//	                        }
+//	                     ],
+//	                     "compute":{
+//	                        "facet":"@duration",
+//	                        "interval":5000,
+//	                        "aggregation":"avg"
+//	                     }
+//	                  },
+//	                  "display_type":"area"
+//	               },
+//	               {
+//	                  "on_right_yaxis":false,
+//	                  "apm_query":{
+//	                     "index":"apm-search",
+//	                     "search":{
+//	                        "query":"type:web"
+//	                     },
+//	                     "group_by":[
+//	                        {
+//	                           "facet":"resource_name",
+//	                           "sort":{
+//	                              "facet":"@string_query.interval",
+//	                              "aggregation":"avg",
+//	                              "order":"desc"
+//	                           },
+//	                           "limit":50
+//	                        }
+//	                     ],
+//	                     "compute":{
+//	                        "facet":"@duration",
+//	                        "interval":5000,
+//	                        "aggregation":"avg"
+//	                     }
+//	                  },
+//	                  "display_type":"bars"
+//	               },
+//	               {
+//	                  "on_right_yaxis":false,
+//	                  "process_query":{
+//	                     "search_by":"error",
+//	                     "metric":"process.stat.cpu.total_pct",
+//	                     "limit":50,
+//	                     "filter_by":[
+//	                        "active"
+//	                     ]
+//	                  },
+//	                  "display_type":"area"
+//	               }
+//	            ],
+//	            "yaxis":{
+//	               "scale":"log",
+//	               "include_zero":false,
+//	               "max":"100"
+//	            },
+//	            "events":[
+//	               {
+//	                  "q":"sources:test tags:1"
+//	               },
+//	               {
+//	                  "q":"sources:test tags:2"
+//	               }
+//	            ],
+//	            "markers":[
+//	               {
+//	                  "label":" z=6 ",
+//	                  "value":"y = 4",
+//	                  "display_type":"error dashed"
+//	               },
+//	               {
+//	                  "label":" x=8 ",
+//	                  "value":"10 < y < 999",
+//	                  "display_type":"ok solid"
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":7307171374656551,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"toplist",
+//	            "requests":[
+//	               {
+//	                  "q":"avg:system.cpu.user{app:general} by {env}",
+//	                  "conditional_formats":[
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":"<",
+//	                        "palette":"white_on_green",
+//	                        "value":2
+//	                     },
+//	                     {
+//	                        "hide_value":false,
+//	                        "comparator":">",
+//	                        "palette":"white_on_red",
+//	                        "value":2.2
+//	                     }
+//	                  ]
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":7086674838553258,
+//	         "definition":{
+//	            "title":"Group Widget",
+//	            "type":"group",
+//	            "layout_type":"ordered",
+//	            "widgets":[
+//	               {
+//	                  "id":3726092277657502,
+//	                  "definition":{
+//	                     "type":"note",
+//	                     "content":"cluster note widget",
+//	                     "background_color":"pink",
+//	                     "font_size":"14",
+//	                     "text_align":"center",
+//	                     "show_tick":true,
+//	                     "tick_pos":"50%v",
+//	                     "tick_edge":"left"
+//	                  }
+//	               },
+//	               {
+//	                  "id":6376384650558057,
+//	                  "definition":{
+//	                     "title":"Alert Graph",
+//	                     "type":"alert_graph",
+//	                     "alert_id":"123",
+//	                     "viz_type":"toplist"
+//	                  }
+//	               }
+//	            ]
+//	         }
+//	      },
+//	      {
+//	         "id":4668903563678912,
+//	         "definition":{
+//	            "title":"Widget Title",
+//	            "type":"slo",
+//	            "view_type":"detail",
+//	            "time_windows":[
+//	               "7d",
+//	               "previous_week"
+//	            ],
+//	            "slo_id":"56789",
+//	            "show_error_budget":true,
+//	            "view_mode":"overall",
+//	            "global_time_target":"0"
+//	         }
+//	      }
+//	   ],
+//	   "template_variables":[
+//	      {
+//	         "name":"var_1",
+//	         "default":"aws",
+//	         "prefix":"host"
+//	      },
+//	      {
+//	         "name":"var_2",
+//	         "default":"autoscaling",
+//	         "prefix":"service_name"
+//	      }
+//	   ],
+//	   "layout_type":"ordered",
+//	   "is_read_only":true,
+//	   "notify_list":[
+//
+//	   ],
+//	   "template_variable_presets":[
+//	      {
+//	         "name":"preset_1",
+//	         "template_variables":[
+//	            {
+//	               "name":"var_1",
+//	               "value":"host.dc"
+//	            },
+//	            {
+//	               "name":"var_2",
+//	               "value":"my_service"
+//	            }
+//	         ]
+//	      }
+//	   ]
+//	}
+//
+// `, "%", "%")),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -38,6 +525,14 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
 //
 // ```
 type DashboardJson struct {

@@ -15,32 +15,30 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var python = new Datadog.LogsIntegrationPipeline("python", new()
     ///     {
-    ///         var python = new Datadog.LogsIntegrationPipeline("python", new Datadog.LogsIntegrationPipelineArgs
-    ///         {
-    ///             IsEnabled = true,
-    ///         });
-    ///     }
+    ///         IsEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # To find the pipeline ID, click the "view" button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
+    /// To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name&gt; &lt;pipelineID&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline")]
-    public partial class LogsIntegrationPipeline : Pulumi.CustomResource
+    public partial class LogsIntegrationPipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean value to enable your pipeline.
@@ -92,7 +90,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsIntegrationPipelineArgs : Pulumi.ResourceArgs
+    public sealed class LogsIntegrationPipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value to enable your pipeline.
@@ -103,9 +101,10 @@ namespace Pulumi.Datadog
         public LogsIntegrationPipelineArgs()
         {
         }
+        public static new LogsIntegrationPipelineArgs Empty => new LogsIntegrationPipelineArgs();
     }
 
-    public sealed class LogsIntegrationPipelineState : Pulumi.ResourceArgs
+    public sealed class LogsIntegrationPipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value to enable your pipeline.
@@ -116,5 +115,6 @@ namespace Pulumi.Datadog
         public LogsIntegrationPipelineState()
         {
         }
+        public static new LogsIntegrationPipelineState Empty => new LogsIntegrationPipelineState();
     }
 }
