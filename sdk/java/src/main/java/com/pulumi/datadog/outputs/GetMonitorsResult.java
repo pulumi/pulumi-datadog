@@ -18,9 +18,25 @@ public final class GetMonitorsResult {
      * 
      */
     private String id;
+    /**
+     * @return A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     private @Nullable List<String> monitorTagsFilters;
+    /**
+     * @return List of monitors
+     * 
+     */
     private List<GetMonitorsMonitor> monitors;
+    /**
+     * @return A monitor name to limit the search.
+     * 
+     */
     private @Nullable String nameFilter;
+    /**
+     * @return A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     private @Nullable List<String> tagsFilters;
 
     private GetMonitorsResult() {}
@@ -31,15 +47,31 @@ public final class GetMonitorsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     * 
+     */
     public List<String> monitorTagsFilters() {
         return this.monitorTagsFilters == null ? List.of() : this.monitorTagsFilters;
     }
+    /**
+     * @return List of monitors
+     * 
+     */
     public List<GetMonitorsMonitor> monitors() {
         return this.monitors;
     }
+    /**
+     * @return A monitor name to limit the search.
+     * 
+     */
     public Optional<String> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
+    /**
+     * @return A list of tags to limit the search. This filters on the monitor scope.
+     * 
+     */
     public List<String> tagsFilters() {
         return this.tagsFilters == null ? List.of() : this.tagsFilters;
     }

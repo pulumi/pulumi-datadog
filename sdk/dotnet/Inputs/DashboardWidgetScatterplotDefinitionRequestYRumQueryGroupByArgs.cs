@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs : global::Pulumi.ResourceArgs
     {
         [Input("facet")]
         public Input<string>? Facet { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs()
         {
         }
+        public static new DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs Empty => new DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs();
     }
 }

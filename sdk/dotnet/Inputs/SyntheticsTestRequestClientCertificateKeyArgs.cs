@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestRequestClientCertificateKeyArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestRequestClientCertificateKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        private Input<string>? _content;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("filename")]
         public Input<string>? Filename { get; set; }
@@ -21,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestRequestClientCertificateKeyArgs()
         {
         }
+        public static new SyntheticsTestRequestClientCertificateKeyArgs Empty => new SyntheticsTestRequestClientCertificateKeyArgs();
     }
 }

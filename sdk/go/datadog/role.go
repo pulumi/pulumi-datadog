@@ -33,12 +33,12 @@ import (
 //			}
 //			_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
 //				Name: pulumi.String("foo"),
-//				Permissions: RolePermissionArray{
-//					&RolePermissionArgs{
-//						Id: pulumi.String(bar.Permissions.MonitorsDowntime),
+//				Permissions: datadog.RolePermissionArray{
+//					&datadog.RolePermissionArgs{
+//						Id: *pulumi.String(bar.Permissions.MonitorsDowntime),
 //					},
-//					&RolePermissionArgs{
-//						Id: pulumi.String(bar.Permissions.MonitorsWrite),
+//					&datadog.RolePermissionArgs{
+//						Id: *pulumi.String(bar.Permissions.MonitorsWrite),
 //					},
 //				},
 //			})
@@ -53,7 +53,7 @@ import (
 //
 // ## Import
 //
-// # Roles can be imported using their ID, e.g.
+// Roles can be imported using their ID, e.g.
 //
 // ```sh
 //

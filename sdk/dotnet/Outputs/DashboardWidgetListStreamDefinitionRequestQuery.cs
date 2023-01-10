@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string DataSource;
         public readonly ImmutableArray<string> Indexes;
         public readonly string? QueryString;
+        public readonly string? Storage;
 
         [OutputConstructor]
         private DashboardWidgetListStreamDefinitionRequestQuery(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> indexes,
 
-            string? queryString)
+            string? queryString,
+
+            string? storage)
         {
             DataSource = dataSource;
             Indexes = indexes;
             QueryString = queryString;
+            Storage = storage;
         }
     }
 }

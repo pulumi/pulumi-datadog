@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit? Limit;
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetQueryValueDefinitionRequestFormula(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             string formulaExpression,
 
-            Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit? limit)
+            Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit? limit,
+
+            Outputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyle? style)
         {
             Alias = alias;
             CellDisplayMode = cellDisplayMode;
             ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
+            Style = style;
         }
     }
 }

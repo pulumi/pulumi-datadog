@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ChildOrganizationSettingArgs : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationSettingArgs : global::Pulumi.ResourceArgs
     {
         [Input("privateWidgetShare")]
         public Input<bool>? PrivateWidgetShare { get; set; }
@@ -65,5 +65,6 @@ namespace Pulumi.Datadog.Inputs
         public ChildOrganizationSettingArgs()
         {
         }
+        public static new ChildOrganizationSettingArgs Empty => new ChildOrganizationSettingArgs();
     }
 }

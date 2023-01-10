@@ -30,7 +30,7 @@ import (
 //			_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
 //				Name: pulumi.String("sample_index_order"),
 //				Indexes: pulumi.StringArray{
-//					pulumi.Any(datadog_logs_index.Sample_index.Id),
+//					datadog_logs_index.Sample_index.Id,
 //				},
 //			})
 //			if err != nil {
@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+// The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
 //
 // ```sh
 //
@@ -54,8 +54,7 @@ import (
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
 
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-	// list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayOutput `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -96,16 +95,14 @@ func GetLogsIndexOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndexOrder resources.
 type logsIndexOrderState struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-	// list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name *string `pulumi:"name"`
 }
 
 type LogsIndexOrderState struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-	// list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayInput
 	// The unique name of the index order resource.
 	Name pulumi.StringPtrInput
@@ -116,8 +113,7 @@ func (LogsIndexOrderState) ElementType() reflect.Type {
 }
 
 type logsIndexOrderArgs struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-	// list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`
 	// The unique name of the index order resource.
 	Name string `pulumi:"name"`
@@ -125,8 +121,7 @@ type logsIndexOrderArgs struct {
 
 // The set of arguments for constructing a LogsIndexOrder resource.
 type LogsIndexOrderArgs struct {
-	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-	// list.
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayInput
 	// The unique name of the index order resource.
 	Name pulumi.StringInput
@@ -219,8 +214,7 @@ func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-// list.
+// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 func (o LogsIndexOrderOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsIndexOrder) pulumi.StringArrayOutput { return v.Indexes }).(pulumi.StringArrayOutput)
 }

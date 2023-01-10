@@ -18,7 +18,15 @@ public final class GetLogsPipelinesResult {
      * 
      */
     private String id;
+    /**
+     * @return Filter parameter for retrieved pipelines
+     * 
+     */
     private @Nullable String isReadOnly;
+    /**
+     * @return List of logs pipelines
+     * 
+     */
     private List<GetLogsPipelinesLogsPipeline> logsPipelines;
 
     private GetLogsPipelinesResult() {}
@@ -29,9 +37,17 @@ public final class GetLogsPipelinesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filter parameter for retrieved pipelines
+     * 
+     */
     public Optional<String> isReadOnly() {
         return Optional.ofNullable(this.isReadOnly);
     }
+    /**
+     * @return List of logs pipelines
+     * 
+     */
     public List<GetLogsPipelinesLogsPipeline> logsPipelines() {
         return this.logsPipelines;
     }

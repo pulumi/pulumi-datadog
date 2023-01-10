@@ -11,29 +11,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorMonitorThresholds {
+    /**
+     * @return The monitor `CRITICAL` threshold. Must be a number.
+     * 
+     */
     private @Nullable String critical;
+    /**
+     * @return The monitor `CRITICAL` recovery threshold. Must be a number.
+     * 
+     */
     private @Nullable String criticalRecovery;
+    /**
+     * @return The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
+     * 
+     */
     private @Nullable String ok;
+    /**
+     * @return The monitor `UNKNOWN` threshold. Only supported in monitor type `service check`. Must be a number.
+     * 
+     */
     private @Nullable String unknown;
+    /**
+     * @return The monitor `WARNING` threshold. Must be a number.
+     * 
+     */
     private @Nullable String warning;
+    /**
+     * @return The monitor `WARNING` recovery threshold. Must be a number.
+     * 
+     */
     private @Nullable String warningRecovery;
 
     private MonitorMonitorThresholds() {}
+    /**
+     * @return The monitor `CRITICAL` threshold. Must be a number.
+     * 
+     */
     public Optional<String> critical() {
         return Optional.ofNullable(this.critical);
     }
+    /**
+     * @return The monitor `CRITICAL` recovery threshold. Must be a number.
+     * 
+     */
     public Optional<String> criticalRecovery() {
         return Optional.ofNullable(this.criticalRecovery);
     }
+    /**
+     * @return The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
+     * 
+     */
     public Optional<String> ok() {
         return Optional.ofNullable(this.ok);
     }
+    /**
+     * @return The monitor `UNKNOWN` threshold. Only supported in monitor type `service check`. Must be a number.
+     * 
+     */
     public Optional<String> unknown() {
         return Optional.ofNullable(this.unknown);
     }
+    /**
+     * @return The monitor `WARNING` threshold. Must be a number.
+     * 
+     */
     public Optional<String> warning() {
         return Optional.ofNullable(this.warning);
     }
+    /**
+     * @return The monitor `WARNING` recovery threshold. Must be a number.
+     * 
+     */
     public Optional<String> warningRecovery() {
         return Optional.ofNullable(this.warningRecovery);
     }

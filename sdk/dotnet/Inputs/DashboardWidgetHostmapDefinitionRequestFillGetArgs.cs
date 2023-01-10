@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionRequestFillGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionRequestFillGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGetArgs>? ApmQuery { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionRequestFillGetArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionRequestFillGetArgs Empty => new DashboardWidgetHostmapDefinitionRequestFillGetArgs();
     }
 }

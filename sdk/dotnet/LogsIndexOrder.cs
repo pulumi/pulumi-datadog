@@ -15,40 +15,37 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sampleIndexOrder = new Datadog.LogsIndexOrder("sampleIndexOrder", new()
     ///     {
-    ///         var sampleIndexOrder = new Datadog.LogsIndexOrder("sampleIndexOrder", new Datadog.LogsIndexOrderArgs
+    ///         Name = "sample_index_order",
+    ///         Indexes = new[]
     ///         {
-    ///             Name = "sample_index_order",
-    ///             Indexes = 
-    ///             {
-    ///                 datadog_logs_index.Sample_index.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             datadog_logs_index.Sample_index.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+    /// The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name&gt; &lt;name&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsIndexOrder:LogsIndexOrder")]
-    public partial class LogsIndexOrder : Pulumi.CustomResource
+    public partial class LogsIndexOrder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         [Output("indexes")]
         public Output<ImmutableArray<string>> Indexes { get; private set; } = null!;
@@ -103,14 +100,13 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsIndexOrderArgs : Pulumi.ResourceArgs
+    public sealed class LogsIndexOrderArgs : global::Pulumi.ResourceArgs
     {
         [Input("indexes", required: true)]
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -127,16 +123,16 @@ namespace Pulumi.Datadog
         public LogsIndexOrderArgs()
         {
         }
+        public static new LogsIndexOrderArgs Empty => new LogsIndexOrderArgs();
     }
 
-    public sealed class LogsIndexOrderState : Pulumi.ResourceArgs
+    public sealed class LogsIndexOrderState : global::Pulumi.ResourceArgs
     {
         [Input("indexes")]
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -153,5 +149,6 @@ namespace Pulumi.Datadog
         public LogsIndexOrderState()
         {
         }
+        public static new LogsIndexOrderState Empty => new LogsIndexOrderState();
     }
 }

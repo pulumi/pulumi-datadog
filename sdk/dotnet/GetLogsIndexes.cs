@@ -19,23 +19,21 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Datadog.GetLogsIndexes.InvokeAsync());
-        ///     }
+        ///     var test = Datadog.GetLogsIndexes.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogsIndexesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogsIndexesResult>("datadog:index/getLogsIndexes:getLogsIndexes", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsIndexesResult>("datadog:index/getLogsIndexes:getLogsIndexes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -46,6 +44,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of logs indexes
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexResult> LogsIndexes;
 
         [OutputConstructor]

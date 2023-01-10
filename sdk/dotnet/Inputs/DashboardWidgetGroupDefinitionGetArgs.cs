@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
@@ -18,17 +18,27 @@ namespace Pulumi.Datadog.Inputs
         [Input("bannerImg")]
         public Input<string>? BannerImg { get; set; }
 
+        /// <summary>
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;
+
+        /// <summary>
+        /// The list of widgets to display on the dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs> Widgets
         {
             get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>());
@@ -38,5 +48,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionGetArgs Empty => new DashboardWidgetGroupDefinitionGetArgs();
     }
 }

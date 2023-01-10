@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testChannel = new datadog.slack.Channel("test_channel", {
+ * const testChannel = new datadog.slack.Channel("testChannel", {
  *     accountName: "foo",
  *     channelName: "#test_channel",
  *     display: {
@@ -28,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+ * Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
  *
  * ```sh
  *  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"

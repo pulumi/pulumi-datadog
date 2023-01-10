@@ -27,8 +27,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, "adefaultrule", &datadog.SecurityMonitoringDefaultRuleArgs{
-//				Cases: SecurityMonitoringDefaultRuleCaseArray{
-//					&SecurityMonitoringDefaultRuleCaseArgs{
+//				Cases: datadog.SecurityMonitoringDefaultRuleCaseArray{
+//					&datadog.SecurityMonitoringDefaultRuleCaseArgs{
 //						Notifications: pulumi.StringArray{
 //							pulumi.String("@me"),
 //						},
@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// # Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
+// Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
 //
 // ```sh
 //

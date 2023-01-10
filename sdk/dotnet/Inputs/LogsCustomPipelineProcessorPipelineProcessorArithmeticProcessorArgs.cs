@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs : global::Pulumi.ResourceArgs
     {
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs()
         {
         }
+        public static new LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs Empty => new LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs();
     }
 }

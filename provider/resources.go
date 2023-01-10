@@ -155,10 +155,12 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_synthetics_global_variable":          {Tok: makeDataSource(datadogMod, "getSyntheticsGlobalVariable")},
 			"datadog_user":                                {Tok: makeDataSource(datadogMod, "getUser")},
 			"datadog_roles":                               {Tok: makeDataSource(datadogMod, "getRoles")},
+			"datadog_logs_archives_order":                 {Tok: makeDataSource(datadogMod, "getLogsArchivesOrder")},
 			"datadog_logs_indexes":                        {Tok: makeDataSource(datadogMod, "getLogsIndexes")},
 			"datadog_logs_indexes_order":                  {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
 			"datadog_logs_pipelines":                      {Tok: makeDataSource(datadogMod, "getLogsPipelines")},
 			"datadog_cloud_workload_security_agent_rules": {Tok: makeDataSource(datadogMod, "getCloudWorkloadSecurityAgentRules")},
+			"datadog_rum_application":                     {Tok: makeDataSource(datadogMod, "getRumApplication")},
 			"datadog_synthetics_test":                     {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

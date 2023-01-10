@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTimeseriesDefinitionRequestStyleArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTimeseriesDefinitionRequestStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("lineType")]
         public Input<string>? LineType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTimeseriesDefinitionRequestStyleArgs()
         {
         }
+        public static new DashboardWidgetTimeseriesDefinitionRequestStyleArgs Empty => new DashboardWidgetTimeseriesDefinitionRequestStyleArgs();
     }
 }

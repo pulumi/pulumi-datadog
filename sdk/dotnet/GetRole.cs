@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetRole.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
-        ///         {
-        ///             Filter = "Datadog Standard Role",
-        ///         }));
-        ///     }
+        ///         Filter = "Datadog Standard Role",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing role for use in other resources.
@@ -48,59 +46,74 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetRole.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
-        ///         {
-        ///             Filter = "Datadog Standard Role",
-        ///         }));
-        ///     }
+        ///         Filter = "Datadog Standard Role",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
 
         public GetRoleArgs()
         {
         }
+        public static new GetRoleArgs Empty => new GetRoleArgs();
     }
 
-    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
         public GetRoleInvokeArgs()
         {
         }
+        public static new GetRoleInvokeArgs Empty => new GetRoleInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetRoleResult
     {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
         public readonly string Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the role.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Number of users assigned to this role.
+        /// </summary>
         public readonly int UserCount;
 
         [OutputConstructor]

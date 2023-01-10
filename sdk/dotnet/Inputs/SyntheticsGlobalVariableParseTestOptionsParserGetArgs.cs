@@ -10,16 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsGlobalVariableParseTestOptionsParserGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsGlobalVariableParseTestOptionsParserGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the global variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         public SyntheticsGlobalVariableParseTestOptionsParserGetArgs()
         {
         }
+        public static new SyntheticsGlobalVariableParseTestOptionsParserGetArgs Empty => new SyntheticsGlobalVariableParseTestOptionsParserGetArgs();
     }
 }

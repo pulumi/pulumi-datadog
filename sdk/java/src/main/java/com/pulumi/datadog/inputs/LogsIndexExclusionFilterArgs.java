@@ -18,23 +18,47 @@ public final class LogsIndexExclusionFilterArgs extends com.pulumi.resources.Res
 
     public static final LogsIndexExclusionFilterArgs Empty = new LogsIndexExclusionFilterArgs();
 
+    /**
+     * Logs filter
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<LogsIndexExclusionFilterFilterArgs>> filters;
 
+    /**
+     * @return Logs filter
+     * 
+     */
     public Optional<Output<List<LogsIndexExclusionFilterFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * A boolean stating if the exclusion is active or not.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return A boolean stating if the exclusion is active or not.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * The name of the exclusion filter.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the exclusion filter.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -65,33 +89,75 @@ public final class LogsIndexExclusionFilterArgs extends com.pulumi.resources.Res
             $ = new LogsIndexExclusionFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Logs filter
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<LogsIndexExclusionFilterFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Logs filter
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<LogsIndexExclusionFilterFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Logs filter
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(LogsIndexExclusionFilterFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param isEnabled A boolean stating if the exclusion is active or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled A boolean stating if the exclusion is active or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name The name of the exclusion filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the exclusion filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

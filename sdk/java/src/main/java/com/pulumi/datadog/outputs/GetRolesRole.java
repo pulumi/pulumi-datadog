@@ -10,11 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRolesRole {
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     private String id;
     private String name;
     private Integer userCount;
 
     private GetRolesRole() {}
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public String id() {
         return this.id;
     }

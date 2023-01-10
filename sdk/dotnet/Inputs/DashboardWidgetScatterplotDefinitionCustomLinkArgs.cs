@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetScatterplotDefinitionCustomLinkArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetScatterplotDefinitionCustomLinkArgs : global::Pulumi.ResourceArgs
     {
         [Input("isHidden")]
         public Input<bool>? IsHidden { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetScatterplotDefinitionCustomLinkArgs()
         {
         }
+        public static new DashboardWidgetScatterplotDefinitionCustomLinkArgs Empty => new DashboardWidgetScatterplotDefinitionCustomLinkArgs();
     }
 }

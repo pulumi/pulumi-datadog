@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGeomapDefinitionStyleArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGeomapDefinitionStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("palette", required: true)]
         public Input<string> Palette { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGeomapDefinitionStyleArgs()
         {
         }
+        public static new DashboardWidgetGeomapDefinitionStyleArgs Empty => new DashboardWidgetGeomapDefinitionStyleArgs();
     }
 }

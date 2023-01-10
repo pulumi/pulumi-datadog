@@ -19,31 +19,29 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetSecurityMonitoringRules.InvokeAsync(new Datadog.GetSecurityMonitoringRulesArgs
+        ///         DefaultOnlyFilter = true,
+        ///         NameFilter = "attack",
+        ///         TagsFilters = new[]
         ///         {
-        ///             DefaultOnlyFilter = true,
-        ///             NameFilter = "attack",
-        ///             TagsFilters = 
-        ///             {
-        ///                 "foo:bar",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "foo:bar",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringRulesResult> InvokeAsync(GetSecurityMonitoringRulesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
@@ -53,95 +51,139 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetSecurityMonitoringRules.InvokeAsync(new Datadog.GetSecurityMonitoringRulesArgs
+        ///         DefaultOnlyFilter = true,
+        ///         NameFilter = "attack",
+        ///         TagsFilters = new[]
         ///         {
-        ///             DefaultOnlyFilter = true,
-        ///             NameFilter = "attack",
-        ///             TagsFilters = 
-        ///             {
-        ///                 "foo:bar",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "foo:bar",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityMonitoringRulesResult> Invoke(GetSecurityMonitoringRulesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSecurityMonitoringRulesArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityMonitoringRulesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Limit the search to default rules
+        /// </summary>
         [Input("defaultOnlyFilter")]
         public bool? DefaultOnlyFilter { get; set; }
 
+        /// <summary>
+        /// A rule name to limit the search
+        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search
+        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
             set => _tagsFilters = value;
         }
 
+        /// <summary>
+        /// Limit the search to user rules
+        /// </summary>
         [Input("userOnlyFilter")]
         public bool? UserOnlyFilter { get; set; }
 
         public GetSecurityMonitoringRulesArgs()
         {
         }
+        public static new GetSecurityMonitoringRulesArgs Empty => new GetSecurityMonitoringRulesArgs();
     }
 
-    public sealed class GetSecurityMonitoringRulesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityMonitoringRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Limit the search to default rules
+        /// </summary>
         [Input("defaultOnlyFilter")]
         public Input<bool>? DefaultOnlyFilter { get; set; }
 
+        /// <summary>
+        /// A rule name to limit the search
+        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search
+        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
             set => _tagsFilters = value;
         }
 
+        /// <summary>
+        /// Limit the search to user rules
+        /// </summary>
         [Input("userOnlyFilter")]
         public Input<bool>? UserOnlyFilter { get; set; }
 
         public GetSecurityMonitoringRulesInvokeArgs()
         {
         }
+        public static new GetSecurityMonitoringRulesInvokeArgs Empty => new GetSecurityMonitoringRulesInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSecurityMonitoringRulesResult
     {
+        /// <summary>
+        /// Limit the search to default rules
+        /// </summary>
         public readonly bool? DefaultOnlyFilter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A rule name to limit the search
+        /// </summary>
         public readonly string? NameFilter;
+        /// <summary>
+        /// List of IDs of the matched rules.
+        /// </summary>
         public readonly ImmutableArray<string> RuleIds;
+        /// <summary>
+        /// List of rules.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleResult> Rules;
+        /// <summary>
+        /// A list of tags to limit the search
+        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
+        /// <summary>
+        /// Limit the search to user rules
+        /// </summary>
         public readonly bool? UserOnlyFilter;
 
         [OutputConstructor]

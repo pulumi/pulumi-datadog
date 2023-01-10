@@ -43,9 +43,17 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         return Optional.ofNullable(this.tagsExecution);
     }
 
+    /**
+     * The title of the dashboard.
+     * 
+     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
@@ -130,11 +138,23 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
             return tagsExecution(Output.of(tagsExecution));
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
+        /**
+         * @param title The title of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

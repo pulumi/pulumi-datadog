@@ -16,9 +16,17 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
 
     public static final MonitorVariablesArgs Empty = new MonitorVariablesArgs();
 
+    /**
+     * A timeseries formula and functions events query.
+     * 
+     */
     @Import(name="eventQueries")
     private @Nullable Output<List<MonitorVariablesEventQueryArgs>> eventQueries;
 
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<Output<List<MonitorVariablesEventQueryArgs>>> eventQueries() {
         return Optional.ofNullable(this.eventQueries);
     }
@@ -47,15 +55,33 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
             $ = new MonitorVariablesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param eventQueries A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQueries(@Nullable Output<List<MonitorVariablesEventQueryArgs>> eventQueries) {
             $.eventQueries = eventQueries;
             return this;
         }
 
+        /**
+         * @param eventQueries A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQueries(List<MonitorVariablesEventQueryArgs> eventQueries) {
             return eventQueries(Output.of(eventQueries));
         }
 
+        /**
+         * @param eventQueries A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQueries(MonitorVariablesEventQueryArgs... eventQueries) {
             return eventQueries(List.of(eventQueries));
         }

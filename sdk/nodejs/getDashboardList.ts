@@ -13,12 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getDashboardList({
+ * const test = datadog.getDashboardList({
  *     name: "My super list",
- * }));
+ * });
  * // Create a dashboard and register it in the list above.
  * const time = new datadog.Dashboard("time", {
- *     dashboardLists: [test.apply(test => Number.parseFloat(test.id))],
+ *     dashboardLists: [test.then(test => test.id)],
  *     description: "Created using the Datadog provider in Terraform",
  *     isReadOnly: true,
  *     layoutType: "ordered",
@@ -35,11 +35,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardListResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getDashboardList:getDashboardList", {
         "name": args.name,
     }, opts);
@@ -49,6 +46,9 @@ export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDashboardList.
  */
 export interface GetDashboardListArgs {
+    /**
+     * A dashboard list name to limit the search.
+     */
     name: string;
 }
 
@@ -60,16 +60,51 @@ export interface GetDashboardListResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A dashboard list name to limit the search.
+     */
     readonly name: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getDashboardList({
+ *     name: "My super list",
+ * });
+ * // Create a dashboard and register it in the list above.
+ * const time = new datadog.Dashboard("time", {
+ *     dashboardLists: [test.then(test => test.id)],
+ *     description: "Created using the Datadog provider in Terraform",
+ *     isReadOnly: true,
+ *     layoutType: "ordered",
+ *     title: "TF Test Layout Dashboard",
+ *     widgets: [{
+ *         alertGraphDefinition: {
+ *             alertId: "1234",
+ *             liveSpan: "1h",
+ *             title: "Widget Title",
+ *             vizType: "timeseries",
+ *         },
+ *     }],
+ * });
+ * ```
+ */
 export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardListResult> {
-    return pulumi.output(args).apply(a => getDashboardList(a, opts))
+    return pulumi.output(args).apply((a: any) => getDashboardList(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getDashboardList.
  */
 export interface GetDashboardListOutputArgs {
+    /**
+     * A dashboard list name to limit the search.
+     */
     name: pulumi.Input<string>;
 }

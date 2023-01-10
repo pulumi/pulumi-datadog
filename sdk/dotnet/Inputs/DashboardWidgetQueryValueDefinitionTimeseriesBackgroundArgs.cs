@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs()
         {
         }
+        public static new DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs Empty => new DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionStyleArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("fillMax")]
         public Input<string>? FillMax { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionStyleArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionStyleArgs Empty => new DashboardWidgetHostmapDefinitionStyleArgs();
     }
 }

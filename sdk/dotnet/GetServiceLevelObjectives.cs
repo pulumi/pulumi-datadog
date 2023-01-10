@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
         ///     {
-        ///         var ftFooSlos = Output.Create(Datadog.GetServiceLevelObjectives.InvokeAsync(new Datadog.GetServiceLevelObjectivesArgs
-        ///         {
-        ///             TagsQuery = "owner:ft-foo",
-        ///         }));
-        ///     }
+        ///         TagsQuery = "owner:ft-foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceLevelObjectivesResult> InvokeAsync(GetServiceLevelObjectivesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about multiple SLOs for use in other resources.
@@ -48,75 +46,101 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
         ///     {
-        ///         var ftFooSlos = Output.Create(Datadog.GetServiceLevelObjectives.InvokeAsync(new Datadog.GetServiceLevelObjectivesArgs
-        ///         {
-        ///             TagsQuery = "owner:ft-foo",
-        ///         }));
-        ///     }
+        ///         TagsQuery = "owner:ft-foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceLevelObjectivesResult> Invoke(GetServiceLevelObjectivesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServiceLevelObjectivesArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLevelObjectivesArgs : global::Pulumi.InvokeArgs
     {
         [Input("ids")]
         private List<string>? _ids;
+
+        /// <summary>
+        /// An array of SLO IDs to limit the search.
+        /// </summary>
         public List<string> Ids
         {
             get => _ids ?? (_ids = new List<string>());
             set => _ids = value;
         }
 
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         [Input("metricsQuery")]
         public string? MetricsQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         [Input("nameQuery")]
         public string? NameQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         [Input("tagsQuery")]
         public string? TagsQuery { get; set; }
 
         public GetServiceLevelObjectivesArgs()
         {
         }
+        public static new GetServiceLevelObjectivesArgs Empty => new GetServiceLevelObjectivesArgs();
     }
 
-    public sealed class GetServiceLevelObjectivesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLevelObjectivesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("ids")]
         private InputList<string>? _ids;
+
+        /// <summary>
+        /// An array of SLO IDs to limit the search.
+        /// </summary>
         public InputList<string> Ids
         {
             get => _ids ?? (_ids = new InputList<string>());
             set => _ids = value;
         }
 
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         [Input("metricsQuery")]
         public Input<string>? MetricsQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         [Input("nameQuery")]
         public Input<string>? NameQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         [Input("tagsQuery")]
         public Input<string>? TagsQuery { get; set; }
 
         public GetServiceLevelObjectivesInvokeArgs()
         {
         }
+        public static new GetServiceLevelObjectivesInvokeArgs Empty => new GetServiceLevelObjectivesInvokeArgs();
     }
 
 
@@ -127,10 +151,25 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An array of SLO IDs to limit the search.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         public readonly string? MetricsQuery;
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         public readonly string? NameQuery;
+        /// <summary>
+        /// List of SLOs
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLevelObjectivesSloResult> Slos;
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         public readonly string? TagsQuery;
 
         [OutputConstructor]

@@ -62,16 +62,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
     @Import(name="hostFilters")
     private @Nullable Output<String> hostFilters;
 
     /**
-     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
     public Optional<Output<String>> hostFilters() {
@@ -217,8 +215,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-         * imported into Datadog.
+         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
          * 
          * @return builder
          * 
@@ -229,8 +226,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-         * imported into Datadog.
+         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
          * 
          * @return builder
          * 

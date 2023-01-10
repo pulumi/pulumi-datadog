@@ -19,6 +19,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> Indexes;
         public readonly string Name;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch? Search;
+        public readonly string? Storage;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery(
@@ -32,7 +33,9 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch? search)
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch? search,
+
+            string? storage)
         {
             Computes = computes;
             DataSource = dataSource;
@@ -40,6 +43,7 @@ namespace Pulumi.Datadog.Outputs
             Indexes = indexes;
             Name = name;
             Search = search;
+            Storage = storage;
         }
     }
 }

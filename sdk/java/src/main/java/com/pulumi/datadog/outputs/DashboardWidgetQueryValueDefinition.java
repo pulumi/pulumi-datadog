@@ -25,6 +25,10 @@ public final class DashboardWidgetQueryValueDefinition {
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequest> requests;
     private @Nullable String textAlign;
     private @Nullable DashboardWidgetQueryValueDefinitionTimeseriesBackground timeseriesBackground;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -54,6 +58,10 @@ public final class DashboardWidgetQueryValueDefinition {
     public Optional<DashboardWidgetQueryValueDefinitionTimeseriesBackground> timeseriesBackground() {
         return Optional.ofNullable(this.timeseriesBackground);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

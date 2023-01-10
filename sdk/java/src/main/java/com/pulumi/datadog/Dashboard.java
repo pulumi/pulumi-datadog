@@ -24,13 +24,57 @@ import javax.annotation.Nullable;
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.Dashboard;
+ * import com.pulumi.datadog.DashboardArgs;
+ * import com.pulumi.datadog.inputs.DashboardTemplateVariableArgs;
+ * import com.pulumi.datadog.inputs.DashboardTemplateVariablePresetArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetAlertValueDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetCheckStatusDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionYaxisArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionStyleArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionXaxisArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionYaxisArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionYaxisArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetEventStreamDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetWidgetLayoutArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetEventTimelineDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetFreeTextDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetIframeDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetImageDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionSortArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetTraceServiceDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -535,7 +579,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -546,21 +590,21 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only.
+     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      * 
      */
     public Output<Optional<Boolean>> isReadOnly() {
         return Codegen.optional(this.isReadOnly);
     }
     /**
-     * The layout type of the dashboard.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      * 
      */
     @Export(name="layoutType", type=String.class, parameters={})
     private Output<String> layoutType;
 
     /**
-     * @return The layout type of the dashboard.
+     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
      * 
      */
     public Output<String> layoutType() {
@@ -581,16 +625,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyLists);
     }
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      * 
      */
     @Export(name="reflowType", type=String.class, parameters={})
     private Output</* @Nullable */ String> reflowType;
 
     /**
-     * @return The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+     * @return The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      * 
      */
     public Output<Optional<String>> reflowType() {

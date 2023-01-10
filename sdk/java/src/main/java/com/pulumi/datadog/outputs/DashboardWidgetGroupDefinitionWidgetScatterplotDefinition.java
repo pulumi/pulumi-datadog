@@ -20,6 +20,10 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> customLinks;
     private @Nullable String liveSpan;
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest request;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -39,6 +43,10 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest> request() {
         return Optional.ofNullable(this.request);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

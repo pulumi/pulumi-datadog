@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsPrivateLocationMetadata
     {
+        /// <summary>
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// </summary>
         public readonly ImmutableArray<string> RestrictedRoles;
 
         [OutputConstructor]

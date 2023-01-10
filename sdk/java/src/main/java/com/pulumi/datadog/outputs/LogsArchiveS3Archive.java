@@ -6,24 +6,58 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsArchiveS3Archive {
+    /**
+     * @return Your AWS account id.
+     * 
+     */
     private String accountId;
+    /**
+     * @return Name of your s3 bucket.
+     * 
+     */
     private String bucket;
-    private String path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    private @Nullable String path;
+    /**
+     * @return Your AWS role name
+     * 
+     */
     private String roleName;
 
     private LogsArchiveS3Archive() {}
+    /**
+     * @return Your AWS account id.
+     * 
+     */
     public String accountId() {
         return this.accountId;
     }
+    /**
+     * @return Name of your s3 bucket.
+     * 
+     */
     public String bucket() {
         return this.bucket;
     }
-    public String path() {
-        return this.path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
+    /**
+     * @return Your AWS role name
+     * 
+     */
     public String roleName() {
         return this.roleName;
     }
@@ -39,7 +73,7 @@ public final class LogsArchiveS3Archive {
     public static final class Builder {
         private String accountId;
         private String bucket;
-        private String path;
+        private @Nullable String path;
         private String roleName;
         public Builder() {}
         public Builder(LogsArchiveS3Archive defaults) {
@@ -61,8 +95,8 @@ public final class LogsArchiveS3Archive {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter

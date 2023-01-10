@@ -15,35 +15,33 @@ namespace Pulumi.Datadog.Aws
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog - Amazon Web Services integration tag filter
+    ///     var foo = new Datadog.Aws.IntegrationTagFilter("foo", new()
     ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration tag filter
-    ///         var foo = new Datadog.Aws.IntegrationTagFilter("foo", new Datadog.Aws.IntegrationTagFilterArgs
-    ///         {
-    ///             AccountId = "123456789010",
-    ///             Namespace = "sqs",
-    ///             TagFilterStr = "key:value",
-    ///         });
-    ///     }
+    ///         AccountId = "123456789010",
+    ///         Namespace = "sqs",
+    ///         TagFilterStr = "key:value",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
+    /// Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
     /// 
     /// ```sh
     ///  $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integrationTagFilter:IntegrationTagFilter")]
-    public partial class IntegrationTagFilter : Pulumi.CustomResource
+    public partial class IntegrationTagFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -52,7 +50,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -107,7 +105,7 @@ namespace Pulumi.Datadog.Aws
         }
     }
 
-    public sealed class IntegrationTagFilterArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationTagFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -116,7 +114,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -130,9 +128,10 @@ namespace Pulumi.Datadog.Aws
         public IntegrationTagFilterArgs()
         {
         }
+        public static new IntegrationTagFilterArgs Empty => new IntegrationTagFilterArgs();
     }
 
-    public sealed class IntegrationTagFilterState : Pulumi.ResourceArgs
+    public sealed class IntegrationTagFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
@@ -141,7 +140,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The namespace associated with the tag filter entry.
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -155,5 +154,6 @@ namespace Pulumi.Datadog.Aws
         public IntegrationTagFilterState()
         {
         }
+        public static new IntegrationTagFilterState Empty => new IntegrationTagFilterState();
     }
 }

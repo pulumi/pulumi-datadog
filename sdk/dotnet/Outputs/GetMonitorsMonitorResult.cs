@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorsMonitorResult
     {
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         public readonly int Id;
         public readonly string Name;
         public readonly string Type;

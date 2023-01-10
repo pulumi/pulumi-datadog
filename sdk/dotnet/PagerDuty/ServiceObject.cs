@@ -15,36 +15,32 @@ namespace Pulumi.Datadog.PagerDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
     ///     {
-    ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "9876543210123456789",
-    ///             ServiceName = "testing_foo",
-    ///         });
-    ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "54321098765432109876",
-    ///             ServiceName = "testing_bar",
-    ///         });
-    ///     }
+    ///         ServiceKey = "9876543210123456789",
+    ///         ServiceName = "testing_foo",
+    ///     });
     /// 
-    /// }
+    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
+    ///     {
+    ///         ServiceKey = "54321098765432109876",
+    ///         ServiceName = "testing_bar",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
-    public partial class ServiceObject : Pulumi.CustomResource
+    public partial class ServiceObject : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-        /// to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
         /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
@@ -78,6 +74,10 @@ namespace Pulumi.Datadog.PagerDuty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "serviceKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -99,16 +99,23 @@ namespace Pulumi.Datadog.PagerDuty
         }
     }
 
-    public sealed class ServiceObjectArgs : Pulumi.ResourceArgs
+    public sealed class ServiceObjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-        /// to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
-        /// </summary>
         [Input("serviceKey", required: true)]
-        public Input<string> ServiceKey { get; set; } = null!;
+        private Input<string>? _serviceKey;
+
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        /// </summary>
+        public Input<string>? ServiceKey
+        {
+            get => _serviceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Your Service name in PagerDuty.
@@ -119,18 +126,26 @@ namespace Pulumi.Datadog.PagerDuty
         public ServiceObjectArgs()
         {
         }
+        public static new ServiceObjectArgs Empty => new ServiceObjectArgs();
     }
 
-    public sealed class ServiceObjectState : Pulumi.ResourceArgs
+    public sealed class ServiceObjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-        /// to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
-        /// </summary>
         [Input("serviceKey")]
-        public Input<string>? ServiceKey { get; set; }
+        private Input<string>? _serviceKey;
+
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        /// </summary>
+        public Input<string>? ServiceKey
+        {
+            get => _serviceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Your Service name in PagerDuty.
@@ -141,5 +156,6 @@ namespace Pulumi.Datadog.PagerDuty
         public ServiceObjectState()
         {
         }
+        public static new ServiceObjectState Empty => new ServiceObjectState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("baselineUserLocations")]
         public Input<bool>? BaselineUserLocations { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs()
         {
         }
+        public static new SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs Empty => new SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs();
     }
 }

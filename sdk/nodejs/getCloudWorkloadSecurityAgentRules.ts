@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,15 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getCloudWorkloadSecurityAgentRules());
+ * const test = datadog.getCloudWorkloadSecurityAgentRules({});
  * ```
  */
 export function getCloudWorkloadSecurityAgentRules(opts?: pulumi.InvokeOptions): Promise<GetCloudWorkloadSecurityAgentRulesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", {
     }, opts);
 }
@@ -31,6 +29,9 @@ export function getCloudWorkloadSecurityAgentRules(opts?: pulumi.InvokeOptions):
  * A collection of values returned by getCloudWorkloadSecurityAgentRules.
  */
 export interface GetCloudWorkloadSecurityAgentRulesResult {
+    /**
+     * List of Agent rules.
+     */
     readonly agentRules: outputs.GetCloudWorkloadSecurityAgentRulesAgentRule[];
     /**
      * The provider-assigned unique ID for this managed resource.

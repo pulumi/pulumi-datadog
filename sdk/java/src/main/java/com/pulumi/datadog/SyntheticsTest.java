@@ -40,10 +40,15 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -59,10 +64,15 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -78,10 +88,15 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -97,10 +112,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SyntheticsTest;
+ * import com.pulumi.datadog.SyntheticsTestArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestAssertionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestConfigVariableArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestApiStepArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -317,7 +350,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Synthetics tests can be imported using their public string ID, e.g.
+ * Synthetics tests can be imported using their public string ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
@@ -397,14 +430,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configVariables);
     }
     /**
-     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+     * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      * 
      */
     @Export(name="deviceIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> deviceIds;
 
     /**
-     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test.
+     * @return Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      * 
      */
     public Output<Optional<List<String>>> deviceIds() {
@@ -429,16 +462,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return this.locations;
     }
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
     @Export(name="message", type=String.class, parameters={})
     private Output</* @Nullable */ String> message;
 
     /**
-     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
     public Output<Optional<String>> message() {
@@ -493,16 +524,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestBasicauth);
     }
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      * 
      */
     @Export(name="requestClientCertificate", type=SyntheticsTestRequestClientCertificate.class, parameters={})
     private Output</* @Nullable */ SyntheticsTestRequestClientCertificate> requestClientCertificate;
 
     /**
-     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * @return Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      * 
      */
     public Output<Optional<SyntheticsTestRequestClientCertificate>> requestClientCertificate() {
@@ -565,74 +594,70 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestQuery);
     }
     /**
-     * Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      * 
      */
     @Export(name="setCookie", type=String.class, parameters={})
     private Output</* @Nullable */ String> setCookie;
 
     /**
-     * @return Cookies to be used for a browser test request, using the
-     * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     * @return Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      * 
      */
     public Output<Optional<String>> setCookie() {
         return Codegen.optional(this.setCookie);
     }
     /**
-     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+     * @return Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     @Export(name="subtype", type=String.class, parameters={})
     private Output</* @Nullable */ String> subtype;
 
     /**
-     * @return The subtype of the Synthetic API test. Defaults to `http`.
+     * @return The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     public Output<Optional<String>> subtype() {
         return Codegen.optional(this.subtype);
     }
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      * 
      */
     @Export(name="tags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * @return A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      * 
      */
     public Output<Optional<List<String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Synthetics test type.
+     * Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return Synthetics test type.
+     * @return Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     public Output<String> type() {

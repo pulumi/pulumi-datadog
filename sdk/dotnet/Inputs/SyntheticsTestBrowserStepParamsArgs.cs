@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestBrowserStepParamsArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestBrowserStepParamsArgs : global::Pulumi.ResourceArgs
     {
         [Input("attribute")]
         public Input<string>? Attribute { get; set; }
@@ -77,5 +77,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestBrowserStepParamsArgs()
         {
         }
+        public static new SyntheticsTestBrowserStepParamsArgs Empty => new SyntheticsTestBrowserStepParamsArgs();
     }
 }

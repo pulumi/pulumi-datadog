@@ -13,16 +13,32 @@ public final class SecurityMonitoringFilterExclusionFilterArgs extends com.pulum
 
     public static final SecurityMonitoringFilterExclusionFilterArgs Empty = new SecurityMonitoringFilterExclusionFilterArgs();
 
+    /**
+     * Exclusion filter name.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Exclusion filter name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -52,20 +68,44 @@ public final class SecurityMonitoringFilterExclusionFilterArgs extends com.pulum
             $ = new SecurityMonitoringFilterExclusionFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Exclusion filter name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Exclusion filter name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param query Exclusion filter query. Logs that match this query are excluded from the security filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Exclusion filter query. Logs that match this query are excluded from the security filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

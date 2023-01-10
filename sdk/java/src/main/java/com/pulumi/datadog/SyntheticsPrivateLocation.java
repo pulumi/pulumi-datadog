@@ -23,10 +23,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SyntheticsPrivateLocation;
+ * import com.pulumi.datadog.SyntheticsPrivateLocationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Synthetics private locations can be imported using their string ID, e.g.
+ * Synthetics private locations can be imported using their string ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -58,16 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")
 public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
     @Export(name="config", type=String.class, parameters={})
     private Output<String> config;
 
     /**
-     * @return Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * @return Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
     public Output<String> config() {
@@ -162,6 +167,9 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "config"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

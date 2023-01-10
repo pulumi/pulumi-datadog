@@ -19,31 +19,30 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs
-        ///         {
-        ///             NameQuery = "My test SLO",
-        ///             TagsQuery = "foo:bar",
-        ///         }));
-        ///         var apiSlo = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs
-        ///         {
-        ///             Id = data.Terraform_remote_state.Api.Outputs.Slo,
-        ///         }));
-        ///     }
+        ///         NameQuery = "My test SLO",
+        ///         TagsQuery = "foo:bar",
+        ///     });
         /// 
-        /// }
+        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     {
+        ///         Id = data.Terraform_remote_state.Api.Outputs.Slo,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceLevelObjectiveResult> InvokeAsync(GetServiceLevelObjectiveArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing SLO for use in other resources.
@@ -53,81 +52,124 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs
-        ///         {
-        ///             NameQuery = "My test SLO",
-        ///             TagsQuery = "foo:bar",
-        ///         }));
-        ///         var apiSlo = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs
-        ///         {
-        ///             Id = data.Terraform_remote_state.Api.Outputs.Slo,
-        ///         }));
-        ///     }
+        ///         NameQuery = "My test SLO",
+        ///         TagsQuery = "foo:bar",
+        ///     });
         /// 
-        /// }
+        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     {
+        ///         Id = data.Terraform_remote_state.Api.Outputs.Slo,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("datadog:index/getServiceLevelObjective:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetServiceLevelObjectiveArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLevelObjectiveArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A SLO ID to limit the search.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         [Input("metricsQuery")]
         public string? MetricsQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         [Input("nameQuery")]
         public string? NameQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         [Input("tagsQuery")]
         public string? TagsQuery { get; set; }
 
         public GetServiceLevelObjectiveArgs()
         {
         }
+        public static new GetServiceLevelObjectiveArgs Empty => new GetServiceLevelObjectiveArgs();
     }
 
-    public sealed class GetServiceLevelObjectiveInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceLevelObjectiveInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A SLO ID to limit the search.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         [Input("metricsQuery")]
         public Input<string>? MetricsQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         [Input("nameQuery")]
         public Input<string>? NameQuery { get; set; }
 
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         [Input("tagsQuery")]
         public Input<string>? TagsQuery { get; set; }
 
         public GetServiceLevelObjectiveInvokeArgs()
         {
         }
+        public static new GetServiceLevelObjectiveInvokeArgs Empty => new GetServiceLevelObjectiveInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetServiceLevelObjectiveResult
     {
+        /// <summary>
+        /// A SLO ID to limit the search.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Filter results based on SLO numerator and denominator.
+        /// </summary>
         public readonly string? MetricsQuery;
+        /// <summary>
+        /// Name of the Datadog service level objective
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Filter results based on SLO names.
+        /// </summary>
         public readonly string? NameQuery;
+        /// <summary>
+        /// Filter results based on a single SLO tag.
+        /// </summary>
         public readonly string? TagsQuery;
+        /// <summary>
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

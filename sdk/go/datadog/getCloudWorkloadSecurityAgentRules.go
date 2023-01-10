@@ -43,6 +43,7 @@ func GetCloudWorkloadSecurityAgentRules(ctx *pulumi.Context, opts ...pulumi.Invo
 
 // A collection of values returned by getCloudWorkloadSecurityAgentRules.
 type GetCloudWorkloadSecurityAgentRulesResult struct {
+	// List of Agent rules.
 	AgentRules []GetCloudWorkloadSecurityAgentRulesAgentRule `pulumi:"agentRules"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

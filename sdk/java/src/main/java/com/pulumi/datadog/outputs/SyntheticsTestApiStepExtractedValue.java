@@ -13,20 +13,36 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepExtractedValue {
     private @Nullable String field;
+    /**
+     * @return Name of Datadog synthetics test.
+     * 
+     */
     private String name;
     private SyntheticsTestApiStepExtractedValueParser parser;
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     private String type;
 
     private SyntheticsTestApiStepExtractedValue() {}
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
+    /**
+     * @return Name of Datadog synthetics test.
+     * 
+     */
     public String name() {
         return this.name;
     }
     public SyntheticsTestApiStepExtractedValueParser parser() {
         return this.parser;
     }
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public String type() {
         return this.type;
     }

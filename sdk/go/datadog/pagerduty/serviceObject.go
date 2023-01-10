@@ -49,10 +49,7 @@ import (
 type ServiceObject struct {
 	pulumi.CustomResourceState
 
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -71,6 +68,13 @@ func NewServiceObject(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.ServiceKey != nil {
+		args.ServiceKey = pulumi.ToSecret(args.ServiceKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"serviceKey",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceObject
 	err := ctx.RegisterResource("datadog:pagerduty/serviceObject:ServiceObject", name, args, &resource, opts...)
 	if err != nil {
@@ -93,20 +97,14 @@ func GetServiceObject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceObject resources.
 type serviceObjectState struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey *string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName *string `pulumi:"serviceName"`
 }
 
 type ServiceObjectState struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringPtrInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringPtrInput
@@ -117,10 +115,7 @@ func (ServiceObjectState) ElementType() reflect.Type {
 }
 
 type serviceObjectArgs struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName string `pulumi:"serviceName"`
@@ -128,10 +123,7 @@ type serviceObjectArgs struct {
 
 // The set of arguments for constructing a ServiceObject resource.
 type ServiceObjectArgs struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringInput
@@ -224,10 +216,7 @@ func (o ServiceObjectOutput) ToServiceObjectOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-// to solve a drift is to manually mark the Service Object resource with [terraform
-// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 func (o ServiceObjectOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
 }

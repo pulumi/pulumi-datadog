@@ -20,28 +20,25 @@ namespace Pulumi.Datadog
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog webhook
+    ///     var foo = new Datadog.Webhook("foo", new()
     ///     {
-    ///         // Create a new Datadog webhook
-    ///         var foo = new Datadog.Webhook("foo", new Datadog.WebhookArgs
+    ///         Name = "test-webhook",
+    ///         Url = "example.com",
+    ///         EncodeAs = "json",
+    ///         CustomHeaders = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Name = "test-webhook",
-    ///             Url = "example.com",
-    ///             EncodeAs = "json",
-    ///             CustomHeaders = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "custom", "header" },
-    ///             }),
-    ///             Payload = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "custom", "payload" },
-    ///             }),
-    ///         });
-    ///     }
+    ///             ["custom"] = "header",
+    ///         }),
+    ///         Payload = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["custom"] = "payload",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +48,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/webhook:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The headers attached to the webhook.
@@ -60,7 +57,7 @@ namespace Pulumi.Datadog
         public Output<string?> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Encoding type.
+        /// Encoding type. Valid values are `json`, `form`.
         /// </summary>
         [Output("encodeAs")]
         public Output<string> EncodeAs { get; private set; } = null!;
@@ -127,7 +124,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The headers attached to the webhook.
@@ -136,7 +133,7 @@ namespace Pulumi.Datadog
         public Input<string>? CustomHeaders { get; set; }
 
         /// <summary>
-        /// Encoding type.
+        /// Encoding type. Valid values are `json`, `form`.
         /// </summary>
         [Input("encodeAs")]
         public Input<string>? EncodeAs { get; set; }
@@ -162,9 +159,10 @@ namespace Pulumi.Datadog
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 
-    public sealed class WebhookState : Pulumi.ResourceArgs
+    public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The headers attached to the webhook.
@@ -173,7 +171,7 @@ namespace Pulumi.Datadog
         public Input<string>? CustomHeaders { get; set; }
 
         /// <summary>
-        /// Encoding type.
+        /// Encoding type. Valid values are `json`, `form`.
         /// </summary>
         [Input("encodeAs")]
         public Input<string>? EncodeAs { get; set; }
@@ -199,5 +197,6 @@ namespace Pulumi.Datadog
         public WebhookState()
         {
         }
+        public static new WebhookState Empty => new WebhookState();
     }
 }

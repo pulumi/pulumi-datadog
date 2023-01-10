@@ -31,14 +31,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Encoding type.
+     * Encoding type. Valid values are `json`, `form`.
      * 
      */
     @Import(name="encodeAs")
     private @Nullable Output<String> encodeAs;
 
     /**
-     * @return Encoding type.
+     * @return Encoding type. Valid values are `json`, `form`.
      * 
      */
     public Optional<Output<String>> encodeAs() {
@@ -140,7 +140,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodeAs Encoding type.
+         * @param encodeAs Encoding type. Valid values are `json`, `form`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodeAs Encoding type.
+         * @param encodeAs Encoding type. Valid values are `json`, `form`.
          * 
          * @return builder
          * 

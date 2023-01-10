@@ -13,16 +13,32 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
 
     public static final DashboardListDashItemArgs Empty = new DashboardListDashItemArgs();
 
+    /**
+     * The ID of the dashboard to add
+     * 
+     */
     @Import(name="dashId", required=true)
     private Output<String> dashId;
 
+    /**
+     * @return The ID of the dashboard to add
+     * 
+     */
     public Output<String> dashId() {
         return this.dashId;
     }
 
+    /**
+     * The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -52,20 +68,44 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
             $ = new DashboardListDashItemArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dashId The ID of the dashboard to add
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashId(Output<String> dashId) {
             $.dashId = dashId;
             return this;
         }
 
+        /**
+         * @param dashId The ID of the dashboard to add
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashId(String dashId) {
             return dashId(Output.of(dashId));
         }
 
+        /**
+         * @param type The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

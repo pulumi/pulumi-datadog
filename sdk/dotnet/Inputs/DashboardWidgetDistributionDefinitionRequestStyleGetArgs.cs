@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetDistributionDefinitionRequestStyleGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetDistributionDefinitionRequestStyleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("palette")]
         public Input<string>? Palette { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetDistributionDefinitionRequestStyleGetArgs()
         {
         }
+        public static new DashboardWidgetDistributionDefinitionRequestStyleGetArgs Empty => new DashboardWidgetDistributionDefinitionRequestStyleGetArgs();
     }
 }

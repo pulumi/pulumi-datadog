@@ -13,16 +13,32 @@ public final class ServiceLevelObjectiveQueryArgs extends com.pulumi.resources.R
 
     public static final ServiceLevelObjectiveQueryArgs Empty = new ServiceLevelObjectiveQueryArgs();
 
+    /**
+     * The sum of the `total` events.
+     * 
+     */
     @Import(name="denominator", required=true)
     private Output<String> denominator;
 
+    /**
+     * @return The sum of the `total` events.
+     * 
+     */
     public Output<String> denominator() {
         return this.denominator;
     }
 
+    /**
+     * The sum of all the `good` events.
+     * 
+     */
     @Import(name="numerator", required=true)
     private Output<String> numerator;
 
+    /**
+     * @return The sum of all the `good` events.
+     * 
+     */
     public Output<String> numerator() {
         return this.numerator;
     }
@@ -52,20 +68,44 @@ public final class ServiceLevelObjectiveQueryArgs extends com.pulumi.resources.R
             $ = new ServiceLevelObjectiveQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param denominator The sum of the `total` events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder denominator(Output<String> denominator) {
             $.denominator = denominator;
             return this;
         }
 
+        /**
+         * @param denominator The sum of the `total` events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder denominator(String denominator) {
             return denominator(Output.of(denominator));
         }
 
+        /**
+         * @param numerator The sum of all the `good` events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numerator(Output<String> numerator) {
             $.numerator = numerator;
             return this;
         }
 
+        /**
+         * @param numerator The sum of all the `good` events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numerator(String numerator) {
             return numerator(Output.of(numerator));
         }

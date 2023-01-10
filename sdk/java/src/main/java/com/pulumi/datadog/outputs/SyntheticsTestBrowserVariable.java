@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserVariable {
+    /**
+     * @return Example for the variable.
+     * 
+     */
     private @Nullable String example;
+    /**
+     * @return ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return Name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return Pattern of the variable.
+     * 
+     */
     private @Nullable String pattern;
+    /**
+     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * 
+     */
     private String type;
 
     private SyntheticsTestBrowserVariable() {}
+    /**
+     * @return Example for the variable.
+     * 
+     */
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
+    /**
+     * @return ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Pattern of the variable.
+     * 
+     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
+    /**
+     * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     * 
+     */
     public String type() {
         return this.type;
     }

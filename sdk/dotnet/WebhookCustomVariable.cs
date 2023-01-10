@@ -15,22 +15,20 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Datadog.WebhookCustomVariable("foo", new()
     ///     {
-    ///         var foo = new Datadog.WebhookCustomVariable("foo", new Datadog.WebhookCustomVariableArgs
-    ///         {
-    ///             IsSecret = true,
-    ///             Name = "EXAMPLE_VARIABLE",
-    ///             Value = "EXAMPLE-VALUE",
-    ///         });
-    ///     }
+    ///         IsSecret = true,
+    ///         Name = "EXAMPLE_VARIABLE",
+    ///         Value = "EXAMPLE-VALUE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/webhookCustomVariable:WebhookCustomVariable")]
-    public partial class WebhookCustomVariable : Pulumi.CustomResource
+    public partial class WebhookCustomVariable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the custom variable is secret or not.
@@ -83,6 +81,10 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -104,7 +106,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class WebhookCustomVariableArgs : Pulumi.ResourceArgs
+    public sealed class WebhookCustomVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the custom variable is secret or not.
@@ -118,18 +120,29 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of the custom variable.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WebhookCustomVariableArgs()
         {
         }
+        public static new WebhookCustomVariableArgs Empty => new WebhookCustomVariableArgs();
     }
 
-    public sealed class WebhookCustomVariableState : Pulumi.ResourceArgs
+    public sealed class WebhookCustomVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the custom variable is secret or not.
@@ -143,14 +156,25 @@ namespace Pulumi.Datadog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of the custom variable.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WebhookCustomVariableState()
         {
         }
+        public static new WebhookCustomVariableState Empty => new WebhookCustomVariableState();
     }
 }

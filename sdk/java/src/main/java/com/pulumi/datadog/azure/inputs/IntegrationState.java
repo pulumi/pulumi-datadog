@@ -62,18 +62,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
     @Import(name="hostFilters")
     private @Nullable Output<String> hostFilters;
 
     /**
-     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
     public Optional<Output<String>> hostFilters() {
@@ -187,9 +183,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-         * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-         * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+         * @param hostFilters String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
          * 
          * @return builder
          * 
@@ -200,9 +194,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-         * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-         * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+         * @param hostFilters String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
          * 
          * @return builder
          * 

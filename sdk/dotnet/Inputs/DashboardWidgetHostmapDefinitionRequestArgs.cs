@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionRequestArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         [Input("fills")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillArgs>? _fills;
@@ -31,5 +31,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionRequestArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionRequestArgs Empty => new DashboardWidgetHostmapDefinitionRequestArgs();
     }
 }

@@ -65,6 +65,10 @@ func NewApplicationKey(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"key",
+	})
+	opts = append(opts, secrets)
 	var resource ApplicationKey
 	err := ctx.RegisterResource("datadog:index/applicationKey:ApplicationKey", name, args, &resource, opts...)
 	if err != nil {

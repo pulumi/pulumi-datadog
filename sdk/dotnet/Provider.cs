@@ -16,7 +16,7 @@ namespace Pulumi.Datadog
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [DatadogResourceType("pulumi:providers:datadog")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
@@ -108,5 +108,6 @@ namespace Pulumi.Datadog
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

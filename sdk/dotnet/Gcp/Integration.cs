@@ -14,14 +14,14 @@ namespace Pulumi.Datadog.Gcp
     /// 
     /// ## Import
     /// 
-    /// # Google Cloud Platform integrations can be imported using their project ID, e.g.
+    /// Google Cloud Platform integrations can be imported using their project ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:gcp/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
@@ -42,8 +42,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        /// imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         /// </summary>
         [Output("hostFilters")]
         public Output<string?> HostFilters { get; private set; } = null!;
@@ -89,6 +88,10 @@ namespace Pulumi.Datadog.Gcp
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "privateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -110,7 +113,7 @@ namespace Pulumi.Datadog.Gcp
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
@@ -131,17 +134,26 @@ namespace Pulumi.Datadog.Gcp
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        /// imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
 
+        [Input("privateKey", required: true)]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Your private key name found in your JSON service account key.
         /// </summary>
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Your private key ID found in your JSON service account key.
@@ -158,9 +170,10 @@ namespace Pulumi.Datadog.Gcp
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
@@ -181,17 +194,26 @@ namespace Pulumi.Datadog.Gcp
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        /// imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Your private key name found in your JSON service account key.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Your private key ID found in your JSON service account key.
@@ -208,5 +230,6 @@ namespace Pulumi.Datadog.Gcp
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

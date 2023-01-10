@@ -19,26 +19,24 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetDashboard.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetDashboard.InvokeAsync(new Datadog.GetDashboardArgs
-        ///         {
-        ///             Name = "My super dashboard",
-        ///         }));
-        ///     }
+        ///         Name = "My super dashboard",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("datadog:index/getDashboard:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("datadog:index/getDashboard:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
@@ -48,47 +46,53 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Datadog.GetDashboard.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Datadog.GetDashboard.InvokeAsync(new Datadog.GetDashboardArgs
-        ///         {
-        ///             Name = "My super dashboard",
-        ///         }));
-        ///     }
+        ///         Name = "My super dashboard",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("datadog:index/getDashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("datadog:index/getDashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetDashboardArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The dashboard name to search for. Must only match one dashboard.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         public GetDashboardArgs()
         {
         }
+        public static new GetDashboardArgs Empty => new GetDashboardArgs();
     }
 
-    public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDashboardInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The dashboard name to search for. Must only match one dashboard.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public GetDashboardInvokeArgs()
         {
         }
+        public static new GetDashboardInvokeArgs Empty => new GetDashboardInvokeArgs();
     }
 
 
@@ -99,8 +103,17 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The dashboard name to search for. Must only match one dashboard.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The URL to a specific dashboard.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

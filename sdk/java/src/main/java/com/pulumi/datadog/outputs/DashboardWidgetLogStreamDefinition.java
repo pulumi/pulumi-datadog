@@ -22,6 +22,10 @@ public final class DashboardWidgetLogStreamDefinition {
     private @Nullable Boolean showDateColumn;
     private @Nullable Boolean showMessageColumn;
     private @Nullable DashboardWidgetLogStreamDefinitionSort sort;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -51,6 +55,10 @@ public final class DashboardWidgetLogStreamDefinition {
     public Optional<DashboardWidgetLogStreamDefinitionSort> sort() {
         return Optional.ofNullable(this.sort);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

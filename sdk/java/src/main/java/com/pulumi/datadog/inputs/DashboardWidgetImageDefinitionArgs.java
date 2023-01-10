@@ -51,9 +51,17 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.sizing);
     }
 
+    /**
+     * The URL of the dashboard.
+     * 
+     */
     @Import(name="url", required=true)
     private Output<String> url;
 
+    /**
+     * @return The URL of the dashboard.
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }
@@ -148,11 +156,23 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
             return sizing(Output.of(sizing));
         }
 
+        /**
+         * @param url The URL of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url The URL of the dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

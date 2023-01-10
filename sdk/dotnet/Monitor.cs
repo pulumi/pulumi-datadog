@@ -15,35 +15,33 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Datadog.Monitor("foo", new()
     ///     {
-    ///         var foo = new Datadog.Monitor("foo", new Datadog.MonitorArgs
+    ///         EscalationMessage = "Escalation message @pagerduty",
+    ///         IncludeTags = true,
+    ///         Message = "Monitor triggered. Notify: @hipchat-channel",
+    ///         MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
     ///         {
-    ///             EscalationMessage = "Escalation message @pagerduty",
-    ///             IncludeTags = true,
-    ///             Message = "Monitor triggered. Notify: @hipchat-channel",
-    ///             MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
-    ///             {
-    ///                 Critical = "4",
-    ///                 Warning = "2",
-    ///             },
-    ///             Name = "Name for monitor foo",
-    ///             Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "team:fooBar",
-    ///             },
-    ///             Type = "metric alert",
-    ///         });
-    ///     }
+    ///             Critical = "4",
+    ///             Warning = "2",
+    ///         },
+    ///         Name = "Name for monitor foo",
+    ///         Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "team:fooBar",
+    ///         },
+    ///         Type = "metric alert",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/monitor:Monitor")]
-    public partial class Monitor : Pulumi.CustomResource
+    public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
@@ -61,6 +59,13 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("enableLogsSample")]
         public Output<bool?> EnableLogsSample { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+        /// monitors.
+        /// </summary>
+        [Output("enableSamples")]
+        public Output<bool> EnableSamples { get; private set; } = null!;
 
         /// <summary>
         /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -113,8 +118,7 @@ namespace Pulumi.Datadog
         public Output<bool?> Locked { get; private set; } = null!;
 
         /// <summary>
-        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-        /// same `@username` notation as events.
+        /// A message to include with notifications for this monitor.
         /// </summary>
         [Output("message")]
         public Output<string> Message { get; private set; } = null!;
@@ -166,6 +170,16 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("notifyAudit")]
         public Output<bool?> NotifyAudit { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+        /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+        /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+        /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+        /// to `[*]` configures the monitor to notify as a simple-alert.
+        /// </summary>
+        [Output("notifyBies")]
+        public Output<ImmutableArray<string>> NotifyBies { get; private set; } = null!;
 
         /// <summary>
         /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
@@ -237,6 +251,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options for scheduling.
+        /// </summary>
+        [Output("schedulingOptions")]
+        public Output<ImmutableArray<Outputs.MonitorSchedulingOption>> SchedulingOptions { get; private set; } = null!;
 
         /// <summary>
         /// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -313,7 +333,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class MonitorArgs : Pulumi.ResourceArgs
+    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
@@ -373,8 +393,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-        /// same `@username` notation as events.
+        /// A message to include with notifications for this monitor.
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
@@ -426,6 +445,22 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("notifyAudit")]
         public Input<bool>? NotifyAudit { get; set; }
+
+        [Input("notifyBies")]
+        private InputList<string>? _notifyBies;
+
+        /// <summary>
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+        /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+        /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+        /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+        /// to `[*]` configures the monitor to notify as a simple-alert.
+        /// </summary>
+        public InputList<string> NotifyBies
+        {
+            get => _notifyBies ?? (_notifyBies = new InputList<string>());
+            set => _notifyBies = value;
+        }
 
         /// <summary>
         /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
@@ -510,6 +545,18 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
+        [Input("schedulingOptions")]
+        private InputList<Inputs.MonitorSchedulingOptionArgs>? _schedulingOptions;
+
+        /// <summary>
+        /// Configuration options for scheduling.
+        /// </summary>
+        public InputList<Inputs.MonitorSchedulingOptionArgs> SchedulingOptions
+        {
+            get => _schedulingOptions ?? (_schedulingOptions = new InputList<Inputs.MonitorSchedulingOptionArgs>());
+            set => _schedulingOptions = value;
+        }
+
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -550,9 +597,10 @@ namespace Pulumi.Datadog
         public MonitorArgs()
         {
         }
+        public static new MonitorArgs Empty => new MonitorArgs();
     }
 
-    public sealed class MonitorState : Pulumi.ResourceArgs
+    public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log
@@ -560,6 +608,13 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
+
+        /// <summary>
+        /// Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline
+        /// monitors.
+        /// </summary>
+        [Input("enableSamples")]
+        public Input<bool>? EnableSamples { get; set; }
 
         /// <summary>
         /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
@@ -612,8 +667,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
-        /// same `@username` notation as events.
+        /// A message to include with notifications for this monitor.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
@@ -665,6 +719,22 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("notifyAudit")]
         public Input<bool>? NotifyAudit { get; set; }
+
+        [Input("notifyBies")]
+        private InputList<string>? _notifyBies;
+
+        /// <summary>
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
+        /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
+        /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
+        /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
+        /// to `[*]` configures the monitor to notify as a simple-alert.
+        /// </summary>
+        public InputList<string> NotifyBies
+        {
+            get => _notifyBies ?? (_notifyBies = new InputList<string>());
+            set => _notifyBies = value;
+        }
 
         /// <summary>
         /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
@@ -749,6 +819,18 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
+        [Input("schedulingOptions")]
+        private InputList<Inputs.MonitorSchedulingOptionGetArgs>? _schedulingOptions;
+
+        /// <summary>
+        /// Configuration options for scheduling.
+        /// </summary>
+        public InputList<Inputs.MonitorSchedulingOptionGetArgs> SchedulingOptions
+        {
+            get => _schedulingOptions ?? (_schedulingOptions = new InputList<Inputs.MonitorSchedulingOptionGetArgs>());
+            set => _schedulingOptions = value;
+        }
+
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -789,5 +871,6 @@ namespace Pulumi.Datadog
         public MonitorState()
         {
         }
+        public static new MonitorState Empty => new MonitorState();
     }
 }

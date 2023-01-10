@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := datadog.LookupDashboardList(ctx, &GetDashboardListArgs{
+//			test, err := datadog.LookupDashboardList(ctx, &datadog.LookupDashboardListArgs{
 //				Name: "My super list",
 //			}, nil)
 //			if err != nil {
@@ -34,15 +34,15 @@ import (
 //			}
 //			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
 //				DashboardLists: pulumi.IntArray{
-//					pulumi.String(test.Id),
+//					*pulumi.String(test.Id),
 //				},
 //				Description: pulumi.String("Created using the Datadog provider in Terraform"),
 //				IsReadOnly:  pulumi.Bool(true),
 //				LayoutType:  pulumi.String("ordered"),
 //				Title:       pulumi.String("TF Test Layout Dashboard"),
-//				Widgets: DashboardWidgetArray{
-//					&DashboardWidgetArgs{
-//						AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
+//				Widgets: datadog.DashboardWidgetArray{
+//					&datadog.DashboardWidgetArgs{
+//						AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
 //							AlertId:  pulumi.String("1234"),
 //							LiveSpan: pulumi.String("1h"),
 //							Title:    pulumi.String("Widget Title"),
@@ -70,13 +70,15 @@ func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opt
 
 // A collection of arguments for invoking getDashboardList.
 type LookupDashboardListArgs struct {
+	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getDashboardList.
 type LookupDashboardListResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
 }
 
@@ -95,6 +97,7 @@ func LookupDashboardListOutput(ctx *pulumi.Context, args LookupDashboardListOutp
 
 // A collection of arguments for invoking getDashboardList.
 type LookupDashboardListOutputArgs struct {
+	// A dashboard list name to limit the search.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -122,6 +125,7 @@ func (o LookupDashboardListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A dashboard list name to limit the search.
 func (o LookupDashboardListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Name }).(pulumi.StringOutput)
 }

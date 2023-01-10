@@ -16,6 +16,10 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetTopologyMapDefinition {
     private @Nullable List<DashboardWidgetTopologyMapDefinitionCustomLink> customLinks;
     private @Nullable List<DashboardWidgetTopologyMapDefinitionRequest> requests;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -27,6 +31,10 @@ public final class DashboardWidgetTopologyMapDefinition {
     public List<DashboardWidgetTopologyMapDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

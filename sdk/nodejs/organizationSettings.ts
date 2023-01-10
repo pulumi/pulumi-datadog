@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,9 +16,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage Datadog Organization
- * const organization = new datadog.OrganizationSettings("organization", {
- *     name: "foo-organization",
- * });
+ * const organization = new datadog.OrganizationSettings("organization", {name: "foo-organization"});
  * ```
  *
  * ## Import
@@ -63,7 +62,7 @@ export class OrganizationSettings extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      */
     public /*out*/ readonly publicId!: pulumi.Output<string>;
     /**
@@ -113,7 +112,7 @@ export interface OrganizationSettingsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      */
     publicId?: pulumi.Input<string>;
     /**

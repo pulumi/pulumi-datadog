@@ -19,6 +19,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetSunburstDefinitionLegendTable? LegendTable;
         public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequest> Requests;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

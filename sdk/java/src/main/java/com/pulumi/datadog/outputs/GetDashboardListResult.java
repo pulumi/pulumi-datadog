@@ -14,6 +14,10 @@ public final class GetDashboardListResult {
      * 
      */
     private String id;
+    /**
+     * @return A dashboard list name to limit the search.
+     * 
+     */
     private String name;
 
     private GetDashboardListResult() {}
@@ -24,6 +28,10 @@ public final class GetDashboardListResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A dashboard list name to limit the search.
+     * 
+     */
     public String name() {
         return this.name;
     }

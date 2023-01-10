@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class MetricTagConfigurationAggregationArgs : Pulumi.ResourceArgs
+    public sealed class MetricTagConfigurationAggregationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        /// </summary>
         [Input("space", required: true)]
         public Input<string> Space { get; set; } = null!;
 
+        /// <summary>
+        /// A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 
         public MetricTagConfigurationAggregationArgs()
         {
         }
+        public static new MetricTagConfigurationAggregationArgs Empty => new MetricTagConfigurationAggregationArgs();
     }
 }

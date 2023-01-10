@@ -10,16 +10,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoleResult {
+    /**
+     * @return A string on which to filter the roles.
+     * 
+     */
     private String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Name of the role.
+     * 
+     */
     private String name;
+    /**
+     * @return Number of users assigned to this role.
+     * 
+     */
     private Integer userCount;
 
     private GetRoleResult() {}
+    /**
+     * @return A string on which to filter the roles.
+     * 
+     */
     public String filter() {
         return this.filter;
     }
@@ -30,9 +46,17 @@ public final class GetRoleResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the role.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Number of users assigned to this role.
+     * 
+     */
     public Integer userCount() {
         return this.userCount;
     }

@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleSignalQueryArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,15 +131,30 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
      * Queries for selecting logs which are part of the rule.
      * 
      */
-    @Import(name="queries", required=true)
-    private Output<List<SecurityMonitoringRuleQueryArgs>> queries;
+    @Import(name="queries")
+    private @Nullable Output<List<SecurityMonitoringRuleQueryArgs>> queries;
 
     /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
-    public Output<List<SecurityMonitoringRuleQueryArgs>> queries() {
-        return this.queries;
+    public Optional<Output<List<SecurityMonitoringRuleQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
+    }
+
+    /**
+     * Queries for selecting logs which are part of the rule.
+     * 
+     */
+    @Import(name="signalQueries")
+    private @Nullable Output<List<SecurityMonitoringRuleSignalQueryArgs>> signalQueries;
+
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringRuleSignalQueryArgs>>> signalQueries() {
+        return Optional.ofNullable(this.signalQueries);
     }
 
     /**
@@ -157,14 +173,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The rule type.
+     * The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule type.
+     * @return The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -182,6 +198,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         this.name = $.name;
         this.options = $.options;
         this.queries = $.queries;
+        this.signalQueries = $.signalQueries;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -377,7 +394,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder queries(Output<List<SecurityMonitoringRuleQueryArgs>> queries) {
+        public Builder queries(@Nullable Output<List<SecurityMonitoringRuleQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
@@ -400,6 +417,37 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder queries(SecurityMonitoringRuleQueryArgs... queries) {
             return queries(List.of(queries));
+        }
+
+        /**
+         * @param signalQueries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signalQueries(@Nullable Output<List<SecurityMonitoringRuleSignalQueryArgs>> signalQueries) {
+            $.signalQueries = signalQueries;
+            return this;
+        }
+
+        /**
+         * @param signalQueries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signalQueries(List<SecurityMonitoringRuleSignalQueryArgs> signalQueries) {
+            return signalQueries(Output.of(signalQueries));
+        }
+
+        /**
+         * @param signalQueries Queries for selecting logs which are part of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signalQueries(SecurityMonitoringRuleSignalQueryArgs... signalQueries) {
+            return signalQueries(List.of(signalQueries));
         }
 
         /**
@@ -434,7 +482,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type.
+         * @param type The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
          * 
          * @return builder
          * 
@@ -445,7 +493,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type.
+         * @param type The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
          * 
          * @return builder
          * 
@@ -458,7 +506,6 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
             $.cases = Objects.requireNonNull($.cases, "expected parameter 'cases' to be non-null");
             $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.queries = Objects.requireNonNull($.queries, "expected parameter 'queries' to be non-null");
             return $;
         }
     }

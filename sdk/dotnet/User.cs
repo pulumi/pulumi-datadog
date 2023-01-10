@@ -15,29 +15,28 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var roRole = Datadog.GetRole.Invoke(new()
     ///     {
-    ///         var roRole = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
-    ///         {
-    ///             Filter = "Datadog Read Only Role",
-    ///         }));
-    ///         // Create a new Datadog user
-    ///         var foo = new Datadog.User("foo", new Datadog.UserArgs
-    ///         {
-    ///             Email = "new@example.com",
-    ///             Roles = 
-    ///             {
-    ///                 roRole.Apply(roRole =&gt; roRole.Id),
-    ///             },
-    ///         });
-    ///     }
+    ///         Filter = "Datadog Read Only Role",
+    ///     });
     /// 
-    /// }
+    ///     // Create a new Datadog user
+    ///     var foo = new Datadog.User("foo", new()
+    ///     {
+    ///         Email = "new@example.com",
+    ///         Roles = new[]
+    ///         {
+    ///             roRole.Apply(getRoleResult =&gt; getRoleResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the user is disabled.
@@ -135,7 +134,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user is disabled.
@@ -176,9 +175,10 @@ namespace Pulumi.Datadog
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user is disabled.
@@ -231,5 +231,6 @@ namespace Pulumi.Datadog
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

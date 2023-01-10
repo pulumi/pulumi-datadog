@@ -15,29 +15,27 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Manage a Datadog metric's metadata
+    ///     var requestTime = new Datadog.MetricMetadata("requestTime", new()
     ///     {
-    ///         // Manage a Datadog metric's metadata
-    ///         var requestTime = new Datadog.MetricMetadata("requestTime", new Datadog.MetricMetadataArgs
-    ///         {
-    ///             Description = "99th percentile request time in millseconds",
-    ///             Metric = "request.time",
-    ///             ShortName = "Request time",
-    ///             Type = "gauge",
-    ///             Unit = "millisecond",
-    ///         });
-    ///     }
+    ///         Description = "99th percentile request time in millseconds",
+    ///         Metric = "request.time",
+    ///         ShortName = "Request time",
+    ///         Type = "gauge",
+    ///         Unit = "millisecond",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/metricMetadata:MetricMetadata")]
-    public partial class MetricMetadata : Pulumi.CustomResource
+    public partial class MetricMetadata : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the metric.
@@ -125,7 +123,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class MetricMetadataArgs : Pulumi.ResourceArgs
+    public sealed class MetricMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the metric.
@@ -172,9 +170,10 @@ namespace Pulumi.Datadog
         public MetricMetadataArgs()
         {
         }
+        public static new MetricMetadataArgs Empty => new MetricMetadataArgs();
     }
 
-    public sealed class MetricMetadataState : Pulumi.ResourceArgs
+    public sealed class MetricMetadataState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the metric.
@@ -221,5 +220,6 @@ namespace Pulumi.Datadog
         public MetricMetadataState()
         {
         }
+        public static new MetricMetadataState Empty => new MetricMetadataState();
     }
 }

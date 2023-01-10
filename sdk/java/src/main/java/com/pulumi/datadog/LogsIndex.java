@@ -24,10 +24,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsIndex;
+ * import com.pulumi.datadog.LogsIndexArgs;
+ * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
+ * import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -89,16 +98,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dailyLimit);
     }
     /**
-     * If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-     * value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
      * 
      */
     @Export(name="disableDailyLimit", type=Boolean.class, parameters={})
     private Output<Boolean> disableDailyLimit;
 
     /**
-     * @return If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-     * value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
+     * @return If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
      * 
      */
     public Output<Boolean> disableDailyLimit() {

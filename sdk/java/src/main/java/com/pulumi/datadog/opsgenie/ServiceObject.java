@@ -11,6 +11,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.opsgenie.ServiceObjectArgs;
 import com.pulumi.datadog.opsgenie.inputs.ServiceObjectState;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -21,10 +22,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.opsgenie.ServiceObject;
+ * import com.pulumi.datadog.opsgenie.ServiceObjectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -100,14 +108,14 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
         return this.opsgenieApiKey;
     }
     /**
-     * The region for the Opsgenie service.
+     * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
     @Export(name="region", type=String.class, parameters={})
     private Output<String> region;
 
     /**
-     * @return The region for the Opsgenie service.
+     * @return The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
     public Output<String> region() {
@@ -146,6 +154,9 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "opsgenieApiKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

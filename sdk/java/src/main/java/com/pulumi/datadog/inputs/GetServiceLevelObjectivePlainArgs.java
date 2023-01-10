@@ -14,30 +14,62 @@ public final class GetServiceLevelObjectivePlainArgs extends com.pulumi.resource
 
     public static final GetServiceLevelObjectivePlainArgs Empty = new GetServiceLevelObjectivePlainArgs();
 
+    /**
+     * A SLO ID to limit the search.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return A SLO ID to limit the search.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Filter results based on SLO numerator and denominator.
+     * 
+     */
     @Import(name="metricsQuery")
     private @Nullable String metricsQuery;
 
+    /**
+     * @return Filter results based on SLO numerator and denominator.
+     * 
+     */
     public Optional<String> metricsQuery() {
         return Optional.ofNullable(this.metricsQuery);
     }
 
+    /**
+     * Filter results based on SLO names.
+     * 
+     */
     @Import(name="nameQuery")
     private @Nullable String nameQuery;
 
+    /**
+     * @return Filter results based on SLO names.
+     * 
+     */
     public Optional<String> nameQuery() {
         return Optional.ofNullable(this.nameQuery);
     }
 
+    /**
+     * Filter results based on a single SLO tag.
+     * 
+     */
     @Import(name="tagsQuery")
     private @Nullable String tagsQuery;
 
+    /**
+     * @return Filter results based on a single SLO tag.
+     * 
+     */
     public Optional<String> tagsQuery() {
         return Optional.ofNullable(this.tagsQuery);
     }
@@ -69,21 +101,45 @@ public final class GetServiceLevelObjectivePlainArgs extends com.pulumi.resource
             $ = new GetServiceLevelObjectivePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id A SLO ID to limit the search.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param metricsQuery Filter results based on SLO numerator and denominator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricsQuery(@Nullable String metricsQuery) {
             $.metricsQuery = metricsQuery;
             return this;
         }
 
+        /**
+         * @param nameQuery Filter results based on SLO names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameQuery(@Nullable String nameQuery) {
             $.nameQuery = nameQuery;
             return this;
         }
 
+        /**
+         * @param tagsQuery Filter results based on a single SLO tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsQuery(@Nullable String tagsQuery) {
             $.tagsQuery = tagsQuery;
             return this;

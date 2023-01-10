@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsMetricGroupByArgs : Pulumi.ResourceArgs
+    public sealed class LogsMetricGroupByArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path to the value the log-based metric will be aggregated over.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the tag that gets created.
+        /// </summary>
         [Input("tagName", required: true)]
         public Input<string> TagName { get; set; } = null!;
 
         public LogsMetricGroupByArgs()
         {
         }
+        public static new LogsMetricGroupByArgs Empty => new LogsMetricGroupByArgs();
     }
 }

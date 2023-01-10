@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTopologyMapDefinitionCustomLinkGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTopologyMapDefinitionCustomLinkGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("isHidden")]
         public Input<bool>? IsHidden { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTopologyMapDefinitionCustomLinkGetArgs()
         {
         }
+        public static new DashboardWidgetTopologyMapDefinitionCustomLinkGetArgs Empty => new DashboardWidgetTopologyMapDefinitionCustomLinkGetArgs();
     }
 }

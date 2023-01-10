@@ -21,6 +21,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Name;
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsResult? Options;
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryResult> Queries;
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> SignalQueries;
         public readonly ImmutableArray<string> Tags;
         public readonly string? Type;
 
@@ -42,6 +43,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryResult> queries,
 
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleSignalQueryResult> signalQueries,
+
             ImmutableArray<string> tags,
 
             string? type)
@@ -54,6 +57,7 @@ namespace Pulumi.Datadog.Outputs
             Name = name;
             Options = options;
             Queries = queries;
+            SignalQueries = signalQueries;
             Tags = tags;
             Type = type;
         }

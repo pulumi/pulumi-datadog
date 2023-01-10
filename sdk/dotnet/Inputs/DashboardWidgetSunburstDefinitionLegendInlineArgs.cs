@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetSunburstDefinitionLegendInlineArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetSunburstDefinitionLegendInlineArgs : global::Pulumi.ResourceArgs
     {
         [Input("hidePercent")]
         public Input<bool>? HidePercent { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetSunburstDefinitionLegendInlineArgs()
         {
         }
+        public static new DashboardWidgetSunburstDefinitionLegendInlineArgs Empty => new DashboardWidgetSunburstDefinitionLegendInlineArgs();
     }
 }

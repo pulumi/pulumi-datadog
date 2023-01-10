@@ -26,10 +26,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.ServiceLevelObjective;
+ * import com.pulumi.datadog.ServiceLevelObjectiveArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -95,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Service Level Objectives can be imported using their string ID, e.g.
+ * Service Level Objectives can be imported using their string ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
@@ -189,18 +198,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.query);
     }
     /**
-     * A list of tags to associate with your service level objective. This can help you categorize and filter service level
-     * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-     * when querying via the API
+     * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     @Export(name="tags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level
-     * objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags
-     * when querying via the API
+     * @return A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
     public Output<Optional<List<String>>> tags() {
@@ -221,18 +226,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return this.thresholds;
     }
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-     * found in the Datadog API [documentation
-     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-     * found in the Datadog API [documentation
-     * page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      * 
      */
     public Output<String> type() {

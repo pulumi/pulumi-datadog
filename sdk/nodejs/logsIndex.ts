@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -12,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const sampleIndex = new datadog.LogsIndex("sample_index", {
+ * const sampleIndex = new datadog.LogsIndex("sampleIndex", {
  *     dailyLimit: 200000,
  *     exclusionFilters: [
  *         {
@@ -79,8 +80,7 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly dailyLimit!: pulumi.Output<number | undefined>;
     /**
-     * If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-     * value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
     public readonly disableDailyLimit!: pulumi.Output<boolean>;
     /**
@@ -148,8 +148,7 @@ export interface LogsIndexState {
      */
     dailyLimit?: pulumi.Input<number>;
     /**
-     * If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-     * value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
     disableDailyLimit?: pulumi.Input<boolean>;
     /**
@@ -179,8 +178,7 @@ export interface LogsIndexArgs {
      */
     dailyLimit?: pulumi.Input<number>;
     /**
-     * If true, sets the daily_limit value to null and the index is not limited on a daily basis (any specified daily_limit
-     * value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
     disableDailyLimit?: pulumi.Input<boolean>;
     /**

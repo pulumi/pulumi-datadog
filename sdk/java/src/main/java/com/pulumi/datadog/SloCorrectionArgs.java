@@ -17,14 +17,14 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SloCorrectionArgs Empty = new SloCorrectionArgs();
 
     /**
-     * Category the SLO correction belongs to.
+     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      * 
      */
     @Import(name="category", required=true)
     private Output<String> category;
 
     /**
-     * @return Category the SLO correction belongs to.
+     * @return Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      * 
      */
     public Output<String> category() {
@@ -77,16 +77,14 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-     * `COUNT` and `UNTIL`.
+     * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      * 
      */
     @Import(name="rrule")
     private @Nullable Output<String> rrule;
 
     /**
-     * @return Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-     * `COUNT` and `UNTIL`.
+     * @return Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      * 
      */
     public Optional<Output<String>> rrule() {
@@ -170,7 +168,7 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param category Category the SLO correction belongs to.
+         * @param category Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
          * 
          * @return builder
          * 
@@ -181,7 +179,7 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param category Category the SLO correction belongs to.
+         * @param category Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
          * 
          * @return builder
          * 
@@ -254,8 +252,7 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rrule Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-         * `COUNT` and `UNTIL`.
+         * @param rrule Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
          * 
          * @return builder
          * 
@@ -266,8 +263,7 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rrule Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-         * `COUNT` and `UNTIL`.
+         * @param rrule Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
          * 
          * @return builder
          * 

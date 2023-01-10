@@ -14,6 +14,10 @@ public final class DashboardWidgetEventTimelineDefinition {
     private @Nullable String liveSpan;
     private String query;
     private @Nullable String tagsExecution;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -28,6 +32,10 @@ public final class DashboardWidgetEventTimelineDefinition {
     public Optional<String> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

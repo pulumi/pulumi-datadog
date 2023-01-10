@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
     private @Nullable List<DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetQueryTableDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetQueryTableDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetQueryTableDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
     public Optional<DashboardWidgetQueryTableDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetQueryTableDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetQueryTableDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetQueryTableDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetQueryTableDefinitionRequestFormula build() {
             final var o = new DashboardWidgetQueryTableDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

@@ -13,8 +13,16 @@ import java.util.Objects;
 @CustomType
 public final class GetLogsPipelinesLogsPipeline {
     private List<GetLogsPipelinesLogsPipelineFilter> filters;
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     private String id;
     private Boolean isEnabled;
+    /**
+     * @return Filter parameter for retrieved pipelines
+     * 
+     */
     private Boolean isReadOnly;
     private String name;
     private String type;
@@ -23,12 +31,20 @@ public final class GetLogsPipelinesLogsPipeline {
     public List<GetLogsPipelinesLogsPipelineFilter> filters() {
         return this.filters;
     }
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public String id() {
         return this.id;
     }
     public Boolean isEnabled() {
         return this.isEnabled;
     }
+    /**
+     * @return Filter parameter for retrieved pipelines
+     * 
+     */
     public Boolean isReadOnly() {
         return this.isReadOnly;
     }

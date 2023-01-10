@@ -22,9 +22,17 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         return this.type;
     }
 
+    /**
+     * The value of the global variable.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return The value of the global variable.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -63,11 +71,23 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
             return type(Output.of(type));
         }
 
+        /**
+         * @param value The value of the global variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The value of the global variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

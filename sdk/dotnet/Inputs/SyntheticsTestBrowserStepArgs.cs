@@ -10,31 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestBrowserStepArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestBrowserStepArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines if the step should be allowed to fail.
+        /// </summary>
         [Input("allowFailure")]
         public Input<bool>? AllowFailure { get; set; }
 
+        /// <summary>
+        /// Force update of the "element" parameter for the step
+        /// </summary>
         [Input("forceElementUpdate")]
         public Input<bool>? ForceElementUpdate { get; set; }
 
+        /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
         [Input("isCritical")]
         public Input<bool>? IsCritical { get; set; }
 
+        /// <summary>
+        /// Name of the step.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters for the step.
+        /// </summary>
         [Input("params", required: true)]
         public Input<Inputs.SyntheticsTestBrowserStepParamsArgs> Params { get; set; } = null!;
 
+        /// <summary>
+        /// Used to override the default timeout of a step.
+        /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
+        /// <summary>
+        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public SyntheticsTestBrowserStepArgs()
         {
         }
+        public static new SyntheticsTestBrowserStepArgs Empty => new SyntheticsTestBrowserStepArgs();
     }
 }

@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+ * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
  *
  * ```sh
  *  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
@@ -56,8 +56,7 @@ export class LogsIndexOrder extends pulumi.CustomResource {
     }
 
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
     public readonly indexes!: pulumi.Output<string[]>;
     /**
@@ -101,8 +100,7 @@ export class LogsIndexOrder extends pulumi.CustomResource {
  */
 export interface LogsIndexOrderState {
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -116,8 +114,7 @@ export interface LogsIndexOrderState {
  */
 export interface LogsIndexOrderArgs {
     /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-     * list.
+     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
     indexes: pulumi.Input<pulumi.Input<string>[]>;
     /**

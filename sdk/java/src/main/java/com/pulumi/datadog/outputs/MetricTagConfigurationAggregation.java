@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class MetricTagConfigurationAggregation {
+    /**
+     * @return A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     * 
+     */
     private String space;
+    /**
+     * @return A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     * 
+     */
     private String time;
 
     private MetricTagConfigurationAggregation() {}
+    /**
+     * @return A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     * 
+     */
     public String space() {
         return this.space;
     }
+    /**
+     * @return A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     * 
+     */
     public String time() {
         return this.time;
     }

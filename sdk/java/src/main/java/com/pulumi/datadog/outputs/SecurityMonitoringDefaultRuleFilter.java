@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SecurityMonitoringDefaultRuleFilter {
+    /**
+     * @return The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+     * 
+     */
     private String action;
+    /**
+     * @return Query for selecting logs to apply the filtering action.
+     * 
+     */
     private String query;
 
     private SecurityMonitoringDefaultRuleFilter() {}
+    /**
+     * @return The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+     * 
+     */
     public String action() {
         return this.action;
     }
+    /**
+     * @return Query for selecting logs to apply the filtering action.
+     * 
+     */
     public String query() {
         return this.query;
     }

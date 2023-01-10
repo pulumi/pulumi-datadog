@@ -18,6 +18,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     public static final SecurityMonitoringRuleQueryArgs Empty = new SecurityMonitoringRuleQueryArgs();
 
     /**
+     * **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * 
      * @deprecated
      * `agent_rule` has been deprecated in favor of new Agent Rule resource.
      * 
@@ -27,6 +29,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     private @Nullable Output<List<SecurityMonitoringRuleQueryAgentRuleArgs>> agentRules;
 
     /**
+     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * 
      * @deprecated
      * `agent_rule` has been deprecated in favor of new Agent Rule resource.
      * 
@@ -36,51 +40,115 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.agentRules);
     }
 
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * 
+     */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
+    /**
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * 
+     */
     public Optional<Output<String>> aggregation() {
         return Optional.ofNullable(this.aggregation);
     }
 
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     * 
+     */
     @Import(name="distinctFields")
     private @Nullable Output<List<String>> distinctFields;
 
+    /**
+     * @return Field for which the cardinality is measured. Sent as an array.
+     * 
+     */
     public Optional<Output<List<String>>> distinctFields() {
         return Optional.ofNullable(this.distinctFields);
     }
 
+    /**
+     * Fields to group by.
+     * 
+     */
     @Import(name="groupByFields")
     private @Nullable Output<List<String>> groupByFields;
 
+    /**
+     * @return Fields to group by.
+     * 
+     */
     public Optional<Output<List<String>>> groupByFields() {
         return Optional.ofNullable(this.groupByFields);
     }
 
+    /**
+     * The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     * @deprecated
+     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     */
+    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
+    /**
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     * @deprecated
+     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * 
+     */
+    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
 
+    /**
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * 
+     */
     @Import(name="metrics")
     private @Nullable Output<List<String>> metrics;
 
+    /**
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * 
+     */
     public Optional<Output<List<String>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
 
+    /**
+     * Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Query to run on logs.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return Query to run on logs.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -117,6 +185,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -130,6 +200,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -142,6 +214,8 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -153,77 +227,187 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
             return agentRules(List.of(agentRules));
         }
 
+        /**
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(@Nullable Output<String> aggregation) {
             $.aggregation = aggregation;
             return this;
         }
 
+        /**
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
         }
 
+        /**
+         * @param distinctFields Field for which the cardinality is measured. Sent as an array.
+         * 
+         * @return builder
+         * 
+         */
         public Builder distinctFields(@Nullable Output<List<String>> distinctFields) {
             $.distinctFields = distinctFields;
             return this;
         }
 
+        /**
+         * @param distinctFields Field for which the cardinality is measured. Sent as an array.
+         * 
+         * @return builder
+         * 
+         */
         public Builder distinctFields(List<String> distinctFields) {
             return distinctFields(Output.of(distinctFields));
         }
 
+        /**
+         * @param distinctFields Field for which the cardinality is measured. Sent as an array.
+         * 
+         * @return builder
+         * 
+         */
         public Builder distinctFields(String... distinctFields) {
             return distinctFields(List.of(distinctFields));
         }
 
+        /**
+         * @param groupByFields Fields to group by.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByFields(@Nullable Output<List<String>> groupByFields) {
             $.groupByFields = groupByFields;
             return this;
         }
 
+        /**
+         * @param groupByFields Fields to group by.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByFields(List<String> groupByFields) {
             return groupByFields(Output.of(groupByFields));
         }
 
+        /**
+         * @param groupByFields Fields to group by.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByFields(String... groupByFields) {
             return groupByFields(List.of(groupByFields));
         }
 
+        /**
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * 
+         */
+        @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
+        /**
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * 
+         */
+        @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }
 
+        /**
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(@Nullable Output<List<String>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
+        /**
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(List<String> metrics) {
             return metrics(Output.of(metrics));
         }
 
+        /**
+         * @param metrics Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(String... metrics) {
             return metrics(List.of(metrics));
         }
 
+        /**
+         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the query. Not compatible with `new_value` aggregations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param query Query to run on logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Query to run on logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

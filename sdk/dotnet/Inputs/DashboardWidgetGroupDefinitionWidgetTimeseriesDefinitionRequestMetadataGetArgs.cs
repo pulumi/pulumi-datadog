@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataGetArgs();
     }
 }

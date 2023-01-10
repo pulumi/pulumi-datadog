@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetServiceLevelObjectiveDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetServiceLevelObjectiveDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("globalTimeTarget")]
         public Input<string>? GlobalTimeTarget { get; set; }
@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Inputs
             set => _timeWindows = value;
         }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -47,5 +50,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetServiceLevelObjectiveDefinitionArgs()
         {
         }
+        public static new DashboardWidgetServiceLevelObjectiveDefinitionArgs Empty => new DashboardWidgetServiceLevelObjectiveDefinitionArgs();
     }
 }

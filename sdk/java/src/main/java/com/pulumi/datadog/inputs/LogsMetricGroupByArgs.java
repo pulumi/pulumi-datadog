@@ -13,16 +13,32 @@ public final class LogsMetricGroupByArgs extends com.pulumi.resources.ResourceAr
 
     public static final LogsMetricGroupByArgs Empty = new LogsMetricGroupByArgs();
 
+    /**
+     * The path to the value the log-based metric will be aggregated over.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return The path to the value the log-based metric will be aggregated over.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
+    /**
+     * Name of the tag that gets created.
+     * 
+     */
     @Import(name="tagName", required=true)
     private Output<String> tagName;
 
+    /**
+     * @return Name of the tag that gets created.
+     * 
+     */
     public Output<String> tagName() {
         return this.tagName;
     }
@@ -52,20 +68,44 @@ public final class LogsMetricGroupByArgs extends com.pulumi.resources.ResourceAr
             $ = new LogsMetricGroupByArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path The path to the value the log-based metric will be aggregated over.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The path to the value the log-based metric will be aggregated over.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param tagName Name of the tag that gets created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagName(Output<String> tagName) {
             $.tagName = tagName;
             return this;
         }
 
+        /**
+         * @param tagName Name of the tag that gets created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagName(String tagName) {
             return tagName(Output.of(tagName));
         }

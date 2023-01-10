@@ -13,8 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const serviceDefinition = new datadog.ServiceDefinitionYaml("service_definition", {
- *     serviceDefinition: `schema-version: v2
+ * const serviceDefinition = new datadog.ServiceDefinitionYaml("serviceDefinition", {serviceDefinition: `schema-version: v2
  * dd-service: shopping-cart
  * team: E Commerce
  * contacts:
@@ -47,8 +46,8 @@ import * as utilities from "./utilities";
  * extensions:
  *   datadoghq.com/shopping-cart:
  *     customField: customValue
- * `,
- * });
+ *
+ * `});
  * ```
  *
  * ## Import

@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MetricTagConfigurationAggregation
     {
+        /// <summary>
+        /// A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        /// </summary>
         public readonly string Space;
+        /// <summary>
+        /// A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        /// </summary>
         public readonly string Time;
 
         [OutputConstructor]

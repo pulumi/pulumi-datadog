@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class LogsMetricFilter {
+    /**
+     * @return The search query - following the log search syntax.
+     * 
+     */
     private String query;
 
     private LogsMetricFilter() {}
+    /**
+     * @return The search query - following the log search syntax.
+     * 
+     */
     public String query() {
         return this.query;
     }

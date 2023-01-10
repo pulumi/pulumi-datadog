@@ -10,16 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardTemplateVariablePresetTemplateVariableArgs : Pulumi.ResourceArgs
+    public sealed class DashboardTemplateVariablePresetTemplateVariableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("value")]
         public Input<string>? Value { get; set; }
 
+        [Input("values")]
+        private InputList<string>? _values;
+        public InputList<string> Values
+        {
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
+        }
+
         public DashboardTemplateVariablePresetTemplateVariableArgs()
         {
         }
+        public static new DashboardTemplateVariablePresetTemplateVariableArgs Empty => new DashboardTemplateVariablePresetTemplateVariableArgs();
     }
 }

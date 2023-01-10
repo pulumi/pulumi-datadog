@@ -15,28 +15,26 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myS3Archive = new Datadog.LogsArchive("myS3Archive", new()
     ///     {
-    ///         var myS3Archive = new Datadog.LogsArchive("myS3Archive", new Datadog.LogsArchiveArgs
+    ///         Name = "my s3 archive",
+    ///         Query = "service:myservice",
+    ///         S3Archive = new Datadog.Inputs.LogsArchiveS3ArchiveArgs
     ///         {
-    ///             Name = "my s3 archive",
-    ///             Query = "service:myservice",
-    ///             S3Archive = new Datadog.Inputs.LogsArchiveS3ArchiveArgs
-    ///             {
-    ///                 AccountId = "001234567888",
-    ///                 Bucket = "my-bucket",
-    ///                 Path = "/path/foo",
-    ///                 RoleName = "my-role-name",
-    ///             },
-    ///         });
-    ///     }
+    ///             AccountId = "001234567888",
+    ///             Bucket = "my-bucket",
+    ///             Path = "/path/foo",
+    ///             RoleName = "my-role-name",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsArchive:LogsArchive")]
-    public partial class LogsArchive : Pulumi.CustomResource
+    public partial class LogsArchive : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Definition of an azure archive.
@@ -61,8 +59,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveGcsArchive?> GcsArchive { get; private set; } = null!;
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
@@ -141,7 +138,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class LogsArchiveArgs : Pulumi.ResourceArgs
+    public sealed class LogsArchiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Definition of an azure archive.
@@ -156,8 +153,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -201,9 +197,10 @@ namespace Pulumi.Datadog
         public LogsArchiveArgs()
         {
         }
+        public static new LogsArchiveArgs Empty => new LogsArchiveArgs();
     }
 
-    public sealed class LogsArchiveState : Pulumi.ResourceArgs
+    public sealed class LogsArchiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Definition of an azure archive.
@@ -218,8 +215,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveGetArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -263,5 +259,6 @@ namespace Pulumi.Datadog
         public LogsArchiveState()
         {
         }
+        public static new LogsArchiveState Empty => new LogsArchiveState();
     }
 }

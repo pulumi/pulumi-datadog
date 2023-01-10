@@ -28,19 +28,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
-//				Compute: &LogsMetricComputeArgs{
+//				Compute: &datadog.LogsMetricComputeArgs{
 //					AggregationType: pulumi.String("distribution"),
 //					Path:            pulumi.String("@duration"),
 //				},
-//				Filter: &LogsMetricFilterArgs{
+//				Filter: &datadog.LogsMetricFilterArgs{
 //					Query: pulumi.String("service:test"),
 //				},
-//				GroupBies: LogsMetricGroupByArray{
-//					&LogsMetricGroupByArgs{
+//				GroupBies: datadog.LogsMetricGroupByArray{
+//					&datadog.LogsMetricGroupByArgs{
 //						Path:    pulumi.String("@status"),
 //						TagName: pulumi.String("status"),
 //					},
-//					&LogsMetricGroupByArgs{
+//					&datadog.LogsMetricGroupByArgs{
 //						Path:    pulumi.String("@version"),
 //						TagName: pulumi.String("version"),
 //					},

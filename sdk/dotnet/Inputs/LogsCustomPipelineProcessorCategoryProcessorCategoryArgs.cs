@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsCustomPipelineProcessorCategoryProcessorCategoryArgs : Pulumi.ResourceArgs
+    public sealed class LogsCustomPipelineProcessorCategoryProcessorCategoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         public Input<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs> Filter { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public LogsCustomPipelineProcessorCategoryProcessorCategoryArgs()
         {
         }
+        public static new LogsCustomPipelineProcessorCategoryProcessorCategoryArgs Empty => new LogsCustomPipelineProcessorCategoryProcessorCategoryArgs();
     }
 }

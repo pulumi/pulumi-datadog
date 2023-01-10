@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariables {
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     private @Nullable List<MonitorVariablesEventQuery> eventQueries;
 
     private MonitorVariables() {}
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public List<MonitorVariablesEventQuery> eventQueries() {
         return this.eventQueries == null ? List.of() : this.eventQueries;
     }

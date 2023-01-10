@@ -15,21 +15,19 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var rumApplication = new Datadog.RumApplication("rumApplication", new()
     ///     {
-    ///         var rumApplication = new Datadog.RumApplication("rumApplication", new Datadog.RumApplicationArgs
-    ///         {
-    ///             Name = "my-application",
-    ///             Type = "browser",
-    ///         });
-    ///     }
+    ///         Name = "my-application",
+    ///         Type = "browser",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +37,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/rumApplication:RumApplication")]
-    public partial class RumApplication : Pulumi.CustomResource
+    public partial class RumApplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The client token
@@ -103,7 +101,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class RumApplicationArgs : Pulumi.ResourceArgs
+    public sealed class RumApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the RUM application
@@ -120,9 +118,10 @@ namespace Pulumi.Datadog
         public RumApplicationArgs()
         {
         }
+        public static new RumApplicationArgs Empty => new RumApplicationArgs();
     }
 
-    public sealed class RumApplicationState : Pulumi.ResourceArgs
+    public sealed class RumApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client token
@@ -145,5 +144,6 @@ namespace Pulumi.Datadog
         public RumApplicationState()
         {
         }
+        public static new RumApplicationState Empty => new RumApplicationState();
     }
 }

@@ -30,7 +30,7 @@ import (
 //			_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
 //				Name:  pulumi.String("my s3 archive"),
 //				Query: pulumi.String("service:myservice"),
-//				S3Archive: &LogsArchiveS3ArchiveArgs{
+//				S3Archive: &datadog.LogsArchiveS3ArchiveArgs{
 //					AccountId: pulumi.String("001234567888"),
 //					Bucket:    pulumi.String("my-bucket"),
 //					Path:      pulumi.String("/path/foo"),
@@ -60,8 +60,7 @@ type LogsArchive struct {
 	AzureArchive LogsArchiveAzureArchivePtrOutput `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-	// are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// Your archive name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -114,8 +113,7 @@ type logsArchiveState struct {
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-	// are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// Your archive name.
 	Name *string `pulumi:"name"`
@@ -134,8 +132,7 @@ type LogsArchiveState struct {
 	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-	// are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
 	// Your archive name.
 	Name pulumi.StringPtrInput
@@ -158,8 +155,7 @@ type logsArchiveArgs struct {
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-	// are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// Your archive name.
 	Name string `pulumi:"name"`
@@ -179,8 +175,7 @@ type LogsArchiveArgs struct {
 	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
-	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-	// are sent to the archive.
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
 	// Your archive name.
 	Name pulumi.StringInput
@@ -291,8 +286,7 @@ func (o LogsArchiveOutput) GcsArchive() LogsArchiveGcsArchivePtrOutput {
 	return o.ApplyT(func(v *LogsArchive) LogsArchiveGcsArchivePtrOutput { return v.GcsArchive }).(LogsArchiveGcsArchivePtrOutput)
 }
 
-// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-// are sent to the archive.
+// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
 func (o LogsArchiveOutput) IncludeTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsArchive) pulumi.BoolPtrOutput { return v.IncludeTags }).(pulumi.BoolPtrOutput)
 }

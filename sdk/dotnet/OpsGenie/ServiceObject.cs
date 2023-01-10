@@ -15,32 +15,31 @@ namespace Pulumi.Datadog.OpsGenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fakeServiceName = new Datadog.OpsGenie.ServiceObject("fakeServiceName", new()
     ///     {
-    ///         var fakeServiceName = new Datadog.OpsGenie.ServiceObject("fakeServiceName", new Datadog.OpsGenie.ServiceObjectArgs
-    ///         {
-    ///             Name = "fake_service_name",
-    ///             OpsgenieApiKey = "00000000-0000-0000-0000-000000000000",
-    ///             Region = "us",
-    ///         });
-    ///         var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject("fakeServiceName2", new Datadog.OpsGenie.ServiceObjectArgs
-    ///         {
-    ///             Name = "fake_service_name_2",
-    ///             OpsgenieApiKey = "11111111-1111-1111-1111-111111111111",
-    ///             Region = "eu",
-    ///         });
-    ///     }
+    ///         Name = "fake_service_name",
+    ///         OpsgenieApiKey = "00000000-0000-0000-0000-000000000000",
+    ///         Region = "us",
+    ///     });
     /// 
-    /// }
+    ///     var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject("fakeServiceName2", new()
+    ///     {
+    ///         Name = "fake_service_name_2",
+    ///         OpsgenieApiKey = "11111111-1111-1111-1111-111111111111",
+    ///         Region = "eu",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:opsgenie/serviceObject:ServiceObject")]
-    public partial class ServiceObject : Pulumi.CustomResource
+    public partial class ServiceObject : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The custom url for a custom region.
@@ -64,7 +63,7 @@ namespace Pulumi.Datadog.OpsGenie
         public Output<string> OpsgenieApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// The region for the Opsgenie service.
+        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -92,6 +91,10 @@ namespace Pulumi.Datadog.OpsGenie
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "opsgenieApiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -113,7 +116,7 @@ namespace Pulumi.Datadog.OpsGenie
         }
     }
 
-    public sealed class ServiceObjectArgs : Pulumi.ResourceArgs
+    public sealed class ServiceObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom url for a custom region.
@@ -127,17 +130,27 @@ namespace Pulumi.Datadog.OpsGenie
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("opsgenieApiKey", required: true)]
+        private Input<string>? _opsgenieApiKey;
+
         /// <summary>
         /// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
         /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
         /// to solve a drift is to manually mark the Service Object resource with [terraform
         /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         /// </summary>
-        [Input("opsgenieApiKey", required: true)]
-        public Input<string> OpsgenieApiKey { get; set; } = null!;
+        public Input<string>? OpsgenieApiKey
+        {
+            get => _opsgenieApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _opsgenieApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// The region for the Opsgenie service.
+        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -145,9 +158,10 @@ namespace Pulumi.Datadog.OpsGenie
         public ServiceObjectArgs()
         {
         }
+        public static new ServiceObjectArgs Empty => new ServiceObjectArgs();
     }
 
-    public sealed class ServiceObjectState : Pulumi.ResourceArgs
+    public sealed class ServiceObjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The custom url for a custom region.
@@ -161,17 +175,27 @@ namespace Pulumi.Datadog.OpsGenie
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("opsgenieApiKey")]
+        private Input<string>? _opsgenieApiKey;
+
         /// <summary>
         /// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
         /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
         /// to solve a drift is to manually mark the Service Object resource with [terraform
         /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         /// </summary>
-        [Input("opsgenieApiKey")]
-        public Input<string>? OpsgenieApiKey { get; set; }
+        public Input<string>? OpsgenieApiKey
+        {
+            get => _opsgenieApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _opsgenieApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// The region for the Opsgenie service.
+        /// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -179,5 +203,6 @@ namespace Pulumi.Datadog.OpsGenie
         public ServiceObjectState()
         {
         }
+        public static new ServiceObjectState Empty => new ServiceObjectState();
     }
 }

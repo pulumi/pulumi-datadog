@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog - Amazon Web Services integration Lambda ARN
- * const mainCollector = new datadog.aws.IntegrationLambdaArn("main_collector", {
+ * const mainCollector = new datadog.aws.IntegrationLambdaArn("mainCollector", {
  *     accountId: "1234567890",
  *     lambdaArn: "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
  * });
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
+ * Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
  *
  * ```sh
  *  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
@@ -59,7 +59,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
  */
 export interface IntegrationLambdaArnState {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -117,7 +117,7 @@ export interface IntegrationLambdaArnState {
  */
 export interface IntegrationLambdaArnArgs {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId: pulumi.Input<string>;
     /**

@@ -2,15 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ChildOrganizationApiKey {
     key: string;
+    /**
+     * Name for Child Organization after creation.
+     */
     name: string;
 }
 
 export interface ChildOrganizationApplicationKey {
     hash: string;
+    /**
+     * Name for Child Organization after creation.
+     */
     name: string;
     owner: string;
 }
@@ -48,68 +55,208 @@ export interface ChildOrganizationSettingSamlStrictMode {
 export interface ChildOrganizationUser {
     accessRole: string;
     email: string;
+    /**
+     * Name for Child Organization after creation.
+     */
     name: string;
 }
 
 export interface DashboardListDashItem {
+    /**
+     * The ID of the dashboard to add
+     */
     dashId: string;
+    /**
+     * The type of this dashboard. Valid values are `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, `hostTimeboard`.
+     */
     type: string;
 }
 
 export interface DashboardTemplateVariable {
+    /**
+     * The list of values that the template variable drop-down is be limited to
+     */
     availableValues?: string[];
+    /**
+     * The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+     *
+     * @deprecated Use `defaults` instead.
+     */
     default?: string;
+    /**
+     * One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+     */
+    defaults?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+     */
     prefix?: string;
 }
 
 export interface DashboardTemplateVariablePreset {
+    /**
+     * The name of the preset.
+     */
     name?: string;
+    /**
+     * The template variable names and assumed values under the given preset
+     */
     templateVariables?: outputs.DashboardTemplateVariablePresetTemplateVariable[];
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * @deprecated Use `values` instead.
+     */
     value?: string;
+    values?: string[];
 }
 
 export interface DashboardWidget {
+    /**
+     * The definition for a Alert Graph widget.
+     */
     alertGraphDefinition?: outputs.DashboardWidgetAlertGraphDefinition;
+    /**
+     * The definition for a Alert Value widget.
+     */
     alertValueDefinition?: outputs.DashboardWidgetAlertValueDefinition;
+    /**
+     * The definition for a Change widget.
+     */
     changeDefinition?: outputs.DashboardWidgetChangeDefinition;
+    /**
+     * The definition for a Check Status widget.
+     */
     checkStatusDefinition?: outputs.DashboardWidgetCheckStatusDefinition;
+    /**
+     * The definition for a Distribution widget.
+     */
     distributionDefinition?: outputs.DashboardWidgetDistributionDefinition;
+    /**
+     * The definition for a Event Stream widget.
+     */
     eventStreamDefinition?: outputs.DashboardWidgetEventStreamDefinition;
+    /**
+     * The definition for a Event Timeline widget.
+     */
     eventTimelineDefinition?: outputs.DashboardWidgetEventTimelineDefinition;
+    /**
+     * The definition for a Free Text widget.
+     */
     freeTextDefinition?: outputs.DashboardWidgetFreeTextDefinition;
+    /**
+     * The definition for a Geomap widget.
+     */
     geomapDefinition?: outputs.DashboardWidgetGeomapDefinition;
+    /**
+     * The definition for a Group widget.
+     */
     groupDefinition?: outputs.DashboardWidgetGroupDefinition;
+    /**
+     * The definition for a Heatmap widget.
+     */
     heatmapDefinition?: outputs.DashboardWidgetHeatmapDefinition;
+    /**
+     * The definition for a Hostmap widget.
+     */
     hostmapDefinition?: outputs.DashboardWidgetHostmapDefinition;
+    /**
+     * The ID of the widget.
+     */
     id: number;
+    /**
+     * The definition for an Iframe widget.
+     */
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
+    /**
+     * The definition for an Image widget
+     */
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
+    /**
+     * The definition for a List Stream widget.
+     */
     listStreamDefinition?: outputs.DashboardWidgetListStreamDefinition;
+    /**
+     * The definition for an Log Stream widget.
+     */
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
+    /**
+     * The definition for an Manage Status widget.
+     */
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
+    /**
+     * The definition for a Note widget.
+     */
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
+    /**
+     * The definition for a Query Table widget.
+     */
     queryTableDefinition?: outputs.DashboardWidgetQueryTableDefinition;
+    /**
+     * The definition for a Query Value widget.
+     */
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
+    /**
+     * The definition for a Scatterplot widget.
+     */
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
+    /**
+     * The definition for a Service Level Objective widget.
+     */
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
+    /**
+     * The definition for a Service Map widget.
+     */
     servicemapDefinition?: outputs.DashboardWidgetServicemapDefinition;
+    /**
+     * The definition for an SLO (Service Level Objective) List widget.
+     */
+    sloListDefinition?: outputs.DashboardWidgetSloListDefinition;
+    /**
+     * The definition for a Sunburst widget.
+     */
     sunburstDefinition?: outputs.DashboardWidgetSunburstDefinition;
+    /**
+     * The definition for a Timeseries widget.
+     */
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
+    /**
+     * The definition for a Toplist widget.
+     */
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
+    /**
+     * The definition for a Topology Map widget.
+     */
     topologyMapDefinition?: outputs.DashboardWidgetTopologyMapDefinition;
+    /**
+     * The definition for a Trace Service widget.
+     */
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
+    /**
+     * The definition for a Treemap widget.
+     */
     treemapDefinition?: outputs.DashboardWidgetTreemapDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.
+     */
     widgetLayout?: outputs.DashboardWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: string;
     liveSpan?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -120,6 +267,9 @@ export interface DashboardWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -130,6 +280,9 @@ export interface DashboardWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetChangeDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -197,6 +350,7 @@ export interface DashboardWidgetChangeDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetChangeDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetChangeDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat {
@@ -214,6 +368,11 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat 
 export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
@@ -296,6 +455,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute {
@@ -410,6 +570,9 @@ export interface DashboardWidgetCheckStatusDefinition {
     grouping: string;
     liveSpan?: string;
     tags?: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -420,6 +583,9 @@ export interface DashboardWidgetDistributionDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -597,6 +763,9 @@ export interface DashboardWidgetEventStreamDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -606,6 +775,9 @@ export interface DashboardWidgetEventTimelineDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -623,6 +795,9 @@ export interface DashboardWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGeomapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -650,6 +825,7 @@ export interface DashboardWidgetGeomapDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat {
@@ -667,6 +843,11 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
@@ -742,6 +923,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute {
@@ -829,48 +1011,154 @@ export interface DashboardWidgetGeomapDefinitionView {
 export interface DashboardWidgetGroupDefinition {
     backgroundColor?: string;
     bannerImg?: string;
+    /**
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     */
     layoutType: string;
     showTitle?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
+    /**
+     * The list of widgets to display on the dashboard.
+     */
     widgets?: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
 
 export interface DashboardWidgetGroupDefinitionWidget {
+    /**
+     * The definition for a Alert Graph widget.
+     */
     alertGraphDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition;
+    /**
+     * The definition for a Alert Value widget.
+     */
     alertValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition;
+    /**
+     * The definition for a Change widget.
+     */
     changeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition;
+    /**
+     * The definition for a Check Status widget.
+     */
     checkStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition;
+    /**
+     * The definition for a Distribution widget.
+     */
     distributionDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition;
+    /**
+     * The definition for a Event Stream widget.
+     */
     eventStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition;
+    /**
+     * The definition for a Event Timeline widget.
+     */
     eventTimelineDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition;
+    /**
+     * The definition for a Free Text widget.
+     */
     freeTextDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition;
+    /**
+     * The definition for a Geomap widget.
+     */
     geomapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition;
+    /**
+     * The definition for a Heatmap widget.
+     */
     heatmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition;
+    /**
+     * The definition for a Hostmap widget.
+     */
     hostmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition;
+    /**
+     * The ID of the widget.
+     */
     id: number;
+    /**
+     * The definition for an Iframe widget.
+     */
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
+    /**
+     * The definition for an Image widget
+     */
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
+    /**
+     * The definition for a List Stream widget.
+     */
     listStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinition;
+    /**
+     * The definition for an Log Stream widget.
+     */
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
+    /**
+     * The definition for an Manage Status widget.
+     */
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
+    /**
+     * The definition for a Note widget.
+     */
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
+    /**
+     * The definition for a Query Table widget.
+     */
     queryTableDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
+    /**
+     * The definition for a Query Value widget.
+     */
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
+    /**
+     * The definition for a Scatterplot widget.
+     */
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
+    /**
+     * The definition for a Service Level Objective widget.
+     */
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
+    /**
+     * The definition for a Service Map widget.
+     */
     servicemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
+    /**
+     * The definition for an SLO (Service Level Objective) List widget.
+     */
+    sloListDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition;
+    /**
+     * The definition for a Sunburst widget.
+     */
     sunburstDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
+    /**
+     * The definition for a Timeseries widget.
+     */
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
+    /**
+     * The definition for a Toplist widget.
+     */
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
+    /**
+     * The definition for a Topology Map widget.
+     */
     topologyMapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition;
+    /**
+     * The definition for a Trace Service widget.
+     */
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
+    /**
+     * The definition for a Treemap widget.
+     */
     treemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.
+     */
     widgetLayout?: outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: string;
     liveSpan?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -881,6 +1169,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -891,6 +1182,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -958,6 +1252,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestForm
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat {
@@ -975,6 +1270,11 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestForm
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
@@ -1057,6 +1357,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute {
@@ -1171,6 +1472,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     grouping: string;
     liveSpan?: string;
     tags?: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1181,6 +1485,9 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1358,6 +1665,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1367,6 +1677,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1384,6 +1697,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1411,6 +1727,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestForm
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat {
@@ -1428,6 +1745,11 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestForm
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery {
@@ -1503,6 +1825,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute {
@@ -1594,6 +1917,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1778,6 +2104,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2091,6 +2420,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
@@ -2100,6 +2432,9 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     horizontalAlign?: string;
     margin?: string;
     sizing?: string;
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
     urlDarkTheme?: string;
     verticalAlign?: string;
@@ -2107,6 +2442,9 @@ export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
     requests: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2127,6 +2465,7 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
     dataSource: string;
     indexes?: string[];
     queryString?: string;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
@@ -2138,6 +2477,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2157,6 +2499,9 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showPriority?: boolean;
     sort?: string;
     summaryType?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2179,6 +2524,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     hasSearchBar?: string;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2276,6 +2624,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -2293,6 +2642,11 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
@@ -2375,6 +2729,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
@@ -2491,6 +2846,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
     timeseriesBackground?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2599,6 +2957,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
@@ -2616,6 +2975,11 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
@@ -2698,6 +3062,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
@@ -2823,6 +3188,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink[];
     liveSpan?: string;
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2895,6 +3263,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
@@ -3249,6 +3618,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3260,6 +3632,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3272,6 +3647,26 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomL
     overrideLabel?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetSloListDefinition {
+    request: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest;
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
+    query: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery;
+    requestType: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
+    limit?: number;
+    queryString: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink[];
     hideTotal?: boolean;
@@ -3279,6 +3674,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
     legendTable?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3384,6 +3782,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFo
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat {
@@ -3401,6 +3800,11 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFo
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery {
@@ -3515,6 +3919,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute {
@@ -3633,6 +4038,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3744,6 +4152,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
@@ -3761,6 +4170,11 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery {
@@ -3880,6 +4294,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
@@ -4013,6 +4428,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4121,6 +4539,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFor
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat {
@@ -4138,6 +4557,11 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFor
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
@@ -4220,6 +4644,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute {
@@ -4334,6 +4759,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSty
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4370,6 +4798,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4377,6 +4808,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
 }
 
@@ -4391,6 +4825,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFor
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat {
@@ -4408,6 +4843,11 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFor
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery {
@@ -4451,6 +4891,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute {
@@ -4509,6 +4950,9 @@ export interface DashboardWidgetHeatmapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4693,6 +5137,9 @@ export interface DashboardWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetHostmapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5006,6 +5453,9 @@ export interface DashboardWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
@@ -5015,6 +5465,9 @@ export interface DashboardWidgetImageDefinition {
     horizontalAlign?: string;
     margin?: string;
     sizing?: string;
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
     urlDarkTheme?: string;
     verticalAlign?: string;
@@ -5022,6 +5475,9 @@ export interface DashboardWidgetImageDefinition {
 
 export interface DashboardWidgetListStreamDefinition {
     requests: outputs.DashboardWidgetListStreamDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5042,6 +5498,7 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
     dataSource: string;
     indexes?: string[];
     queryString?: string;
+    storage?: string;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
@@ -5053,6 +5510,9 @@ export interface DashboardWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5072,6 +5532,9 @@ export interface DashboardWidgetManageStatusDefinition {
     showPriority?: boolean;
     sort?: string;
     summaryType?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5094,6 +5557,9 @@ export interface DashboardWidgetQueryTableDefinition {
     hasSearchBar?: string;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5191,6 +5657,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
@@ -5208,6 +5675,11 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFor
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
@@ -5290,6 +5762,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
@@ -5406,6 +5879,9 @@ export interface DashboardWidgetQueryValueDefinition {
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
     timeseriesBackground?: outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5514,6 +5990,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
@@ -5531,6 +6008,11 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFor
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
@@ -5613,6 +6095,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
@@ -5738,6 +6221,9 @@ export interface DashboardWidgetScatterplotDefinition {
     customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
     liveSpan?: string;
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5810,6 +6296,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
@@ -6164,6 +6651,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6175,6 +6665,9 @@ export interface DashboardWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6187,6 +6680,26 @@ export interface DashboardWidgetServicemapDefinitionCustomLink {
     overrideLabel?: string;
 }
 
+export interface DashboardWidgetSloListDefinition {
+    request: outputs.DashboardWidgetSloListDefinitionRequest;
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetSloListDefinitionRequest {
+    query: outputs.DashboardWidgetSloListDefinitionRequestQuery;
+    requestType: string;
+}
+
+export interface DashboardWidgetSloListDefinitionRequestQuery {
+    limit?: number;
+    queryString: string;
+}
+
 export interface DashboardWidgetSunburstDefinition {
     customLinks?: outputs.DashboardWidgetSunburstDefinitionCustomLink[];
     hideTotal?: boolean;
@@ -6194,6 +6707,9 @@ export interface DashboardWidgetSunburstDefinition {
     legendTable?: outputs.DashboardWidgetSunburstDefinitionLegendTable;
     liveSpan?: string;
     requests?: outputs.DashboardWidgetSunburstDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6299,6 +6815,7 @@ export interface DashboardWidgetSunburstDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat {
@@ -6316,6 +6833,11 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalForma
 export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
@@ -6430,6 +6952,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute {
@@ -6548,6 +7071,9 @@ export interface DashboardWidgetTimeseriesDefinition {
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6659,6 +7185,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
@@ -6676,6 +7203,11 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFor
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
@@ -6795,6 +7327,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
@@ -6928,6 +7461,9 @@ export interface DashboardWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetToplistDefinitionCustomLink[];
     liveSpan?: string;
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7036,6 +7572,7 @@ export interface DashboardWidgetToplistDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetToplistDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat {
@@ -7053,6 +7590,11 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat
 export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
@@ -7135,6 +7677,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
@@ -7249,6 +7792,9 @@ export interface DashboardWidgetToplistDefinitionRequestStyle {
 export interface DashboardWidgetTopologyMapDefinition {
     customLinks?: outputs.DashboardWidgetTopologyMapDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetTopologyMapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7285,6 +7831,9 @@ export interface DashboardWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7292,6 +7841,9 @@ export interface DashboardWidgetTraceServiceDefinition {
 
 export interface DashboardWidgetTreemapDefinition {
     requests?: outputs.DashboardWidgetTreemapDefinitionRequest[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
 }
 
@@ -7306,6 +7858,7 @@ export interface DashboardWidgetTreemapDefinitionRequestFormula {
     conditionalFormats?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit;
+    style?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat {
@@ -7323,6 +7876,11 @@ export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat
 export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
     count?: number;
     order?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestFormulaStyle {
+    palette?: string;
+    paletteIndex?: number;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQuery {
@@ -7366,6 +7924,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
     indexes?: string[];
     name: string;
     search?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+    storage?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
@@ -7418,11 +7977,29 @@ export interface DashboardWidgetWidgetLayout {
 }
 
 export interface DowntimeRecurrence {
+    /**
+     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+     */
     period?: number;
+    /**
+     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+     */
     rrule?: string;
+    /**
+     * One of `days`, `weeks`, `months`, `years`, or `rrule`.
+     */
     type: string;
+    /**
+     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
+     */
     untilDate?: number;
+    /**
+     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
+     */
     untilOccurrences?: number;
+    /**
+     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+     */
     weekDays?: string[];
 }
 
@@ -7430,6 +8007,9 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     description: string;
     enabled: boolean;
     expression: string;
+    /**
+     * The ID of this resource.
+     */
     id: string;
     name: string;
 }
@@ -7459,8 +8039,14 @@ export interface GetLogsIndexesLogsIndexFilter {
 
 export interface GetLogsPipelinesLogsPipeline {
     filters: outputs.GetLogsPipelinesLogsPipelineFilter[];
+    /**
+     * The ID of this resource.
+     */
     id: string;
     isEnabled: boolean;
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     isReadOnly: boolean;
     name: string;
     type: string;
@@ -7484,13 +8070,29 @@ export interface GetMonitorMonitorThresholdWindow {
     triggerWindow: string;
 }
 
+export interface GetMonitorSchedulingOption {
+    evaluationWindows: outputs.GetMonitorSchedulingOptionEvaluationWindow[];
+}
+
+export interface GetMonitorSchedulingOptionEvaluationWindow {
+    dayStarts: string;
+    hourStarts: number;
+    monthStarts: number;
+}
+
 export interface GetMonitorsMonitor {
+    /**
+     * The ID of this resource.
+     */
     id: number;
     name: string;
     type: string;
 }
 
 export interface GetRolesRole {
+    /**
+     * The ID of this resource.
+     */
     id: string;
     name: string;
     userCount: number;
@@ -7518,7 +8120,8 @@ export interface GetSecurityMonitoringRulesRule {
     message: string;
     name: string;
     options?: outputs.GetSecurityMonitoringRulesRuleOptions;
-    queries: outputs.GetSecurityMonitoringRulesRuleQuery[];
+    queries?: outputs.GetSecurityMonitoringRulesRuleQuery[];
+    signalQueries?: outputs.GetSecurityMonitoringRulesRuleSignalQuery[];
     tags?: string[];
     type?: string;
 }
@@ -7564,6 +8167,9 @@ export interface GetSecurityMonitoringRulesRuleQuery {
     aggregation?: string;
     distinctFields?: string[];
     groupByFields?: string[];
+    /**
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     */
     metric?: string;
     metrics: string[];
     name?: string;
@@ -7575,53 +8181,149 @@ export interface GetSecurityMonitoringRulesRuleQueryAgentRule {
     expression: string;
 }
 
+export interface GetSecurityMonitoringRulesRuleSignalQuery {
+    aggregation?: string;
+    correlatedByFields?: string[];
+    correlatedQueryIndex?: string;
+    defaultRuleId?: string;
+    name?: string;
+    ruleId: string;
+}
+
 export interface GetServiceLevelObjectivesSlo {
+    /**
+     * The ID of this resource.
+     */
     id: string;
     name: string;
     type: string;
 }
 
 export interface LogsArchiveAzureArchive {
+    /**
+     * Your client id.
+     */
     clientId: string;
+    /**
+     * The container where the archive is stored.
+     */
     container: string;
+    /**
+     * The path where the archive is stored.
+     */
     path?: string;
+    /**
+     * The associated storage account.
+     */
     storageAccount: string;
+    /**
+     * Your tenant id.
+     */
     tenantId: string;
 }
 
 export interface LogsArchiveGcsArchive {
+    /**
+     * Name of your GCS bucket.
+     */
     bucket: string;
+    /**
+     * Your client email.
+     */
     clientEmail: string;
-    path: string;
+    /**
+     * Path where the archive is stored.
+     */
+    path?: string;
+    /**
+     * Your project id.
+     */
     projectId: string;
 }
 
 export interface LogsArchiveS3Archive {
+    /**
+     * Your AWS account id.
+     */
     accountId: string;
+    /**
+     * Name of your s3 bucket.
+     */
     bucket: string;
-    path: string;
+    /**
+     * Path where the archive is stored.
+     */
+    path?: string;
+    /**
+     * Your AWS role name
+     */
     roleName: string;
 }
 
 export interface LogsCustomPipelineFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessor {
+    /**
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
+    /**
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
+    /**
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
+    /**
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
+    /**
+     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+     */
     geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
+    /**
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+     */
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
+    /**
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorLookupProcessor;
+    /**
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
+    /**
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
+    /**
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
+    /**
+     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+     */
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
+    /**
+     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+     */
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
+    /**
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+     */
     urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
+    /**
+     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+     */
     userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
 }
 
@@ -7658,6 +8360,9 @@ export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
@@ -7710,23 +8415,68 @@ export interface LogsCustomPipelineProcessorPipeline {
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
+    /**
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
+    /**
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
+    /**
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
+    /**
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
+    /**
+     * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+     */
     geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
+    /**
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+     */
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
+    /**
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
+    /**
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
+    /**
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
+    /**
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
+    /**
+     * String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+     */
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
+    /**
+     * Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+     */
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
+    /**
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+     */
     urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
+    /**
+     * User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+     */
     userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
 }
 
@@ -7763,6 +8513,9 @@ export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCa
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
@@ -7892,54 +8645,134 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 }
 
 export interface LogsIndexExclusionFilter {
+    /**
+     * Logs filter
+     */
     filters?: outputs.LogsIndexExclusionFilterFilter[];
+    /**
+     * A boolean stating if the exclusion is active or not.
+     */
     isEnabled?: boolean;
+    /**
+     * The name of the exclusion filter.
+     */
     name?: string;
 }
 
 export interface LogsIndexExclusionFilterFilter {
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     */
     query?: string;
     sampleRate?: number;
 }
 
 export interface LogsIndexFilter {
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     */
     query: string;
 }
 
 export interface LogsMetricCompute {
+    /**
+     * The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
+     */
     aggregationType: string;
+    /**
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have an `aggregationType` of distribution.
+     */
+    includePercentiles?: boolean;
+    /**
+     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+     */
     path?: string;
 }
 
 export interface LogsMetricFilter {
+    /**
+     * The search query - following the log search syntax.
+     */
     query: string;
 }
 
 export interface LogsMetricGroupBy {
+    /**
+     * The path to the value the log-based metric will be aggregated over.
+     */
     path: string;
+    /**
+     * Name of the tag that gets created.
+     */
     tagName: string;
 }
 
 export interface MetricTagConfigurationAggregation {
+    /**
+     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     */
     space: string;
+    /**
+     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     */
     time: string;
 }
 
 export interface MonitorMonitorThresholdWindows {
+    /**
+     * Describes how long an anomalous metric must be normal before the alert recovers.
+     */
     recoveryWindow?: string;
+    /**
+     * Describes how long a metric must be anomalous before an alert triggers.
+     */
     triggerWindow?: string;
 }
 
 export interface MonitorMonitorThresholds {
+    /**
+     * The monitor `CRITICAL` threshold. Must be a number.
+     */
     critical?: string;
+    /**
+     * The monitor `CRITICAL` recovery threshold. Must be a number.
+     */
     criticalRecovery?: string;
+    /**
+     * The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
+     */
     ok?: string;
+    /**
+     * The monitor `UNKNOWN` threshold. Only supported in monitor type `service check`. Must be a number.
+     */
     unknown?: string;
+    /**
+     * The monitor `WARNING` threshold. Must be a number.
+     */
     warning?: string;
+    /**
+     * The monitor `WARNING` recovery threshold. Must be a number.
+     */
     warningRecovery?: string;
 }
 
+export interface MonitorSchedulingOption {
+    /**
+     * Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
+     */
+    evaluationWindows: outputs.MonitorSchedulingOptionEvaluationWindow[];
+}
+
+export interface MonitorSchedulingOptionEvaluationWindow {
+    dayStarts?: string;
+    hourStarts?: number;
+    monthStarts?: number;
+}
+
 export interface MonitorVariables {
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQueries?: outputs.MonitorVariablesEventQuery[];
 }
 
@@ -7975,15 +8808,45 @@ export interface MonitorVariablesEventQuerySearch {
 }
 
 export interface OrganizationSettingsSettings {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
     privateWidgetShare?: boolean;
+    /**
+     * SAML properties
+     */
     saml: outputs.OrganizationSettingsSettingsSaml;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     */
     samlAutocreateAccessRole?: string;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     samlAutocreateUsersDomains: outputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains;
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
     samlCanBeEnabled: boolean;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
     samlIdpEndpoint: string;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpInitiatedLogin: outputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpMetadataUploaded: boolean;
+    /**
+     * URL for SAML logging.
+     */
     samlLoginUrl: string;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
     samlStrictMode: outputs.OrganizationSettingsSettingsSamlStrictMode;
 }
 
@@ -8005,48 +8868,114 @@ export interface OrganizationSettingsSettingsSamlStrictMode {
 }
 
 export interface RolePermission {
+    /**
+     * ID of the permission to assign.
+     */
     id: string;
+    /**
+     * Name of the permission.
+     */
     name: string;
 }
 
 export interface SecurityMonitoringDefaultRuleCase {
+    /**
+     * Notification targets for each rule case.
+     */
     notifications: string[];
+    /**
+     * Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
     status: string;
 }
 
 export interface SecurityMonitoringDefaultRuleFilter {
+    /**
+     * The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+     */
     action: string;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
     query: string;
 }
 
 export interface SecurityMonitoringDefaultRuleOptions {
+    /**
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+     */
     decreaseCriticalityBasedOnEnv?: boolean;
 }
 
 export interface SecurityMonitoringFilterExclusionFilter {
+    /**
+     * Exclusion filter name.
+     */
     name: string;
+    /**
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     */
     query: string;
 }
 
 export interface SecurityMonitoringRuleCase {
+    /**
+     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     */
     condition?: string;
+    /**
+     * Name of the case.
+     */
     name?: string;
+    /**
+     * Notification targets for each rule case.
+     */
     notifications?: string[];
+    /**
+     * Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
     status: string;
 }
 
 export interface SecurityMonitoringRuleFilter {
+    /**
+     * The type of filtering action. Valid values are `require`, `suppress`.
+     */
     action: string;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
     query: string;
 }
 
 export interface SecurityMonitoringRuleOptions {
+    /**
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+     */
     decreaseCriticalityBasedOnEnv?: boolean;
+    /**
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+     */
     detectionMethod?: string;
+    /**
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     */
     evaluationWindow?: number;
+    /**
+     * Options for rules using the impossible travel detection method.
+     */
     impossibleTravelOptions?: outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
+    /**
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     */
     keepAlive: number;
+    /**
+     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     */
     maxSignalDuration: number;
+    /**
+     * New value rules specific options.
+     */
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
 }
 
@@ -8063,15 +8992,40 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
 
 export interface SecurityMonitoringRuleQuery {
     /**
+     * **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     *
      * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
      */
     agentRules?: outputs.SecurityMonitoringRuleQueryAgentRule[];
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     */
     aggregation?: string;
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     */
     distinctFields?: string[];
+    /**
+     * Fields to group by.
+     */
     groupByFields?: string[];
+    /**
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     *
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     */
     metric?: string;
+    /**
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+     */
     metrics: string[];
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
     name?: string;
+    /**
+     * Query to run on logs.
+     */
     query: string;
 }
 
@@ -8080,56 +9034,174 @@ export interface SecurityMonitoringRuleQueryAgentRule {
     expression: string;
 }
 
+export interface SecurityMonitoringRuleSignalQuery {
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     */
+    aggregation?: string;
+    /**
+     * Fields to correlate by.
+     */
+    correlatedByFields?: string[];
+    /**
+     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     */
+    correlatedQueryIndex?: string;
+    /**
+     * Default Rule ID of the signal to correlate. This value is READ-ONLY.
+     */
+    defaultRuleId?: string;
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
+    name?: string;
+    /**
+     * Rule ID of the signal to correlate.
+     */
+    ruleId: string;
+}
+
 export interface ServiceLevelObjectiveQuery {
+    /**
+     * The sum of the `total` events.
+     */
     denominator: string;
+    /**
+     * The sum of all the `good` events.
+     */
     numerator: string;
 }
 
 export interface ServiceLevelObjectiveThreshold {
+    /**
+     * The objective's target in`[0,100]`.
+     */
     target: number;
+    /**
+     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+     */
     targetDisplay: string;
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     */
     timeframe: string;
+    /**
+     * The objective's warning value in `[0,100]`. This must be greater than the target value.
+     */
     warning?: number;
+    /**
+     * A string representation of the warning target (see the description of the targetDisplay field for details).
+     */
     warningDisplay: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
+    /**
+     * Required when type = `httpHeader`. Defines the header to use to extract the value
+     */
     field?: string;
+    /**
+     * When type is `localVariable`, name of the local variable to use to extract the value.
+     */
     localVariableName?: string;
     parser?: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
+    /**
+     * Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+     */
     type: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
     type: string;
+    /**
+     * The value of the global variable.
+     */
     value?: string;
 }
 
 export interface SyntheticsPrivateLocationMetadata {
+    /**
+     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     */
     restrictedRoles?: string[];
 }
 
 export interface SyntheticsTestApiStep {
+    /**
+     * Determines whether or not to continue with test if this step fails.
+     */
     allowFailure?: boolean;
+    /**
+     * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+     */
     assertions?: outputs.SyntheticsTestApiStepAssertion[];
+    /**
+     * Values to parse and save as variables from the response.
+     */
     extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
+    /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+     */
     isCritical?: boolean;
+    /**
+     * The name of the step.
+     */
     name: string;
+    /**
+     * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+     */
     requestBasicauth?: outputs.SyntheticsTestApiStepRequestBasicauth;
+    /**
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+     */
     requestClientCertificate?: outputs.SyntheticsTestApiStepRequestClientCertificate;
+    /**
+     * The request for the api step.
+     */
     requestDefinition?: outputs.SyntheticsTestApiStepRequestDefinition;
+    /**
+     * Header name and value map.
+     */
     requestHeaders?: {[key: string]: any};
+    /**
+     * The proxy to perform the test.
+     */
     requestProxy?: outputs.SyntheticsTestApiStepRequestProxy;
+    /**
+     * Query arguments name and value map.
+     */
     requestQuery?: {[key: string]: any};
     retry?: outputs.SyntheticsTestApiStepRetry;
+    /**
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     */
     subtype?: string;
 }
 
 export interface SyntheticsTestApiStepAssertion {
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * If assertion type is `header`, this is the header name.
+     */
     property?: string;
+    /**
+     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     */
     target?: string;
+    /**
+     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+     */
     targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
+    /**
+     * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+     */
+    targetxpath?: outputs.SyntheticsTestApiStepAssertionTargetxpath;
+    /**
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     */
     type: string;
 }
 
@@ -8139,28 +9211,101 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     targetvalue: string;
 }
 
+export interface SyntheticsTestApiStepAssertionTargetxpath {
+    operator: string;
+    targetvalue: string;
+    xpath: string;
+}
+
 export interface SyntheticsTestApiStepExtractedValue {
     field?: string;
+    /**
+     * Name of Datadog synthetics test.
+     */
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     */
     type: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     */
     type: string;
     value?: string;
 }
 
 export interface SyntheticsTestApiStepRequestBasicauth {
+    /**
+     * Access key for `SIGV4` authentication.
+     */
     accessKey?: string;
+    /**
+     * Access token url for `oauth-client` or `oauth-rop` authentication.
+     */
+    accessTokenUrl?: string;
+    /**
+     * Audience for `oauth-client` or `oauth-rop` authentication.
+     */
+    audience?: string;
+    /**
+     * Client ID for `oauth-client` or `oauth-rop` authentication.
+     */
+    clientId?: string;
+    /**
+     * Client secret for `oauth-client` or `oauth-rop` authentication.
+     */
+    clientSecret?: string;
+    /**
+     * Domain for `ntlm` authentication.
+     */
     domain?: string;
+    /**
+     * Password for authentication.
+     */
     password?: string;
+    /**
+     * Region for `SIGV4` authentication.
+     */
     region?: string;
+    /**
+     * Resource for `oauth-client` or `oauth-rop` authentication.
+     */
+    resource?: string;
+    /**
+     * Scope for `oauth-client` or `oauth-rop` authentication.
+     */
+    scope?: string;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
     secretKey?: string;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
     serviceName?: string;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
     sessionToken?: string;
+    /**
+     * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+     */
+    tokenApiAuthentication?: string;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
     type?: string;
+    /**
+     * Username for authentication.
+     */
     username?: string;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
     workstation?: string;
 }
 
@@ -8181,26 +9326,85 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     allowInsecure?: boolean;
+    /**
+     * The request body.
+     */
     body?: string;
+    /**
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     */
+    bodyType?: string;
+    /**
+     * The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     */
+    callType?: string;
+    /**
+     * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+     */
     certificateDomains?: string[];
+    /**
+     * DNS server to use for DNS tests (`subtype = "dns"`).
+     */
     dnsServer?: string;
+    /**
+     * DNS server port to use for DNS tests.
+     */
     dnsServerPort?: number;
     followRedirects?: boolean;
+    /**
+     * Host name to perform the test with.
+     */
     host?: string;
+    /**
+     * For UDP and websocket tests, message to send with the request.
+     */
     message?: string;
+    /**
+     * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+     */
     method?: string;
+    /**
+     * Determines whether or not to save the response body.
+     */
     noSavingResponseBody?: boolean;
+    /**
+     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+     */
     numberOfPackets?: number;
+    /**
+     * Port to use when performing the test.
+     */
     port?: number;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
     servername?: string;
+    /**
+     * The gRPC service on which you want to perform the gRPC call.
+     */
     service?: string;
+    /**
+     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+     */
     shouldTrackHops?: boolean;
+    /**
+     * Timeout in seconds for the test. Defaults to `60`.
+     */
     timeout?: number;
+    /**
+     * The URL to send the request to.
+     */
     url?: string;
 }
 
 export interface SyntheticsTestApiStepRequestProxy {
+    /**
+     * Header name and value map.
+     */
     headers?: {[key: string]: any};
+    /**
+     * URL of the proxy to perform the test.
+     */
     url: string;
 }
 
@@ -8210,10 +9414,29 @@ export interface SyntheticsTestApiStepRetry {
 }
 
 export interface SyntheticsTestAssertion {
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * If assertion type is `header`, this is the header name.
+     */
     property?: string;
+    /**
+     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     */
     target?: string;
+    /**
+     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+     */
     targetjsonpath?: outputs.SyntheticsTestAssertionTargetjsonpath;
+    /**
+     * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+     */
+    targetxpath?: outputs.SyntheticsTestAssertionTargetxpath;
+    /**
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     */
     type: string;
 }
 
@@ -8223,13 +9446,40 @@ export interface SyntheticsTestAssertionTargetjsonpath {
     targetvalue: string;
 }
 
+export interface SyntheticsTestAssertionTargetxpath {
+    operator: string;
+    targetvalue: string;
+    xpath: string;
+}
+
 export interface SyntheticsTestBrowserStep {
+    /**
+     * Determines if the step should be allowed to fail.
+     */
     allowFailure?: boolean;
+    /**
+     * Force update of the "element" parameter for the step
+     */
     forceElementUpdate?: boolean;
+    /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+     */
     isCritical?: boolean;
+    /**
+     * Name of the step.
+     */
     name: string;
+    /**
+     * Parameters for the step.
+     */
     params: outputs.SyntheticsTestBrowserStepParams;
+    /**
+     * Used to override the default timeout of a step.
+     */
     timeout?: number;
+    /**
+     * Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+     */
     type: string;
 }
 
@@ -8261,49 +9511,134 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocator {
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     */
     type?: string;
     value: string;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
     example?: string;
+    /**
+     * Name of Datadog synthetics test.
+     */
     name?: string;
 }
 
 export interface SyntheticsTestBrowserVariable {
+    /**
+     * Example for the variable.
+     */
     example?: string;
+    /**
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+     */
     id?: string;
+    /**
+     * Name of the variable.
+     */
     name: string;
+    /**
+     * Pattern of the variable.
+     */
     pattern?: string;
+    /**
+     * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+     */
     type: string;
 }
 
 export interface SyntheticsTestConfigVariable {
+    /**
+     * Example for the variable.
+     */
     example?: string;
+    /**
+     * When type = `global`, ID of the global variable to use.
+     */
     id?: string;
+    /**
+     * Name of the variable.
+     */
     name: string;
+    /**
+     * Pattern of the variable.
+     */
     pattern?: string;
+    /**
+     * Type of test configuration variable. Valid values are `global`, `text`.
+     */
     type: string;
 }
 
 export interface SyntheticsTestOptionsList {
+    /**
+     * For SSL test, whether or not the test should allow self signed certificates.
+     */
     acceptSelfSigned?: boolean;
+    /**
+     * Allows loading insecure content for an HTTP test.
+     */
     allowInsecure?: boolean;
+    /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     */
     checkCertificateRevocation?: boolean;
+    /**
+     * CI/CD options for a Synthetic test.
+     */
     ci?: outputs.SyntheticsTestOptionsListCi;
+    /**
+     * Disable Cross-Origin Resource Sharing for browser tests.
+     */
+    disableCors?: boolean;
+    /**
+     * Disable Content Security Policy for browser tests.
+     */
     disableCsp?: boolean;
+    /**
+     * Determines whether or not the API HTTP test should follow redirects.
+     */
     followRedirects?: boolean;
+    /**
+     * Ignore server certificate error.
+     */
     ignoreServerCertificateError?: boolean;
+    /**
+     * Timeout before declaring the initial step as failed (in seconds) for browser tests.
+     */
     initialNavigationTimeout?: number;
+    /**
+     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     */
     minFailureDuration?: number;
+    /**
+     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     */
     minLocationFailed?: number;
+    /**
+     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     */
     monitorName?: string;
     monitorOptions?: outputs.SyntheticsTestOptionsListMonitorOptions;
     monitorPriority?: number;
+    /**
+     * Prevents saving screenshots of the steps.
+     */
     noScreenshot?: boolean;
+    /**
+     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     */
     restrictedRoles?: string[];
     retry?: outputs.SyntheticsTestOptionsListRetry;
+    /**
+     * The RUM data collection settings for the Synthetic browser test.
+     */
     rumSettings?: outputs.SyntheticsTestOptionsListRumSettings;
+    /**
+     * How often the test should run (in seconds).
+     */
     tickEvery: number;
 }
 
@@ -8327,15 +9662,73 @@ export interface SyntheticsTestOptionsListRumSettings {
 }
 
 export interface SyntheticsTestRequestBasicauth {
+    /**
+     * Access key for `SIGV4` authentication.
+     */
     accessKey?: string;
+    /**
+     * Access token url for `oauth-client` or `oauth-rop` authentication.
+     */
+    accessTokenUrl?: string;
+    /**
+     * Audience for `oauth-client` or `oauth-rop` authentication.
+     */
+    audience?: string;
+    /**
+     * Client ID for `oauth-client` or `oauth-rop` authentication.
+     */
+    clientId?: string;
+    /**
+     * Client secret for `oauth-client` or `oauth-rop` authentication.
+     */
+    clientSecret?: string;
+    /**
+     * Domain for `ntlm` authentication.
+     */
     domain?: string;
+    /**
+     * Password for authentication.
+     */
     password?: string;
+    /**
+     * Region for `SIGV4` authentication.
+     */
     region?: string;
+    /**
+     * Resource for `oauth-client` or `oauth-rop` authentication.
+     */
+    resource?: string;
+    /**
+     * Scope for `oauth-client` or `oauth-rop` authentication.
+     */
+    scope?: string;
+    /**
+     * Secret key for `SIGV4` authentication.
+     */
     secretKey?: string;
+    /**
+     * Service name for `SIGV4` authentication.
+     */
     serviceName?: string;
+    /**
+     * Session token for `SIGV4` authentication.
+     */
     sessionToken?: string;
+    /**
+     * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+     */
+    tokenApiAuthentication?: string;
+    /**
+     * Type of basic authentication to use when performing the test.
+     */
     type?: string;
+    /**
+     * Username for authentication.
+     */
     username?: string;
+    /**
+     * Workstation for `ntlm` authentication.
+     */
     workstation?: string;
 }
 
@@ -8355,33 +9748,104 @@ export interface SyntheticsTestRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestRequestDefinition {
+    /**
+     * The request body.
+     */
     body?: string;
+    /**
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     */
+    bodyType?: string;
+    /**
+     * The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     */
+    callType?: string;
+    /**
+     * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+     */
     certificateDomains?: string[];
+    /**
+     * DNS server to use for DNS tests (`subtype = "dns"`).
+     */
     dnsServer?: string;
+    /**
+     * DNS server port to use for DNS tests.
+     */
     dnsServerPort?: number;
+    /**
+     * Host name to perform the test with.
+     */
     host?: string;
+    /**
+     * For UDP and websocket tests, message to send with the request.
+     */
     message?: string;
+    /**
+     * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+     */
     method?: string;
+    /**
+     * Determines whether or not to save the response body.
+     */
     noSavingResponseBody?: boolean;
+    /**
+     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+     */
     numberOfPackets?: number;
+    /**
+     * Port to use when performing the test.
+     */
     port?: number;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
     servername?: string;
+    /**
+     * The gRPC service on which you want to perform the gRPC call.
+     */
     service?: string;
+    /**
+     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+     */
     shouldTrackHops?: boolean;
+    /**
+     * Timeout in seconds for the test. Defaults to `60`.
+     */
     timeout?: number;
+    /**
+     * The URL to send the request to.
+     */
     url?: string;
 }
 
 export interface SyntheticsTestRequestProxy {
+    /**
+     * Header name and value map.
+     */
     headers?: {[key: string]: any};
+    /**
+     * URL of the proxy to perform the test.
+     */
     url: string;
 }
 
 export namespace slack {
     export interface ChannelDisplay {
+        /**
+         * Show the main body of the alert event.
+         */
         message?: boolean;
+        /**
+         * Show the list of @-handles in the alert event.
+         */
         notified?: boolean;
+        /**
+         * Show the alert event's snapshot image.
+         */
         snapshot?: boolean;
+        /**
+         * Show the scopes on which the monitor alerted.
+         */
         tags?: boolean;
     }
 

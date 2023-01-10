@@ -20,72 +20,152 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
 
     public static final OrganizationSettingsSettingsArgs Empty = new OrganizationSettingsSettingsArgs();
 
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     * 
+     */
     @Import(name="privateWidgetShare")
     private @Nullable Output<Boolean> privateWidgetShare;
 
+    /**
+     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * 
+     */
     public Optional<Output<Boolean>> privateWidgetShare() {
         return Optional.ofNullable(this.privateWidgetShare);
     }
 
+    /**
+     * SAML properties
+     * 
+     */
     @Import(name="saml", required=true)
     private Output<OrganizationSettingsSettingsSamlArgs> saml;
 
+    /**
+     * @return SAML properties
+     * 
+     */
     public Output<OrganizationSettingsSettingsSamlArgs> saml() {
         return this.saml;
     }
 
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * 
+     */
     @Import(name="samlAutocreateAccessRole")
     private @Nullable Output<String> samlAutocreateAccessRole;
 
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * 
+     */
     public Optional<Output<String>> samlAutocreateAccessRole() {
         return Optional.ofNullable(this.samlAutocreateAccessRole);
     }
 
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     @Import(name="samlAutocreateUsersDomains", required=true)
     private Output<OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs> samlAutocreateUsersDomains;
 
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     public Output<OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs> samlAutocreateUsersDomains() {
         return this.samlAutocreateUsersDomains;
     }
 
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     * 
+     */
     @Import(name="samlCanBeEnabled")
     private @Nullable Output<Boolean> samlCanBeEnabled;
 
+    /**
+     * @return Whether or not SAML can be enabled for this organization.
+     * 
+     */
     public Optional<Output<Boolean>> samlCanBeEnabled() {
         return Optional.ofNullable(this.samlCanBeEnabled);
     }
 
+    /**
+     * Identity provider endpoint for SAML authentication.
+     * 
+     */
     @Import(name="samlIdpEndpoint")
     private @Nullable Output<String> samlIdpEndpoint;
 
+    /**
+     * @return Identity provider endpoint for SAML authentication.
+     * 
+     */
     public Optional<Output<String>> samlIdpEndpoint() {
         return Optional.ofNullable(this.samlIdpEndpoint);
     }
 
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     @Import(name="samlIdpInitiatedLogin", required=true)
     private Output<OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs> samlIdpInitiatedLogin;
 
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public Output<OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs> samlIdpInitiatedLogin() {
         return this.samlIdpInitiatedLogin;
     }
 
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     @Import(name="samlIdpMetadataUploaded")
     private @Nullable Output<Boolean> samlIdpMetadataUploaded;
 
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public Optional<Output<Boolean>> samlIdpMetadataUploaded() {
         return Optional.ofNullable(this.samlIdpMetadataUploaded);
     }
 
+    /**
+     * URL for SAML logging.
+     * 
+     */
     @Import(name="samlLoginUrl")
     private @Nullable Output<String> samlLoginUrl;
 
+    /**
+     * @return URL for SAML logging.
+     * 
+     */
     public Optional<Output<String>> samlLoginUrl() {
         return Optional.ofNullable(this.samlLoginUrl);
     }
 
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     @Import(name="samlStrictMode", required=true)
     private Output<OrganizationSettingsSettingsSamlStrictModeArgs> samlStrictMode;
 
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     public Output<OrganizationSettingsSettingsSamlStrictModeArgs> samlStrictMode() {
         return this.samlStrictMode;
     }
@@ -123,92 +203,212 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
             $ = new OrganizationSettingsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateWidgetShare(@Nullable Output<Boolean> privateWidgetShare) {
             $.privateWidgetShare = privateWidgetShare;
             return this;
         }
 
+        /**
+         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateWidgetShare(Boolean privateWidgetShare) {
             return privateWidgetShare(Output.of(privateWidgetShare));
         }
 
+        /**
+         * @param saml SAML properties
+         * 
+         * @return builder
+         * 
+         */
         public Builder saml(Output<OrganizationSettingsSettingsSamlArgs> saml) {
             $.saml = saml;
             return this;
         }
 
+        /**
+         * @param saml SAML properties
+         * 
+         * @return builder
+         * 
+         */
         public Builder saml(OrganizationSettingsSettingsSamlArgs saml) {
             return saml(Output.of(saml));
         }
 
+        /**
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlAutocreateAccessRole(@Nullable Output<String> samlAutocreateAccessRole) {
             $.samlAutocreateAccessRole = samlAutocreateAccessRole;
             return this;
         }
 
+        /**
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlAutocreateAccessRole(String samlAutocreateAccessRole) {
             return samlAutocreateAccessRole(Output.of(samlAutocreateAccessRole));
         }
 
+        /**
+         * @param samlAutocreateUsersDomains List of domains where the SAML automated user creation is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlAutocreateUsersDomains(Output<OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs> samlAutocreateUsersDomains) {
             $.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
             return this;
         }
 
+        /**
+         * @param samlAutocreateUsersDomains List of domains where the SAML automated user creation is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlAutocreateUsersDomains(OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs samlAutocreateUsersDomains) {
             return samlAutocreateUsersDomains(Output.of(samlAutocreateUsersDomains));
         }
 
+        /**
+         * @param samlCanBeEnabled Whether or not SAML can be enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlCanBeEnabled(@Nullable Output<Boolean> samlCanBeEnabled) {
             $.samlCanBeEnabled = samlCanBeEnabled;
             return this;
         }
 
+        /**
+         * @param samlCanBeEnabled Whether or not SAML can be enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlCanBeEnabled(Boolean samlCanBeEnabled) {
             return samlCanBeEnabled(Output.of(samlCanBeEnabled));
         }
 
+        /**
+         * @param samlIdpEndpoint Identity provider endpoint for SAML authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpEndpoint(@Nullable Output<String> samlIdpEndpoint) {
             $.samlIdpEndpoint = samlIdpEndpoint;
             return this;
         }
 
+        /**
+         * @param samlIdpEndpoint Identity provider endpoint for SAML authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpEndpoint(String samlIdpEndpoint) {
             return samlIdpEndpoint(Output.of(samlIdpEndpoint));
         }
 
+        /**
+         * @param samlIdpInitiatedLogin Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpInitiatedLogin(Output<OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs> samlIdpInitiatedLogin) {
             $.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
             return this;
         }
 
+        /**
+         * @param samlIdpInitiatedLogin Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpInitiatedLogin(OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs samlIdpInitiatedLogin) {
             return samlIdpInitiatedLogin(Output.of(samlIdpInitiatedLogin));
         }
 
+        /**
+         * @param samlIdpMetadataUploaded Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpMetadataUploaded(@Nullable Output<Boolean> samlIdpMetadataUploaded) {
             $.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
             return this;
         }
 
+        /**
+         * @param samlIdpMetadataUploaded Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlIdpMetadataUploaded(Boolean samlIdpMetadataUploaded) {
             return samlIdpMetadataUploaded(Output.of(samlIdpMetadataUploaded));
         }
 
+        /**
+         * @param samlLoginUrl URL for SAML logging.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlLoginUrl(@Nullable Output<String> samlLoginUrl) {
             $.samlLoginUrl = samlLoginUrl;
             return this;
         }
 
+        /**
+         * @param samlLoginUrl URL for SAML logging.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlLoginUrl(String samlLoginUrl) {
             return samlLoginUrl(Output.of(samlLoginUrl));
         }
 
+        /**
+         * @param samlStrictMode Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlStrictMode(Output<OrganizationSettingsSettingsSamlStrictModeArgs> samlStrictMode) {
             $.samlStrictMode = samlStrictMode;
             return this;
         }
 
+        /**
+         * @param samlStrictMode Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlStrictMode(OrganizationSettingsSettingsSamlStrictModeArgs samlStrictMode) {
             return samlStrictMode(Output.of(samlStrictMode));
         }

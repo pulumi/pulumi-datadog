@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetCheckStatusDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetCheckStatusDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("check", required: true)]
         public Input<string> Check { get; set; } = null!;
@@ -40,6 +40,9 @@ namespace Pulumi.Datadog.Inputs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -52,5 +55,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetCheckStatusDefinitionArgs()
         {
         }
+        public static new DashboardWidgetCheckStatusDefinitionArgs Empty => new DashboardWidgetCheckStatusDefinitionArgs();
     }
 }

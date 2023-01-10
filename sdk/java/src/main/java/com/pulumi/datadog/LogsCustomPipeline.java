@@ -22,13 +22,38 @@ import javax.annotation.Nullable;
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `datadog.LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsCustomPipeline;
+ * import com.pulumi.datadog.LogsCustomPipelineArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineFilterArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArithmeticProcessorArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorAttributeRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorCategoryProcessorArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorDateRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGeoIpParserArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGrokParserArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGrokParserGrokArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorLookupProcessorArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorMessageRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorServiceRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorStatusRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorStringBuilderProcessorArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorTraceIdRemapperArgs;
+ * import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorUserAgentParserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -95,7 +120,7 @@ import javax.annotation.Nullable;
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .grokParser(LogsCustomPipelineProcessorGrokParserArgs.builder()
  *                         .grok(LogsCustomPipelineProcessorGrokParserGrokArgs.builder()
- *                             .matchRules(&#34;Rule %{word:my_word2} %{number:my_float2}&#34;)
+ *                             .matchRules(&#34;Rule %%{word:my_word2} %%{number:my_float2}&#34;)
  *                             .supportRules(&#34;&#34;)
  *                             .build())
  *                         .isEnabled(true)
@@ -151,7 +176,7 @@ import javax.annotation.Nullable;
  *                         .isReplaceMissing(false)
  *                         .name(&#34;sample string builder processor&#34;)
  *                         .target(&#34;user_activity&#34;)
- *                         .template(&#34;%{user.name} logged in at %{timestamp}&#34;)
+ *                         .template(&#34;%%{user.name} logged in at %%{timestamp}&#34;)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
@@ -180,7 +205,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # To find the pipeline ID, click the &#34;edit&#34; button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
+ * To find the pipeline ID, click the &#34;edit&#34; button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.
  * 
  * ```sh
  *  $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name&gt; &lt;pipelineID&gt;

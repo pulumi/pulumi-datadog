@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs : global::Pulumi.ResourceArgs
     {
         [Input("facet")]
         public Input<string>? Facet { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs Empty => new DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs();
     }
 }

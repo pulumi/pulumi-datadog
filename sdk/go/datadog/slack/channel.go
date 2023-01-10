@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+// Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
 //
 // ```sh
 //

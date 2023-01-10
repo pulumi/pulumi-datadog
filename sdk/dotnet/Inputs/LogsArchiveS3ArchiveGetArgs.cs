@@ -10,22 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class LogsArchiveS3ArchiveGetArgs : Pulumi.ResourceArgs
+    public sealed class LogsArchiveS3ArchiveGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your AWS account id.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of your s3 bucket.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        /// <summary>
+        /// Path where the archive is stored.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Your AWS role name
+        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
         public LogsArchiveS3ArchiveGetArgs()
         {
         }
+        public static new LogsArchiveS3ArchiveGetArgs Empty => new LogsArchiveS3ArchiveGetArgs();
     }
 }

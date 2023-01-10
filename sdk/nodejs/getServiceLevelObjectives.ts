@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const ftFooSlos = pulumi.output(datadog.getServiceLevelObjectives({
+ * const ftFooSlos = datadog.getServiceLevelObjectives({
  *     tagsQuery: "owner:ft-foo",
- * }));
+ * });
  * ```
  */
 export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectivesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", {
         "ids": args.ids,
         "metricsQuery": args.metricsQuery,
@@ -38,9 +36,21 @@ export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, 
  * A collection of arguments for invoking getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesArgs {
+    /**
+     * An array of SLO IDs to limit the search.
+     */
     ids?: string[];
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     metricsQuery?: string;
+    /**
+     * Filter results based on SLO names.
+     */
     nameQuery?: string;
+    /**
+     * Filter results based on a single SLO tag.
+     */
     tagsQuery?: string;
 }
 
@@ -52,23 +62,63 @@ export interface GetServiceLevelObjectivesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An array of SLO IDs to limit the search.
+     */
     readonly ids?: string[];
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     readonly metricsQuery?: string;
+    /**
+     * Filter results based on SLO names.
+     */
     readonly nameQuery?: string;
+    /**
+     * List of SLOs
+     */
     readonly slos: outputs.GetServiceLevelObjectivesSlo[];
+    /**
+     * Filter results based on a single SLO tag.
+     */
     readonly tagsQuery?: string;
 }
-
+/**
+ * Use this data source to retrieve information about multiple SLOs for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const ftFooSlos = datadog.getServiceLevelObjectives({
+ *     tagsQuery: "owner:ft-foo",
+ * });
+ * ```
+ */
 export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectivesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectivesResult> {
-    return pulumi.output(args).apply(a => getServiceLevelObjectives(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceLevelObjectives(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesOutputArgs {
+    /**
+     * An array of SLO IDs to limit the search.
+     */
     ids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
     metricsQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on SLO names.
+     */
     nameQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on a single SLO tag.
+     */
     tagsQuery?: pulumi.Input<string>;
 }

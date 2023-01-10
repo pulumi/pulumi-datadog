@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetAlertGraphDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetAlertGraphDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("alertId", required: true)]
         public Input<string> AlertId { get; set; } = null!;
@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -33,5 +36,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetAlertGraphDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetAlertGraphDefinitionGetArgs Empty => new DashboardWidgetAlertGraphDefinitionGetArgs();
     }
 }

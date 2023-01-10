@@ -49,18 +49,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-     * found at the [available namespace rules API
-     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
     @Import(name="accountSpecificNamespaceRules")
     private @Nullable Output<Map<String,Object>> accountSpecificNamespaceRules;
 
     /**
-     * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-     * found at the [available namespace rules API
-     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     * @return Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
     public Optional<Output<Map<String,Object>>> accountSpecificNamespaceRules() {
@@ -68,16 +64,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-     * resources not covered under the general resource_collection.
+     * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      * 
      */
     @Import(name="cspmResourceCollectionEnabled")
     private @Nullable Output<String> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-     * resources not covered under the general resource_collection.
+     * @return Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      * 
      */
     public Optional<Output<String>> cspmResourceCollectionEnabled() {
@@ -100,20 +94,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-     * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-     * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-     * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
     @Import(name="filterTags")
     private @Nullable Output<List<String>> filterTags;
 
     /**
-     * @return Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-     * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-     * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-     * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     * @return Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
     public Optional<Output<List<String>>> filterTags() {
@@ -272,9 +260,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountSpecificNamespaceRules Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-         * found at the [available namespace rules API
-         * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+         * @param accountSpecificNamespaceRules Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
          * 
          * @return builder
          * 
@@ -285,9 +271,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountSpecificNamespaceRules Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-         * found at the [available namespace rules API
-         * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+         * @param accountSpecificNamespaceRules Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
          * 
          * @return builder
          * 
@@ -297,8 +281,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-         * resources not covered under the general resource_collection.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
          * 
          * @return builder
          * 
@@ -309,8 +292,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional
-         * resources not covered under the general resource_collection.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
          * 
          * @return builder
          * 
@@ -351,10 +333,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-         * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-         * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-         * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
          * 
          * @return builder
          * 
@@ -365,10 +344,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-         * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-         * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-         * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
          * 
          * @return builder
          * 
@@ -378,10 +354,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
-         * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
-         * one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
-         * excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+         * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
          * 
          * @return builder
          * 

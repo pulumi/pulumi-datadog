@@ -15,37 +15,77 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
 
     public static final SyntheticsTestConfigVariableArgs Empty = new SyntheticsTestConfigVariableArgs();
 
+    /**
+     * Example for the variable.
+     * 
+     */
     @Import(name="example")
     private @Nullable Output<String> example;
 
+    /**
+     * @return Example for the variable.
+     * 
+     */
     public Optional<Output<String>> example() {
         return Optional.ofNullable(this.example);
     }
 
+    /**
+     * When type = `global`, ID of the global variable to use.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return When type = `global`, ID of the global variable to use.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Name of the variable.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the variable.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Pattern of the variable.
+     * 
+     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
+    /**
+     * @return Pattern of the variable.
+     * 
+     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
     }
 
+    /**
+     * Type of test configuration variable. Valid values are `global`, `text`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -78,47 +118,107 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
             $ = new SyntheticsTestConfigVariableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param example Example for the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder example(@Nullable Output<String> example) {
             $.example = example;
             return this;
         }
 
+        /**
+         * @param example Example for the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder example(String example) {
             return example(Output.of(example));
         }
 
+        /**
+         * @param id When type = `global`, ID of the global variable to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id When type = `global`, ID of the global variable to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param name Name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param pattern Pattern of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern Pattern of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }
 
+        /**
+         * @param type Type of test configuration variable. Valid values are `global`, `text`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of test configuration variable. Valid values are `global`, `text`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

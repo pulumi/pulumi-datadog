@@ -7,36 +7,70 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LogsArchiveGcsArchiveArgs Empty = new LogsArchiveGcsArchiveArgs();
 
+    /**
+     * Name of your GCS bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return Name of your GCS bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Your client email.
+     * 
+     */
     @Import(name="clientEmail", required=true)
     private Output<String> clientEmail;
 
+    /**
+     * @return Your client email.
+     * 
+     */
     public Output<String> clientEmail() {
         return this.clientEmail;
     }
 
-    @Import(name="path", required=true)
-    private Output<String> path;
+    /**
+     * Path where the archive is stored.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
-    public Output<String> path() {
-        return this.path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
     }
 
+    /**
+     * Your project id.
+     * 
+     */
     @Import(name="projectId", required=true)
     private Output<String> projectId;
 
+    /**
+     * @return Your project id.
+     * 
+     */
     public Output<String> projectId() {
         return this.projectId;
     }
@@ -68,38 +102,86 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
             $ = new LogsArchiveGcsArchiveArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket Name of your GCS bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket Name of your GCS bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param clientEmail Your client email.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientEmail(Output<String> clientEmail) {
             $.clientEmail = clientEmail;
             return this;
         }
 
+        /**
+         * @param clientEmail Your client email.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientEmail(String clientEmail) {
             return clientEmail(Output.of(clientEmail));
         }
 
-        public Builder path(Output<String> path) {
+        /**
+         * @param path Path where the archive is stored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Path where the archive is stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param projectId Your project id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectId(Output<String> projectId) {
             $.projectId = projectId;
             return this;
         }
 
+        /**
+         * @param projectId Your project id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
         }
@@ -107,7 +189,6 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
         public LogsArchiveGcsArchiveArgs build() {
             $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
             $.clientEmail = Objects.requireNonNull($.clientEmail, "expected parameter 'clientEmail' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
             $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
             return $;
         }

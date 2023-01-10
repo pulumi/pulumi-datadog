@@ -16,6 +16,10 @@ public final class GetLogsIndexesResult {
      * 
      */
     private String id;
+    /**
+     * @return List of logs indexes
+     * 
+     */
     private List<GetLogsIndexesLogsIndex> logsIndexes;
 
     private GetLogsIndexesResult() {}
@@ -26,6 +30,10 @@ public final class GetLogsIndexesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of logs indexes
+     * 
+     */
     public List<GetLogsIndexesLogsIndex> logsIndexes() {
         return this.logsIndexes;
     }

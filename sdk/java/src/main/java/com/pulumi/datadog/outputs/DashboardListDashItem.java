@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardListDashItem {
+    /**
+     * @return The ID of the dashboard to add
+     * 
+     */
     private String dashId;
+    /**
+     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * 
+     */
     private String type;
 
     private DashboardListDashItem() {}
+    /**
+     * @return The ID of the dashboard to add
+     * 
+     */
     public String dashId() {
         return this.dashId;
     }
+    /**
+     * @return The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+     * 
+     */
     public String type() {
         return this.type;
     }

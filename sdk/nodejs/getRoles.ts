@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const foo = pulumi.output(datadog.getRoles({
+ * const foo = datadog.getRoles({
  *     filter: "Datadog",
- * }));
+ * });
  * ```
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getRoles:getRoles", {
         "filter": args.filter,
     }, opts);
@@ -35,6 +33,9 @@ export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getRoles.
  */
 export interface GetRolesArgs {
+    /**
+     * Filter all roles by the given string.
+     */
     filter?: string;
 }
 
@@ -42,21 +43,43 @@ export interface GetRolesArgs {
  * A collection of values returned by getRoles.
  */
 export interface GetRolesResult {
+    /**
+     * Filter all roles by the given string.
+     */
     readonly filter?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of Roles
+     */
     readonly roles: outputs.GetRolesRole[];
 }
-
+/**
+ * Use this data source to retrieve information about multiple roles for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getRoles({
+ *     filter: "Datadog",
+ * });
+ * ```
+ */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
-    return pulumi.output(args).apply(a => getRoles(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoles(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getRoles.
  */
 export interface GetRolesOutputArgs {
+    /**
+     * Filter all roles by the given string.
+     */
     filter?: pulumi.Input<string>;
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -10,11 +11,8 @@ import * as utilities from "./utilities";
  */
 export function getMonitors(args?: GetMonitorsArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getMonitors:getMonitors", {
         "monitorTagsFilters": args.monitorTagsFilters,
         "nameFilter": args.nameFilter,
@@ -26,8 +24,17 @@ export function getMonitors(args?: GetMonitorsArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getMonitors.
  */
 export interface GetMonitorsArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     monitorTagsFilters?: string[];
+    /**
+     * A monitor name to limit the search.
+     */
     nameFilter?: string;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     tagsFilters?: string[];
 }
 
@@ -39,21 +46,44 @@ export interface GetMonitorsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     readonly monitorTagsFilters?: string[];
+    /**
+     * List of monitors
+     */
     readonly monitors: outputs.GetMonitorsMonitor[];
+    /**
+     * A monitor name to limit the search.
+     */
     readonly nameFilter?: string;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     readonly tagsFilters?: string[];
 }
-
+/**
+ * Use this data source to list several existing monitors for use in other resources.
+ */
 export function getMonitorsOutput(args?: GetMonitorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorsResult> {
-    return pulumi.output(args).apply(a => getMonitors(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitors(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getMonitors.
  */
 export interface GetMonitorsOutputArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A monitor name to limit the search.
+     */
     nameFilter?: pulumi.Input<string>;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

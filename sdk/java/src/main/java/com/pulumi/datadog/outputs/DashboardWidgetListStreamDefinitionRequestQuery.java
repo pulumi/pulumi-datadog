@@ -15,6 +15,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
     private String dataSource;
     private @Nullable List<String> indexes;
     private @Nullable String queryString;
+    private @Nullable String storage;
 
     private DashboardWidgetListStreamDefinitionRequestQuery() {}
     public String dataSource() {
@@ -25,6 +26,9 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
     }
     public Optional<String> queryString() {
         return Optional.ofNullable(this.queryString);
+    }
+    public Optional<String> storage() {
+        return Optional.ofNullable(this.storage);
     }
 
     public static Builder builder() {
@@ -39,12 +43,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
         private String dataSource;
         private @Nullable List<String> indexes;
         private @Nullable String queryString;
+        private @Nullable String storage;
         public Builder() {}
         public Builder(DashboardWidgetListStreamDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSource = defaults.dataSource;
     	      this.indexes = defaults.indexes;
     	      this.queryString = defaults.queryString;
+    	      this.storage = defaults.storage;
         }
 
         @CustomType.Setter
@@ -65,11 +71,17 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
             this.queryString = queryString;
             return this;
         }
+        @CustomType.Setter
+        public Builder storage(@Nullable String storage) {
+            this.storage = storage;
+            return this;
+        }
         public DashboardWidgetListStreamDefinitionRequestQuery build() {
             final var o = new DashboardWidgetListStreamDefinitionRequestQuery();
             o.dataSource = dataSource;
             o.indexes = indexes;
             o.queryString = queryString;
+            o.storage = storage;
             return o;
         }
     }

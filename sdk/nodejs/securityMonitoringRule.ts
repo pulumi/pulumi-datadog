@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -48,7 +49,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Security monitoring rules can be imported using ID, e.g.
+ * Security monitoring rules can be imported using ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
@@ -113,13 +114,17 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[]>;
+    public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    public readonly signalQueries!: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
     /**
      * Tags for generated signals.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The rule type.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -144,6 +149,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["queries"] = state ? state.queries : undefined;
+            resourceInputs["signalQueries"] = state ? state.signalQueries : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -157,9 +163,6 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.queries === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'queries'");
-            }
             resourceInputs["cases"] = args ? args.cases : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
@@ -168,6 +171,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["queries"] = args ? args.queries : undefined;
+            resourceInputs["signalQueries"] = args ? args.signalQueries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
@@ -213,11 +217,15 @@ export interface SecurityMonitoringRuleState {
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
+    /**
      * Tags for generated signals.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
      */
     type?: pulumi.Input<string>;
 }
@@ -257,13 +265,17 @@ export interface SecurityMonitoringRuleArgs {
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
+    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
     /**
      * Tags for generated signals.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
      */
     type?: pulumi.Input<string>;
 }

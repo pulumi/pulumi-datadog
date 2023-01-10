@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ChildOrganizationUserArgs : Pulumi.ResourceArgs
+    public sealed class ChildOrganizationUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
@@ -18,11 +18,15 @@ namespace Pulumi.Datadog.Inputs
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public ChildOrganizationUserArgs()
         {
         }
+        public static new ChildOrganizationUserArgs Empty => new ChildOrganizationUserArgs();
     }
 }

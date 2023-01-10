@@ -15,99 +15,98 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Metric-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var foo = new Datadog.ServiceLevelObjective("foo", new()
     ///     {
-    ///         // Metric-Based SLO
-    ///         // Create a new Datadog service level objective
-    ///         var foo = new Datadog.ServiceLevelObjective("foo", new Datadog.ServiceLevelObjectiveArgs
+    ///         Description = "My custom metric SLO",
+    ///         Name = "Example Metric SLO",
+    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
     ///         {
-    ///             Description = "My custom metric SLO",
-    ///             Name = "Example Metric SLO",
-    ///             Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
-    ///             {
-    ///                 Denominator = "sum:my.custom.count.metric{*}.as_count()",
-    ///                 Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "baz",
-    ///             },
-    ///             Thresholds = 
-    ///             {
-    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///                 {
-    ///                     Target = 99.9,
-    ///                     TargetDisplay = "99.900",
-    ///                     Timeframe = "7d",
-    ///                     Warning = 99.99,
-    ///                     WarningDisplay = "99.990",
-    ///                 },
-    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///                 {
-    ///                     Target = 99.9,
-    ///                     TargetDisplay = "99.900",
-    ///                     Timeframe = "30d",
-    ///                     Warning = 99.99,
-    ///                     WarningDisplay = "99.990",
-    ///                 },
-    ///             },
-    ///             Type = "metric",
-    ///         });
-    ///         // Monitor-Based SLO
-    ///         // Create a new Datadog service level objective
-    ///         var bar = new Datadog.ServiceLevelObjective("bar", new Datadog.ServiceLevelObjectiveArgs
+    ///             Denominator = "sum:my.custom.count.metric{*}.as_count()",
+    ///             Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
+    ///         },
+    ///         Tags = new[]
     ///         {
-    ///             Description = "My custom monitor SLO",
-    ///             MonitorIds = 
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
     ///             {
-    ///                 1,
-    ///                 2,
-    ///                 3,
+    ///                 Target = 99.9,
+    ///                 TargetDisplay = "99.900",
+    ///                 Timeframe = "7d",
+    ///                 Warning = 99.99,
+    ///                 WarningDisplay = "99.990",
     ///             },
-    ///             Name = "Example Monitor SLO",
-    ///             Tags = 
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
     ///             {
-    ///                 "foo:bar",
-    ///                 "baz",
+    ///                 Target = 99.9,
+    ///                 TargetDisplay = "99.900",
+    ///                 Timeframe = "30d",
+    ///                 Warning = 99.99,
+    ///                 WarningDisplay = "99.990",
     ///             },
-    ///             Thresholds = 
-    ///             {
-    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///                 {
-    ///                     Target = 99.9,
-    ///                     Timeframe = "7d",
-    ///                     Warning = 99.99,
-    ///                 },
-    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///                 {
-    ///                     Target = 99.9,
-    ///                     Timeframe = "30d",
-    ///                     Warning = 99.99,
-    ///                 },
-    ///             },
-    ///             Type = "monitor",
-    ///         });
-    ///     }
+    ///         },
+    ///         Type = "metric",
+    ///     });
     /// 
-    /// }
+    ///     // Monitor-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
+    ///     {
+    ///         Description = "My custom monitor SLO",
+    ///         MonitorIds = new[]
+    ///         {
+    ///             1,
+    ///             2,
+    ///             3,
+    ///         },
+    ///         Name = "Example Monitor SLO",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "7d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "30d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Type = "monitor",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Service Level Objectives can be imported using their string ID, e.g.
+    /// Service Level Objectives can be imported using their string ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/serviceLevelObjective:ServiceLevelObjective")]
-    public partial class ServiceLevelObjective : Pulumi.CustomResource
+    public partial class ServiceLevelObjective : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of this service level objective.
@@ -146,9 +145,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.ServiceLevelObjectiveQuery?> Query { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level
-        /// objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
-        /// when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -160,9 +157,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -217,7 +212,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class ServiceLevelObjectiveArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of this service level objective.
@@ -271,9 +266,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level
-        /// objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
-        /// when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         /// </summary>
         public InputList<string> Tags
         {
@@ -294,9 +287,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -310,9 +301,10 @@ namespace Pulumi.Datadog
         public ServiceLevelObjectiveArgs()
         {
         }
+        public static new ServiceLevelObjectiveArgs Empty => new ServiceLevelObjectiveArgs();
     }
 
-    public sealed class ServiceLevelObjectiveState : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of this service level objective.
@@ -366,9 +358,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level
-        /// objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags
-        /// when querying via the API
+        /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         /// </summary>
         public InputList<string> Tags
         {
@@ -389,9 +379,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object).
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -405,5 +393,6 @@ namespace Pulumi.Datadog
         public ServiceLevelObjectiveState()
         {
         }
+        public static new ServiceLevelObjectiveState Empty => new ServiceLevelObjectiveState();
     }
 }

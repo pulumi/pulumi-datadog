@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class OrganizationSettingsSettingsSamlStrictModeGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationSettingsSettingsSamlStrictModeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Datadog.Inputs
         public OrganizationSettingsSettingsSamlStrictModeGetArgs()
         {
         }
+        public static new OrganizationSettingsSettingsSamlStrictModeGetArgs Empty => new OrganizationSettingsSettingsSamlStrictModeGetArgs();
     }
 }

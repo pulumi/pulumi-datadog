@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage a tag configuration for a Datadog distribution metric with/without percentiles
- * const exampleDistMetric = new datadog.MetricTagConfiguration("example_dist_metric", {
+ * const exampleDistMetric = new datadog.MetricTagConfiguration("exampleDistMetric", {
  *     includePercentiles: false,
  *     metricName: "example.terraform.dist.metric",
  *     metricType: "distribution",
@@ -25,7 +26,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * // Manage tag configurations for a Datadog count or gauge metric
- * const exampleCountMetric = new datadog.MetricTagConfiguration("example_count_metric", {
+ * const exampleCountMetric = new datadog.MetricTagConfiguration("exampleCountMetric", {
  *     aggregations: [
  *         {
  *             space: "min",
@@ -74,14 +75,11 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
     public readonly aggregations!: pulumi.Output<outputs.MetricTagConfigurationAggregation[]>;
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
     public readonly includePercentiles!: pulumi.Output<boolean | undefined>;
     /**
@@ -89,7 +87,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * The metric's type. This field can't be updated after creation.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     public readonly metricType!: pulumi.Output<string>;
     /**
@@ -142,14 +140,11 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
  */
 export interface MetricTagConfigurationState {
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
     aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
     includePercentiles?: pulumi.Input<boolean>;
     /**
@@ -157,7 +152,7 @@ export interface MetricTagConfigurationState {
      */
     metricName?: pulumi.Input<string>;
     /**
-     * The metric's type. This field can't be updated after creation.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     metricType?: pulumi.Input<string>;
     /**
@@ -171,14 +166,11 @@ export interface MetricTagConfigurationState {
  */
 export interface MetricTagConfigurationArgs {
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-     * require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-     * only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
     aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
     /**
-     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-     * have a `metric_type` of distribution.
+     * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
     includePercentiles?: pulumi.Input<boolean>;
     /**
@@ -186,7 +178,7 @@ export interface MetricTagConfigurationArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * The metric's type. This field can't be updated after creation.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     metricType: pulumi.Input<string>;
     /**

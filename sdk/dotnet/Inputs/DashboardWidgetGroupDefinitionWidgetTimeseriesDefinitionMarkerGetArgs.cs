@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerGetArgs();
     }
 }

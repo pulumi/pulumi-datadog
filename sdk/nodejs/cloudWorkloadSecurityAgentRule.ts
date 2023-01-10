@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myAgentRule = new datadog.CloudWorkloadSecurityAgentRule("my_agent_rule", {
+ * const myAgentRule = new datadog.CloudWorkloadSecurityAgentRule("myAgentRule", {
  *     description: "My agent rule",
  *     enabled: true,
  *     expression: "exec.file.name == \"java\"",
@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # Cloud Workload Security Agent rules can be imported using ID, e.g.
+ * Cloud Workload Security Agent rules can be imported using ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb

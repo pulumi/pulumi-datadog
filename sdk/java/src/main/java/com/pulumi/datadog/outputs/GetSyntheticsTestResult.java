@@ -15,9 +15,25 @@ public final class GetSyntheticsTestResult {
      * 
      */
     private String id;
+    /**
+     * @return The name of the synthetic test.
+     * 
+     */
     private String name;
+    /**
+     * @return A list of tags assigned to the synthetic test.
+     * 
+     */
     private List<String> tags;
+    /**
+     * @return The synthetic test id to search for
+     * 
+     */
     private String testId;
+    /**
+     * @return The start URL of the synthetic test.
+     * 
+     */
     private String url;
 
     private GetSyntheticsTestResult() {}
@@ -28,15 +44,31 @@ public final class GetSyntheticsTestResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the synthetic test.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A list of tags assigned to the synthetic test.
+     * 
+     */
     public List<String> tags() {
         return this.tags;
     }
+    /**
+     * @return The synthetic test id to search for
+     * 
+     */
     public String testId() {
         return this.testId;
     }
+    /**
+     * @return The start URL of the synthetic test.
+     * 
+     */
     public String url() {
         return this.url;
     }

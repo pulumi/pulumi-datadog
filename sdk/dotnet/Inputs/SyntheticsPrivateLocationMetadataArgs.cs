@@ -10,10 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsPrivateLocationMetadataArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsPrivateLocationMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// A list of role identifiers pulled from the Roles API to restrict read and write access.
+        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -23,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsPrivateLocationMetadataArgs()
         {
         }
+        public static new SyntheticsPrivateLocationMetadataArgs Empty => new SyntheticsPrivateLocationMetadataArgs();
     }
 }

@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringFilterExclusionFilter
     {
+        /// <summary>
+        /// Exclusion filter name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

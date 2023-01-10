@@ -12,6 +12,7 @@ import com.pulumi.datadog.gcp.IntegrationArgs;
 import com.pulumi.datadog.gcp.inputs.IntegrationState;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -20,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Google Cloud Platform integrations can be imported using their project ID, e.g.
+ * Google Cloud Platform integrations can be imported using their project ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -72,16 +73,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
     @Export(name="hostFilters", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostFilters;
 
     /**
-     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
     public Output<Optional<String>> hostFilters() {
@@ -162,6 +161,9 @@ public class Integration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "privateKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

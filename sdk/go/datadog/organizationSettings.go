@@ -52,7 +52,7 @@ type OrganizationSettings struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for Organization.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringOutput `pulumi:"publicId"`
 	// Organization settings
 	Settings OrganizationSettingsSettingsOutput `pulumi:"settings"`
@@ -91,7 +91,7 @@ type organizationSettingsState struct {
 	Description *string `pulumi:"description"`
 	// Name for Organization.
 	Name *string `pulumi:"name"`
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId *string `pulumi:"publicId"`
 	// Organization settings
 	Settings *OrganizationSettingsSettings `pulumi:"settings"`
@@ -102,7 +102,7 @@ type OrganizationSettingsState struct {
 	Description pulumi.StringPtrInput
 	// Name for Organization.
 	Name pulumi.StringPtrInput
-	// The `public_id` of the organization you are operating within.
+	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringPtrInput
 	// Organization settings
 	Settings OrganizationSettingsSettingsPtrInput
@@ -224,7 +224,7 @@ func (o OrganizationSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The `public_id` of the organization you are operating within.
+// The `publicId` of the organization you are operating within.
 func (o OrganizationSettingsOutput) PublicId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringOutput { return v.PublicId }).(pulumi.StringOutput)
 }

@@ -15,68 +15,64 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Manage a tag configuration for a Datadog distribution metric with/without percentiles
+    ///     var exampleDistMetric = new Datadog.MetricTagConfiguration("exampleDistMetric", new()
     ///     {
-    ///         // Manage a tag configuration for a Datadog distribution metric with/without percentiles
-    ///         var exampleDistMetric = new Datadog.MetricTagConfiguration("exampleDistMetric", new Datadog.MetricTagConfigurationArgs
+    ///         IncludePercentiles = false,
+    ///         MetricName = "example.terraform.dist.metric",
+    ///         MetricType = "distribution",
+    ///         Tags = new[]
     ///         {
-    ///             IncludePercentiles = false,
-    ///             MetricName = "example.terraform.dist.metric",
-    ///             MetricType = "distribution",
-    ///             Tags = 
-    ///             {
-    ///                 "sport",
-    ///                 "datacenter",
-    ///             },
-    ///         });
-    ///         // Manage tag configurations for a Datadog count or gauge metric
-    ///         var exampleCountMetric = new Datadog.MetricTagConfiguration("exampleCountMetric", new Datadog.MetricTagConfigurationArgs
-    ///         {
-    ///             Aggregations = 
-    ///             {
-    ///                 new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///                 {
-    ///                     Space = "min",
-    ///                     Time = "avg",
-    ///                 },
-    ///                 new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///                 {
-    ///                     Space = "max",
-    ///                     Time = "avg",
-    ///                 },
-    ///             },
-    ///             MetricName = "example.terraform.count.metric",
-    ///             MetricType = "count",
-    ///             Tags = 
-    ///             {
-    ///                 "sport",
-    ///                 "datacenter",
-    ///             },
-    ///         });
-    ///     }
+    ///             "sport",
+    ///             "datacenter",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // Manage tag configurations for a Datadog count or gauge metric
+    ///     var exampleCountMetric = new Datadog.MetricTagConfiguration("exampleCountMetric", new()
+    ///     {
+    ///         Aggregations = new[]
+    ///         {
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Space = "min",
+    ///                 Time = "avg",
+    ///             },
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Space = "max",
+    ///                 Time = "avg",
+    ///             },
+    ///         },
+    ///         MetricName = "example.terraform.count.metric",
+    ///         MetricType = "count",
+    ///         Tags = new[]
+    ///         {
+    ///             "sport",
+    ///             "datacenter",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/metricTagConfiguration:MetricTagConfiguration")]
-    public partial class MetricTagConfiguration : Pulumi.CustomResource
+    public partial class MetricTagConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-        /// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-        /// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         /// </summary>
         [Output("aggregations")]
         public Output<ImmutableArray<Outputs.MetricTagConfigurationAggregation>> Aggregations { get; private set; } = null!;
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-        /// have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Output("includePercentiles")]
         public Output<bool?> IncludePercentiles { get; private set; } = null!;
@@ -88,7 +84,7 @@ namespace Pulumi.Datadog
         public Output<string> MetricName { get; private set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Output("metricType")]
         public Output<string> MetricType { get; private set; } = null!;
@@ -143,15 +139,13 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class MetricTagConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class MetricTagConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregations")]
         private InputList<Inputs.MetricTagConfigurationAggregationArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-        /// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-        /// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         /// </summary>
         public InputList<Inputs.MetricTagConfigurationAggregationArgs> Aggregations
         {
@@ -160,8 +154,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-        /// have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
@@ -173,7 +166,7 @@ namespace Pulumi.Datadog
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Input("metricType", required: true)]
         public Input<string> MetricType { get; set; } = null!;
@@ -193,17 +186,16 @@ namespace Pulumi.Datadog
         public MetricTagConfigurationArgs()
         {
         }
+        public static new MetricTagConfigurationArgs Empty => new MetricTagConfigurationArgs();
     }
 
-    public sealed class MetricTagConfigurationState : Pulumi.ResourceArgs
+    public sealed class MetricTagConfigurationState : global::Pulumi.ResourceArgs
     {
         [Input("aggregations")]
         private InputList<Inputs.MetricTagConfigurationAggregationGetArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics
-        /// require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can
-        /// only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         /// </summary>
         public InputList<Inputs.MetricTagConfigurationAggregationGetArgs> Aggregations
         {
@@ -212,8 +204,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that
-        /// have a `metric_type` of distribution.
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
@@ -225,7 +216,7 @@ namespace Pulumi.Datadog
         public Input<string>? MetricName { get; set; }
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Input("metricType")]
         public Input<string>? MetricType { get; set; }
@@ -245,5 +236,6 @@ namespace Pulumi.Datadog
         public MetricTagConfigurationState()
         {
         }
+        public static new MetricTagConfigurationState Empty => new MetricTagConfigurationState();
     }
 }

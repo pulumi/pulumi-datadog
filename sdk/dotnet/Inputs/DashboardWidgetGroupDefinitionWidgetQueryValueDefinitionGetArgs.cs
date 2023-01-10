@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoscale")]
         public Input<bool>? Autoscale { get; set; }
@@ -46,6 +46,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("timeseriesBackground")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundGetArgs>? TimeseriesBackground { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -58,5 +61,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs Empty => new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs();
     }
 }

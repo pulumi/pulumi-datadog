@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat> conditionalFormats;
     private String formulaExpression;
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit limit;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula() {}
     public Optional<String> alias() {
@@ -36,6 +38,9 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,6 +56,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit limit;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle style;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -89,6 +96,11 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             this.limit = limit;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula();
             o.alias = alias;
@@ -96,6 +108,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             o.conditionalFormats = conditionalFormats;
             o.formulaExpression = formulaExpression;
             o.limit = limit;
+            o.style = style;
             return o;
         }
     }

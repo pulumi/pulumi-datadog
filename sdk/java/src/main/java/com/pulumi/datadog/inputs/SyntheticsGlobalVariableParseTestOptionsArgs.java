@@ -16,16 +16,32 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
 
     public static final SyntheticsGlobalVariableParseTestOptionsArgs Empty = new SyntheticsGlobalVariableParseTestOptionsArgs();
 
+    /**
+     * Required when type = `http_header`. Defines the header to use to extract the value
+     * 
+     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
+    /**
+     * @return Required when type = `http_header`. Defines the header to use to extract the value
+     * 
+     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
+    /**
+     * When type is `local_variable`, name of the local variable to use to extract the value.
+     * 
+     */
     @Import(name="localVariableName")
     private @Nullable Output<String> localVariableName;
 
+    /**
+     * @return When type is `local_variable`, name of the local variable to use to extract the value.
+     * 
+     */
     public Optional<Output<String>> localVariableName() {
         return Optional.ofNullable(this.localVariableName);
     }
@@ -37,9 +53,17 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
         return Optional.ofNullable(this.parser);
     }
 
+    /**
+     * Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,20 +95,44 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
             $ = new SyntheticsGlobalVariableParseTestOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param field Required when type = `http_header`. Defines the header to use to extract the value
+         * 
+         * @return builder
+         * 
+         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
+        /**
+         * @param field Required when type = `http_header`. Defines the header to use to extract the value
+         * 
+         * @return builder
+         * 
+         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
+        /**
+         * @param localVariableName When type is `local_variable`, name of the local variable to use to extract the value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localVariableName(@Nullable Output<String> localVariableName) {
             $.localVariableName = localVariableName;
             return this;
         }
 
+        /**
+         * @param localVariableName When type is `local_variable`, name of the local variable to use to extract the value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localVariableName(String localVariableName) {
             return localVariableName(Output.of(localVariableName));
         }
@@ -98,11 +146,23 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
             return parser(Output.of(parser));
         }
 
+        /**
+         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Defines the source to use to extract the value. Valid values are `http_body`, `http_header`, `local_variable`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

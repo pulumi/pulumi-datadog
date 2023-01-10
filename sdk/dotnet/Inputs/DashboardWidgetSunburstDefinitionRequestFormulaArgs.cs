@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetSunburstDefinitionRequestFormulaArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetSunburstDefinitionRequestFormulaArgs : global::Pulumi.ResourceArgs
     {
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -32,8 +32,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("limit")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestFormulaLimitArgs>? Limit { get; set; }
 
+        [Input("style")]
+        public Input<Inputs.DashboardWidgetSunburstDefinitionRequestFormulaStyleArgs>? Style { get; set; }
+
         public DashboardWidgetSunburstDefinitionRequestFormulaArgs()
         {
         }
+        public static new DashboardWidgetSunburstDefinitionRequestFormulaArgs Empty => new DashboardWidgetSunburstDefinitionRequestFormulaArgs();
     }
 }

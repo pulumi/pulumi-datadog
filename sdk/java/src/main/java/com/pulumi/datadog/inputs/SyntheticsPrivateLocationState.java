@@ -18,16 +18,14 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
     public static final SyntheticsPrivateLocationState Empty = new SyntheticsPrivateLocationState();
 
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
     @Import(name="config")
     private @Nullable Output<String> config;
 
     /**
-     * @return Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * @return Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
     public Optional<Output<String>> config() {
@@ -123,8 +121,7 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param config Configuration skeleton for the private location. See installation instructions of the private location on how to use
-         * this configuration.
+         * @param config Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
          * 
          * @return builder
          * 
@@ -135,8 +132,7 @@ public final class SyntheticsPrivateLocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param config Configuration skeleton for the private location. See installation instructions of the private location on how to use
-         * this configuration.
+         * @param config Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
          * 
          * @return builder
          * 

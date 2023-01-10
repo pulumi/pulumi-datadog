@@ -16,37 +16,77 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
 
     public static final ServiceLevelObjectiveThresholdArgs Empty = new ServiceLevelObjectiveThresholdArgs();
 
+    /**
+     * The objective&#39;s target in`[0,100]`.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<Double> target;
 
+    /**
+     * @return The objective&#39;s target in`[0,100]`.
+     * 
+     */
     public Output<Double> target() {
         return this.target;
     }
 
+    /**
+     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+     * 
+     */
     @Import(name="targetDisplay")
     private @Nullable Output<String> targetDisplay;
 
+    /**
+     * @return A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+     * 
+     */
     public Optional<Output<String>> targetDisplay() {
         return Optional.ofNullable(this.targetDisplay);
     }
 
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
     @Import(name="timeframe", required=true)
     private Output<String> timeframe;
 
+    /**
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
     public Output<String> timeframe() {
         return this.timeframe;
     }
 
+    /**
+     * The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * 
+     */
     @Import(name="warning")
     private @Nullable Output<Double> warning;
 
+    /**
+     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * 
+     */
     public Optional<Output<Double>> warning() {
         return Optional.ofNullable(this.warning);
     }
 
+    /**
+     * A string representation of the warning target (see the description of the target_display field for details).
+     * 
+     */
     @Import(name="warningDisplay")
     private @Nullable Output<String> warningDisplay;
 
+    /**
+     * @return A string representation of the warning target (see the description of the target_display field for details).
+     * 
+     */
     public Optional<Output<String>> warningDisplay() {
         return Optional.ofNullable(this.warningDisplay);
     }
@@ -79,47 +119,107 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
             $ = new ServiceLevelObjectiveThresholdArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param target The objective&#39;s target in`[0,100]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<Double> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target The objective&#39;s target in`[0,100]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Double target) {
             return target(Output.of(target));
         }
 
+        /**
+         * @param targetDisplay A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetDisplay(@Nullable Output<String> targetDisplay) {
             $.targetDisplay = targetDisplay;
             return this;
         }
 
+        /**
+         * @param targetDisplay A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetDisplay(String targetDisplay) {
             return targetDisplay(Output.of(targetDisplay));
         }
 
+        /**
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeframe(Output<String> timeframe) {
             $.timeframe = timeframe;
             return this;
         }
 
+        /**
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeframe(String timeframe) {
             return timeframe(Output.of(timeframe));
         }
 
+        /**
+         * @param warning The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder warning(@Nullable Output<Double> warning) {
             $.warning = warning;
             return this;
         }
 
+        /**
+         * @param warning The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder warning(Double warning) {
             return warning(Output.of(warning));
         }
 
+        /**
+         * @param warningDisplay A string representation of the warning target (see the description of the target_display field for details).
+         * 
+         * @return builder
+         * 
+         */
         public Builder warningDisplay(@Nullable Output<String> warningDisplay) {
             $.warningDisplay = warningDisplay;
             return this;
         }
 
+        /**
+         * @param warningDisplay A string representation of the warning target (see the description of the target_display field for details).
+         * 
+         * @return builder
+         * 
+         */
         public Builder warningDisplay(String warningDisplay) {
             return warningDisplay(Output.of(warningDisplay));
         }

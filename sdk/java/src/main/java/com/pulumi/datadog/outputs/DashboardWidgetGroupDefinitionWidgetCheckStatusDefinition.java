@@ -18,6 +18,10 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     private String grouping;
     private @Nullable String liveSpan;
     private @Nullable List<String> tags;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -41,6 +45,10 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

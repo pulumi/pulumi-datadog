@@ -22,10 +22,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.CloudWorkloadSecurityAgentRule;
+ * import com.pulumi.datadog.CloudWorkloadSecurityAgentRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -46,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Cloud Workload Security Agent rules can be imported using ID, e.g.
+ * Cloud Workload Security Agent rules can be imported using ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb

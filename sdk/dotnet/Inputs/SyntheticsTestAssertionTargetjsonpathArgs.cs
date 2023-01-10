@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestAssertionTargetjsonpathArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestAssertionTargetjsonpathArgs : global::Pulumi.ResourceArgs
     {
         [Input("jsonpath", required: true)]
         public Input<string> Jsonpath { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestAssertionTargetjsonpathArgs()
         {
         }
+        public static new SyntheticsTestAssertionTargetjsonpathArgs Empty => new SyntheticsTestAssertionTargetjsonpathArgs();
     }
 }

@@ -19,48 +19,94 @@ namespace Pulumi.Datadog
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(Datadog.GetIpRanges.InvokeAsync());
-        ///     }
+        ///     var test = Datadog.GetIpRanges.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
     [OutputType]
     public sealed class GetIpRangesResult
     {
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> AgentsIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> AgentsIpv6s;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ApiIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ApiIpv6s;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ApmIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ApmIpv6s;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> LogsIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> LogsIpv6s;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ProcessIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> ProcessIpv6s;
+        /// <summary>
+        /// A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
+        /// </summary>
         public readonly ImmutableDictionary<string, object> SyntheticsIpv4ByLocation;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> SyntheticsIpv4s;
+        /// <summary>
+        /// A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
+        /// </summary>
         public readonly ImmutableDictionary<string, object> SyntheticsIpv6ByLocation;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> SyntheticsIpv6s;
+        /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> WebhooksIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> WebhooksIpv6s;
 
         [OutputConstructor]

@@ -20,6 +20,7 @@ from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
+from .get_logs_archives_order import *
 from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_logs_pipelines import *
@@ -28,6 +29,7 @@ from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
 from .get_roles import *
+from .get_rum_application import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_service_level_objective import *

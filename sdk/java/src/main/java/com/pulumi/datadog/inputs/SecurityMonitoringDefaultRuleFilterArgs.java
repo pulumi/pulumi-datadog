@@ -13,16 +13,32 @@ public final class SecurityMonitoringDefaultRuleFilterArgs extends com.pulumi.re
 
     public static final SecurityMonitoringDefaultRuleFilterArgs Empty = new SecurityMonitoringDefaultRuleFilterArgs();
 
+    /**
+     * The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+     * 
+     */
     @Import(name="action", required=true)
     private Output<String> action;
 
+    /**
+     * @return The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+     * 
+     */
     public Output<String> action() {
         return this.action;
     }
 
+    /**
+     * Query for selecting logs to apply the filtering action.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return Query for selecting logs to apply the filtering action.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -52,20 +68,44 @@ public final class SecurityMonitoringDefaultRuleFilterArgs extends com.pulumi.re
             $ = new SecurityMonitoringDefaultRuleFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param query Query for selecting logs to apply the filtering action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Query for selecting logs to apply the filtering action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

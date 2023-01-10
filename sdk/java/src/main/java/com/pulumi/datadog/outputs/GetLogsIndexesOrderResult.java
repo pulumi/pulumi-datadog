@@ -15,6 +15,10 @@ public final class GetLogsIndexesOrderResult {
      * 
      */
     private String id;
+    /**
+     * @return Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+     * 
+     */
     private List<String> indexNames;
 
     private GetLogsIndexesOrderResult() {}
@@ -25,6 +29,10 @@ public final class GetLogsIndexesOrderResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+     * 
+     */
     public List<String> indexNames() {
         return this.indexNames;
     }

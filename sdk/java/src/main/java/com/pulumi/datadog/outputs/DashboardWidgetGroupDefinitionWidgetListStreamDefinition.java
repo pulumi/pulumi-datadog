@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
     private List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest> requests;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -22,6 +26,10 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
     public List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest> requests() {
         return this.requests;
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

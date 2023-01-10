@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    internal sealed class DatadogResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class DatadogResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public DatadogResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

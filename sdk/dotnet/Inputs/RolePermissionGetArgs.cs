@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class RolePermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class RolePermissionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the permission to assign.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the permission.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public RolePermissionGetArgs()
         {
         }
+        public static new RolePermissionGetArgs Empty => new RolePermissionGetArgs();
     }
 }

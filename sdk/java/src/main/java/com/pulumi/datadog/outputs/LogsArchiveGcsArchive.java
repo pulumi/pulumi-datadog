@@ -6,24 +6,58 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsArchiveGcsArchive {
+    /**
+     * @return Name of your GCS bucket.
+     * 
+     */
     private String bucket;
+    /**
+     * @return Your client email.
+     * 
+     */
     private String clientEmail;
-    private String path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    private @Nullable String path;
+    /**
+     * @return Your project id.
+     * 
+     */
     private String projectId;
 
     private LogsArchiveGcsArchive() {}
+    /**
+     * @return Name of your GCS bucket.
+     * 
+     */
     public String bucket() {
         return this.bucket;
     }
+    /**
+     * @return Your client email.
+     * 
+     */
     public String clientEmail() {
         return this.clientEmail;
     }
-    public String path() {
-        return this.path;
+    /**
+     * @return Path where the archive is stored.
+     * 
+     */
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
+    /**
+     * @return Your project id.
+     * 
+     */
     public String projectId() {
         return this.projectId;
     }
@@ -39,7 +73,7 @@ public final class LogsArchiveGcsArchive {
     public static final class Builder {
         private String bucket;
         private String clientEmail;
-        private String path;
+        private @Nullable String path;
         private String projectId;
         public Builder() {}
         public Builder(LogsArchiveGcsArchive defaults) {
@@ -61,8 +95,8 @@ public final class LogsArchiveGcsArchive {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+        public Builder path(@Nullable String path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter

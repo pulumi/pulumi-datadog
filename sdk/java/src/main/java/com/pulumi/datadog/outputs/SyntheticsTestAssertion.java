@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetjsonpath;
+import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetxpath;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,25 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestAssertion {
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     private String operator;
+    /**
+     * @return If assertion type is `header`, this is the header name.
+     * 
+     */
     private @Nullable String property;
+    /**
+     * @return Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * 
+     */
     private @Nullable String target;
+    /**
+     * @return Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     private @Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath;
+    /**
+     * @return Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    private @Nullable SyntheticsTestAssertionTargetxpath targetxpath;
+    /**
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * 
+     */
     private String type;
 
     private SyntheticsTestAssertion() {}
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     public String operator() {
         return this.operator;
     }
+    /**
+     * @return If assertion type is `header`, this is the header name.
+     * 
+     */
     public Optional<String> property() {
         return Optional.ofNullable(this.property);
     }
+    /**
+     * @return Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+     * 
+     */
     public Optional<String> target() {
         return Optional.ofNullable(this.target);
     }
+    /**
+     * @return Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
     public Optional<SyntheticsTestAssertionTargetjsonpath> targetjsonpath() {
         return Optional.ofNullable(this.targetjsonpath);
     }
+    /**
+     * @return Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    public Optional<SyntheticsTestAssertionTargetxpath> targetxpath() {
+        return Optional.ofNullable(this.targetxpath);
+    }
+    /**
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * 
+     */
     public String type() {
         return this.type;
     }
@@ -48,6 +101,7 @@ public final class SyntheticsTestAssertion {
         private @Nullable String property;
         private @Nullable String target;
         private @Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath;
+        private @Nullable SyntheticsTestAssertionTargetxpath targetxpath;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestAssertion defaults) {
@@ -56,6 +110,7 @@ public final class SyntheticsTestAssertion {
     	      this.property = defaults.property;
     	      this.target = defaults.target;
     	      this.targetjsonpath = defaults.targetjsonpath;
+    	      this.targetxpath = defaults.targetxpath;
     	      this.type = defaults.type;
         }
 
@@ -80,6 +135,11 @@ public final class SyntheticsTestAssertion {
             return this;
         }
         @CustomType.Setter
+        public Builder targetxpath(@Nullable SyntheticsTestAssertionTargetxpath targetxpath) {
+            this.targetxpath = targetxpath;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -90,6 +150,7 @@ public final class SyntheticsTestAssertion {
             o.property = property;
             o.target = target;
             o.targetjsonpath = targetjsonpath;
+            o.targetxpath = targetxpath;
             o.type = type;
             return o;
         }

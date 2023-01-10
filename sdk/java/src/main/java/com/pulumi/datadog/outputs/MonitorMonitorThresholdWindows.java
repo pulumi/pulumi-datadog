@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorMonitorThresholdWindows {
+    /**
+     * @return Describes how long an anomalous metric must be normal before the alert recovers.
+     * 
+     */
     private @Nullable String recoveryWindow;
+    /**
+     * @return Describes how long a metric must be anomalous before an alert triggers.
+     * 
+     */
     private @Nullable String triggerWindow;
 
     private MonitorMonitorThresholdWindows() {}
+    /**
+     * @return Describes how long an anomalous metric must be normal before the alert recovers.
+     * 
+     */
     public Optional<String> recoveryWindow() {
         return Optional.ofNullable(this.recoveryWindow);
     }
+    /**
+     * @return Describes how long a metric must be anomalous before an alert triggers.
+     * 
+     */
     public Optional<String> triggerWindow() {
         return Optional.ofNullable(this.triggerWindow);
     }

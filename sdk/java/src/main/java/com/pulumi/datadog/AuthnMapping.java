@@ -20,10 +20,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetRoleArgs;
+ * import com.pulumi.datadog.AuthnMapping;
+ * import com.pulumi.datadog.AuthnMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -31,14 +40,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var roRole = Output.of(DatadogFunctions.getRole(GetRoleArgs.builder()
+ *         final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()
  *             .filter(&#34;Datadog Read Only Role&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var devRoRoleMapping = new AuthnMapping(&#34;devRoRoleMapping&#34;, AuthnMappingArgs.builder()        
  *             .key(&#34;Member-of&#34;)
  *             .value(&#34;Development&#34;)
- *             .role(roRole.apply(getRoleResult -&gt; getRoleResult.id()))
+ *             .role(roRole.applyValue(getRoleResult -&gt; getRoleResult.id()))
  *             .build());
  * 
  *     }
@@ -47,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # AuthN mappings can be imported using their ID, e.g.
+ * AuthN mappings can be imported using their ID, e.g.
  * 
  * ```sh
  *  $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000

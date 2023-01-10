@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
+    /**
+     * @return Filter criteria of the category.
+     * 
+     */
     private String query;
 
     private LogsCustomPipelineProcessorCategoryProcessorCategoryFilter() {}
+    /**
+     * @return Filter criteria of the category.
+     * 
+     */
     public String query() {
         return this.query;
     }

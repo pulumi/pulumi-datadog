@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ChildOrganizationApiKey
     {
         public readonly string? Key;
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

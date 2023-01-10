@@ -15,33 +15,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityMonitoringRuleOptions {
+    /**
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * 
+     */
     private @Nullable Boolean decreaseCriticalityBasedOnEnv;
+    /**
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+     * 
+     */
     private @Nullable String detectionMethod;
+    /**
+     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * 
+     */
     private @Nullable Integer evaluationWindow;
+    /**
+     * @return Options for rules using the impossible travel detection method.
+     * 
+     */
     private @Nullable SecurityMonitoringRuleOptionsImpossibleTravelOptions impossibleTravelOptions;
+    /**
+     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * 
+     */
     private Integer keepAlive;
+    /**
+     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * 
+     */
     private Integer maxSignalDuration;
+    /**
+     * @return New value rules specific options.
+     * 
+     */
     private @Nullable SecurityMonitoringRuleOptionsNewValueOptions newValueOptions;
 
     private SecurityMonitoringRuleOptions() {}
+    /**
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * 
+     */
     public Optional<Boolean> decreaseCriticalityBasedOnEnv() {
         return Optional.ofNullable(this.decreaseCriticalityBasedOnEnv);
     }
+    /**
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+     * 
+     */
     public Optional<String> detectionMethod() {
         return Optional.ofNullable(this.detectionMethod);
     }
+    /**
+     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
+     * 
+     */
     public Optional<Integer> evaluationWindow() {
         return Optional.ofNullable(this.evaluationWindow);
     }
+    /**
+     * @return Options for rules using the impossible travel detection method.
+     * 
+     */
     public Optional<SecurityMonitoringRuleOptionsImpossibleTravelOptions> impossibleTravelOptions() {
         return Optional.ofNullable(this.impossibleTravelOptions);
     }
+    /**
+     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * 
+     */
     public Integer keepAlive() {
         return this.keepAlive;
     }
+    /**
+     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * 
+     */
     public Integer maxSignalDuration() {
         return this.maxSignalDuration;
     }
+    /**
+     * @return New value rules specific options.
+     * 
+     */
     public Optional<SecurityMonitoringRuleOptionsNewValueOptions> newValueOptions() {
         return Optional.ofNullable(this.newValueOptions);
     }

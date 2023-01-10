@@ -14,17 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsIndexExclusionFilter {
+    /**
+     * @return Logs filter
+     * 
+     */
     private @Nullable List<LogsIndexExclusionFilterFilter> filters;
+    /**
+     * @return A boolean stating if the exclusion is active or not.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return The name of the exclusion filter.
+     * 
+     */
     private @Nullable String name;
 
     private LogsIndexExclusionFilter() {}
+    /**
+     * @return Logs filter
+     * 
+     */
     public List<LogsIndexExclusionFilterFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return A boolean stating if the exclusion is active or not.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return The name of the exclusion filter.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

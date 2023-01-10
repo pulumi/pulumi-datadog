@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetFreeTextDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetFreeTextDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("color")]
         public Input<string>? Color { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetFreeTextDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetFreeTextDefinitionGetArgs Empty => new DashboardWidgetFreeTextDefinitionGetArgs();
     }
 }

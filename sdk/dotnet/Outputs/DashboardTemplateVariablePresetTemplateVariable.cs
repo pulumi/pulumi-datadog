@@ -13,17 +13,24 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariablePresetTemplateVariable
     {
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string? Name;
         public readonly string? Value;
+        public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private DashboardTemplateVariablePresetTemplateVariable(
             string? name,
 
-            string? value)
+            string? value,
+
+            ImmutableArray<string> values)
         {
             Name = name;
             Value = value;
+            Values = values;
         }
     }
 }

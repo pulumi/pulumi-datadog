@@ -24,61 +24,173 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessor {
+    /**
+     * @return Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor arithmeticProcessor;
+    /**
+     * @return Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper attributeRemapper;
+    /**
+     * @return Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor categoryProcessor;
+    /**
+     * @return Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorDateRemapper dateRemapper;
+    /**
+     * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorGeoIpParser geoIpParser;
+    /**
+     * @return Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorGrokParser grokParser;
+    /**
+     * @return Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorLookupProcessor lookupProcessor;
+    /**
+     * @return Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorMessageRemapper messageRemapper;
+    /**
+     * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper;
+    /**
+     * @return Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorStatusRemapper statusRemapper;
+    /**
+     * @return String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor stringBuilderProcessor;
+    /**
+     * @return Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper traceIdRemapper;
+    /**
+     * @return URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorUrlParser urlParser;
+    /**
+     * @return User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+     * 
+     */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorUserAgentParser userAgentParser;
 
     private LogsCustomPipelineProcessorPipelineProcessor() {}
+    /**
+     * @return Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
     }
+    /**
+     * @return Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper> attributeRemapper() {
         return Optional.ofNullable(this.attributeRemapper);
     }
+    /**
+     * @return Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor> categoryProcessor() {
         return Optional.ofNullable(this.categoryProcessor);
     }
+    /**
+     * @return Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorDateRemapper> dateRemapper() {
         return Optional.ofNullable(this.dateRemapper);
     }
+    /**
+     * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorGeoIpParser> geoIpParser() {
         return Optional.ofNullable(this.geoIpParser);
     }
+    /**
+     * @return Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorGrokParser> grokParser() {
         return Optional.ofNullable(this.grokParser);
     }
+    /**
+     * @return Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorLookupProcessor> lookupProcessor() {
         return Optional.ofNullable(this.lookupProcessor);
     }
+    /**
+     * @return Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorMessageRemapper> messageRemapper() {
         return Optional.ofNullable(this.messageRemapper);
     }
+    /**
+     * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorServiceRemapper> serviceRemapper() {
         return Optional.ofNullable(this.serviceRemapper);
     }
+    /**
+     * @return Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorStatusRemapper> statusRemapper() {
         return Optional.ofNullable(this.statusRemapper);
     }
+    /**
+     * @return String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor> stringBuilderProcessor() {
         return Optional.ofNullable(this.stringBuilderProcessor);
     }
+    /**
+     * @return Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper> traceIdRemapper() {
         return Optional.ofNullable(this.traceIdRemapper);
     }
+    /**
+     * @return URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorUrlParser> urlParser() {
         return Optional.ofNullable(this.urlParser);
     }
+    /**
+     * @return User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+     * 
+     */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorUserAgentParser> userAgentParser() {
         return Optional.ofNullable(this.userAgentParser);
     }

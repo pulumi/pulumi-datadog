@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestConfigVariable
     {
+        /// <summary>
+        /// Example for the variable.
+        /// </summary>
         public readonly string? Example;
+        /// <summary>
+        /// When type = `global`, ID of the global variable to use.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Pattern of the variable.
+        /// </summary>
         public readonly string? Pattern;
+        /// <summary>
+        /// Type of test configuration variable. Valid values are `global`, `text`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

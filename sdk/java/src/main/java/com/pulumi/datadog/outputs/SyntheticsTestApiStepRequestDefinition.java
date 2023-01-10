@@ -15,72 +15,216 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepRequestDefinition {
     private @Nullable Boolean allowInsecure;
+    /**
+     * @return The request body.
+     * 
+     */
     private @Nullable String body;
+    /**
+     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * 
+     */
+    private @Nullable String bodyType;
+    /**
+     * @return The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * 
+     */
+    private @Nullable String callType;
+    /**
+     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * 
+     */
     private @Nullable List<String> certificateDomains;
+    /**
+     * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
+     * 
+     */
     private @Nullable String dnsServer;
+    /**
+     * @return DNS server port to use for DNS tests.
+     * 
+     */
     private @Nullable Integer dnsServerPort;
     private @Nullable Boolean followRedirects;
+    /**
+     * @return Host name to perform the test with.
+     * 
+     */
     private @Nullable String host;
+    /**
+     * @return For UDP and websocket tests, message to send with the request.
+     * 
+     */
     private @Nullable String message;
+    /**
+     * @return Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+     * 
+     */
     private @Nullable String method;
+    /**
+     * @return Determines whether or not to save the response body.
+     * 
+     */
     private @Nullable Boolean noSavingResponseBody;
+    /**
+     * @return Number of pings to use per test for ICMP tests (`subtype = &#34;icmp&#34;`) between 0 and 10.
+     * 
+     */
     private @Nullable Integer numberOfPackets;
+    /**
+     * @return Port to use when performing the test.
+     * 
+     */
     private @Nullable Integer port;
+    /**
+     * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     * 
+     */
     private @Nullable String servername;
+    /**
+     * @return The gRPC service on which you want to perform the gRPC call.
+     * 
+     */
     private @Nullable String service;
+    /**
+     * @return This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = &#34;icmp&#34;`).
+     * 
+     */
     private @Nullable Boolean shouldTrackHops;
+    /**
+     * @return Timeout in seconds for the test. Defaults to `60`.
+     * 
+     */
     private @Nullable Integer timeout;
+    /**
+     * @return The URL to send the request to.
+     * 
+     */
     private @Nullable String url;
 
     private SyntheticsTestApiStepRequestDefinition() {}
     public Optional<Boolean> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
     }
+    /**
+     * @return The request body.
+     * 
+     */
     public Optional<String> body() {
         return Optional.ofNullable(this.body);
     }
+    /**
+     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * 
+     */
+    public Optional<String> bodyType() {
+        return Optional.ofNullable(this.bodyType);
+    }
+    /**
+     * @return The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * 
+     */
+    public Optional<String> callType() {
+        return Optional.ofNullable(this.callType);
+    }
+    /**
+     * @return By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificate_domains`.
+     * 
+     */
     public List<String> certificateDomains() {
         return this.certificateDomains == null ? List.of() : this.certificateDomains;
     }
+    /**
+     * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
+     * 
+     */
     public Optional<String> dnsServer() {
         return Optional.ofNullable(this.dnsServer);
     }
+    /**
+     * @return DNS server port to use for DNS tests.
+     * 
+     */
     public Optional<Integer> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
     }
     public Optional<Boolean> followRedirects() {
         return Optional.ofNullable(this.followRedirects);
     }
+    /**
+     * @return Host name to perform the test with.
+     * 
+     */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
     }
+    /**
+     * @return For UDP and websocket tests, message to send with the request.
+     * 
+     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
+    /**
+     * @return Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+     * 
+     */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
+    /**
+     * @return Determines whether or not to save the response body.
+     * 
+     */
     public Optional<Boolean> noSavingResponseBody() {
         return Optional.ofNullable(this.noSavingResponseBody);
     }
+    /**
+     * @return Number of pings to use per test for ICMP tests (`subtype = &#34;icmp&#34;`) between 0 and 10.
+     * 
+     */
     public Optional<Integer> numberOfPackets() {
         return Optional.ofNullable(this.numberOfPackets);
     }
+    /**
+     * @return Port to use when performing the test.
+     * 
+     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     * 
+     */
     public Optional<String> servername() {
         return Optional.ofNullable(this.servername);
     }
+    /**
+     * @return The gRPC service on which you want to perform the gRPC call.
+     * 
+     */
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
     }
+    /**
+     * @return This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = &#34;icmp&#34;`).
+     * 
+     */
     public Optional<Boolean> shouldTrackHops() {
         return Optional.ofNullable(this.shouldTrackHops);
     }
+    /**
+     * @return Timeout in seconds for the test. Defaults to `60`.
+     * 
+     */
     public Optional<Integer> timeout() {
         return Optional.ofNullable(this.timeout);
     }
+    /**
+     * @return The URL to send the request to.
+     * 
+     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
@@ -96,6 +240,8 @@ public final class SyntheticsTestApiStepRequestDefinition {
     public static final class Builder {
         private @Nullable Boolean allowInsecure;
         private @Nullable String body;
+        private @Nullable String bodyType;
+        private @Nullable String callType;
         private @Nullable List<String> certificateDomains;
         private @Nullable String dnsServer;
         private @Nullable Integer dnsServerPort;
@@ -116,6 +262,8 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecure = defaults.allowInsecure;
     	      this.body = defaults.body;
+    	      this.bodyType = defaults.bodyType;
+    	      this.callType = defaults.callType;
     	      this.certificateDomains = defaults.certificateDomains;
     	      this.dnsServer = defaults.dnsServer;
     	      this.dnsServerPort = defaults.dnsServerPort;
@@ -141,6 +289,16 @@ public final class SyntheticsTestApiStepRequestDefinition {
         @CustomType.Setter
         public Builder body(@Nullable String body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bodyType(@Nullable String bodyType) {
+            this.bodyType = bodyType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder callType(@Nullable String callType) {
+            this.callType = callType;
             return this;
         }
         @CustomType.Setter
@@ -225,6 +383,8 @@ public final class SyntheticsTestApiStepRequestDefinition {
             final var o = new SyntheticsTestApiStepRequestDefinition();
             o.allowInsecure = allowInsecure;
             o.body = body;
+            o.bodyType = bodyType;
+            o.callType = callType;
             o.certificateDomains = certificateDomains;
             o.dnsServer = dnsServer;
             o.dnsServerPort = dnsServerPort;

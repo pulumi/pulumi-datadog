@@ -61,6 +61,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         return Optional.ofNullable(this.search);
     }
 
+    @Import(name="storage")
+    private @Nullable Output<String> storage;
+
+    public Optional<Output<String>> storage() {
+        return Optional.ofNullable(this.storage);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs $) {
@@ -70,6 +77,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         this.indexes = $.indexes;
         this.name = $.name;
         this.search = $.search;
+        this.storage = $.storage;
     }
 
     public static Builder builder() {
@@ -154,6 +162,15 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
         public Builder search(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs search) {
             return search(Output.of(search));
+        }
+
+        public Builder storage(@Nullable Output<String> storage) {
+            $.storage = storage;
+            return this;
+        }
+
+        public Builder storage(String storage) {
+            return storage(Output.of(storage));
         }
 
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs build() {

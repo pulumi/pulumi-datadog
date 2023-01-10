@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApiKeyResult {
+    /**
+     * @return Id for API Key.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return The value of the API Key.
+     * 
+     */
     private String key;
+    /**
+     * @return Name for API Key.
+     * 
+     */
     private @Nullable String name;
 
     private GetApiKeyResult() {}
+    /**
+     * @return Id for API Key.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The value of the API Key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Name for API Key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

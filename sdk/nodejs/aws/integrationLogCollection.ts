@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * # Amazon Web Services log collection integrations can be imported using the `account ID`.
+ * Amazon Web Services log collection integrations can be imported using the `account ID`.
  *
  * ```sh
  *  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
@@ -57,13 +57,11 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * A list of services to collect logs from. See the [api
-     * docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-     * which services are supported.
+     * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      */
     public readonly services!: pulumi.Output<string[]>;
 
@@ -103,13 +101,11 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
  */
 export interface IntegrationLogCollectionState {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * A list of services to collect logs from. See the [api
-     * docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-     * which services are supported.
+     * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      */
     services?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -119,13 +115,11 @@ export interface IntegrationLogCollectionState {
  */
 export interface IntegrationLogCollectionArgs {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId: pulumi.Input<string>;
     /**
-     * A list of services to collect logs from. See the [api
-     * docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-     * which services are supported.
+     * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      */
     services: pulumi.Input<pulumi.Input<string>[]>;
 }

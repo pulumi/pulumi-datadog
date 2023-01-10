@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err := datadog.NewWebhook(ctx, "foo", &datadog.WebhookArgs{
+//			_, err = datadog.NewWebhook(ctx, "foo", &datadog.WebhookArgs{
 //				Name:          pulumi.String("test-webhook"),
 //				Url:           pulumi.String("example.com"),
 //				EncodeAs:      pulumi.String("json"),
@@ -71,7 +71,7 @@ type Webhook struct {
 
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
-	// Encoding type.
+	// Encoding type. Valid values are `json`, `form`.
 	EncodeAs pulumi.StringOutput `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -118,7 +118,7 @@ func GetWebhook(ctx *pulumi.Context,
 type webhookState struct {
 	// The headers attached to the webhook.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Encoding type.
+	// Encoding type. Valid values are `json`, `form`.
 	EncodeAs *string `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name *string `pulumi:"name"`
@@ -131,7 +131,7 @@ type webhookState struct {
 type WebhookState struct {
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrInput
-	// Encoding type.
+	// Encoding type. Valid values are `json`, `form`.
 	EncodeAs pulumi.StringPtrInput
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringPtrInput
@@ -148,7 +148,7 @@ func (WebhookState) ElementType() reflect.Type {
 type webhookArgs struct {
 	// The headers attached to the webhook.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Encoding type.
+	// Encoding type. Valid values are `json`, `form`.
 	EncodeAs *string `pulumi:"encodeAs"`
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name string `pulumi:"name"`
@@ -162,7 +162,7 @@ type webhookArgs struct {
 type WebhookArgs struct {
 	// The headers attached to the webhook.
 	CustomHeaders pulumi.StringPtrInput
-	// Encoding type.
+	// Encoding type. Valid values are `json`, `form`.
 	EncodeAs pulumi.StringPtrInput
 	// The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
 	Name pulumi.StringInput
@@ -264,7 +264,7 @@ func (o WebhookOutput) CustomHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.CustomHeaders }).(pulumi.StringPtrOutput)
 }
 
-// Encoding type.
+// Encoding type. Valid values are `json`, `form`.
 func (o WebhookOutput) EncodeAs() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.EncodeAs }).(pulumi.StringOutput)
 }

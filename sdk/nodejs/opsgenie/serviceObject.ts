@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fakeServiceName = new datadog.opsgenie.ServiceObject("fake_service_name", {
+ * const fakeServiceName = new datadog.opsgenie.ServiceObject("fakeServiceName", {
  *     name: "fake_service_name",
  *     opsgenieApiKey: "00000000-0000-0000-0000-000000000000",
  *     region: "us",
  * });
- * const fakeServiceName2 = new datadog.opsgenie.ServiceObject("fake_service_name_2", {
+ * const fakeServiceName2 = new datadog.opsgenie.ServiceObject("fakeServiceName2", {
  *     name: "fake_service_name_2",
  *     opsgenieApiKey: "11111111-1111-1111-1111-111111111111",
  *     region: "eu",
@@ -69,7 +69,7 @@ export class ServiceObject extends pulumi.CustomResource {
      */
     public readonly opsgenieApiKey!: pulumi.Output<string>;
     /**
-     * The region for the Opsgenie service.
+     * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -103,10 +103,12 @@ export class ServiceObject extends pulumi.CustomResource {
             }
             resourceInputs["customUrl"] = args ? args.customUrl : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["opsgenieApiKey"] = args ? args.opsgenieApiKey : undefined;
+            resourceInputs["opsgenieApiKey"] = args?.opsgenieApiKey ? pulumi.secret(args.opsgenieApiKey) : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["opsgenieApiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceObject.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -131,7 +133,7 @@ export interface ServiceObjectState {
      */
     opsgenieApiKey?: pulumi.Input<string>;
     /**
-     * The region for the Opsgenie service.
+     * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      */
     region?: pulumi.Input<string>;
 }
@@ -156,7 +158,7 @@ export interface ServiceObjectArgs {
      */
     opsgenieApiKey: pulumi.Input<string>;
     /**
-     * The region for the Opsgenie service.
+     * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      */
     region: pulumi.Input<string>;
 }

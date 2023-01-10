@@ -21,10 +21,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.LogsPipelineOrder;
+ * import com.pulumi.datadog.LogsPipelineOrderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
+ * There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
  * 
  * ```sh
  *  $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name&gt; &lt;name&gt;
@@ -55,18 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/logsPipelineOrder:LogsPipelineOrder")
 public class LogsPipelineOrder extends com.pulumi.resources.CustomResource {
     /**
-     * The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-     * value as the resource name. No related field is available in [Logs Pipeline
-     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It&#39;s recommended to use the same
-     * value as the resource name. No related field is available in [Logs Pipeline
-     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     * @return The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
     public Output<String> name() {

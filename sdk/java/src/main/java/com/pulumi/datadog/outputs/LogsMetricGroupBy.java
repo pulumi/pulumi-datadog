@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class LogsMetricGroupBy {
+    /**
+     * @return The path to the value the log-based metric will be aggregated over.
+     * 
+     */
     private String path;
+    /**
+     * @return Name of the tag that gets created.
+     * 
+     */
     private String tagName;
 
     private LogsMetricGroupBy() {}
+    /**
+     * @return The path to the value the log-based metric will be aggregated over.
+     * 
+     */
     public String path() {
         return this.path;
     }
+    /**
+     * @return Name of the tag that gets created.
+     * 
+     */
     public String tagName() {
         return this.tagName;
     }

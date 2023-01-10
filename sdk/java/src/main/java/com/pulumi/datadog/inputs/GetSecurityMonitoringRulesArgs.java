@@ -17,30 +17,62 @@ public final class GetSecurityMonitoringRulesArgs extends com.pulumi.resources.I
 
     public static final GetSecurityMonitoringRulesArgs Empty = new GetSecurityMonitoringRulesArgs();
 
+    /**
+     * Limit the search to default rules
+     * 
+     */
     @Import(name="defaultOnlyFilter")
     private @Nullable Output<Boolean> defaultOnlyFilter;
 
+    /**
+     * @return Limit the search to default rules
+     * 
+     */
     public Optional<Output<Boolean>> defaultOnlyFilter() {
         return Optional.ofNullable(this.defaultOnlyFilter);
     }
 
+    /**
+     * A rule name to limit the search
+     * 
+     */
     @Import(name="nameFilter")
     private @Nullable Output<String> nameFilter;
 
+    /**
+     * @return A rule name to limit the search
+     * 
+     */
     public Optional<Output<String>> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
 
+    /**
+     * A list of tags to limit the search
+     * 
+     */
     @Import(name="tagsFilters")
     private @Nullable Output<List<String>> tagsFilters;
 
+    /**
+     * @return A list of tags to limit the search
+     * 
+     */
     public Optional<Output<List<String>>> tagsFilters() {
         return Optional.ofNullable(this.tagsFilters);
     }
 
+    /**
+     * Limit the search to user rules
+     * 
+     */
     @Import(name="userOnlyFilter")
     private @Nullable Output<Boolean> userOnlyFilter;
 
+    /**
+     * @return Limit the search to user rules
+     * 
+     */
     public Optional<Output<Boolean>> userOnlyFilter() {
         return Optional.ofNullable(this.userOnlyFilter);
     }
@@ -72,42 +104,96 @@ public final class GetSecurityMonitoringRulesArgs extends com.pulumi.resources.I
             $ = new GetSecurityMonitoringRulesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultOnlyFilter Limit the search to default rules
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultOnlyFilter(@Nullable Output<Boolean> defaultOnlyFilter) {
             $.defaultOnlyFilter = defaultOnlyFilter;
             return this;
         }
 
+        /**
+         * @param defaultOnlyFilter Limit the search to default rules
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultOnlyFilter(Boolean defaultOnlyFilter) {
             return defaultOnlyFilter(Output.of(defaultOnlyFilter));
         }
 
+        /**
+         * @param nameFilter A rule name to limit the search
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameFilter(@Nullable Output<String> nameFilter) {
             $.nameFilter = nameFilter;
             return this;
         }
 
+        /**
+         * @param nameFilter A rule name to limit the search
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameFilter(String nameFilter) {
             return nameFilter(Output.of(nameFilter));
         }
 
+        /**
+         * @param tagsFilters A list of tags to limit the search
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsFilters(@Nullable Output<List<String>> tagsFilters) {
             $.tagsFilters = tagsFilters;
             return this;
         }
 
+        /**
+         * @param tagsFilters A list of tags to limit the search
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsFilters(List<String> tagsFilters) {
             return tagsFilters(Output.of(tagsFilters));
         }
 
+        /**
+         * @param tagsFilters A list of tags to limit the search
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsFilters(String... tagsFilters) {
             return tagsFilters(List.of(tagsFilters));
         }
 
+        /**
+         * @param userOnlyFilter Limit the search to user rules
+         * 
+         * @return builder
+         * 
+         */
         public Builder userOnlyFilter(@Nullable Output<Boolean> userOnlyFilter) {
             $.userOnlyFilter = userOnlyFilter;
             return this;
         }
 
+        /**
+         * @param userOnlyFilter Limit the search to user rules
+         * 
+         * @return builder
+         * 
+         */
         public Builder userOnlyFilter(Boolean userOnlyFilter) {
             return userOnlyFilter(Output.of(userOnlyFilter));
         }

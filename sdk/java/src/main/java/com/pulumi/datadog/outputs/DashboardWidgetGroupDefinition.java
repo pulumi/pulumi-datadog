@@ -16,9 +16,21 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetGroupDefinition {
     private @Nullable String backgroundColor;
     private @Nullable String bannerImg;
+    /**
+     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * 
+     */
     private String layoutType;
     private @Nullable Boolean showTitle;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
+    /**
+     * @return The list of widgets to display on the dashboard.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidget> widgets;
 
     private DashboardWidgetGroupDefinition() {}
@@ -28,15 +40,27 @@ public final class DashboardWidgetGroupDefinition {
     public Optional<String> bannerImg() {
         return Optional.ofNullable(this.bannerImg);
     }
+    /**
+     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * 
+     */
     public String layoutType() {
         return this.layoutType;
     }
     public Optional<Boolean> showTitle() {
         return Optional.ofNullable(this.showTitle);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The list of widgets to display on the dashboard.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidget> widgets() {
         return this.widgets == null ? List.of() : this.widgets;
     }

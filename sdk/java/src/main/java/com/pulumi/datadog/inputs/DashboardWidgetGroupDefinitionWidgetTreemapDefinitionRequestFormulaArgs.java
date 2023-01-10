@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
 
         public Builder limit(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs build() {

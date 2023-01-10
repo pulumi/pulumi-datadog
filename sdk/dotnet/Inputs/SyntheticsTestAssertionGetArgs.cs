@@ -10,25 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestAssertionGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestAssertionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// If assertion type is `header`, this is the header name.
+        /// </summary>
         [Input("property")]
         public Input<string>? Property { get; set; }
 
+        /// <summary>
+        /// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
+        /// <summary>
+        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
         [Input("targetjsonpath")]
         public Input<Inputs.SyntheticsTestAssertionTargetjsonpathGetArgs>? Targetjsonpath { get; set; }
 
+        /// <summary>
+        /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        [Input("targetxpath")]
+        public Input<Inputs.SyntheticsTestAssertionTargetxpathGetArgs>? Targetxpath { get; set; }
+
+        /// <summary>
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public SyntheticsTestAssertionGetArgs()
         {
         }
+        public static new SyntheticsTestAssertionGetArgs Empty => new SyntheticsTestAssertionGetArgs();
     }
 }

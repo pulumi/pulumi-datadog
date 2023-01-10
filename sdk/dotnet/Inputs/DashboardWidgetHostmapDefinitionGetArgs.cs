@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkGetArgs>? _customLinks;
@@ -51,6 +51,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("style")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionStyleGetArgs>? Style { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -63,5 +66,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionGetArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionGetArgs Empty => new DashboardWidgetHostmapDefinitionGetArgs();
     }
 }

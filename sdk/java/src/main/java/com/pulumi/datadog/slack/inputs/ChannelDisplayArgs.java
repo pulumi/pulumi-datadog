@@ -15,30 +15,62 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ChannelDisplayArgs Empty = new ChannelDisplayArgs();
 
+    /**
+     * Show the main body of the alert event.
+     * 
+     */
     @Import(name="message")
     private @Nullable Output<Boolean> message;
 
+    /**
+     * @return Show the main body of the alert event.
+     * 
+     */
     public Optional<Output<Boolean>> message() {
         return Optional.ofNullable(this.message);
     }
 
+    /**
+     * Show the list of @-handles in the alert event.
+     * 
+     */
     @Import(name="notified")
     private @Nullable Output<Boolean> notified;
 
+    /**
+     * @return Show the list of @-handles in the alert event.
+     * 
+     */
     public Optional<Output<Boolean>> notified() {
         return Optional.ofNullable(this.notified);
     }
 
+    /**
+     * Show the alert event&#39;s snapshot image.
+     * 
+     */
     @Import(name="snapshot")
     private @Nullable Output<Boolean> snapshot;
 
+    /**
+     * @return Show the alert event&#39;s snapshot image.
+     * 
+     */
     public Optional<Output<Boolean>> snapshot() {
         return Optional.ofNullable(this.snapshot);
     }
 
+    /**
+     * Show the scopes on which the monitor alerted.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Boolean> tags;
 
+    /**
+     * @return Show the scopes on which the monitor alerted.
+     * 
+     */
     public Optional<Output<Boolean>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,38 +102,86 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ChannelDisplayArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param message Show the main body of the alert event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder message(@Nullable Output<Boolean> message) {
             $.message = message;
             return this;
         }
 
+        /**
+         * @param message Show the main body of the alert event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder message(Boolean message) {
             return message(Output.of(message));
         }
 
+        /**
+         * @param notified Show the list of @-handles in the alert event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notified(@Nullable Output<Boolean> notified) {
             $.notified = notified;
             return this;
         }
 
+        /**
+         * @param notified Show the list of @-handles in the alert event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notified(Boolean notified) {
             return notified(Output.of(notified));
         }
 
+        /**
+         * @param snapshot Show the alert event&#39;s snapshot image.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshot(@Nullable Output<Boolean> snapshot) {
             $.snapshot = snapshot;
             return this;
         }
 
+        /**
+         * @param snapshot Show the alert event&#39;s snapshot image.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshot(Boolean snapshot) {
             return snapshot(Output.of(snapshot));
         }
 
+        /**
+         * @param tags Show the scopes on which the monitor alerted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Boolean> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Show the scopes on which the monitor alerted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Boolean tags) {
             return tags(Output.of(tags));
         }

@@ -13,770 +13,6 @@ import (
 
 // Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewDashboard(ctx, "orderedDashboard", &datadog.DashboardArgs{
-//				Description: pulumi.String("Created using the Datadog provider in Terraform"),
-//				IsReadOnly:  pulumi.Bool(true),
-//				LayoutType:  pulumi.String("ordered"),
-//				TemplateVariables: DashboardTemplateVariableArray{
-//					&DashboardTemplateVariableArgs{
-//						Default: pulumi.String("aws"),
-//						Name:    pulumi.String("var_1"),
-//						Prefix:  pulumi.String("host"),
-//					},
-//					&DashboardTemplateVariableArgs{
-//						Default: pulumi.String("autoscaling"),
-//						Name:    pulumi.String("var_2"),
-//						Prefix:  pulumi.String("service_name"),
-//					},
-//				},
-//				TemplateVariablePresets: DashboardTemplateVariablePresetArray{
-//					&DashboardTemplateVariablePresetArgs{
-//						Name: pulumi.String("preset_1"),
-//						TemplateVariables: DashboardTemplateVariablePresetTemplateVariableArray{
-//							&DashboardTemplateVariablePresetTemplateVariableArgs{
-//								Name:  pulumi.String("var_1"),
-//								Value: pulumi.String("host.dc"),
-//							},
-//							&DashboardTemplateVariablePresetTemplateVariableArgs{
-//								Name:  pulumi.String("var_2"),
-//								Value: pulumi.String("my_service"),
-//							},
-//						},
-//					},
-//				},
-//				Title: pulumi.String("Ordered Layout Dashboard"),
-//				Widgets: DashboardWidgetArray{
-//					&DashboardWidgetArgs{
-//						AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
-//							AlertId:  pulumi.String("895605"),
-//							LiveSpan: pulumi.String("1h"),
-//							Title:    pulumi.String("Widget Title"),
-//							VizType:  pulumi.String("timeseries"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						AlertValueDefinition: &DashboardWidgetAlertValueDefinitionArgs{
-//							AlertId:   pulumi.String("895605"),
-//							Precision: pulumi.Int(3),
-//							TextAlign: pulumi.String("center"),
-//							Title:     pulumi.String("Widget Title"),
-//							Unit:      pulumi.String("b"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						AlertValueDefinition: &DashboardWidgetAlertValueDefinitionArgs{
-//							AlertId:   pulumi.String("895605"),
-//							Precision: pulumi.Int(3),
-//							TextAlign: pulumi.String("center"),
-//							Title:     pulumi.String("Widget Title"),
-//							Unit:      pulumi.String("b"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ChangeDefinition: &DashboardWidgetChangeDefinitionArgs{
-//							LiveSpan: pulumi.String("1h"),
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"changeType":   "absolute",
-//									"compareTo":    "week_before",
-//									"increaseGood": true,
-//									"orderBy":      "name",
-//									"orderDir":     "desc",
-//									"q":            "avg:system.load.1{env:staging} by {account}",
-//									"showPresent":  true,
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						DistributionDefinition: &DashboardWidgetDistributionDefinitionArgs{
-//							LiveSpan: pulumi.String("1h"),
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"q": "avg:system.load.1{env:staging} by {account}",
-//									"style": map[string]interface{}{
-//										"palette": "warm",
-//									},
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						CheckStatusDefinition: &DashboardWidgetCheckStatusDefinitionArgs{
-//							Check: pulumi.String("aws.ecs.agent_connected"),
-//							GroupBy: []string{
-//								"account",
-//								"cluster",
-//							},
-//							Grouping: pulumi.String("cluster"),
-//							LiveSpan: pulumi.String("1h"),
-//							Tags: pulumi.StringArray{
-//								pulumi.String("account:demo"),
-//								pulumi.String("cluster:awseb-ruthebdog-env-8-dn3m6u3gvk"),
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						HeatmapDefinition: &DashboardWidgetHeatmapDefinitionArgs{
-//							LiveSpan: pulumi.String("1h"),
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"q": "avg:system.load.1{env:staging} by {account}",
-//									"style": map[string]interface{}{
-//										"palette": "warm",
-//									},
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//							Yaxis: &DashboardWidgetHeatmapDefinitionYaxisArgs{
-//								IncludeZero: pulumi.Bool(true),
-//								Max:         pulumi.String("2"),
-//								Min:         pulumi.String("1"),
-//								Scale:       pulumi.String("sqrt"),
-//							},
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						HostmapDefinition: &DashboardWidgetHostmapDefinitionArgs{
-//							Group: []string{
-//								"host",
-//								"region",
-//							},
-//							NoGroupHosts:  pulumi.Bool(true),
-//							NoMetricHosts: pulumi.Bool(true),
-//							NodeType:      pulumi.String("container"),
-//							Request: &DashboardWidgetHostmapDefinitionRequestArgs{
-//								Fill: []map[string]interface{}{
-//									map[string]interface{}{
-//										"q": "avg:system.load.1{*} by {host}",
-//									},
-//								},
-//								Size: []map[string]interface{}{
-//									map[string]interface{}{
-//										"q": "avg:memcache.uptime{*} by {host}",
-//									},
-//								},
-//							},
-//							Scope: []string{
-//								"region:us-east-1",
-//								"aws_account:727006795293",
-//							},
-//							Style: &DashboardWidgetHostmapDefinitionStyleArgs{
-//								FillMax:     pulumi.String("20"),
-//								FillMin:     pulumi.String("10"),
-//								Palette:     pulumi.String("yellow_to_green"),
-//								PaletteFlip: pulumi.Bool(true),
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						NoteDefinition: &DashboardWidgetNoteDefinitionArgs{
-//							BackgroundColor: pulumi.String("pink"),
-//							Content:         pulumi.String("note text"),
-//							FontSize:        pulumi.String("14"),
-//							ShowTick:        pulumi.Bool(true),
-//							TextAlign:       pulumi.String("center"),
-//							TickEdge:        pulumi.String("left"),
-//							TickPos:         pulumi.String(fmt.Sprintf("%v%v", "50", "%")),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						QueryValueDefinition: &DashboardWidgetQueryValueDefinitionArgs{
-//							Autoscale:  pulumi.Bool(true),
-//							CustomUnit: pulumi.String("xx"),
-//							LiveSpan:   pulumi.String("1h"),
-//							Precision:  pulumi.Int(4),
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"aggregator": "sum",
-//									"conditionalFormats": []map[string]interface{}{
-//										map[string]interface{}{
-//											"comparator": "<",
-//											"palette":    "white_on_green",
-//											"value":      "2",
-//										},
-//										map[string]interface{}{
-//											"comparator": ">",
-//											"palette":    "white_on_red",
-//											"value":      "2.2",
-//										},
-//									},
-//									"q": "avg:system.load.1{env:staging} by {account}",
-//								},
-//							},
-//							TextAlign: pulumi.String("right"),
-//							Title:     pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						QueryTableDefinition: &DashboardWidgetQueryTableDefinitionArgs{
-//							LiveSpan: pulumi.String("1h"),
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"aggregator": "sum",
-//									"conditionalFormats": []map[string]interface{}{
-//										map[string]interface{}{
-//											"comparator": "<",
-//											"palette":    "white_on_green",
-//											"value":      "2",
-//										},
-//										map[string]interface{}{
-//											"comparator": ">",
-//											"palette":    "white_on_red",
-//											"value":      "2.2",
-//										},
-//									},
-//									"limit": "10",
-//									"q":     "avg:system.load.1{env:staging} by {account}",
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ScatterplotDefinition: &DashboardWidgetScatterplotDefinitionArgs{
-//							ColorByGroups: pulumi.StringArray{
-//								pulumi.String("account"),
-//								pulumi.String("apm-role-group"),
-//							},
-//							LiveSpan: pulumi.String("1h"),
-//							Request: &DashboardWidgetScatterplotDefinitionRequestArgs{
-//								X: []map[string]interface{}{
-//									map[string]interface{}{
-//										"aggregator": "max",
-//										"q":          "avg:system.cpu.user{*} by {service, account}",
-//									},
-//								},
-//								Y: []map[string]interface{}{
-//									map[string]interface{}{
-//										"aggregator": "min",
-//										"q":          "avg:system.mem.used{*} by {service, account}",
-//									},
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//							Xaxis: &DashboardWidgetScatterplotDefinitionXaxisArgs{
-//								IncludeZero: pulumi.Bool(true),
-//								Label:       pulumi.String("x"),
-//								Max:         pulumi.String("2000"),
-//								Min:         pulumi.String("1"),
-//								Scale:       pulumi.String("pow"),
-//							},
-//							Yaxis: &DashboardWidgetScatterplotDefinitionYaxisArgs{
-//								IncludeZero: pulumi.Bool(false),
-//								Label:       pulumi.String("y"),
-//								Max:         pulumi.String("2222"),
-//								Min:         pulumi.String("5"),
-//								Scale:       pulumi.String("log"),
-//							},
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ServicemapDefinition: &DashboardWidgetServicemapDefinitionArgs{
-//							Filters: pulumi.StringArray{
-//								pulumi.String("env:prod"),
-//								pulumi.String("datacenter:dc1"),
-//							},
-//							Service:    pulumi.String("master-db"),
-//							Title:      pulumi.String("env: prod, datacenter:dc1, service: master-db"),
-//							TitleAlign: pulumi.String("left"),
-//							TitleSize:  pulumi.String("16"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
-//							Event: []map[string]interface{}{
-//								map[string]interface{}{
-//									"q": "sources:test tags:1",
-//								},
-//								map[string]interface{}{
-//									"q": "sources:test tags:2",
-//								},
-//							},
-//							LegendSize: pulumi.String("2"),
-//							LiveSpan:   pulumi.String("1h"),
-//							Marker: []map[string]interface{}{
-//								map[string]interface{}{
-//									"displayType": "error dashed",
-//									"label":       " z=6 ",
-//									"value":       "y = 4",
-//								},
-//								map[string]interface{}{
-//									"displayType": "ok solid",
-//									"label":       " x=8 ",
-//									"value":       "10 < y < 999",
-//								},
-//							},
-//							Request: []interface{}{
-//								map[string]interface{}{
-//									"displayType": "line",
-//									"metadata": []map[string]interface{}{
-//										map[string]interface{}{
-//											"aliasName":  "Alpha",
-//											"expression": "avg:system.cpu.user{app:general} by {env}",
-//										},
-//									},
-//									"q": "avg:system.cpu.user{app:general} by {env}",
-//									"style": map[string]interface{}{
-//										"lineType":  "dashed",
-//										"lineWidth": "thin",
-//										"palette":   "warm",
-//									},
-//								},
-//								map[string]interface{}{
-//									"displayType": "area",
-//									"logQuery": map[string]interface{}{
-//										"computeQuery": map[string]interface{}{
-//											"aggregation": "avg",
-//											"facet":       "@duration",
-//											"interval":    5000,
-//										},
-//										"groupBy": []map[string]interface{}{
-//											map[string]interface{}{
-//												"facet": "host",
-//												"limit": 10,
-//												"sortQuery": map[string]interface{}{
-//													"aggregation": "avg",
-//													"facet":       "@duration",
-//													"order":       "desc",
-//												},
-//											},
-//										},
-//										"index":       "mcnulty",
-//										"searchQuery": "status:info",
-//									},
-//								},
-//								map[string]interface{}{
-//									"apmQuery": map[string]interface{}{
-//										"computeQuery": map[string]interface{}{
-//											"aggregation": "avg",
-//											"facet":       "@duration",
-//											"interval":    5000,
-//										},
-//										"groupBy": []map[string]interface{}{
-//											map[string]interface{}{
-//												"facet": "resource_name",
-//												"limit": 50,
-//												"sortQuery": map[string]interface{}{
-//													"aggregation": "avg",
-//													"facet":       "@string_query.interval",
-//													"order":       "desc",
-//												},
-//											},
-//										},
-//										"index":       "apm-search",
-//										"searchQuery": "type:web",
-//									},
-//									"displayType": "bars",
-//								},
-//								map[string]interface{}{
-//									"displayType": "area",
-//									"processQuery": map[string]interface{}{
-//										"filterBy": []string{
-//											"active",
-//										},
-//										"limit":    50,
-//										"metric":   "process.stat.cpu.total_pct",
-//										"searchBy": "error",
-//									},
-//								},
-//							},
-//							ShowLegend: pulumi.Bool(true),
-//							Title:      pulumi.String("Widget Title"),
-//							Yaxis: &DashboardWidgetTimeseriesDefinitionYaxisArgs{
-//								IncludeZero: pulumi.Bool(false),
-//								Max:         pulumi.String("100"),
-//								Scale:       pulumi.String("log"),
-//							},
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ToplistDefinition: &DashboardWidgetToplistDefinitionArgs{
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"conditionalFormats": []map[string]interface{}{
-//										map[string]interface{}{
-//											"comparator": "<",
-//											"palette":    "white_on_green",
-//											"value":      "2",
-//										},
-//										map[string]interface{}{
-//											"comparator": ">",
-//											"palette":    "white_on_red",
-//											"value":      "2.2",
-//										},
-//									},
-//									"q": "avg:system.cpu.user{app:general} by {env}",
-//								},
-//							},
-//							Title: pulumi.String("Widget Title"),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						GroupDefinition: &DashboardWidgetGroupDefinitionArgs{
-//							LayoutType: pulumi.String("ordered"),
-//							Title:      pulumi.String("Group Widget"),
-//							Widget: []interface{}{
-//								map[string]interface{}{
-//									"noteDefinition": map[string]interface{}{
-//										"backgroundColor": "pink",
-//										"content":         "cluster note widget",
-//										"fontSize":        "14",
-//										"showTick":        true,
-//										"textAlign":       "center",
-//										"tickEdge":        "left",
-//										"tickPos":         fmt.Sprintf("%v%v", "50", "%"),
-//									},
-//								},
-//								map[string]interface{}{
-//									"alertGraphDefinition": map[string]interface{}{
-//										"alertId":  "123",
-//										"liveSpan": "1h",
-//										"title":    "Alert Graph",
-//										"vizType":  "toplist",
-//									},
-//								},
-//							},
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ServiceLevelObjectiveDefinition: &DashboardWidgetServiceLevelObjectiveDefinitionArgs{
-//							ShowErrorBudget: pulumi.Bool(true),
-//							SloId:           pulumi.String("56789"),
-//							TimeWindows: pulumi.StringArray{
-//								pulumi.String("7d"),
-//								pulumi.String("previous_week"),
-//							},
-//							Title:    pulumi.String("Widget Title"),
-//							ViewMode: pulumi.String("overall"),
-//							ViewType: pulumi.String("detail"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewDashboard(ctx, "freeDashboard", &datadog.DashboardArgs{
-//				Description: pulumi.String("Created using the Datadog provider in Terraform"),
-//				IsReadOnly:  pulumi.Bool(false),
-//				LayoutType:  pulumi.String("free"),
-//				TemplateVariables: DashboardTemplateVariableArray{
-//					&DashboardTemplateVariableArgs{
-//						Default: pulumi.String("aws"),
-//						Name:    pulumi.String("var_1"),
-//						Prefix:  pulumi.String("host"),
-//					},
-//					&DashboardTemplateVariableArgs{
-//						Default: pulumi.String("autoscaling"),
-//						Name:    pulumi.String("var_2"),
-//						Prefix:  pulumi.String("service_name"),
-//					},
-//				},
-//				TemplateVariablePresets: DashboardTemplateVariablePresetArray{
-//					&DashboardTemplateVariablePresetArgs{
-//						Name: pulumi.String("preset_1"),
-//						TemplateVariables: DashboardTemplateVariablePresetTemplateVariableArray{
-//							&DashboardTemplateVariablePresetTemplateVariableArgs{
-//								Name:  pulumi.String("var_1"),
-//								Value: pulumi.String("host.dc"),
-//							},
-//							&DashboardTemplateVariablePresetTemplateVariableArgs{
-//								Name:  pulumi.String("var_2"),
-//								Value: pulumi.String("my_service"),
-//							},
-//						},
-//					},
-//				},
-//				Title: pulumi.String("Free Layout Dashboard"),
-//				Widgets: DashboardWidgetArray{
-//					&DashboardWidgetArgs{
-//						EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
-//							EventSize:  pulumi.String("l"),
-//							LiveSpan:   pulumi.String("1h"),
-//							Query:      pulumi.String("*"),
-//							Title:      pulumi.String("Widget Title"),
-//							TitleAlign: pulumi.String("left"),
-//							TitleSize:  pulumi.String("16"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(43),
-//							Width:  pulumi.Int(32),
-//							X:      pulumi.Int(0),
-//							Y:      pulumi.Int(0),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						EventTimelineDefinition: &DashboardWidgetEventTimelineDefinitionArgs{
-//							LiveSpan:   pulumi.String("1h"),
-//							Query:      pulumi.String("*"),
-//							Title:      pulumi.String("Widget Title"),
-//							TitleAlign: pulumi.String("left"),
-//							TitleSize:  pulumi.String("16"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(9),
-//							Width:  pulumi.Int(66),
-//							X:      pulumi.Int(33),
-//							Y:      pulumi.Int(60),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						FreeTextDefinition: &DashboardWidgetFreeTextDefinitionArgs{
-//							Color:     pulumi.String("#d00"),
-//							FontSize:  pulumi.String("36"),
-//							Text:      pulumi.String("free text content"),
-//							TextAlign: pulumi.String("left"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(20),
-//							Width:  pulumi.Int(34),
-//							X:      pulumi.Int(33),
-//							Y:      pulumi.Int(0),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						IframeDefinition: &DashboardWidgetIframeDefinitionArgs{
-//							Url: pulumi.String("http://google.com"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(46),
-//							Width:  pulumi.Int(39),
-//							X:      pulumi.Int(101),
-//							Y:      pulumi.Int(0),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ImageDefinition: &DashboardWidgetImageDefinitionArgs{
-//							Margin: pulumi.String("small"),
-//							Sizing: pulumi.String("fit"),
-//							Url:    pulumi.String("https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(20),
-//							Width:  pulumi.Int(30),
-//							X:      pulumi.Int(69),
-//							Y:      pulumi.Int(0),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						LogStreamDefinition: &DashboardWidgetLogStreamDefinitionArgs{
-//							Columns: pulumi.StringArray{
-//								pulumi.String("core_host"),
-//								pulumi.String("core_service"),
-//								pulumi.String("tag_source"),
-//							},
-//							Indexes: pulumi.StringArray{
-//								pulumi.String("main"),
-//							},
-//							MessageDisplay:    pulumi.String("expanded-md"),
-//							Query:             pulumi.String("error"),
-//							ShowDateColumn:    pulumi.Bool(true),
-//							ShowMessageColumn: pulumi.Bool(true),
-//							Sort: &DashboardWidgetLogStreamDefinitionSortArgs{
-//								Column: pulumi.String("time"),
-//								Order:  pulumi.String("desc"),
-//							},
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(36),
-//							Width:  pulumi.Int(32),
-//							X:      pulumi.Int(0),
-//							Y:      pulumi.Int(45),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						ManageStatusDefinition: &DashboardWidgetManageStatusDefinitionArgs{
-//							ColorPreference:   pulumi.String("text"),
-//							DisplayFormat:     pulumi.String("countsAndList"),
-//							HideZeroCounts:    pulumi.Bool(true),
-//							Query:             pulumi.String("type:metric"),
-//							ShowLastTriggered: pulumi.Bool(false),
-//							Sort:              pulumi.String("status,asc"),
-//							SummaryType:       pulumi.String("monitors"),
-//							Title:             pulumi.String("Widget Title"),
-//							TitleAlign:        pulumi.String("left"),
-//							TitleSize:         pulumi.String("16"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(40),
-//							Width:  pulumi.Int(30),
-//							X:      pulumi.Int(101),
-//							Y:      pulumi.Int(48),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						TraceServiceDefinition: &DashboardWidgetTraceServiceDefinitionArgs{
-//							DisplayFormat:    pulumi.String("three_column"),
-//							Env:              pulumi.String("datadog.com"),
-//							LiveSpan:         pulumi.String("1h"),
-//							Service:          pulumi.String("alerting-cassandra"),
-//							ShowBreakdown:    pulumi.Bool(true),
-//							ShowDistribution: pulumi.Bool(true),
-//							ShowErrors:       pulumi.Bool(true),
-//							ShowHits:         pulumi.Bool(true),
-//							ShowLatency:      pulumi.Bool(false),
-//							ShowResourceList: pulumi.Bool(false),
-//							SizeFormat:       pulumi.String("large"),
-//							SpanName:         pulumi.String("cassandra.query"),
-//							Title:            pulumi.String("alerting-cassandra #env:datadog.com"),
-//							TitleAlign:       pulumi.String("center"),
-//							TitleSize:        pulumi.String("13"),
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(38),
-//							Width:  pulumi.Int(66),
-//							X:      pulumi.Int(33),
-//							Y:      pulumi.Int(21),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"formula": []map[string]interface{}{
-//										map[string]interface{}{
-//											"alias":             "my ff query",
-//											"formulaExpression": "my_query_1 + my_query_2",
-//										},
-//										map[string]interface{}{
-//											"alias":             "my second ff query",
-//											"formulaExpression": "my_query_1 * my_query_2",
-//											"limit": map[string]interface{}{
-//												"count": 5,
-//												"order": "desc",
-//											},
-//										},
-//									},
-//									"query": []interface{}{
-//										map[string]interface{}{
-//											"metricQuery": map[string]interface{}{
-//												"aggregator": "sum",
-//												"dataSource": "metrics",
-//												"name":       "my_query_1",
-//												"query":      "avg:system.cpu.user{app:general} by {env}",
-//											},
-//										},
-//										map[string]interface{}{
-//											"metricQuery": map[string]interface{}{
-//												"aggregator": "sum",
-//												"name":       "my_query_2",
-//												"query":      "avg:system.cpu.user{app:general} by {env}",
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(16),
-//							Width:  pulumi.Int(25),
-//							X:      pulumi.Int(58),
-//							Y:      pulumi.Int(83),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"query": []map[string]interface{}{
-//										map[string]interface{}{
-//											"eventQuery": map[string]interface{}{
-//												"compute": []map[string]interface{}{
-//													map[string]interface{}{
-//														"aggregation": "count",
-//													},
-//												},
-//												"dataSource": "logs",
-//												"groupBy": []map[string]interface{}{
-//													map[string]interface{}{
-//														"facet": "host",
-//														"limit": 10,
-//														"sort": map[string]interface{}{
-//															"aggregation": "avg",
-//															"metric":      "@lambda.max_memory_used",
-//														},
-//													},
-//												},
-//												"indexes": []string{
-//													"days-3",
-//												},
-//												"name": "my-query",
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(16),
-//							Width:  pulumi.Int(28),
-//							X:      pulumi.Int(29),
-//							Y:      pulumi.Int(83),
-//						},
-//					},
-//					&DashboardWidgetArgs{
-//						TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
-//							Request: []map[string]interface{}{
-//								map[string]interface{}{
-//									"query": []map[string]interface{}{
-//										map[string]interface{}{
-//											"processQuery": map[string]interface{}{
-//												"aggregator":      "sum",
-//												"dataSource":      "process",
-//												"isNormalizedCpu": true,
-//												"limit":           10,
-//												"metric":          "process.stat.cpu.total_pct",
-//												"name":            "my_process_query",
-//												"sort":            "asc",
-//												"tagFilters": []string{
-//													"some_filter",
-//												},
-//												"textFilter": "abc",
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
-//							Height: pulumi.Int(16),
-//							Width:  pulumi.Int(28),
-//							X:      pulumi.Int(0),
-//							Y:      pulumi.Int(83),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -793,16 +29,15 @@ type Dashboard struct {
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
-	// The layout type of the dashboard.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
@@ -859,16 +94,15 @@ type dashboardState struct {
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
@@ -891,16 +125,15 @@ type DashboardState struct {
 	DashboardListsRemoveds pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringPtrInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
@@ -925,16 +158,15 @@ type dashboardArgs struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
@@ -956,16 +188,15 @@ type DashboardArgs struct {
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-	// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
@@ -1083,14 +314,14 @@ func (o DashboardOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether this dashboard is read-only.
+// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 //
 // Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 func (o DashboardOutput) IsReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.BoolPtrOutput { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The layout type of the dashboard.
+// The layout type of the dashboard. Valid values are `ordered`, `free`.
 func (o DashboardOutput) LayoutType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LayoutType }).(pulumi.StringOutput)
 }
@@ -1100,8 +331,7 @@ func (o DashboardOutput) NotifyLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.NotifyLists }).(pulumi.StringArrayOutput)
 }
 
-// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-// expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts.
+// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 func (o DashboardOutput) ReflowType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ReflowType }).(pulumi.StringPtrOutput)
 }

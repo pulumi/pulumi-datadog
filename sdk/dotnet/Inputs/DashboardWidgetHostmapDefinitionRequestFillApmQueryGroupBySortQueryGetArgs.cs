@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryGetArgs()
         {
         }
+        public static new DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryGetArgs Empty => new DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryGetArgs();
     }
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,9 +16,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog Child Organization
- * const organization = new datadog.ChildOrganization("organization", {
- *     name: "foo-organization",
- * });
+ * const organization = new datadog.ChildOrganization("organization", {name: "foo-organization"});
  * ```
  */
 export class ChildOrganization extends pulumi.CustomResource {
@@ -65,7 +64,7 @@ export class ChildOrganization extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      */
     public /*out*/ readonly publicId!: pulumi.Output<string>;
     /**
@@ -136,7 +135,7 @@ export interface ChildOrganizationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `public_id` of the organization you are operating within.
+     * The `publicId` of the organization you are operating within.
      */
     publicId?: pulumi.Input<string>;
     /**

@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     private String alertId;
     private @Nullable String liveSpan;
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     private @Nullable String title;
     private @Nullable String titleAlign;
     private @Nullable String titleSize;
@@ -25,6 +29,10 @@ public final class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
+    /**
+     * @return The title of the dashboard.
+     * 
+     */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }

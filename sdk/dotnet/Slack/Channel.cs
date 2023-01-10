@@ -15,40 +15,38 @@ namespace Pulumi.Datadog.Slack
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testChannel = new Datadog.Slack.Channel("testChannel", new()
     ///     {
-    ///         var testChannel = new Datadog.Slack.Channel("testChannel", new Datadog.Slack.ChannelArgs
+    ///         AccountName = "foo",
+    ///         ChannelName = "#test_channel",
+    ///         Display = new Datadog.Slack.Inputs.ChannelDisplayArgs
     ///         {
-    ///             AccountName = "foo",
-    ///             ChannelName = "#test_channel",
-    ///             Display = new Datadog.Slack.Inputs.ChannelDisplayArgs
-    ///             {
-    ///                 Message = true,
-    ///                 Notified = false,
-    ///                 Snapshot = false,
-    ///                 Tags = true,
-    ///             },
-    ///         });
-    ///     }
+    ///             Message = true,
+    ///             Notified = false,
+    ///             Snapshot = false,
+    ///             Tags = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+    /// Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
     /// 
     /// ```sh
     ///  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:slack/channel:Channel")]
-    public partial class Channel : Pulumi.CustomResource
+    public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Slack account name.
@@ -112,7 +110,7 @@ namespace Pulumi.Datadog.Slack
         }
     }
 
-    public sealed class ChannelArgs : Pulumi.ResourceArgs
+    public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Slack account name.
@@ -135,9 +133,10 @@ namespace Pulumi.Datadog.Slack
         public ChannelArgs()
         {
         }
+        public static new ChannelArgs Empty => new ChannelArgs();
     }
 
-    public sealed class ChannelState : Pulumi.ResourceArgs
+    public sealed class ChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Slack account name.
@@ -160,5 +159,6 @@ namespace Pulumi.Datadog.Slack
         public ChannelState()
         {
         }
+        public static new ChannelState Empty => new ChannelState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("failTestOnCannotLocate")]
         public Input<bool>? FailTestOnCannotLocate { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Datadog.Inputs
         public SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs()
         {
         }
+        public static new SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs Empty => new SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs();
     }
 }

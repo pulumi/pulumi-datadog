@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetTimeseriesDefinitionYaxisArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetTimeseriesDefinitionYaxisArgs : global::Pulumi.ResourceArgs
     {
         [Input("includeZero")]
         public Input<bool>? IncludeZero { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetTimeseriesDefinitionYaxisArgs()
         {
         }
+        public static new DashboardWidgetTimeseriesDefinitionYaxisArgs Empty => new DashboardWidgetTimeseriesDefinitionYaxisArgs();
     }
 }

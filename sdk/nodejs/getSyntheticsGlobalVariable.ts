@@ -8,11 +8,8 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
  */
 export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsGlobalVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", {
         "name": args.name,
     }, opts);
@@ -22,6 +19,9 @@ export function getSyntheticsGlobalVariable(args: GetSyntheticsGlobalVariableArg
  * A collection of arguments for invoking getSyntheticsGlobalVariable.
  */
 export interface GetSyntheticsGlobalVariableArgs {
+    /**
+     * The synthetics global variable name to search for. Must only match one global variable.
+     */
     name: string;
 }
 
@@ -33,17 +33,28 @@ export interface GetSyntheticsGlobalVariableResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The synthetics global variable name to search for. Must only match one global variable.
+     */
     readonly name: string;
+    /**
+     * A list of tags assigned to the Synthetics global variable.
+     */
     readonly tags: string[];
 }
-
+/**
+ * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
+ */
 export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsGlobalVariableResult> {
-    return pulumi.output(args).apply(a => getSyntheticsGlobalVariable(a, opts))
+    return pulumi.output(args).apply((a: any) => getSyntheticsGlobalVariable(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getSyntheticsGlobalVariable.
  */
 export interface GetSyntheticsGlobalVariableOutputArgs {
+    /**
+     * The synthetics global variable name to search for. Must only match one global variable.
+     */
     name: pulumi.Input<string>;
 }

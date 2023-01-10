@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * # Google Cloud Platform integrations can be imported using their project ID, e.g.
+ * Google Cloud Platform integrations can be imported using their project ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -56,8 +56,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
     /**
@@ -114,11 +113,13 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -140,8 +141,7 @@ export interface IntegrationState {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     hostFilters?: pulumi.Input<string>;
     /**
@@ -175,8 +175,7 @@ export interface IntegrationArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     hostFilters?: pulumi.Input<string>;
     /**

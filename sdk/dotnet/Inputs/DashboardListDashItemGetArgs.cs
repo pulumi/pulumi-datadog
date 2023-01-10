@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardListDashItemGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardListDashItemGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the dashboard to add
+        /// </summary>
         [Input("dashId", required: true)]
         public Input<string> DashId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public DashboardListDashItemGetArgs()
         {
         }
+        public static new DashboardListDashItemGetArgs Empty => new DashboardListDashItemGetArgs();
     }
 }

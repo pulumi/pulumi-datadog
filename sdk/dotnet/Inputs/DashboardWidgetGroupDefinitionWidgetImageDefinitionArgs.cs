@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("hasBackground")]
         public Input<bool>? HasBackground { get; set; }
@@ -27,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("sizing")]
         public Input<string>? Sizing { get; set; }
 
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -39,5 +42,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs()
         {
         }
+        public static new DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs Empty => new DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs();
     }
 }

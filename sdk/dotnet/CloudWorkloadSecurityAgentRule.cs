@@ -15,35 +15,33 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myAgentRule = new Datadog.CloudWorkloadSecurityAgentRule("myAgentRule", new()
     ///     {
-    ///         var myAgentRule = new Datadog.CloudWorkloadSecurityAgentRule("myAgentRule", new Datadog.CloudWorkloadSecurityAgentRuleArgs
-    ///         {
-    ///             Description = "My agent rule",
-    ///             Enabled = true,
-    ///             Expression = "exec.file.name == \"java\"",
-    ///             Name = "my_agent_rule",
-    ///         });
-    ///     }
+    ///         Description = "My agent rule",
+    ///         Enabled = true,
+    ///         Expression = "exec.file.name == \"java\"",
+    ///         Name = "my_agent_rule",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Cloud Workload Security Agent rules can be imported using ID, e.g.
+    /// Cloud Workload Security Agent rules can be imported using ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule")]
-    public partial class CloudWorkloadSecurityAgentRule : Pulumi.CustomResource
+    public partial class CloudWorkloadSecurityAgentRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the Agent rule.
@@ -113,7 +111,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class CloudWorkloadSecurityAgentRuleArgs : Pulumi.ResourceArgs
+    public sealed class CloudWorkloadSecurityAgentRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Agent rule.
@@ -142,9 +140,10 @@ namespace Pulumi.Datadog
         public CloudWorkloadSecurityAgentRuleArgs()
         {
         }
+        public static new CloudWorkloadSecurityAgentRuleArgs Empty => new CloudWorkloadSecurityAgentRuleArgs();
     }
 
-    public sealed class CloudWorkloadSecurityAgentRuleState : Pulumi.ResourceArgs
+    public sealed class CloudWorkloadSecurityAgentRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Agent rule.
@@ -173,5 +172,6 @@ namespace Pulumi.Datadog
         public CloudWorkloadSecurityAgentRuleState()
         {
         }
+        public static new CloudWorkloadSecurityAgentRuleState Empty => new CloudWorkloadSecurityAgentRuleState();
     }
 }

@@ -15,31 +15,42 @@ namespace Pulumi.Datadog
         /// Use this data source to list several existing monitors for use in other resources.
         /// </summary>
         public static Task<GetMonitorsResult> InvokeAsync(GetMonitorsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to list several existing monitors for use in other resources.
         /// </summary>
         public static Output<GetMonitorsResult> Invoke(GetMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetMonitorsArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorsArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorTagsFilters")]
         private List<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public List<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new List<string>());
             set => _monitorTagsFilters = value;
         }
 
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private List<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public List<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new List<string>());
@@ -49,23 +60,35 @@ namespace Pulumi.Datadog
         public GetMonitorsArgs()
         {
         }
+        public static new GetMonitorsArgs Empty => new GetMonitorsArgs();
     }
 
-    public sealed class GetMonitorsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("monitorTagsFilters")]
         private InputList<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public InputList<string> MonitorTagsFilters
         {
             get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
             set => _monitorTagsFilters = value;
         }
 
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         [Input("tagsFilters")]
         private InputList<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public InputList<string> TagsFilters
         {
             get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
@@ -75,6 +98,7 @@ namespace Pulumi.Datadog
         public GetMonitorsInvokeArgs()
         {
         }
+        public static new GetMonitorsInvokeArgs Empty => new GetMonitorsInvokeArgs();
     }
 
 
@@ -85,9 +109,21 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
         public readonly ImmutableArray<string> MonitorTagsFilters;
+        /// <summary>
+        /// List of monitors
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorsMonitorResult> Monitors;
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
         public readonly string? NameFilter;
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
 
         [OutputConstructor]

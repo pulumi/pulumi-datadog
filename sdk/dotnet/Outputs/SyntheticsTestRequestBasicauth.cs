@@ -13,20 +13,86 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestRequestBasicauth
     {
+        /// <summary>
+        /// Access key for `SIGV4` authentication.
+        /// </summary>
         public readonly string? AccessKey;
+        /// <summary>
+        /// Access token url for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? AccessTokenUrl;
+        /// <summary>
+        /// Audience for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? Audience;
+        /// <summary>
+        /// Client ID for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? ClientId;
+        /// <summary>
+        /// Client secret for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? ClientSecret;
+        /// <summary>
+        /// Domain for `ntlm` authentication.
+        /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// Password for authentication.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// Region for `SIGV4` authentication.
+        /// </summary>
         public readonly string? Region;
+        /// <summary>
+        /// Resource for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? Resource;
+        /// <summary>
+        /// Scope for `oauth-client` or `oauth-rop` authentication.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
+        /// Secret key for `SIGV4` authentication.
+        /// </summary>
         public readonly string? SecretKey;
+        /// <summary>
+        /// Service name for `SIGV4` authentication.
+        /// </summary>
         public readonly string? ServiceName;
+        /// <summary>
+        /// Session token for `SIGV4` authentication.
+        /// </summary>
         public readonly string? SessionToken;
+        /// <summary>
+        /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        /// </summary>
+        public readonly string? TokenApiAuthentication;
+        /// <summary>
+        /// Type of basic authentication to use when performing the test.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Username for authentication.
+        /// </summary>
         public readonly string? Username;
+        /// <summary>
+        /// Workstation for `ntlm` authentication.
+        /// </summary>
         public readonly string? Workstation;
 
         [OutputConstructor]
         private SyntheticsTestRequestBasicauth(
             string? accessKey,
+
+            string? accessTokenUrl,
+
+            string? audience,
+
+            string? clientId,
+
+            string? clientSecret,
 
             string? domain,
 
@@ -34,11 +100,17 @@ namespace Pulumi.Datadog.Outputs
 
             string? region,
 
+            string? resource,
+
+            string? scope,
+
             string? secretKey,
 
             string? serviceName,
 
             string? sessionToken,
+
+            string? tokenApiAuthentication,
 
             string? type,
 
@@ -47,12 +119,19 @@ namespace Pulumi.Datadog.Outputs
             string? workstation)
         {
             AccessKey = accessKey;
+            AccessTokenUrl = accessTokenUrl;
+            Audience = audience;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             Domain = domain;
             Password = password;
             Region = region;
+            Resource = resource;
+            Scope = scope;
             SecretKey = secretKey;
             ServiceName = serviceName;
             SessionToken = sessionToken;
+            TokenApiAuthentication = tokenApiAuthentication;
             Type = type;
             Username = username;
             Workstation = workstation;

@@ -34,14 +34,14 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The filtered data type.
+     * The filtered data type. Valid values are `logs`.
      * 
      */
     @Import(name="filteredDataType")
     private @Nullable Output<String> filteredDataType;
 
     /**
-     * @return The filtered data type.
+     * @return The filtered data type. Valid values are `logs`.
      * 
      */
     public Optional<Output<String>> filteredDataType() {
@@ -153,7 +153,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param filteredDataType The filtered data type.
+         * @param filteredDataType The filtered data type. Valid values are `logs`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param filteredDataType The filtered data type.
+         * @param filteredDataType The filtered data type. Valid values are `logs`.
          * 
          * @return builder
          * 

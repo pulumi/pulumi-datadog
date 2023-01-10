@@ -15,6 +15,10 @@ public final class GetPermissionsResult {
      * 
      */
     private String id;
+    /**
+     * @return Map of permissions names to their corresponding ID.
+     * 
+     */
     private Map<String,String> permissions;
 
     private GetPermissionsResult() {}
@@ -25,6 +29,10 @@ public final class GetPermissionsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Map of permissions names to their corresponding ID.
+     * 
+     */
     public Map<String,String> permissions() {
         return this.permissions;
     }

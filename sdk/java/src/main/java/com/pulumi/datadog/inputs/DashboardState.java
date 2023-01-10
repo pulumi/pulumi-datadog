@@ -67,7 +67,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -78,7 +78,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only.
+     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -90,14 +90,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The layout type of the dashboard.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      * 
      */
     @Import(name="layoutType")
     private @Nullable Output<String> layoutType;
 
     /**
-     * @return The layout type of the dashboard.
+     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
      * 
      */
     public Optional<Output<String>> layoutType() {
@@ -120,16 +120,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      * 
      */
     @Import(name="reflowType")
     private @Nullable Output<String> reflowType;
 
     /**
-     * @return The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-     * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+     * @return The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      * 
      */
     public Optional<Output<String>> reflowType() {
@@ -346,7 +344,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
          * 
          * @return builder
          * 
@@ -361,7 +359,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
          * 
          * @return builder
          * 
@@ -375,7 +373,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layoutType The layout type of the dashboard.
+         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
          * 
          * @return builder
          * 
@@ -386,7 +384,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layoutType The layout type of the dashboard.
+         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
          * 
          * @return builder
          * 
@@ -427,8 +425,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reflowType The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-         * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+         * @param reflowType The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
          * 
          * @return builder
          * 
@@ -439,8 +436,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reflowType The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard
-         * expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts.
+         * @param reflowType The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
          * 
          * @return builder
          * 

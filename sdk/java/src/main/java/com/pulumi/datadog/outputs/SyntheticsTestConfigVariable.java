@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestConfigVariable {
+    /**
+     * @return Example for the variable.
+     * 
+     */
     private @Nullable String example;
+    /**
+     * @return When type = `global`, ID of the global variable to use.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return Name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return Pattern of the variable.
+     * 
+     */
     private @Nullable String pattern;
+    /**
+     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * 
+     */
     private String type;
 
     private SyntheticsTestConfigVariable() {}
+    /**
+     * @return Example for the variable.
+     * 
+     */
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
+    /**
+     * @return When type = `global`, ID of the global variable to use.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Pattern of the variable.
+     * 
+     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
+    /**
+     * @return Type of test configuration variable. Valid values are `global`, `text`.
+     * 
+     */
     public String type() {
         return this.type;
     }

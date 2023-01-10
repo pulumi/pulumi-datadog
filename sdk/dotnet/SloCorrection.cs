@@ -15,60 +15,60 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
+    ///     var exampleSlo = new Datadog.ServiceLevelObjective("exampleSlo", new()
     ///     {
-    ///         // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-    ///         var exampleSlo = new Datadog.ServiceLevelObjective("exampleSlo", new Datadog.ServiceLevelObjectiveArgs
+    ///         Name = "example slo",
+    ///         Type = "metric",
+    ///         Description = "some updated description about example_slo SLO",
+    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
     ///         {
-    ///             Name = "example slo",
-    ///             Type = "metric",
-    ///             Description = "some updated description about example_slo SLO",
-    ///             Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
-    ///             {
-    ///                 Numerator = "sum:my.metric{type:good}.as_count()",
-    ///                 Denominator = "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-    ///             },
-    ///             Thresholds = 
-    ///             {
-    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///                 {
-    ///                     Timeframe = "7d",
-    ///                     Target = 99.5,
-    ///                     Warning = 99.8,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///             },
-    ///         });
-    ///         var exampleSloCorrection = new Datadog.SloCorrection("exampleSloCorrection", new Datadog.SloCorrectionArgs
+    ///             Numerator = "sum:my.metric{type:good}.as_count()",
+    ///             Denominator = "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+    ///         },
+    ///         Thresholds = new[]
     ///         {
-    ///             Category = "Scheduled Maintenance",
-    ///             Description = "correction example",
-    ///             Start = 1735707000,
-    ///             End = 1735718600,
-    ///             SloId = exampleSlo.Id,
-    ///             Timezone = "UTC",
-    ///         });
-    ///         var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new Datadog.SloCorrectionArgs
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "7d",
+    ///                 Target = 99.5,
+    ///                 Warning = 99.8,
+    ///             },
+    ///         },
+    ///         Tags = new[]
     ///         {
-    ///             Category = "Scheduled Maintenance",
-    ///             Description = "correction example with recurrence",
-    ///             Start = 1735707000,
-    ///             Rrule = "FREQ=DAILY;INTERVAL=3;COUNT=3",
-    ///             Duration = 3600,
-    ///             SloId = exampleSlo.Id,
-    ///             Timezone = "UTC",
-    ///         });
-    ///     }
+    ///             "foo:bar",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSloCorrection = new Datadog.SloCorrection("exampleSloCorrection", new()
+    ///     {
+    ///         Category = "Scheduled Maintenance",
+    ///         Description = "correction example",
+    ///         Start = 1735707000,
+    ///         End = 1735718600,
+    ///         SloId = exampleSlo.Id,
+    ///         Timezone = "UTC",
+    ///     });
+    /// 
+    ///     var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new()
+    ///     {
+    ///         Category = "Scheduled Maintenance",
+    ///         Description = "correction example with recurrence",
+    ///         Start = 1735707000,
+    ///         Rrule = "FREQ=DAILY;INTERVAL=3;COUNT=3",
+    ///         Duration = 3600,
+    ///         SloId = exampleSlo.Id,
+    ///         Timezone = "UTC",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,10 +78,10 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/sloCorrection:SloCorrection")]
-    public partial class SloCorrection : Pulumi.CustomResource
+    public partial class SloCorrection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Category the SLO correction belongs to.
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
@@ -105,8 +105,7 @@ namespace Pulumi.Datadog
         public Output<int?> End { get; private set; } = null!;
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-        /// `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Output("rrule")]
         public Output<string?> Rrule { get; private set; } = null!;
@@ -173,10 +172,10 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SloCorrectionArgs : Pulumi.ResourceArgs
+    public sealed class SloCorrectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to.
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -200,8 +199,7 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-        /// `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }
@@ -227,12 +225,13 @@ namespace Pulumi.Datadog
         public SloCorrectionArgs()
         {
         }
+        public static new SloCorrectionArgs Empty => new SloCorrectionArgs();
     }
 
-    public sealed class SloCorrectionState : Pulumi.ResourceArgs
+    public sealed class SloCorrectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to.
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -256,8 +255,7 @@ namespace Pulumi.Datadog
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`,
-        /// `COUNT` and `UNTIL`.
+        /// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         /// </summary>
         [Input("rrule")]
         public Input<string>? Rrule { get; set; }
@@ -283,5 +281,6 @@ namespace Pulumi.Datadog
         public SloCorrectionState()
         {
         }
+        public static new SloCorrectionState Empty => new SloCorrectionState();
     }
 }

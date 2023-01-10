@@ -15,39 +15,37 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("testVariable", new()
     ///     {
-    ///         var testVariable = new Datadog.SyntheticsGlobalVariable("testVariable", new Datadog.SyntheticsGlobalVariableArgs
+    ///         Description = "Description of the variable",
+    ///         Name = "EXAMPLE_VARIABLE",
+    ///         Tags = new[]
     ///         {
-    ///             Description = "Description of the variable",
-    ///             Name = "EXAMPLE_VARIABLE",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "env:test",
-    ///             },
-    ///             Value = "variable-value",
-    ///         });
-    ///     }
+    ///             "foo:bar",
+    ///             "env:test",
+    ///         },
+    ///         Value = "variable-value",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// # Synthetics global variables can be imported using their string ID, e.g.
+    /// Synthetics global variables can be imported using their string ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable")]
-    public partial class SyntheticsGlobalVariable : Pulumi.CustomResource
+    public partial class SyntheticsGlobalVariable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the global variable.
@@ -120,6 +118,10 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -141,7 +143,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class SyntheticsGlobalVariableArgs : Pulumi.ResourceArgs
+    public sealed class SyntheticsGlobalVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the global variable.
@@ -197,18 +199,29 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of the global variable.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public SyntheticsGlobalVariableArgs()
         {
         }
+        public static new SyntheticsGlobalVariableArgs Empty => new SyntheticsGlobalVariableArgs();
     }
 
-    public sealed class SyntheticsGlobalVariableState : Pulumi.ResourceArgs
+    public sealed class SyntheticsGlobalVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the global variable.
@@ -264,14 +277,25 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of the global variable.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public SyntheticsGlobalVariableState()
         {
         }
+        public static new SyntheticsGlobalVariableState Empty => new SyntheticsGlobalVariableState();
     }
 }

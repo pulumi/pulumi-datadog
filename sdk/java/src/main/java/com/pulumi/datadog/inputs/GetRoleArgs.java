@@ -13,9 +13,17 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRoleArgs Empty = new GetRoleArgs();
 
+    /**
+     * A string on which to filter the roles.
+     * 
+     */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
+    /**
+     * @return A string on which to filter the roles.
+     * 
+     */
     public Output<String> filter() {
         return this.filter;
     }
@@ -44,11 +52,23 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRoleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filter A string on which to filter the roles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(Output<String> filter) {
             $.filter = filter;
             return this;
         }
 
+        /**
+         * @param filter A string on which to filter the roles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(String filter) {
             return filter(Output.of(filter));
         }

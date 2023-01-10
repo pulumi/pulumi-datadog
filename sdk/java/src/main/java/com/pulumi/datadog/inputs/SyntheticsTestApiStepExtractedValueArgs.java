@@ -23,9 +23,17 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         return Optional.ofNullable(this.field);
     }
 
+    /**
+     * Name of Datadog synthetics test.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of Datadog synthetics test.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -37,9 +45,17 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         return this.parser;
     }
 
+    /**
+     * Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -80,11 +96,23 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
             return field(Output.of(field));
         }
 
+        /**
+         * @param name Name of Datadog synthetics test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of Datadog synthetics test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -98,11 +126,23 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
             return parser(Output.of(parser));
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

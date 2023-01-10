@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,13 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
         return Optional.ofNullable(this.limit);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs $) {
@@ -61,6 +69,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -128,6 +137,15 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
 
         public Builder limit(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs build() {

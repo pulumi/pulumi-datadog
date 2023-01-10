@@ -22,14 +22,17 @@ func LookupSyntheticsGlobalVariable(ctx *pulumi.Context, args *LookupSyntheticsG
 
 // A collection of arguments for invoking getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableArgs struct {
+	// The synthetics global variable name to search for. Must only match one global variable.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string   `pulumi:"id"`
-	Name string   `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The synthetics global variable name to search for. Must only match one global variable.
+	Name string `pulumi:"name"`
+	// A list of tags assigned to the Synthetics global variable.
 	Tags []string `pulumi:"tags"`
 }
 
@@ -48,6 +51,7 @@ func LookupSyntheticsGlobalVariableOutput(ctx *pulumi.Context, args LookupSynthe
 
 // A collection of arguments for invoking getSyntheticsGlobalVariable.
 type LookupSyntheticsGlobalVariableOutputArgs struct {
+	// The synthetics global variable name to search for. Must only match one global variable.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -75,10 +79,12 @@ func (o LookupSyntheticsGlobalVariableResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The synthetics global variable name to search for. Must only match one global variable.
 func (o LookupSyntheticsGlobalVariableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of tags assigned to the Synthetics global variable.
 func (o LookupSyntheticsGlobalVariableResultOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }

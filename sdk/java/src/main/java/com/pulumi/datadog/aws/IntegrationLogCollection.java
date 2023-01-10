@@ -21,10 +21,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.aws.IntegrationLogCollection;
+ * import com.pulumi.datadog.aws.IntegrationLogCollectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Amazon Web Services log collection integrations can be imported using the `account ID`.
+ * Amazon Web Services log collection integrations can be imported using the `account ID`.
  * 
  * ```sh
  *  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
@@ -67,18 +74,14 @@ public class IntegrationLogCollection extends com.pulumi.resources.CustomResourc
         return this.accountId;
     }
     /**
-     * A list of services to collect logs from. See the [api
-     * docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-     * which services are supported.
+     * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      * 
      */
     @Export(name="services", type=List.class, parameters={String.class})
     private Output<List<String>> services;
 
     /**
-     * @return A list of services to collect logs from. See the [api
-     * docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
-     * which services are supported.
+     * @return A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      * 
      */
     public Output<List<String>> services() {

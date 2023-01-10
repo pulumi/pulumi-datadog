@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class DashboardWidgetHeatmapDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetHeatmapDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionCustomLinkArgs>? _customLinks;
@@ -45,6 +45,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
@@ -60,5 +63,6 @@ namespace Pulumi.Datadog.Inputs
         public DashboardWidgetHeatmapDefinitionArgs()
         {
         }
+        public static new DashboardWidgetHeatmapDefinitionArgs Empty => new DashboardWidgetHeatmapDefinitionArgs();
     }
 }

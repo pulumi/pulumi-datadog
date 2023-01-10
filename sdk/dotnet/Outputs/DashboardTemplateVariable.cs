@@ -13,9 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariable
     {
+        /// <summary>
+        /// The list of values that the template variable drop-down is be limited to
+        /// </summary>
         public readonly ImmutableArray<string> AvailableValues;
+        /// <summary>
+        /// The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
+        /// </summary>
         public readonly string? Default;
+        /// <summary>
+        /// One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+        /// </summary>
+        public readonly ImmutableArray<string> Defaults;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]
@@ -24,12 +40,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? @default,
 
+            ImmutableArray<string> defaults,
+
             string name,
 
             string? prefix)
         {
             AvailableValues = availableValues;
             Default = @default;
+            Defaults = defaults;
             Name = name;
             Prefix = prefix;
         }

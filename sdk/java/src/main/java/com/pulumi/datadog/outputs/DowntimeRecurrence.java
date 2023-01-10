@@ -13,29 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DowntimeRecurrence {
+    /**
+     * @return How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+     * 
+     */
     private @Nullable Integer period;
+    /**
+     * @return The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+     * 
+     */
     private @Nullable String rrule;
+    /**
+     * @return One of `days`, `weeks`, `months`, `years`, or `rrule`.
+     * 
+     */
     private String type;
+    /**
+     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     private @Nullable Integer untilDate;
+    /**
+     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     private @Nullable Integer untilOccurrences;
+    /**
+     * @return A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+     * 
+     */
     private @Nullable List<String> weekDays;
 
     private DowntimeRecurrence() {}
+    /**
+     * @return How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+     * 
+     */
     public Optional<Integer> period() {
         return Optional.ofNullable(this.period);
     }
+    /**
+     * @return The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+     * 
+     */
     public Optional<String> rrule() {
         return Optional.ofNullable(this.rrule);
     }
+    /**
+     * @return One of `days`, `weeks`, `months`, `years`, or `rrule`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     public Optional<Integer> untilDate() {
         return Optional.ofNullable(this.untilDate);
     }
+    /**
+     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     public Optional<Integer> untilOccurrences() {
         return Optional.ofNullable(this.untilOccurrences);
     }
+    /**
+     * @return A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+     * 
+     */
     public List<String> weekDays() {
         return this.weekDays == null ? List.of() : this.weekDays;
     }

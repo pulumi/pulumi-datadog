@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 public final class ChildOrganizationUser {
     private @Nullable String accessRole;
     private @Nullable String email;
+    /**
+     * @return Name for Child Organization after creation.
+     * 
+     */
     private @Nullable String name;
 
     private ChildOrganizationUser() {}
@@ -22,6 +26,10 @@ public final class ChildOrganizationUser {
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
+    /**
+     * @return Name for Child Organization after creation.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

@@ -22,79 +22,182 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
 
     public static final SyntheticsTestOptionsListArgs Empty = new SyntheticsTestOptionsListArgs();
 
+    /**
+     * For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
     @Import(name="acceptSelfSigned")
     private @Nullable Output<Boolean> acceptSelfSigned;
 
+    /**
+     * @return For SSL test, whether or not the test should allow self signed certificates.
+     * 
+     */
     public Optional<Output<Boolean>> acceptSelfSigned() {
         return Optional.ofNullable(this.acceptSelfSigned);
     }
 
+    /**
+     * Allows loading insecure content for an HTTP test.
+     * 
+     */
     @Import(name="allowInsecure")
     private @Nullable Output<Boolean> allowInsecure;
 
+    /**
+     * @return Allows loading insecure content for an HTTP test.
+     * 
+     */
     public Optional<Output<Boolean>> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
     }
 
+    /**
+     * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
     @Import(name="checkCertificateRevocation")
     private @Nullable Output<Boolean> checkCertificateRevocation;
 
+    /**
+     * @return For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+     * 
+     */
     public Optional<Output<Boolean>> checkCertificateRevocation() {
         return Optional.ofNullable(this.checkCertificateRevocation);
     }
 
+    /**
+     * CI/CD options for a Synthetic test.
+     * 
+     */
     @Import(name="ci")
     private @Nullable Output<SyntheticsTestOptionsListCiArgs> ci;
 
+    /**
+     * @return CI/CD options for a Synthetic test.
+     * 
+     */
     public Optional<Output<SyntheticsTestOptionsListCiArgs>> ci() {
         return Optional.ofNullable(this.ci);
     }
 
+    /**
+     * Disable Cross-Origin Resource Sharing for browser tests.
+     * 
+     */
+    @Import(name="disableCors")
+    private @Nullable Output<Boolean> disableCors;
+
+    /**
+     * @return Disable Cross-Origin Resource Sharing for browser tests.
+     * 
+     */
+    public Optional<Output<Boolean>> disableCors() {
+        return Optional.ofNullable(this.disableCors);
+    }
+
+    /**
+     * Disable Content Security Policy for browser tests.
+     * 
+     */
     @Import(name="disableCsp")
     private @Nullable Output<Boolean> disableCsp;
 
+    /**
+     * @return Disable Content Security Policy for browser tests.
+     * 
+     */
     public Optional<Output<Boolean>> disableCsp() {
         return Optional.ofNullable(this.disableCsp);
     }
 
+    /**
+     * Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     @Import(name="followRedirects")
     private @Nullable Output<Boolean> followRedirects;
 
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     public Optional<Output<Boolean>> followRedirects() {
         return Optional.ofNullable(this.followRedirects);
     }
 
+    /**
+     * Ignore server certificate error.
+     * 
+     */
     @Import(name="ignoreServerCertificateError")
     private @Nullable Output<Boolean> ignoreServerCertificateError;
 
+    /**
+     * @return Ignore server certificate error.
+     * 
+     */
     public Optional<Output<Boolean>> ignoreServerCertificateError() {
         return Optional.ofNullable(this.ignoreServerCertificateError);
     }
 
+    /**
+     * Timeout before declaring the initial step as failed (in seconds) for browser tests.
+     * 
+     */
     @Import(name="initialNavigationTimeout")
     private @Nullable Output<Integer> initialNavigationTimeout;
 
+    /**
+     * @return Timeout before declaring the initial step as failed (in seconds) for browser tests.
+     * 
+     */
     public Optional<Output<Integer>> initialNavigationTimeout() {
         return Optional.ofNullable(this.initialNavigationTimeout);
     }
 
+    /**
+     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * 
+     */
     @Import(name="minFailureDuration")
     private @Nullable Output<Integer> minFailureDuration;
 
+    /**
+     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * 
+     */
     public Optional<Output<Integer>> minFailureDuration() {
         return Optional.ofNullable(this.minFailureDuration);
     }
 
+    /**
+     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * 
+     */
     @Import(name="minLocationFailed")
     private @Nullable Output<Integer> minLocationFailed;
 
+    /**
+     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * 
+     */
     public Optional<Output<Integer>> minLocationFailed() {
         return Optional.ofNullable(this.minLocationFailed);
     }
 
+    /**
+     * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     * 
+     */
     @Import(name="monitorName")
     private @Nullable Output<String> monitorName;
 
+    /**
+     * @return The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+     * 
+     */
     public Optional<Output<String>> monitorName() {
         return Optional.ofNullable(this.monitorName);
     }
@@ -113,16 +216,32 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.monitorPriority);
     }
 
+    /**
+     * Prevents saving screenshots of the steps.
+     * 
+     */
     @Import(name="noScreenshot")
     private @Nullable Output<Boolean> noScreenshot;
 
+    /**
+     * @return Prevents saving screenshots of the steps.
+     * 
+     */
     public Optional<Output<Boolean>> noScreenshot() {
         return Optional.ofNullable(this.noScreenshot);
     }
 
+    /**
+     * A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * 
+     */
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
+    /**
+     * @return A list of role identifiers pulled from the Roles API to restrict read and write access.
+     * 
+     */
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -134,16 +253,32 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.retry);
     }
 
+    /**
+     * The RUM data collection settings for the Synthetic browser test.
+     * 
+     */
     @Import(name="rumSettings")
     private @Nullable Output<SyntheticsTestOptionsListRumSettingsArgs> rumSettings;
 
+    /**
+     * @return The RUM data collection settings for the Synthetic browser test.
+     * 
+     */
     public Optional<Output<SyntheticsTestOptionsListRumSettingsArgs>> rumSettings() {
         return Optional.ofNullable(this.rumSettings);
     }
 
+    /**
+     * How often the test should run (in seconds).
+     * 
+     */
     @Import(name="tickEvery", required=true)
     private Output<Integer> tickEvery;
 
+    /**
+     * @return How often the test should run (in seconds).
+     * 
+     */
     public Output<Integer> tickEvery() {
         return this.tickEvery;
     }
@@ -155,6 +290,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.allowInsecure = $.allowInsecure;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
         this.ci = $.ci;
+        this.disableCors = $.disableCors;
         this.disableCsp = $.disableCsp;
         this.followRedirects = $.followRedirects;
         this.ignoreServerCertificateError = $.ignoreServerCertificateError;
@@ -189,101 +325,254 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
             $ = new SyntheticsTestOptionsListArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptSelfSigned(@Nullable Output<Boolean> acceptSelfSigned) {
             $.acceptSelfSigned = acceptSelfSigned;
             return this;
         }
 
+        /**
+         * @param acceptSelfSigned For SSL test, whether or not the test should allow self signed certificates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptSelfSigned(Boolean acceptSelfSigned) {
             return acceptSelfSigned(Output.of(acceptSelfSigned));
         }
 
+        /**
+         * @param allowInsecure Allows loading insecure content for an HTTP test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInsecure(@Nullable Output<Boolean> allowInsecure) {
             $.allowInsecure = allowInsecure;
             return this;
         }
 
+        /**
+         * @param allowInsecure Allows loading insecure content for an HTTP test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInsecure(Boolean allowInsecure) {
             return allowInsecure(Output.of(allowInsecure));
         }
 
+        /**
+         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkCertificateRevocation(@Nullable Output<Boolean> checkCertificateRevocation) {
             $.checkCertificateRevocation = checkCertificateRevocation;
             return this;
         }
 
+        /**
+         * @param checkCertificateRevocation For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkCertificateRevocation(Boolean checkCertificateRevocation) {
             return checkCertificateRevocation(Output.of(checkCertificateRevocation));
         }
 
+        /**
+         * @param ci CI/CD options for a Synthetic test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ci(@Nullable Output<SyntheticsTestOptionsListCiArgs> ci) {
             $.ci = ci;
             return this;
         }
 
+        /**
+         * @param ci CI/CD options for a Synthetic test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ci(SyntheticsTestOptionsListCiArgs ci) {
             return ci(Output.of(ci));
         }
 
+        /**
+         * @param disableCors Disable Cross-Origin Resource Sharing for browser tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableCors(@Nullable Output<Boolean> disableCors) {
+            $.disableCors = disableCors;
+            return this;
+        }
+
+        /**
+         * @param disableCors Disable Cross-Origin Resource Sharing for browser tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableCors(Boolean disableCors) {
+            return disableCors(Output.of(disableCors));
+        }
+
+        /**
+         * @param disableCsp Disable Content Security Policy for browser tests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableCsp(@Nullable Output<Boolean> disableCsp) {
             $.disableCsp = disableCsp;
             return this;
         }
 
+        /**
+         * @param disableCsp Disable Content Security Policy for browser tests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableCsp(Boolean disableCsp) {
             return disableCsp(Output.of(disableCsp));
         }
 
+        /**
+         * @param followRedirects Determines whether or not the API HTTP test should follow redirects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder followRedirects(@Nullable Output<Boolean> followRedirects) {
             $.followRedirects = followRedirects;
             return this;
         }
 
+        /**
+         * @param followRedirects Determines whether or not the API HTTP test should follow redirects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder followRedirects(Boolean followRedirects) {
             return followRedirects(Output.of(followRedirects));
         }
 
+        /**
+         * @param ignoreServerCertificateError Ignore server certificate error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ignoreServerCertificateError(@Nullable Output<Boolean> ignoreServerCertificateError) {
             $.ignoreServerCertificateError = ignoreServerCertificateError;
             return this;
         }
 
+        /**
+         * @param ignoreServerCertificateError Ignore server certificate error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ignoreServerCertificateError(Boolean ignoreServerCertificateError) {
             return ignoreServerCertificateError(Output.of(ignoreServerCertificateError));
         }
 
+        /**
+         * @param initialNavigationTimeout Timeout before declaring the initial step as failed (in seconds) for browser tests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder initialNavigationTimeout(@Nullable Output<Integer> initialNavigationTimeout) {
             $.initialNavigationTimeout = initialNavigationTimeout;
             return this;
         }
 
+        /**
+         * @param initialNavigationTimeout Timeout before declaring the initial step as failed (in seconds) for browser tests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder initialNavigationTimeout(Integer initialNavigationTimeout) {
             return initialNavigationTimeout(Output.of(initialNavigationTimeout));
         }
 
+        /**
+         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert. Default is `0`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minFailureDuration(@Nullable Output<Integer> minFailureDuration) {
             $.minFailureDuration = minFailureDuration;
             return this;
         }
 
+        /**
+         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert. Default is `0`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minFailureDuration(Integer minFailureDuration) {
             return minFailureDuration(Output.of(minFailureDuration));
         }
 
+        /**
+         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Default is `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minLocationFailed(@Nullable Output<Integer> minLocationFailed) {
             $.minLocationFailed = minLocationFailed;
             return this;
         }
 
+        /**
+         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Default is `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minLocationFailed(Integer minLocationFailed) {
             return minLocationFailed(Output.of(minLocationFailed));
         }
 
+        /**
+         * @param monitorName The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorName(@Nullable Output<String> monitorName) {
             $.monitorName = monitorName;
             return this;
         }
 
+        /**
+         * @param monitorName The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorName(String monitorName) {
             return monitorName(Output.of(monitorName));
         }
@@ -306,24 +595,54 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
             return monitorPriority(Output.of(monitorPriority));
         }
 
+        /**
+         * @param noScreenshot Prevents saving screenshots of the steps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder noScreenshot(@Nullable Output<Boolean> noScreenshot) {
             $.noScreenshot = noScreenshot;
             return this;
         }
 
+        /**
+         * @param noScreenshot Prevents saving screenshots of the steps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder noScreenshot(Boolean noScreenshot) {
             return noScreenshot(Output.of(noScreenshot));
         }
 
+        /**
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
         }
 
+        /**
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
 
+        /**
+         * @param restrictedRoles A list of role identifiers pulled from the Roles API to restrict read and write access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }
@@ -337,20 +656,44 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
             return retry(Output.of(retry));
         }
 
+        /**
+         * @param rumSettings The RUM data collection settings for the Synthetic browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumSettings(@Nullable Output<SyntheticsTestOptionsListRumSettingsArgs> rumSettings) {
             $.rumSettings = rumSettings;
             return this;
         }
 
+        /**
+         * @param rumSettings The RUM data collection settings for the Synthetic browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumSettings(SyntheticsTestOptionsListRumSettingsArgs rumSettings) {
             return rumSettings(Output.of(rumSettings));
         }
 
+        /**
+         * @param tickEvery How often the test should run (in seconds).
+         * 
+         * @return builder
+         * 
+         */
         public Builder tickEvery(Output<Integer> tickEvery) {
             $.tickEvery = tickEvery;
             return this;
         }
 
+        /**
+         * @param tickEvery How often the test should run (in seconds).
+         * 
+         * @return builder
+         * 
+         */
         public Builder tickEvery(Integer tickEvery) {
             return tickEvery(Output.of(tickEvery));
         }

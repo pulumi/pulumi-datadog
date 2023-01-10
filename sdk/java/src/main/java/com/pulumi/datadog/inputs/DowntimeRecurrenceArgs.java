@@ -17,44 +17,92 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
 
     public static final DowntimeRecurrenceArgs Empty = new DowntimeRecurrenceArgs();
 
+    /**
+     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+     * 
+     */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
+    /**
+     * @return How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+     * 
+     */
     public Optional<Output<Integer>> period() {
         return Optional.ofNullable(this.period);
     }
 
+    /**
+     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+     * 
+     */
     @Import(name="rrule")
     private @Nullable Output<String> rrule;
 
+    /**
+     * @return The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+     * 
+     */
     public Optional<Output<String>> rrule() {
         return Optional.ofNullable(this.rrule);
     }
 
+    /**
+     * One of `days`, `weeks`, `months`, `years`, or `rrule`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return One of `days`, `weeks`, `months`, `years`, or `rrule`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     @Import(name="untilDate")
     private @Nullable Output<Integer> untilDate;
 
+    /**
+     * @return The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     public Optional<Output<Integer>> untilDate() {
         return Optional.ofNullable(this.untilDate);
     }
 
+    /**
+     * How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     @Import(name="untilOccurrences")
     private @Nullable Output<Integer> untilOccurrences;
 
+    /**
+     * @return How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+     * 
+     */
     public Optional<Output<Integer>> untilOccurrences() {
         return Optional.ofNullable(this.untilOccurrences);
     }
 
+    /**
+     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+     * 
+     */
     @Import(name="weekDays")
     private @Nullable Output<List<String>> weekDays;
 
+    /**
+     * @return A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+     * 
+     */
     public Optional<Output<List<String>>> weekDays() {
         return Optional.ofNullable(this.weekDays);
     }
@@ -88,60 +136,138 @@ public final class DowntimeRecurrenceArgs extends com.pulumi.resources.ResourceA
             $ = new DowntimeRecurrenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param period How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder period(@Nullable Output<Integer> period) {
             $.period = period;
             return this;
         }
 
+        /**
+         * @param period How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder period(Integer period) {
             return period(Output.of(period));
         }
 
+        /**
+         * @param rrule The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rrule(@Nullable Output<String> rrule) {
             $.rrule = rrule;
             return this;
         }
 
+        /**
+         * @param rrule The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). Only applicable when `type` is `rrule`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rrule(String rrule) {
             return rrule(Output.of(rrule));
         }
 
+        /**
+         * @param type One of `days`, `weeks`, `months`, `years`, or `rrule`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type One of `days`, `weeks`, `months`, `years`, or `rrule`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder untilDate(@Nullable Output<Integer> untilDate) {
             $.untilDate = untilDate;
             return this;
         }
 
+        /**
+         * @param untilDate The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder untilDate(Integer untilDate) {
             return untilDate(Output.of(untilDate));
         }
 
+        /**
+         * @param untilOccurrences How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder untilOccurrences(@Nullable Output<Integer> untilOccurrences) {
             $.untilOccurrences = untilOccurrences;
             return this;
         }
 
+        /**
+         * @param untilOccurrences How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+         * 
+         * @return builder
+         * 
+         */
         public Builder untilOccurrences(Integer untilOccurrences) {
             return untilOccurrences(Output.of(untilOccurrences));
         }
 
+        /**
+         * @param weekDays A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weekDays(@Nullable Output<List<String>> weekDays) {
             $.weekDays = weekDays;
             return this;
         }
 
+        /**
+         * @param weekDays A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weekDays(List<String> weekDays) {
             return weekDays(Output.of(weekDays));
         }
 
+        /**
+         * @param weekDays A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weekDays(String... weekDays) {
             return weekDays(List.of(weekDays));
         }

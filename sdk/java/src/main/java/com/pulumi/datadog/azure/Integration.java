@@ -12,6 +12,7 @@ import com.pulumi.datadog.azure.IntegrationArgs;
 import com.pulumi.datadog.azure.inputs.IntegrationState;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -22,10 +23,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.azure.Integration;
+ * import com.pulumi.datadog.azure.IntegrationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -46,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
+ * Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
  * 
  * ```sh
  *  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
@@ -98,18 +106,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
     @Export(name="hostFilters", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostFilters;
 
     /**
-     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
     public Output<Optional<String>> hostFilters() {
@@ -162,6 +166,9 @@ public class Integration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "clientSecret"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

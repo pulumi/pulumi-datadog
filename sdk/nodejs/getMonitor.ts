@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,19 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const test = pulumi.output(datadog.getMonitor({
+ * const test = datadog.getMonitor({
  *     monitorTagsFilters: ["foo:bar"],
  *     nameFilter: "My awesome monitor",
- * }));
+ * });
  * ```
  */
 export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getMonitor:getMonitor", {
         "monitorTagsFilters": args.monitorTagsFilters,
         "nameFilter": args.nameFilter,
@@ -38,8 +36,17 @@ export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     monitorTagsFilters?: string[];
+    /**
+     * A monitor name to limit the search.
+     */
     nameFilter?: string;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     tagsFilters?: string[];
 }
 
@@ -47,50 +54,169 @@ export interface GetMonitorArgs {
  * A collection of values returned by getMonitor.
  */
 export interface GetMonitorResult {
+    /**
+     * Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+     */
     readonly enableLogsSample: boolean;
+    /**
+     * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
+     */
+    readonly enableSamples: boolean;
+    /**
+     * Message included with a re-notification for this monitor.
+     */
     readonly escalationMessage: string;
+    /**
+     * Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+     */
     readonly evaluationDelay: number;
+    /**
+     * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+     */
     readonly groupRetentionDuration: string;
+    /**
+     * Whether or not to trigger one alert if any source breaches a threshold.
+     */
     readonly groupbySimpleMonitor: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+     */
     readonly includeTags: boolean;
+    /**
+     * Whether or not changes to the monitor are restricted to the creator or admins.
+     */
     readonly locked: boolean;
+    /**
+     * Message included with notifications for this monitor
+     */
     readonly message: string;
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     readonly monitorTagsFilters?: string[];
+    /**
+     * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
+     */
     readonly monitorThresholdWindows: outputs.GetMonitorMonitorThresholdWindow[];
+    /**
+     * Alert thresholds of the monitor.
+     */
     readonly monitorThresholds: outputs.GetMonitorMonitorThreshold[];
+    /**
+     * Name of the monitor
+     */
     readonly name: string;
+    /**
+     * A monitor name to limit the search.
+     */
     readonly nameFilter?: string;
+    /**
+     * Time (in seconds) to skip evaluations for new groups.
+     */
     readonly newGroupDelay: number;
+    /**
+     * Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+     */
     readonly newHostDelay: number;
+    /**
+     * The number of minutes before the monitor notifies when data stops reporting.
+     */
     readonly noDataTimeframe: number;
+    /**
+     * Whether or not tagged users are notified on changes to the monitor.
+     */
     readonly notifyAudit: boolean;
+    /**
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+     */
+    readonly notifyBies: string[];
+    /**
+     * Whether or not this monitor notifies when data stops reporting.
+     */
     readonly notifyNoData: boolean;
+    /**
+     * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
+     */
     readonly onMissingData: string;
+    /**
+     * Query of the monitor.
+     */
     readonly query: string;
+    /**
+     * The number of minutes after the last notification before the monitor re-notifies on the current status.
+     */
     readonly renotifyInterval: number;
+    /**
+     * The number of re-notification messages that should be sent on the current status.
+     */
     readonly renotifyOccurrences: number;
+    /**
+     * The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+     */
     readonly renotifyStatuses: string[];
+    /**
+     * Whether or not the monitor needs a full window of data before it is evaluated.
+     */
     readonly requireFullWindow: boolean;
     readonly restrictedRoles: string[];
+    /**
+     * Configuration options for scheduling.
+     */
+    readonly schedulingOptions: outputs.GetMonitorSchedulingOption[];
+    /**
+     * List of tags associated with the monitor.
+     */
     readonly tags: string[];
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     readonly tagsFilters?: string[];
+    /**
+     * Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+     */
     readonly timeoutH: number;
+    /**
+     * Type of the monitor.
+     */
     readonly type: string;
 }
-
+/**
+ * Use this data source to retrieve information about an existing monitor for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getMonitor({
+ *     monitorTagsFilters: ["foo:bar"],
+ *     nameFilter: "My awesome monitor",
+ * });
+ * ```
+ */
 export function getMonitorOutput(args?: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply(a => getMonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorOutputArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A monitor name to limit the search.
+     */
     nameFilter?: pulumi.Input<string>;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

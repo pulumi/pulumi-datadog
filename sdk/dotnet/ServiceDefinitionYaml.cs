@@ -15,16 +15,15 @@ namespace Pulumi.Datadog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceDefinition = new Datadog.ServiceDefinitionYaml("serviceDefinition", new()
     ///     {
-    ///         var serviceDefinition = new Datadog.ServiceDefinitionYaml("serviceDefinition", new Datadog.ServiceDefinitionYamlArgs
-    ///         {
-    ///             ServiceDefinition = @"schema-version: v2
+    ///         ServiceDefinition = @"schema-version: v2
     /// dd-service: shopping-cart
     /// team: E Commerce
     /// contacts:
@@ -59,10 +58,9 @@ namespace Pulumi.Datadog
     ///     customField: customValue
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +70,7 @@ namespace Pulumi.Datadog
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml")]
-    public partial class ServiceDefinitionYaml : Pulumi.CustomResource
+    public partial class ServiceDefinitionYaml : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The YAML/JSON formatted definition of the service
@@ -124,7 +122,7 @@ namespace Pulumi.Datadog
         }
     }
 
-    public sealed class ServiceDefinitionYamlArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDefinitionYamlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The YAML/JSON formatted definition of the service
@@ -135,9 +133,10 @@ namespace Pulumi.Datadog
         public ServiceDefinitionYamlArgs()
         {
         }
+        public static new ServiceDefinitionYamlArgs Empty => new ServiceDefinitionYamlArgs();
     }
 
-    public sealed class ServiceDefinitionYamlState : Pulumi.ResourceArgs
+    public sealed class ServiceDefinitionYamlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The YAML/JSON formatted definition of the service
@@ -148,5 +147,6 @@ namespace Pulumi.Datadog
         public ServiceDefinitionYamlState()
         {
         }
+        public static new ServiceDefinitionYamlState Empty => new ServiceDefinitionYamlState();
     }
 }

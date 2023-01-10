@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceLevelObjectiveQuery {
+    /**
+     * @return The sum of the `total` events.
+     * 
+     */
     private String denominator;
+    /**
+     * @return The sum of all the `good` events.
+     * 
+     */
     private String numerator;
 
     private ServiceLevelObjectiveQuery() {}
+    /**
+     * @return The sum of the `total` events.
+     * 
+     */
     public String denominator() {
         return this.denominator;
     }
+    /**
+     * @return The sum of all the `good` events.
+     * 
+     */
     public String numerator() {
         return this.numerator;
     }
