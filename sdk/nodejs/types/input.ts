@@ -9354,9 +9354,6 @@ export interface SyntheticsTestBrowserVariable {
 }
 
 export interface SyntheticsTestConfigVariable {
-    /**
-     * Example for the variable.
-     */
     example?: pulumi.Input<string>;
     /**
      * When type = `global`, ID of the global variable to use.
@@ -9366,10 +9363,11 @@ export interface SyntheticsTestConfigVariable {
      * Name of the variable.
      */
     name: pulumi.Input<string>;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: pulumi.Input<string>;
+    /**
+     * Whether the value of this variable will be obfuscated in test results.
+     */
+    secure?: pulumi.Input<boolean>;
     /**
      * Type of test configuration variable. Valid values are `global`, `text`.
      */
@@ -9632,6 +9630,9 @@ export interface SyntheticsTestRequestProxy {
      */
     url: pulumi.Input<string>;
 }
+export namespace aws {
+}
+
 export namespace slack {
     export interface ChannelDisplay {
         /**

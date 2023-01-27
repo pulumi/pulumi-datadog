@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestConfigVariableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Example for the variable.
-        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
@@ -30,11 +27,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Pattern of the variable.
-        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
+
+        /// <summary>
+        /// Whether the value of this variable will be obfuscated in test results.
+        /// </summary>
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
 
         /// <summary>
         /// Type of test configuration variable. Valid values are `global`, `text`.

@@ -28,6 +28,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthnMapping{}
 	case "datadog:index/childOrganization:ChildOrganization":
 		r = &ChildOrganization{}
+	case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
+		r = &CloudConfigurationRule{}
 	case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
 		r = &CloudWorkloadSecurityAgentRule{}
 	case "datadog:index/dashboard:Dashboard":
@@ -74,6 +76,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityMonitoringFilter{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
 		r = &SecurityMonitoringRule{}
+	case "datadog:index/serviceAccount:ServiceAccount":
+		r = &ServiceAccount{}
 	case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
 		r = &ServiceDefinitionYaml{}
 	case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
@@ -138,6 +142,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/childOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/cloudConfigurationRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -253,6 +262,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityMonitoringRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/serviceAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

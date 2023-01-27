@@ -3,9 +3,9 @@ module github.com/pulumi/pulumi-datadog/provider/v4
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.37.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.38.2
 	github.com/pulumi/pulumi/sdk/v3 v3.51.0
-	github.com/terraform-providers/terraform-provider-datadog v1.9.1-0.20200722132015-43f01ca20637
+	github.com/terraform-providers/terraform-provider-datadog v3.20.0+incompatible
 )
 
 replace (
@@ -13,7 +13,7 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 	github.com/hashicorp/terraform-plugin-test => github.com/hashicorp/terraform-plugin-test v1.3.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20230109215806-76ea1128be0e
+	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20230127172838-e4b3b96b8c7f
 )
 
 require (
@@ -40,7 +40,7 @@ require (
 	github.com/Azure/go-autorest/logger v0.2.1 // indirect
 	github.com/Azure/go-autorest/tracing v0.6.0 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.4.0 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.6.1 // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.7.0 // indirect
 	github.com/DataDog/zstd v1.5.0 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect

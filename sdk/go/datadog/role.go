@@ -69,6 +69,8 @@ type Role struct {
 	Permissions RolePermissionArrayOutput `pulumi:"permissions"`
 	// Number of users that have this role.
 	UserCount pulumi.IntOutput `pulumi:"userCount"`
+	// If set to `false`, skip the validation call done during plan.
+	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -109,6 +111,8 @@ type roleState struct {
 	Permissions []RolePermission `pulumi:"permissions"`
 	// Number of users that have this role.
 	UserCount *int `pulumi:"userCount"`
+	// If set to `false`, skip the validation call done during plan.
+	Validate *bool `pulumi:"validate"`
 }
 
 type RoleState struct {
@@ -118,6 +122,8 @@ type RoleState struct {
 	Permissions RolePermissionArrayInput
 	// Number of users that have this role.
 	UserCount pulumi.IntPtrInput
+	// If set to `false`, skip the validation call done during plan.
+	Validate pulumi.BoolPtrInput
 }
 
 func (RoleState) ElementType() reflect.Type {
@@ -129,6 +135,8 @@ type roleArgs struct {
 	Name string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
+	// If set to `false`, skip the validation call done during plan.
+	Validate *bool `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -137,6 +145,8 @@ type RoleArgs struct {
 	Name pulumi.StringInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
+	// If set to `false`, skip the validation call done during plan.
+	Validate pulumi.BoolPtrInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {
@@ -239,6 +249,11 @@ func (o RoleOutput) Permissions() RolePermissionArrayOutput {
 // Number of users that have this role.
 func (o RoleOutput) UserCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Role) pulumi.IntOutput { return v.UserCount }).(pulumi.IntOutput)
+}
+
+// If set to `false`, skip the validation call done during plan.
+func (o RoleOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
 type RoleArrayOutput struct{ *pulumi.OutputState }

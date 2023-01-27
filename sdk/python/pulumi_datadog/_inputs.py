@@ -65863,13 +65863,13 @@ class SyntheticsTestConfigVariableArgs:
                  type: pulumi.Input[str],
                  example: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None):
+                 pattern: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
         :param pulumi.Input[str] type: Type of test configuration variable. Valid values are `global`, `text`.
-        :param pulumi.Input[str] example: Example for the variable.
         :param pulumi.Input[str] id: When type = `global`, ID of the global variable to use.
-        :param pulumi.Input[str] pattern: Pattern of the variable.
+        :param pulumi.Input[bool] secure: Whether the value of this variable will be obfuscated in test results.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -65879,6 +65879,8 @@ class SyntheticsTestConfigVariableArgs:
             pulumi.set(__self__, "id", id)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -65907,9 +65909,6 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def example(self) -> Optional[pulumi.Input[str]]:
-        """
-        Example for the variable.
-        """
         return pulumi.get(self, "example")
 
     @example.setter
@@ -65931,14 +65930,23 @@ class SyntheticsTestConfigVariableArgs:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        Pattern of the variable.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
     def pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the value of this variable will be obfuscated in test results.
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
 
 
 @pulumi.input_type

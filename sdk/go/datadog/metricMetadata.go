@@ -42,6 +42,14 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+//
+// ```
 type MetricMetadata struct {
 	pulumi.CustomResourceState
 

@@ -22,6 +22,12 @@ import * as utilities from "./utilities";
  *     unit: "millisecond",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+ * ```
  */
 export class MetricMetadata extends pulumi.CustomResource {
     /**

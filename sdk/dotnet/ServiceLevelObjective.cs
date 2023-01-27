@@ -42,18 +42,14 @@ namespace Pulumi.Datadog
     ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
     ///             {
     ///                 Target = 99.9,
-    ///                 TargetDisplay = "99.900",
     ///                 Timeframe = "7d",
     ///                 Warning = 99.99,
-    ///                 WarningDisplay = "99.990",
     ///             },
     ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
     ///             {
     ///                 Target = 99.9,
-    ///                 TargetDisplay = "99.900",
     ///                 Timeframe = "30d",
     ///                 Warning = 99.99,
-    ///                 WarningDisplay = "99.990",
     ///             },
     ///         },
     ///         Type = "metric",

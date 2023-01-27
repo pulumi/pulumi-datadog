@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,17 +16,9 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
 
     public static final SyntheticsTestConfigVariableArgs Empty = new SyntheticsTestConfigVariableArgs();
 
-    /**
-     * Example for the variable.
-     * 
-     */
     @Import(name="example")
     private @Nullable Output<String> example;
 
-    /**
-     * @return Example for the variable.
-     * 
-     */
     public Optional<Output<String>> example() {
         return Optional.ofNullable(this.example);
     }
@@ -60,19 +53,26 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         return this.name;
     }
 
-    /**
-     * Pattern of the variable.
-     * 
-     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
-    /**
-     * @return Pattern of the variable.
-     * 
-     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
+    }
+
+    /**
+     * Whether the value of this variable will be obfuscated in test results.
+     * 
+     */
+    @Import(name="secure")
+    private @Nullable Output<Boolean> secure;
+
+    /**
+     * @return Whether the value of this variable will be obfuscated in test results.
+     * 
+     */
+    public Optional<Output<Boolean>> secure() {
+        return Optional.ofNullable(this.secure);
     }
 
     /**
@@ -97,6 +97,7 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         this.id = $.id;
         this.name = $.name;
         this.pattern = $.pattern;
+        this.secure = $.secure;
         this.type = $.type;
     }
 
@@ -118,23 +119,11 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
             $ = new SyntheticsTestConfigVariableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param example Example for the variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder example(@Nullable Output<String> example) {
             $.example = example;
             return this;
         }
 
-        /**
-         * @param example Example for the variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder example(String example) {
             return example(Output.of(example));
         }
@@ -181,25 +170,34 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
-        /**
-         * @param pattern Pattern of the variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        public Builder pattern(String pattern) {
+            return pattern(Output.of(pattern));
+        }
+
         /**
-         * @param pattern Pattern of the variable.
+         * @param secure Whether the value of this variable will be obfuscated in test results.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder secure(@Nullable Output<Boolean> secure) {
+            $.secure = secure;
+            return this;
+        }
+
+        /**
+         * @param secure Whether the value of this variable will be obfuscated in test results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(Boolean secure) {
+            return secure(Output.of(secure));
         }
 
         /**

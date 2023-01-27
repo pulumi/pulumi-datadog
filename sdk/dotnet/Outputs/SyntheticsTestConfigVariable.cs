@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestConfigVariable
     {
-        /// <summary>
-        /// Example for the variable.
-        /// </summary>
         public readonly string? Example;
         /// <summary>
         /// When type = `global`, ID of the global variable to use.
@@ -25,10 +22,11 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the variable.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Pattern of the variable.
-        /// </summary>
         public readonly string? Pattern;
+        /// <summary>
+        /// Whether the value of this variable will be obfuscated in test results.
+        /// </summary>
+        public readonly bool? Secure;
         /// <summary>
         /// Type of test configuration variable. Valid values are `global`, `text`.
         /// </summary>
@@ -44,12 +42,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? pattern,
 
+            bool? secure,
+
             string type)
         {
             Example = example;
             Id = id;
             Name = name;
             Pattern = pattern;
+            Secure = secure;
             Type = type;
         }
     }

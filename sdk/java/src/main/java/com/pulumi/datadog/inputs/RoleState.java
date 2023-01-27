@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.RolePermissionArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -63,12 +64,28 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.userCount);
     }
 
+    /**
+     * If set to `false`, skip the validation call done during plan.
+     * 
+     */
+    @Import(name="validate")
+    private @Nullable Output<Boolean> validate;
+
+    /**
+     * @return If set to `false`, skip the validation call done during plan.
+     * 
+     */
+    public Optional<Output<Boolean>> validate() {
+        return Optional.ofNullable(this.validate);
+    }
+
     private RoleState() {}
 
     private RoleState(RoleState $) {
         this.name = $.name;
         this.permissions = $.permissions;
         this.userCount = $.userCount;
+        this.validate = $.validate;
     }
 
     public static Builder builder() {
@@ -160,6 +177,27 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder userCount(Integer userCount) {
             return userCount(Output.of(userCount));
+        }
+
+        /**
+         * @param validate If set to `false`, skip the validation call done during plan.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(@Nullable Output<Boolean> validate) {
+            $.validate = validate;
+            return this;
+        }
+
+        /**
+         * @param validate If set to `false`, skip the validation call done during plan.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(Boolean validate) {
+            return validate(Output.of(validate));
         }
 
         public RoleState build() {

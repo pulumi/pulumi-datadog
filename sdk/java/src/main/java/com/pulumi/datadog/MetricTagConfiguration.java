@@ -73,6 +73,12 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/metricTagConfiguration:MetricTagConfiguration")
 public class MetricTagConfiguration extends com.pulumi.resources.CustomResource {

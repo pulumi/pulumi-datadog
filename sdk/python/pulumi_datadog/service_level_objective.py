@@ -387,17 +387,13 @@ class ServiceLevelObjective(pulumi.CustomResource):
             thresholds=[
                 datadog.ServiceLevelObjectiveThresholdArgs(
                     target=99.9,
-                    target_display="99.900",
                     timeframe="7d",
                     warning=99.99,
-                    warning_display="99.990",
                 ),
                 datadog.ServiceLevelObjectiveThresholdArgs(
                     target=99.9,
-                    target_display="99.900",
                     timeframe="30d",
                     warning=99.99,
-                    warning_display="99.990",
                 ),
             ],
             type="metric")
@@ -482,17 +478,13 @@ class ServiceLevelObjective(pulumi.CustomResource):
             thresholds=[
                 datadog.ServiceLevelObjectiveThresholdArgs(
                     target=99.9,
-                    target_display="99.900",
                     timeframe="7d",
                     warning=99.99,
-                    warning_display="99.990",
                 ),
                 datadog.ServiceLevelObjectiveThresholdArgs(
                     target=99.9,
-                    target_display="99.900",
                     timeframe="30d",
                     warning=99.99,
-                    warning_display="99.990",
                 ),
             ],
             type="metric")

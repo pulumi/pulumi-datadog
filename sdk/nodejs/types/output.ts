@@ -9550,9 +9550,6 @@ export interface SyntheticsTestBrowserVariable {
 }
 
 export interface SyntheticsTestConfigVariable {
-    /**
-     * Example for the variable.
-     */
     example?: string;
     /**
      * When type = `global`, ID of the global variable to use.
@@ -9562,10 +9559,11 @@ export interface SyntheticsTestConfigVariable {
      * Name of the variable.
      */
     name: string;
-    /**
-     * Pattern of the variable.
-     */
     pattern?: string;
+    /**
+     * Whether the value of this variable will be obfuscated in test results.
+     */
+    secure?: boolean;
     /**
      * Type of test configuration variable. Valid values are `global`, `text`.
      */
@@ -9827,6 +9825,17 @@ export interface SyntheticsTestRequestProxy {
      * URL of the proxy to perform the test.
      */
     url: string;
+}
+
+export namespace aws {
+    export interface GetIntegrationLogsServicesAwsLogsService {
+        /**
+         * The ID of this resource.
+         */
+        id: string;
+        label: string;
+    }
+
 }
 
 export namespace slack {

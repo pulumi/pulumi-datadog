@@ -281,6 +281,12 @@ class MetricMetadata(pulumi.CustomResource):
             unit="millisecond")
         ```
 
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the metric.
@@ -313,6 +319,12 @@ class MetricMetadata(pulumi.CustomResource):
             short_name="Request time",
             type="gauge",
             unit="millisecond")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
         ```
 
         :param str resource_name: The name of the resource.
