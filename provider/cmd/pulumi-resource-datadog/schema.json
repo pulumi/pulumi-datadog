@@ -64,7 +64,7 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/\npath. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if\nyou're working with \"EU\" version of Datadog, use https://api.datadoghq.eu/.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
             },
             "appKey": {
                 "type": "string",
@@ -85,6 +85,37 @@
         }
     },
     "types": {
+        "datadog:aws/getIntegrationLogsServicesAwsLogsService:getIntegrationLogsServicesAwsLogsService": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "label"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:index/ChildOrganizationApiKey:ChildOrganizationApiKey": {
             "properties": {
                 "key": {
@@ -50183,7 +50214,6 @@
             "properties": {
                 "example": {
                     "type": "string",
-                    "description": "Example for the variable.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -50210,7 +50240,15 @@
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "Pattern of the variable.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secure": {
+                    "type": "boolean",
+                    "description": "Whether the value of this variable will be obfuscated in test results.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -52161,7 +52199,7 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/\npath. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if\nyou're working with \"EU\" version of Datadog, use https://api.datadoghq.eu/.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
             },
             "appKey": {
                 "type": "string",
@@ -52187,7 +52225,7 @@
             },
             "apiUrl": {
                 "type": "string",
-                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/\npath. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if\nyou're working with \"EU\" version of Datadog, use https://api.datadoghq.eu/.\n"
+                "description": "The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`\npath. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And\nif you're working with \"EU\" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:\n`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See\nhttps://docs.datadoghq.com/getting_started/site/ for all available regions.\n"
             },
             "appKey": {
                 "type": "string",
@@ -53031,6 +53069,191 @@
                             "$ref": "#/types/datadog:index/ChildOrganizationUser:ChildOrganizationUser"
                         },
                         "description": "Information about a user\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/cloudConfigurationRule:CloudConfigurationRule": {
+            "description": "Provides a Datadog Cloud Configuration Rule resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myrule = new datadog.CloudConfigurationRule(\"myrule\", {\n    enabled: true,\n    groupBies: [\"@resource\"],\n    message: \"Rule has triggered\",\n    name: \"My cloud configuration rule\",\n    notifications: [\"@channel\"],\n    policy: `        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"skip\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"pass\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"fail\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n`,\n    relatedResourceTypes: [],\n    resourceType: \"aws_s3_bucket\",\n    severity: \"high\",\n    tags: [\"some:tag\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmyrule = datadog.CloudConfigurationRule(\"myrule\",\n    enabled=True,\n    group_bies=[\"@resource\"],\n    message=\"Rule has triggered\",\n    name=\"My cloud configuration rule\",\n    notifications=[\"@channel\"],\n    policy=\"\"\"        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"skip\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"pass\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"fail\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n\"\"\",\n    related_resource_types=[],\n    resource_type=\"aws_s3_bucket\",\n    severity=\"high\",\n    tags=[\"some:tag\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myrule = new Datadog.CloudConfigurationRule(\"myrule\", new()\n    {\n        Enabled = true,\n        GroupBies = new[]\n        {\n            \"@resource\",\n        },\n        Message = \"Rule has triggered\",\n        Name = \"My cloud configuration rule\",\n        Notifications = new[]\n        {\n            \"@channel\",\n        },\n        Policy = @\"        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"\"skip\"\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"\"pass\"\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"\"fail\"\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n\",\n        RelatedResourceTypes = new[] {},\n        ResourceType = \"aws_s3_bucket\",\n        Severity = \"high\",\n        Tags = new[]\n        {\n            \"some:tag\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewCloudConfigurationRule(ctx, \"myrule\", \u0026datadog.CloudConfigurationRuleArgs{\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tGroupBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"@resource\"),\n\t\t\t},\n\t\t\tMessage: pulumi.String(\"Rule has triggered\"),\n\t\t\tName:    pulumi.String(\"My cloud configuration rule\"),\n\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"@channel\"),\n\t\t\t},\n\t\t\tPolicy: pulumi.String(fmt.Sprintf(`        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"skip\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"pass\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"fail\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n`)),\n\t\t\tRelatedResourceTypes: pulumi.StringArray{},\n\t\t\tResourceType:         pulumi.String(\"aws_s3_bucket\"),\n\t\t\tSeverity:             pulumi.String(\"high\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"some:tag\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.CloudConfigurationRule;\nimport com.pulumi.datadog.CloudConfigurationRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myrule = new CloudConfigurationRule(\"myrule\", CloudConfigurationRuleArgs.builder()        \n            .enabled(true)\n            .groupBies(\"@resource\")\n            .message(\"Rule has triggered\")\n            .name(\"My cloud configuration rule\")\n            .notifications(\"@channel\")\n            .policy(\"\"\"\n        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"skip\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"pass\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"fail\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n            \"\"\")\n            .relatedResourceTypes()\n            .resourceType(\"aws_s3_bucket\")\n            .severity(\"high\")\n            .tags(\"some:tag\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myrule:\n    type: datadog:CloudConfigurationRule\n    properties:\n      enabled: true\n      groupBies:\n        - '@resource'\n      message: Rule has triggered\n      name: My cloud configuration rule\n      notifications:\n        - '@channel'\n      policy: |2+\n                package datadog\n\n                import data.datadog.output as dd_output\n\n                import future.keywords.contains\n                import future.keywords.if\n                import future.keywords.in\n\n                eval(resource) = \"skip\" if {\n                    # Logic that evaluates to true if the resource should be skipped\n                    true\n                } else = \"pass\" {\n                    # Logic that evaluates to true if the resource is compliant\n                    true\n                } else = \"fail\" {\n                    # Logic that evaluates to true if the resource is not compliant\n                    true\n                }\n\n                # This part remains unchanged for all rules\n                results contains result if {\n                    some resource in input.resources[input.main_resource_type]\n                    result := dd_output.format(resource, eval(resource))\n                }\n\n      relatedResourceTypes: []\n      resourceType: aws_s3_bucket\n      severity: high\n      tags:\n        - some:tag\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSecurity monitoring rules can be imported using ID, e.g.\n\n```sh\n $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb\n```\n\n ",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the cloud configuration rule is enabled.\n"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Fields to group by when generating signals, e.g. @resource. Defaults to empty list.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The message associated to the rule that will be shown in findings and signals.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the cloud configuration rule.\n"
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Notification targets for signals. Defaults to empty list.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "Policy written in Rego format.\n"
+                },
+                "relatedResourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Related resource types to be checked by the rule. Defaults to empty list.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Main resource type to be checked by the rule.\n"
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags of the rule, propagated to findings and signals. Defaults to empty list.\n"
+                }
+            },
+            "required": [
+                "enabled",
+                "message",
+                "name",
+                "policy",
+                "resourceType",
+                "severity"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the cloud configuration rule is enabled.\n"
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Fields to group by when generating signals, e.g. @resource. Defaults to empty list.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The message associated to the rule that will be shown in findings and signals.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the cloud configuration rule.\n"
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Notification targets for signals. Defaults to empty list.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "Policy written in Rego format.\n"
+                },
+                "relatedResourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Related resource types to be checked by the rule. Defaults to empty list.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Main resource type to be checked by the rule.\n"
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags of the rule, propagated to findings and signals. Defaults to empty list.\n"
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "message",
+                "name",
+                "policy",
+                "resourceType",
+                "severity"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CloudConfigurationRule resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the cloud configuration rule is enabled.\n"
+                    },
+                    "groupBies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Fields to group by when generating signals, e.g. @resource. Defaults to empty list.\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message associated to the rule that will be shown in findings and signals.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the cloud configuration rule.\n"
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Notification targets for signals. Defaults to empty list.\n"
+                    },
+                    "policy": {
+                        "type": "string",
+                        "description": "Policy written in Rego format.\n"
+                    },
+                    "relatedResourceTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Related resource types to be checked by the rule. Defaults to empty list.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Main resource type to be checked by the rule.\n"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags of the rule, propagated to findings and signals. Defaults to empty list.\n"
                     }
                 },
                 "type": "object"
@@ -54244,7 +54467,7 @@
             }
         },
         "datadog:index/metricMetadata:MetricMetadata": {
-            "description": "Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a Datadog metric's metadata\nconst requestTime = new datadog.MetricMetadata(\"requestTime\", {\n    description: \"99th percentile request time in millseconds\",\n    metric: \"request.time\",\n    shortName: \"Request time\",\n    type: \"gauge\",\n    unit: \"millisecond\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a Datadog metric's metadata\nrequest_time = datadog.MetricMetadata(\"requestTime\",\n    description=\"99th percentile request time in millseconds\",\n    metric=\"request.time\",\n    short_name=\"Request time\",\n    type=\"gauge\",\n    unit=\"millisecond\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a Datadog metric's metadata\n    var requestTime = new Datadog.MetricMetadata(\"requestTime\", new()\n    {\n        Description = \"99th percentile request time in millseconds\",\n        Metric = \"request.time\",\n        ShortName = \"Request time\",\n        Type = \"gauge\",\n        Unit = \"millisecond\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricMetadata(ctx, \"requestTime\", \u0026datadog.MetricMetadataArgs{\n\t\t\tDescription: pulumi.String(\"99th percentile request time in millseconds\"),\n\t\t\tMetric:      pulumi.String(\"request.time\"),\n\t\t\tShortName:   pulumi.String(\"Request time\"),\n\t\t\tType:        pulumi.String(\"gauge\"),\n\t\t\tUnit:        pulumi.String(\"millisecond\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricMetadata;\nimport com.pulumi.datadog.MetricMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var requestTime = new MetricMetadata(\"requestTime\", MetricMetadataArgs.builder()        \n            .description(\"99th percentile request time in millseconds\")\n            .metric(\"request.time\")\n            .shortName(\"Request time\")\n            .type(\"gauge\")\n            .unit(\"millisecond\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a Datadog metric's metadata\n  requestTime:\n    type: datadog:MetricMetadata\n    properties:\n      description: 99th percentile request time in millseconds\n      metric: request.time\n      shortName: Request time\n      type: gauge\n      unit: millisecond\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a Datadog metric's metadata\nconst requestTime = new datadog.MetricMetadata(\"requestTime\", {\n    description: \"99th percentile request time in millseconds\",\n    metric: \"request.time\",\n    shortName: \"Request time\",\n    type: \"gauge\",\n    unit: \"millisecond\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a Datadog metric's metadata\nrequest_time = datadog.MetricMetadata(\"requestTime\",\n    description=\"99th percentile request time in millseconds\",\n    metric=\"request.time\",\n    short_name=\"Request time\",\n    type=\"gauge\",\n    unit=\"millisecond\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a Datadog metric's metadata\n    var requestTime = new Datadog.MetricMetadata(\"requestTime\", new()\n    {\n        Description = \"99th percentile request time in millseconds\",\n        Metric = \"request.time\",\n        ShortName = \"Request time\",\n        Type = \"gauge\",\n        Unit = \"millisecond\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricMetadata(ctx, \"requestTime\", \u0026datadog.MetricMetadataArgs{\n\t\t\tDescription: pulumi.String(\"99th percentile request time in millseconds\"),\n\t\t\tMetric:      pulumi.String(\"request.time\"),\n\t\t\tShortName:   pulumi.String(\"Request time\"),\n\t\t\tType:        pulumi.String(\"gauge\"),\n\t\t\tUnit:        pulumi.String(\"millisecond\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricMetadata;\nimport com.pulumi.datadog.MetricMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var requestTime = new MetricMetadata(\"requestTime\", MetricMetadataArgs.builder()        \n            .description(\"99th percentile request time in millseconds\")\n            .metric(\"request.time\")\n            .shortName(\"Request time\")\n            .type(\"gauge\")\n            .unit(\"millisecond\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a Datadog metric's metadata\n  requestTime:\n    type: datadog:MetricMetadata\n    properties:\n      description: 99th percentile request time in millseconds\n      metric: request.time\n      shortName: Request time\n      type: gauge\n      unit: millisecond\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -54347,7 +54570,7 @@
             }
         },
         "datadog:index/metricTagConfiguration:MetricTagConfiguration": {
-            "description": "Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a tag configuration for a Datadog distribution metric with/without percentiles\nconst exampleDistMetric = new datadog.MetricTagConfiguration(\"exampleDistMetric\", {\n    includePercentiles: false,\n    metricName: \"example.terraform.dist.metric\",\n    metricType: \"distribution\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n// Manage tag configurations for a Datadog count or gauge metric\nconst exampleCountMetric = new datadog.MetricTagConfiguration(\"exampleCountMetric\", {\n    aggregations: [\n        {\n            space: \"min\",\n            time: \"avg\",\n        },\n        {\n            space: \"max\",\n            time: \"avg\",\n        },\n    ],\n    metricName: \"example.terraform.count.metric\",\n    metricType: \"count\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a tag configuration for a Datadog distribution metric with/without percentiles\nexample_dist_metric = datadog.MetricTagConfiguration(\"exampleDistMetric\",\n    include_percentiles=False,\n    metric_name=\"example.terraform.dist.metric\",\n    metric_type=\"distribution\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n# Manage tag configurations for a Datadog count or gauge metric\nexample_count_metric = datadog.MetricTagConfiguration(\"exampleCountMetric\",\n    aggregations=[\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"min\",\n            time=\"avg\",\n        ),\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"max\",\n            time=\"avg\",\n        ),\n    ],\n    metric_name=\"example.terraform.count.metric\",\n    metric_type=\"count\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a tag configuration for a Datadog distribution metric with/without percentiles\n    var exampleDistMetric = new Datadog.MetricTagConfiguration(\"exampleDistMetric\", new()\n    {\n        IncludePercentiles = false,\n        MetricName = \"example.terraform.dist.metric\",\n        MetricType = \"distribution\",\n        Tags = new[]\n        {\n            \"sport\",\n            \"datacenter\",\n        },\n    });\n\n    // Manage tag configurations for a Datadog count or gauge metric\n    var exampleCountMetric = new Datadog.MetricTagConfiguration(\"exampleCountMetric\", new()\n    {\n        Aggregations = new[]\n        {\n            new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n            {\n                Space = \"min\",\n                Time = \"avg\",\n            },\n            new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n            {\n                Space = \"max\",\n                Time = \"avg\",\n            },\n        },\n        MetricName = \"example.terraform.count.metric\",\n        MetricType = \"count\",\n        Tags = new[]\n        {\n            \"sport\",\n            \"datacenter\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricTagConfiguration(ctx, \"exampleDistMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tIncludePercentiles: pulumi.Bool(false),\n\t\t\tMetricName:         pulumi.String(\"example.terraform.dist.metric\"),\n\t\t\tMetricType:         pulumi.String(\"distribution\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewMetricTagConfiguration(ctx, \"exampleCountMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tAggregations: datadog.MetricTagConfigurationAggregationArray{\n\t\t\t\t\u0026datadog.MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"min\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"max\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tMetricName: pulumi.String(\"example.terraform.count.metric\"),\n\t\t\tMetricType: pulumi.String(\"count\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricTagConfiguration;\nimport com.pulumi.datadog.MetricTagConfigurationArgs;\nimport com.pulumi.datadog.inputs.MetricTagConfigurationAggregationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleDistMetric = new MetricTagConfiguration(\"exampleDistMetric\", MetricTagConfigurationArgs.builder()        \n            .includePercentiles(false)\n            .metricName(\"example.terraform.dist.metric\")\n            .metricType(\"distribution\")\n            .tags(            \n                \"sport\",\n                \"datacenter\")\n            .build());\n\n        var exampleCountMetric = new MetricTagConfiguration(\"exampleCountMetric\", MetricTagConfigurationArgs.builder()        \n            .aggregations(            \n                MetricTagConfigurationAggregationArgs.builder()\n                    .space(\"min\")\n                    .time(\"avg\")\n                    .build(),\n                MetricTagConfigurationAggregationArgs.builder()\n                    .space(\"max\")\n                    .time(\"avg\")\n                    .build())\n            .metricName(\"example.terraform.count.metric\")\n            .metricType(\"count\")\n            .tags(            \n                \"sport\",\n                \"datacenter\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a tag configuration for a Datadog distribution metric with/without percentiles\n  exampleDistMetric:\n    type: datadog:MetricTagConfiguration\n    properties:\n      includePercentiles: false\n      metricName: example.terraform.dist.metric\n      metricType: distribution\n      tags:\n        - sport\n        - datacenter\n  # Manage tag configurations for a Datadog count or gauge metric\n  exampleCountMetric:\n    type: datadog:MetricTagConfiguration\n    properties:\n      aggregations:\n        - space: min\n          time: avg\n        - space: max\n          time: avg\n      metricName: example.terraform.count.metric\n      metricType: count\n      tags:\n        - sport\n        - datacenter\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a tag configuration for a Datadog distribution metric with/without percentiles\nconst exampleDistMetric = new datadog.MetricTagConfiguration(\"exampleDistMetric\", {\n    includePercentiles: false,\n    metricName: \"example.terraform.dist.metric\",\n    metricType: \"distribution\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n// Manage tag configurations for a Datadog count or gauge metric\nconst exampleCountMetric = new datadog.MetricTagConfiguration(\"exampleCountMetric\", {\n    aggregations: [\n        {\n            space: \"min\",\n            time: \"avg\",\n        },\n        {\n            space: \"max\",\n            time: \"avg\",\n        },\n    ],\n    metricName: \"example.terraform.count.metric\",\n    metricType: \"count\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a tag configuration for a Datadog distribution metric with/without percentiles\nexample_dist_metric = datadog.MetricTagConfiguration(\"exampleDistMetric\",\n    include_percentiles=False,\n    metric_name=\"example.terraform.dist.metric\",\n    metric_type=\"distribution\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n# Manage tag configurations for a Datadog count or gauge metric\nexample_count_metric = datadog.MetricTagConfiguration(\"exampleCountMetric\",\n    aggregations=[\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"min\",\n            time=\"avg\",\n        ),\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"max\",\n            time=\"avg\",\n        ),\n    ],\n    metric_name=\"example.terraform.count.metric\",\n    metric_type=\"count\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a tag configuration for a Datadog distribution metric with/without percentiles\n    var exampleDistMetric = new Datadog.MetricTagConfiguration(\"exampleDistMetric\", new()\n    {\n        IncludePercentiles = false,\n        MetricName = \"example.terraform.dist.metric\",\n        MetricType = \"distribution\",\n        Tags = new[]\n        {\n            \"sport\",\n            \"datacenter\",\n        },\n    });\n\n    // Manage tag configurations for a Datadog count or gauge metric\n    var exampleCountMetric = new Datadog.MetricTagConfiguration(\"exampleCountMetric\", new()\n    {\n        Aggregations = new[]\n        {\n            new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n            {\n                Space = \"min\",\n                Time = \"avg\",\n            },\n            new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n            {\n                Space = \"max\",\n                Time = \"avg\",\n            },\n        },\n        MetricName = \"example.terraform.count.metric\",\n        MetricType = \"count\",\n        Tags = new[]\n        {\n            \"sport\",\n            \"datacenter\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricTagConfiguration(ctx, \"exampleDistMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tIncludePercentiles: pulumi.Bool(false),\n\t\t\tMetricName:         pulumi.String(\"example.terraform.dist.metric\"),\n\t\t\tMetricType:         pulumi.String(\"distribution\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewMetricTagConfiguration(ctx, \"exampleCountMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tAggregations: datadog.MetricTagConfigurationAggregationArray{\n\t\t\t\t\u0026datadog.MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"min\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"max\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tMetricName: pulumi.String(\"example.terraform.count.metric\"),\n\t\t\tMetricType: pulumi.String(\"count\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricTagConfiguration;\nimport com.pulumi.datadog.MetricTagConfigurationArgs;\nimport com.pulumi.datadog.inputs.MetricTagConfigurationAggregationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleDistMetric = new MetricTagConfiguration(\"exampleDistMetric\", MetricTagConfigurationArgs.builder()        \n            .includePercentiles(false)\n            .metricName(\"example.terraform.dist.metric\")\n            .metricType(\"distribution\")\n            .tags(            \n                \"sport\",\n                \"datacenter\")\n            .build());\n\n        var exampleCountMetric = new MetricTagConfiguration(\"exampleCountMetric\", MetricTagConfigurationArgs.builder()        \n            .aggregations(            \n                MetricTagConfigurationAggregationArgs.builder()\n                    .space(\"min\")\n                    .time(\"avg\")\n                    .build(),\n                MetricTagConfigurationAggregationArgs.builder()\n                    .space(\"max\")\n                    .time(\"avg\")\n                    .build())\n            .metricName(\"example.terraform.count.metric\")\n            .metricType(\"count\")\n            .tags(            \n                \"sport\",\n                \"datacenter\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a tag configuration for a Datadog distribution metric with/without percentiles\n  exampleDistMetric:\n    type: datadog:MetricTagConfiguration\n    properties:\n      includePercentiles: false\n      metricName: example.terraform.dist.metric\n      metricType: distribution\n      tags:\n        - sport\n        - datacenter\n  # Manage tag configurations for a Datadog count or gauge metric\n  exampleCountMetric:\n    type: datadog:MetricTagConfiguration\n    properties:\n      aggregations:\n        - space: min\n          time: avg\n        - space: max\n          time: avg\n      metricName: example.terraform.count.metric\n      metricType: count\n      tags:\n        - sport\n        - datacenter\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric\n```\n\n ",
             "properties": {
                 "aggregations": {
                     "type": "array",
@@ -54530,7 +54753,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,\ncontact Support at support@datadoghq.com\n"
                 },
                 "notifyNoData": {
                     "type": "boolean",
@@ -54684,7 +54907,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                    "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,\ncontact Support at support@datadoghq.com\n"
                 },
                 "notifyNoData": {
                     "type": "boolean",
@@ -54843,7 +55066,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert.\n"
+                        "description": "Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor\ngrouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert\nconditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags\nin the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`\nto `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,\ncontact Support at support@datadoghq.com\n"
                     },
                     "notifyNoData": {
                         "type": "boolean",
@@ -55040,6 +55263,10 @@
                 "userCount": {
                     "type": "integer",
                     "description": "Number of users that have this role.\n"
+                },
+                "validate": {
+                    "type": "boolean",
+                    "description": "If set to `false`, skip the validation call done during plan.\n"
                 }
             },
             "required": [
@@ -55057,6 +55284,10 @@
                         "$ref": "#/types/datadog:index/RolePermission:RolePermission"
                     },
                     "description": "Set of objects containing the permission ID and the name of the permissions granted to this role.\n"
+                },
+                "validate": {
+                    "type": "boolean",
+                    "description": "If set to `false`, skip the validation call done during plan.\n"
                 }
             },
             "requiredInputs": [
@@ -55079,6 +55310,10 @@
                     "userCount": {
                         "type": "integer",
                         "description": "Number of users that have this role.\n"
+                    },
+                    "validate": {
+                        "type": "boolean",
+                        "description": "If set to `false`, skip the validation call done during plan.\n"
                     }
                 },
                 "type": "object"
@@ -55527,6 +55762,82 @@
                 "type": "object"
             }
         },
+        "datadog:index/serviceAccount:ServiceAccount": {
+            "description": "Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst roRole = datadog.getRole({\n    filter: \"Datadog Read Only Role\",\n});\n// Create a new Datadog service account\nconst bar = new datadog.ServiceAccount(\"bar\", {\n    email: \"new@example.com\",\n    name: \"Service Account Bar\",\n    roles: [roRole.then(roRole =\u003e roRole.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nro_role = datadog.get_role(filter=\"Datadog Read Only Role\")\n# Create a new Datadog service account\nbar = datadog.ServiceAccount(\"bar\",\n    email=\"new@example.com\",\n    name=\"Service Account Bar\",\n    roles=[ro_role.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var roRole = Datadog.GetRole.Invoke(new()\n    {\n        Filter = \"Datadog Read Only Role\",\n    });\n\n    // Create a new Datadog service account\n    var bar = new Datadog.ServiceAccount(\"bar\", new()\n    {\n        Email = \"new@example.com\",\n        Name = \"Service Account Bar\",\n        Roles = new[]\n        {\n            roRole.Apply(getRoleResult =\u003e getRoleResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\troRole, err := datadog.LookupRole(ctx, \u0026datadog.LookupRoleArgs{\n\t\t\tFilter: \"Datadog Read Only Role\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceAccount(ctx, \"bar\", \u0026datadog.ServiceAccountArgs{\n\t\t\tEmail: pulumi.String(\"new@example.com\"),\n\t\t\tName:  pulumi.String(\"Service Account Bar\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\t*pulumi.String(roRole.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetRoleArgs;\nimport com.pulumi.datadog.ServiceAccount;\nimport com.pulumi.datadog.ServiceAccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()\n            .filter(\"Datadog Read Only Role\")\n            .build());\n\n        var bar = new ServiceAccount(\"bar\", ServiceAccountArgs.builder()        \n            .email(\"new@example.com\")\n            .name(\"Service Account Bar\")\n            .roles(roRole.applyValue(getRoleResult -\u003e getRoleResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog service account\n  bar:\n    type: datadog:ServiceAccount\n    properties:\n      email: new@example.com\n      name: Service Account Bar\n      roles:\n        - ${roRole.id}\nvariables:\n  roRole:\n    fn::invoke:\n      Function: datadog:getRole\n      Arguments:\n        filter: Datadog Read Only Role\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4\n```\n\n ",
+            "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Whether the service account is disabled.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email of the associated user.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the service account.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list a role IDs to assign to the service account.\n"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "inputProperties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Whether the service account is disabled.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email of the associated user.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the service account.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list a role IDs to assign to the service account.\n"
+                }
+            },
+            "requiredInputs": [
+                "email"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceAccount resources.\n",
+                "properties": {
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Whether the service account is disabled.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email of the associated user.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name for the service account.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list a role IDs to assign to the service account.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": {
             "description": "Provides a Datadog service definition resource. This can be used to create and manage Datadog service definitions in the service catalog using the YAML/JSON definition.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst serviceDefinition = new datadog.ServiceDefinitionYaml(\"serviceDefinition\", {serviceDefinition: `schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n`});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nservice_definition = datadog.ServiceDefinitionYaml(\"serviceDefinition\", service_definition=\"\"\"schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var serviceDefinition = new Datadog.ServiceDefinitionYaml(\"serviceDefinition\", new()\n    {\n        ServiceDefinition = @\"schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceDefinitionYaml(ctx, \"serviceDefinition\", \u0026datadog.ServiceDefinitionYamlArgs{\n\t\t\tServiceDefinition: pulumi.String(fmt.Sprintf(`schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n`)),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceDefinitionYaml;\nimport com.pulumi.datadog.ServiceDefinitionYamlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var serviceDefinition = new ServiceDefinitionYaml(\"serviceDefinition\", ServiceDefinitionYamlArgs.builder()        \n            .serviceDefinition(\"\"\"\nschema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  serviceDefinition:\n    type: datadog:ServiceDefinitionYaml\n    properties:\n      serviceDefinition: |+\n        schema-version: v2\n        dd-service: shopping-cart\n        team: E Commerce\n        contacts:\n          - name: Support Email\n            type: email\n            contact: team@shopping.com\n          - name: Support Slack\n            type: slack\n            contact: https://www.slack.com/archives/shopping-cart\n        repos:\n          - name: shopping-cart source code\n            provider: github\n            url: http://github/shopping-cart\n        docs:\n          - name: shopping-cart architecture\n            provider: gdoc\n            url: https://google.drive/shopping-cart-architecture\n          - name: shopping-cart service Wiki\n            provider: wiki\n            url: https://wiki/shopping-cart\n        links:\n          - name: shopping-cart runbook\n            type: runbook\n            url: https://runbook/shopping-cart\n        tags:\n          - business-unit:retail\n          - cost-center:engineering\n        integrations:\n          pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\n        extensions:\n          datadoghq.com/shopping-cart:\n            customField: customValue\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition \"\u003cdd-service\u003e\"\n```\n\n ",
             "properties": {
@@ -55559,7 +55870,7 @@
             }
         },
         "datadog:index/serviceLevelObjective:ServiceLevelObjective": {
-            "description": "Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Metric-Based SLO\n// Create a new Datadog service level objective\nconst foo = new datadog.ServiceLevelObjective(\"foo\", {\n    description: \"My custom metric SLO\",\n    name: \"Example Metric SLO\",\n    query: {\n        denominator: \"sum:my.custom.count.metric{*}.as_count()\",\n        numerator: \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    },\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            targetDisplay: \"99.900\",\n            timeframe: \"7d\",\n            warning: 99.99,\n            warningDisplay: \"99.990\",\n        },\n        {\n            target: 99.9,\n            targetDisplay: \"99.900\",\n            timeframe: \"30d\",\n            warning: 99.99,\n            warningDisplay: \"99.990\",\n        },\n    ],\n    type: \"metric\",\n});\n// Monitor-Based SLO\n// Create a new Datadog service level objective\nconst bar = new datadog.ServiceLevelObjective(\"bar\", {\n    description: \"My custom monitor SLO\",\n    monitorIds: [\n        1,\n        2,\n        3,\n    ],\n    name: \"Example Monitor SLO\",\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"monitor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Metric-Based SLO\n# Create a new Datadog service level objective\nfoo = datadog.ServiceLevelObjective(\"foo\",\n    description=\"My custom metric SLO\",\n    name=\"Example Metric SLO\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.custom.count.metric{*}.as_count()\",\n        numerator=\"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    ),\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            target_display=\"99.900\",\n            timeframe=\"7d\",\n            warning=99.99,\n            warning_display=\"99.990\",\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            target_display=\"99.900\",\n            timeframe=\"30d\",\n            warning=99.99,\n            warning_display=\"99.990\",\n        ),\n    ],\n    type=\"metric\")\n# Monitor-Based SLO\n# Create a new Datadog service level objective\nbar = datadog.ServiceLevelObjective(\"bar\",\n    description=\"My custom monitor SLO\",\n    monitor_ids=[\n        1,\n        2,\n        3,\n    ],\n    name=\"Example Monitor SLO\",\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Metric-Based SLO\n    // Create a new Datadog service level objective\n    var foo = new Datadog.ServiceLevelObjective(\"foo\", new()\n    {\n        Description = \"My custom metric SLO\",\n        Name = \"Example Metric SLO\",\n        Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n        {\n            Denominator = \"sum:my.custom.count.metric{*}.as_count()\",\n            Numerator = \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n        },\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                TargetDisplay = \"99.900\",\n                Timeframe = \"7d\",\n                Warning = 99.99,\n                WarningDisplay = \"99.990\",\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                TargetDisplay = \"99.900\",\n                Timeframe = \"30d\",\n                Warning = 99.99,\n                WarningDisplay = \"99.990\",\n            },\n        },\n        Type = \"metric\",\n    });\n\n    // Monitor-Based SLO\n    // Create a new Datadog service level objective\n    var bar = new Datadog.ServiceLevelObjective(\"bar\", new()\n    {\n        Description = \"My custom monitor SLO\",\n        MonitorIds = new[]\n        {\n            1,\n            2,\n            3,\n        },\n        Name = \"Example Monitor SLO\",\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Type = \"monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"foo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom metric SLO\"),\n\t\t\tName:        pulumi.String(\"Example Metric SLO\"),\n\t\t\tQuery: \u0026datadog.ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.custom.count.metric{*}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.custom.count.metric{type:good_events}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:         pulumi.Float64(99.9),\n\t\t\t\t\tTargetDisplay:  pulumi.String(\"99.900\"),\n\t\t\t\t\tTimeframe:      pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:        pulumi.Float64(99.99),\n\t\t\t\t\tWarningDisplay: pulumi.String(\"99.990\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:         pulumi.Float64(99.9),\n\t\t\t\t\tTargetDisplay:  pulumi.String(\"99.900\"),\n\t\t\t\t\tTimeframe:      pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:        pulumi.Float64(99.99),\n\t\t\t\t\tWarningDisplay: pulumi.String(\"99.990\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceLevelObjective(ctx, \"bar\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom monitor SLO\"),\n\t\t\tMonitorIds: pulumi.IntArray{\n\t\t\t\tpulumi.Int(1),\n\t\t\t\tpulumi.Int(2),\n\t\t\t\tpulumi.Int(3),\n\t\t\t},\n\t\t\tName: pulumi.String(\"Example Monitor SLO\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceLevelObjective;\nimport com.pulumi.datadog.ServiceLevelObjectiveArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new ServiceLevelObjective(\"foo\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom metric SLO\")\n            .name(\"Example Metric SLO\")\n            .query(ServiceLevelObjectiveQueryArgs.builder()\n                .denominator(\"sum:my.custom.count.metric{*}.as_count()\")\n                .numerator(\"sum:my.custom.count.metric{type:good_events}.as_count()\")\n                .build())\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .targetDisplay(\"99.900\")\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .warningDisplay(\"99.990\")\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .targetDisplay(\"99.900\")\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .warningDisplay(\"99.990\")\n                    .build())\n            .type(\"metric\")\n            .build());\n\n        var bar = new ServiceLevelObjective(\"bar\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom monitor SLO\")\n            .monitorIds(            \n                1,\n                2,\n                3)\n            .name(\"Example Monitor SLO\")\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .type(\"monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Metric-Based SLO\n  # // Create a new Datadog service level objective\n  foo:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom metric SLO\n      name: Example Metric SLO\n      query:\n        denominator: sum:my.custom.count.metric{*}.as_count()\n        numerator: sum:my.custom.count.metric{type:good_events}.as_count()\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          targetDisplay: '99.900'\n          timeframe: 7d\n          warning: 99.99\n          warningDisplay: '99.990'\n        - target: 99.9\n          targetDisplay: '99.900'\n          timeframe: 30d\n          warning: 99.99\n          warningDisplay: '99.990'\n      type: metric\n  # Monitor-Based SLO\n  # // Create a new Datadog service level objective\n  bar:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom monitor SLO\n      monitorIds:\n        - 1\n        - 2\n        - 3\n      name: Example Monitor SLO\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      type: monitor\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService Level Objectives can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012\n```\n\n ",
+            "description": "Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Metric-Based SLO\n// Create a new Datadog service level objective\nconst foo = new datadog.ServiceLevelObjective(\"foo\", {\n    description: \"My custom metric SLO\",\n    name: \"Example Metric SLO\",\n    query: {\n        denominator: \"sum:my.custom.count.metric{*}.as_count()\",\n        numerator: \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    },\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"metric\",\n});\n// Monitor-Based SLO\n// Create a new Datadog service level objective\nconst bar = new datadog.ServiceLevelObjective(\"bar\", {\n    description: \"My custom monitor SLO\",\n    monitorIds: [\n        1,\n        2,\n        3,\n    ],\n    name: \"Example Monitor SLO\",\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"monitor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Metric-Based SLO\n# Create a new Datadog service level objective\nfoo = datadog.ServiceLevelObjective(\"foo\",\n    description=\"My custom metric SLO\",\n    name=\"Example Metric SLO\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.custom.count.metric{*}.as_count()\",\n        numerator=\"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    ),\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"metric\")\n# Monitor-Based SLO\n# Create a new Datadog service level objective\nbar = datadog.ServiceLevelObjective(\"bar\",\n    description=\"My custom monitor SLO\",\n    monitor_ids=[\n        1,\n        2,\n        3,\n    ],\n    name=\"Example Monitor SLO\",\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Metric-Based SLO\n    // Create a new Datadog service level objective\n    var foo = new Datadog.ServiceLevelObjective(\"foo\", new()\n    {\n        Description = \"My custom metric SLO\",\n        Name = \"Example Metric SLO\",\n        Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n        {\n            Denominator = \"sum:my.custom.count.metric{*}.as_count()\",\n            Numerator = \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n        },\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Type = \"metric\",\n    });\n\n    // Monitor-Based SLO\n    // Create a new Datadog service level objective\n    var bar = new Datadog.ServiceLevelObjective(\"bar\", new()\n    {\n        Description = \"My custom monitor SLO\",\n        MonitorIds = new[]\n        {\n            1,\n            2,\n            3,\n        },\n        Name = \"Example Monitor SLO\",\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Type = \"monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"foo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom metric SLO\"),\n\t\t\tName:        pulumi.String(\"Example Metric SLO\"),\n\t\t\tQuery: \u0026datadog.ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.custom.count.metric{*}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.custom.count.metric{type:good_events}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceLevelObjective(ctx, \"bar\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom monitor SLO\"),\n\t\t\tMonitorIds: pulumi.IntArray{\n\t\t\t\tpulumi.Int(1),\n\t\t\t\tpulumi.Int(2),\n\t\t\t\tpulumi.Int(3),\n\t\t\t},\n\t\t\tName: pulumi.String(\"Example Monitor SLO\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceLevelObjective;\nimport com.pulumi.datadog.ServiceLevelObjectiveArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new ServiceLevelObjective(\"foo\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom metric SLO\")\n            .name(\"Example Metric SLO\")\n            .query(ServiceLevelObjectiveQueryArgs.builder()\n                .denominator(\"sum:my.custom.count.metric{*}.as_count()\")\n                .numerator(\"sum:my.custom.count.metric{type:good_events}.as_count()\")\n                .build())\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .type(\"metric\")\n            .build());\n\n        var bar = new ServiceLevelObjective(\"bar\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom monitor SLO\")\n            .monitorIds(            \n                1,\n                2,\n                3)\n            .name(\"Example Monitor SLO\")\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .type(\"monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Metric-Based SLO\n  # // Create a new Datadog service level objective\n  foo:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom metric SLO\n      name: Example Metric SLO\n      query:\n        denominator: sum:my.custom.count.metric{*}.as_count()\n        numerator: sum:my.custom.count.metric{type:good_events}.as_count()\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      type: metric\n  # Monitor-Based SLO\n  # // Create a new Datadog service level objective\n  bar:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom monitor SLO\n      monitorIds:\n        - 1\n        - 2\n        - 3\n      name: Example Monitor SLO\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      type: monitor\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService Level Objectives can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -56961,6 +57272,30 @@
         }
     },
     "functions": {
+        "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": {
+            "description": "Use this data source to retrieve all AWS log ready services.\n",
+            "outputs": {
+                "description": "A collection of values returned by getIntegrationLogsServices.\n",
+                "properties": {
+                    "awsLogsServices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:aws/getIntegrationLogsServicesAwsLogsService:getIntegrationLogsServicesAwsLogsService"
+                        },
+                        "description": "List of AWS log ready services.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "awsLogsServices",
+                    "id"
+                ]
+            }
+        },
         "datadog:index/getApiKey:getApiKey": {
             "description": "Use this data source to retrieve information about an existing api key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst foo = datadog.getApiKey({\n    name: \"foo-application\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nfoo = datadog.get_api_key(name=\"foo-application\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = Datadog.GetApiKey.Invoke(new()\n    {\n        Name = \"foo-application\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupApiKey(ctx, \u0026datadog.LookupApiKeyArgs{\n\t\t\tName: pulumi.StringRef(\"foo-application\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetApiKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()\n            .name(\"foo-application\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  foo:\n    fn::invoke:\n      Function: datadog:getApiKey\n      Arguments:\n        name: foo-application\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {

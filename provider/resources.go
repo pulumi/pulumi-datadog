@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/terraform-providers/terraform-provider-datadog/datadog"
 )
 
@@ -162,6 +163,8 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_cloud_workload_security_agent_rules": {Tok: makeDataSource(datadogMod, "getCloudWorkloadSecurityAgentRules")},
 			"datadog_rum_application":                     {Tok: makeDataSource(datadogMod, "getRumApplication")},
 			"datadog_synthetics_test":                     {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
+
+			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -192,6 +195,14 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 	}
+
+	rStrat, dStrat := tfbridge.TokensKnownModules("datadog_", datadogMod, []string{},
+		func(module, name string) (string, error) {
+			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
+			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
+		})
+	err := prov.ComputeDefaults(rStrat.Unmappable("integration"), dStrat.Unmappable("integration"))
+	contract.AssertNoError(err)
 
 	return prov
 }
