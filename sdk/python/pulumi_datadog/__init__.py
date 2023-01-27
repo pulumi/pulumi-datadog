@@ -9,6 +9,7 @@ from .api_key import *
 from .application_key import *
 from .authn_mapping import *
 from .child_organization import *
+from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
 from .dashboard import *
 from .dashboard_json import *
@@ -57,6 +58,7 @@ from .rum_application import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
+from .service_account import *
 from .service_definition_yaml import *
 from .service_level_objective import *
 from .slo_correction import *
@@ -175,6 +177,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/childOrganization:ChildOrganization": "ChildOrganization"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/cloudConfigurationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/cloudConfigurationRule:CloudConfigurationRule": "CloudConfigurationRule"
   }
  },
  {
@@ -359,6 +369,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "SecurityMonitoringRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/serviceAccount",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/serviceAccount:ServiceAccount": "ServiceAccount"
   }
  },
  {

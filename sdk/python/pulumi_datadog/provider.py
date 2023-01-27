@@ -23,9 +23,11 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
-               path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
-               you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
+               path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
+               if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
+               `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
+               https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
@@ -61,9 +63,11 @@ class ProviderArgs:
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
-        path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
-        you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
+        path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
+        if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
+        `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
+        https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return pulumi.get(self, "api_url")
 
@@ -142,9 +146,11 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
-               path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
-               you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        :param pulumi.Input[str] api_url: The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
+               path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
+               if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
+               `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
+               https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
@@ -217,9 +223,11 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
-        path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
-        you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
+        path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
+        if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
+        `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
+        https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return pulumi.get(self, "api_url")
 

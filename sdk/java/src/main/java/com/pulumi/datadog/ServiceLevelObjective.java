@@ -59,17 +59,13 @@ import javax.annotation.Nullable;
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
  *                     .target(99.9)
- *                     .targetDisplay(&#34;99.900&#34;)
  *                     .timeframe(&#34;7d&#34;)
  *                     .warning(99.99)
- *                     .warningDisplay(&#34;99.990&#34;)
  *                     .build(),
  *                 ServiceLevelObjectiveThresholdArgs.builder()
  *                     .target(99.9)
- *                     .targetDisplay(&#34;99.900&#34;)
  *                     .timeframe(&#34;30d&#34;)
  *                     .warning(99.99)
- *                     .warningDisplay(&#34;99.990&#34;)
  *                     .build())
  *             .type(&#34;metric&#34;)
  *             .build());

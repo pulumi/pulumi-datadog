@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestConfigVariable {
-    /**
-     * @return Example for the variable.
-     * 
-     */
     private @Nullable String example;
     /**
      * @return When type = `global`, ID of the global variable to use.
@@ -26,11 +23,12 @@ public final class SyntheticsTestConfigVariable {
      * 
      */
     private String name;
+    private @Nullable String pattern;
     /**
-     * @return Pattern of the variable.
+     * @return Whether the value of this variable will be obfuscated in test results.
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable Boolean secure;
     /**
      * @return Type of test configuration variable. Valid values are `global`, `text`.
      * 
@@ -38,10 +36,6 @@ public final class SyntheticsTestConfigVariable {
     private String type;
 
     private SyntheticsTestConfigVariable() {}
-    /**
-     * @return Example for the variable.
-     * 
-     */
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
@@ -59,12 +53,15 @@ public final class SyntheticsTestConfigVariable {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Pattern of the variable.
-     * 
-     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
+    }
+    /**
+     * @return Whether the value of this variable will be obfuscated in test results.
+     * 
+     */
+    public Optional<Boolean> secure() {
+        return Optional.ofNullable(this.secure);
     }
     /**
      * @return Type of test configuration variable. Valid values are `global`, `text`.
@@ -87,6 +84,7 @@ public final class SyntheticsTestConfigVariable {
         private @Nullable String id;
         private String name;
         private @Nullable String pattern;
+        private @Nullable Boolean secure;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestConfigVariable defaults) {
@@ -95,6 +93,7 @@ public final class SyntheticsTestConfigVariable {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.pattern = defaults.pattern;
+    	      this.secure = defaults.secure;
     	      this.type = defaults.type;
         }
 
@@ -119,6 +118,11 @@ public final class SyntheticsTestConfigVariable {
             return this;
         }
         @CustomType.Setter
+        public Builder secure(@Nullable Boolean secure) {
+            this.secure = secure;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -129,6 +133,7 @@ public final class SyntheticsTestConfigVariable {
             o.id = id;
             o.name = name;
             o.pattern = pattern;
+            o.secure = secure;
             o.type = type;
             return o;
         }

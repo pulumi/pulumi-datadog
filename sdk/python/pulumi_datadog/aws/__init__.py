@@ -5,7 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_integration_logs_services import *
 from .integration import *
 from .integration_lambda_arn import *
 from .integration_log_collection import *
 from .integration_tag_filter import *
+from . import outputs

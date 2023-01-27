@@ -17,15 +17,19 @@ __all__ = ['RoleArgs', 'Role']
 class RoleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None):
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Role resource.
         :param pulumi.Input[str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -51,18 +55,32 @@ class RoleArgs:
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `false`, skip the validation call done during plan.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
 
 @pulumi.input_type
 class _RoleState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
-                 user_count: Optional[pulumi.Input[int]] = None):
+                 user_count: Optional[pulumi.Input[int]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Role resources.
         :param pulumi.Input[str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[int] user_count: Number of users that have this role.
+        :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -70,6 +88,8 @@ class _RoleState:
             pulumi.set(__self__, "permissions", permissions)
         if user_count is not None:
             pulumi.set(__self__, "user_count", user_count)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -107,6 +127,18 @@ class _RoleState:
     def user_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "user_count", value)
 
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `false`, skip the validation call done during plan.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
 
 class Role(pulumi.CustomResource):
     @overload
@@ -115,6 +147,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides a Datadog role resource. This can be used to create and manage Datadog roles.
@@ -131,6 +164,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         ...
     @overload
@@ -166,6 +200,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,6 +214,7 @@ class Role(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["validate"] = validate
             __props__.__dict__["user_count"] = None
         super(Role, __self__).__init__(
             'datadog:index/role:Role',
@@ -192,7 +228,8 @@ class Role(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
-            user_count: Optional[pulumi.Input[int]] = None) -> 'Role':
+            user_count: Optional[pulumi.Input[int]] = None,
+            validate: Optional[pulumi.Input[bool]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,6 +240,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[int] user_count: Number of users that have this role.
+        :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -211,6 +249,7 @@ class Role(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["user_count"] = user_count
+        __props__.__dict__["validate"] = validate
         return Role(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -236,4 +275,12 @@ class Role(pulumi.CustomResource):
         Number of users that have this role.
         """
         return pulumi.get(self, "user_count")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to `false`, skip the validation call done during plan.
+        """
+        return pulumi.get(self, "validate")
 

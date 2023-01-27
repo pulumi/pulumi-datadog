@@ -25,6 +25,11 @@ export type ChildOrganization = import("./childOrganization").ChildOrganization;
 export const ChildOrganization: typeof import("./childOrganization").ChildOrganization = null as any;
 utilities.lazyLoad(exports, ["ChildOrganization"], () => require("./childOrganization"));
 
+export { CloudConfigurationRuleArgs, CloudConfigurationRuleState } from "./cloudConfigurationRule";
+export type CloudConfigurationRule = import("./cloudConfigurationRule").CloudConfigurationRule;
+export const CloudConfigurationRule: typeof import("./cloudConfigurationRule").CloudConfigurationRule = null as any;
+utilities.lazyLoad(exports, ["CloudConfigurationRule"], () => require("./cloudConfigurationRule"));
+
 export { CloudWorkloadSecurityAgentRuleArgs, CloudWorkloadSecurityAgentRuleState } from "./cloudWorkloadSecurityAgentRule";
 export type CloudWorkloadSecurityAgentRule = import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule;
 export const CloudWorkloadSecurityAgentRule: typeof import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule = null as any;
@@ -257,6 +262,11 @@ export type SecurityMonitoringRule = import("./securityMonitoringRule").Security
 export const SecurityMonitoringRule: typeof import("./securityMonitoringRule").SecurityMonitoringRule = null as any;
 utilities.lazyLoad(exports, ["SecurityMonitoringRule"], () => require("./securityMonitoringRule"));
 
+export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
+export type ServiceAccount = import("./serviceAccount").ServiceAccount;
+export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
+utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
+
 export { ServiceDefinitionYamlArgs, ServiceDefinitionYamlState } from "./serviceDefinitionYaml";
 export type ServiceDefinitionYaml = import("./serviceDefinitionYaml").ServiceDefinitionYaml;
 export const ServiceDefinitionYaml: typeof import("./serviceDefinitionYaml").ServiceDefinitionYaml = null as any;
@@ -336,6 +346,8 @@ const _module = {
                 return new AuthnMapping(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
                 return new ChildOrganization(name, <any>undefined, { urn })
+            case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
+                return new CloudConfigurationRule(name, <any>undefined, { urn })
             case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
                 return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
@@ -382,6 +394,8 @@ const _module = {
                 return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
+            case "datadog:index/serviceAccount:ServiceAccount":
+                return new ServiceAccount(name, <any>undefined, { urn })
             case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
                 return new ServiceDefinitionYaml(name, <any>undefined, { urn })
             case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
@@ -409,6 +423,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
@@ -432,6 +447,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)

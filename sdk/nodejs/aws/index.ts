@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetIntegrationLogsServicesResult } from "./getIntegrationLogsServices";
+export const getIntegrationLogsServices: typeof import("./getIntegrationLogsServices").getIntegrationLogsServices = null as any;
+utilities.lazyLoad(exports, ["getIntegrationLogsServices"], () => require("./getIntegrationLogsServices"));
+
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;

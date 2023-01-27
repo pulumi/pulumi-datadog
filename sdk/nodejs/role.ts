@@ -78,6 +78,10 @@ export class Role extends pulumi.CustomResource {
      * Number of users that have this role.
      */
     public /*out*/ readonly userCount!: pulumi.Output<number>;
+    /**
+     * If set to `false`, skip the validation call done during plan.
+     */
+    public readonly validate!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["userCount"] = state ? state.userCount : undefined;
+            resourceInputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -102,6 +107,7 @@ export class Role extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["validate"] = args ? args.validate : undefined;
             resourceInputs["userCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,6 +131,10 @@ export interface RoleState {
      * Number of users that have this role.
      */
     userCount?: pulumi.Input<number>;
+    /**
+     * If set to `false`, skip the validation call done during plan.
+     */
+    validate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -139,4 +149,8 @@ export interface RoleArgs {
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
+    /**
+     * If set to `false`, skip the validation call done during plan.
+     */
+    validate?: pulumi.Input<boolean>;
 }

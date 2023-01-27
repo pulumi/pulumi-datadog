@@ -31,17 +31,13 @@ import * as utilities from "./utilities";
  *     thresholds: [
  *         {
  *             target: 99.9,
- *             targetDisplay: "99.900",
  *             timeframe: "7d",
  *             warning: 99.99,
- *             warningDisplay: "99.990",
  *         },
  *         {
  *             target: 99.9,
- *             targetDisplay: "99.900",
  *             timeframe: "30d",
  *             warning: 99.99,
- *             warningDisplay: "99.990",
  *         },
  *     ],
  *     type: "metric",

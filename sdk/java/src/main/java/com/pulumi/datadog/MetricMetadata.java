@@ -52,6 +52,12 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/metricMetadata:MetricMetadata")
 public class MetricMetadata extends com.pulumi.resources.CustomResource {

@@ -33,6 +33,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/metricMetadata:MetricMetadata")]
     public partial class MetricMetadata : global::Pulumi.CustomResource

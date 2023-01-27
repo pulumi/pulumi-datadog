@@ -61,6 +61,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/metricTagConfiguration:MetricTagConfiguration")]
     public partial class MetricTagConfiguration : global::Pulumi.CustomResource

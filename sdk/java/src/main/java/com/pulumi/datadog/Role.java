@@ -11,6 +11,7 @@ import com.pulumi.datadog.RoleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.RoleState;
 import com.pulumi.datadog.outputs.RolePermission;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -113,6 +114,20 @@ public class Role extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> userCount() {
         return this.userCount;
+    }
+    /**
+     * If set to `false`, skip the validation call done during plan.
+     * 
+     */
+    @Export(name="validate", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> validate;
+
+    /**
+     * @return If set to `false`, skip the validation call done during plan.
+     * 
+     */
+    public Output<Optional<Boolean>> validate() {
+        return Codegen.optional(this.validate);
     }
 
     /**

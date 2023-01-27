@@ -59911,13 +59911,13 @@ class SyntheticsTestConfigVariable(dict):
                  type: str,
                  example: Optional[str] = None,
                  id: Optional[str] = None,
-                 pattern: Optional[str] = None):
+                 pattern: Optional[str] = None,
+                 secure: Optional[bool] = None):
         """
         :param str name: Name of the variable.
         :param str type: Type of test configuration variable. Valid values are `global`, `text`.
-        :param str example: Example for the variable.
         :param str id: When type = `global`, ID of the global variable to use.
-        :param str pattern: Pattern of the variable.
+        :param bool secure: Whether the value of this variable will be obfuscated in test results.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -59927,6 +59927,8 @@ class SyntheticsTestConfigVariable(dict):
             pulumi.set(__self__, "id", id)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -59947,9 +59949,6 @@ class SyntheticsTestConfigVariable(dict):
     @property
     @pulumi.getter
     def example(self) -> Optional[str]:
-        """
-        Example for the variable.
-        """
         return pulumi.get(self, "example")
 
     @property
@@ -59963,10 +59962,15 @@ class SyntheticsTestConfigVariable(dict):
     @property
     @pulumi.getter
     def pattern(self) -> Optional[str]:
-        """
-        Pattern of the variable.
-        """
         return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[bool]:
+        """
+        Whether the value of this variable will be obfuscated in test results.
+        """
+        return pulumi.get(self, "secure")
 
 
 @pulumi.output_type

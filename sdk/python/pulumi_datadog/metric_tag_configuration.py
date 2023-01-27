@@ -235,6 +235,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
@@ -285,6 +291,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
                 "sport",
                 "datacenter",
             ])
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
         ```
 
         :param str resource_name: The name of the resource.

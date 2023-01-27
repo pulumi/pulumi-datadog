@@ -45,6 +45,12 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+ * ```
  */
 export class MetricTagConfiguration extends pulumi.CustomResource {
     /**

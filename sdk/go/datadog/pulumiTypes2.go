@@ -22350,14 +22350,14 @@ func (o SyntheticsTestBrowserVariableArrayOutput) Index(i pulumi.IntInput) Synth
 }
 
 type SyntheticsTestConfigVariable struct {
-	// Example for the variable.
 	Example *string `pulumi:"example"`
 	// When type = `global`, ID of the global variable to use.
 	Id *string `pulumi:"id"`
 	// Name of the variable.
-	Name string `pulumi:"name"`
-	// Pattern of the variable.
+	Name    string  `pulumi:"name"`
 	Pattern *string `pulumi:"pattern"`
+	// Whether the value of this variable will be obfuscated in test results.
+	Secure *bool `pulumi:"secure"`
 	// Type of test configuration variable. Valid values are `global`, `text`.
 	Type string `pulumi:"type"`
 }
@@ -22374,14 +22374,14 @@ type SyntheticsTestConfigVariableInput interface {
 }
 
 type SyntheticsTestConfigVariableArgs struct {
-	// Example for the variable.
 	Example pulumi.StringPtrInput `pulumi:"example"`
 	// When type = `global`, ID of the global variable to use.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the variable.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Pattern of the variable.
+	Name    pulumi.StringInput    `pulumi:"name"`
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Whether the value of this variable will be obfuscated in test results.
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
 	// Type of test configuration variable. Valid values are `global`, `text`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -22437,7 +22437,6 @@ func (o SyntheticsTestConfigVariableOutput) ToSyntheticsTestConfigVariableOutput
 	return o
 }
 
-// Example for the variable.
 func (o SyntheticsTestConfigVariableOutput) Example() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestConfigVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
 }
@@ -22452,9 +22451,13 @@ func (o SyntheticsTestConfigVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestConfigVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Pattern of the variable.
 func (o SyntheticsTestConfigVariableOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestConfigVariable) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Whether the value of this variable will be obfuscated in test results.
+func (o SyntheticsTestConfigVariableOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
 // Type of test configuration variable. Valid values are `global`, `text`.

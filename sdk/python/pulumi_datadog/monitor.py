@@ -95,7 +95,8 @@ class MonitorArgs:
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+               to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+               contact Support at support@datadoghq.com
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -436,7 +437,8 @@ class MonitorArgs:
         grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+        contact Support at support@datadoghq.com
         """
         return pulumi.get(self, "notify_bies")
 
@@ -686,7 +688,8 @@ class _MonitorState:
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+               to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+               contact Support at support@datadoghq.com
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -1024,7 +1027,8 @@ class _MonitorState:
         grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+        contact Support at support@datadoghq.com
         """
         return pulumi.get(self, "notify_bies")
 
@@ -1338,7 +1342,8 @@ class Monitor(pulumi.CustomResource):
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+               to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+               contact Support at support@datadoghq.com
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -1603,7 +1608,8 @@ class Monitor(pulumi.CustomResource):
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-               to `[*]` configures the monitor to notify as a simple-alert.
+               to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+               contact Support at support@datadoghq.com
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -1839,7 +1845,8 @@ class Monitor(pulumi.CustomResource):
         grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        to `[*]` configures the monitor to notify as a simple-alert.
+        to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
+        contact Support at support@datadoghq.com
         """
         return pulumi.get(self, "notify_bies")
 
