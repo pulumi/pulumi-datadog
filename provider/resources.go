@@ -58,14 +58,15 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(datadog.Provider())
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "datadog",
-		Description: "A Pulumi package for creating and managing Datadog resources.",
-		Keywords:    []string{"pulumi", "datadog"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-datadog",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		P:                p,
+		Name:             "datadog",
+		Description:      "A Pulumi package for creating and managing Datadog resources.",
+		Keywords:         []string{"pulumi", "datadog"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		Repository:       "https://github.com/pulumi/pulumi-datadog",
+		Config:           map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
 			"datadog_downtime":                   {Tok: makeResource(datadogMod, "Downtime")},
