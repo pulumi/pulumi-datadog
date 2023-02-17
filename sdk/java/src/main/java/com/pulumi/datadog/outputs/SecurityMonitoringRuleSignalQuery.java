@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleSignalQuery {
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     private @Nullable String aggregation;
@@ -45,7 +45,7 @@ public final class SecurityMonitoringRuleSignalQuery {
 
     private SecurityMonitoringRuleSignalQuery() {}
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     public Optional<String> aggregation() {

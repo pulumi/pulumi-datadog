@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetListStreamDefinitionRequestQuery
     {
         public readonly string DataSource;
+        public readonly string? EventSize;
         public readonly ImmutableArray<string> Indexes;
         public readonly string? QueryString;
         public readonly string? Storage;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetListStreamDefinitionRequestQuery(
             string dataSource,
 
+            string? eventSize,
+
             ImmutableArray<string> indexes,
 
             string? queryString,
@@ -29,6 +32,7 @@ namespace Pulumi.Datadog.Outputs
             string? storage)
         {
             DataSource = dataSource;
+            EventSize = eventSize;
             Indexes = indexes;
             QueryString = queryString;
             Storage = storage;

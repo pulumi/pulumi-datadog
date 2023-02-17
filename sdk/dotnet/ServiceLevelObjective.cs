@@ -37,6 +37,7 @@ namespace Pulumi.Datadog
     ///             "foo:bar",
     ///             "baz",
     ///         },
+    ///         TargetThreshold = 99.9,
     ///         Thresholds = new[]
     ///         {
     ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
@@ -52,7 +53,9 @@ namespace Pulumi.Datadog
     ///                 Warning = 99.99,
     ///             },
     ///         },
+    ///         Timeframe = "30d",
     ///         Type = "metric",
+    ///         WarningThreshold = 99.99,
     ///     });
     /// 
     ///     // Monitor-Based SLO
@@ -72,6 +75,7 @@ namespace Pulumi.Datadog
     ///             "foo:bar",
     ///             "baz",
     ///         },
+    ///         TargetThreshold = 99.9,
     ///         Thresholds = new[]
     ///         {
     ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
@@ -87,7 +91,9 @@ namespace Pulumi.Datadog
     ///                 Warning = 99.99,
     ///             },
     ///         },
+    ///         Timeframe = "30d",
     ///         Type = "monitor",
+    ///         WarningThreshold = 99.99,
     ///     });
     /// 
     /// });
@@ -147,10 +153,22 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The objective's target in `(0,100)`.
+        /// </summary>
+        [Output("targetThreshold")]
+        public Output<double> TargetThreshold { get; private set; } = null!;
+
+        /// <summary>
         /// A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("thresholds")]
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
+
+        /// <summary>
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// </summary>
+        [Output("timeframe")]
+        public Output<string> Timeframe { get; private set; } = null!;
 
         /// <summary>
         /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
@@ -163,6 +181,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
+
+        /// <summary>
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// </summary>
+        [Output("warningThreshold")]
+        public Output<double> WarningThreshold { get; private set; } = null!;
 
 
         /// <summary>
@@ -270,6 +294,12 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The objective's target in `(0,100)`.
+        /// </summary>
+        [Input("targetThreshold")]
+        public Input<double>? TargetThreshold { get; set; }
+
         [Input("thresholds", required: true)]
         private InputList<Inputs.ServiceLevelObjectiveThresholdArgs>? _thresholds;
 
@@ -283,6 +313,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// </summary>
+        [Input("timeframe")]
+        public Input<string>? Timeframe { get; set; }
+
+        /// <summary>
         /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         /// </summary>
         [Input("type", required: true)]
@@ -293,6 +329,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
+
+        /// <summary>
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// </summary>
+        [Input("warningThreshold")]
+        public Input<double>? WarningThreshold { get; set; }
 
         public ServiceLevelObjectiveArgs()
         {
@@ -362,6 +404,12 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The objective's target in `(0,100)`.
+        /// </summary>
+        [Input("targetThreshold")]
+        public Input<double>? TargetThreshold { get; set; }
+
         [Input("thresholds")]
         private InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs>? _thresholds;
 
@@ -375,6 +423,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// </summary>
+        [Input("timeframe")]
+        public Input<string>? Timeframe { get; set; }
+
+        /// <summary>
         /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         /// </summary>
         [Input("type")]
@@ -385,6 +439,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
+
+        /// <summary>
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// </summary>
+        [Input("warningThreshold")]
+        public Input<double>? WarningThreshold { get; set; }
 
         public ServiceLevelObjectiveState()
         {

@@ -2463,6 +2463,7 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
     dataSource: pulumi.Input<string>;
+    eventSize?: pulumi.Input<string>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     queryString?: pulumi.Input<string>;
     storage?: pulumi.Input<string>;
@@ -5496,6 +5497,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     dataSource: pulumi.Input<string>;
+    eventSize?: pulumi.Input<string>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     queryString?: pulumi.Input<string>;
     storage?: pulumi.Input<string>;
@@ -8522,6 +8524,21 @@ export interface MetricTagConfigurationAggregation {
     time: pulumi.Input<string>;
 }
 
+export interface MonitorConfigPolicyTagPolicy {
+    /**
+     * The key of the tag
+     */
+    tagKey: pulumi.Input<string>;
+    /**
+     * If a tag key is required for monitor creation
+     */
+    tagKeyRequired: pulumi.Input<boolean>;
+    /**
+     * Valid values for the tag
+     */
+    validTagValues: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface MonitorMonitorThresholdWindows {
     /**
      * Describes how long an anomalous metric must be normal before the alert recovers.
@@ -8758,7 +8775,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
     /**
-     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
      */
     detectionMethod?: pulumi.Input<string>;
     /**
@@ -8802,7 +8819,7 @@ export interface SecurityMonitoringRuleQuery {
      */
     agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQueryAgentRule>[]>;
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
     aggregation?: pulumi.Input<string>;
     /**
@@ -8840,7 +8857,7 @@ export interface SecurityMonitoringRuleQueryAgentRule {
 
 export interface SecurityMonitoringRuleSignalQuery {
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
     aggregation?: pulumi.Input<string>;
     /**
@@ -8878,7 +8895,7 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveThreshold {
     /**
-     * The objective's target in`[0,100]`.
+     * The objective's target in `(0,100)`.
      */
     target: pulumi.Input<number>;
     /**
@@ -8890,13 +8907,25 @@ export interface ServiceLevelObjectiveThreshold {
      */
     timeframe: pulumi.Input<string>;
     /**
-     * The objective's warning value in `[0,100]`. This must be greater than the target value.
+     * The objective's warning value in `(0,100)`. This must be greater than the target value.
      */
     warning?: pulumi.Input<number>;
     /**
      * A string representation of the warning target (see the description of the targetDisplay field for details).
      */
     warningDisplay?: pulumi.Input<string>;
+}
+
+export interface SyntheticsGlobalVariableOptions {
+    /**
+     * Parameters needed for MFA/TOTP.
+     */
+    totpParameters?: pulumi.Input<inputs.SyntheticsGlobalVariableOptionsTotpParameters>;
+}
+
+export interface SyntheticsGlobalVariableOptionsTotpParameters {
+    digits: pulumi.Input<number>;
+    refreshInterval: pulumi.Input<number>;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
@@ -9403,6 +9432,10 @@ export interface SyntheticsTestOptionsList {
      * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: pulumi.Input<boolean>;
+    /**
+     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: pulumi.Input<string>;
     /**
      * Ignore server certificate error.
      */

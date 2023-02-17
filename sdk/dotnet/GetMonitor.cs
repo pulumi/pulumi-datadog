@@ -228,6 +228,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly int NoDataTimeframe;
         /// <summary>
+        /// Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+        /// </summary>
+        public readonly string NotificationPresetName;
+        /// <summary>
         /// Whether or not tagged users are notified on changes to the monitor.
         /// </summary>
         public readonly bool NotifyAudit;
@@ -323,6 +327,8 @@ namespace Pulumi.Datadog
 
             int noDataTimeframe,
 
+            string notificationPresetName,
+
             bool notifyAudit,
 
             ImmutableArray<string> notifyBies,
@@ -371,6 +377,7 @@ namespace Pulumi.Datadog
             NewGroupDelay = newGroupDelay;
             NewHostDelay = newHostDelay;
             NoDataTimeframe = noDataTimeframe;
+            NotificationPresetName = notificationPresetName;
             NotifyAudit = notifyAudit;
             NotifyBies = notifyBies;
             NotifyNoData = notifyNoData;

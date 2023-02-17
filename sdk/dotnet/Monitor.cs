@@ -166,6 +166,12 @@ namespace Pulumi.Datadog
         public Output<int?> NoDataTimeframe { get; private set; } = null!;
 
         /// <summary>
+        /// Toggles the display of additional content sent in the monitor notification.
+        /// </summary>
+        [Output("notificationPresetName")]
+        public Output<string?> NotificationPresetName { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         /// </summary>
         [Output("notifyAudit")]
@@ -442,6 +448,12 @@ namespace Pulumi.Datadog
         public Input<int>? NoDataTimeframe { get; set; }
 
         /// <summary>
+        /// Toggles the display of additional content sent in the monitor notification.
+        /// </summary>
+        [Input("notificationPresetName")]
+        public Input<string>? NotificationPresetName { get; set; }
+
+        /// <summary>
         /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         /// </summary>
         [Input("notifyAudit")]
@@ -715,6 +727,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("noDataTimeframe")]
         public Input<int>? NoDataTimeframe { get; set; }
+
+        /// <summary>
+        /// Toggles the display of additional content sent in the monitor notification.
+        /// </summary>
+        [Input("notificationPresetName")]
+        public Input<string>? NotificationPresetName { get; set; }
 
         /// <summary>
         /// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.

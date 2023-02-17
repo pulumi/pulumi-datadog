@@ -33,6 +33,7 @@ class MonitorArgs:
                  new_group_delay: Optional[pulumi.Input[int]] = None,
                  new_host_delay: Optional[pulumi.Input[int]] = None,
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
+                 notification_preset_name: Optional[pulumi.Input[str]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
@@ -90,6 +91,7 @@ class MonitorArgs:
                and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
@@ -159,6 +161,8 @@ class MonitorArgs:
             pulumi.set(__self__, "new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
             pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+        if notification_preset_name is not None:
+            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
         if notify_audit is not None:
             pulumi.set(__self__, "notify_audit", notify_audit)
         if notify_bies is not None:
@@ -418,6 +422,18 @@ class MonitorArgs:
         pulumi.set(self, "no_data_timeframe", value)
 
     @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Toggles the display of additional content sent in the monitor notification.
+        """
+        return pulumi.get(self, "notification_preset_name")
+
+    @notification_preset_name.setter
+    def notification_preset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_preset_name", value)
+
+    @property
     @pulumi.getter(name="notifyAudit")
     def notify_audit(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -632,6 +648,7 @@ class _MonitorState:
                  new_group_delay: Optional[pulumi.Input[int]] = None,
                  new_host_delay: Optional[pulumi.Input[int]] = None,
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
+                 notification_preset_name: Optional[pulumi.Input[str]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
@@ -683,6 +700,7 @@ class _MonitorState:
                and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
@@ -764,6 +782,8 @@ class _MonitorState:
             pulumi.set(__self__, "new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
             pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+        if notification_preset_name is not None:
+            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
         if notify_audit is not None:
             pulumi.set(__self__, "notify_audit", notify_audit)
         if notify_bies is not None:
@@ -1006,6 +1026,18 @@ class _MonitorState:
     @no_data_timeframe.setter
     def no_data_timeframe(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "no_data_timeframe", value)
+
+    @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Toggles the display of additional content sent in the monitor notification.
+        """
+        return pulumi.get(self, "notification_preset_name")
+
+    @notification_preset_name.setter
+    def notification_preset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_preset_name", value)
 
     @property
     @pulumi.getter(name="notifyAudit")
@@ -1255,6 +1287,7 @@ class Monitor(pulumi.CustomResource):
                  new_group_delay: Optional[pulumi.Input[int]] = None,
                  new_host_delay: Optional[pulumi.Input[int]] = None,
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
+                 notification_preset_name: Optional[pulumi.Input[str]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
@@ -1337,6 +1370,7 @@ class Monitor(pulumi.CustomResource):
                and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
@@ -1448,6 +1482,7 @@ class Monitor(pulumi.CustomResource):
                  new_group_delay: Optional[pulumi.Input[int]] = None,
                  new_host_delay: Optional[pulumi.Input[int]] = None,
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
+                 notification_preset_name: Optional[pulumi.Input[str]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
@@ -1499,6 +1534,7 @@ class Monitor(pulumi.CustomResource):
                 pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
             __props__.__dict__["new_host_delay"] = new_host_delay
             __props__.__dict__["no_data_timeframe"] = no_data_timeframe
+            __props__.__dict__["notification_preset_name"] = notification_preset_name
             __props__.__dict__["notify_audit"] = notify_audit
             __props__.__dict__["notify_bies"] = notify_bies
             __props__.__dict__["notify_no_data"] = notify_no_data
@@ -1547,6 +1583,7 @@ class Monitor(pulumi.CustomResource):
             new_group_delay: Optional[pulumi.Input[int]] = None,
             new_host_delay: Optional[pulumi.Input[int]] = None,
             no_data_timeframe: Optional[pulumi.Input[int]] = None,
+            notification_preset_name: Optional[pulumi.Input[str]] = None,
             notify_audit: Optional[pulumi.Input[bool]] = None,
             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             notify_no_data: Optional[pulumi.Input[bool]] = None,
@@ -1603,6 +1640,7 @@ class Monitor(pulumi.CustomResource):
                and set `new_host_delay` to zero for monitors grouped by host.
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
                recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
                grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
@@ -1666,6 +1704,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["new_group_delay"] = new_group_delay
         __props__.__dict__["new_host_delay"] = new_host_delay
         __props__.__dict__["no_data_timeframe"] = no_data_timeframe
+        __props__.__dict__["notification_preset_name"] = notification_preset_name
         __props__.__dict__["notify_audit"] = notify_audit
         __props__.__dict__["notify_bies"] = notify_bies
         __props__.__dict__["notify_no_data"] = notify_no_data
@@ -1828,6 +1867,14 @@ class Monitor(pulumi.CustomResource):
         recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
+
+    @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Toggles the display of additional content sent in the monitor notification.
+        """
+        return pulumi.get(self, "notification_preset_name")
 
     @property
     @pulumi.getter(name="notifyAudit")

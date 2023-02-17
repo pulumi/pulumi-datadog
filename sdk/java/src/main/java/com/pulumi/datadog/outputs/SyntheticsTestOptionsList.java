@@ -54,6 +54,11 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean followRedirects;
     /**
+     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    private @Nullable String httpVersion;
+    /**
      * @return Ignore server certificate error.
      * 
      */
@@ -153,6 +158,13 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.followRedirects);
     }
     /**
+     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    public Optional<String> httpVersion() {
+        return Optional.ofNullable(this.httpVersion);
+    }
+    /**
      * @return Ignore server certificate error.
      * 
      */
@@ -241,6 +253,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable Boolean disableCors;
         private @Nullable Boolean disableCsp;
         private @Nullable Boolean followRedirects;
+        private @Nullable String httpVersion;
         private @Nullable Boolean ignoreServerCertificateError;
         private @Nullable Integer initialNavigationTimeout;
         private @Nullable Integer minFailureDuration;
@@ -263,6 +276,7 @@ public final class SyntheticsTestOptionsList {
     	      this.disableCors = defaults.disableCors;
     	      this.disableCsp = defaults.disableCsp;
     	      this.followRedirects = defaults.followRedirects;
+    	      this.httpVersion = defaults.httpVersion;
     	      this.ignoreServerCertificateError = defaults.ignoreServerCertificateError;
     	      this.initialNavigationTimeout = defaults.initialNavigationTimeout;
     	      this.minFailureDuration = defaults.minFailureDuration;
@@ -310,6 +324,11 @@ public final class SyntheticsTestOptionsList {
         @CustomType.Setter
         public Builder followRedirects(@Nullable Boolean followRedirects) {
             this.followRedirects = followRedirects;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpVersion(@Nullable String httpVersion) {
+            this.httpVersion = httpVersion;
             return this;
         }
         @CustomType.Setter
@@ -384,6 +403,7 @@ public final class SyntheticsTestOptionsList {
             o.disableCors = disableCors;
             o.disableCsp = disableCsp;
             o.followRedirects = followRedirects;
+            o.httpVersion = httpVersion;
             o.ignoreServerCertificateError = ignoreServerCertificateError;
             o.initialNavigationTimeout = initialNavigationTimeout;
             o.minFailureDuration = minFailureDuration;

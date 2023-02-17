@@ -31,6 +31,8 @@ type Integration struct {
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	CspmResourceCollectionEnabled pulumi.BoolPtrOutput `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
@@ -98,6 +100,8 @@ type integrationState struct {
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
+	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
@@ -115,6 +119,8 @@ type IntegrationState struct {
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
+	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	CspmResourceCollectionEnabled pulumi.BoolPtrInput
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
@@ -136,6 +142,8 @@ type integrationArgs struct {
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
+	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
@@ -154,6 +162,8 @@ type IntegrationArgs struct {
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
+	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	CspmResourceCollectionEnabled pulumi.BoolPtrInput
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
@@ -264,6 +274,11 @@ func (o IntegrationOutput) ClientEmail() pulumi.StringOutput {
 // Your ID found in your JSON service account key.
 func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Whether Datadog collects cloud security posture management resources from your GCP project.
+func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.

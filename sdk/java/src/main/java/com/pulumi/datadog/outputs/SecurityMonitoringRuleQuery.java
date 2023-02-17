@@ -23,7 +23,7 @@ public final class SecurityMonitoringRuleQuery {
     @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<SecurityMonitoringRuleQueryAgentRule> agentRules;
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     private @Nullable String aggregation;
@@ -75,7 +75,7 @@ public final class SecurityMonitoringRuleQuery {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
      * 
      */
     public Optional<String> aggregation() {

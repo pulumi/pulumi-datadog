@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.ServiceLevelObjectiveState;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveQuery;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveThreshold;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -56,6 +57,7 @@ import javax.annotation.Nullable;
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;baz&#34;)
+ *             .targetThreshold(99.9)
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
  *                     .target(99.9)
@@ -67,7 +69,9 @@ import javax.annotation.Nullable;
  *                     .timeframe(&#34;30d&#34;)
  *                     .warning(99.99)
  *                     .build())
+ *             .timeframe(&#34;30d&#34;)
  *             .type(&#34;metric&#34;)
+ *             .warningThreshold(99.99)
  *             .build());
  * 
  *         var bar = new ServiceLevelObjective(&#34;bar&#34;, ServiceLevelObjectiveArgs.builder()        
@@ -80,6 +84,7 @@ import javax.annotation.Nullable;
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;baz&#34;)
+ *             .targetThreshold(99.9)
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
  *                     .target(99.9)
@@ -91,7 +96,9 @@ import javax.annotation.Nullable;
  *                     .timeframe(&#34;30d&#34;)
  *                     .warning(99.99)
  *                     .build())
+ *             .timeframe(&#34;30d&#34;)
  *             .type(&#34;monitor&#34;)
+ *             .warningThreshold(99.99)
  *             .build());
  * 
  *     }
@@ -208,6 +215,20 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
+     * The objective&#39;s target in `(0,100)`.
+     * 
+     */
+    @Export(name="targetThreshold", type=Double.class, parameters={})
+    private Output<Double> targetThreshold;
+
+    /**
+     * @return The objective&#39;s target in `(0,100)`.
+     * 
+     */
+    public Output<Double> targetThreshold() {
+        return this.targetThreshold;
+    }
+    /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      * 
      */
@@ -220,6 +241,20 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ServiceLevelObjectiveThreshold>> thresholds() {
         return this.thresholds;
+    }
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
+    @Export(name="timeframe", type=String.class, parameters={})
+    private Output<String> timeframe;
+
+    /**
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
+    public Output<String> timeframe() {
+        return this.timeframe;
     }
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
@@ -248,6 +283,20 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> validate() {
         return Codegen.optional(this.validate);
+    }
+    /**
+     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * 
+     */
+    @Export(name="warningThreshold", type=Double.class, parameters={})
+    private Output<Double> warningThreshold;
+
+    /**
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * 
+     */
+    public Output<Double> warningThreshold() {
+        return this.warningThreshold;
     }
 
     /**

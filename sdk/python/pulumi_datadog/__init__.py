@@ -26,6 +26,7 @@ from .get_logs_indexes import *
 from .get_logs_indexes_order import *
 from .get_logs_pipelines import *
 from .get_monitor import *
+from .get_monitor_config_policies import *
 from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
@@ -50,6 +51,7 @@ from .logs_pipeline_order import *
 from .metric_metadata import *
 from .metric_tag_configuration import *
 from .monitor import *
+from .monitor_config_policy import *
 from .monitor_json import *
 from .organization_settings import *
 from .provider import *
@@ -313,6 +315,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/monitorConfigPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": "MonitorConfigPolicy"
   }
  },
  {

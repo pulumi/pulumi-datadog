@@ -42,6 +42,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// </summary>
+        [Output("cspmResourceCollectionEnabled")]
+        public Output<bool?> CspmResourceCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         /// </summary>
         [Output("hostFilters")]
@@ -134,6 +140,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// </summary>
+        [Input("cspmResourceCollectionEnabled")]
+        public Input<bool>? CspmResourceCollectionEnabled { get; set; }
+
+        /// <summary>
         /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
@@ -192,6 +204,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// </summary>
+        [Input("cspmResourceCollectionEnabled")]
+        public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
         /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.

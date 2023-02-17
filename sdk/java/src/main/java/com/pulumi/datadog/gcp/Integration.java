@@ -73,6 +73,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
+     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * 
+     */
+    @Export(name="cspmResourceCollectionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> cspmResourceCollectionEnabled;
+
+    /**
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project.
+     * 
+     */
+    public Output<Optional<Boolean>> cspmResourceCollectionEnabled() {
+        return Codegen.optional(this.cspmResourceCollectionEnabled);
+    }
+    /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */

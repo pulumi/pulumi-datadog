@@ -60,6 +60,12 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Additional options for the variable, such as a MFA token.
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.SyntheticsGlobalVariableOptions?> Options { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the Synthetics test to use for a variable from test.
         /// </summary>
         [Output("parseTestId")]
@@ -158,6 +164,12 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Additional options for the variable, such as a MFA token.
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.SyntheticsGlobalVariableOptionsArgs>? Options { get; set; }
+
+        /// <summary>
         /// Id of the Synthetics test to use for a variable from test.
         /// </summary>
         [Input("parseTestId")]
@@ -234,6 +246,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Additional options for the variable, such as a MFA token.
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.SyntheticsGlobalVariableOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
         /// Id of the Synthetics test to use for a variable from test.

@@ -23,6 +23,13 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         return this.dataSource;
     }
 
+    @Import(name="eventSize")
+    private @Nullable Output<String> eventSize;
+
+    public Optional<Output<String>> eventSize() {
+        return Optional.ofNullable(this.eventSize);
+    }
+
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
@@ -48,6 +55,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs $) {
         this.dataSource = $.dataSource;
+        this.eventSize = $.eventSize;
         this.indexes = $.indexes;
         this.queryString = $.queryString;
         this.storage = $.storage;
@@ -78,6 +86,15 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
+        }
+
+        public Builder eventSize(@Nullable Output<String> eventSize) {
+            $.eventSize = eventSize;
+            return this;
+        }
+
+        public Builder eventSize(String eventSize) {
+            return eventSize(Output.of(eventSize));
         }
 
         public Builder indexes(@Nullable Output<List<String>> indexes) {

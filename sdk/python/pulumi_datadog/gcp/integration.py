@@ -20,6 +20,7 @@ class IntegrationArgs:
                  private_key_id: pulumi.Input[str],
                  project_id: pulumi.Input[str],
                  automute: Optional[pulumi.Input[bool]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
@@ -29,6 +30,7 @@ class IntegrationArgs:
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         pulumi.set(__self__, "client_email", client_email)
@@ -38,6 +40,8 @@ class IntegrationArgs:
         pulumi.set(__self__, "project_id", project_id)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
+        if cspm_resource_collection_enabled is not None:
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
 
@@ -114,6 +118,18 @@ class IntegrationArgs:
         pulumi.set(self, "automute", value)
 
     @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Datadog collects cloud security posture management resources from your GCP project.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
+
+    @cspm_resource_collection_enabled.setter
+    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cspm_resource_collection_enabled", value)
+
+    @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
@@ -132,6 +148,7 @@ class _IntegrationState:
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
@@ -141,6 +158,7 @@ class _IntegrationState:
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -152,6 +170,8 @@ class _IntegrationState:
             pulumi.set(__self__, "client_email", client_email)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if cspm_resource_collection_enabled is not None:
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if private_key is not None:
@@ -196,6 +216,18 @@ class _IntegrationState:
     @client_id.setter
     def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Datadog collects cloud security posture management resources from your GCP project.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
+
+    @cspm_resource_collection_enabled.setter
+    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cspm_resource_collection_enabled", value)
 
     @property
     @pulumi.getter(name="hostFilters")
@@ -254,6 +286,7 @@ class Integration(pulumi.CustomResource):
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
@@ -275,6 +308,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -315,6 +349,7 @@ class Integration(pulumi.CustomResource):
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
@@ -335,6 +370,7 @@ class Integration(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
             __props__.__dict__["host_filters"] = host_filters
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
@@ -360,6 +396,7 @@ class Integration(pulumi.CustomResource):
             automute: Optional[pulumi.Input[bool]] = None,
             client_email: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
+            cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
             private_key: Optional[pulumi.Input[str]] = None,
             private_key_id: Optional[pulumi.Input[str]] = None,
@@ -374,6 +411,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -386,6 +424,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["automute"] = automute
         __props__.__dict__["client_email"] = client_email
         __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["private_key"] = private_key
         __props__.__dict__["private_key_id"] = private_key_id
@@ -415,6 +454,14 @@ class Integration(pulumi.CustomResource):
         Your ID found in your JSON service account key.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="cspmResourceCollectionEnabled")
+    def cspm_resource_collection_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether Datadog collects cloud security posture management resources from your GCP project.
+        """
+        return pulumi.get(self, "cspm_resource_collection_enabled")
 
     @property
     @pulumi.getter(name="hostFilters")

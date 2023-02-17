@@ -19,6 +19,7 @@ class SyntheticsGlobalVariableArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -29,6 +30,7 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[str] value: The value of the global variable.
         :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
@@ -39,6 +41,8 @@ class SyntheticsGlobalVariableArgs:
         pulumi.set(__self__, "value", value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parse_test_id is not None:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
@@ -85,6 +89,18 @@ class SyntheticsGlobalVariableArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]:
+        """
+        Additional options for the variable, such as a MFA token.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="parseTestId")
@@ -152,6 +168,7 @@ class _SyntheticsGlobalVariableState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -162,6 +179,7 @@ class _SyntheticsGlobalVariableState:
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
@@ -173,6 +191,8 @@ class _SyntheticsGlobalVariableState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parse_test_id is not None:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
@@ -209,6 +229,18 @@ class _SyntheticsGlobalVariableState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]:
+        """
+        Additional options for the variable, such as a MFA token.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="parseTestId")
@@ -290,6 +322,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableOptionsArgs']]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -328,6 +361,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableOptionsArgs']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
@@ -385,6 +419,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableOptionsArgs']]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -404,6 +439,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["options"] = options
             __props__.__dict__["parse_test_id"] = parse_test_id
             __props__.__dict__["parse_test_options"] = parse_test_options
             __props__.__dict__["restricted_roles"] = restricted_roles
@@ -426,6 +462,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableOptionsArgs']]] = None,
             parse_test_id: Optional[pulumi.Input[str]] = None,
             parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -441,6 +478,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableOptionsArgs']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
@@ -454,6 +492,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["options"] = options
         __props__.__dict__["parse_test_id"] = parse_test_id
         __props__.__dict__["parse_test_options"] = parse_test_options
         __props__.__dict__["restricted_roles"] = restricted_roles
@@ -477,6 +516,14 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Synthetics global variable name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Output[Optional['outputs.SyntheticsGlobalVariableOptions']]:
+        """
+        Additional options for the variable, such as a MFA token.
+        """
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="parseTestId")

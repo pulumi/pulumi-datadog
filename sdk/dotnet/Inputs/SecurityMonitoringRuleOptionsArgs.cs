@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? DecreaseCriticalityBasedOnEnv { get; set; }
 
         /// <summary>
-        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         /// </summary>
         [Input("detectionMethod")]
         public Input<string>? DetectionMethod { get; set; }

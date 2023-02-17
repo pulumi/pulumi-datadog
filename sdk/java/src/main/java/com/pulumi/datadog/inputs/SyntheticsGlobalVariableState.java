@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SyntheticsGlobalVariableOptionsArgs;
 import com.pulumi.datadog.inputs.SyntheticsGlobalVariableParseTestOptionsArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -46,6 +47,21 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Additional options for the variable, such as a MFA token.
+     * 
+     */
+    @Import(name="options")
+    private @Nullable Output<SyntheticsGlobalVariableOptionsArgs> options;
+
+    /**
+     * @return Additional options for the variable, such as a MFA token.
+     * 
+     */
+    public Optional<Output<SyntheticsGlobalVariableOptionsArgs>> options() {
+        return Optional.ofNullable(this.options);
     }
 
     /**
@@ -143,6 +159,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     private SyntheticsGlobalVariableState(SyntheticsGlobalVariableState $) {
         this.description = $.description;
         this.name = $.name;
+        this.options = $.options;
         this.parseTestId = $.parseTestId;
         this.parseTestOptions = $.parseTestOptions;
         this.restrictedRoles = $.restrictedRoles;
@@ -209,6 +226,27 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param options Additional options for the variable, such as a MFA token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(@Nullable Output<SyntheticsGlobalVariableOptionsArgs> options) {
+            $.options = options;
+            return this;
+        }
+
+        /**
+         * @param options Additional options for the variable, such as a MFA token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(SyntheticsGlobalVariableOptionsArgs options) {
+            return options(Output.of(options));
         }
 
         /**

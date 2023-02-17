@@ -1093,6 +1093,7 @@ __all__ = [
     'LogsMetricFilterArgs',
     'LogsMetricGroupByArgs',
     'MetricTagConfigurationAggregationArgs',
+    'MonitorConfigPolicyTagPolicyArgs',
     'MonitorMonitorThresholdWindowsArgs',
     'MonitorMonitorThresholdsArgs',
     'MonitorSchedulingOptionArgs',
@@ -1123,6 +1124,8 @@ __all__ = [
     'SecurityMonitoringRuleSignalQueryArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
+    'SyntheticsGlobalVariableOptionsArgs',
+    'SyntheticsGlobalVariableOptionsTotpParametersArgs',
     'SyntheticsGlobalVariableParseTestOptionsArgs',
     'SyntheticsGlobalVariableParseTestOptionsParserArgs',
     'SyntheticsPrivateLocationMetadataArgs',
@@ -18035,10 +18038,13 @@ class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs:
 class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
+                 event_size: Optional[pulumi.Input[str]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
+        if event_size is not None:
+            pulumi.set(__self__, "event_size", event_size)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
@@ -18054,6 +18060,15 @@ class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
     @data_source.setter
     def data_source(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="eventSize")
+    def event_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_size")
+
+    @event_size.setter
+    def event_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_size", value)
 
     @property
     @pulumi.getter
@@ -40660,10 +40675,13 @@ class DashboardWidgetListStreamDefinitionRequestColumnArgs:
 class DashboardWidgetListStreamDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
+                 event_size: Optional[pulumi.Input[str]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
+        if event_size is not None:
+            pulumi.set(__self__, "event_size", event_size)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
@@ -40679,6 +40697,15 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
     @data_source.setter
     def data_source(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="eventSize")
+    def event_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_size")
+
+    @event_size.setter
+    def event_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_size", value)
 
     @property
     @pulumi.getter
@@ -62276,6 +62303,58 @@ class MetricTagConfigurationAggregationArgs:
 
 
 @pulumi.input_type
+class MonitorConfigPolicyTagPolicyArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[str],
+                 tag_key_required: pulumi.Input[bool],
+                 valid_tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] tag_key: The key of the tag
+        :param pulumi.Input[bool] tag_key_required: If a tag key is required for monitor creation
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_tag_values: Valid values for the tag
+        """
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_key_required", tag_key_required)
+        pulumi.set(__self__, "valid_tag_values", valid_tag_values)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[str]:
+        """
+        The key of the tag
+        """
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_key", value)
+
+    @property
+    @pulumi.getter(name="tagKeyRequired")
+    def tag_key_required(self) -> pulumi.Input[bool]:
+        """
+        If a tag key is required for monitor creation
+        """
+        return pulumi.get(self, "tag_key_required")
+
+    @tag_key_required.setter
+    def tag_key_required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "tag_key_required", value)
+
+    @property
+    @pulumi.getter(name="validTagValues")
+    def valid_tag_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Valid values for the tag
+        """
+        return pulumi.get(self, "valid_tag_values")
+
+    @valid_tag_values.setter
+    def valid_tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "valid_tag_values", value)
+
+
+@pulumi.input_type
 class MonitorMonitorThresholdWindowsArgs:
     def __init__(__self__, *,
                  recovery_window: Optional[pulumi.Input[str]] = None,
@@ -63249,7 +63328,7 @@ class SecurityMonitoringRuleOptionsArgs:
         :param pulumi.Input[int] keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
         :param pulumi.Input[int] max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param pulumi.Input[bool] decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
-        :param pulumi.Input[str] detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+        :param pulumi.Input[str] detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         :param pulumi.Input[int] evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
         :param pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs'] impossible_travel_options: Options for rules using the impossible travel detection method.
         :param pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs'] new_value_options: New value rules specific options.
@@ -63307,7 +63386,7 @@ class SecurityMonitoringRuleOptionsArgs:
     @pulumi.getter(name="detectionMethod")
     def detection_method(self) -> Optional[pulumi.Input[str]]:
         """
-        The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+        The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         """
         return pulumi.get(self, "detection_method")
 
@@ -63435,7 +63514,7 @@ class SecurityMonitoringRuleQueryArgs:
         """
         :param pulumi.Input[str] query: Query to run on logs.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryAgentRuleArgs']]] agent_rules: **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
-        :param pulumi.Input[str] aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+        :param pulumi.Input[str] aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] distinct_fields: Field for which the cardinality is measured. Sent as an array.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_fields: Fields to group by.
         :param pulumi.Input[str] metric: The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -63492,7 +63571,7 @@ class SecurityMonitoringRuleQueryArgs:
     @pulumi.getter
     def aggregation(self) -> Optional[pulumi.Input[str]]:
         """
-        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         """
         return pulumi.get(self, "aggregation")
 
@@ -63599,7 +63678,7 @@ class SecurityMonitoringRuleSignalQueryArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] rule_id: Rule ID of the signal to correlate.
-        :param pulumi.Input[str] aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+        :param pulumi.Input[str] aggregation: The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] correlated_by_fields: Fields to correlate by.
         :param pulumi.Input[str] correlated_query_index: Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
         :param pulumi.Input[str] default_rule_id: Default Rule ID of the signal to correlate. This value is READ-ONLY.
@@ -63633,7 +63712,7 @@ class SecurityMonitoringRuleSignalQueryArgs:
     @pulumi.getter
     def aggregation(self) -> Optional[pulumi.Input[str]]:
         """
-        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+        The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         """
         return pulumi.get(self, "aggregation")
 
@@ -63736,10 +63815,10 @@ class ServiceLevelObjectiveThresholdArgs:
                  warning: Optional[pulumi.Input[float]] = None,
                  warning_display: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target: The objective's target in`[0,100]`.
+        :param pulumi.Input[float] target: The objective's target in `(0,100)`.
         :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] target_display: A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
-        :param pulumi.Input[float] warning: The objective's warning value in `[0,100]`. This must be greater than the target value.
+        :param pulumi.Input[float] warning: The objective's warning value in `(0,100)`. This must be greater than the target value.
         :param pulumi.Input[str] warning_display: A string representation of the warning target (see the description of the target_display field for details).
         """
         pulumi.set(__self__, "target", target)
@@ -63755,7 +63834,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[float]:
         """
-        The objective's target in`[0,100]`.
+        The objective's target in `(0,100)`.
         """
         return pulumi.get(self, "target")
 
@@ -63791,7 +63870,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's warning value in `[0,100]`. This must be greater than the target value.
+        The objective's warning value in `(0,100)`. This must be greater than the target value.
         """
         return pulumi.get(self, "warning")
 
@@ -63810,6 +63889,56 @@ class ServiceLevelObjectiveThresholdArgs:
     @warning_display.setter
     def warning_display(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warning_display", value)
+
+
+@pulumi.input_type
+class SyntheticsGlobalVariableOptionsArgs:
+    def __init__(__self__, *,
+                 totp_parameters: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsTotpParametersArgs']] = None):
+        """
+        :param pulumi.Input['SyntheticsGlobalVariableOptionsTotpParametersArgs'] totp_parameters: Parameters needed for MFA/TOTP.
+        """
+        if totp_parameters is not None:
+            pulumi.set(__self__, "totp_parameters", totp_parameters)
+
+    @property
+    @pulumi.getter(name="totpParameters")
+    def totp_parameters(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableOptionsTotpParametersArgs']]:
+        """
+        Parameters needed for MFA/TOTP.
+        """
+        return pulumi.get(self, "totp_parameters")
+
+    @totp_parameters.setter
+    def totp_parameters(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsTotpParametersArgs']]):
+        pulumi.set(self, "totp_parameters", value)
+
+
+@pulumi.input_type
+class SyntheticsGlobalVariableOptionsTotpParametersArgs:
+    def __init__(__self__, *,
+                 digits: pulumi.Input[int],
+                 refresh_interval: pulumi.Input[int]):
+        pulumi.set(__self__, "digits", digits)
+        pulumi.set(__self__, "refresh_interval", refresh_interval)
+
+    @property
+    @pulumi.getter
+    def digits(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "digits")
+
+    @digits.setter
+    def digits(self, value: pulumi.Input[int]):
+        pulumi.set(self, "digits", value)
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "refresh_interval")
+
+    @refresh_interval.setter
+    def refresh_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "refresh_interval", value)
 
 
 @pulumi.input_type
@@ -65960,6 +66089,7 @@ class SyntheticsTestOptionsListArgs:
                  disable_cors: Optional[pulumi.Input[bool]] = None,
                  disable_csp: Optional[pulumi.Input[bool]] = None,
                  follow_redirects: Optional[pulumi.Input[bool]] = None,
+                 http_version: Optional[pulumi.Input[str]] = None,
                  ignore_server_certificate_error: Optional[pulumi.Input[bool]] = None,
                  initial_navigation_timeout: Optional[pulumi.Input[int]] = None,
                  min_failure_duration: Optional[pulumi.Input[int]] = None,
@@ -65980,6 +66110,7 @@ class SyntheticsTestOptionsListArgs:
         :param pulumi.Input[bool] disable_cors: Disable Cross-Origin Resource Sharing for browser tests.
         :param pulumi.Input[bool] disable_csp: Disable Content Security Policy for browser tests.
         :param pulumi.Input[bool] follow_redirects: Determines whether or not the API HTTP test should follow redirects.
+        :param pulumi.Input[str] http_version: HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
         :param pulumi.Input[bool] ignore_server_certificate_error: Ignore server certificate error.
         :param pulumi.Input[int] initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
         :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
@@ -66004,6 +66135,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "disable_csp", disable_csp)
         if follow_redirects is not None:
             pulumi.set(__self__, "follow_redirects", follow_redirects)
+        if http_version is not None:
+            pulumi.set(__self__, "http_version", http_version)
         if ignore_server_certificate_error is not None:
             pulumi.set(__self__, "ignore_server_certificate_error", ignore_server_certificate_error)
         if initial_navigation_timeout is not None:
@@ -66122,6 +66255,18 @@ class SyntheticsTestOptionsListArgs:
     @follow_redirects.setter
     def follow_redirects(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "follow_redirects", value)
+
+    @property
+    @pulumi.getter(name="httpVersion")
+    def http_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+        """
+        return pulumi.get(self, "http_version")
+
+    @http_version.setter
+    def http_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_version", value)
 
     @property
     @pulumi.getter(name="ignoreServerCertificateError")

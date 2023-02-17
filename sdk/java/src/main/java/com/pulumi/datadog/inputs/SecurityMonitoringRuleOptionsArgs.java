@@ -35,14 +35,14 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+     * The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
      * 
      */
     @Import(name="detectionMethod")
     private @Nullable Output<String> detectionMethod;
 
     /**
-     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
      * 
      */
     public Optional<Output<String>> detectionMethod() {
@@ -176,7 +176,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
          * 
          * @return builder
          * 

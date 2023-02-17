@@ -13706,6 +13706,181 @@ func (o MetricTagConfigurationAggregationArrayOutput) Index(i pulumi.IntInput) M
 	}).(MetricTagConfigurationAggregationOutput)
 }
 
+type MonitorConfigPolicyTagPolicy struct {
+	// The key of the tag
+	TagKey string `pulumi:"tagKey"`
+	// If a tag key is required for monitor creation
+	TagKeyRequired bool `pulumi:"tagKeyRequired"`
+	// Valid values for the tag
+	ValidTagValues []string `pulumi:"validTagValues"`
+}
+
+// MonitorConfigPolicyTagPolicyInput is an input type that accepts MonitorConfigPolicyTagPolicyArgs and MonitorConfigPolicyTagPolicyOutput values.
+// You can construct a concrete instance of `MonitorConfigPolicyTagPolicyInput` via:
+//
+//	MonitorConfigPolicyTagPolicyArgs{...}
+type MonitorConfigPolicyTagPolicyInput interface {
+	pulumi.Input
+
+	ToMonitorConfigPolicyTagPolicyOutput() MonitorConfigPolicyTagPolicyOutput
+	ToMonitorConfigPolicyTagPolicyOutputWithContext(context.Context) MonitorConfigPolicyTagPolicyOutput
+}
+
+type MonitorConfigPolicyTagPolicyArgs struct {
+	// The key of the tag
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// If a tag key is required for monitor creation
+	TagKeyRequired pulumi.BoolInput `pulumi:"tagKeyRequired"`
+	// Valid values for the tag
+	ValidTagValues pulumi.StringArrayInput `pulumi:"validTagValues"`
+}
+
+func (MonitorConfigPolicyTagPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (i MonitorConfigPolicyTagPolicyArgs) ToMonitorConfigPolicyTagPolicyOutput() MonitorConfigPolicyTagPolicyOutput {
+	return i.ToMonitorConfigPolicyTagPolicyOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigPolicyTagPolicyArgs) ToMonitorConfigPolicyTagPolicyOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyTagPolicyOutput)
+}
+
+func (i MonitorConfigPolicyTagPolicyArgs) ToMonitorConfigPolicyTagPolicyPtrOutput() MonitorConfigPolicyTagPolicyPtrOutput {
+	return i.ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigPolicyTagPolicyArgs) ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyTagPolicyOutput).ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(ctx)
+}
+
+// MonitorConfigPolicyTagPolicyPtrInput is an input type that accepts MonitorConfigPolicyTagPolicyArgs, MonitorConfigPolicyTagPolicyPtr and MonitorConfigPolicyTagPolicyPtrOutput values.
+// You can construct a concrete instance of `MonitorConfigPolicyTagPolicyPtrInput` via:
+//
+//	        MonitorConfigPolicyTagPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorConfigPolicyTagPolicyPtrInput interface {
+	pulumi.Input
+
+	ToMonitorConfigPolicyTagPolicyPtrOutput() MonitorConfigPolicyTagPolicyPtrOutput
+	ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(context.Context) MonitorConfigPolicyTagPolicyPtrOutput
+}
+
+type monitorConfigPolicyTagPolicyPtrType MonitorConfigPolicyTagPolicyArgs
+
+func MonitorConfigPolicyTagPolicyPtr(v *MonitorConfigPolicyTagPolicyArgs) MonitorConfigPolicyTagPolicyPtrInput {
+	return (*monitorConfigPolicyTagPolicyPtrType)(v)
+}
+
+func (*monitorConfigPolicyTagPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (i *monitorConfigPolicyTagPolicyPtrType) ToMonitorConfigPolicyTagPolicyPtrOutput() MonitorConfigPolicyTagPolicyPtrOutput {
+	return i.ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorConfigPolicyTagPolicyPtrType) ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyTagPolicyPtrOutput)
+}
+
+type MonitorConfigPolicyTagPolicyOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigPolicyTagPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (o MonitorConfigPolicyTagPolicyOutput) ToMonitorConfigPolicyTagPolicyOutput() MonitorConfigPolicyTagPolicyOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyTagPolicyOutput) ToMonitorConfigPolicyTagPolicyOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyTagPolicyOutput) ToMonitorConfigPolicyTagPolicyPtrOutput() MonitorConfigPolicyTagPolicyPtrOutput {
+	return o.ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorConfigPolicyTagPolicyOutput) ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigPolicyTagPolicy) *MonitorConfigPolicyTagPolicy {
+		return &v
+	}).(MonitorConfigPolicyTagPolicyPtrOutput)
+}
+
+// The key of the tag
+func (o MonitorConfigPolicyTagPolicyOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorConfigPolicyTagPolicy) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+// If a tag key is required for monitor creation
+func (o MonitorConfigPolicyTagPolicyOutput) TagKeyRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v MonitorConfigPolicyTagPolicy) bool { return v.TagKeyRequired }).(pulumi.BoolOutput)
+}
+
+// Valid values for the tag
+func (o MonitorConfigPolicyTagPolicyOutput) ValidTagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitorConfigPolicyTagPolicy) []string { return v.ValidTagValues }).(pulumi.StringArrayOutput)
+}
+
+type MonitorConfigPolicyTagPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigPolicyTagPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (o MonitorConfigPolicyTagPolicyPtrOutput) ToMonitorConfigPolicyTagPolicyPtrOutput() MonitorConfigPolicyTagPolicyPtrOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyTagPolicyPtrOutput) ToMonitorConfigPolicyTagPolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyTagPolicyPtrOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyTagPolicyPtrOutput) Elem() MonitorConfigPolicyTagPolicyOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyTagPolicy) MonitorConfigPolicyTagPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfigPolicyTagPolicy
+		return ret
+	}).(MonitorConfigPolicyTagPolicyOutput)
+}
+
+// The key of the tag
+func (o MonitorConfigPolicyTagPolicyPtrOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyTagPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TagKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// If a tag key is required for monitor creation
+func (o MonitorConfigPolicyTagPolicyPtrOutput) TagKeyRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyTagPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.TagKeyRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Valid values for the tag
+func (o MonitorConfigPolicyTagPolicyPtrOutput) ValidTagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyTagPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidTagValues
+	}).(pulumi.StringArrayOutput)
+}
+
 type MonitorMonitorThresholdWindows struct {
 	// Describes how long an anomalous metric must be normal before the alert recovers.
 	RecoveryWindow *string `pulumi:"recoveryWindow"`
@@ -16721,7 +16896,7 @@ func (o SecurityMonitoringRuleFilterArrayOutput) Index(i pulumi.IntInput) Securi
 type SecurityMonitoringRuleOptions struct {
 	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
-	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
 	DetectionMethod *string `pulumi:"detectionMethod"`
 	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
 	EvaluationWindow *int `pulumi:"evaluationWindow"`
@@ -16749,7 +16924,7 @@ type SecurityMonitoringRuleOptionsInput interface {
 type SecurityMonitoringRuleOptionsArgs struct {
 	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
-	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+	// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
 	DetectionMethod pulumi.StringPtrInput `pulumi:"detectionMethod"`
 	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
 	EvaluationWindow pulumi.IntPtrInput `pulumi:"evaluationWindow"`
@@ -16845,7 +17020,7 @@ func (o SecurityMonitoringRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pul
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
 }
 
-// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
 func (o SecurityMonitoringRuleOptionsOutput) DetectionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *string { return v.DetectionMethod }).(pulumi.StringPtrOutput)
 }
@@ -16913,7 +17088,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+// The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
 func (o SecurityMonitoringRuleOptionsPtrOutput) DetectionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *string {
 		if v == nil {
@@ -17289,7 +17464,7 @@ type SecurityMonitoringRuleQuery struct {
 	//
 	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules []SecurityMonitoringRuleQueryAgentRule `pulumi:"agentRules"`
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation *string `pulumi:"aggregation"`
 	// Field for which the cardinality is measured. Sent as an array.
 	DistinctFields []string `pulumi:"distinctFields"`
@@ -17323,7 +17498,7 @@ type SecurityMonitoringRuleQueryArgs struct {
 	//
 	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules SecurityMonitoringRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
 	// Field for which the cardinality is measured. Sent as an array.
 	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
@@ -17399,7 +17574,7 @@ func (o SecurityMonitoringRuleQueryOutput) AgentRules() SecurityMonitoringRuleQu
 	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []SecurityMonitoringRuleQueryAgentRule { return v.AgentRules }).(SecurityMonitoringRuleQueryAgentRuleArrayOutput)
 }
 
-// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 func (o SecurityMonitoringRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
 }
@@ -17557,7 +17732,7 @@ func (o SecurityMonitoringRuleQueryAgentRuleArrayOutput) Index(i pulumi.IntInput
 }
 
 type SecurityMonitoringRuleSignalQuery struct {
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation *string `pulumi:"aggregation"`
 	// Fields to correlate by.
 	CorrelatedByFields []string `pulumi:"correlatedByFields"`
@@ -17583,7 +17758,7 @@ type SecurityMonitoringRuleSignalQueryInput interface {
 }
 
 type SecurityMonitoringRuleSignalQueryArgs struct {
-	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
 	// Fields to correlate by.
 	CorrelatedByFields pulumi.StringArrayInput `pulumi:"correlatedByFields"`
@@ -17648,7 +17823,7 @@ func (o SecurityMonitoringRuleSignalQueryOutput) ToSecurityMonitoringRuleSignalQ
 	return o
 }
 
-// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
 func (o SecurityMonitoringRuleSignalQueryOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleSignalQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
 }
@@ -17855,13 +18030,13 @@ func (o ServiceLevelObjectiveQueryPtrOutput) Numerator() pulumi.StringPtrOutput 
 }
 
 type ServiceLevelObjectiveThreshold struct {
-	// The objective's target in`[0,100]`.
+	// The objective's target in `(0,100)`.
 	Target float64 `pulumi:"target"`
 	// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
 	TargetDisplay *string `pulumi:"targetDisplay"`
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe string `pulumi:"timeframe"`
-	// The objective's warning value in `[0,100]`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value.
 	Warning *float64 `pulumi:"warning"`
 	// A string representation of the warning target (see the description of the targetDisplay field for details).
 	WarningDisplay *string `pulumi:"warningDisplay"`
@@ -17879,13 +18054,13 @@ type ServiceLevelObjectiveThresholdInput interface {
 }
 
 type ServiceLevelObjectiveThresholdArgs struct {
-	// The objective's target in`[0,100]`.
+	// The objective's target in `(0,100)`.
 	Target pulumi.Float64Input `pulumi:"target"`
 	// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
 	TargetDisplay pulumi.StringPtrInput `pulumi:"targetDisplay"`
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The objective's warning value in `[0,100]`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value.
 	Warning pulumi.Float64PtrInput `pulumi:"warning"`
 	// A string representation of the warning target (see the description of the targetDisplay field for details).
 	WarningDisplay pulumi.StringPtrInput `pulumi:"warningDisplay"`
@@ -17942,7 +18117,7 @@ func (o ServiceLevelObjectiveThresholdOutput) ToServiceLevelObjectiveThresholdOu
 	return o
 }
 
-// The objective's target in`[0,100]`.
+// The objective's target in `(0,100)`.
 func (o ServiceLevelObjectiveThresholdOutput) Target() pulumi.Float64Output {
 	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) float64 { return v.Target }).(pulumi.Float64Output)
 }
@@ -17957,7 +18132,7 @@ func (o ServiceLevelObjectiveThresholdOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The objective's warning value in `[0,100]`. This must be greater than the target value.
+// The objective's warning value in `(0,100)`. This must be greater than the target value.
 func (o ServiceLevelObjectiveThresholdOutput) Warning() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) *float64 { return v.Warning }).(pulumi.Float64PtrOutput)
 }
@@ -17985,6 +18160,293 @@ func (o ServiceLevelObjectiveThresholdArrayOutput) Index(i pulumi.IntInput) Serv
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveThreshold {
 		return vs[0].([]ServiceLevelObjectiveThreshold)[vs[1].(int)]
 	}).(ServiceLevelObjectiveThresholdOutput)
+}
+
+type SyntheticsGlobalVariableOptions struct {
+	// Parameters needed for MFA/TOTP.
+	TotpParameters *SyntheticsGlobalVariableOptionsTotpParameters `pulumi:"totpParameters"`
+}
+
+// SyntheticsGlobalVariableOptionsInput is an input type that accepts SyntheticsGlobalVariableOptionsArgs and SyntheticsGlobalVariableOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsInput` via:
+//
+//	SyntheticsGlobalVariableOptionsArgs{...}
+type SyntheticsGlobalVariableOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput
+	ToSyntheticsGlobalVariableOptionsOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsOutput
+}
+
+type SyntheticsGlobalVariableOptionsArgs struct {
+	// Parameters needed for MFA/TOTP.
+	TotpParameters SyntheticsGlobalVariableOptionsTotpParametersPtrInput `pulumi:"totpParameters"`
+}
+
+func (SyntheticsGlobalVariableOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput {
+	return i.ToSyntheticsGlobalVariableOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsOutput)
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsOutput).ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableOptionsPtrInput is an input type that accepts SyntheticsGlobalVariableOptionsArgs, SyntheticsGlobalVariableOptionsPtr and SyntheticsGlobalVariableOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsPtrInput` via:
+//
+//	        SyntheticsGlobalVariableOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput
+	ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsPtrOutput
+}
+
+type syntheticsGlobalVariableOptionsPtrType SyntheticsGlobalVariableOptionsArgs
+
+func SyntheticsGlobalVariableOptionsPtr(v *SyntheticsGlobalVariableOptionsArgs) SyntheticsGlobalVariableOptionsPtrInput {
+	return (*syntheticsGlobalVariableOptionsPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableOptionsPtrType) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableOptionsPtrType) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return o.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptions {
+		return &v
+	}).(SyntheticsGlobalVariableOptionsPtrOutput)
+}
+
+// Parameters needed for MFA/TOTP.
+func (o SyntheticsGlobalVariableOptionsOutput) TotpParameters() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptionsTotpParameters {
+		return v.TotpParameters
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) Elem() SyntheticsGlobalVariableOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptions) SyntheticsGlobalVariableOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableOptions
+		return ret
+	}).(SyntheticsGlobalVariableOptionsOutput)
+}
+
+// Parameters needed for MFA/TOTP.
+func (o SyntheticsGlobalVariableOptionsPtrOutput) TotpParameters() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptionsTotpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.TotpParameters
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParameters struct {
+	Digits          int `pulumi:"digits"`
+	RefreshInterval int `pulumi:"refreshInterval"`
+}
+
+// SyntheticsGlobalVariableOptionsTotpParametersInput is an input type that accepts SyntheticsGlobalVariableOptionsTotpParametersArgs and SyntheticsGlobalVariableOptionsTotpParametersOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsTotpParametersInput` via:
+//
+//	SyntheticsGlobalVariableOptionsTotpParametersArgs{...}
+type SyntheticsGlobalVariableOptionsTotpParametersInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput
+	ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersArgs struct {
+	Digits          pulumi.IntInput `pulumi:"digits"`
+	RefreshInterval pulumi.IntInput `pulumi:"refreshInterval"`
+}
+
+func (SyntheticsGlobalVariableOptionsTotpParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersOutput).ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableOptionsTotpParametersPtrInput is an input type that accepts SyntheticsGlobalVariableOptionsTotpParametersArgs, SyntheticsGlobalVariableOptionsTotpParametersPtr and SyntheticsGlobalVariableOptionsTotpParametersPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsTotpParametersPtrInput` via:
+//
+//	        SyntheticsGlobalVariableOptionsTotpParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableOptionsTotpParametersPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput
+	ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput
+}
+
+type syntheticsGlobalVariableOptionsTotpParametersPtrType SyntheticsGlobalVariableOptionsTotpParametersArgs
+
+func SyntheticsGlobalVariableOptionsTotpParametersPtr(v *SyntheticsGlobalVariableOptionsTotpParametersArgs) SyntheticsGlobalVariableOptionsTotpParametersPtrInput {
+	return (*syntheticsGlobalVariableOptionsTotpParametersPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableOptionsTotpParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableOptionsTotpParametersPtrType) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableOptionsTotpParametersPtrType) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsTotpParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableOptionsTotpParameters) *SyntheticsGlobalVariableOptionsTotpParameters {
+		return &v
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) Digits() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.Digits }).(pulumi.IntOutput)
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) RefreshInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.RefreshInterval }).(pulumi.IntOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Elem() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) SyntheticsGlobalVariableOptionsTotpParameters {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableOptionsTotpParameters
+		return ret
+	}).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Digits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) RefreshInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 type SyntheticsGlobalVariableParseTestOptions struct {
@@ -22500,6 +22962,8 @@ type SyntheticsTestOptionsList struct {
 	DisableCsp *bool `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
+	// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+	HttpVersion *string `pulumi:"httpVersion"`
 	// Ignore server certificate error.
 	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
 	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
@@ -22549,6 +23013,8 @@ type SyntheticsTestOptionsListArgs struct {
 	DisableCsp pulumi.BoolPtrInput `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// Ignore server certificate error.
 	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
 	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
@@ -22682,6 +23148,11 @@ func (o SyntheticsTestOptionsListOutput) DisableCsp() pulumi.BoolPtrOutput {
 // Determines whether or not the API HTTP test should follow redirects.
 func (o SyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
 // Ignore server certificate error.
@@ -22833,6 +23304,16 @@ func (o SyntheticsTestOptionsListPtrOutput) FollowRedirects() pulumi.BoolPtrOutp
 		}
 		return v.FollowRedirects
 	}).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestOptionsListPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Ignore server certificate error.
@@ -25778,6 +26259,178 @@ func (o GetLogsPipelinesLogsPipelineFilterArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetLogsPipelinesLogsPipelineFilterOutput)
 }
 
+type GetMonitorConfigPoliciesMonitorConfigPolicy struct {
+	// The ID of this resource.
+	Id         string                                               `pulumi:"id"`
+	PolicyType string                                               `pulumi:"policyType"`
+	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
+}
+
+// GetMonitorConfigPoliciesMonitorConfigPolicyInput is an input type that accepts GetMonitorConfigPoliciesMonitorConfigPolicyArgs and GetMonitorConfigPoliciesMonitorConfigPolicyOutput values.
+// You can construct a concrete instance of `GetMonitorConfigPoliciesMonitorConfigPolicyInput` via:
+//
+//	GetMonitorConfigPoliciesMonitorConfigPolicyArgs{...}
+type GetMonitorConfigPoliciesMonitorConfigPolicyInput interface {
+	pulumi.Input
+
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyOutput
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyOutputWithContext(context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyOutput
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyArgs struct {
+	// The ID of this resource.
+	Id         pulumi.StringInput                                        `pulumi:"id"`
+	PolicyType pulumi.StringInput                                        `pulumi:"policyType"`
+	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput `pulumi:"tagPolicy"`
+}
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicy)(nil)).Elem()
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyArgs) ToGetMonitorConfigPoliciesMonitorConfigPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyOutput {
+	return i.ToGetMonitorConfigPoliciesMonitorConfigPolicyOutputWithContext(context.Background())
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyArgs) ToGetMonitorConfigPoliciesMonitorConfigPolicyOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorConfigPoliciesMonitorConfigPolicyOutput)
+}
+
+// GetMonitorConfigPoliciesMonitorConfigPolicyArrayInput is an input type that accepts GetMonitorConfigPoliciesMonitorConfigPolicyArray and GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput values.
+// You can construct a concrete instance of `GetMonitorConfigPoliciesMonitorConfigPolicyArrayInput` via:
+//
+//	GetMonitorConfigPoliciesMonitorConfigPolicyArray{ GetMonitorConfigPoliciesMonitorConfigPolicyArgs{...} }
+type GetMonitorConfigPoliciesMonitorConfigPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput() GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutputWithContext(context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyArray []GetMonitorConfigPoliciesMonitorConfigPolicyInput
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorConfigPoliciesMonitorConfigPolicy)(nil)).Elem()
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyArray) ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput() GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput {
+	return i.ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyArray) ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput)
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicy)(nil)).Elem()
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) TagPolicy() GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
+		return v.TagPolicy
+	}).(GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput)
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorConfigPoliciesMonitorConfigPolicy)(nil)).Elem()
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput() GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyArrayOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetMonitorConfigPoliciesMonitorConfigPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorConfigPoliciesMonitorConfigPolicy {
+		return vs[0].([]GetMonitorConfigPoliciesMonitorConfigPolicy)[vs[1].(int)]
+	}).(GetMonitorConfigPoliciesMonitorConfigPolicyOutput)
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy struct {
+	TagKey         string   `pulumi:"tagKey"`
+	TagKeyRequired bool     `pulumi:"tagKeyRequired"`
+	ValidTagValues []string `pulumi:"validTagValues"`
+}
+
+// GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput is an input type that accepts GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs and GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput values.
+// You can construct a concrete instance of `GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput` via:
+//
+//	GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs{...}
+type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput interface {
+	pulumi.Input
+
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput
+	ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutputWithContext(context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs struct {
+	TagKey         pulumi.StringInput      `pulumi:"tagKey"`
+	TagKeyRequired pulumi.BoolInput        `pulumi:"tagKeyRequired"`
+	ValidTagValues pulumi.StringArrayInput `pulumi:"validTagValues"`
+}
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs) ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
+	return i.ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutputWithContext(context.Background())
+}
+
+func (i GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs) ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput)
+}
+
+type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy)(nil)).Elem()
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput() GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ToGetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) TagKeyRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) bool { return v.TagKeyRequired }).(pulumi.BoolOutput)
+}
+
+func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ValidTagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) []string { return v.ValidTagValues }).(pulumi.StringArrayOutput)
+}
+
 type GetMonitorMonitorThreshold struct {
 	Critical         string `pulumi:"critical"`
 	CriticalRecovery string `pulumi:"criticalRecovery"`
@@ -28198,6 +28851,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsMetricGroupByArrayInput)(nil)).Elem(), LogsMetricGroupByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationAggregationInput)(nil)).Elem(), MetricTagConfigurationAggregationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationAggregationArrayInput)(nil)).Elem(), MetricTagConfigurationAggregationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyTagPolicyInput)(nil)).Elem(), MonitorConfigPolicyTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyTagPolicyPtrInput)(nil)).Elem(), MonitorConfigPolicyTagPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorMonitorThresholdWindowsInput)(nil)).Elem(), MonitorMonitorThresholdWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorMonitorThresholdWindowsPtrInput)(nil)).Elem(), MonitorMonitorThresholdWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorMonitorThresholdsInput)(nil)).Elem(), MonitorMonitorThresholdsArgs{})
@@ -28258,6 +28913,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdArrayInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsPtrInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParametersInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsTotpParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParametersPtrInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsTotpParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsPtrInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsParserInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsParserArgs{})
@@ -28344,6 +29003,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsPipelinesLogsPipelineArrayInput)(nil)).Elem(), GetLogsPipelinesLogsPipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsPipelinesLogsPipelineFilterInput)(nil)).Elem(), GetLogsPipelinesLogsPipelineFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsPipelinesLogsPipelineFilterArrayInput)(nil)).Elem(), GetLogsPipelinesLogsPipelineFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicyInput)(nil)).Elem(), GetMonitorConfigPoliciesMonitorConfigPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicyArrayInput)(nil)).Elem(), GetMonitorConfigPoliciesMonitorConfigPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput)(nil)).Elem(), GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorMonitorThresholdInput)(nil)).Elem(), GetMonitorMonitorThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorMonitorThresholdArrayInput)(nil)).Elem(), GetMonitorMonitorThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorMonitorThresholdWindowInput)(nil)).Elem(), GetMonitorMonitorThresholdWindowArgs{})
@@ -28544,6 +29206,8 @@ func init() {
 	pulumi.RegisterOutputType(LogsMetricGroupByArrayOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationAggregationOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationAggregationArrayOutput{})
+	pulumi.RegisterOutputType(MonitorConfigPolicyTagPolicyOutput{})
+	pulumi.RegisterOutputType(MonitorConfigPolicyTagPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MonitorMonitorThresholdWindowsOutput{})
 	pulumi.RegisterOutputType(MonitorMonitorThresholdWindowsPtrOutput{})
 	pulumi.RegisterOutputType(MonitorMonitorThresholdsOutput{})
@@ -28604,6 +29268,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsTotpParametersOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsOutput{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsParserOutput{})
@@ -28690,6 +29358,9 @@ func init() {
 	pulumi.RegisterOutputType(GetLogsPipelinesLogsPipelineArrayOutput{})
 	pulumi.RegisterOutputType(GetLogsPipelinesLogsPipelineFilterOutput{})
 	pulumi.RegisterOutputType(GetLogsPipelinesLogsPipelineFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorConfigPoliciesMonitorConfigPolicyOutput{})
+	pulumi.RegisterOutputType(GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput{})
 	pulumi.RegisterOutputType(GetMonitorMonitorThresholdOutput{})
 	pulumi.RegisterOutputType(GetMonitorMonitorThresholdArrayOutput{})
 	pulumi.RegisterOutputType(GetMonitorMonitorThresholdWindowOutput{})

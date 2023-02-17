@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.SyntheticsGlobalVariableArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SyntheticsGlobalVariableState;
+import com.pulumi.datadog.outputs.SyntheticsGlobalVariableOptions;
 import com.pulumi.datadog.outputs.SyntheticsGlobalVariableParseTestOptions;
 import java.lang.Boolean;
 import java.lang.String;
@@ -93,6 +94,20 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Additional options for the variable, such as a MFA token.
+     * 
+     */
+    @Export(name="options", type=SyntheticsGlobalVariableOptions.class, parameters={})
+    private Output</* @Nullable */ SyntheticsGlobalVariableOptions> options;
+
+    /**
+     * @return Additional options for the variable, such as a MFA token.
+     * 
+     */
+    public Output<Optional<SyntheticsGlobalVariableOptions>> options() {
+        return Codegen.optional(this.options);
     }
     /**
      * Id of the Synthetics test to use for a variable from test.

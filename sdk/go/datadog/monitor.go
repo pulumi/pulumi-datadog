@@ -114,6 +114,8 @@ type Monitor struct {
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrOutput `pulumi:"noDataTimeframe"`
+	// Toggles the display of additional content sent in the monitor notification.
+	NotificationPresetName pulumi.StringPtrOutput `pulumi:"notificationPresetName"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -268,6 +270,8 @@ type monitorState struct {
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
+	// Toggles the display of additional content sent in the monitor notification.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -382,6 +386,8 @@ type MonitorState struct {
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
+	// Toggles the display of additional content sent in the monitor notification.
+	NotificationPresetName pulumi.StringPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -497,6 +503,8 @@ type monitorArgs struct {
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
+	// Toggles the display of additional content sent in the monitor notification.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -609,6 +617,8 @@ type MonitorArgs struct {
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
+	// Toggles the display of additional content sent in the monitor notification.
+	NotificationPresetName pulumi.StringPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -855,6 +865,11 @@ func (o MonitorOutput) NewHostDelay() pulumi.IntPtrOutput {
 // recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 func (o MonitorOutput) NoDataTimeframe() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NoDataTimeframe }).(pulumi.IntPtrOutput)
+}
+
+// Toggles the display of additional content sent in the monitor notification.
+func (o MonitorOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
 }
 
 // A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.

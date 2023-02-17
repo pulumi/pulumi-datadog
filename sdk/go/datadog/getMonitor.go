@@ -97,6 +97,8 @@ type LookupMonitorResult struct {
 	NewHostDelay int `pulumi:"newHostDelay"`
 	// The number of minutes before the monitor notifies when data stops reporting.
 	NoDataTimeframe int `pulumi:"noDataTimeframe"`
+	// Toggles the display of additional content sent in the monitor notification. Valid values are: `showAll`, `hideQuery`, `hideHandles`, and `hideAll`.
+	NotificationPresetName string `pulumi:"notificationPresetName"`
 	// Whether or not tagged users are notified on changes to the monitor.
 	NotifyAudit bool `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
@@ -258,6 +260,11 @@ func (o LookupMonitorResultOutput) NewHostDelay() pulumi.IntOutput {
 // The number of minutes before the monitor notifies when data stops reporting.
 func (o LookupMonitorResultOutput) NoDataTimeframe() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.NoDataTimeframe }).(pulumi.IntOutput)
+}
+
+// Toggles the display of additional content sent in the monitor notification. Valid values are: `showAll`, `hideQuery`, `hideHandles`, and `hideAll`.
+func (o LookupMonitorResultOutput) NotificationPresetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.NotificationPresetName }).(pulumi.StringOutput)
 }
 
 // Whether or not tagged users are notified on changes to the monitor.

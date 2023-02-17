@@ -61,6 +61,8 @@ type SyntheticsGlobalVariable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Synthetics global variable name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Additional options for the variable, such as a MFA token.
+	Options SyntheticsGlobalVariableOptionsPtrOutput `pulumi:"options"`
 	// Id of the Synthetics test to use for a variable from test.
 	ParseTestId pulumi.StringPtrOutput `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
@@ -121,6 +123,8 @@ type syntheticsGlobalVariableState struct {
 	Description *string `pulumi:"description"`
 	// Synthetics global variable name.
 	Name *string `pulumi:"name"`
+	// Additional options for the variable, such as a MFA token.
+	Options *SyntheticsGlobalVariableOptions `pulumi:"options"`
 	// Id of the Synthetics test to use for a variable from test.
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
@@ -140,6 +144,8 @@ type SyntheticsGlobalVariableState struct {
 	Description pulumi.StringPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringPtrInput
+	// Additional options for the variable, such as a MFA token.
+	Options SyntheticsGlobalVariableOptionsPtrInput
 	// Id of the Synthetics test to use for a variable from test.
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
@@ -163,6 +169,8 @@ type syntheticsGlobalVariableArgs struct {
 	Description *string `pulumi:"description"`
 	// Synthetics global variable name.
 	Name string `pulumi:"name"`
+	// Additional options for the variable, such as a MFA token.
+	Options *SyntheticsGlobalVariableOptions `pulumi:"options"`
 	// Id of the Synthetics test to use for a variable from test.
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
@@ -183,6 +191,8 @@ type SyntheticsGlobalVariableArgs struct {
 	Description pulumi.StringPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringInput
+	// Additional options for the variable, such as a MFA token.
+	Options SyntheticsGlobalVariableOptionsPtrInput
 	// Id of the Synthetics test to use for a variable from test.
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
@@ -292,6 +302,11 @@ func (o SyntheticsGlobalVariableOutput) Description() pulumi.StringPtrOutput {
 // Synthetics global variable name.
 func (o SyntheticsGlobalVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional options for the variable, such as a MFA token.
+func (o SyntheticsGlobalVariableOutput) Options() SyntheticsGlobalVariableOptionsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) SyntheticsGlobalVariableOptionsPtrOutput { return v.Options }).(SyntheticsGlobalVariableOptionsPtrOutput)
 }
 
 // Id of the Synthetics test to use for a variable from test.
