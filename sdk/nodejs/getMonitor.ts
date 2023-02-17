@@ -127,6 +127,10 @@ export interface GetMonitorResult {
      */
     readonly noDataTimeframe: number;
     /**
+     * Toggles the display of additional content sent in the monitor notification. Valid values are: `showAll`, `hideQuery`, `hideHandles`, and `hideAll`.
+     */
+    readonly notificationPresetName: string;
+    /**
      * Whether or not tagged users are notified on changes to the monitor.
      */
     readonly notifyAudit: boolean;

@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }

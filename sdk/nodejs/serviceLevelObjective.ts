@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  *         "foo:bar",
  *         "baz",
  *     ],
+ *     targetThreshold: 99.9,
  *     thresholds: [
  *         {
  *             target: 99.9,
@@ -40,7 +41,9 @@ import * as utilities from "./utilities";
  *             warning: 99.99,
  *         },
  *     ],
+ *     timeframe: "30d",
  *     type: "metric",
+ *     warningThreshold: 99.99,
  * });
  * // Monitor-Based SLO
  * // Create a new Datadog service level objective
@@ -56,6 +59,7 @@ import * as utilities from "./utilities";
  *         "foo:bar",
  *         "baz",
  *     ],
+ *     targetThreshold: 99.9,
  *     thresholds: [
  *         {
  *             target: 99.9,
@@ -68,7 +72,9 @@ import * as utilities from "./utilities";
  *             warning: 99.99,
  *         },
  *     ],
+ *     timeframe: "30d",
  *     type: "monitor",
+ *     warningThreshold: 99.99,
  * });
  * ```
  *
@@ -137,9 +143,17 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
+     * The objective's target in `(0,100)`.
+     */
+    public readonly targetThreshold!: pulumi.Output<number>;
+    /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     */
+    public readonly timeframe!: pulumi.Output<string>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      */
@@ -148,6 +162,10 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * Whether or not to validate the SLO.
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     */
+    public readonly warningThreshold!: pulumi.Output<number>;
 
     /**
      * Create a ServiceLevelObjective resource with the given unique name, arguments, and options.
@@ -169,9 +187,12 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetThreshold"] = state ? state.targetThreshold : undefined;
             resourceInputs["thresholds"] = state ? state.thresholds : undefined;
+            resourceInputs["timeframe"] = state ? state.timeframe : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["warningThreshold"] = state ? state.warningThreshold : undefined;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -190,9 +211,12 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetThreshold"] = args ? args.targetThreshold : undefined;
             resourceInputs["thresholds"] = args ? args.thresholds : undefined;
+            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["warningThreshold"] = args ? args.warningThreshold : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceLevelObjective.__pulumiType, name, resourceInputs, opts);
@@ -232,9 +256,17 @@ export interface ServiceLevelObjectiveState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The objective's target in `(0,100)`.
+     */
+    targetThreshold?: pulumi.Input<number>;
+    /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     */
+    timeframe?: pulumi.Input<string>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      */
@@ -243,6 +275,10 @@ export interface ServiceLevelObjectiveState {
      * Whether or not to validate the SLO.
      */
     validate?: pulumi.Input<boolean>;
+    /**
+     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     */
+    warningThreshold?: pulumi.Input<number>;
 }
 
 /**
@@ -278,9 +314,17 @@ export interface ServiceLevelObjectiveArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The objective's target in `(0,100)`.
+     */
+    targetThreshold?: pulumi.Input<number>;
+    /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     */
+    timeframe?: pulumi.Input<string>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      */
@@ -289,4 +333,8 @@ export interface ServiceLevelObjectiveArgs {
      * Whether or not to validate the SLO.
      */
     validate?: pulumi.Input<boolean>;
+    /**
+     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     */
+    warningThreshold?: pulumi.Input<number>;
 }

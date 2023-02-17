@@ -13121,6 +13121,14 @@
                         }
                     }
                 },
+                "eventSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "indexes": {
                     "type": "array",
                     "items": {
@@ -30855,6 +30863,14 @@
                         }
                     }
                 },
+                "eventSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "indexes": {
                     "type": "array",
                     "items": {
@@ -47717,6 +47733,46 @@
                 "time"
             ]
         },
+        "datadog:index/MonitorConfigPolicyTagPolicy:MonitorConfigPolicyTagPolicy": {
+            "properties": {
+                "tagKey": {
+                    "type": "string",
+                    "description": "The key of the tag\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagKeyRequired": {
+                    "type": "boolean",
+                    "description": "If a tag key is required for monitor creation\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "validTagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Valid values for the tag\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "tagKey",
+                "tagKeyRequired",
+                "validTagValues"
+            ]
+        },
         "datadog:index/MonitorMonitorThresholdWindows:MonitorMonitorThresholdWindows": {
             "properties": {
                 "recoveryWindow": {
@@ -48441,7 +48497,7 @@
                 },
                 "detectionMethod": {
                     "type": "string",
-                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.\n",
+                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48570,7 +48626,7 @@
                 },
                 "aggregation": {
                     "type": "string",
-                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.\n",
+                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48684,7 +48740,7 @@
             "properties": {
                 "aggregation": {
                     "type": "string",
-                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`.\n",
+                    "description": "The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48776,7 +48832,7 @@
             "properties": {
                 "target": {
                     "type": "number",
-                    "description": "The objective's target in`[0,100]`.\n",
+                    "description": "The objective's target in `(0,100)`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48803,7 +48859,7 @@
                 },
                 "warning": {
                     "type": "number",
-                    "description": "The objective's warning value in `[0,100]`. This must be greater than the target value.\n",
+                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -48835,6 +48891,45 @@
                     ]
                 }
             }
+        },
+        "datadog:index/SyntheticsGlobalVariableOptions:SyntheticsGlobalVariableOptions": {
+            "properties": {
+                "totpParameters": {
+                    "$ref": "#/types/datadog:index/SyntheticsGlobalVariableOptionsTotpParameters:SyntheticsGlobalVariableOptionsTotpParameters",
+                    "description": "Parameters needed for MFA/TOTP.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/SyntheticsGlobalVariableOptionsTotpParameters:SyntheticsGlobalVariableOptionsTotpParameters": {
+            "properties": {
+                "digits": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "refreshInterval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "digits",
+                "refreshInterval"
+            ]
         },
         "datadog:index/SyntheticsGlobalVariableParseTestOptions:SyntheticsGlobalVariableParseTestOptions": {
             "properties": {
@@ -50336,6 +50431,15 @@
                         }
                     }
                 },
+                "httpVersion": {
+                    "type": "string",
+                    "description": "HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "ignoreServerCertificateError": {
                     "type": "boolean",
                     "description": "Ignore server certificate error.\n",
@@ -51255,6 +51359,88 @@
             "type": "object",
             "required": [
                 "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getMonitorConfigPoliciesMonitorConfigPolicy:getMonitorConfigPoliciesMonitorConfigPolicy": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "policyType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagPolicy": {
+                    "$ref": "#/types/datadog:index/getMonitorConfigPoliciesMonitorConfigPolicyTagPolicy:getMonitorConfigPoliciesMonitorConfigPolicyTagPolicy",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "policyType",
+                "tagPolicy"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getMonitorConfigPoliciesMonitorConfigPolicyTagPolicy:getMonitorConfigPoliciesMonitorConfigPolicyTagPolicy": {
+            "properties": {
+                "tagKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagKeyRequired": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "validTagValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "tagKey",
+                "tagKeyRequired",
+                "validTagValues"
             ],
             "language": {
                 "nodejs": {
@@ -52711,6 +52897,10 @@
                     "type": "string",
                     "description": "Your ID found in your JSON service account key.\n"
                 },
+                "cspmResourceCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects cloud security posture management resources from your GCP project.\n"
+                },
                 "hostFilters": {
                     "type": "string",
                     "description": "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.\n"
@@ -52750,6 +52940,10 @@
                     "type": "string",
                     "description": "Your ID found in your JSON service account key.\n",
                     "willReplaceOnChanges": true
+                },
+                "cspmResourceCollectionEnabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects cloud security posture management resources from your GCP project.\n"
                 },
                 "hostFilters": {
                     "type": "string",
@@ -52795,6 +52989,10 @@
                         "type": "string",
                         "description": "Your ID found in your JSON service account key.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "cspmResourceCollectionEnabled": {
+                        "type": "boolean",
+                        "description": "Whether Datadog collects cloud security posture management resources from your GCP project.\n"
                     },
                     "hostFilters": {
                         "type": "string",
@@ -54744,6 +54942,10 @@
                     "type": "integer",
                     "description": "The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We\nrecommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.\n"
                 },
+                "notificationPresetName": {
+                    "type": "string",
+                    "description": "Toggles the display of additional content sent in the monitor notification.\n"
+                },
                 "notifyAudit": {
                     "type": "boolean",
                     "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.\n"
@@ -54897,6 +55099,10 @@
                 "noDataTimeframe": {
                     "type": "integer",
                     "description": "The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We\nrecommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.\n"
+                },
+                "notificationPresetName": {
+                    "type": "string",
+                    "description": "Toggles the display of additional content sent in the monitor notification.\n"
                 },
                 "notifyAudit": {
                     "type": "boolean",
@@ -55057,6 +55263,10 @@
                         "type": "integer",
                         "description": "The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We\nrecommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.\n"
                     },
+                    "notificationPresetName": {
+                        "type": "string",
+                        "description": "Toggles the display of additional content sent in the monitor notification.\n"
+                    },
                     "notifyAudit": {
                         "type": "boolean",
                         "description": "A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.\n"
@@ -55139,6 +55349,49 @@
                     },
                     "variables": {
                         "$ref": "#/types/datadog:index/MonitorVariables:MonitorVariables"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": {
+            "description": "Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = new datadog.MonitorConfigPolicy(\"test\", {\n    policyType: \"tag\",\n    tagPolicy: {\n        tagKey: \"env\",\n        tagKeyRequired: false,\n        validTagValues: [\n            \"staging\",\n            \"prod\",\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.MonitorConfigPolicy(\"test\",\n    policy_type=\"tag\",\n    tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(\n        tag_key=\"env\",\n        tag_key_required=False,\n        valid_tag_values=[\n            \"staging\",\n            \"prod\",\n        ],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Datadog.MonitorConfigPolicy(\"test\", new()\n    {\n        PolicyType = \"tag\",\n        TagPolicy = new Datadog.Inputs.MonitorConfigPolicyTagPolicyArgs\n        {\n            TagKey = \"env\",\n            TagKeyRequired = false,\n            ValidTagValues = new[]\n            {\n                \"staging\",\n                \"prod\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMonitorConfigPolicy(ctx, \"test\", \u0026datadog.MonitorConfigPolicyArgs{\n\t\t\tPolicyType: pulumi.String(\"tag\"),\n\t\t\tTagPolicy: \u0026datadog.MonitorConfigPolicyTagPolicyArgs{\n\t\t\t\tTagKey:         pulumi.String(\"env\"),\n\t\t\t\tTagKeyRequired: pulumi.Bool(false),\n\t\t\t\tValidTagValues: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"staging\"),\n\t\t\t\t\tpulumi.String(\"prod\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MonitorConfigPolicy;\nimport com.pulumi.datadog.MonitorConfigPolicyArgs;\nimport com.pulumi.datadog.inputs.MonitorConfigPolicyTagPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MonitorConfigPolicy(\"test\", MonitorConfigPolicyArgs.builder()        \n            .policyType(\"tag\")\n            .tagPolicy(MonitorConfigPolicyTagPolicyArgs.builder()\n                .tagKey(\"env\")\n                .tagKeyRequired(false)\n                .validTagValues(                \n                    \"staging\",\n                    \"prod\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: datadog:MonitorConfigPolicy\n    properties:\n      policyType: tag\n      tagPolicy:\n        tagKey: env\n        tagKeyRequired: false\n        validTagValues:\n          - staging\n          - prod\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "policyType": {
+                    "type": "string",
+                    "description": "The monitor config policy type Valid values are `tag`.\n"
+                },
+                "tagPolicy": {
+                    "$ref": "#/types/datadog:index/MonitorConfigPolicyTagPolicy:MonitorConfigPolicyTagPolicy",
+                    "description": "Config for a tag policy. Only set if `policy_type` is `tag`.\n"
+                }
+            },
+            "required": [
+                "policyType"
+            ],
+            "inputProperties": {
+                "policyType": {
+                    "type": "string",
+                    "description": "The monitor config policy type Valid values are `tag`.\n"
+                },
+                "tagPolicy": {
+                    "$ref": "#/types/datadog:index/MonitorConfigPolicyTagPolicy:MonitorConfigPolicyTagPolicy",
+                    "description": "Config for a tag policy. Only set if `policy_type` is `tag`.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MonitorConfigPolicy resources.\n",
+                "properties": {
+                    "policyType": {
+                        "type": "string",
+                        "description": "The monitor config policy type Valid values are `tag`.\n"
+                    },
+                    "tagPolicy": {
+                        "$ref": "#/types/datadog:index/MonitorConfigPolicyTagPolicy:MonitorConfigPolicyTagPolicy",
+                        "description": "Config for a tag policy. Only set if `policy_type` is `tag`.\n"
                     }
                 },
                 "type": "object"
@@ -55870,7 +56123,7 @@
             }
         },
         "datadog:index/serviceLevelObjective:ServiceLevelObjective": {
-            "description": "Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Metric-Based SLO\n// Create a new Datadog service level objective\nconst foo = new datadog.ServiceLevelObjective(\"foo\", {\n    description: \"My custom metric SLO\",\n    name: \"Example Metric SLO\",\n    query: {\n        denominator: \"sum:my.custom.count.metric{*}.as_count()\",\n        numerator: \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    },\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"metric\",\n});\n// Monitor-Based SLO\n// Create a new Datadog service level objective\nconst bar = new datadog.ServiceLevelObjective(\"bar\", {\n    description: \"My custom monitor SLO\",\n    monitorIds: [\n        1,\n        2,\n        3,\n    ],\n    name: \"Example Monitor SLO\",\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"monitor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Metric-Based SLO\n# Create a new Datadog service level objective\nfoo = datadog.ServiceLevelObjective(\"foo\",\n    description=\"My custom metric SLO\",\n    name=\"Example Metric SLO\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.custom.count.metric{*}.as_count()\",\n        numerator=\"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    ),\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"metric\")\n# Monitor-Based SLO\n# Create a new Datadog service level objective\nbar = datadog.ServiceLevelObjective(\"bar\",\n    description=\"My custom monitor SLO\",\n    monitor_ids=[\n        1,\n        2,\n        3,\n    ],\n    name=\"Example Monitor SLO\",\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Metric-Based SLO\n    // Create a new Datadog service level objective\n    var foo = new Datadog.ServiceLevelObjective(\"foo\", new()\n    {\n        Description = \"My custom metric SLO\",\n        Name = \"Example Metric SLO\",\n        Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n        {\n            Denominator = \"sum:my.custom.count.metric{*}.as_count()\",\n            Numerator = \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n        },\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Type = \"metric\",\n    });\n\n    // Monitor-Based SLO\n    // Create a new Datadog service level objective\n    var bar = new Datadog.ServiceLevelObjective(\"bar\", new()\n    {\n        Description = \"My custom monitor SLO\",\n        MonitorIds = new[]\n        {\n            1,\n            2,\n            3,\n        },\n        Name = \"Example Monitor SLO\",\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Type = \"monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"foo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom metric SLO\"),\n\t\t\tName:        pulumi.String(\"Example Metric SLO\"),\n\t\t\tQuery: \u0026datadog.ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.custom.count.metric{*}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.custom.count.metric{type:good_events}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceLevelObjective(ctx, \"bar\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom monitor SLO\"),\n\t\t\tMonitorIds: pulumi.IntArray{\n\t\t\t\tpulumi.Int(1),\n\t\t\t\tpulumi.Int(2),\n\t\t\t\tpulumi.Int(3),\n\t\t\t},\n\t\t\tName: pulumi.String(\"Example Monitor SLO\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceLevelObjective;\nimport com.pulumi.datadog.ServiceLevelObjectiveArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new ServiceLevelObjective(\"foo\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom metric SLO\")\n            .name(\"Example Metric SLO\")\n            .query(ServiceLevelObjectiveQueryArgs.builder()\n                .denominator(\"sum:my.custom.count.metric{*}.as_count()\")\n                .numerator(\"sum:my.custom.count.metric{type:good_events}.as_count()\")\n                .build())\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .type(\"metric\")\n            .build());\n\n        var bar = new ServiceLevelObjective(\"bar\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom monitor SLO\")\n            .monitorIds(            \n                1,\n                2,\n                3)\n            .name(\"Example Monitor SLO\")\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .type(\"monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Metric-Based SLO\n  # // Create a new Datadog service level objective\n  foo:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom metric SLO\n      name: Example Metric SLO\n      query:\n        denominator: sum:my.custom.count.metric{*}.as_count()\n        numerator: sum:my.custom.count.metric{type:good_events}.as_count()\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      type: metric\n  # Monitor-Based SLO\n  # // Create a new Datadog service level objective\n  bar:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom monitor SLO\n      monitorIds:\n        - 1\n        - 2\n        - 3\n      name: Example Monitor SLO\n      tags:\n        - foo:bar\n        - baz\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      type: monitor\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService Level Objectives can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012\n```\n\n ",
+            "description": "Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Metric-Based SLO\n// Create a new Datadog service level objective\nconst foo = new datadog.ServiceLevelObjective(\"foo\", {\n    description: \"My custom metric SLO\",\n    name: \"Example Metric SLO\",\n    query: {\n        denominator: \"sum:my.custom.count.metric{*}.as_count()\",\n        numerator: \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    },\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    targetThreshold: 99.9,\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    timeframe: \"30d\",\n    type: \"metric\",\n    warningThreshold: 99.99,\n});\n// Monitor-Based SLO\n// Create a new Datadog service level objective\nconst bar = new datadog.ServiceLevelObjective(\"bar\", {\n    description: \"My custom monitor SLO\",\n    monitorIds: [\n        1,\n        2,\n        3,\n    ],\n    name: \"Example Monitor SLO\",\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    targetThreshold: 99.9,\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    timeframe: \"30d\",\n    type: \"monitor\",\n    warningThreshold: 99.99,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Metric-Based SLO\n# Create a new Datadog service level objective\nfoo = datadog.ServiceLevelObjective(\"foo\",\n    description=\"My custom metric SLO\",\n    name=\"Example Metric SLO\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.custom.count.metric{*}.as_count()\",\n        numerator=\"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    ),\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    target_threshold=99.9,\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    timeframe=\"30d\",\n    type=\"metric\",\n    warning_threshold=99.99)\n# Monitor-Based SLO\n# Create a new Datadog service level objective\nbar = datadog.ServiceLevelObjective(\"bar\",\n    description=\"My custom monitor SLO\",\n    monitor_ids=[\n        1,\n        2,\n        3,\n    ],\n    name=\"Example Monitor SLO\",\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    target_threshold=99.9,\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    timeframe=\"30d\",\n    type=\"monitor\",\n    warning_threshold=99.99)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Metric-Based SLO\n    // Create a new Datadog service level objective\n    var foo = new Datadog.ServiceLevelObjective(\"foo\", new()\n    {\n        Description = \"My custom metric SLO\",\n        Name = \"Example Metric SLO\",\n        Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n        {\n            Denominator = \"sum:my.custom.count.metric{*}.as_count()\",\n            Numerator = \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n        },\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        TargetThreshold = 99.9,\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Timeframe = \"30d\",\n        Type = \"metric\",\n        WarningThreshold = 99.99,\n    });\n\n    // Monitor-Based SLO\n    // Create a new Datadog service level objective\n    var bar = new Datadog.ServiceLevelObjective(\"bar\", new()\n    {\n        Description = \"My custom monitor SLO\",\n        MonitorIds = new[]\n        {\n            1,\n            2,\n            3,\n        },\n        Name = \"Example Monitor SLO\",\n        Tags = new[]\n        {\n            \"foo:bar\",\n            \"baz\",\n        },\n        TargetThreshold = 99.9,\n        Thresholds = new[]\n        {\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"7d\",\n                Warning = 99.99,\n            },\n            new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n            {\n                Target = 99.9,\n                Timeframe = \"30d\",\n                Warning = 99.99,\n            },\n        },\n        Timeframe = \"30d\",\n        Type = \"monitor\",\n        WarningThreshold = 99.99,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"foo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom metric SLO\"),\n\t\t\tName:        pulumi.String(\"Example Metric SLO\"),\n\t\t\tQuery: \u0026datadog.ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.custom.count.metric{*}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.custom.count.metric{type:good_events}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tTargetThreshold: pulumi.Float64(99.9),\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTimeframe:        pulumi.String(\"30d\"),\n\t\t\tType:             pulumi.String(\"metric\"),\n\t\t\tWarningThreshold: pulumi.Float64(99.99),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceLevelObjective(ctx, \"bar\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom monitor SLO\"),\n\t\t\tMonitorIds: pulumi.IntArray{\n\t\t\t\tpulumi.Int(1),\n\t\t\t\tpulumi.Int(2),\n\t\t\t\tpulumi.Int(3),\n\t\t\t},\n\t\t\tName: pulumi.String(\"Example Monitor SLO\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tTargetThreshold: pulumi.Float64(99.9),\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.9),\n\t\t\t\t\tTimeframe: pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.99),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTimeframe:        pulumi.String(\"30d\"),\n\t\t\tType:             pulumi.String(\"monitor\"),\n\t\t\tWarningThreshold: pulumi.Float64(99.99),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceLevelObjective;\nimport com.pulumi.datadog.ServiceLevelObjectiveArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;\nimport com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new ServiceLevelObjective(\"foo\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom metric SLO\")\n            .name(\"Example Metric SLO\")\n            .query(ServiceLevelObjectiveQueryArgs.builder()\n                .denominator(\"sum:my.custom.count.metric{*}.as_count()\")\n                .numerator(\"sum:my.custom.count.metric{type:good_events}.as_count()\")\n                .build())\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .targetThreshold(99.9)\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .timeframe(\"30d\")\n            .type(\"metric\")\n            .warningThreshold(99.99)\n            .build());\n\n        var bar = new ServiceLevelObjective(\"bar\", ServiceLevelObjectiveArgs.builder()        \n            .description(\"My custom monitor SLO\")\n            .monitorIds(            \n                1,\n                2,\n                3)\n            .name(\"Example Monitor SLO\")\n            .tags(            \n                \"foo:bar\",\n                \"baz\")\n            .targetThreshold(99.9)\n            .thresholds(            \n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"7d\")\n                    .warning(99.99)\n                    .build(),\n                ServiceLevelObjectiveThresholdArgs.builder()\n                    .target(99.9)\n                    .timeframe(\"30d\")\n                    .warning(99.99)\n                    .build())\n            .timeframe(\"30d\")\n            .type(\"monitor\")\n            .warningThreshold(99.99)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Metric-Based SLO\n  # // Create a new Datadog service level objective\n  foo:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom metric SLO\n      name: Example Metric SLO\n      query:\n        denominator: sum:my.custom.count.metric{*}.as_count()\n        numerator: sum:my.custom.count.metric{type:good_events}.as_count()\n      tags:\n        - foo:bar\n        - baz\n      targetThreshold: 99.9\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      timeframe: 30d\n      type: metric\n      warningThreshold: 99.99\n  # Monitor-Based SLO\n  # // Create a new Datadog service level objective\n  bar:\n    type: datadog:ServiceLevelObjective\n    properties:\n      description: My custom monitor SLO\n      monitorIds:\n        - 1\n        - 2\n        - 3\n      name: Example Monitor SLO\n      tags:\n        - foo:bar\n        - baz\n      targetThreshold: 99.9\n      thresholds:\n        - target: 99.9\n          timeframe: 7d\n          warning: 99.99\n        - target: 99.9\n          timeframe: 30d\n          warning: 99.99\n      timeframe: 30d\n      type: monitor\n      warningThreshold: 99.99\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService Level Objectives can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -55909,12 +56162,20 @@
                     },
                     "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                 },
+                "targetThreshold": {
+                    "type": "number",
+                    "description": "The objective's target in `(0,100)`.\n"
+                },
                 "thresholds": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/ServiceLevelObjectiveThreshold:ServiceLevelObjectiveThreshold"
                     },
                     "description": "A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                },
+                "timeframe": {
+                    "type": "string",
+                    "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -55923,12 +56184,19 @@
                 "validate": {
                     "type": "boolean",
                     "description": "Whether or not to validate the SLO.\n"
+                },
+                "warningThreshold": {
+                    "type": "number",
+                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
                 }
             },
             "required": [
                 "name",
+                "targetThreshold",
                 "thresholds",
-                "type"
+                "timeframe",
+                "type",
+                "warningThreshold"
             ],
             "inputProperties": {
                 "description": {
@@ -55968,12 +56236,20 @@
                     },
                     "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                 },
+                "targetThreshold": {
+                    "type": "number",
+                    "description": "The objective's target in `(0,100)`.\n"
+                },
                 "thresholds": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/datadog:index/ServiceLevelObjectiveThreshold:ServiceLevelObjectiveThreshold"
                     },
                     "description": "A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                },
+                "timeframe": {
+                    "type": "string",
+                    "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -55983,6 +56259,10 @@
                 "validate": {
                     "type": "boolean",
                     "description": "Whether or not to validate the SLO.\n"
+                },
+                "warningThreshold": {
+                    "type": "number",
+                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
                 }
             },
             "requiredInputs": [
@@ -56030,12 +56310,20 @@
                         },
                         "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                     },
+                    "targetThreshold": {
+                        "type": "number",
+                        "description": "The objective's target in `(0,100)`.\n"
+                    },
                     "thresholds": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/datadog:index/ServiceLevelObjectiveThreshold:ServiceLevelObjectiveThreshold"
                         },
                         "description": "A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                    },
+                    "timeframe": {
+                        "type": "string",
+                        "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                     },
                     "type": {
                         "type": "string",
@@ -56045,6 +56333,10 @@
                     "validate": {
                         "type": "boolean",
                         "description": "Whether or not to validate the SLO.\n"
+                    },
+                    "warningThreshold": {
+                        "type": "number",
+                        "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
                     }
                 },
                 "type": "object"
@@ -56180,6 +56472,10 @@
                     "type": "string",
                     "description": "Synthetics global variable name.\n"
                 },
+                "options": {
+                    "$ref": "#/types/datadog:index/SyntheticsGlobalVariableOptions:SyntheticsGlobalVariableOptions",
+                    "description": "Additional options for the variable, such as a MFA token.\n"
+                },
                 "parseTestId": {
                     "type": "string",
                     "description": "Id of the Synthetics test to use for a variable from test.\n"
@@ -56224,6 +56520,10 @@
                 "name": {
                     "type": "string",
                     "description": "Synthetics global variable name.\n"
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/SyntheticsGlobalVariableOptions:SyntheticsGlobalVariableOptions",
+                    "description": "Additional options for the variable, such as a MFA token.\n"
                 },
                 "parseTestId": {
                     "type": "string",
@@ -56271,6 +56571,10 @@
                     "name": {
                         "type": "string",
                         "description": "Synthetics global variable name.\n"
+                    },
+                    "options": {
+                        "$ref": "#/types/datadog:index/SyntheticsGlobalVariableOptions:SyntheticsGlobalVariableOptions",
+                        "description": "Additional options for the variable, such as a MFA token.\n"
                     },
                     "parseTestId": {
                         "type": "string",
@@ -57840,6 +58144,10 @@
                         "type": "integer",
                         "description": "The number of minutes before the monitor notifies when data stops reporting.\n"
                     },
+                    "notificationPresetName": {
+                        "type": "string",
+                        "description": "Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.\n"
+                    },
                     "notifyAudit": {
                         "type": "boolean",
                         "description": "Whether or not tagged users are notified on changes to the monitor.\n"
@@ -57935,6 +58243,7 @@
                     "newGroupDelay",
                     "newHostDelay",
                     "noDataTimeframe",
+                    "notificationPresetName",
                     "notifyAudit",
                     "notifyBies",
                     "notifyNoData",
@@ -57949,6 +58258,30 @@
                     "tags",
                     "timeoutH",
                     "type",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": {
+            "description": "Use this data source to list existing monitor config policies for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getMonitorConfigPolicies({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_monitor_config_policies()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetMonitorConfigPolicies.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetMonitorConfigPolicies(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getMonitorConfigPolicies();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: datadog:getMonitorConfigPolicies\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getMonitorConfigPolicies.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "monitorConfigPolicies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getMonitorConfigPoliciesMonitorConfigPolicy:getMonitorConfigPoliciesMonitorConfigPolicy"
+                        },
+                        "description": "List of monitor config policies\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "monitorConfigPolicies",
                     "id"
                 ]
             }

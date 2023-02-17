@@ -22,7 +22,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, enable_samples=None, escalation_message=None, evaluation_delay=None, group_retention_duration=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_bies=None, notify_no_data=None, on_missing_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, scheduling_options=None, tags=None, tags_filters=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, enable_samples=None, escalation_message=None, evaluation_delay=None, group_retention_duration=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notification_preset_name=None, notify_audit=None, notify_bies=None, notify_no_data=None, on_missing_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, scheduling_options=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -77,6 +77,9 @@ class GetMonitorResult:
         if no_data_timeframe and not isinstance(no_data_timeframe, int):
             raise TypeError("Expected argument 'no_data_timeframe' to be a int")
         pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+        if notification_preset_name and not isinstance(notification_preset_name, str):
+            raise TypeError("Expected argument 'notification_preset_name' to be a str")
+        pulumi.set(__self__, "notification_preset_name", notification_preset_name)
         if notify_audit and not isinstance(notify_audit, bool):
             raise TypeError("Expected argument 'notify_audit' to be a bool")
         pulumi.set(__self__, "notify_audit", notify_audit)
@@ -268,6 +271,14 @@ class GetMonitorResult:
         return pulumi.get(self, "no_data_timeframe")
 
     @property
+    @pulumi.getter(name="notificationPresetName")
+    def notification_preset_name(self) -> str:
+        """
+        Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+        """
+        return pulumi.get(self, "notification_preset_name")
+
+    @property
     @pulumi.getter(name="notifyAudit")
     def notify_audit(self) -> bool:
         """
@@ -409,6 +420,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             new_group_delay=self.new_group_delay,
             new_host_delay=self.new_host_delay,
             no_data_timeframe=self.no_data_timeframe,
+            notification_preset_name=self.notification_preset_name,
             notify_audit=self.notify_audit,
             notify_bies=self.notify_bies,
             notify_no_data=self.notify_no_data,
@@ -474,6 +486,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         new_group_delay=__ret__.new_group_delay,
         new_host_delay=__ret__.new_host_delay,
         no_data_timeframe=__ret__.no_data_timeframe,
+        notification_preset_name=__ret__.notification_preset_name,
         notify_audit=__ret__.notify_audit,
         notify_bies=__ret__.notify_bies,
         notify_no_data=__ret__.notify_no_data,

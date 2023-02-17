@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceLevelObjectiveThreshold {
     /**
-     * @return The objective&#39;s target in`[0,100]`.
+     * @return The objective&#39;s target in `(0,100)`.
      * 
      */
     private Double target;
@@ -28,7 +28,7 @@ public final class ServiceLevelObjectiveThreshold {
      */
     private String timeframe;
     /**
-     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
      * 
      */
     private @Nullable Double warning;
@@ -40,7 +40,7 @@ public final class ServiceLevelObjectiveThreshold {
 
     private ServiceLevelObjectiveThreshold() {}
     /**
-     * @return The objective&#39;s target in`[0,100]`.
+     * @return The objective&#39;s target in `(0,100)`.
      * 
      */
     public Double target() {
@@ -61,7 +61,7 @@ public final class ServiceLevelObjectiveThreshold {
         return this.timeframe;
     }
     /**
-     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
      * 
      */
     public Optional<Double> warning() {

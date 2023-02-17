@@ -62,6 +62,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * 
+     */
+    @Import(name="cspmResourceCollectionEnabled")
+    private @Nullable Output<Boolean> cspmResourceCollectionEnabled;
+
+    /**
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project.
+     * 
+     */
+    public Optional<Output<Boolean>> cspmResourceCollectionEnabled() {
+        return Optional.ofNullable(this.cspmResourceCollectionEnabled);
+    }
+
+    /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
@@ -127,6 +142,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.automute = $.automute;
         this.clientEmail = $.clientEmail;
         this.clientId = $.clientId;
+        this.cspmResourceCollectionEnabled = $.cspmResourceCollectionEnabled;
         this.hostFilters = $.hostFilters;
         this.privateKey = $.privateKey;
         this.privateKeyId = $.privateKeyId;
@@ -212,6 +228,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
+        }
+
+        /**
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cspmResourceCollectionEnabled(@Nullable Output<Boolean> cspmResourceCollectionEnabled) {
+            $.cspmResourceCollectionEnabled = cspmResourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cspmResourceCollectionEnabled(Boolean cspmResourceCollectionEnabled) {
+            return cspmResourceCollectionEnabled(Output.of(cspmResourceCollectionEnabled));
         }
 
         /**

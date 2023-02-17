@@ -17,14 +17,14 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
     public static final ServiceLevelObjectiveThresholdArgs Empty = new ServiceLevelObjectiveThresholdArgs();
 
     /**
-     * The objective&#39;s target in`[0,100]`.
+     * The objective&#39;s target in `(0,100)`.
      * 
      */
     @Import(name="target", required=true)
     private Output<Double> target;
 
     /**
-     * @return The objective&#39;s target in`[0,100]`.
+     * @return The objective&#39;s target in `(0,100)`.
      * 
      */
     public Output<Double> target() {
@@ -62,14 +62,14 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
     }
 
     /**
-     * The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
      * 
      */
     @Import(name="warning")
     private @Nullable Output<Double> warning;
 
     /**
-     * @return The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
      * 
      */
     public Optional<Output<Double>> warning() {
@@ -120,7 +120,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param target The objective&#39;s target in`[0,100]`.
+         * @param target The objective&#39;s target in `(0,100)`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param target The objective&#39;s target in`[0,100]`.
+         * @param target The objective&#39;s target in `(0,100)`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param warning The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+         * @param warning The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ServiceLevelObjectiveThresholdArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param warning The objective&#39;s warning value in `[0,100]`. This must be greater than the target value.
+         * @param warning The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
          * 
          * @return builder
          * 

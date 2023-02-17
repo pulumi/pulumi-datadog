@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? DecreaseCriticalityBasedOnEnv;
         /// <summary>
-        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`.
+        /// The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         /// </summary>
         public readonly string? DetectionMethod;
         /// <summary>

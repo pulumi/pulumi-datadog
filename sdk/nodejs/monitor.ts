@@ -152,6 +152,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly noDataTimeframe!: pulumi.Output<number | undefined>;
     /**
+     * Toggles the display of additional content sent in the monitor notification.
+     */
+    public readonly notificationPresetName!: pulumi.Output<string | undefined>;
+    /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
     public readonly notifyAudit!: pulumi.Output<boolean | undefined>;
@@ -272,6 +276,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["newGroupDelay"] = state ? state.newGroupDelay : undefined;
             resourceInputs["newHostDelay"] = state ? state.newHostDelay : undefined;
             resourceInputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
+            resourceInputs["notificationPresetName"] = state ? state.notificationPresetName : undefined;
             resourceInputs["notifyAudit"] = state ? state.notifyAudit : undefined;
             resourceInputs["notifyBies"] = state ? state.notifyBies : undefined;
             resourceInputs["notifyNoData"] = state ? state.notifyNoData : undefined;
@@ -318,6 +323,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["newGroupDelay"] = args ? args.newGroupDelay : undefined;
             resourceInputs["newHostDelay"] = args ? args.newHostDelay : undefined;
             resourceInputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
+            resourceInputs["notificationPresetName"] = args ? args.notificationPresetName : undefined;
             resourceInputs["notifyAudit"] = args ? args.notifyAudit : undefined;
             resourceInputs["notifyBies"] = args ? args.notifyBies : undefined;
             resourceInputs["notifyNoData"] = args ? args.notifyNoData : undefined;
@@ -430,6 +436,10 @@ export interface MonitorState {
      * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
     noDataTimeframe?: pulumi.Input<number>;
+    /**
+     * Toggles the display of additional content sent in the monitor notification.
+     */
+    notificationPresetName?: pulumi.Input<string>;
     /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
@@ -606,6 +616,10 @@ export interface MonitorArgs {
      * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
     noDataTimeframe?: pulumi.Input<number>;
+    /**
+     * Toggles the display of additional content sent in the monitor notification.
+     */
+    notificationPresetName?: pulumi.Input<string>;
     /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */

@@ -105,6 +105,10 @@ export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
+export { GetMonitorConfigPoliciesResult } from "./getMonitorConfigPolicies";
+export const getMonitorConfigPolicies: typeof import("./getMonitorConfigPolicies").getMonitorConfigPolicies = null as any;
+utilities.lazyLoad(exports, ["getMonitorConfigPolicies"], () => require("./getMonitorConfigPolicies"));
+
 export { GetMonitorsArgs, GetMonitorsResult, GetMonitorsOutputArgs } from "./getMonitors";
 export const getMonitors: typeof import("./getMonitors").getMonitors = null as any;
 export const getMonitorsOutput: typeof import("./getMonitors").getMonitorsOutput = null as any;
@@ -221,6 +225,11 @@ export { MonitorArgs, MonitorState } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { MonitorConfigPolicyArgs, MonitorConfigPolicyState } from "./monitorConfigPolicy";
+export type MonitorConfigPolicy = import("./monitorConfigPolicy").MonitorConfigPolicy;
+export const MonitorConfigPolicy: typeof import("./monitorConfigPolicy").MonitorConfigPolicy = null as any;
+utilities.lazyLoad(exports, ["MonitorConfigPolicy"], () => require("./monitorConfigPolicy"));
 
 export { MonitorJsonArgs, MonitorJsonState } from "./monitorJson";
 export type MonitorJson = import("./monitorJson").MonitorJson;
@@ -380,6 +389,8 @@ const _module = {
                 return new MetricTagConfiguration(name, <any>undefined, { urn })
             case "datadog:index/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "datadog:index/monitorConfigPolicy:MonitorConfigPolicy":
+                return new MonitorConfigPolicy(name, <any>undefined, { urn })
             case "datadog:index/monitorJson:MonitorJson":
                 return new MonitorJson(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
@@ -440,6 +451,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _mod
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)

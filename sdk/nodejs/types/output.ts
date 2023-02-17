@@ -2463,6 +2463,7 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
     dataSource: string;
+    eventSize?: string;
     indexes?: string[];
     queryString?: string;
     storage?: string;
@@ -5496,6 +5497,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     dataSource: string;
+    eventSize?: string;
     indexes?: string[];
     queryString?: string;
     storage?: string;
@@ -8056,6 +8058,21 @@ export interface GetLogsPipelinesLogsPipelineFilter {
     query: string;
 }
 
+export interface GetMonitorConfigPoliciesMonitorConfigPolicy {
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    policyType: string;
+    tagPolicy: outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
+}
+
+export interface GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
+    tagKey: string;
+    tagKeyRequired: boolean;
+    validTagValues: string[];
+}
+
 export interface GetMonitorMonitorThreshold {
     critical: string;
     criticalRecovery: string;
@@ -8718,6 +8735,21 @@ export interface MetricTagConfigurationAggregation {
     time: string;
 }
 
+export interface MonitorConfigPolicyTagPolicy {
+    /**
+     * The key of the tag
+     */
+    tagKey: string;
+    /**
+     * If a tag key is required for monitor creation
+     */
+    tagKeyRequired: boolean;
+    /**
+     * Valid values for the tag
+     */
+    validTagValues: string[];
+}
+
 export interface MonitorMonitorThresholdWindows {
     /**
      * Describes how long an anomalous metric must be normal before the alert recovers.
@@ -8954,7 +8986,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     decreaseCriticalityBasedOnEnv?: boolean;
     /**
-     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`.
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
      */
     detectionMethod?: string;
     /**
@@ -8998,7 +9030,7 @@ export interface SecurityMonitoringRuleQuery {
      */
     agentRules?: outputs.SecurityMonitoringRuleQueryAgentRule[];
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
     aggregation?: string;
     /**
@@ -9036,7 +9068,7 @@ export interface SecurityMonitoringRuleQueryAgentRule {
 
 export interface SecurityMonitoringRuleSignalQuery {
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
      */
     aggregation?: string;
     /**
@@ -9074,7 +9106,7 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveThreshold {
     /**
-     * The objective's target in`[0,100]`.
+     * The objective's target in `(0,100)`.
      */
     target: number;
     /**
@@ -9086,13 +9118,25 @@ export interface ServiceLevelObjectiveThreshold {
      */
     timeframe: string;
     /**
-     * The objective's warning value in `[0,100]`. This must be greater than the target value.
+     * The objective's warning value in `(0,100)`. This must be greater than the target value.
      */
     warning?: number;
     /**
      * A string representation of the warning target (see the description of the targetDisplay field for details).
      */
     warningDisplay: string;
+}
+
+export interface SyntheticsGlobalVariableOptions {
+    /**
+     * Parameters needed for MFA/TOTP.
+     */
+    totpParameters?: outputs.SyntheticsGlobalVariableOptionsTotpParameters;
+}
+
+export interface SyntheticsGlobalVariableOptionsTotpParameters {
+    digits: number;
+    refreshInterval: number;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
@@ -9599,6 +9643,10 @@ export interface SyntheticsTestOptionsList {
      * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: boolean;
+    /**
+     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: string;
     /**
      * Ignore server certificate error.
      */

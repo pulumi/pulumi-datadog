@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ServiceLevelObjectiveThreshold
     {
         /// <summary>
-        /// The objective's target in`[0,100]`.
+        /// The objective's target in `(0,100)`.
         /// </summary>
         public readonly double Target;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Timeframe;
         /// <summary>
-        /// The objective's warning value in `[0,100]`. This must be greater than the target value.
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
         /// </summary>
         public readonly double? Warning;
         /// <summary>

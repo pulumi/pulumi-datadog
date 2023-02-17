@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -126,6 +127,21 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The objective&#39;s target in `(0,100)`.
+     * 
+     */
+    @Import(name="targetThreshold")
+    private @Nullable Output<Double> targetThreshold;
+
+    /**
+     * @return The objective&#39;s target in `(0,100)`.
+     * 
+     */
+    public Optional<Output<Double>> targetThreshold() {
+        return Optional.ofNullable(this.targetThreshold);
+    }
+
+    /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      * 
      */
@@ -138,6 +154,21 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
      */
     public Output<List<ServiceLevelObjectiveThresholdArgs>> thresholds() {
         return this.thresholds;
+    }
+
+    /**
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
+    @Import(name="timeframe")
+    private @Nullable Output<String> timeframe;
+
+    /**
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * 
+     */
+    public Optional<Output<String>> timeframe() {
+        return Optional.ofNullable(this.timeframe);
     }
 
     /**
@@ -170,6 +201,21 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.validate);
     }
 
+    /**
+     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * 
+     */
+    @Import(name="warningThreshold")
+    private @Nullable Output<Double> warningThreshold;
+
+    /**
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * 
+     */
+    public Optional<Output<Double>> warningThreshold() {
+        return Optional.ofNullable(this.warningThreshold);
+    }
+
     private ServiceLevelObjectiveArgs() {}
 
     private ServiceLevelObjectiveArgs(ServiceLevelObjectiveArgs $) {
@@ -180,9 +226,12 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         this.name = $.name;
         this.query = $.query;
         this.tags = $.tags;
+        this.targetThreshold = $.targetThreshold;
         this.thresholds = $.thresholds;
+        this.timeframe = $.timeframe;
         this.type = $.type;
         this.validate = $.validate;
+        this.warningThreshold = $.warningThreshold;
     }
 
     public static Builder builder() {
@@ -381,6 +430,27 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param targetThreshold The objective&#39;s target in `(0,100)`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetThreshold(@Nullable Output<Double> targetThreshold) {
+            $.targetThreshold = targetThreshold;
+            return this;
+        }
+
+        /**
+         * @param targetThreshold The objective&#39;s target in `(0,100)`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetThreshold(Double targetThreshold) {
+            return targetThreshold(Output.of(targetThreshold));
+        }
+
+        /**
          * @param thresholds A list of thresholds and targets that define the service level objectives from the provided SLIs.
          * 
          * @return builder
@@ -409,6 +479,27 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
          */
         public Builder thresholds(ServiceLevelObjectiveThresholdArgs... thresholds) {
             return thresholds(List.of(thresholds));
+        }
+
+        /**
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeframe(@Nullable Output<String> timeframe) {
+            $.timeframe = timeframe;
+            return this;
+        }
+
+        /**
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeframe(String timeframe) {
+            return timeframe(Output.of(timeframe));
         }
 
         /**
@@ -451,6 +542,27 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
          */
         public Builder validate(Boolean validate) {
             return validate(Output.of(validate));
+        }
+
+        /**
+         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningThreshold(@Nullable Output<Double> warningThreshold) {
+            $.warningThreshold = warningThreshold;
+            return this;
+        }
+
+        /**
+         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningThreshold(Double warningThreshold) {
+            return warningThreshold(Output.of(warningThreshold));
         }
 
         public ServiceLevelObjectiveArgs build() {

@@ -196,12 +196,13 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	rStrat, dStrat := tfbridge.TokensKnownModules("datadog_", datadogMod, []string{},
+	strategy := tfbridge.TokensKnownModules("datadog_", datadogMod, []string{},
 		func(module, name string) (string, error) {
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
-		})
-	err := prov.ComputeDefaults(rStrat.Unmappable("integration"), dStrat.Unmappable("integration"))
+		}).Unmappable("integration", "integration acts as a sub-module of the next term: "+
+		"integration_aws -> aws_integration, so it is not mapped correctly.")
+	err := prov.ComputeDefaults(strategy)
 	contract.AssertNoError(err)
 
 	return prov

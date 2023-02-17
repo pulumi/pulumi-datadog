@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
+        /// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+        /// </summary>
+        public readonly string? HttpVersion;
+        /// <summary>
         /// Ignore server certificate error.
         /// </summary>
         public readonly bool? IgnoreServerCertificateError;
@@ -97,6 +101,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? followRedirects,
 
+            string? httpVersion,
+
             bool? ignoreServerCertificateError,
 
             int? initialNavigationTimeout,
@@ -128,6 +134,7 @@ namespace Pulumi.Datadog.Outputs
             DisableCors = disableCors;
             DisableCsp = disableCsp;
             FollowRedirects = followRedirects;
+            HttpVersion = httpVersion;
             IgnoreServerCertificateError = ignoreServerCertificateError;
             InitialNavigationTimeout = initialNavigationTimeout;
             MinFailureDuration = minFailureDuration;

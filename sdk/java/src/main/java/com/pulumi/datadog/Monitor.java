@@ -341,6 +341,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.noDataTimeframe);
     }
     /**
+     * Toggles the display of additional content sent in the monitor notification.
+     * 
+     */
+    @Export(name="notificationPresetName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> notificationPresetName;
+
+    /**
+     * @return Toggles the display of additional content sent in the monitor notification.
+     * 
+     */
+    public Output<Optional<String>> notificationPresetName() {
+        return Codegen.optional(this.notificationPresetName);
+    }
+    /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      * 
      */

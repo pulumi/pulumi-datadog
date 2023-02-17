@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        [Input("eventSize")]
+        public Input<string>? EventSize { get; set; }
+
         [Input("indexes")]
         private InputList<string>? _indexes;
         public InputList<string> Indexes

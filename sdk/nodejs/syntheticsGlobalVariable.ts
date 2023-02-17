@@ -71,6 +71,10 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Additional options for the variable, such as a MFA token.
+     */
+    public readonly options!: pulumi.Output<outputs.SyntheticsGlobalVariableOptions | undefined>;
+    /**
      * Id of the Synthetics test to use for a variable from test.
      */
     public readonly parseTestId!: pulumi.Output<string | undefined>;
@@ -110,6 +114,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["parseTestId"] = state ? state.parseTestId : undefined;
             resourceInputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
             resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
@@ -126,6 +131,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["parseTestId"] = args ? args.parseTestId : undefined;
             resourceInputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
             resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
@@ -152,6 +158,10 @@ export interface SyntheticsGlobalVariableState {
      * Synthetics global variable name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Additional options for the variable, such as a MFA token.
+     */
+    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
@@ -190,6 +200,10 @@ export interface SyntheticsGlobalVariableArgs {
      * Synthetics global variable name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Additional options for the variable, such as a MFA token.
+     */
+    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */

@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
     private String dataSource;
+    private @Nullable String eventSize;
     private @Nullable List<String> indexes;
     private @Nullable String queryString;
     private @Nullable String storage;
@@ -20,6 +21,9 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery() {}
     public String dataSource() {
         return this.dataSource;
+    }
+    public Optional<String> eventSize() {
+        return Optional.ofNullable(this.eventSize);
     }
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
@@ -41,6 +45,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
     @CustomType.Builder
     public static final class Builder {
         private String dataSource;
+        private @Nullable String eventSize;
         private @Nullable List<String> indexes;
         private @Nullable String queryString;
         private @Nullable String storage;
@@ -48,6 +53,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         public Builder(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSource = defaults.dataSource;
+    	      this.eventSize = defaults.eventSize;
     	      this.indexes = defaults.indexes;
     	      this.queryString = defaults.queryString;
     	      this.storage = defaults.storage;
@@ -56,6 +62,11 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             this.dataSource = Objects.requireNonNull(dataSource);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventSize(@Nullable String eventSize) {
+            this.eventSize = eventSize;
             return this;
         }
         @CustomType.Setter
@@ -79,6 +90,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery();
             o.dataSource = dataSource;
+            o.eventSize = eventSize;
             o.indexes = indexes;
             o.queryString = queryString;
             o.storage = storage;

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveThresholdGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The objective's target in`[0,100]`.
+        /// The objective's target in `(0,100)`.
         /// </summary>
         [Input("target", required: true)]
         public Input<double> Target { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Timeframe { get; set; } = null!;
 
         /// <summary>
-        /// The objective's warning value in `[0,100]`. This must be greater than the target value.
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
         /// </summary>
         [Input("warning")]
         public Input<double>? Warning { get; set; }

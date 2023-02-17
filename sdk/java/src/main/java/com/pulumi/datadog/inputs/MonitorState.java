@@ -311,6 +311,21 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Toggles the display of additional content sent in the monitor notification.
+     * 
+     */
+    @Import(name="notificationPresetName")
+    private @Nullable Output<String> notificationPresetName;
+
+    /**
+     * @return Toggles the display of additional content sent in the monitor notification.
+     * 
+     */
+    public Optional<Output<String>> notificationPresetName() {
+        return Optional.ofNullable(this.notificationPresetName);
+    }
+
+    /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      * 
      */
@@ -628,6 +643,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.newGroupDelay = $.newGroupDelay;
         this.newHostDelay = $.newHostDelay;
         this.noDataTimeframe = $.noDataTimeframe;
+        this.notificationPresetName = $.notificationPresetName;
         this.notifyAudit = $.notifyAudit;
         this.notifyBies = $.notifyBies;
         this.notifyNoData = $.notifyNoData;
@@ -1047,6 +1063,27 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder noDataTimeframe(Integer noDataTimeframe) {
             return noDataTimeframe(Output.of(noDataTimeframe));
+        }
+
+        /**
+         * @param notificationPresetName Toggles the display of additional content sent in the monitor notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationPresetName(@Nullable Output<String> notificationPresetName) {
+            $.notificationPresetName = notificationPresetName;
+            return this;
+        }
+
+        /**
+         * @param notificationPresetName Toggles the display of additional content sent in the monitor notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationPresetName(String notificationPresetName) {
+            return notificationPresetName(Output.of(notificationPresetName));
         }
 
         /**

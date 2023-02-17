@@ -56,6 +56,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     */
+    public readonly cspmResourceCollectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
@@ -88,6 +92,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["privateKeyId"] = state ? state.privateKeyId : undefined;
@@ -112,6 +117,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
@@ -140,6 +146,10 @@ export interface IntegrationState {
      * Your ID found in your JSON service account key.
      */
     clientId?: pulumi.Input<string>;
+    /**
+     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     */
+    cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
@@ -174,6 +184,10 @@ export interface IntegrationArgs {
      * Your ID found in your JSON service account key.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     */
+    cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */

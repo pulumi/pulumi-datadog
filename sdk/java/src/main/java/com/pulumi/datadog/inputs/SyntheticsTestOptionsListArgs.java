@@ -128,6 +128,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    @Import(name="httpVersion")
+    private @Nullable Output<String> httpVersion;
+
+    /**
+     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    public Optional<Output<String>> httpVersion() {
+        return Optional.ofNullable(this.httpVersion);
+    }
+
+    /**
      * Ignore server certificate error.
      * 
      */
@@ -293,6 +308,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.disableCors = $.disableCors;
         this.disableCsp = $.disableCsp;
         this.followRedirects = $.followRedirects;
+        this.httpVersion = $.httpVersion;
         this.ignoreServerCertificateError = $.ignoreServerCertificateError;
         this.initialNavigationTimeout = $.initialNavigationTimeout;
         this.minFailureDuration = $.minFailureDuration;
@@ -470,6 +486,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder followRedirects(Boolean followRedirects) {
             return followRedirects(Output.of(followRedirects));
+        }
+
+        /**
+         * @param httpVersion HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpVersion(@Nullable Output<String> httpVersion) {
+            $.httpVersion = httpVersion;
+            return this;
+        }
+
+        /**
+         * @param httpVersion HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpVersion(String httpVersion) {
+            return httpVersion(Output.of(httpVersion));
         }
 
         /**

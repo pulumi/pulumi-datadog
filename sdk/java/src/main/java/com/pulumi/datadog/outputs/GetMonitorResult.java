@@ -108,6 +108,11 @@ public final class GetMonitorResult {
      */
     private Integer noDataTimeframe;
     /**
+     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+     * 
+     */
+    private String notificationPresetName;
+    /**
      * @return Whether or not tagged users are notified on changes to the monitor.
      * 
      */
@@ -307,6 +312,13 @@ public final class GetMonitorResult {
         return this.noDataTimeframe;
     }
     /**
+     * @return Toggles the display of additional content sent in the monitor notification. Valid values are: `show_all`, `hide_query`, `hide_handles`, and `hide_all`.
+     * 
+     */
+    public String notificationPresetName() {
+        return this.notificationPresetName;
+    }
+    /**
      * @return Whether or not tagged users are notified on changes to the monitor.
      * 
      */
@@ -435,6 +447,7 @@ public final class GetMonitorResult {
         private Integer newGroupDelay;
         private Integer newHostDelay;
         private Integer noDataTimeframe;
+        private String notificationPresetName;
         private Boolean notifyAudit;
         private List<String> notifyBies;
         private Boolean notifyNoData;
@@ -471,6 +484,7 @@ public final class GetMonitorResult {
     	      this.newGroupDelay = defaults.newGroupDelay;
     	      this.newHostDelay = defaults.newHostDelay;
     	      this.noDataTimeframe = defaults.noDataTimeframe;
+    	      this.notificationPresetName = defaults.notificationPresetName;
     	      this.notifyAudit = defaults.notifyAudit;
     	      this.notifyBies = defaults.notifyBies;
     	      this.notifyNoData = defaults.notifyNoData;
@@ -588,6 +602,11 @@ public final class GetMonitorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder notificationPresetName(String notificationPresetName) {
+            this.notificationPresetName = Objects.requireNonNull(notificationPresetName);
+            return this;
+        }
+        @CustomType.Setter
         public Builder notifyAudit(Boolean notifyAudit) {
             this.notifyAudit = Objects.requireNonNull(notifyAudit);
             return this;
@@ -700,6 +719,7 @@ public final class GetMonitorResult {
             o.newGroupDelay = newGroupDelay;
             o.newHostDelay = newHostDelay;
             o.noDataTimeframe = noDataTimeframe;
+            o.notificationPresetName = notificationPresetName;
             o.notifyAudit = notifyAudit;
             o.notifyBies = notifyBies;
             o.notifyNoData = notifyNoData;
