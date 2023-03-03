@@ -8,6 +8,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -197,13 +198,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	strategy := tfbridge.TokensKnownModules("datadog_", datadogMod, []string{},
-		func(module, name string) (string, error) {
-			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
-			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
-		}).Unmappable("integration", "integration acts as a sub-module of the next term: "+
-		"integration_aws -> aws_integration, so it is not mapped correctly.")
-	err := prov.ComputeDefaults(strategy)
+	err := x.ComputeDefaults(&prov, x.TokensKnownModules("datadog_", datadogMod, []string{
+		"gcp_",
+		"aws_",
+		"azure_",
+		"pagerduty_",
+		"slack_",
+		"opsgenie_",
+	}, x.MakeStandardToken(datadogPkg)).Unmappable("integration", "integration acts as a sub-module of the next term: "+
+		"integration_aws -> aws_integration, so it is not mapped correctly."))
 	contract.AssertNoError(err)
 
 	return prov
