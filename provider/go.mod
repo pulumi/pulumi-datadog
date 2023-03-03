@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-datadog/provider/v4
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.41.0
 	github.com/pulumi/pulumi/sdk/v3 v3.55.0
 	github.com/terraform-providers/terraform-provider-datadog v0.0.0
 )
