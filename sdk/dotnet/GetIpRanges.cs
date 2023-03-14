@@ -77,6 +77,14 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> LogsIpv6s;
         /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> OrchestratorIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> OrchestratorIpv6s;
+        /// <summary>
         /// An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
         /// </summary>
         public readonly ImmutableArray<string> ProcessIpv4s;
@@ -129,6 +137,10 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> logsIpv6s,
 
+            ImmutableArray<string> orchestratorIpv4s,
+
+            ImmutableArray<string> orchestratorIpv6s,
+
             ImmutableArray<string> processIpv4s,
 
             ImmutableArray<string> processIpv6s,
@@ -154,6 +166,8 @@ namespace Pulumi.Datadog
             Id = id;
             LogsIpv4s = logsIpv4s;
             LogsIpv6s = logsIpv6s;
+            OrchestratorIpv4s = orchestratorIpv4s;
+            OrchestratorIpv6s = orchestratorIpv6s;
             ProcessIpv4s = processIpv4s;
             ProcessIpv6s = processIpv6s;
             SyntheticsIpv4ByLocation = syntheticsIpv4ByLocation;

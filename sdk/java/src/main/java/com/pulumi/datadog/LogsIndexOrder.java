@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+ * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `&lt;name&gt;` can be whatever you specify in your code. Datadog does not store the name on the server.
  * 
  * ```sh
  *  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name&gt; &lt;name&gt;

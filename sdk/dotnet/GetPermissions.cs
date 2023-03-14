@@ -32,8 +32,61 @@ namespace Pulumi.Datadog
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetPermissionsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", args ?? new GetPermissionsArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var permissions = Datadog.GetPermissions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetPermissionsArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+        /// </summary>
+        [Input("includeRestricted")]
+        public bool? IncludeRestricted { get; set; }
+
+        public GetPermissionsArgs()
+        {
+        }
+        public static new GetPermissionsArgs Empty => new GetPermissionsArgs();
+    }
+
+    public sealed class GetPermissionsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+        /// </summary>
+        [Input("includeRestricted")]
+        public Input<bool>? IncludeRestricted { get; set; }
+
+        public GetPermissionsInvokeArgs()
+        {
+        }
+        public static new GetPermissionsInvokeArgs Empty => new GetPermissionsInvokeArgs();
     }
 
 
@@ -45,6 +98,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+        /// </summary>
+        public readonly bool? IncludeRestricted;
+        /// <summary>
         /// Map of permissions names to their corresponding ID.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Permissions;
@@ -53,9 +110,12 @@ namespace Pulumi.Datadog
         private GetPermissionsResult(
             string id,
 
+            bool? includeRestricted,
+
             ImmutableDictionary<string, string> permissions)
         {
             Id = id;
+            IncludeRestricted = includeRestricted;
             Permissions = permissions;
         }
     }

@@ -395,6 +395,9 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLinkArgs',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestArgs',
@@ -805,6 +808,9 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs',
+    'DashboardWidgetRunWorkflowDefinitionArgs',
+    'DashboardWidgetRunWorkflowDefinitionCustomLinkArgs',
+    'DashboardWidgetRunWorkflowDefinitionInputArgs',
     'DashboardWidgetScatterplotDefinitionArgs',
     'DashboardWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetScatterplotDefinitionRequestArgs',
@@ -1122,6 +1128,8 @@ __all__ = [
     'SecurityMonitoringRuleQueryArgs',
     'SecurityMonitoringRuleQueryAgentRuleArgs',
     'SecurityMonitoringRuleSignalQueryArgs',
+    'SensitiveDataScannerGroupFilterArgs',
+    'SensitiveDataScannerRuleTextReplacementArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
     'SyntheticsGlobalVariableOptionsArgs',
@@ -1157,6 +1165,8 @@ __all__ = [
     'SyntheticsTestOptionsListMonitorOptionsArgs',
     'SyntheticsTestOptionsListRetryArgs',
     'SyntheticsTestOptionsListRumSettingsArgs',
+    'SyntheticsTestOptionsListSchedulingArgs',
+    'SyntheticsTestOptionsListSchedulingTimeframeArgs',
     'SyntheticsTestRequestBasicauthArgs',
     'SyntheticsTestRequestClientCertificateArgs',
     'SyntheticsTestRequestClientCertificateCertArgs',
@@ -1738,6 +1748,7 @@ class DashboardWidgetArgs:
                  note_definition: Optional[pulumi.Input['DashboardWidgetNoteDefinitionArgs']] = None,
                  query_table_definition: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionArgs']] = None,
                  query_value_definition: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionArgs']] = None,
+                 run_workflow_definition: Optional[pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs']] = None,
                  scatterplot_definition: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionArgs']] = None,
                  service_level_objective_definition: Optional[pulumi.Input['DashboardWidgetServiceLevelObjectiveDefinitionArgs']] = None,
                  servicemap_definition: Optional[pulumi.Input['DashboardWidgetServicemapDefinitionArgs']] = None,
@@ -1771,6 +1782,7 @@ class DashboardWidgetArgs:
         :param pulumi.Input['DashboardWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
+        :param pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
         :param pulumi.Input['DashboardWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -1825,6 +1837,8 @@ class DashboardWidgetArgs:
             pulumi.set(__self__, "query_table_definition", query_table_definition)
         if query_value_definition is not None:
             pulumi.set(__self__, "query_value_definition", query_value_definition)
+        if run_workflow_definition is not None:
+            pulumi.set(__self__, "run_workflow_definition", run_workflow_definition)
         if scatterplot_definition is not None:
             pulumi.set(__self__, "scatterplot_definition", scatterplot_definition)
         if service_level_objective_definition is not None:
@@ -2099,6 +2113,18 @@ class DashboardWidgetArgs:
     @query_value_definition.setter
     def query_value_definition(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionArgs']]):
         pulumi.set(self, "query_value_definition", value)
+
+    @property
+    @pulumi.getter(name="runWorkflowDefinition")
+    def run_workflow_definition(self) -> Optional[pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs']]:
+        """
+        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        """
+        return pulumi.get(self, "run_workflow_definition")
+
+    @run_workflow_definition.setter
+    def run_workflow_definition(self, value: Optional[pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs']]):
+        pulumi.set(self, "run_workflow_definition", value)
 
     @property
     @pulumi.getter(name="scatterplotDefinition")
@@ -7995,6 +8021,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  note_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs']] = None,
                  query_table_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs']] = None,
                  query_value_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs']] = None,
+                 run_workflow_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs']] = None,
                  scatterplot_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs']] = None,
                  service_level_objective_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs']] = None,
                  servicemap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs']] = None,
@@ -8027,6 +8054,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
+        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -8079,6 +8107,8 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "query_table_definition", query_table_definition)
         if query_value_definition is not None:
             pulumi.set(__self__, "query_value_definition", query_value_definition)
+        if run_workflow_definition is not None:
+            pulumi.set(__self__, "run_workflow_definition", run_workflow_definition)
         if scatterplot_definition is not None:
             pulumi.set(__self__, "scatterplot_definition", scatterplot_definition)
         if service_level_objective_definition is not None:
@@ -8341,6 +8371,18 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @query_value_definition.setter
     def query_value_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs']]):
         pulumi.set(self, "query_value_definition", value)
+
+    @property
+    @pulumi.getter(name="runWorkflowDefinition")
+    def run_workflow_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs']]:
+        """
+        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        """
+        return pulumi.get(self, "run_workflow_definition")
+
+    @run_workflow_definition.setter
+    def run_workflow_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs']]):
+        pulumi.set(self, "run_workflow_definition", value)
 
     @property
     @pulumi.getter(name="scatterplotDefinition")
@@ -23615,6 +23657,180 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgrou
     @scale.setter
     def scale(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs:
+    def __init__(__self__, *,
+                 workflow_id: pulumi.Input[str],
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLinkArgs']]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs']]]] = None,
+                 live_span: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: The title of the dashboard.
+        """
+        pulumi.set(__self__, "workflow_id", workflow_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "workflow_id")
+
+    @workflow_id.setter
+    def workflow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workflow_id", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs']]]]:
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "live_span")
+
+    @live_span.setter
+    def live_span(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "live_span", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 override_label: Optional[pulumi.Input[str]] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_label", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -46255,6 +46471,180 @@ class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetRunWorkflowDefinitionArgs:
+    def __init__(__self__, *,
+                 workflow_id: pulumi.Input[str],
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionCustomLinkArgs']]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionInputArgs']]]] = None,
+                 live_span: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 title_align: Optional[pulumi.Input[str]] = None,
+                 title_size: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: The title of the dashboard.
+        """
+        pulumi.set(__self__, "workflow_id", workflow_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "workflow_id")
+
+    @workflow_id.setter
+    def workflow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workflow_id", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionInputArgs']]]]:
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetRunWorkflowDefinitionInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "live_span")
+
+    @live_span.setter
+    def live_span(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "live_span", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_align", value)
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetRunWorkflowDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 override_label: Optional[pulumi.Input[str]] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_label", value)
+
+
+@pulumi.input_type
+class DashboardWidgetRunWorkflowDefinitionInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionArgs:
     def __init__(__self__, *,
                  color_by_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63770,6 +64160,82 @@ class SecurityMonitoringRuleSignalQueryArgs:
 
 
 @pulumi.input_type
+class SensitiveDataScannerGroupFilterArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] query: Query to filter the events.
+        """
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        """
+        Query to filter the events.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class SensitiveDataScannerRuleTextReplacementArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 number_of_chars: Optional[pulumi.Input[int]] = None,
+                 replacement_string: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+        :param pulumi.Input[int] number_of_chars: Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+        :param pulumi.Input[str] replacement_string: Required if type == 'replacement_string'.
+        """
+        pulumi.set(__self__, "type", type)
+        if number_of_chars is not None:
+            pulumi.set(__self__, "number_of_chars", number_of_chars)
+        if replacement_string is not None:
+            pulumi.set(__self__, "replacement_string", replacement_string)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="numberOfChars")
+    def number_of_chars(self) -> Optional[pulumi.Input[int]]:
+        """
+        Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+        """
+        return pulumi.get(self, "number_of_chars")
+
+    @number_of_chars.setter
+    def number_of_chars(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_chars", value)
+
+    @property
+    @pulumi.getter(name="replacementString")
+    def replacement_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if type == 'replacement_string'.
+        """
+        return pulumi.get(self, "replacement_string")
+
+    @replacement_string.setter
+    def replacement_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replacement_string", value)
+
+
+@pulumi.input_type
 class ServiceLevelObjectiveQueryArgs:
     def __init__(__self__, *,
                  denominator: pulumi.Input[str],
@@ -66100,7 +66566,8 @@ class SyntheticsTestOptionsListArgs:
                  no_screenshot: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']] = None,
-                 rum_settings: Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']] = None):
+                 rum_settings: Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']] = None,
+                 scheduling: Optional[pulumi.Input['SyntheticsTestOptionsListSchedulingArgs']] = None):
         """
         :param pulumi.Input[int] tick_every: How often the test should run (in seconds).
         :param pulumi.Input[bool] accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
@@ -66119,6 +66586,7 @@ class SyntheticsTestOptionsListArgs:
         :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the steps.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
         :param pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs'] rum_settings: The RUM data collection settings for the Synthetic browser test.
+        :param pulumi.Input['SyntheticsTestOptionsListSchedulingArgs'] scheduling: Object containing timeframes and timezone used for advanced scheduling.
         """
         pulumi.set(__self__, "tick_every", tick_every)
         if accept_self_signed is not None:
@@ -66159,6 +66627,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "retry", retry)
         if rum_settings is not None:
             pulumi.set(__self__, "rum_settings", rum_settings)
+        if scheduling is not None:
+            pulumi.set(__self__, "scheduling", scheduling)
 
     @property
     @pulumi.getter(name="tickEvery")
@@ -66391,6 +66861,18 @@ class SyntheticsTestOptionsListArgs:
     def rum_settings(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListRumSettingsArgs']]):
         pulumi.set(self, "rum_settings", value)
 
+    @property
+    @pulumi.getter
+    def scheduling(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListSchedulingArgs']]:
+        """
+        Object containing timeframes and timezone used for advanced scheduling.
+        """
+        return pulumi.get(self, "scheduling")
+
+    @scheduling.setter
+    def scheduling(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListSchedulingArgs']]):
+        pulumi.set(self, "scheduling", value)
+
 
 @pulumi.input_type
 class SyntheticsTestOptionsListCiArgs:
@@ -66493,6 +66975,71 @@ class SyntheticsTestOptionsListRumSettingsArgs:
     @client_token_id.setter
     def client_token_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "client_token_id", value)
+
+
+@pulumi.input_type
+class SyntheticsTestOptionsListSchedulingArgs:
+    def __init__(__self__, *,
+                 timeframes: pulumi.Input[Sequence[pulumi.Input['SyntheticsTestOptionsListSchedulingTimeframeArgs']]],
+                 timezone: pulumi.Input[str]):
+        pulumi.set(__self__, "timeframes", timeframes)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def timeframes(self) -> pulumi.Input[Sequence[pulumi.Input['SyntheticsTestOptionsListSchedulingTimeframeArgs']]]:
+        return pulumi.get(self, "timeframes")
+
+    @timeframes.setter
+    def timeframes(self, value: pulumi.Input[Sequence[pulumi.Input['SyntheticsTestOptionsListSchedulingTimeframeArgs']]]):
+        pulumi.set(self, "timeframes", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class SyntheticsTestOptionsListSchedulingTimeframeArgs:
+    def __init__(__self__, *,
+                 day: pulumi.Input[int],
+                 from_: pulumi.Input[str],
+                 to: pulumi.Input[str]):
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def day(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: pulumi.Input[int]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "to", value)
 
 
 @pulumi.input_type

@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,19 +35,84 @@ import (
 //	}
 //
 // ```
-func GetPermissions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPermissionsResult, error) {
+func GetPermissions(ctx *pulumi.Context, args *GetPermissionsArgs, opts ...pulumi.InvokeOption) (*GetPermissionsResult, error) {
 	var rv GetPermissionsResult
-	err := ctx.Invoke("datadog:index/getPermissions:getPermissions", nil, &rv, opts...)
+	err := ctx.Invoke("datadog:index/getPermissions:getPermissions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getPermissions.
+type GetPermissionsArgs struct {
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	IncludeRestricted *bool `pulumi:"includeRestricted"`
+}
+
 // A collection of values returned by getPermissions.
 type GetPermissionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	IncludeRestricted *bool `pulumi:"includeRestricted"`
 	// Map of permissions names to their corresponding ID.
 	Permissions map[string]string `pulumi:"permissions"`
+}
+
+func GetPermissionsOutput(ctx *pulumi.Context, args GetPermissionsOutputArgs, opts ...pulumi.InvokeOption) GetPermissionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPermissionsResult, error) {
+			args := v.(GetPermissionsArgs)
+			r, err := GetPermissions(ctx, &args, opts...)
+			var s GetPermissionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetPermissionsResultOutput)
+}
+
+// A collection of arguments for invoking getPermissions.
+type GetPermissionsOutputArgs struct {
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	IncludeRestricted pulumi.BoolPtrInput `pulumi:"includeRestricted"`
+}
+
+func (GetPermissionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPermissions.
+type GetPermissionsResultOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsResult)(nil)).Elem()
+}
+
+func (o GetPermissionsResultOutput) ToGetPermissionsResultOutput() GetPermissionsResultOutput {
+	return o
+}
+
+func (o GetPermissionsResultOutput) ToGetPermissionsResultOutputWithContext(ctx context.Context) GetPermissionsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPermissionsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+func (o GetPermissionsResultOutput) IncludeRestricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetPermissionsResult) *bool { return v.IncludeRestricted }).(pulumi.BoolPtrOutput)
+}
+
+// Map of permissions names to their corresponding ID.
+func (o GetPermissionsResultOutput) Permissions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPermissionsResult) map[string]string { return v.Permissions }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPermissionsResultOutput{})
 }

@@ -81,6 +81,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestOptionsListRumSettings? RumSettings;
         /// <summary>
+        /// Object containing timeframes and timezone used for advanced scheduling.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestOptionsListScheduling? Scheduling;
+        /// <summary>
         /// How often the test should run (in seconds).
         /// </summary>
         public readonly int TickEvery;
@@ -125,6 +129,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestOptionsListRumSettings? rumSettings,
 
+            Outputs.SyntheticsTestOptionsListScheduling? scheduling,
+
             int tickEvery)
         {
             AcceptSelfSigned = acceptSelfSigned;
@@ -146,6 +152,7 @@ namespace Pulumi.Datadog.Outputs
             RestrictedRoles = restrictedRoles;
             Retry = retry;
             RumSettings = rumSettings;
+            Scheduling = scheduling;
             TickEvery = tickEvery;
         }
     }

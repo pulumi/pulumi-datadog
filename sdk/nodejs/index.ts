@@ -114,9 +114,10 @@ export const getMonitors: typeof import("./getMonitors").getMonitors = null as a
 export const getMonitorsOutput: typeof import("./getMonitors").getMonitorsOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitors","getMonitorsOutput"], () => require("./getMonitors"));
 
-export { GetPermissionsResult } from "./getPermissions";
+export { GetPermissionsArgs, GetPermissionsResult, GetPermissionsOutputArgs } from "./getPermissions";
 export const getPermissions: typeof import("./getPermissions").getPermissions = null as any;
-utilities.lazyLoad(exports, ["getPermissions"], () => require("./getPermissions"));
+export const getPermissionsOutput: typeof import("./getPermissions").getPermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissions","getPermissionsOutput"], () => require("./getPermissions"));
 
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
@@ -141,6 +142,11 @@ export { GetSecurityMonitoringRulesArgs, GetSecurityMonitoringRulesResult, GetSe
 export const getSecurityMonitoringRules: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRules = null as any;
 export const getSecurityMonitoringRulesOutput: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityMonitoringRules","getSecurityMonitoringRulesOutput"], () => require("./getSecurityMonitoringRules"));
+
+export { GetSensitiveDataScannerStandardPatternArgs, GetSensitiveDataScannerStandardPatternResult, GetSensitiveDataScannerStandardPatternOutputArgs } from "./getSensitiveDataScannerStandardPattern";
+export const getSensitiveDataScannerStandardPattern: typeof import("./getSensitiveDataScannerStandardPattern").getSensitiveDataScannerStandardPattern = null as any;
+export const getSensitiveDataScannerStandardPatternOutput: typeof import("./getSensitiveDataScannerStandardPattern").getSensitiveDataScannerStandardPatternOutput = null as any;
+utilities.lazyLoad(exports, ["getSensitiveDataScannerStandardPattern","getSensitiveDataScannerStandardPatternOutput"], () => require("./getSensitiveDataScannerStandardPattern"));
 
 export { GetServiceLevelObjectiveArgs, GetServiceLevelObjectiveResult, GetServiceLevelObjectiveOutputArgs } from "./getServiceLevelObjective";
 export const getServiceLevelObjective: typeof import("./getServiceLevelObjective").getServiceLevelObjective = null as any;
@@ -270,6 +276,16 @@ export { SecurityMonitoringRuleArgs, SecurityMonitoringRuleState } from "./secur
 export type SecurityMonitoringRule = import("./securityMonitoringRule").SecurityMonitoringRule;
 export const SecurityMonitoringRule: typeof import("./securityMonitoringRule").SecurityMonitoringRule = null as any;
 utilities.lazyLoad(exports, ["SecurityMonitoringRule"], () => require("./securityMonitoringRule"));
+
+export { SensitiveDataScannerGroupArgs, SensitiveDataScannerGroupState } from "./sensitiveDataScannerGroup";
+export type SensitiveDataScannerGroup = import("./sensitiveDataScannerGroup").SensitiveDataScannerGroup;
+export const SensitiveDataScannerGroup: typeof import("./sensitiveDataScannerGroup").SensitiveDataScannerGroup = null as any;
+utilities.lazyLoad(exports, ["SensitiveDataScannerGroup"], () => require("./sensitiveDataScannerGroup"));
+
+export { SensitiveDataScannerRuleArgs, SensitiveDataScannerRuleState } from "./sensitiveDataScannerRule";
+export type SensitiveDataScannerRule = import("./sensitiveDataScannerRule").SensitiveDataScannerRule;
+export const SensitiveDataScannerRule: typeof import("./sensitiveDataScannerRule").SensitiveDataScannerRule = null as any;
+utilities.lazyLoad(exports, ["SensitiveDataScannerRule"], () => require("./sensitiveDataScannerRule"));
 
 export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
 export type ServiceAccount = import("./serviceAccount").ServiceAccount;
@@ -405,6 +421,10 @@ const _module = {
                 return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
+            case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
+                return new SensitiveDataScannerGroup(name, <any>undefined, { urn })
+            case "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule":
+                return new SensitiveDataScannerRule(name, <any>undefined, { urn })
             case "datadog:index/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
             case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
@@ -459,6 +479,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)

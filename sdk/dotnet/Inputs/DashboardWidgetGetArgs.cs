@@ -139,6 +139,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetQueryValueDefinitionGetArgs>? QueryValueDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        /// </summary>
+        [Input("runWorkflowDefinition")]
+        public Input<Inputs.DashboardWidgetRunWorkflowDefinitionGetArgs>? RunWorkflowDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         [Input("scatterplotDefinition")]

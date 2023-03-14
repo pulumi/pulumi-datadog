@@ -61,6 +61,10 @@ type GetIpRangesResult struct {
 	LogsIpv4s []string `pulumi:"logsIpv4s"`
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
 	LogsIpv6s []string `pulumi:"logsIpv6s"`
+	// An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+	OrchestratorIpv4s []string `pulumi:"orchestratorIpv4s"`
+	// An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+	OrchestratorIpv6s []string `pulumi:"orchestratorIpv6s"`
 	// An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
 	ProcessIpv4s []string `pulumi:"processIpv4s"`
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.

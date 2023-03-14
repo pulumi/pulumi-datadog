@@ -119,7 +119,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
@@ -143,7 +143,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The objective's target in `(0,100)`.
+     * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
     public readonly targetThreshold!: pulumi.Output<number>;
     /**
@@ -151,7 +151,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     public readonly timeframe!: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
     /**
-     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
     public readonly warningThreshold!: pulumi.Output<number>;
 
@@ -232,7 +232,7 @@ export interface ServiceLevelObjectiveState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
     forceDelete?: pulumi.Input<boolean>;
     /**
@@ -256,7 +256,7 @@ export interface ServiceLevelObjectiveState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The objective's target in `(0,100)`.
+     * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
     targetThreshold?: pulumi.Input<number>;
     /**
@@ -264,7 +264,7 @@ export interface ServiceLevelObjectiveState {
      */
     thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface ServiceLevelObjectiveState {
      */
     validate?: pulumi.Input<boolean>;
     /**
-     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
     warningThreshold?: pulumi.Input<number>;
 }
@@ -290,7 +290,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
     forceDelete?: pulumi.Input<boolean>;
     /**
@@ -314,7 +314,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The objective's target in `(0,100)`.
+     * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
     targetThreshold?: pulumi.Input<number>;
     /**
@@ -322,7 +322,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**
@@ -334,7 +334,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     validate?: pulumi.Input<boolean>;
     /**
-     * The objective's warning value in `(0,100)`. This must be greater than the target value.
+     * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
     warningThreshold?: pulumi.Input<number>;
 }

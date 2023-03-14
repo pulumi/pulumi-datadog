@@ -58,6 +58,16 @@ public final class GetIpRangesResult {
      */
     private List<String> logsIpv6s;
     /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     * 
+     */
+    private List<String> orchestratorIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     * 
+     */
+    private List<String> orchestratorIpv6s;
+    /**
      * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
      * 
      */
@@ -163,6 +173,20 @@ public final class GetIpRangesResult {
         return this.logsIpv6s;
     }
     /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     * 
+     */
+    public List<String> orchestratorIpv4s() {
+        return this.orchestratorIpv4s;
+    }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     * 
+     */
+    public List<String> orchestratorIpv6s() {
+        return this.orchestratorIpv6s;
+    }
+    /**
      * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
      * 
      */
@@ -237,6 +261,8 @@ public final class GetIpRangesResult {
         private String id;
         private List<String> logsIpv4s;
         private List<String> logsIpv6s;
+        private List<String> orchestratorIpv4s;
+        private List<String> orchestratorIpv6s;
         private List<String> processIpv4s;
         private List<String> processIpv6s;
         private Map<String,Object> syntheticsIpv4ByLocation;
@@ -257,6 +283,8 @@ public final class GetIpRangesResult {
     	      this.id = defaults.id;
     	      this.logsIpv4s = defaults.logsIpv4s;
     	      this.logsIpv6s = defaults.logsIpv6s;
+    	      this.orchestratorIpv4s = defaults.orchestratorIpv4s;
+    	      this.orchestratorIpv6s = defaults.orchestratorIpv6s;
     	      this.processIpv4s = defaults.processIpv4s;
     	      this.processIpv6s = defaults.processIpv6s;
     	      this.syntheticsIpv4ByLocation = defaults.syntheticsIpv4ByLocation;
@@ -337,6 +365,22 @@ public final class GetIpRangesResult {
             return logsIpv6s(List.of(logsIpv6s));
         }
         @CustomType.Setter
+        public Builder orchestratorIpv4s(List<String> orchestratorIpv4s) {
+            this.orchestratorIpv4s = Objects.requireNonNull(orchestratorIpv4s);
+            return this;
+        }
+        public Builder orchestratorIpv4s(String... orchestratorIpv4s) {
+            return orchestratorIpv4s(List.of(orchestratorIpv4s));
+        }
+        @CustomType.Setter
+        public Builder orchestratorIpv6s(List<String> orchestratorIpv6s) {
+            this.orchestratorIpv6s = Objects.requireNonNull(orchestratorIpv6s);
+            return this;
+        }
+        public Builder orchestratorIpv6s(String... orchestratorIpv6s) {
+            return orchestratorIpv6s(List.of(orchestratorIpv6s));
+        }
+        @CustomType.Setter
         public Builder processIpv4s(List<String> processIpv4s) {
             this.processIpv4s = Objects.requireNonNull(processIpv4s);
             return this;
@@ -405,6 +449,8 @@ public final class GetIpRangesResult {
             o.id = id;
             o.logsIpv4s = logsIpv4s;
             o.logsIpv6s = logsIpv6s;
+            o.orchestratorIpv4s = orchestratorIpv4s;
+            o.orchestratorIpv6s = orchestratorIpv6s;
             o.processIpv4s = processIpv4s;
             o.processIpv6s = processIpv6s;
             o.syntheticsIpv4ByLocation = syntheticsIpv4ByLocation;

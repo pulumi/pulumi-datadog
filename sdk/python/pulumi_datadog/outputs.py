@@ -396,6 +396,9 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink',
+    'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinition',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest',
@@ -806,6 +809,9 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackground',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis',
+    'DashboardWidgetRunWorkflowDefinition',
+    'DashboardWidgetRunWorkflowDefinitionCustomLink',
+    'DashboardWidgetRunWorkflowDefinitionInput',
     'DashboardWidgetScatterplotDefinition',
     'DashboardWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetScatterplotDefinitionRequest',
@@ -1123,6 +1129,8 @@ __all__ = [
     'SecurityMonitoringRuleQuery',
     'SecurityMonitoringRuleQueryAgentRule',
     'SecurityMonitoringRuleSignalQuery',
+    'SensitiveDataScannerGroupFilter',
+    'SensitiveDataScannerRuleTextReplacement',
     'ServiceLevelObjectiveQuery',
     'ServiceLevelObjectiveThreshold',
     'SyntheticsGlobalVariableOptions',
@@ -1158,6 +1166,8 @@ __all__ = [
     'SyntheticsTestOptionsListMonitorOptions',
     'SyntheticsTestOptionsListRetry',
     'SyntheticsTestOptionsListRumSettings',
+    'SyntheticsTestOptionsListScheduling',
+    'SyntheticsTestOptionsListSchedulingTimeframe',
     'SyntheticsTestRequestBasicauth',
     'SyntheticsTestRequestClientCertificate',
     'SyntheticsTestRequestClientCertificateCert',
@@ -1742,6 +1752,8 @@ class DashboardWidget(dict):
             suggest = "query_table_definition"
         elif key == "queryValueDefinition":
             suggest = "query_value_definition"
+        elif key == "runWorkflowDefinition":
+            suggest = "run_workflow_definition"
         elif key == "scatterplotDefinition":
             suggest = "scatterplot_definition"
         elif key == "serviceLevelObjectiveDefinition":
@@ -1798,6 +1810,7 @@ class DashboardWidget(dict):
                  note_definition: Optional['outputs.DashboardWidgetNoteDefinition'] = None,
                  query_table_definition: Optional['outputs.DashboardWidgetQueryTableDefinition'] = None,
                  query_value_definition: Optional['outputs.DashboardWidgetQueryValueDefinition'] = None,
+                 run_workflow_definition: Optional['outputs.DashboardWidgetRunWorkflowDefinition'] = None,
                  scatterplot_definition: Optional['outputs.DashboardWidgetScatterplotDefinition'] = None,
                  service_level_objective_definition: Optional['outputs.DashboardWidgetServiceLevelObjectiveDefinition'] = None,
                  servicemap_definition: Optional['outputs.DashboardWidgetServicemapDefinition'] = None,
@@ -1831,6 +1844,7 @@ class DashboardWidget(dict):
         :param 'DashboardWidgetNoteDefinitionArgs' note_definition: The definition for a Note widget.
         :param 'DashboardWidgetQueryTableDefinitionArgs' query_table_definition: The definition for a Query Table widget.
         :param 'DashboardWidgetQueryValueDefinitionArgs' query_value_definition: The definition for a Query Value widget.
+        :param 'DashboardWidgetRunWorkflowDefinitionArgs' run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
         :param 'DashboardWidgetScatterplotDefinitionArgs' scatterplot_definition: The definition for a Scatterplot widget.
         :param 'DashboardWidgetServiceLevelObjectiveDefinitionArgs' service_level_objective_definition: The definition for a Service Level Objective widget.
         :param 'DashboardWidgetServicemapDefinitionArgs' servicemap_definition: The definition for a Service Map widget.
@@ -1885,6 +1899,8 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "query_table_definition", query_table_definition)
         if query_value_definition is not None:
             pulumi.set(__self__, "query_value_definition", query_value_definition)
+        if run_workflow_definition is not None:
+            pulumi.set(__self__, "run_workflow_definition", run_workflow_definition)
         if scatterplot_definition is not None:
             pulumi.set(__self__, "scatterplot_definition", scatterplot_definition)
         if service_level_objective_definition is not None:
@@ -2075,6 +2091,14 @@ class DashboardWidget(dict):
         The definition for a Query Value widget.
         """
         return pulumi.get(self, "query_value_definition")
+
+    @property
+    @pulumi.getter(name="runWorkflowDefinition")
+    def run_workflow_definition(self) -> Optional['outputs.DashboardWidgetRunWorkflowDefinition']:
+        """
+        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        """
+        return pulumi.get(self, "run_workflow_definition")
 
     @property
     @pulumi.getter(name="scatterplotDefinition")
@@ -7421,6 +7445,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             suggest = "query_table_definition"
         elif key == "queryValueDefinition":
             suggest = "query_value_definition"
+        elif key == "runWorkflowDefinition":
+            suggest = "run_workflow_definition"
         elif key == "scatterplotDefinition":
             suggest = "scatterplot_definition"
         elif key == "serviceLevelObjectiveDefinition":
@@ -7476,6 +7502,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  note_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition'] = None,
                  query_table_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition'] = None,
                  query_value_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition'] = None,
+                 run_workflow_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition'] = None,
                  scatterplot_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition'] = None,
                  service_level_objective_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition'] = None,
                  servicemap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition'] = None,
@@ -7508,6 +7535,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         :param 'DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs' note_definition: The definition for a Note widget.
         :param 'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs' query_table_definition: The definition for a Query Table widget.
         :param 'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs' query_value_definition: The definition for a Query Value widget.
+        :param 'DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs' run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
         :param 'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs' scatterplot_definition: The definition for a Scatterplot widget.
         :param 'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs' service_level_objective_definition: The definition for a Service Level Objective widget.
         :param 'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs' servicemap_definition: The definition for a Service Map widget.
@@ -7560,6 +7588,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "query_table_definition", query_table_definition)
         if query_value_definition is not None:
             pulumi.set(__self__, "query_value_definition", query_value_definition)
+        if run_workflow_definition is not None:
+            pulumi.set(__self__, "run_workflow_definition", run_workflow_definition)
         if scatterplot_definition is not None:
             pulumi.set(__self__, "scatterplot_definition", scatterplot_definition)
         if service_level_objective_definition is not None:
@@ -7742,6 +7772,14 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         The definition for a Query Value widget.
         """
         return pulumi.get(self, "query_value_definition")
+
+    @property
+    @pulumi.getter(name="runWorkflowDefinition")
+    def run_workflow_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition']:
+        """
+        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        """
+        return pulumi.get(self, "run_workflow_definition")
 
     @property
     @pulumi.getter(name="scatterplotDefinition")
@@ -21500,6 +21538,172 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgrou
     @pulumi.getter
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workflowId":
+            suggest = "workflow_id"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workflow_id: str,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink']] = None,
+                 inputs: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput']] = None,
+                 live_span: Optional[str] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        pulumi.set(__self__, "workflow_id", workflow_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> str:
+        return pulumi.get(self, "workflow_id")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput']]:
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[str]:
+        return pulumi.get(self, "live_span")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -41953,6 +42157,172 @@ class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetRunWorkflowDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workflowId":
+            suggest = "workflow_id"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetRunWorkflowDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetRunWorkflowDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetRunWorkflowDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workflow_id: str,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetRunWorkflowDefinitionCustomLink']] = None,
+                 inputs: Optional[Sequence['outputs.DashboardWidgetRunWorkflowDefinitionInput']] = None,
+                 live_span: Optional[str] = None,
+                 title: Optional[str] = None,
+                 title_align: Optional[str] = None,
+                 title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
+        pulumi.set(__self__, "workflow_id", workflow_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> str:
+        return pulumi.get(self, "workflow_id")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetRunWorkflowDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.DashboardWidgetRunWorkflowDefinitionInput']]:
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[str]:
+        return pulumi.get(self, "live_span")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[str]:
+        return pulumi.get(self, "title_align")
+
+    @property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[str]:
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardWidgetRunWorkflowDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetRunWorkflowDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetRunWorkflowDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetRunWorkflowDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardWidgetRunWorkflowDefinitionInput(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DashboardWidgetScatterplotDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -58170,6 +58540,85 @@ class SecurityMonitoringRuleSignalQuery(dict):
 
 
 @pulumi.output_type
+class SensitiveDataScannerGroupFilter(dict):
+    def __init__(__self__, *,
+                 query: str):
+        """
+        :param str query: Query to filter the events.
+        """
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        Query to filter the events.
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class SensitiveDataScannerRuleTextReplacement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfChars":
+            suggest = "number_of_chars"
+        elif key == "replacementString":
+            suggest = "replacement_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SensitiveDataScannerRuleTextReplacement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SensitiveDataScannerRuleTextReplacement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SensitiveDataScannerRuleTextReplacement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 number_of_chars: Optional[int] = None,
+                 replacement_string: Optional[str] = None):
+        """
+        :param str type: Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+        :param int number_of_chars: Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+        :param str replacement_string: Required if type == 'replacement_string'.
+        """
+        pulumi.set(__self__, "type", type)
+        if number_of_chars is not None:
+            pulumi.set(__self__, "number_of_chars", number_of_chars)
+        if replacement_string is not None:
+            pulumi.set(__self__, "replacement_string", replacement_string)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="numberOfChars")
+    def number_of_chars(self) -> Optional[int]:
+        """
+        Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+        """
+        return pulumi.get(self, "number_of_chars")
+
+    @property
+    @pulumi.getter(name="replacementString")
+    def replacement_string(self) -> Optional[str]:
+        """
+        Required if type == 'replacement_string'.
+        """
+        return pulumi.get(self, "replacement_string")
+
+
+@pulumi.output_type
 class ServiceLevelObjectiveQuery(dict):
     def __init__(__self__, *,
                  denominator: str,
@@ -60204,7 +60653,8 @@ class SyntheticsTestOptionsList(dict):
                  no_screenshot: Optional[bool] = None,
                  restricted_roles: Optional[Sequence[str]] = None,
                  retry: Optional['outputs.SyntheticsTestOptionsListRetry'] = None,
-                 rum_settings: Optional['outputs.SyntheticsTestOptionsListRumSettings'] = None):
+                 rum_settings: Optional['outputs.SyntheticsTestOptionsListRumSettings'] = None,
+                 scheduling: Optional['outputs.SyntheticsTestOptionsListScheduling'] = None):
         """
         :param int tick_every: How often the test should run (in seconds).
         :param bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
@@ -60223,6 +60673,7 @@ class SyntheticsTestOptionsList(dict):
         :param bool no_screenshot: Prevents saving screenshots of the steps.
         :param Sequence[str] restricted_roles: A list of role identifiers pulled from the Roles API to restrict read and write access.
         :param 'SyntheticsTestOptionsListRumSettingsArgs' rum_settings: The RUM data collection settings for the Synthetic browser test.
+        :param 'SyntheticsTestOptionsListSchedulingArgs' scheduling: Object containing timeframes and timezone used for advanced scheduling.
         """
         pulumi.set(__self__, "tick_every", tick_every)
         if accept_self_signed is not None:
@@ -60263,6 +60714,8 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "retry", retry)
         if rum_settings is not None:
             pulumi.set(__self__, "rum_settings", rum_settings)
+        if scheduling is not None:
+            pulumi.set(__self__, "scheduling", scheduling)
 
     @property
     @pulumi.getter(name="tickEvery")
@@ -60415,6 +60868,14 @@ class SyntheticsTestOptionsList(dict):
         """
         return pulumi.get(self, "rum_settings")
 
+    @property
+    @pulumi.getter
+    def scheduling(self) -> Optional['outputs.SyntheticsTestOptionsListScheduling']:
+        """
+        Object containing timeframes and timezone used for advanced scheduling.
+        """
+        return pulumi.get(self, "scheduling")
+
 
 @pulumi.output_type
 class SyntheticsTestOptionsListCi(dict):
@@ -60544,6 +61005,68 @@ class SyntheticsTestOptionsListRumSettings(dict):
     @pulumi.getter(name="clientTokenId")
     def client_token_id(self) -> Optional[int]:
         return pulumi.get(self, "client_token_id")
+
+
+@pulumi.output_type
+class SyntheticsTestOptionsListScheduling(dict):
+    def __init__(__self__, *,
+                 timeframes: Sequence['outputs.SyntheticsTestOptionsListSchedulingTimeframe'],
+                 timezone: str):
+        pulumi.set(__self__, "timeframes", timeframes)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def timeframes(self) -> Sequence['outputs.SyntheticsTestOptionsListSchedulingTimeframe']:
+        return pulumi.get(self, "timeframes")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class SyntheticsTestOptionsListSchedulingTimeframe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptionsListSchedulingTimeframe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestOptionsListSchedulingTimeframe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestOptionsListSchedulingTimeframe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day: int,
+                 from_: str,
+                 to: str):
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def day(self) -> int:
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type

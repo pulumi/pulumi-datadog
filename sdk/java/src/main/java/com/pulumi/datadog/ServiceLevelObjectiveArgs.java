@@ -37,14 +37,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
      * 
      */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
     /**
-     * @return A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * @return A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
      * 
      */
     public Optional<Output<Boolean>> forceDelete() {
@@ -127,14 +127,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The objective&#39;s target in `(0,100)`.
+     * The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      * 
      */
     @Import(name="targetThreshold")
     private @Nullable Output<Double> targetThreshold;
 
     /**
-     * @return The objective&#39;s target in `(0,100)`.
+     * @return The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      * 
      */
     public Optional<Output<Double>> targetThreshold() {
@@ -157,14 +157,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     @Import(name="timeframe")
     private @Nullable Output<String> timeframe;
 
     /**
-     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * @return The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     public Optional<Output<String>> timeframe() {
@@ -202,14 +202,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      * 
      */
     @Import(name="warningThreshold")
     private @Nullable Output<Double> warningThreshold;
 
     /**
-     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      * 
      */
     public Optional<Output<Double>> warningThreshold() {
@@ -274,7 +274,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceDelete A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+         * @param forceDelete A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceDelete A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+         * @param forceDelete A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetThreshold The objective&#39;s target in `(0,100)`.
+         * @param targetThreshold The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetThreshold The objective&#39;s target in `(0,100)`.
+         * @param targetThreshold The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+         * @param warningThreshold The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
          * 
          * @return builder
          * 

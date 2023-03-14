@@ -131,14 +131,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
      * 
      */
     @Export(name="forceDelete", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
-     * @return A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * @return A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
      * 
      */
     public Output<Optional<Boolean>> forceDelete() {
@@ -215,14 +215,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The objective&#39;s target in `(0,100)`.
+     * The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      * 
      */
     @Export(name="targetThreshold", type=Double.class, parameters={})
     private Output<Double> targetThreshold;
 
     /**
-     * @return The objective&#39;s target in `(0,100)`.
+     * @return The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      * 
      */
     public Output<Double> targetThreshold() {
@@ -243,14 +243,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return this.thresholds;
     }
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     @Export(name="timeframe", type=String.class, parameters={})
     private Output<String> timeframe;
 
     /**
-     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * @return The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     public Output<String> timeframe() {
@@ -285,14 +285,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.validate);
     }
     /**
-     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      * 
      */
     @Export(name="warningThreshold", type=Double.class, parameters={})
     private Output<Double> warningThreshold;
 
     /**
-     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value.
+     * @return The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      * 
      */
     public Output<Double> warningThreshold() {

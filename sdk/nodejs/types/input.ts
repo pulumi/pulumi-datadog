@@ -206,6 +206,10 @@ export interface DashboardWidget {
      */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinition>;
     /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     */
+    runWorkflowDefinition?: pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinition>;
+    /**
      * The definition for a Scatterplot widget.
      */
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinition>;
@@ -1107,6 +1111,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      * The definition for a Query Value widget.
      */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition>;
+    /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     */
+    runWorkflowDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition>;
     /**
      * The definition for a Scatterplot widget.
      */
@@ -3182,6 +3190,31 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeser
     max?: pulumi.Input<string>;
     min?: pulumi.Input<string>;
     scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput>[]>;
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+    workflowId: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
@@ -6218,6 +6251,31 @@ export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
     scale?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetRunWorkflowDefinition {
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinitionCustomLink>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinitionInput>[]>;
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+    workflowId: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetRunWorkflowDefinitionCustomLink {
+    isHidden?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetRunWorkflowDefinitionInput {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionCustomLink>[]>;
@@ -8882,6 +8940,28 @@ export interface SecurityMonitoringRuleSignalQuery {
     ruleId: pulumi.Input<string>;
 }
 
+export interface SensitiveDataScannerGroupFilter {
+    /**
+     * Query to filter the events.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface SensitiveDataScannerRuleTextReplacement {
+    /**
+     * Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+     */
+    numberOfChars?: pulumi.Input<number>;
+    /**
+     * Required if type == 'replacement_string'.
+     */
+    replacementString?: pulumi.Input<string>;
+    /**
+     * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface ServiceLevelObjectiveQuery {
     /**
      * The sum of the `total` events.
@@ -9472,6 +9552,10 @@ export interface SyntheticsTestOptionsList {
      */
     rumSettings?: pulumi.Input<inputs.SyntheticsTestOptionsListRumSettings>;
     /**
+     * Object containing timeframes and timezone used for advanced scheduling.
+     */
+    scheduling?: pulumi.Input<inputs.SyntheticsTestOptionsListScheduling>;
+    /**
      * How often the test should run (in seconds).
      */
     tickEvery: pulumi.Input<number>;
@@ -9494,6 +9578,17 @@ export interface SyntheticsTestOptionsListRumSettings {
     applicationId?: pulumi.Input<string>;
     clientTokenId?: pulumi.Input<number>;
     isEnabled: pulumi.Input<boolean>;
+}
+
+export interface SyntheticsTestOptionsListScheduling {
+    timeframes: pulumi.Input<pulumi.Input<inputs.SyntheticsTestOptionsListSchedulingTimeframe>[]>;
+    timezone: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestOptionsListSchedulingTimeframe {
+    day: pulumi.Input<number>;
+    from: pulumi.Input<string>;
+    to: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestRequestBasicauth {

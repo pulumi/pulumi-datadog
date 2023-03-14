@@ -10,6 +10,947 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute struct {
+	Aggregation string  `pulumi:"aggregation"`
+	Interval    *int    `pulumi:"interval"`
+	Metric      *string `pulumi:"metric"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs struct {
+	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
+	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	Metric      pulumi.StringPtrInput `pulumi:"metric"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray and DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray{ DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{...} }
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray []DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) Index(i pulumi.IntInput) DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
+		return vs[0].([]DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute)[vs[1].(int)]
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy struct {
+	Facet string                                                             `pulumi:"facet"`
+	Limit *int                                                               `pulumi:"limit"`
+	Sort  *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs struct {
+	Facet pulumi.StringInput                                                        `pulumi:"facet"`
+	Limit pulumi.IntPtrInput                                                        `pulumi:"limit"`
+	Sort  DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray{ DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{...} }
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray []DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Sort() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		return v.Sort
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+		return vs[0].([]DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy)[vs[1].(int)]
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort struct {
+	Aggregation string  `pulumi:"aggregation"`
+	Metric      *string `pulumi:"metric"`
+	Order       *string `pulumi:"order"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs struct {
+	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
+	Metric      pulumi.StringPtrInput `pulumi:"metric"`
+	Order       pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput).ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs, DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtr and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput` via:
+//
+//	        DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+}
+
+type dashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs
+
+func DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtr(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput {
+	return (*dashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType)(v)
+}
+
+func (*dashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		return &v
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Elem() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort
+		return ret
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch struct {
+	Query string `pulumi:"query"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs and DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs struct {
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput).ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs, DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtr and DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput` via:
+//
+//	        DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput
+}
+
+type dashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs
+
+func DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtr(v *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput {
+	return (*dashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType)(v)
+}
+
+func (*dashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch) *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+		return &v
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Elem() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch) DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch
+		return ret
+	}).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryMetricQuery struct {
+	Aggregator *string `pulumi:"aggregator"`
+	DataSource *string `pulumi:"dataSource"`
+	Name       string  `pulumi:"name"`
+	Query      string  `pulumi:"query"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs and DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs struct {
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	Query      pulumi.StringInput    `pulumi:"query"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput).ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs, DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtr and DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput` via:
+//
+//	        DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput
+}
+
+type dashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrType DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs
+
+func DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtr(v *DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput {
+	return (*dashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrType)(v)
+}
+
+func (*dashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
+		return &v
+	}).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Elem() DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetToplistDefinitionRequestQueryMetricQuery
+		return ret
+	}).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryProcessQuery struct {
+	Aggregator      *string  `pulumi:"aggregator"`
+	DataSource      string   `pulumi:"dataSource"`
+	IsNormalizedCpu *bool    `pulumi:"isNormalizedCpu"`
+	Limit           *int     `pulumi:"limit"`
+	Metric          string   `pulumi:"metric"`
+	Name            string   `pulumi:"name"`
+	Sort            *string  `pulumi:"sort"`
+	TagFilters      []string `pulumi:"tagFilters"`
+	TextFilter      *string  `pulumi:"textFilter"`
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs and DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs{...}
+type DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs struct {
+	Aggregator      pulumi.StringPtrInput   `pulumi:"aggregator"`
+	DataSource      pulumi.StringInput      `pulumi:"dataSource"`
+	IsNormalizedCpu pulumi.BoolPtrInput     `pulumi:"isNormalizedCpu"`
+	Limit           pulumi.IntPtrInput      `pulumi:"limit"`
+	Metric          pulumi.StringInput      `pulumi:"metric"`
+	Name            pulumi.StringInput      `pulumi:"name"`
+	Sort            pulumi.StringPtrInput   `pulumi:"sort"`
+	TagFilters      pulumi.StringArrayInput `pulumi:"tagFilters"`
+	TextFilter      pulumi.StringPtrInput   `pulumi:"textFilter"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput).ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs, DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtr and DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput` via:
+//
+//	        DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput
+	ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput
+}
+
+type dashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrType DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs
+
+func DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtr(v *DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput {
+	return (*dashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrType)(v)
+}
+
+func (*dashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
+		return &v
+	}).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Elem() DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetToplistDefinitionRequestQueryProcessQuery
+		return ret
+	}).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsNormalizedCpu
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextFilter
+	}).(pulumi.StringPtrOutput)
+}
+
 type DashboardWidgetToplistDefinitionRequestRumQuery struct {
 	ComputeQuery  *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery  `pulumi:"computeQuery"`
 	GroupBies     []DashboardWidgetToplistDefinitionRequestRumQueryGroupBy      `pulumi:"groupBies"`
@@ -17873,6 +18814,318 @@ func (o SecurityMonitoringRuleSignalQueryArrayOutput) Index(i pulumi.IntInput) S
 	}).(SecurityMonitoringRuleSignalQueryOutput)
 }
 
+type SensitiveDataScannerGroupFilter struct {
+	// Query to filter the events.
+	Query string `pulumi:"query"`
+}
+
+// SensitiveDataScannerGroupFilterInput is an input type that accepts SensitiveDataScannerGroupFilterArgs and SensitiveDataScannerGroupFilterOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupFilterInput` via:
+//
+//	SensitiveDataScannerGroupFilterArgs{...}
+type SensitiveDataScannerGroupFilterInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput
+	ToSensitiveDataScannerGroupFilterOutputWithContext(context.Context) SensitiveDataScannerGroupFilterOutput
+}
+
+type SensitiveDataScannerGroupFilterArgs struct {
+	// Query to filter the events.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SensitiveDataScannerGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput {
+	return i.ToSensitiveDataScannerGroupFilterOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterOutput)
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return i.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupFilterArgs) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterOutput).ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerGroupFilterPtrInput is an input type that accepts SensitiveDataScannerGroupFilterArgs, SensitiveDataScannerGroupFilterPtr and SensitiveDataScannerGroupFilterPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupFilterPtrInput` via:
+//
+//	        SensitiveDataScannerGroupFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerGroupFilterPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput
+	ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Context) SensitiveDataScannerGroupFilterPtrOutput
+}
+
+type sensitiveDataScannerGroupFilterPtrType SensitiveDataScannerGroupFilterArgs
+
+func SensitiveDataScannerGroupFilterPtr(v *SensitiveDataScannerGroupFilterArgs) SensitiveDataScannerGroupFilterPtrInput {
+	return (*sensitiveDataScannerGroupFilterPtrType)(v)
+}
+
+func (*sensitiveDataScannerGroupFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerGroupFilterPtrType) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return i.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerGroupFilterPtrType) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupFilterPtrOutput)
+}
+
+type SensitiveDataScannerGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterOutput() SensitiveDataScannerGroupFilterOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return o.ToSensitiveDataScannerGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerGroupFilterOutput) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerGroupFilter) *SensitiveDataScannerGroupFilter {
+		return &v
+	}).(SensitiveDataScannerGroupFilterPtrOutput)
+}
+
+// Query to filter the events.
+func (o SensitiveDataScannerGroupFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerGroupFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SensitiveDataScannerGroupFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerGroupFilter)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) ToSensitiveDataScannerGroupFilterPtrOutput() SensitiveDataScannerGroupFilterPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) ToSensitiveDataScannerGroupFilterPtrOutputWithContext(ctx context.Context) SensitiveDataScannerGroupFilterPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupFilterPtrOutput) Elem() SensitiveDataScannerGroupFilterOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerGroupFilter) SensitiveDataScannerGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerGroupFilter
+		return ret
+	}).(SensitiveDataScannerGroupFilterOutput)
+}
+
+// Query to filter the events.
+func (o SensitiveDataScannerGroupFilterPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerGroupFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacement struct {
+	// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+	NumberOfChars *int `pulumi:"numberOfChars"`
+	// Required if type == 'replacement_string'.
+	ReplacementString *string `pulumi:"replacementString"`
+	// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+	Type string `pulumi:"type"`
+}
+
+// SensitiveDataScannerRuleTextReplacementInput is an input type that accepts SensitiveDataScannerRuleTextReplacementArgs and SensitiveDataScannerRuleTextReplacementOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleTextReplacementInput` via:
+//
+//	SensitiveDataScannerRuleTextReplacementArgs{...}
+type SensitiveDataScannerRuleTextReplacementInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput
+	ToSensitiveDataScannerRuleTextReplacementOutputWithContext(context.Context) SensitiveDataScannerRuleTextReplacementOutput
+}
+
+type SensitiveDataScannerRuleTextReplacementArgs struct {
+	// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+	NumberOfChars pulumi.IntPtrInput `pulumi:"numberOfChars"`
+	// Required if type == 'replacement_string'.
+	ReplacementString pulumi.StringPtrInput `pulumi:"replacementString"`
+	// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SensitiveDataScannerRuleTextReplacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementOutput)
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleTextReplacementArgs) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementOutput).ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerRuleTextReplacementPtrInput is an input type that accepts SensitiveDataScannerRuleTextReplacementArgs, SensitiveDataScannerRuleTextReplacementPtr and SensitiveDataScannerRuleTextReplacementPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleTextReplacementPtrInput` via:
+//
+//	        SensitiveDataScannerRuleTextReplacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerRuleTextReplacementPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput
+	ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput
+}
+
+type sensitiveDataScannerRuleTextReplacementPtrType SensitiveDataScannerRuleTextReplacementArgs
+
+func SensitiveDataScannerRuleTextReplacementPtr(v *SensitiveDataScannerRuleTextReplacementArgs) SensitiveDataScannerRuleTextReplacementPtrInput {
+	return (*sensitiveDataScannerRuleTextReplacementPtrType)(v)
+}
+
+func (*sensitiveDataScannerRuleTextReplacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerRuleTextReplacementPtrType) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return i.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerRuleTextReplacementPtrType) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleTextReplacementPtrOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacementOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleTextReplacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementOutput() SensitiveDataScannerRuleTextReplacementOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o.ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerRuleTextReplacementOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerRuleTextReplacement) *SensitiveDataScannerRuleTextReplacement {
+		return &v
+	}).(SensitiveDataScannerRuleTextReplacementPtrOutput)
+}
+
+// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+func (o SensitiveDataScannerRuleTextReplacementOutput) NumberOfChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) *int { return v.NumberOfChars }).(pulumi.IntPtrOutput)
+}
+
+// Required if type == 'replacement_string'.
+func (o SensitiveDataScannerRuleTextReplacementOutput) ReplacementString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) *string { return v.ReplacementString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+func (o SensitiveDataScannerRuleTextReplacementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleTextReplacement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SensitiveDataScannerRuleTextReplacementPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleTextReplacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleTextReplacement)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutput() SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ToSensitiveDataScannerRuleTextReplacementPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleTextReplacementPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) Elem() SensitiveDataScannerRuleTextReplacementOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) SensitiveDataScannerRuleTextReplacement {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerRuleTextReplacement
+		return ret
+	}).(SensitiveDataScannerRuleTextReplacementOutput)
+}
+
+// Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) NumberOfChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfChars
+	}).(pulumi.IntPtrOutput)
+}
+
+// Required if type == 'replacement_string'.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) ReplacementString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacementString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+func (o SensitiveDataScannerRuleTextReplacementPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleTextReplacement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceLevelObjectiveQuery struct {
 	// The sum of the `total` events.
 	Denominator string `pulumi:"denominator"`
@@ -22983,6 +24236,8 @@ type SyntheticsTestOptionsList struct {
 	Retry           *SyntheticsTestOptionsListRetry `pulumi:"retry"`
 	// The RUM data collection settings for the Synthetic browser test.
 	RumSettings *SyntheticsTestOptionsListRumSettings `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling *SyntheticsTestOptionsListScheduling `pulumi:"scheduling"`
 	// How often the test should run (in seconds).
 	TickEvery int `pulumi:"tickEvery"`
 }
@@ -23034,6 +24289,8 @@ type SyntheticsTestOptionsListArgs struct {
 	Retry           SyntheticsTestOptionsListRetryPtrInput `pulumi:"retry"`
 	// The RUM data collection settings for the Synthetic browser test.
 	RumSettings SyntheticsTestOptionsListRumSettingsPtrInput `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling SyntheticsTestOptionsListSchedulingPtrInput `pulumi:"scheduling"`
 	// How often the test should run (in seconds).
 	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
 }
@@ -23205,6 +24462,11 @@ func (o SyntheticsTestOptionsListOutput) Retry() SyntheticsTestOptionsListRetryP
 // The RUM data collection settings for the Synthetic browser test.
 func (o SyntheticsTestOptionsListOutput) RumSettings() SyntheticsTestOptionsListRumSettingsPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListRumSettings { return v.RumSettings }).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling { return v.Scheduling }).(SyntheticsTestOptionsListSchedulingPtrOutput)
 }
 
 // How often the test should run (in seconds).
@@ -23421,6 +24683,16 @@ func (o SyntheticsTestOptionsListPtrOutput) RumSettings() SyntheticsTestOptionsL
 		}
 		return v.RumSettings
 	}).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListPtrOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling {
+		if v == nil {
+			return nil
+		}
+		return v.Scheduling
+	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
 }
 
 // How often the test should run (in seconds).
@@ -24008,6 +25280,262 @@ func (o SyntheticsTestOptionsListRumSettingsPtrOutput) IsEnabled() pulumi.BoolPt
 		}
 		return &v.IsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type SyntheticsTestOptionsListScheduling struct {
+	Timeframes []SyntheticsTestOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	Timezone   string                                         `pulumi:"timezone"`
+}
+
+// SyntheticsTestOptionsListSchedulingInput is an input type that accepts SyntheticsTestOptionsListSchedulingArgs and SyntheticsTestOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingArgs{...}
+type SyntheticsTestOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput
+	ToSyntheticsTestOptionsListSchedulingOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingOutput
+}
+
+type SyntheticsTestOptionsListSchedulingArgs struct {
+	Timeframes SyntheticsTestOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	Timezone   pulumi.StringInput                                     `pulumi:"timezone"`
+}
+
+func (SyntheticsTestOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingOutput)
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingOutput).ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListSchedulingPtrInput is an input type that accepts SyntheticsTestOptionsListSchedulingArgs, SyntheticsTestOptionsListSchedulingPtr and SyntheticsTestOptionsListSchedulingPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingPtrInput` via:
+//
+//	        SyntheticsTestOptionsListSchedulingArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListSchedulingPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput
+	ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingPtrOutput
+}
+
+type syntheticsTestOptionsListSchedulingPtrType SyntheticsTestOptionsListSchedulingArgs
+
+func SyntheticsTestOptionsListSchedulingPtr(v *SyntheticsTestOptionsListSchedulingArgs) SyntheticsTestOptionsListSchedulingPtrInput {
+	return (*syntheticsTestOptionsListSchedulingPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListSchedulingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListSchedulingPtrType) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListSchedulingPtrType) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListScheduling) *SyntheticsTestOptionsListScheduling {
+		return &v
+	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Elem() SyntheticsTestOptionsListSchedulingOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) SyntheticsTestOptionsListScheduling {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListScheduling
+		return ret
+	}).(SyntheticsTestOptionsListSchedulingOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
+		if v == nil {
+			return nil
+		}
+		return v.Timeframes
+	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframe struct {
+	Day  int    `pulumi:"day"`
+	From string `pulumi:"from"`
+	To   string `pulumi:"to"`
+}
+
+// SyntheticsTestOptionsListSchedulingTimeframeInput is an input type that accepts SyntheticsTestOptionsListSchedulingTimeframeArgs and SyntheticsTestOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingTimeframeInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingTimeframeArgs{...}
+type SyntheticsTestOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput
+	ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArgs struct {
+	Day  pulumi.IntInput    `pulumi:"day"`
+	From pulumi.StringInput `pulumi:"from"`
+	To   pulumi.StringInput `pulumi:"to"`
+}
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArgs) ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArgs) ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingTimeframeOutput)
+}
+
+// SyntheticsTestOptionsListSchedulingTimeframeArrayInput is an input type that accepts SyntheticsTestOptionsListSchedulingTimeframeArray and SyntheticsTestOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingTimeframeArray{ SyntheticsTestOptionsListSchedulingTimeframeArgs{...} }
+type SyntheticsTestOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+	ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArray []SyntheticsTestOptionsListSchedulingTimeframeInput
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArray) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArray) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestOptionsListSchedulingTimeframe {
+		return vs[0].([]SyntheticsTestOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(SyntheticsTestOptionsListSchedulingTimeframeOutput)
 }
 
 type SyntheticsTestRequestBasicauth struct {
@@ -28687,6 +30215,18 @@ func (o GetServiceLevelObjectivesSloArrayOutput) Index(i pulumi.IntInput) GetSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestRumQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestRumQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestRumQueryPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestRumQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs{})
@@ -28909,6 +30449,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterPtrInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementPtrInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArgs{})
@@ -28977,6 +30521,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRetryPtrInput)(nil)).Elem(), SyntheticsTestOptionsListRetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRumSettingsInput)(nil)).Elem(), SyntheticsTestOptionsListRumSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRumSettingsPtrInput)(nil)).Elem(), SyntheticsTestOptionsListRumSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingPtrInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframeInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingTimeframeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestBasicauthInput)(nil)).Elem(), SyntheticsTestRequestBasicauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestBasicauthPtrInput)(nil)).Elem(), SyntheticsTestRequestBasicauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateArgs{})
@@ -29042,6 +30590,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleSignalQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleSignalQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloInput)(nil)).Elem(), GetServiceLevelObjectivesSloArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloArrayInput)(nil)).Elem(), GetServiceLevelObjectivesSloArray{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestRumQueryOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput{})
@@ -29264,6 +30824,10 @@ func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryArrayOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdOutput{})
@@ -29332,6 +30896,10 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListRetryPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListRumSettingsOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListRumSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestBasicauthOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestBasicauthPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateOutput{})

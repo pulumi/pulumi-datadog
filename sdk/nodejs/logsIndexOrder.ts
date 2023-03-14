@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+ * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
  *
  * ```sh
  *  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
@@ -84,9 +84,6 @@ export class LogsIndexOrder extends pulumi.CustomResource {
             if ((!args || args.indexes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexes'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["indexes"] = args ? args.indexes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         }
@@ -120,5 +117,5 @@ export interface LogsIndexOrderArgs {
     /**
      * The unique name of the index order resource.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

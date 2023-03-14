@@ -117,7 +117,7 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The objective's target in `(0,100)`.
+        /// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Output("targetThreshold")]
         public Output<double> TargetThreshold { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Output("timeframe")]
         public Output<string> Timeframe { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Datadog
         public Output<bool?> Validate { get; private set; } = null!;
 
         /// <summary>
-        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Output("warningThreshold")]
         public Output<double> WarningThreshold { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The objective's target in `(0,100)`.
+        /// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Input("targetThreshold")]
         public Input<double>? TargetThreshold { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Validate { get; set; }
 
         /// <summary>
-        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Input("warningThreshold")]
         public Input<double>? WarningThreshold { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The objective's target in `(0,100)`.
+        /// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Input("targetThreshold")]
         public Input<double>? TargetThreshold { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }
@@ -441,7 +441,7 @@ namespace Pulumi.Datadog
         public Input<bool>? Validate { get; set; }
 
         /// <summary>
-        /// The objective's warning value in `(0,100)`. This must be greater than the target value.
+        /// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         /// </summary>
         [Input("warningThreshold")]
         public Input<double>? WarningThreshold { get; set; }

@@ -98,6 +98,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
         /// <summary>
+        /// The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetRunWorkflowDefinition? RunWorkflowDefinition;
+        /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinition? ScatterplotDefinition;
@@ -186,6 +190,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetQueryValueDefinition? queryValueDefinition,
 
+            Outputs.DashboardWidgetRunWorkflowDefinition? runWorkflowDefinition,
+
             Outputs.DashboardWidgetScatterplotDefinition? scatterplotDefinition,
 
             Outputs.DashboardWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
@@ -229,6 +235,7 @@ namespace Pulumi.Datadog.Outputs
             NoteDefinition = noteDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
+            RunWorkflowDefinition = runWorkflowDefinition;
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;

@@ -25,6 +25,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
@@ -362,6 +363,21 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    @Import(name="runWorkflowDefinition")
+    private @Nullable Output<DashboardWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
+
+    /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    public Optional<Output<DashboardWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
+        return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+
+    /**
      * The definition for a Scatterplot widget.
      * 
      */
@@ -550,6 +566,7 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         this.noteDefinition = $.noteDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
+        this.runWorkflowDefinition = $.runWorkflowDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
@@ -1020,6 +1037,27 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder queryValueDefinition(DashboardWidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
+        }
+
+        /**
+         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runWorkflowDefinition(@Nullable Output<DashboardWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
+            $.runWorkflowDefinition = runWorkflowDefinition;
+            return this;
+        }
+
+        /**
+         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runWorkflowDefinition(DashboardWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
+            return runWorkflowDefinition(Output.of(runWorkflowDefinition));
         }
 
         /**

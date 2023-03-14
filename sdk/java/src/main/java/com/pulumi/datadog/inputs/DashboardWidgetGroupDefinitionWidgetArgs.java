@@ -24,6 +24,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetManageStatu
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs;
@@ -346,6 +347,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    @Import(name="runWorkflowDefinition")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
+
+    /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
+        return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+
+    /**
      * The definition for a Scatterplot widget.
      * 
      */
@@ -533,6 +549,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.noteDefinition = $.noteDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
+        this.runWorkflowDefinition = $.runWorkflowDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
@@ -982,6 +999,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder queryValueDefinition(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
+        }
+
+        /**
+         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runWorkflowDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
+            $.runWorkflowDefinition = runWorkflowDefinition;
+            return this;
+        }
+
+        /**
+         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runWorkflowDefinition(DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
+            return runWorkflowDefinition(Output.of(runWorkflowDefinition));
         }
 
         /**

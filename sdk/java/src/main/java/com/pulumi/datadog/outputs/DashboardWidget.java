@@ -24,6 +24,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetNoteDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetRunWorkflowDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServicemapDefinition;
@@ -147,6 +148,11 @@ public final class DashboardWidget {
      * 
      */
     private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    private @Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
@@ -352,6 +358,13 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    public Optional<DashboardWidgetRunWorkflowDefinition> runWorkflowDefinition() {
+        return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+    /**
      * @return The definition for a Scatterplot widget.
      * 
      */
@@ -459,6 +472,7 @@ public final class DashboardWidget {
         private @Nullable DashboardWidgetNoteDefinition noteDefinition;
         private @Nullable DashboardWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition;
         private @Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition;
         private @Nullable DashboardWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetServicemapDefinition servicemapDefinition;
@@ -494,6 +508,7 @@ public final class DashboardWidget {
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
@@ -613,6 +628,11 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder runWorkflowDefinition(@Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition) {
+            this.runWorkflowDefinition = runWorkflowDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scatterplotDefinition(@Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition) {
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
@@ -690,6 +710,7 @@ public final class DashboardWidget {
             o.noteDefinition = noteDefinition;
             o.queryTableDefinition = queryTableDefinition;
             o.queryValueDefinition = queryValueDefinition;
+            o.runWorkflowDefinition = runWorkflowDefinition;
             o.scatterplotDefinition = scatterplotDefinition;
             o.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             o.servicemapDefinition = servicemapDefinition;

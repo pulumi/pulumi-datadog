@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.DatadogFunctions;
+ * import com.pulumi.datadog.inputs.GetPermissionsArgs;
  * import com.pulumi.datadog.Role;
  * import com.pulumi.datadog.RoleArgs;
  * import com.pulumi.datadog.inputs.RolePermissionArgs;
