@@ -769,6 +769,15 @@
                         }
                     }
                 },
+                "runWorkflowDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetRunWorkflowDefinition:DashboardWidgetRunWorkflowDefinition",
+                    "description": "The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "scatterplotDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinition:DashboardWidgetScatterplotDefinition",
                     "description": "The definition for a Scatterplot widget.\n",
@@ -5521,6 +5530,15 @@
                 "queryValueDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinition:DashboardWidgetGroupDefinitionWidgetQueryValueDefinition",
                     "description": "The definition for a Query Value widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "runWorkflowDefinition": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition",
+                    "description": "The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -17454,6 +17472,139 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition": {
+            "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "liveSpan": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workflowId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "workflowId"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput:DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinition:DashboardWidgetGroupDefinitionWidgetScatterplotDefinition": {
             "properties": {
@@ -35197,6 +35348,139 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetRunWorkflowDefinition:DashboardWidgetRunWorkflowDefinition": {
+            "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetRunWorkflowDefinitionCustomLink:DashboardWidgetRunWorkflowDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetRunWorkflowDefinitionInput:DashboardWidgetRunWorkflowDefinitionInput"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "liveSpan": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "titleSize": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workflowId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "workflowId"
+            ]
+        },
+        "datadog:index/DashboardWidgetRunWorkflowDefinitionCustomLink:DashboardWidgetRunWorkflowDefinitionCustomLink": {
+            "properties": {
+                "isHidden": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "overrideLabel": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetRunWorkflowDefinitionInput:DashboardWidgetRunWorkflowDefinitionInput": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "datadog:index/DashboardWidgetScatterplotDefinition:DashboardWidgetScatterplotDefinition": {
             "properties": {
                 "colorByGroups": {
@@ -48801,6 +49085,58 @@
                 "ruleId"
             ]
         },
+        "datadog:index/SensitiveDataScannerGroupFilter:SensitiveDataScannerGroupFilter": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Query to filter the events.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement": {
+            "properties": {
+                "numberOfChars": {
+                    "type": "integer",
+                    "description": "Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be \u003e 0.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "replacementString": {
+                    "type": "string",
+                    "description": "Required if type == 'replacement_string'.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacement_string`, `partial_replacement_from_beginning`, `partial_replacement_from_end`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "datadog:index/ServiceLevelObjectiveQuery:ServiceLevelObjectiveQuery": {
             "properties": {
                 "denominator": {
@@ -50539,6 +50875,15 @@
                         }
                     }
                 },
+                "scheduling": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestOptionsListScheduling:SyntheticsTestOptionsListScheduling",
+                    "description": "Object containing timeframes and timezone used for advanced scheduling.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "tickEvery": {
                     "type": "integer",
                     "description": "How often the test should run (in seconds).\n",
@@ -50632,6 +50977,68 @@
             "type": "object",
             "required": [
                 "isEnabled"
+            ]
+        },
+        "datadog:index/SyntheticsTestOptionsListScheduling:SyntheticsTestOptionsListScheduling": {
+            "properties": {
+                "timeframes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SyntheticsTestOptionsListSchedulingTimeframe:SyntheticsTestOptionsListSchedulingTimeframe"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timezone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "timeframes",
+                "timezone"
+            ]
+        },
+        "datadog:index/SyntheticsTestOptionsListSchedulingTimeframe:SyntheticsTestOptionsListSchedulingTimeframe": {
+            "properties": {
+                "day": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "from": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "to": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "day",
+                "from",
+                "to"
             ]
         },
         "datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth": {
@@ -54448,7 +54855,7 @@
             }
         },
         "datadog:index/logsIndexOrder:LogsIndexOrder": {
-            "description": "Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new()\n    {\n        Name = \"sample_index_order\",\n        Indexes = new[]\n        {\n            datadog_logs_index.Sample_index.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tdatadog_logs_index.Sample_index.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.LogsIndexOrder;\nimport com.pulumi.datadog.LogsIndexOrderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sampleIndexOrder = new LogsIndexOrder(\"sampleIndexOrder\", LogsIndexOrderArgs.builder()        \n            .name(\"sample_index_order\")\n            .indexes(datadog_logs_index.sample_index().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sampleIndexOrder:\n    type: datadog:LogsIndexOrder\n    properties:\n      name: sample_index_order\n      indexes:\n        - ${datadog_logs_index.sample_index.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThe Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name\u003e \u003cname\u003e\n```\n\n ",
+            "description": "Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new()\n    {\n        Name = \"sample_index_order\",\n        Indexes = new[]\n        {\n            datadog_logs_index.Sample_index.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tdatadog_logs_index.Sample_index.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.LogsIndexOrder;\nimport com.pulumi.datadog.LogsIndexOrderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sampleIndexOrder = new LogsIndexOrder(\"sampleIndexOrder\", LogsIndexOrderArgs.builder()        \n            .name(\"sample_index_order\")\n            .indexes(datadog_logs_index.sample_index().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sampleIndexOrder:\n    type: datadog:LogsIndexOrder\n    properties:\n      name: sample_index_order\n      indexes:\n        - ${datadog_logs_index.sample_index.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThe Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `\u003cname\u003e` can be whatever you specify in your code. Datadog does not store the name on the server.\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name\u003e \u003cname\u003e\n```\n\n ",
             "properties": {
                 "indexes": {
                     "type": "array",
@@ -54480,8 +54887,7 @@
                 }
             },
             "requiredInputs": [
-                "indexes",
-                "name"
+                "indexes"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering LogsIndexOrder resources.\n",
@@ -55500,7 +55906,7 @@
             }
         },
         "datadog:index/role:Role": {
-            "description": "Provides a Datadog role resource. This can be used to create and manage Datadog roles.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst bar = datadog.getPermissions({});\n// Create a new Datadog role\nconst foo = new datadog.Role(\"foo\", {\n    name: \"foo\",\n    permissions: [\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsDowntime),\n        },\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsWrite),\n        },\n    ],\n});\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var bar = Datadog.GetPermissions.Invoke();\n\n    // Create a new Datadog role\n    var foo = new Datadog.Role(\"foo\", new()\n    {\n        Name = \"foo\",\n        Permissions = new[]\n        {\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsDowntime),\n            },\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsWrite),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbar, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewRole(ctx, \"foo\", \u0026datadog.RoleArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t\tPermissions: datadog.RolePermissionArray{\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsDowntime),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsWrite),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.Role;\nimport com.pulumi.datadog.RoleArgs;\nimport com.pulumi.datadog.inputs.RolePermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var bar = DatadogFunctions.getPermissions();\n\n        var foo = new Role(\"foo\", RoleArgs.builder()        \n            .name(\"foo\")\n            .permissions(            \n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsDowntime()))\n                    .build(),\n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsWrite()))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog role\n  foo:\n    type: datadog:Role\n    properties:\n      name: foo\n      permissions:\n        - id: ${bar.permissions.monitorsDowntime}\n        - id: ${bar.permissions.monitorsWrite}\nvariables:\n  bar:\n    fn::invoke:\n      Function: datadog:getPermissions\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRoles can be imported using their ID, e.g.\n\n```sh\n $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000\n```\n\n ",
+            "description": "Provides a Datadog role resource. This can be used to create and manage Datadog roles.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst bar = datadog.getPermissions({});\n// Create a new Datadog role\nconst foo = new datadog.Role(\"foo\", {\n    name: \"foo\",\n    permissions: [\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsDowntime),\n        },\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsWrite),\n        },\n    ],\n});\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var bar = Datadog.GetPermissions.Invoke();\n\n    // Create a new Datadog role\n    var foo = new Datadog.Role(\"foo\", new()\n    {\n        Name = \"foo\",\n        Permissions = new[]\n        {\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsDowntime),\n            },\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsWrite),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbar, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewRole(ctx, \"foo\", \u0026datadog.RoleArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t\tPermissions: datadog.RolePermissionArray{\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsDowntime),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsWrite),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetPermissionsArgs;\nimport com.pulumi.datadog.Role;\nimport com.pulumi.datadog.RoleArgs;\nimport com.pulumi.datadog.inputs.RolePermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var bar = DatadogFunctions.getPermissions();\n\n        var foo = new Role(\"foo\", RoleArgs.builder()        \n            .name(\"foo\")\n            .permissions(            \n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsDowntime()))\n                    .build(),\n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsWrite()))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog role\n  foo:\n    type: datadog:Role\n    properties:\n      name: foo\n      permissions:\n        - id: ${bar.permissions.monitorsDowntime}\n        - id: ${bar.permissions.monitorsWrite}\nvariables:\n  bar:\n    fn::invoke:\n      Function: datadog:getPermissions\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRoles can be imported using their ID, e.g.\n\n```sh\n $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
                 "name": {
                     "type": "string",
@@ -56015,6 +56421,270 @@
                 "type": "object"
             }
         },
+        "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": {
+            "description": "Provides a Sensitive Data Scanner group resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst mygroup = new datadog.SensitiveDataScannerGroup(\"mygroup\", {\n    description: \"A relevant description\",\n    filter: {\n        query: \"service:my-service\",\n    },\n    isEnabled: true,\n    name: \"My new scanning group\",\n    productLists: [\"apm\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmygroup = datadog.SensitiveDataScannerGroup(\"mygroup\",\n    description=\"A relevant description\",\n    filter=datadog.SensitiveDataScannerGroupFilterArgs(\n        query=\"service:my-service\",\n    ),\n    is_enabled=True,\n    name=\"My new scanning group\",\n    product_lists=[\"apm\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var mygroup = new Datadog.SensitiveDataScannerGroup(\"mygroup\", new()\n    {\n        Description = \"A relevant description\",\n        Filter = new Datadog.Inputs.SensitiveDataScannerGroupFilterArgs\n        {\n            Query = \"service:my-service\",\n        },\n        IsEnabled = true,\n        Name = \"My new scanning group\",\n        ProductLists = new[]\n        {\n            \"apm\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSensitiveDataScannerGroup(ctx, \"mygroup\", \u0026datadog.SensitiveDataScannerGroupArgs{\n\t\t\tDescription: pulumi.String(\"A relevant description\"),\n\t\t\tFilter: \u0026datadog.SensitiveDataScannerGroupFilterArgs{\n\t\t\t\tQuery: pulumi.String(\"service:my-service\"),\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tName:      pulumi.String(\"My new scanning group\"),\n\t\t\tProductLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"apm\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SensitiveDataScannerGroup;\nimport com.pulumi.datadog.SensitiveDataScannerGroupArgs;\nimport com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var mygroup = new SensitiveDataScannerGroup(\"mygroup\", SensitiveDataScannerGroupArgs.builder()        \n            .description(\"A relevant description\")\n            .filter(SensitiveDataScannerGroupFilterArgs.builder()\n                .query(\"service:my-service\")\n                .build())\n            .isEnabled(true)\n            .name(\"My new scanning group\")\n            .productLists(\"apm\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  mygroup:\n    type: datadog:SensitiveDataScannerGroup\n    properties:\n      description: A relevant description\n      filter:\n        query: service:my-service\n      isEnabled: true\n      name: My new scanning group\n      productLists:\n        - apm\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list \"\"\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Datadog scanning group.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/datadog:index/SensitiveDataScannerGroupFilter:SensitiveDataScannerGroupFilter",
+                    "description": "Filter object the scanning group applies.\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Datadog scanning group.\n"
+                },
+                "productLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of products the scanning group applies.\n"
+                }
+            },
+            "required": [
+                "filter",
+                "isEnabled",
+                "name",
+                "productLists"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Datadog scanning group.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/datadog:index/SensitiveDataScannerGroupFilter:SensitiveDataScannerGroupFilter",
+                    "description": "Filter object the scanning group applies.\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Datadog scanning group.\n"
+                },
+                "productLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of products the scanning group applies.\n"
+                }
+            },
+            "requiredInputs": [
+                "filter",
+                "isEnabled",
+                "name",
+                "productLists"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SensitiveDataScannerGroup resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the Datadog scanning group.\n"
+                    },
+                    "filter": {
+                        "$ref": "#/types/datadog:index/SensitiveDataScannerGroupFilter:SensitiveDataScannerGroupFilter",
+                        "description": "Filter object the scanning group applies.\n"
+                    },
+                    "isEnabled": {
+                        "type": "boolean",
+                        "description": "Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Datadog scanning group.\n"
+                    },
+                    "productLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of products the scanning group applies.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": {
+            "description": "Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group\nconst mygroup = new datadog.SensitiveDataScannerGroup(\"mygroup\", {\n    name: \"My new scanning group\",\n    description: \"A relevant description\",\n    filter: {\n        query: \"service:my-service\",\n    },\n    isEnabled: true,\n    productLists: [\"apm\"],\n});\nconst myrule = new datadog.SensitiveDataScannerRule(\"myrule\", {\n    name: \"My new rule\",\n    description: \"Another description\",\n    groupId: mygroup.id,\n    excludedNamespaces: [\"username\"],\n    isEnabled: true,\n    pattern: \"myregex\",\n    tags: [\"sensitive_data:true\"],\n    textReplacement: {\n        numberOfChars: 0,\n        replacementString: \"\",\n        type: \"hash\",\n    },\n});\nconst awsSp = datadog.getSensitiveDataScannerStandardPattern({\n    filter: \"AWS Access Key ID Scanner\",\n});\nconst mylibraryrule = new datadog.SensitiveDataScannerRule(\"mylibraryrule\", {\n    name: \"My library rule\",\n    description: \"A description\",\n    groupId: mygroup.id,\n    standardPatternId: awsSp.then(awsSp =\u003e awsSp.id),\n    excludedNamespaces: [\"username\"],\n    isEnabled: true,\n    tags: [\"sensitive_data:true\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group\nmygroup = datadog.SensitiveDataScannerGroup(\"mygroup\",\n    name=\"My new scanning group\",\n    description=\"A relevant description\",\n    filter=datadog.SensitiveDataScannerGroupFilterArgs(\n        query=\"service:my-service\",\n    ),\n    is_enabled=True,\n    product_lists=[\"apm\"])\nmyrule = datadog.SensitiveDataScannerRule(\"myrule\",\n    name=\"My new rule\",\n    description=\"Another description\",\n    group_id=mygroup.id,\n    excluded_namespaces=[\"username\"],\n    is_enabled=True,\n    pattern=\"myregex\",\n    tags=[\"sensitive_data:true\"],\n    text_replacement=datadog.SensitiveDataScannerRuleTextReplacementArgs(\n        number_of_chars=0,\n        replacement_string=\"\",\n        type=\"hash\",\n    ))\naws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter=\"AWS Access Key ID Scanner\")\nmylibraryrule = datadog.SensitiveDataScannerRule(\"mylibraryrule\",\n    name=\"My library rule\",\n    description=\"A description\",\n    group_id=mygroup.id,\n    standard_pattern_id=aws_sp.id,\n    excluded_namespaces=[\"username\"],\n    is_enabled=True,\n    tags=[\"sensitive_data:true\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group\n    var mygroup = new Datadog.SensitiveDataScannerGroup(\"mygroup\", new()\n    {\n        Name = \"My new scanning group\",\n        Description = \"A relevant description\",\n        Filter = new Datadog.Inputs.SensitiveDataScannerGroupFilterArgs\n        {\n            Query = \"service:my-service\",\n        },\n        IsEnabled = true,\n        ProductLists = new[]\n        {\n            \"apm\",\n        },\n    });\n\n    var myrule = new Datadog.SensitiveDataScannerRule(\"myrule\", new()\n    {\n        Name = \"My new rule\",\n        Description = \"Another description\",\n        GroupId = mygroup.Id,\n        ExcludedNamespaces = new[]\n        {\n            \"username\",\n        },\n        IsEnabled = true,\n        Pattern = \"myregex\",\n        Tags = new[]\n        {\n            \"sensitive_data:true\",\n        },\n        TextReplacement = new Datadog.Inputs.SensitiveDataScannerRuleTextReplacementArgs\n        {\n            NumberOfChars = 0,\n            ReplacementString = \"\",\n            Type = \"hash\",\n        },\n    });\n\n    var awsSp = Datadog.GetSensitiveDataScannerStandardPattern.Invoke(new()\n    {\n        Filter = \"AWS Access Key ID Scanner\",\n    });\n\n    var mylibraryrule = new Datadog.SensitiveDataScannerRule(\"mylibraryrule\", new()\n    {\n        Name = \"My library rule\",\n        Description = \"A description\",\n        GroupId = mygroup.Id,\n        StandardPatternId = awsSp.Apply(getSensitiveDataScannerStandardPatternResult =\u003e getSensitiveDataScannerStandardPatternResult.Id),\n        ExcludedNamespaces = new[]\n        {\n            \"username\",\n        },\n        IsEnabled = true,\n        Tags = new[]\n        {\n            \"sensitive_data:true\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmygroup, err := datadog.NewSensitiveDataScannerGroup(ctx, \"mygroup\", \u0026datadog.SensitiveDataScannerGroupArgs{\n\t\t\tName:        pulumi.String(\"My new scanning group\"),\n\t\t\tDescription: pulumi.String(\"A relevant description\"),\n\t\t\tFilter: \u0026datadog.SensitiveDataScannerGroupFilterArgs{\n\t\t\t\tQuery: pulumi.String(\"service:my-service\"),\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tProductLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"apm\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewSensitiveDataScannerRule(ctx, \"myrule\", \u0026datadog.SensitiveDataScannerRuleArgs{\n\t\t\tName:        pulumi.String(\"My new rule\"),\n\t\t\tDescription: pulumi.String(\"Another description\"),\n\t\t\tGroupId:     mygroup.ID(),\n\t\t\tExcludedNamespaces: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"username\"),\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tPattern:   pulumi.String(\"myregex\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sensitive_data:true\"),\n\t\t\t},\n\t\t\tTextReplacement: \u0026datadog.SensitiveDataScannerRuleTextReplacementArgs{\n\t\t\t\tNumberOfChars:     pulumi.Int(0),\n\t\t\t\tReplacementString: pulumi.String(\"\"),\n\t\t\t\tType:              pulumi.String(\"hash\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tawsSp, err := datadog.GetSensitiveDataScannerStandardPattern(ctx, \u0026datadog.GetSensitiveDataScannerStandardPatternArgs{\n\t\t\tFilter: \"AWS Access Key ID Scanner\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewSensitiveDataScannerRule(ctx, \"mylibraryrule\", \u0026datadog.SensitiveDataScannerRuleArgs{\n\t\t\tName:              pulumi.String(\"My library rule\"),\n\t\t\tDescription:       pulumi.String(\"A description\"),\n\t\t\tGroupId:           mygroup.ID(),\n\t\t\tStandardPatternId: *pulumi.String(awsSp.Id),\n\t\t\tExcludedNamespaces: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"username\"),\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sensitive_data:true\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.SensitiveDataScannerGroup;\nimport com.pulumi.datadog.SensitiveDataScannerGroupArgs;\nimport com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;\nimport com.pulumi.datadog.SensitiveDataScannerRule;\nimport com.pulumi.datadog.SensitiveDataScannerRuleArgs;\nimport com.pulumi.datadog.inputs.SensitiveDataScannerRuleTextReplacementArgs;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var mygroup = new SensitiveDataScannerGroup(\"mygroup\", SensitiveDataScannerGroupArgs.builder()        \n            .name(\"My new scanning group\")\n            .description(\"A relevant description\")\n            .filter(SensitiveDataScannerGroupFilterArgs.builder()\n                .query(\"service:my-service\")\n                .build())\n            .isEnabled(true)\n            .productLists(\"apm\")\n            .build());\n\n        var myrule = new SensitiveDataScannerRule(\"myrule\", SensitiveDataScannerRuleArgs.builder()        \n            .name(\"My new rule\")\n            .description(\"Another description\")\n            .groupId(mygroup.id())\n            .excludedNamespaces(\"username\")\n            .isEnabled(true)\n            .pattern(\"myregex\")\n            .tags(\"sensitive_data:true\")\n            .textReplacement(SensitiveDataScannerRuleTextReplacementArgs.builder()\n                .numberOfChars(0)\n                .replacementString(\"\")\n                .type(\"hash\")\n                .build())\n            .build());\n\n        final var awsSp = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()\n            .filter(\"AWS Access Key ID Scanner\")\n            .build());\n\n        var mylibraryrule = new SensitiveDataScannerRule(\"mylibraryrule\", SensitiveDataScannerRuleArgs.builder()        \n            .name(\"My library rule\")\n            .description(\"A description\")\n            .groupId(mygroup.id())\n            .standardPatternId(awsSp.applyValue(getSensitiveDataScannerStandardPatternResult -\u003e getSensitiveDataScannerStandardPatternResult.id()))\n            .excludedNamespaces(\"username\")\n            .isEnabled(true)\n            .tags(\"sensitive_data:true\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group\n  mygroup:\n    type: datadog:SensitiveDataScannerGroup\n    properties:\n      name: My new scanning group\n      description: A relevant description\n      filter:\n        query: service:my-service\n      isEnabled: true\n      productLists:\n        - apm\n  myrule:\n    type: datadog:SensitiveDataScannerRule\n    properties:\n      name: My new rule\n      description: Another description\n      groupId: ${mygroup.id}\n      excludedNamespaces:\n        - username\n      isEnabled: true\n      pattern: myregex\n      tags:\n        - sensitive_data:true\n      textReplacement:\n        numberOfChars: 0\n        replacementString:\n        type: hash\n  mylibraryrule:\n    type: datadog:SensitiveDataScannerRule\n    properties:\n      name: My library rule\n      description: A description\n      groupId: ${mygroup.id}\n      # As standard_pattern_id is provided, the resource MUST NOT contain the \"pattern\" attribute\n      standardPatternId: ${awsSp.id}\n      excludedNamespaces:\n        - username\n      isEnabled: true\n      tags:\n        - sensitive_data:true\nvariables:\n  awsSp:\n    fn::invoke:\n      Function: datadog:getSensitiveDataScannerStandardPattern\n      Arguments:\n        filter: AWS Access Key ID Scanner\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list \"\"\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the rule.\n"
+                },
+                "excludedNamespaces": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.\n"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "Id of the scanning group the rule belongs to.\n"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not the rule is enabled.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rule.\n"
+                },
+                "namespaces": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "Not included if there is a relationship to a standard pattern.\n"
+                },
+                "standardPatternId": {
+                    "type": "string",
+                    "description": "Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of tags.\n"
+                },
+                "textReplacement": {
+                    "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
+                    "description": "Object describing how the scanned event will be replaced.\n"
+                }
+            },
+            "required": [
+                "groupId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the rule.\n"
+                },
+                "excludedNamespaces": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.\n"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "Id of the scanning group the rule belongs to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not the rule is enabled.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rule.\n"
+                },
+                "namespaces": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "Not included if there is a relationship to a standard pattern.\n"
+                },
+                "standardPatternId": {
+                    "type": "string",
+                    "description": "Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of tags.\n"
+                },
+                "textReplacement": {
+                    "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
+                    "description": "Object describing how the scanned event will be replaced.\n"
+                }
+            },
+            "requiredInputs": [
+                "groupId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SensitiveDataScannerRule resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the rule.\n"
+                    },
+                    "excludedNamespaces": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.\n"
+                    },
+                    "groupId": {
+                        "type": "string",
+                        "description": "Id of the scanning group the rule belongs to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "isEnabled": {
+                        "type": "boolean",
+                        "description": "Whether or not the rule is enabled.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the rule.\n"
+                    },
+                    "namespaces": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Not included if there is a relationship to a standard pattern.\n"
+                    },
+                    "standardPatternId": {
+                        "type": "string",
+                        "description": "Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of tags.\n"
+                    },
+                    "textReplacement": {
+                        "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
+                        "description": "Object describing how the scanned event will be replaced.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/serviceAccount:ServiceAccount": {
             "description": "Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst roRole = datadog.getRole({\n    filter: \"Datadog Read Only Role\",\n});\n// Create a new Datadog service account\nconst bar = new datadog.ServiceAccount(\"bar\", {\n    email: \"new@example.com\",\n    name: \"Service Account Bar\",\n    roles: [roRole.then(roRole =\u003e roRole.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nro_role = datadog.get_role(filter=\"Datadog Read Only Role\")\n# Create a new Datadog service account\nbar = datadog.ServiceAccount(\"bar\",\n    email=\"new@example.com\",\n    name=\"Service Account Bar\",\n    roles=[ro_role.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var roRole = Datadog.GetRole.Invoke(new()\n    {\n        Filter = \"Datadog Read Only Role\",\n    });\n\n    // Create a new Datadog service account\n    var bar = new Datadog.ServiceAccount(\"bar\", new()\n    {\n        Email = \"new@example.com\",\n        Name = \"Service Account Bar\",\n        Roles = new[]\n        {\n            roRole.Apply(getRoleResult =\u003e getRoleResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\troRole, err := datadog.LookupRole(ctx, \u0026datadog.LookupRoleArgs{\n\t\t\tFilter: \"Datadog Read Only Role\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewServiceAccount(ctx, \"bar\", \u0026datadog.ServiceAccountArgs{\n\t\t\tEmail: pulumi.String(\"new@example.com\"),\n\t\t\tName:  pulumi.String(\"Service Account Bar\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\t*pulumi.String(roRole.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetRoleArgs;\nimport com.pulumi.datadog.ServiceAccount;\nimport com.pulumi.datadog.ServiceAccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()\n            .filter(\"Datadog Read Only Role\")\n            .build());\n\n        var bar = new ServiceAccount(\"bar\", ServiceAccountArgs.builder()        \n            .email(\"new@example.com\")\n            .name(\"Service Account Bar\")\n            .roles(roRole.applyValue(getRoleResult -\u003e getRoleResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog service account\n  bar:\n    type: datadog:ServiceAccount\n    properties:\n      email: new@example.com\n      name: Service Account Bar\n      roles:\n        - ${roRole.id}\nvariables:\n  roRole:\n    fn::invoke:\n      Function: datadog:getRole\n      Arguments:\n        filter: Datadog Read Only Role\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4\n```\n\n ",
             "properties": {
@@ -56131,7 +56801,7 @@
                 },
                 "forceDelete": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n"
+                    "description": "A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -56164,7 +56834,7 @@
                 },
                 "targetThreshold": {
                     "type": "number",
-                    "description": "The objective's target in `(0,100)`.\n"
+                    "description": "The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.\n"
                 },
                 "thresholds": {
                     "type": "array",
@@ -56175,7 +56845,7 @@
                 },
                 "timeframe": {
                     "type": "string",
-                    "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
+                    "description": "The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -56187,7 +56857,7 @@
                 },
                 "warningThreshold": {
                     "type": "number",
-                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
+                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.\n"
                 }
             },
             "required": [
@@ -56205,7 +56875,7 @@
                 },
                 "forceDelete": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n"
+                    "description": "A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).\n"
                 },
                 "groups": {
                     "type": "array",
@@ -56238,7 +56908,7 @@
                 },
                 "targetThreshold": {
                     "type": "number",
-                    "description": "The objective's target in `(0,100)`.\n"
+                    "description": "The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.\n"
                 },
                 "thresholds": {
                     "type": "array",
@@ -56249,7 +56919,7 @@
                 },
                 "timeframe": {
                     "type": "string",
-                    "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
+                    "description": "The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -56262,7 +56932,7 @@
                 },
                 "warningThreshold": {
                     "type": "number",
-                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
+                    "description": "The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.\n"
                 }
             },
             "requiredInputs": [
@@ -56279,7 +56949,7 @@
                     },
                     "forceDelete": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n"
+                        "description": "A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).\n"
                     },
                     "groups": {
                         "type": "array",
@@ -56312,7 +56982,7 @@
                     },
                     "targetThreshold": {
                         "type": "number",
-                        "description": "The objective's target in `(0,100)`.\n"
+                        "description": "The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.\n"
                     },
                     "thresholds": {
                         "type": "array",
@@ -56323,7 +56993,7 @@
                     },
                     "timeframe": {
                         "type": "string",
-                        "description": "The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
+                        "description": "The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.\n"
                     },
                     "type": {
                         "type": "string",
@@ -56336,7 +57006,7 @@
                     },
                     "warningThreshold": {
                         "type": "number",
-                        "description": "The objective's warning value in `(0,100)`. This must be greater than the target value.\n"
+                        "description": "The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.\n"
                     }
                 },
                 "type": "object"
@@ -57845,6 +58515,20 @@
                         },
                         "description": "An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.\n"
                     },
+                    "orchestratorIpv4s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.\n"
+                    },
+                    "orchestratorIpv6s": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.\n"
+                    },
                     "processIpv4s": {
                         "type": "array",
                         "items": {
@@ -57912,6 +58596,8 @@
                     "apmIpv6s",
                     "logsIpv4s",
                     "logsIpv6s",
+                    "orchestratorIpv4s",
+                    "orchestratorIpv6s",
                     "processIpv4s",
                     "processIpv6s",
                     "syntheticsIpv4s",
@@ -58353,13 +59039,27 @@
             }
         },
         "datadog:index/getPermissions:getPermissions": {
-            "description": "Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst permissions = datadog.getPermissions({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npermissions = datadog.get_permissions()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var permissions = Datadog.GetPermissions.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var permissions = DatadogFunctions.getPermissions();\n\n    }\n}\n```\n```yaml\nvariables:\n  permissions:\n    fn::invoke:\n      Function: datadog:getPermissions\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst permissions = datadog.getPermissions({});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npermissions = datadog.get_permissions()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var permissions = Datadog.GetPermissions.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetPermissionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var permissions = DatadogFunctions.getPermissions();\n\n    }\n}\n```\n```yaml\nvariables:\n  permissions:\n    fn::invoke:\n      Function: datadog:getPermissions\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPermissions.\n",
+                "properties": {
+                    "includeRestricted": {
+                        "type": "boolean",
+                        "description": "Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.\n"
+                    }
+                },
+                "type": "object"
+            },
             "outputs": {
                 "description": "A collection of values returned by getPermissions.\n",
                 "properties": {
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includeRestricted": {
+                        "type": "boolean",
+                        "description": "Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.\n"
                     },
                     "permissions": {
                         "type": "object",
@@ -58619,6 +59319,58 @@
                 "required": [
                     "ruleIds",
                     "rules",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": {
+            "description": "Use this data source to retrieve information about an existing sensitive data scanner standard pattern.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSensitiveDataScannerStandardPattern.\n",
+                "properties": {
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter all the Datadog standard patterns by name.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "filter"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSensitiveDataScannerStandardPattern.\n",
+                "properties": {
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter all the Datadog standard patterns by name.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the standard pattern.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Regex that the standard pattern applies.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of tags.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "filter",
+                    "name",
+                    "pattern",
+                    "tags",
                     "id"
                 ]
             }
