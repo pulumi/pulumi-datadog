@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsResult {
@@ -15,6 +18,11 @@ public final class GetPermissionsResult {
      * 
      */
     private String id;
+    /**
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * 
+     */
+    private @Nullable Boolean includeRestricted;
     /**
      * @return Map of permissions names to their corresponding ID.
      * 
@@ -28,6 +36,13 @@ public final class GetPermissionsResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * 
+     */
+    public Optional<Boolean> includeRestricted() {
+        return Optional.ofNullable(this.includeRestricted);
     }
     /**
      * @return Map of permissions names to their corresponding ID.
@@ -47,17 +62,24 @@ public final class GetPermissionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable Boolean includeRestricted;
         private Map<String,String> permissions;
         public Builder() {}
         public Builder(GetPermissionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.includeRestricted = defaults.includeRestricted;
     	      this.permissions = defaults.permissions;
         }
 
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includeRestricted(@Nullable Boolean includeRestricted) {
+            this.includeRestricted = includeRestricted;
             return this;
         }
         @CustomType.Setter
@@ -68,6 +90,7 @@ public final class GetPermissionsResult {
         public GetPermissionsResult build() {
             final var o = new GetPermissionsResult();
             o.id = id;
+            o.includeRestricted = includeRestricted;
             o.permissions = permissions;
             return o;
         }

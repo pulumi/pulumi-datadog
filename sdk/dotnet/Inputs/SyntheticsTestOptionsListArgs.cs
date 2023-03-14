@@ -124,6 +124,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestOptionsListRumSettingsArgs>? RumSettings { get; set; }
 
         /// <summary>
+        /// Object containing timeframes and timezone used for advanced scheduling.
+        /// </summary>
+        [Input("scheduling")]
+        public Input<Inputs.SyntheticsTestOptionsListSchedulingArgs>? Scheduling { get; set; }
+
+        /// <summary>
         /// How often the test should run (in seconds).
         /// </summary>
         [Input("tickEvery", required: true)]

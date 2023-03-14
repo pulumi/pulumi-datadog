@@ -35,15 +35,15 @@ class ServiceLevelObjectiveArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`.
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
+        :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
-        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value.
+        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thresholds", thresholds)
@@ -121,7 +121,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         """
         return pulumi.get(self, "force_delete")
 
@@ -181,7 +181,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter(name="targetThreshold")
     def target_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's target in `(0,100)`.
+        The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "target_threshold")
 
@@ -193,7 +193,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter
     def timeframe(self) -> Optional[pulumi.Input[str]]:
         """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         """
         return pulumi.get(self, "timeframe")
 
@@ -217,7 +217,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter(name="warningThreshold")
     def warning_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's warning value in `(0,100)`. This must be greater than the target value.
+        The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "warning_threshold")
 
@@ -245,18 +245,18 @@ class _ServiceLevelObjectiveState:
         """
         Input properties used for looking up and filtering ServiceLevelObjective resources.
         :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`.
+        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
-        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value.
+        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -301,7 +301,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         """
         return pulumi.get(self, "force_delete")
 
@@ -373,7 +373,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter(name="targetThreshold")
     def target_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's target in `(0,100)`.
+        The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "target_threshold")
 
@@ -397,7 +397,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter
     def timeframe(self) -> Optional[pulumi.Input[str]]:
         """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         """
         return pulumi.get(self, "timeframe")
 
@@ -433,7 +433,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter(name="warningThreshold")
     def warning_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's warning value in `(0,100)`. This must be greater than the target value.
+        The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "warning_threshold")
 
@@ -542,18 +542,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`.
+        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
-        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value.
+        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         ...
     @overload
@@ -726,18 +726,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`.
+        :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
-        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value.
+        :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -770,7 +770,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         """
         return pulumi.get(self, "force_delete")
 
@@ -818,7 +818,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter(name="targetThreshold")
     def target_threshold(self) -> pulumi.Output[float]:
         """
-        The objective's target in `(0,100)`.
+        The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "target_threshold")
 
@@ -834,7 +834,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter
     def timeframe(self) -> pulumi.Output[str]:
         """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         """
         return pulumi.get(self, "timeframe")
 
@@ -858,7 +858,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter(name="warningThreshold")
     def warning_threshold(self) -> pulumi.Output[float]:
         """
-        The objective's warning value in `(0,100)`. This must be greater than the target value.
+        The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "warning_threshold")
 

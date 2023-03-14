@@ -206,6 +206,10 @@ export interface DashboardWidget {
      */
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
     /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     */
+    runWorkflowDefinition?: outputs.DashboardWidgetRunWorkflowDefinition;
+    /**
      * The definition for a Scatterplot widget.
      */
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
@@ -1107,6 +1111,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      * The definition for a Query Value widget.
      */
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
+    /**
+     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     */
+    runWorkflowDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition;
     /**
      * The definition for a Scatterplot widget.
      */
@@ -3182,6 +3190,31 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeser
     max?: string;
     min?: string;
     scale?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink[];
+    inputs?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput[];
+    liveSpan?: string;
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    workflowId: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput {
+    name: string;
+    value: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
@@ -6218,6 +6251,31 @@ export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
     scale?: string;
 }
 
+export interface DashboardWidgetRunWorkflowDefinition {
+    customLinks?: outputs.DashboardWidgetRunWorkflowDefinitionCustomLink[];
+    inputs?: outputs.DashboardWidgetRunWorkflowDefinitionInput[];
+    liveSpan?: string;
+    /**
+     * The title of the dashboard.
+     */
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    workflowId: string;
+}
+
+export interface DashboardWidgetRunWorkflowDefinitionCustomLink {
+    isHidden?: boolean;
+    label?: string;
+    link?: string;
+    overrideLabel?: string;
+}
+
+export interface DashboardWidgetRunWorkflowDefinitionInput {
+    name: string;
+    value: string;
+}
+
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: string[];
     customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
@@ -9093,6 +9151,28 @@ export interface SecurityMonitoringRuleSignalQuery {
     ruleId: string;
 }
 
+export interface SensitiveDataScannerGroupFilter {
+    /**
+     * Query to filter the events.
+     */
+    query: string;
+}
+
+export interface SensitiveDataScannerRuleTextReplacement {
+    /**
+     * Required if type == 'partial*replacement*from*beginning' or 'partial*replacement*from*end'. It must be > 0.
+     */
+    numberOfChars?: number;
+    /**
+     * Required if type == 'replacement_string'.
+     */
+    replacementString?: string;
+    /**
+     * Type of the replacement text. None means no replacement. hash means the data will be stubbed. replacement*string means that one can chose a text to replace the data. partial*replacement*from*beginning allows a user to partially replace the data from the beginning, and partial*replacement*from_end on the other hand, allows to replace data from the end. Valid values are `none`, `hash`, `replacementString`, `partialReplacementFromBeginning`, `partialReplacementFromEnd`.
+     */
+    type: string;
+}
+
 export interface ServiceLevelObjectiveQuery {
     /**
      * The sum of the `total` events.
@@ -9683,6 +9763,10 @@ export interface SyntheticsTestOptionsList {
      */
     rumSettings?: outputs.SyntheticsTestOptionsListRumSettings;
     /**
+     * Object containing timeframes and timezone used for advanced scheduling.
+     */
+    scheduling?: outputs.SyntheticsTestOptionsListScheduling;
+    /**
      * How often the test should run (in seconds).
      */
     tickEvery: number;
@@ -9705,6 +9789,17 @@ export interface SyntheticsTestOptionsListRumSettings {
     applicationId?: string;
     clientTokenId?: number;
     isEnabled: boolean;
+}
+
+export interface SyntheticsTestOptionsListScheduling {
+    timeframes: outputs.SyntheticsTestOptionsListSchedulingTimeframe[];
+    timezone: string;
+}
+
+export interface SyntheticsTestOptionsListSchedulingTimeframe {
+    day: number;
+    from: string;
+    to: string;
 }
 
 export interface SyntheticsTestRequestBasicauth {

@@ -64,6 +64,14 @@ export interface GetIpRangesResult {
      */
     readonly logsIpv6s: string[];
     /**
+     * An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     */
+    readonly orchestratorIpv4s: string[];
+    /**
+     * An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+     */
+    readonly orchestratorIpv6s: string[];
+    /**
      * An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
      */
     readonly processIpv4s: string[];

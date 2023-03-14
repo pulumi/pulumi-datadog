@@ -16,11 +16,23 @@ import * as utilities from "./utilities";
  * const permissions = datadog.getPermissions({});
  * ```
  */
-export function getPermissions(opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
+export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getPermissions:getPermissions", {
+        "includeRestricted": args.includeRestricted,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getPermissions.
+ */
+export interface GetPermissionsArgs {
+    /**
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     */
+    includeRestricted?: boolean;
 }
 
 /**
@@ -32,7 +44,36 @@ export interface GetPermissionsResult {
      */
     readonly id: string;
     /**
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     */
+    readonly includeRestricted?: boolean;
+    /**
      * Map of permissions names to their corresponding ID.
      */
     readonly permissions: {[key: string]: string};
+}
+/**
+ * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const permissions = datadog.getPermissions({});
+ * ```
+ */
+export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
+    return pulumi.output(args).apply((a: any) => getPermissions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPermissions.
+ */
+export interface GetPermissionsOutputArgs {
+    /**
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     */
+    includeRestricted?: pulumi.Input<boolean>;
 }

@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.SyntheticsTestOptionsListCiArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRumSettingsArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestOptionsListSchedulingArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -284,6 +285,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Object containing timeframes and timezone used for advanced scheduling.
+     * 
+     */
+    @Import(name="scheduling")
+    private @Nullable Output<SyntheticsTestOptionsListSchedulingArgs> scheduling;
+
+    /**
+     * @return Object containing timeframes and timezone used for advanced scheduling.
+     * 
+     */
+    public Optional<Output<SyntheticsTestOptionsListSchedulingArgs>> scheduling() {
+        return Optional.ofNullable(this.scheduling);
+    }
+
+    /**
      * How often the test should run (in seconds).
      * 
      */
@@ -320,6 +336,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.restrictedRoles = $.restrictedRoles;
         this.retry = $.retry;
         this.rumSettings = $.rumSettings;
+        this.scheduling = $.scheduling;
         this.tickEvery = $.tickEvery;
     }
 
@@ -712,6 +729,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder rumSettings(SyntheticsTestOptionsListRumSettingsArgs rumSettings) {
             return rumSettings(Output.of(rumSettings));
+        }
+
+        /**
+         * @param scheduling Object containing timeframes and timezone used for advanced scheduling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduling(@Nullable Output<SyntheticsTestOptionsListSchedulingArgs> scheduling) {
+            $.scheduling = scheduling;
+            return this;
+        }
+
+        /**
+         * @param scheduling Object containing timeframes and timezone used for advanced scheduling.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduling(SyntheticsTestOptionsListSchedulingArgs scheduling) {
+            return scheduling(Output.of(scheduling));
         }
 
         /**

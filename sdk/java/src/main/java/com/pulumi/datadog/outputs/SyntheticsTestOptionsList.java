@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.SyntheticsTestOptionsListCi;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListMonitorOptions;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListRetry;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListRumSettings;
+import com.pulumi.datadog.outputs.SyntheticsTestOptionsListScheduling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -101,6 +102,11 @@ public final class SyntheticsTestOptionsList {
      * 
      */
     private @Nullable SyntheticsTestOptionsListRumSettings rumSettings;
+    /**
+     * @return Object containing timeframes and timezone used for advanced scheduling.
+     * 
+     */
+    private @Nullable SyntheticsTestOptionsListScheduling scheduling;
     /**
      * @return How often the test should run (in seconds).
      * 
@@ -230,6 +236,13 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.rumSettings);
     }
     /**
+     * @return Object containing timeframes and timezone used for advanced scheduling.
+     * 
+     */
+    public Optional<SyntheticsTestOptionsListScheduling> scheduling() {
+        return Optional.ofNullable(this.scheduling);
+    }
+    /**
      * @return How often the test should run (in seconds).
      * 
      */
@@ -265,6 +278,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable List<String> restrictedRoles;
         private @Nullable SyntheticsTestOptionsListRetry retry;
         private @Nullable SyntheticsTestOptionsListRumSettings rumSettings;
+        private @Nullable SyntheticsTestOptionsListScheduling scheduling;
         private Integer tickEvery;
         public Builder() {}
         public Builder(SyntheticsTestOptionsList defaults) {
@@ -288,6 +302,7 @@ public final class SyntheticsTestOptionsList {
     	      this.restrictedRoles = defaults.restrictedRoles;
     	      this.retry = defaults.retry;
     	      this.rumSettings = defaults.rumSettings;
+    	      this.scheduling = defaults.scheduling;
     	      this.tickEvery = defaults.tickEvery;
         }
 
@@ -390,6 +405,11 @@ public final class SyntheticsTestOptionsList {
             return this;
         }
         @CustomType.Setter
+        public Builder scheduling(@Nullable SyntheticsTestOptionsListScheduling scheduling) {
+            this.scheduling = scheduling;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tickEvery(Integer tickEvery) {
             this.tickEvery = Objects.requireNonNull(tickEvery);
             return this;
@@ -415,6 +435,7 @@ public final class SyntheticsTestOptionsList {
             o.restrictedRoles = restrictedRoles;
             o.retry = retry;
             o.rumSettings = rumSettings;
+            o.scheduling = scheduling;
             o.tickEvery = tickEvery;
             return o;
         }

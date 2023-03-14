@@ -110,7 +110,7 @@ type ServiceLevelObjective struct {
 
 	// A description of this service level objective.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -122,17 +122,17 @@ type ServiceLevelObjective struct {
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The objective's target in `(0,100)`.
+	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64Output `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringOutput `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
-	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64Output `pulumi:"warningThreshold"`
 }
 
@@ -176,7 +176,7 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 type serviceLevelObjectiveState struct {
 	// A description of this service level objective.
 	Description *string `pulumi:"description"`
-	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
@@ -188,24 +188,24 @@ type serviceLevelObjectiveState struct {
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// The objective's target in `(0,100)`.
+	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
 	Type *string `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate *bool `pulumi:"validate"`
-	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold *float64 `pulumi:"warningThreshold"`
 }
 
 type ServiceLevelObjectiveState struct {
 	// A description of this service level objective.
 	Description pulumi.StringPtrInput
-	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 	ForceDelete pulumi.BoolPtrInput
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
@@ -217,17 +217,17 @@ type ServiceLevelObjectiveState struct {
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// The objective's target in `(0,100)`.
+	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64PtrInput
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
 	Type pulumi.StringPtrInput
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrInput
-	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64PtrInput
 }
 
@@ -238,7 +238,7 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 type serviceLevelObjectiveArgs struct {
 	// A description of this service level objective.
 	Description *string `pulumi:"description"`
-	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
@@ -250,17 +250,17 @@ type serviceLevelObjectiveArgs struct {
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// The objective's target in `(0,100)`.
+	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
 	Type string `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate *bool `pulumi:"validate"`
-	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold *float64 `pulumi:"warningThreshold"`
 }
 
@@ -268,7 +268,7 @@ type serviceLevelObjectiveArgs struct {
 type ServiceLevelObjectiveArgs struct {
 	// A description of this service level objective.
 	Description pulumi.StringPtrInput
-	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 	ForceDelete pulumi.BoolPtrInput
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
@@ -280,17 +280,17 @@ type ServiceLevelObjectiveArgs struct {
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// The objective's target in `(0,100)`.
+	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 	TargetThreshold pulumi.Float64PtrInput
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
 	Type pulumi.StringInput
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrInput
-	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 	WarningThreshold pulumi.Float64PtrInput
 }
 
@@ -386,7 +386,7 @@ func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+// A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
 func (o ServiceLevelObjectiveOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -416,7 +416,7 @@ func (o ServiceLevelObjectiveOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The objective's target in `(0,100)`.
+// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
 func (o ServiceLevelObjectiveOutput) TargetThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.Float64Output { return v.TargetThreshold }).(pulumi.Float64Output)
 }
@@ -426,7 +426,7 @@ func (o ServiceLevelObjectiveOutput) Thresholds() ServiceLevelObjectiveThreshold
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveThresholdArrayOutput { return v.Thresholds }).(ServiceLevelObjectiveThresholdArrayOutput)
 }
 
-// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 func (o ServiceLevelObjectiveOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Timeframe }).(pulumi.StringOutput)
 }
@@ -441,7 +441,7 @@ func (o ServiceLevelObjectiveOutput) Validate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
-// The objective's warning value in `(0,100)`. This must be greater than the target value.
+// The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
 func (o ServiceLevelObjectiveOutput) WarningThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.Float64Output { return v.WarningThreshold }).(pulumi.Float64Output)
 }

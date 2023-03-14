@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs {
@@ -33,15 +35,15 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
      * The unique name of the index order resource.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return The unique name of the index order resource.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private LogsIndexOrderArgs() {}
@@ -106,7 +108,7 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -123,7 +125,6 @@ public final class LogsIndexOrderArgs extends com.pulumi.resources.ResourceArgs 
 
         public LogsIndexOrderArgs build() {
             $.indexes = Objects.requireNonNull($.indexes, "expected parameter 'indexes' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

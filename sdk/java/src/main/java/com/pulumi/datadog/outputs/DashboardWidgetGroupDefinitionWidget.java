@@ -23,6 +23,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetManageStat
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
@@ -141,6 +142,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
@@ -339,6 +345,13 @@ public final class DashboardWidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
+     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition> runWorkflowDefinition() {
+        return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+    /**
      * @return The definition for a Scatterplot widget.
      * 
      */
@@ -445,6 +458,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
         private @Nullable DashboardWidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
@@ -479,6 +493,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
@@ -593,6 +608,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder runWorkflowDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition) {
+            this.runWorkflowDefinition = runWorkflowDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scatterplotDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition) {
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
@@ -669,6 +689,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
             o.noteDefinition = noteDefinition;
             o.queryTableDefinition = queryTableDefinition;
             o.queryValueDefinition = queryValueDefinition;
+            o.runWorkflowDefinition = runWorkflowDefinition;
             o.scatterplotDefinition = scatterplotDefinition;
             o.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             o.servicemapDefinition = servicemapDefinition;

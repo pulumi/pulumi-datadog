@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+// The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
 //
 // ```sh
 //
@@ -69,9 +69,6 @@ func NewLogsIndexOrder(ctx *pulumi.Context,
 
 	if args.Indexes == nil {
 		return nil, errors.New("invalid value for required argument 'Indexes'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource LogsIndexOrder
 	err := ctx.RegisterResource("datadog:index/logsIndexOrder:LogsIndexOrder", name, args, &resource, opts...)
@@ -116,7 +113,7 @@ type logsIndexOrderArgs struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`
 	// The unique name of the index order resource.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogsIndexOrder resource.
@@ -124,7 +121,7 @@ type LogsIndexOrderArgs struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayInput
 	// The unique name of the index order resource.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (LogsIndexOrderArgs) ElementType() reflect.Type {

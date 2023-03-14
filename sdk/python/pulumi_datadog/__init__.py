@@ -34,6 +34,7 @@ from .get_roles import *
 from .get_rum_application import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
+from .get_sensitive_data_scanner_standard_pattern import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
 from .get_synthetics_global_variable import *
@@ -60,6 +61,8 @@ from .rum_application import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
+from .sensitive_data_scanner_group import *
+from .sensitive_data_scanner_rule import *
 from .service_account import *
 from .service_definition_yaml import *
 from .service_level_objective import *
@@ -379,6 +382,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "SecurityMonitoringRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/sensitiveDataScannerGroup",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": "SensitiveDataScannerGroup"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/sensitiveDataScannerRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": "SensitiveDataScannerRule"
   }
  },
  {

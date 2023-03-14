@@ -13,6 +13,7 @@ __all__ = [
     'GetPermissionsResult',
     'AwaitableGetPermissionsResult',
     'get_permissions',
+    'get_permissions_output',
 ]
 
 @pulumi.output_type
@@ -20,10 +21,13 @@ class GetPermissionsResult:
     """
     A collection of values returned by getPermissions.
     """
-    def __init__(__self__, id=None, permissions=None):
+    def __init__(__self__, id=None, include_restricted=None, permissions=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_restricted and not isinstance(include_restricted, bool):
+            raise TypeError("Expected argument 'include_restricted' to be a bool")
+        pulumi.set(__self__, "include_restricted", include_restricted)
         if permissions and not isinstance(permissions, dict):
             raise TypeError("Expected argument 'permissions' to be a dict")
         pulumi.set(__self__, "permissions", permissions)
@@ -35,6 +39,14 @@ class GetPermissionsResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeRestricted")
+    def include_restricted(self) -> Optional[bool]:
+        """
+        Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+        """
+        return pulumi.get(self, "include_restricted")
 
     @property
     @pulumi.getter
@@ -52,10 +64,12 @@ class AwaitableGetPermissionsResult(GetPermissionsResult):
             yield self
         return GetPermissionsResult(
             id=self.id,
+            include_restricted=self.include_restricted,
             permissions=self.permissions)
 
 
-def get_permissions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
+def get_permissions(include_restricted: Optional[bool] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
     """
     Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
 
@@ -67,11 +81,37 @@ def get_permissions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
 
     permissions = datadog.get_permissions()
     ```
+
+
+    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
     """
     __args__ = dict()
+    __args__['includeRestricted'] = include_restricted
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
         id=__ret__.id,
+        include_restricted=__ret__.include_restricted,
         permissions=__ret__.permissions)
+
+
+@_utilities.lift_output_func(get_permissions)
+def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bool]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
+    """
+    Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    permissions = datadog.get_permissions()
+    ```
+
+
+    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+    """
+    ...

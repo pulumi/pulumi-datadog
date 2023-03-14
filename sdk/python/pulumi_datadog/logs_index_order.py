@@ -15,14 +15,15 @@ __all__ = ['LogsIndexOrderArgs', 'LogsIndexOrder']
 class LogsIndexOrderArgs:
     def __init__(__self__, *,
                  indexes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LogsIndexOrder resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         pulumi.set(__self__, "indexes", indexes)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -38,14 +39,14 @@ class LogsIndexOrderArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The unique name of the index order resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -113,7 +114,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Import
 
-        The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+        The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
          $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
@@ -146,7 +147,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Import
 
-        The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+        The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
          $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
@@ -181,8 +182,6 @@ class LogsIndexOrder(pulumi.CustomResource):
             if indexes is None and not opts.urn:
                 raise TypeError("Missing required property 'indexes'")
             __props__.__dict__["indexes"] = indexes
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(LogsIndexOrder, __self__).__init__(
             'datadog:index/logsIndexOrder:LogsIndexOrder',

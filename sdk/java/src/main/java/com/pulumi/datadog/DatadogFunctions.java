@@ -20,6 +20,8 @@ import com.pulumi.datadog.inputs.GetMonitorArgs;
 import com.pulumi.datadog.inputs.GetMonitorPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorsArgs;
 import com.pulumi.datadog.inputs.GetMonitorsPlainArgs;
+import com.pulumi.datadog.inputs.GetPermissionsArgs;
+import com.pulumi.datadog.inputs.GetPermissionsPlainArgs;
 import com.pulumi.datadog.inputs.GetRoleArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
 import com.pulumi.datadog.inputs.GetRolesArgs;
@@ -28,6 +30,8 @@ import com.pulumi.datadog.inputs.GetRumApplicationArgs;
 import com.pulumi.datadog.inputs.GetRumApplicationPlainArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesPlainArgs;
+import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternPlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivePlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
@@ -57,6 +61,7 @@ import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
+import com.pulumi.datadog.outputs.GetSensitiveDataScannerStandardPatternResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
@@ -2274,6 +2279,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2295,7 +2301,7 @@ public final class DatadogFunctions {
      * 
      */
     public static Output<GetPermissionsResult> getPermissions() {
-        return getPermissions(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getPermissions(GetPermissionsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
@@ -2308,6 +2314,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2329,7 +2336,7 @@ public final class DatadogFunctions {
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain() {
-        return getPermissionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getPermissionsPlain(GetPermissionsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
@@ -2342,6 +2349,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2362,7 +2370,7 @@ public final class DatadogFunctions {
      * ```
      * 
      */
-    public static Output<GetPermissionsResult> getPermissions(InvokeArgs args) {
+    public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args) {
         return getPermissions(args, InvokeOptions.Empty);
     }
     /**
@@ -2376,6 +2384,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2396,7 +2405,7 @@ public final class DatadogFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args) {
         return getPermissionsPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -2410,6 +2419,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2430,7 +2440,7 @@ public final class DatadogFunctions {
      * ```
      * 
      */
-    public static Output<GetPermissionsResult> getPermissions(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2444,6 +2454,7 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetPermissionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2464,7 +2475,7 @@ public final class DatadogFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3316,6 +3327,34 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", TypeShape.of(GetSecurityMonitoringRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * 
+     */
+    public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args) {
+        return getSensitiveDataScannerStandardPattern(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args) {
+        return getSensitiveDataScannerStandardPatternPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * 
+     */
+    public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing SLO for use in other resources.
