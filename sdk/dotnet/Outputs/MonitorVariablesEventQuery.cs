@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQueryGroupBy> GroupBies;
         public readonly ImmutableArray<string> Indexes;
         public readonly string Name;
-        public readonly Outputs.MonitorVariablesEventQuerySearch? Search;
+        public readonly Outputs.MonitorVariablesEventQuerySearch Search;
 
         [OutputConstructor]
         private MonitorVariablesEventQuery(
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            Outputs.MonitorVariablesEventQuerySearch? search)
+            Outputs.MonitorVariablesEventQuerySearch search)
         {
             Computes = computes;
             DataSource = dataSource;

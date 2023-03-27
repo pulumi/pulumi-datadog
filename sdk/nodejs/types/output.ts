@@ -8274,6 +8274,14 @@ export interface GetServiceLevelObjectivesSlo {
     type: string;
 }
 
+export interface IpAllowlistEntry {
+    cidrBlock: string;
+    /**
+     * Note accompanying IP address.
+     */
+    note?: string;
+}
+
 export interface LogsArchiveAzureArchive {
     /**
      * Your client id.
@@ -8376,6 +8384,10 @@ export interface LogsCustomPipelineProcessor {
      */
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
+    /**
+     * Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
+    referenceTableLookupProcessor?: outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor;
     /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
@@ -8530,6 +8542,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
     /**
+     * Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
+    referenceTableLookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
@@ -8635,6 +8651,14 @@ export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
     sources: string[];
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+    isEnabled?: boolean;
+    lookupEnrichmentTable: string;
+    name?: string;
+    source: string;
+    target: string;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     isEnabled?: boolean;
     name?: string;
@@ -8674,6 +8698,14 @@ export interface LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
     isEncoded?: boolean;
     name?: string;
     sources: string[];
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+    isEnabled?: boolean;
+    lookupEnrichmentTable: string;
+    name?: string;
+    source: string;
     target: string;
 }
 
@@ -8872,7 +8904,7 @@ export interface MonitorVariablesEventQuery {
     groupBies?: outputs.MonitorVariablesEventQueryGroupBy[];
     indexes?: string[];
     name: string;
-    search?: outputs.MonitorVariablesEventQuerySearch;
+    search: outputs.MonitorVariablesEventQuerySearch;
 }
 
 export interface MonitorVariablesEventQueryCompute {
@@ -9056,11 +9088,11 @@ export interface SecurityMonitoringRuleOptions {
      */
     impossibleTravelOptions?: outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
     /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      */
     keepAlive: number;
     /**
-     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     maxSignalDuration: number;
     /**
@@ -9736,7 +9768,7 @@ export interface SyntheticsTestOptionsList {
      */
     initialNavigationTimeout?: number;
     /**
-     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      */
     minFailureDuration?: number;
     /**

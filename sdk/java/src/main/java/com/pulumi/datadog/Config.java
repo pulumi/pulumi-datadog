@@ -38,11 +38,32 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
+ * The HTTP request retry back off base. Defaults to 2.
+ * 
+ */
+    public Optional<Integer> httpClientRetryBackoffBase() {
+        return Codegen.integerProp("httpClientRetryBackoffBase").config(config).get();
+    }
+/**
+ * The HTTP request retry back off multiplier. Defaults to 2.
+ * 
+ */
+    public Optional<Integer> httpClientRetryBackoffMultiplier() {
+        return Codegen.integerProp("httpClientRetryBackoffMultiplier").config(config).get();
+    }
+/**
  * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
  * 
  */
     public Optional<Boolean> httpClientRetryEnabled() {
         return Codegen.booleanProp("httpClientRetryEnabled").config(config).get();
+    }
+/**
+ * The HTTP request maximum retry number. Defaults to 3.
+ * 
+ */
+    public Optional<Integer> httpClientRetryMaxRetries() {
+        return Codegen.integerProp("httpClientRetryMaxRetries").config(config).get();
     }
 /**
  * The HTTP request retry timeout period. Defaults to 60 seconds.

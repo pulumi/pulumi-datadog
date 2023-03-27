@@ -56,7 +56,10 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
             resourceInputs["appKey"] = args ? args.appKey : undefined;
+            resourceInputs["httpClientRetryBackoffBase"] = pulumi.output(args ? args.httpClientRetryBackoffBase : undefined).apply(JSON.stringify);
+            resourceInputs["httpClientRetryBackoffMultiplier"] = pulumi.output(args ? args.httpClientRetryBackoffMultiplier : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryEnabled"] = pulumi.output(args ? args.httpClientRetryEnabled : undefined).apply(JSON.stringify);
+            resourceInputs["httpClientRetryMaxRetries"] = pulumi.output(args ? args.httpClientRetryMaxRetries : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
             resourceInputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
@@ -86,9 +89,21 @@ export interface ProviderArgs {
      */
     appKey?: pulumi.Input<string>;
     /**
+     * The HTTP request retry back off base. Defaults to 2.
+     */
+    httpClientRetryBackoffBase?: pulumi.Input<number>;
+    /**
+     * The HTTP request retry back off multiplier. Defaults to 2.
+     */
+    httpClientRetryBackoffMultiplier?: pulumi.Input<number>;
+    /**
      * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      */
     httpClientRetryEnabled?: pulumi.Input<boolean>;
+    /**
+     * The HTTP request maximum retry number. Defaults to 3.
+     */
+    httpClientRetryMaxRetries?: pulumi.Input<number>;
     /**
      * The HTTP request retry timeout period. Defaults to 60 seconds.
      */

@@ -10,7 +10,6 @@ import com.pulumi.datadog.outputs.MonitorVariablesEventQuerySearch;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -20,7 +19,7 @@ public final class MonitorVariablesEventQuery {
     private @Nullable List<MonitorVariablesEventQueryGroupBy> groupBies;
     private @Nullable List<String> indexes;
     private String name;
-    private @Nullable MonitorVariablesEventQuerySearch search;
+    private MonitorVariablesEventQuerySearch search;
 
     private MonitorVariablesEventQuery() {}
     public List<MonitorVariablesEventQueryCompute> computes() {
@@ -38,8 +37,8 @@ public final class MonitorVariablesEventQuery {
     public String name() {
         return this.name;
     }
-    public Optional<MonitorVariablesEventQuerySearch> search() {
-        return Optional.ofNullable(this.search);
+    public MonitorVariablesEventQuerySearch search() {
+        return this.search;
     }
 
     public static Builder builder() {
@@ -56,7 +55,7 @@ public final class MonitorVariablesEventQuery {
         private @Nullable List<MonitorVariablesEventQueryGroupBy> groupBies;
         private @Nullable List<String> indexes;
         private String name;
-        private @Nullable MonitorVariablesEventQuerySearch search;
+        private MonitorVariablesEventQuerySearch search;
         public Builder() {}
         public Builder(MonitorVariablesEventQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -103,8 +102,8 @@ public final class MonitorVariablesEventQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder search(@Nullable MonitorVariablesEventQuerySearch search) {
-            this.search = search;
+        public Builder search(MonitorVariablesEventQuerySearch search) {
+            this.search = Objects.requireNonNull(search);
             return this;
         }
         public MonitorVariablesEventQuery build() {

@@ -41,11 +41,32 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('appKey')
 
     @property
+    def http_client_retry_backoff_base(self) -> Optional[int]:
+        """
+        The HTTP request retry back off base. Defaults to 2.
+        """
+        return __config__.get_int('httpClientRetryBackoffBase')
+
+    @property
+    def http_client_retry_backoff_multiplier(self) -> Optional[int]:
+        """
+        The HTTP request retry back off multiplier. Defaults to 2.
+        """
+        return __config__.get_int('httpClientRetryBackoffMultiplier')
+
+    @property
     def http_client_retry_enabled(self) -> Optional[bool]:
         """
         Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         """
         return __config__.get_bool('httpClientRetryEnabled')
+
+    @property
+    def http_client_retry_max_retries(self) -> Optional[int]:
+        """
+        The HTTP request maximum retry number. Defaults to 3.
+        """
+        return __config__.get_int('httpClientRetryMaxRetries')
 
     @property
     def http_client_retry_timeout(self) -> Optional[int]:

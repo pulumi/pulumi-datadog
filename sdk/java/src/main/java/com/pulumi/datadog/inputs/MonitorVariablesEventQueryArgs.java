@@ -54,11 +54,11 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
         return this.name;
     }
 
-    @Import(name="search")
-    private @Nullable Output<MonitorVariablesEventQuerySearchArgs> search;
+    @Import(name="search", required=true)
+    private Output<MonitorVariablesEventQuerySearchArgs> search;
 
-    public Optional<Output<MonitorVariablesEventQuerySearchArgs>> search() {
-        return Optional.ofNullable(this.search);
+    public Output<MonitorVariablesEventQuerySearchArgs> search() {
+        return this.search;
     }
 
     private MonitorVariablesEventQueryArgs() {}
@@ -147,7 +147,7 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
             return name(Output.of(name));
         }
 
-        public Builder search(@Nullable Output<MonitorVariablesEventQuerySearchArgs> search) {
+        public Builder search(Output<MonitorVariablesEventQuerySearchArgs> search) {
             $.search = search;
             return this;
         }
@@ -160,6 +160,7 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
             $.computes = Objects.requireNonNull($.computes, "expected parameter 'computes' to be non-null");
             $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            $.search = Objects.requireNonNull($.search, "expected parameter 'search' to be non-null");
             return $;
         }
     }

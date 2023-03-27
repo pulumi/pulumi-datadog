@@ -28,9 +28,24 @@ appKey: Optional[str]
 (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 """
 
+httpClientRetryBackoffBase: Optional[int]
+"""
+The HTTP request retry back off base. Defaults to 2.
+"""
+
+httpClientRetryBackoffMultiplier: Optional[int]
+"""
+The HTTP request retry back off multiplier. Defaults to 2.
+"""
+
 httpClientRetryEnabled: Optional[bool]
 """
 Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+"""
+
+httpClientRetryMaxRetries: Optional[int]
+"""
+The HTTP request maximum retry number. Defaults to 3.
 """
 
 httpClientRetryTimeout: Optional[int]

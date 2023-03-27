@@ -1050,6 +1050,7 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetWidgetLayoutArgs',
     'DowntimeRecurrenceArgs',
+    'IpAllowlistEntryArgs',
     'LogsArchiveAzureArchiveArgs',
     'LogsArchiveGcsArchiveArgs',
     'LogsArchiveS3ArchiveArgs',
@@ -1080,12 +1081,14 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokArgs',
     'LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs',
     'LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs',
+    'LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs',
     'LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs',
     'LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs',
     'LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs',
     'LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs',
     'LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs',
     'LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs',
+    'LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs',
     'LogsCustomPipelineProcessorServiceRemapperArgs',
     'LogsCustomPipelineProcessorStatusRemapperArgs',
     'LogsCustomPipelineProcessorStringBuilderProcessorArgs',
@@ -59891,6 +59894,40 @@ class DowntimeRecurrenceArgs:
 
 
 @pulumi.input_type
+class IpAllowlistEntryArgs:
+    def __init__(__self__, *,
+                 cidr_block: pulumi.Input[str],
+                 note: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] note: Note accompanying IP address.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        if note is not None:
+            pulumi.set(__self__, "note", note)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter
+    def note(self) -> Optional[pulumi.Input[str]]:
+        """
+        Note accompanying IP address.
+        """
+        return pulumi.get(self, "note")
+
+    @note.setter
+    def note(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "note", value)
+
+
+@pulumi.input_type
 class LogsArchiveAzureArchiveArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
@@ -60143,6 +60180,7 @@ class LogsCustomPipelineProcessorArgs:
                  lookup_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs']] = None,
                  message_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs']] = None,
                  pipeline: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineArgs']] = None,
+                 reference_table_lookup_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs']] = None,
                  service_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs']] = None,
                  status_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs']] = None,
                  string_builder_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorStringBuilderProcessorArgs']] = None,
@@ -60158,6 +60196,7 @@ class LogsCustomPipelineProcessorArgs:
         :param pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs'] reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         :param pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param pulumi.Input['LogsCustomPipelineProcessorStringBuilderProcessorArgs'] string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
@@ -60183,6 +60222,8 @@ class LogsCustomPipelineProcessorArgs:
             pulumi.set(__self__, "message_remapper", message_remapper)
         if pipeline is not None:
             pulumi.set(__self__, "pipeline", pipeline)
+        if reference_table_lookup_processor is not None:
+            pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
         if status_remapper is not None:
@@ -60300,6 +60341,18 @@ class LogsCustomPipelineProcessorArgs:
     @pipeline.setter
     def pipeline(self, value: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineArgs']]):
         pulumi.set(self, "pipeline", value)
+
+    @property
+    @pulumi.getter(name="referenceTableLookupProcessor")
+    def reference_table_lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs']]:
+        """
+        Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        """
+        return pulumi.get(self, "reference_table_lookup_processor")
+
+    @reference_table_lookup_processor.setter
+    def reference_table_lookup_processor(self, value: Optional[pulumi.Input['LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs']]):
+        pulumi.set(self, "reference_table_lookup_processor", value)
 
     @property
     @pulumi.getter(name="serviceRemapper")
@@ -61025,6 +61078,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
                  grok_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs']] = None,
                  lookup_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs']] = None,
                  message_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs']] = None,
+                 reference_table_lookup_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs']] = None,
                  service_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs']] = None,
                  status_remapper: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs']] = None,
                  string_builder_processor: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs']] = None,
@@ -61040,6 +61094,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs'] reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs'] string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
@@ -61063,6 +61118,8 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
             pulumi.set(__self__, "lookup_processor", lookup_processor)
         if message_remapper is not None:
             pulumi.set(__self__, "message_remapper", message_remapper)
+        if reference_table_lookup_processor is not None:
+            pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
         if status_remapper is not None:
@@ -61171,6 +61228,18 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @message_remapper.setter
     def message_remapper(self, value: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs']]):
         pulumi.set(self, "message_remapper", value)
+
+    @property
+    @pulumi.getter(name="referenceTableLookupProcessor")
+    def reference_table_lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs']]:
+        """
+        Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        """
+        return pulumi.get(self, "reference_table_lookup_processor")
+
+    @reference_table_lookup_processor.setter
+    def reference_table_lookup_processor(self, value: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs']]):
+        pulumi.set(self, "reference_table_lookup_processor", value)
 
     @property
     @pulumi.getter(name="serviceRemapper")
@@ -61813,6 +61882,68 @@ class LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs:
 
 
 @pulumi.input_type
+class LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs:
+    def __init__(__self__, *,
+                 lookup_enrichment_table: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 target: pulumi.Input[str],
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "lookup_enrichment_table", lookup_enrichment_table)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lookupEnrichmentTable")
+    def lookup_enrichment_table(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "lookup_enrichment_table")
+
+    @lookup_enrichment_table.setter
+    def lookup_enrichment_table(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookup_enrichment_table", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs:
     def __init__(__self__, *,
                  sources: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -62110,6 +62241,68 @@ class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs:
     @is_encoded.setter
     def is_encoded(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_encoded", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs:
+    def __init__(__self__, *,
+                 lookup_enrichment_table: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 target: pulumi.Input[str],
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "lookup_enrichment_table", lookup_enrichment_table)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lookupEnrichmentTable")
+    def lookup_enrichment_table(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "lookup_enrichment_table")
+
+    @lookup_enrichment_table.setter
+    def lookup_enrichment_table(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookup_enrichment_table", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
 
     @property
     @pulumi.getter
@@ -62978,18 +63171,17 @@ class MonitorVariablesEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 search: pulumi.Input['MonitorVariablesEventQuerySearchArgs'],
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]]] = None,
-                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 search: Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']] = None):
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "search", search)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
 
     @property
     @pulumi.getter
@@ -63019,6 +63211,15 @@ class MonitorVariablesEventQueryArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def search(self) -> pulumi.Input['MonitorVariablesEventQuerySearchArgs']:
+        return pulumi.get(self, "search")
+
+    @search.setter
+    def search(self, value: pulumi.Input['MonitorVariablesEventQuerySearchArgs']):
+        pulumi.set(self, "search", value)
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]]]:
         return pulumi.get(self, "group_bies")
@@ -63035,15 +63236,6 @@ class MonitorVariablesEventQueryArgs:
     @indexes.setter
     def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "indexes", value)
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']]:
-        return pulumi.get(self, "search")
-
-    @search.setter
-    def search(self, value: Optional[pulumi.Input['MonitorVariablesEventQuerySearchArgs']]):
-        pulumi.set(self, "search", value)
 
 
 @pulumi.input_type
@@ -63715,8 +63907,8 @@ class SecurityMonitoringRuleOptionsArgs:
                  impossible_travel_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs']] = None,
                  new_value_options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsNewValueOptionsArgs']] = None):
         """
-        :param pulumi.Input[int] keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
-        :param pulumi.Input[int] max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+        :param pulumi.Input[int] keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        :param pulumi.Input[int] max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param pulumi.Input[bool] decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
         :param pulumi.Input[str] detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         :param pulumi.Input[int] evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
@@ -63740,7 +63932,7 @@ class SecurityMonitoringRuleOptionsArgs:
     @pulumi.getter(name="keepAlive")
     def keep_alive(self) -> pulumi.Input[int]:
         """
-        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
         """
         return pulumi.get(self, "keep_alive")
 
@@ -63752,7 +63944,7 @@ class SecurityMonitoringRuleOptionsArgs:
     @pulumi.getter(name="maxSignalDuration")
     def max_signal_duration(self) -> pulumi.Input[int]:
         """
-        A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+        A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         """
         return pulumi.get(self, "max_signal_duration")
 
@@ -66580,7 +66772,7 @@ class SyntheticsTestOptionsListArgs:
         :param pulumi.Input[str] http_version: HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
         :param pulumi.Input[bool] ignore_server_certificate_error: Ignore server certificate error.
         :param pulumi.Input[int] initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
-        :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         :param pulumi.Input[int] min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
         :param pulumi.Input[str] monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
         :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the steps.
@@ -66766,7 +66958,7 @@ class SyntheticsTestOptionsListArgs:
     @pulumi.getter(name="minFailureDuration")
     def min_failure_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         """
         return pulumi.get(self, "min_failure_duration")
 

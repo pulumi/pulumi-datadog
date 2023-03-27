@@ -27,9 +27,24 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
+// The HTTP request retry back off base. Defaults to 2.
+func GetHttpClientRetryBackoffBase(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "datadog:httpClientRetryBackoffBase")
+}
+
+// The HTTP request retry back off multiplier. Defaults to 2.
+func GetHttpClientRetryBackoffMultiplier(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "datadog:httpClientRetryBackoffMultiplier")
+}
+
 // Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 func GetHttpClientRetryEnabled(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "datadog:httpClientRetryEnabled")
+}
+
+// The HTTP request maximum retry number. Defaults to 3.
+func GetHttpClientRetryMaxRetries(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "datadog:httpClientRetryMaxRetries")
 }
 
 // The HTTP request retry timeout period. Defaults to 60 seconds.

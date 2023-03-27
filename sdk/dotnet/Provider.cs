@@ -91,10 +91,28 @@ namespace Pulumi.Datadog
         public Input<string>? AppKey { get; set; }
 
         /// <summary>
+        /// The HTTP request retry back off base. Defaults to 2.
+        /// </summary>
+        [Input("httpClientRetryBackoffBase", json: true)]
+        public Input<int>? HttpClientRetryBackoffBase { get; set; }
+
+        /// <summary>
+        /// The HTTP request retry back off multiplier. Defaults to 2.
+        /// </summary>
+        [Input("httpClientRetryBackoffMultiplier", json: true)]
+        public Input<int>? HttpClientRetryBackoffMultiplier { get; set; }
+
+        /// <summary>
         /// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         /// </summary>
         [Input("httpClientRetryEnabled", json: true)]
         public Input<bool>? HttpClientRetryEnabled { get; set; }
+
+        /// <summary>
+        /// The HTTP request maximum retry number. Defaults to 3.
+        /// </summary>
+        [Input("httpClientRetryMaxRetries", json: true)]
+        public Input<int>? HttpClientRetryMaxRetries { get; set; }
 
         /// <summary>
         /// The HTTP request retry timeout period. Defaults to 60 seconds.

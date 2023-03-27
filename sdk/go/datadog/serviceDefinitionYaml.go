@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,51 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewServiceDefinitionYaml(ctx, "serviceDefinition", &datadog.ServiceDefinitionYamlArgs{
-//				ServiceDefinition: pulumi.String(fmt.Sprintf(`schema-version: v2
-//
-// dd-service: shopping-cart
-// team: E Commerce
-// contacts:
-//   - name: Support Email
-//     type: email
-//     contact: team@shopping.com
-//   - name: Support Slack
-//     type: slack
-//     contact: https://www.slack.com/archives/shopping-cart
-//
-// repos:
-//   - name: shopping-cart source code
-//     provider: github
-//     url: http://github/shopping-cart
-//
-// docs:
-//   - name: shopping-cart architecture
-//     provider: gdoc
-//     url: https://google.drive/shopping-cart-architecture
-//   - name: shopping-cart service Wiki
-//     provider: wiki
-//     url: https://wiki/shopping-cart
-//
-// links:
-//   - name: shopping-cart runbook
-//     type: runbook
-//     url: https://runbook/shopping-cart
-//
-// tags:
-//   - business-unit:retail
-//   - cost-center:engineering
-//
-// integrations:
-//
-//	pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart
-//
-// extensions:
-//
-//	datadoghq.com/shopping-cart:
-//	  customField: customValue
-//
-// `)),
-//
+//				ServiceDefinition: pulumi.String("schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n"),
 //			})
 //			if err != nil {
 //				return err

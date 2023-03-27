@@ -174,14 +174,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      * 
      */
     @Import(name="minFailureDuration")
     private @Nullable Output<Integer> minFailureDuration;
 
     /**
-     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * @return Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      * 
      */
     public Optional<Output<Integer>> minFailureDuration() {
@@ -569,7 +569,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert. Default is `0`.
+         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert. Default is `0`.
+         * @param minFailureDuration Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
          * 
          * @return builder
          * 

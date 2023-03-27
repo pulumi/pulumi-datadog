@@ -70,7 +70,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Integer initialNavigationTimeout;
     /**
-     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * @return Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      * 
      */
     private @Nullable Integer minFailureDuration;
@@ -185,7 +185,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.initialNavigationTimeout);
     }
     /**
-     * @return Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * @return Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      * 
      */
     public Optional<Integer> minFailureDuration() {

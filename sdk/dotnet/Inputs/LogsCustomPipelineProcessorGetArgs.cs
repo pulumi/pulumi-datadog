@@ -64,6 +64,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorPipelineGetArgs>? Pipeline { get; set; }
 
         /// <summary>
+        /// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        /// </summary>
+        [Input("referenceTableLookupProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorReferenceTableLookupProcessorGetArgs>? ReferenceTableLookupProcessor { get; set; }
+
+        /// <summary>
         /// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         /// </summary>
         [Input("serviceRemapper")]

@@ -46,6 +46,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper? MessageRemapper;
         /// <summary>
+        /// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor? ReferenceTableLookupProcessor;
+        /// <summary>
         /// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? ServiceRemapper;
@@ -88,6 +92,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper? messageRemapper,
 
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor? referenceTableLookupProcessor,
+
             Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? serviceRemapper,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper? statusRemapper,
@@ -108,6 +114,7 @@ namespace Pulumi.Datadog.Outputs
             GrokParser = grokParser;
             LookupProcessor = lookupProcessor;
             MessageRemapper = messageRemapper;
+            ReferenceTableLookupProcessor = referenceTableLookupProcessor;
             ServiceRemapper = serviceRemapper;
             StatusRemapper = statusRemapper;
             StringBuilderProcessor = stringBuilderProcessor;

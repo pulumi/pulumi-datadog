@@ -8063,6 +8063,14 @@ export interface DowntimeRecurrence {
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface IpAllowlistEntry {
+    cidrBlock: pulumi.Input<string>;
+    /**
+     * Note accompanying IP address.
+     */
+    note?: pulumi.Input<string>;
+}
+
 export interface LogsArchiveAzureArchive {
     /**
      * Your client id.
@@ -8165,6 +8173,10 @@ export interface LogsCustomPipelineProcessor {
      */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
     pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
+    /**
+     * Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
+    referenceTableLookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor>;
     /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
@@ -8319,6 +8331,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
     /**
+     * Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     */
+    referenceTableLookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor>;
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
@@ -8424,6 +8440,14 @@ export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
     sources: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+    isEnabled?: pulumi.Input<boolean>;
+    lookupEnrichmentTable: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    source: pulumi.Input<string>;
+    target: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
     isEnabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
@@ -8463,6 +8487,14 @@ export interface LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
     isEncoded?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     sources: pulumi.Input<pulumi.Input<string>[]>;
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+    isEnabled?: pulumi.Input<boolean>;
+    lookupEnrichmentTable: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    source: pulumi.Input<string>;
     target: pulumi.Input<string>;
 }
 
@@ -8661,7 +8693,7 @@ export interface MonitorVariablesEventQuery {
     groupBies?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryGroupBy>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     name: pulumi.Input<string>;
-    search?: pulumi.Input<inputs.MonitorVariablesEventQuerySearch>;
+    search: pulumi.Input<inputs.MonitorVariablesEventQuerySearch>;
 }
 
 export interface MonitorVariablesEventQueryCompute {
@@ -8845,11 +8877,11 @@ export interface SecurityMonitoringRuleOptions {
      */
     impossibleTravelOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions>;
     /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      */
     keepAlive: pulumi.Input<number>;
     /**
-     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
     maxSignalDuration: pulumi.Input<number>;
     /**
@@ -9525,7 +9557,7 @@ export interface SyntheticsTestOptionsList {
      */
     initialNavigationTimeout?: pulumi.Input<number>;
     /**
-     * Minimum amount of time in failure required to trigger an alert. Default is `0`.
+     * Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
      */
     minFailureDuration?: pulumi.Input<number>;
     /**
