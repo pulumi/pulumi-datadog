@@ -37,7 +37,7 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
-        :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced.
+        :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         pulumi.set(__self__, "group_id", group_id)
         if description is not None:
@@ -171,7 +171,7 @@ class SensitiveDataScannerRuleArgs:
     @pulumi.getter(name="textReplacement")
     def text_replacement(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']]:
         """
-        Object describing how the scanned event will be replaced.
+        Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         return pulumi.get(self, "text_replacement")
 
@@ -204,7 +204,7 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
-        :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced.
+        :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -339,7 +339,7 @@ class _SensitiveDataScannerRuleState:
     @pulumi.getter(name="textReplacement")
     def text_replacement(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']]:
         """
-        Object describing how the scanned event will be replaced.
+        Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         return pulumi.get(self, "text_replacement")
 
@@ -423,7 +423,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
-        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced.
+        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         ...
     @overload
@@ -561,7 +561,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
-        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced.
+        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -655,7 +655,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
     @pulumi.getter(name="textReplacement")
     def text_replacement(self) -> pulumi.Output[Optional['outputs.SensitiveDataScannerRuleTextReplacement']]:
         """
-        Object describing how the scanned event will be replaced.
+        Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         return pulumi.get(self, "text_replacement")
 

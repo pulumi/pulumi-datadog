@@ -62,6 +62,7 @@
         "getSyntheticsTest.ts",
         "getUser.ts",
         "index.ts",
+        "ipAllowlist.ts",
         "logsArchive.ts",
         "logsArchiveOrder.ts",
         "logsCustomPipeline.ts",

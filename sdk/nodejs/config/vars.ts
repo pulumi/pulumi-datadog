@@ -45,12 +45,45 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
+ * The HTTP request retry back off base. Defaults to 2.
+ */
+export declare const httpClientRetryBackoffBase: number | undefined;
+Object.defineProperty(exports, "httpClientRetryBackoffBase", {
+    get() {
+        return __config.getObject<number>("httpClientRetryBackoffBase");
+    },
+    enumerable: true,
+});
+
+/**
+ * The HTTP request retry back off multiplier. Defaults to 2.
+ */
+export declare const httpClientRetryBackoffMultiplier: number | undefined;
+Object.defineProperty(exports, "httpClientRetryBackoffMultiplier", {
+    get() {
+        return __config.getObject<number>("httpClientRetryBackoffMultiplier");
+    },
+    enumerable: true,
+});
+
+/**
  * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
  */
 export declare const httpClientRetryEnabled: boolean | undefined;
 Object.defineProperty(exports, "httpClientRetryEnabled", {
     get() {
         return __config.getObject<boolean>("httpClientRetryEnabled");
+    },
+    enumerable: true,
+});
+
+/**
+ * The HTTP request maximum retry number. Defaults to 3.
+ */
+export declare const httpClientRetryMaxRetries: number | undefined;
+Object.defineProperty(exports, "httpClientRetryMaxRetries", {
+    get() {
+        return __config.getObject<number>("httpClientRetryMaxRetries");
     },
     enumerable: true,
 });

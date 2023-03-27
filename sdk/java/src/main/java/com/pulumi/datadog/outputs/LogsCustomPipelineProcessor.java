@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorGrokParser;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorLookupProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorMessageRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipeline;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorServiceRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorStatusRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
@@ -66,6 +67,11 @@ public final class LogsCustomPipelineProcessor {
      */
     private @Nullable LogsCustomPipelineProcessorMessageRemapper messageRemapper;
     private @Nullable LogsCustomPipelineProcessorPipeline pipeline;
+    /**
+     * @return Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
     /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
@@ -158,6 +164,13 @@ public final class LogsCustomPipelineProcessor {
         return Optional.ofNullable(this.pipeline);
     }
     /**
+     * @return Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorReferenceTableLookupProcessor> referenceTableLookupProcessor() {
+        return Optional.ofNullable(this.referenceTableLookupProcessor);
+    }
+    /**
      * @return Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
      */
@@ -218,6 +231,7 @@ public final class LogsCustomPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorLookupProcessor lookupProcessor;
         private @Nullable LogsCustomPipelineProcessorMessageRemapper messageRemapper;
         private @Nullable LogsCustomPipelineProcessorPipeline pipeline;
+        private @Nullable LogsCustomPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor;
         private @Nullable LogsCustomPipelineProcessorServiceRemapper serviceRemapper;
         private @Nullable LogsCustomPipelineProcessorStatusRemapper statusRemapper;
         private @Nullable LogsCustomPipelineProcessorStringBuilderProcessor stringBuilderProcessor;
@@ -236,6 +250,7 @@ public final class LogsCustomPipelineProcessor {
     	      this.lookupProcessor = defaults.lookupProcessor;
     	      this.messageRemapper = defaults.messageRemapper;
     	      this.pipeline = defaults.pipeline;
+    	      this.referenceTableLookupProcessor = defaults.referenceTableLookupProcessor;
     	      this.serviceRemapper = defaults.serviceRemapper;
     	      this.statusRemapper = defaults.statusRemapper;
     	      this.stringBuilderProcessor = defaults.stringBuilderProcessor;
@@ -290,6 +305,11 @@ public final class LogsCustomPipelineProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder referenceTableLookupProcessor(@Nullable LogsCustomPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor) {
+            this.referenceTableLookupProcessor = referenceTableLookupProcessor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRemapper(@Nullable LogsCustomPipelineProcessorServiceRemapper serviceRemapper) {
             this.serviceRemapper = serviceRemapper;
             return this;
@@ -330,6 +350,7 @@ public final class LogsCustomPipelineProcessor {
             o.lookupProcessor = lookupProcessor;
             o.messageRemapper = messageRemapper;
             o.pipeline = pipeline;
+            o.referenceTableLookupProcessor = referenceTableLookupProcessor;
             o.serviceRemapper = serviceRemapper;
             o.statusRemapper = statusRemapper;
             o.stringBuilderProcessor = stringBuilderProcessor;

@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? InitialNavigationTimeout;
         /// <summary>
-        /// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        /// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         /// </summary>
         public readonly int? MinFailureDuration;
         /// <summary>

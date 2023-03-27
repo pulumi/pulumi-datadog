@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,7 +118,7 @@ type SensitiveDataScannerRule struct {
 	StandardPatternId pulumi.StringPtrOutput `pulumi:"standardPatternId"`
 	// List of tags.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Object describing how the scanned event will be replaced.
+	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrOutput `pulumi:"textReplacement"`
 }
 
@@ -172,7 +172,7 @@ type sensitiveDataScannerRuleState struct {
 	StandardPatternId *string `pulumi:"standardPatternId"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
-	// Object describing how the scanned event will be replaced.
+	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement *SensitiveDataScannerRuleTextReplacement `pulumi:"textReplacement"`
 }
 
@@ -195,7 +195,7 @@ type SensitiveDataScannerRuleState struct {
 	StandardPatternId pulumi.StringPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
-	// Object describing how the scanned event will be replaced.
+	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrInput
 }
 
@@ -222,7 +222,7 @@ type sensitiveDataScannerRuleArgs struct {
 	StandardPatternId *string `pulumi:"standardPatternId"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
-	// Object describing how the scanned event will be replaced.
+	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement *SensitiveDataScannerRuleTextReplacement `pulumi:"textReplacement"`
 }
 
@@ -246,7 +246,7 @@ type SensitiveDataScannerRuleArgs struct {
 	StandardPatternId pulumi.StringPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
-	// Object describing how the scanned event will be replaced.
+	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrInput
 }
 
@@ -382,7 +382,7 @@ func (o SensitiveDataScannerRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// Object describing how the scanned event will be replaced.
+// Object describing how the scanned event will be replaced. Defaults to `type: none`
 func (o SensitiveDataScannerRuleOutput) TextReplacement() SensitiveDataScannerRuleTextReplacementPtrOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) SensitiveDataScannerRuleTextReplacementPtrOutput {
 		return v.TextReplacement

@@ -17,7 +17,10 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
+                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None):
         """
@@ -29,7 +32,10 @@ class ProviderArgs:
                `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
                https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
+        :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        :param pulumi.Input[int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
@@ -40,8 +46,14 @@ class ProviderArgs:
             pulumi.set(__self__, "api_url", api_url)
         if app_key is not None:
             pulumi.set(__self__, "app_key", app_key)
+        if http_client_retry_backoff_base is not None:
+            pulumi.set(__self__, "http_client_retry_backoff_base", http_client_retry_backoff_base)
+        if http_client_retry_backoff_multiplier is not None:
+            pulumi.set(__self__, "http_client_retry_backoff_multiplier", http_client_retry_backoff_multiplier)
         if http_client_retry_enabled is not None:
             pulumi.set(__self__, "http_client_retry_enabled", http_client_retry_enabled)
+        if http_client_retry_max_retries is not None:
+            pulumi.set(__self__, "http_client_retry_max_retries", http_client_retry_max_retries)
         if http_client_retry_timeout is not None:
             pulumi.set(__self__, "http_client_retry_timeout", http_client_retry_timeout)
         if validate is not None:
@@ -88,6 +100,30 @@ class ProviderArgs:
         pulumi.set(self, "app_key", value)
 
     @property
+    @pulumi.getter(name="httpClientRetryBackoffBase")
+    def http_client_retry_backoff_base(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTP request retry back off base. Defaults to 2.
+        """
+        return pulumi.get(self, "http_client_retry_backoff_base")
+
+    @http_client_retry_backoff_base.setter
+    def http_client_retry_backoff_base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_client_retry_backoff_base", value)
+
+    @property
+    @pulumi.getter(name="httpClientRetryBackoffMultiplier")
+    def http_client_retry_backoff_multiplier(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTP request retry back off multiplier. Defaults to 2.
+        """
+        return pulumi.get(self, "http_client_retry_backoff_multiplier")
+
+    @http_client_retry_backoff_multiplier.setter
+    def http_client_retry_backoff_multiplier(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_client_retry_backoff_multiplier", value)
+
+    @property
     @pulumi.getter(name="httpClientRetryEnabled")
     def http_client_retry_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -98,6 +134,18 @@ class ProviderArgs:
     @http_client_retry_enabled.setter
     def http_client_retry_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "http_client_retry_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpClientRetryMaxRetries")
+    def http_client_retry_max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTP request maximum retry number. Defaults to 3.
+        """
+        return pulumi.get(self, "http_client_retry_max_retries")
+
+    @http_client_retry_max_retries.setter
+    def http_client_retry_max_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_client_retry_max_retries", value)
 
     @property
     @pulumi.getter(name="httpClientRetryTimeout")
@@ -133,7 +181,10 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
+                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -152,7 +203,10 @@ class Provider(pulumi.ProviderResource):
                `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
                https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
+        :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        :param pulumi.Input[int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
@@ -187,7 +241,10 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
+                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
                  http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -202,7 +259,10 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["api_key"] = api_key
             __props__.__dict__["api_url"] = api_url
             __props__.__dict__["app_key"] = app_key
+            __props__.__dict__["http_client_retry_backoff_base"] = pulumi.Output.from_input(http_client_retry_backoff_base).apply(pulumi.runtime.to_json) if http_client_retry_backoff_base is not None else None
+            __props__.__dict__["http_client_retry_backoff_multiplier"] = pulumi.Output.from_input(http_client_retry_backoff_multiplier).apply(pulumi.runtime.to_json) if http_client_retry_backoff_multiplier is not None else None
             __props__.__dict__["http_client_retry_enabled"] = pulumi.Output.from_input(http_client_retry_enabled).apply(pulumi.runtime.to_json) if http_client_retry_enabled is not None else None
+            __props__.__dict__["http_client_retry_max_retries"] = pulumi.Output.from_input(http_client_retry_max_retries).apply(pulumi.runtime.to_json) if http_client_retry_max_retries is not None else None
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
             __props__.__dict__["validate"] = pulumi.Output.from_input(validate).apply(pulumi.runtime.to_json) if validate is not None else None
         super(Provider, __self__).__init__(

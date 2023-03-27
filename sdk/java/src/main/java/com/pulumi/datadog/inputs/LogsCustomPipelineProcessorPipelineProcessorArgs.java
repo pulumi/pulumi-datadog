@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGeo
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs;
@@ -149,6 +150,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
     }
 
     /**
+     * Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
+    @Import(name="referenceTableLookupProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs> referenceTableLookupProcessor;
+
+    /**
+     * @return Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs>> referenceTableLookupProcessor() {
+        return Optional.ofNullable(this.referenceTableLookupProcessor);
+    }
+
+    /**
      * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      * 
      */
@@ -249,6 +265,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
         this.grokParser = $.grokParser;
         this.lookupProcessor = $.lookupProcessor;
         this.messageRemapper = $.messageRemapper;
+        this.referenceTableLookupProcessor = $.referenceTableLookupProcessor;
         this.serviceRemapper = $.serviceRemapper;
         this.statusRemapper = $.statusRemapper;
         this.stringBuilderProcessor = $.stringBuilderProcessor;
@@ -441,6 +458,27 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
          */
         public Builder messageRemapper(LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs messageRemapper) {
             return messageRemapper(Output.of(messageRemapper));
+        }
+
+        /**
+         * @param referenceTableLookupProcessor Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTableLookupProcessor(@Nullable Output<LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs> referenceTableLookupProcessor) {
+            $.referenceTableLookupProcessor = referenceTableLookupProcessor;
+            return this;
+        }
+
+        /**
+         * @param referenceTableLookupProcessor Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTableLookupProcessor(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs referenceTableLookupProcessor) {
+            return referenceTableLookupProcessor(Output.of(referenceTableLookupProcessor));
         }
 
         /**

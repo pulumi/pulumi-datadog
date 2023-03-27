@@ -71,6 +71,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The HTTP request retry back off base. Defaults to 2.
+     * 
+     */
+    @Import(name="httpClientRetryBackoffBase", json=true)
+    private @Nullable Output<Integer> httpClientRetryBackoffBase;
+
+    /**
+     * @return The HTTP request retry back off base. Defaults to 2.
+     * 
+     */
+    public Optional<Output<Integer>> httpClientRetryBackoffBase() {
+        return Optional.ofNullable(this.httpClientRetryBackoffBase);
+    }
+
+    /**
+     * The HTTP request retry back off multiplier. Defaults to 2.
+     * 
+     */
+    @Import(name="httpClientRetryBackoffMultiplier", json=true)
+    private @Nullable Output<Integer> httpClientRetryBackoffMultiplier;
+
+    /**
+     * @return The HTTP request retry back off multiplier. Defaults to 2.
+     * 
+     */
+    public Optional<Output<Integer>> httpClientRetryBackoffMultiplier() {
+        return Optional.ofNullable(this.httpClientRetryBackoffMultiplier);
+    }
+
+    /**
      * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      * 
      */
@@ -83,6 +113,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> httpClientRetryEnabled() {
         return Optional.ofNullable(this.httpClientRetryEnabled);
+    }
+
+    /**
+     * The HTTP request maximum retry number. Defaults to 3.
+     * 
+     */
+    @Import(name="httpClientRetryMaxRetries", json=true)
+    private @Nullable Output<Integer> httpClientRetryMaxRetries;
+
+    /**
+     * @return The HTTP request maximum retry number. Defaults to 3.
+     * 
+     */
+    public Optional<Output<Integer>> httpClientRetryMaxRetries() {
+        return Optional.ofNullable(this.httpClientRetryMaxRetries);
     }
 
     /**
@@ -123,7 +168,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.apiKey = $.apiKey;
         this.apiUrl = $.apiUrl;
         this.appKey = $.appKey;
+        this.httpClientRetryBackoffBase = $.httpClientRetryBackoffBase;
+        this.httpClientRetryBackoffMultiplier = $.httpClientRetryBackoffMultiplier;
         this.httpClientRetryEnabled = $.httpClientRetryEnabled;
+        this.httpClientRetryMaxRetries = $.httpClientRetryMaxRetries;
         this.httpClientRetryTimeout = $.httpClientRetryTimeout;
         this.validate = $.validate;
     }
@@ -218,6 +266,48 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param httpClientRetryBackoffBase The HTTP request retry back off base. Defaults to 2.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryBackoffBase(@Nullable Output<Integer> httpClientRetryBackoffBase) {
+            $.httpClientRetryBackoffBase = httpClientRetryBackoffBase;
+            return this;
+        }
+
+        /**
+         * @param httpClientRetryBackoffBase The HTTP request retry back off base. Defaults to 2.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryBackoffBase(Integer httpClientRetryBackoffBase) {
+            return httpClientRetryBackoffBase(Output.of(httpClientRetryBackoffBase));
+        }
+
+        /**
+         * @param httpClientRetryBackoffMultiplier The HTTP request retry back off multiplier. Defaults to 2.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryBackoffMultiplier(@Nullable Output<Integer> httpClientRetryBackoffMultiplier) {
+            $.httpClientRetryBackoffMultiplier = httpClientRetryBackoffMultiplier;
+            return this;
+        }
+
+        /**
+         * @param httpClientRetryBackoffMultiplier The HTTP request retry back off multiplier. Defaults to 2.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryBackoffMultiplier(Integer httpClientRetryBackoffMultiplier) {
+            return httpClientRetryBackoffMultiplier(Output.of(httpClientRetryBackoffMultiplier));
+        }
+
+        /**
          * @param httpClientRetryEnabled Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
          * 
          * @return builder
@@ -236,6 +326,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder httpClientRetryEnabled(Boolean httpClientRetryEnabled) {
             return httpClientRetryEnabled(Output.of(httpClientRetryEnabled));
+        }
+
+        /**
+         * @param httpClientRetryMaxRetries The HTTP request maximum retry number. Defaults to 3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryMaxRetries(@Nullable Output<Integer> httpClientRetryMaxRetries) {
+            $.httpClientRetryMaxRetries = httpClientRetryMaxRetries;
+            return this;
+        }
+
+        /**
+         * @param httpClientRetryMaxRetries The HTTP request maximum retry number. Defaults to 3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryMaxRetries(Integer httpClientRetryMaxRetries) {
+            return httpClientRetryMaxRetries(Output.of(httpClientRetryMaxRetries));
         }
 
         /**

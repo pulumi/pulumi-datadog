@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? InitialNavigationTimeout { get; set; }
 
         /// <summary>
-        /// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        /// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         /// </summary>
         [Input("minFailureDuration")]
         public Input<int>? MinFailureDuration { get; set; }

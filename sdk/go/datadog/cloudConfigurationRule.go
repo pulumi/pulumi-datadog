@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -39,33 +37,7 @@ import (
 //				Notifications: pulumi.StringArray{
 //					pulumi.String("@channel"),
 //				},
-//				Policy: pulumi.String(fmt.Sprintf(`        package datadog
-//
-//	        import data.datadog.output as dd_output
-//
-//	        import future.keywords.contains
-//	        import future.keywords.if
-//	        import future.keywords.in
-//
-//	        eval(resource) = "skip" if {
-//	            # Logic that evaluates to true if the resource should be skipped
-//	            true
-//	        } else = "pass" {
-//	            # Logic that evaluates to true if the resource is compliant
-//	            true
-//	        } else = "fail" {
-//	            # Logic that evaluates to true if the resource is not compliant
-//	            true
-//	        }
-//
-//	        # This part remains unchanged for all rules
-//	        results contains result if {
-//	            some resource in input.resources[input.main_resource_type]
-//	            result := dd_output.format(resource, eval(resource))
-//	        }
-//
-// `)),
-//
+//				Policy:               pulumi.String("        package datadog\n\n        import data.datadog.output as dd_output\n\n        import future.keywords.contains\n        import future.keywords.if\n        import future.keywords.in\n\n        eval(resource) = \"skip\" if {\n            # Logic that evaluates to true if the resource should be skipped\n            true\n        } else = \"pass\" {\n            # Logic that evaluates to true if the resource is compliant\n            true\n        } else = \"fail\" {\n            # Logic that evaluates to true if the resource is not compliant\n            true\n        }\n\n        # This part remains unchanged for all rules\n        results contains result if {\n            some resource in input.resources[input.main_resource_type]\n            result := dd_output.format(resource, eval(resource))\n        }\n\n"),
 //				RelatedResourceTypes: pulumi.StringArray{},
 //				ResourceType:         pulumi.String("aws_s3_bucket"),
 //				Severity:             pulumi.String("high"),

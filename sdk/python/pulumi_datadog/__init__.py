@@ -41,6 +41,7 @@ from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
 from .get_synthetics_test import *
 from .get_user import *
+from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
 from .logs_custom_pipeline import *
@@ -230,6 +231,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/downtime:Downtime": "Downtime"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/ipAllowlist",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/ipAllowlist:IpAllowlist": "IpAllowlist"
   }
  },
  {

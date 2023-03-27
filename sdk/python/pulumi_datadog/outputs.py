@@ -1051,6 +1051,7 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetWidgetLayout',
     'DowntimeRecurrence',
+    'IpAllowlistEntry',
     'LogsArchiveAzureArchive',
     'LogsArchiveGcsArchive',
     'LogsArchiveS3Archive',
@@ -1081,12 +1082,14 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok',
     'LogsCustomPipelineProcessorPipelineProcessorLookupProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorMessageRemapper',
+    'LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorServiceRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorStatusRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorUrlParser',
     'LogsCustomPipelineProcessorPipelineProcessorUserAgentParser',
+    'LogsCustomPipelineProcessorReferenceTableLookupProcessor',
     'LogsCustomPipelineProcessorServiceRemapper',
     'LogsCustomPipelineProcessorStatusRemapper',
     'LogsCustomPipelineProcessorStringBuilderProcessor',
@@ -54326,6 +54329,49 @@ class DowntimeRecurrence(dict):
 
 
 @pulumi.output_type
+class IpAllowlistEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpAllowlistEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpAllowlistEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpAllowlistEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_block: str,
+                 note: Optional[str] = None):
+        """
+        :param str note: Note accompanying IP address.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        if note is not None:
+            pulumi.set(__self__, "note", note)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> str:
+        return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter
+    def note(self) -> Optional[str]:
+        """
+        Note accompanying IP address.
+        """
+        return pulumi.get(self, "note")
+
+
+@pulumi.output_type
 class LogsArchiveAzureArchive(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -54590,6 +54636,8 @@ class LogsCustomPipelineProcessor(dict):
             suggest = "lookup_processor"
         elif key == "messageRemapper":
             suggest = "message_remapper"
+        elif key == "referenceTableLookupProcessor":
+            suggest = "reference_table_lookup_processor"
         elif key == "serviceRemapper":
             suggest = "service_remapper"
         elif key == "statusRemapper":
@@ -54624,6 +54672,7 @@ class LogsCustomPipelineProcessor(dict):
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorLookupProcessor'] = None,
                  message_remapper: Optional['outputs.LogsCustomPipelineProcessorMessageRemapper'] = None,
                  pipeline: Optional['outputs.LogsCustomPipelineProcessorPipeline'] = None,
+                 reference_table_lookup_processor: Optional['outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor'] = None,
                  service_remapper: Optional['outputs.LogsCustomPipelineProcessorServiceRemapper'] = None,
                  status_remapper: Optional['outputs.LogsCustomPipelineProcessorStatusRemapper'] = None,
                  string_builder_processor: Optional['outputs.LogsCustomPipelineProcessorStringBuilderProcessor'] = None,
@@ -54639,6 +54688,7 @@ class LogsCustomPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorMessageRemapperArgs' message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param 'LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs' reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorServiceRemapperArgs' service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         :param 'LogsCustomPipelineProcessorStatusRemapperArgs' status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param 'LogsCustomPipelineProcessorStringBuilderProcessorArgs' string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
@@ -54664,6 +54714,8 @@ class LogsCustomPipelineProcessor(dict):
             pulumi.set(__self__, "message_remapper", message_remapper)
         if pipeline is not None:
             pulumi.set(__self__, "pipeline", pipeline)
+        if reference_table_lookup_processor is not None:
+            pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
         if status_remapper is not None:
@@ -54745,6 +54797,14 @@ class LogsCustomPipelineProcessor(dict):
     @pulumi.getter
     def pipeline(self) -> Optional['outputs.LogsCustomPipelineProcessorPipeline']:
         return pulumi.get(self, "pipeline")
+
+    @property
+    @pulumi.getter(name="referenceTableLookupProcessor")
+    def reference_table_lookup_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorReferenceTableLookupProcessor']:
+        """
+        Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        """
+        return pulumi.get(self, "reference_table_lookup_processor")
 
     @property
     @pulumi.getter(name="serviceRemapper")
@@ -55448,6 +55508,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             suggest = "lookup_processor"
         elif key == "messageRemapper":
             suggest = "message_remapper"
+        elif key == "referenceTableLookupProcessor":
+            suggest = "reference_table_lookup_processor"
         elif key == "serviceRemapper":
             suggest = "service_remapper"
         elif key == "statusRemapper":
@@ -55481,6 +55543,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
                  grok_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser'] = None,
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor'] = None,
                  message_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper'] = None,
+                 reference_table_lookup_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor'] = None,
                  service_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper'] = None,
                  status_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper'] = None,
                  string_builder_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor'] = None,
@@ -55496,6 +55559,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs' message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param 'LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs' reference_table_lookup_processor: Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs' service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs' status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs' string_builder_processor: String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
@@ -55519,6 +55583,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             pulumi.set(__self__, "lookup_processor", lookup_processor)
         if message_remapper is not None:
             pulumi.set(__self__, "message_remapper", message_remapper)
+        if reference_table_lookup_processor is not None:
+            pulumi.set(__self__, "reference_table_lookup_processor", reference_table_lookup_processor)
         if service_remapper is not None:
             pulumi.set(__self__, "service_remapper", service_remapper)
         if status_remapper is not None:
@@ -55595,6 +55661,14 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         """
         return pulumi.get(self, "message_remapper")
+
+    @property
+    @pulumi.getter(name="referenceTableLookupProcessor")
+    def reference_table_lookup_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor']:
+        """
+        Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        """
+        return pulumi.get(self, "reference_table_lookup_processor")
 
     @property
     @pulumi.getter(name="serviceRemapper")
@@ -56208,6 +56282,67 @@ class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
 
 
 @pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookupEnrichmentTable":
+            suggest = "lookup_enrichment_table"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookup_enrichment_table: str,
+                 source: str,
+                 target: str,
+                 is_enabled: Optional[bool] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "lookup_enrichment_table", lookup_enrichment_table)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lookupEnrichmentTable")
+    def lookup_enrichment_table(self) -> str:
+        return pulumi.get(self, "lookup_enrichment_table")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -56521,6 +56656,67 @@ class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
     @pulumi.getter(name="isEncoded")
     def is_encoded(self) -> Optional[bool]:
         return pulumi.get(self, "is_encoded")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorReferenceTableLookupProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookupEnrichmentTable":
+            suggest = "lookup_enrichment_table"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorReferenceTableLookupProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorReferenceTableLookupProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorReferenceTableLookupProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookup_enrichment_table: str,
+                 source: str,
+                 target: str,
+                 is_enabled: Optional[bool] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "lookup_enrichment_table", lookup_enrichment_table)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lookupEnrichmentTable")
+    def lookup_enrichment_table(self) -> str:
+        return pulumi.get(self, "lookup_enrichment_table")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
@@ -57480,18 +57676,17 @@ class MonitorVariablesEventQuery(dict):
                  computes: Sequence['outputs.MonitorVariablesEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 search: 'outputs.MonitorVariablesEventQuerySearch',
                  group_bies: Optional[Sequence['outputs.MonitorVariablesEventQueryGroupBy']] = None,
-                 indexes: Optional[Sequence[str]] = None,
-                 search: Optional['outputs.MonitorVariablesEventQuerySearch'] = None):
+                 indexes: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "search", search)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
 
     @property
     @pulumi.getter
@@ -57509,6 +57704,11 @@ class MonitorVariablesEventQuery(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def search(self) -> 'outputs.MonitorVariablesEventQuerySearch':
+        return pulumi.get(self, "search")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence['outputs.MonitorVariablesEventQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
@@ -57517,11 +57717,6 @@ class MonitorVariablesEventQuery(dict):
     @pulumi.getter
     def indexes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "indexes")
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.MonitorVariablesEventQuerySearch']:
-        return pulumi.get(self, "search")
 
 
 @pulumi.output_type
@@ -58112,8 +58307,8 @@ class SecurityMonitoringRuleOptions(dict):
                  impossible_travel_options: Optional['outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions'] = None,
                  new_value_options: Optional['outputs.SecurityMonitoringRuleOptionsNewValueOptions'] = None):
         """
-        :param int keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
-        :param int max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+        :param int keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        :param int max_signal_duration: A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         :param bool decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
         :param str detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
         :param int evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
@@ -58137,7 +58332,7 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="keepAlive")
     def keep_alive(self) -> int:
         """
-        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+        Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
         """
         return pulumi.get(self, "keep_alive")
 
@@ -58145,7 +58340,7 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="maxSignalDuration")
     def max_signal_duration(self) -> int:
         """
-        A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+        A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         """
         return pulumi.get(self, "max_signal_duration")
 
@@ -60667,7 +60862,7 @@ class SyntheticsTestOptionsList(dict):
         :param str http_version: HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
         :param bool ignore_server_certificate_error: Ignore server certificate error.
         :param int initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
-        :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         :param int min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
         :param str monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
         :param bool no_screenshot: Prevents saving screenshots of the steps.
@@ -60809,7 +61004,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="minFailureDuration")
     def min_failure_duration(self) -> Optional[int]:
         """
-        Minimum amount of time in failure required to trigger an alert. Default is `0`.
+        Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         """
         return pulumi.get(self, "min_failure_duration")
 

@@ -42,8 +42,8 @@ namespace Pulumi.Datadog.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("search")]
-        public Input<Inputs.MonitorVariablesEventQuerySearchGetArgs>? Search { get; set; }
+        [Input("search", required: true)]
+        public Input<Inputs.MonitorVariablesEventQuerySearchGetArgs> Search { get; set; } = null!;
 
         public MonitorVariablesEventQueryGetArgs()
         {

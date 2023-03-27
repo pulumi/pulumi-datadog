@@ -227,14 +227,14 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * Object describing how the scanned event will be replaced.
+     * Object describing how the scanned event will be replaced. Defaults to `type: none`
      * 
      */
     @Export(name="textReplacement", type=SensitiveDataScannerRuleTextReplacement.class, parameters={})
     private Output</* @Nullable */ SensitiveDataScannerRuleTextReplacement> textReplacement;
 
     /**
-     * @return Object describing how the scanned event will be replaced.
+     * @return Object describing how the scanned event will be replaced. Defaults to `type: none`
      * 
      */
     public Output<Optional<SensitiveDataScannerRuleTextReplacement>> textReplacement() {

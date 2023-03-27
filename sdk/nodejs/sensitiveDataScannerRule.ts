@@ -124,7 +124,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * Object describing how the scanned event will be replaced.
+     * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
     public readonly textReplacement!: pulumi.Output<outputs.SensitiveDataScannerRuleTextReplacement | undefined>;
 
@@ -213,7 +213,7 @@ export interface SensitiveDataScannerRuleState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Object describing how the scanned event will be replaced.
+     * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
     textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement>;
 }
@@ -259,7 +259,7 @@ export interface SensitiveDataScannerRuleArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Object describing how the scanned event will be replaced.
+     * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
     textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement>;
 }

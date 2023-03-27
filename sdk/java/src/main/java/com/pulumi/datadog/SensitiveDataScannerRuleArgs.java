@@ -154,14 +154,14 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Object describing how the scanned event will be replaced.
+     * Object describing how the scanned event will be replaced. Defaults to `type: none`
      * 
      */
     @Import(name="textReplacement")
     private @Nullable Output<SensitiveDataScannerRuleTextReplacementArgs> textReplacement;
 
     /**
-     * @return Object describing how the scanned event will be replaced.
+     * @return Object describing how the scanned event will be replaced. Defaults to `type: none`
      * 
      */
     public Optional<Output<SensitiveDataScannerRuleTextReplacementArgs>> textReplacement() {
@@ -421,7 +421,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param textReplacement Object describing how the scanned event will be replaced.
+         * @param textReplacement Object describing how the scanned event will be replaced. Defaults to `type: none`
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param textReplacement Object describing how the scanned event will be replaced.
+         * @param textReplacement Object describing how the scanned event will be replaced. Defaults to `type: none`
          * 
          * @return builder
          * 

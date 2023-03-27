@@ -177,6 +177,11 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { IpAllowlistArgs, IpAllowlistState } from "./ipAllowlist";
+export type IpAllowlist = import("./ipAllowlist").IpAllowlist;
+export const IpAllowlist: typeof import("./ipAllowlist").IpAllowlist = null as any;
+utilities.lazyLoad(exports, ["IpAllowlist"], () => require("./ipAllowlist"));
+
 export { LogsArchiveArgs, LogsArchiveState } from "./logsArchive";
 export type LogsArchive = import("./logsArchive").LogsArchive;
 export const LogsArchive: typeof import("./logsArchive").LogsArchive = null as any;
@@ -383,6 +388,8 @@ const _module = {
                 return new DashboardList(name, <any>undefined, { urn })
             case "datadog:index/downtime:Downtime":
                 return new Downtime(name, <any>undefined, { urn })
+            case "datadog:index/ipAllowlist:IpAllowlist":
+                return new IpAllowlist(name, <any>undefined, { urn })
             case "datadog:index/logsArchive:LogsArchive":
                 return new LogsArchive(name, <any>undefined, { urn })
             case "datadog:index/logsArchiveOrder:LogsArchiveOrder":
@@ -460,6 +467,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchiveOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsCustomPipeline", _module)

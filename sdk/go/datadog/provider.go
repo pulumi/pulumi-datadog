@@ -55,8 +55,14 @@ type providerArgs struct {
 	ApiUrl *string `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey *string `pulumi:"appKey"`
+	// The HTTP request retry back off base. Defaults to 2.
+	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
+	// The HTTP request retry back off multiplier. Defaults to 2.
+	HttpClientRetryBackoffMultiplier *int `pulumi:"httpClientRetryBackoffMultiplier"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 	HttpClientRetryEnabled *bool `pulumi:"httpClientRetryEnabled"`
+	// The HTTP request maximum retry number. Defaults to 3.
+	HttpClientRetryMaxRetries *int `pulumi:"httpClientRetryMaxRetries"`
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
@@ -76,8 +82,14 @@ type ProviderArgs struct {
 	ApiUrl pulumi.StringPtrInput
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrInput
+	// The HTTP request retry back off base. Defaults to 2.
+	HttpClientRetryBackoffBase pulumi.IntPtrInput
+	// The HTTP request retry back off multiplier. Defaults to 2.
+	HttpClientRetryBackoffMultiplier pulumi.IntPtrInput
 	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.BoolPtrInput
+	// The HTTP request maximum retry number. Defaults to 3.
+	HttpClientRetryMaxRetries pulumi.IntPtrInput
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key

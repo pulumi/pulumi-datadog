@@ -40,6 +40,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DashboardList{}
 	case "datadog:index/downtime:Downtime":
 		r = &Downtime{}
+	case "datadog:index/ipAllowlist:IpAllowlist":
+		r = &IpAllowlist{}
 	case "datadog:index/logsArchive:LogsArchive":
 		r = &LogsArchive{}
 	case "datadog:index/logsArchiveOrder:LogsArchiveOrder":
@@ -178,6 +180,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/downtime",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/ipAllowlist",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

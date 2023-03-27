@@ -66,6 +66,26 @@ namespace Pulumi.Datadog
             set => _appKey.Set(value);
         }
 
+        private static readonly __Value<int?> _httpClientRetryBackoffBase = new __Value<int?>(() => __config.GetInt32("httpClientRetryBackoffBase"));
+        /// <summary>
+        /// The HTTP request retry back off base. Defaults to 2.
+        /// </summary>
+        public static int? HttpClientRetryBackoffBase
+        {
+            get => _httpClientRetryBackoffBase.Get();
+            set => _httpClientRetryBackoffBase.Set(value);
+        }
+
+        private static readonly __Value<int?> _httpClientRetryBackoffMultiplier = new __Value<int?>(() => __config.GetInt32("httpClientRetryBackoffMultiplier"));
+        /// <summary>
+        /// The HTTP request retry back off multiplier. Defaults to 2.
+        /// </summary>
+        public static int? HttpClientRetryBackoffMultiplier
+        {
+            get => _httpClientRetryBackoffMultiplier.Get();
+            set => _httpClientRetryBackoffMultiplier.Set(value);
+        }
+
         private static readonly __Value<bool?> _httpClientRetryEnabled = new __Value<bool?>(() => __config.GetBoolean("httpClientRetryEnabled"));
         /// <summary>
         /// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
@@ -74,6 +94,16 @@ namespace Pulumi.Datadog
         {
             get => _httpClientRetryEnabled.Get();
             set => _httpClientRetryEnabled.Set(value);
+        }
+
+        private static readonly __Value<int?> _httpClientRetryMaxRetries = new __Value<int?>(() => __config.GetInt32("httpClientRetryMaxRetries"));
+        /// <summary>
+        /// The HTTP request maximum retry number. Defaults to 3.
+        /// </summary>
+        public static int? HttpClientRetryMaxRetries
+        {
+            get => _httpClientRetryMaxRetries.Get();
+            set => _httpClientRetryMaxRetries.Set(value);
         }
 
         private static readonly __Value<int?> _httpClientRetryTimeout = new __Value<int?>(() => __config.GetInt32("httpClientRetryTimeout"));

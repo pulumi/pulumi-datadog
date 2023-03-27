@@ -6537,6 +6537,109 @@ func (o DowntimeRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type IpAllowlistEntry struct {
+	CidrBlock string `pulumi:"cidrBlock"`
+	// Note accompanying IP address.
+	Note *string `pulumi:"note"`
+}
+
+// IpAllowlistEntryInput is an input type that accepts IpAllowlistEntryArgs and IpAllowlistEntryOutput values.
+// You can construct a concrete instance of `IpAllowlistEntryInput` via:
+//
+//	IpAllowlistEntryArgs{...}
+type IpAllowlistEntryInput interface {
+	pulumi.Input
+
+	ToIpAllowlistEntryOutput() IpAllowlistEntryOutput
+	ToIpAllowlistEntryOutputWithContext(context.Context) IpAllowlistEntryOutput
+}
+
+type IpAllowlistEntryArgs struct {
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// Note accompanying IP address.
+	Note pulumi.StringPtrInput `pulumi:"note"`
+}
+
+func (IpAllowlistEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAllowlistEntry)(nil)).Elem()
+}
+
+func (i IpAllowlistEntryArgs) ToIpAllowlistEntryOutput() IpAllowlistEntryOutput {
+	return i.ToIpAllowlistEntryOutputWithContext(context.Background())
+}
+
+func (i IpAllowlistEntryArgs) ToIpAllowlistEntryOutputWithContext(ctx context.Context) IpAllowlistEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAllowlistEntryOutput)
+}
+
+// IpAllowlistEntryArrayInput is an input type that accepts IpAllowlistEntryArray and IpAllowlistEntryArrayOutput values.
+// You can construct a concrete instance of `IpAllowlistEntryArrayInput` via:
+//
+//	IpAllowlistEntryArray{ IpAllowlistEntryArgs{...} }
+type IpAllowlistEntryArrayInput interface {
+	pulumi.Input
+
+	ToIpAllowlistEntryArrayOutput() IpAllowlistEntryArrayOutput
+	ToIpAllowlistEntryArrayOutputWithContext(context.Context) IpAllowlistEntryArrayOutput
+}
+
+type IpAllowlistEntryArray []IpAllowlistEntryInput
+
+func (IpAllowlistEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAllowlistEntry)(nil)).Elem()
+}
+
+func (i IpAllowlistEntryArray) ToIpAllowlistEntryArrayOutput() IpAllowlistEntryArrayOutput {
+	return i.ToIpAllowlistEntryArrayOutputWithContext(context.Background())
+}
+
+func (i IpAllowlistEntryArray) ToIpAllowlistEntryArrayOutputWithContext(ctx context.Context) IpAllowlistEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAllowlistEntryArrayOutput)
+}
+
+type IpAllowlistEntryOutput struct{ *pulumi.OutputState }
+
+func (IpAllowlistEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAllowlistEntry)(nil)).Elem()
+}
+
+func (o IpAllowlistEntryOutput) ToIpAllowlistEntryOutput() IpAllowlistEntryOutput {
+	return o
+}
+
+func (o IpAllowlistEntryOutput) ToIpAllowlistEntryOutputWithContext(ctx context.Context) IpAllowlistEntryOutput {
+	return o
+}
+
+func (o IpAllowlistEntryOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v IpAllowlistEntry) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// Note accompanying IP address.
+func (o IpAllowlistEntryOutput) Note() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAllowlistEntry) *string { return v.Note }).(pulumi.StringPtrOutput)
+}
+
+type IpAllowlistEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (IpAllowlistEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAllowlistEntry)(nil)).Elem()
+}
+
+func (o IpAllowlistEntryArrayOutput) ToIpAllowlistEntryArrayOutput() IpAllowlistEntryArrayOutput {
+	return o
+}
+
+func (o IpAllowlistEntryArrayOutput) ToIpAllowlistEntryArrayOutputWithContext(ctx context.Context) IpAllowlistEntryArrayOutput {
+	return o
+}
+
+func (o IpAllowlistEntryArrayOutput) Index(i pulumi.IntInput) IpAllowlistEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAllowlistEntry {
+		return vs[0].([]IpAllowlistEntry)[vs[1].(int)]
+	}).(IpAllowlistEntryOutput)
+}
+
 type LogsArchiveAzureArchive struct {
 	// Your client id.
 	ClientId string `pulumi:"clientId"`
@@ -7253,6 +7356,8 @@ type LogsCustomPipelineProcessor struct {
 	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
 	MessageRemapper *LogsCustomPipelineProcessorMessageRemapper `pulumi:"messageRemapper"`
 	Pipeline        *LogsCustomPipelineProcessorPipeline        `pulumi:"pipeline"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor *LogsCustomPipelineProcessorReferenceTableLookupProcessor `pulumi:"referenceTableLookupProcessor"`
 	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
 	ServiceRemapper *LogsCustomPipelineProcessorServiceRemapper `pulumi:"serviceRemapper"`
 	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
@@ -7296,6 +7401,8 @@ type LogsCustomPipelineProcessorArgs struct {
 	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
 	MessageRemapper LogsCustomPipelineProcessorMessageRemapperPtrInput `pulumi:"messageRemapper"`
 	Pipeline        LogsCustomPipelineProcessorPipelinePtrInput        `pulumi:"pipeline"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput `pulumi:"referenceTableLookupProcessor"`
 	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
 	ServiceRemapper LogsCustomPipelineProcessorServiceRemapperPtrInput `pulumi:"serviceRemapper"`
 	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
@@ -7413,6 +7520,13 @@ func (o LogsCustomPipelineProcessorOutput) MessageRemapper() LogsCustomPipelineP
 
 func (o LogsCustomPipelineProcessorOutput) Pipeline() LogsCustomPipelineProcessorPipelinePtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorPipeline { return v.Pipeline }).(LogsCustomPipelineProcessorPipelinePtrOutput)
+}
+
+// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+func (o LogsCustomPipelineProcessorOutput) ReferenceTableLookupProcessor() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+		return v.ReferenceTableLookupProcessor
+	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput)
 }
 
 // Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
@@ -9604,6 +9718,8 @@ type LogsCustomPipelineProcessorPipelineProcessor struct {
 	LookupProcessor *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor `pulumi:"lookupProcessor"`
 	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
 	MessageRemapper *LogsCustomPipelineProcessorPipelineProcessorMessageRemapper `pulumi:"messageRemapper"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor `pulumi:"referenceTableLookupProcessor"`
 	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
 	ServiceRemapper *LogsCustomPipelineProcessorPipelineProcessorServiceRemapper `pulumi:"serviceRemapper"`
 	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
@@ -9646,6 +9762,8 @@ type LogsCustomPipelineProcessorPipelineProcessorArgs struct {
 	LookupProcessor LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrInput `pulumi:"lookupProcessor"`
 	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
 	MessageRemapper LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrInput `pulumi:"messageRemapper"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput `pulumi:"referenceTableLookupProcessor"`
 	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
 	ServiceRemapper LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrInput `pulumi:"serviceRemapper"`
 	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
@@ -9765,6 +9883,13 @@ func (o LogsCustomPipelineProcessorPipelineProcessorOutput) MessageRemapper() Lo
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessor) *LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
 		return v.MessageRemapper
 	}).(LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput)
+}
+
+// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+func (o LogsCustomPipelineProcessorPipelineProcessorOutput) ReferenceTableLookupProcessor() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessor) *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+		return v.ReferenceTableLookupProcessor
+	}).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput)
 }
 
 // Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
@@ -11670,6 +11795,209 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) So
 	}).(pulumi.StringArrayOutput)
 }
 
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor struct {
+	IsEnabled             *bool   `pulumi:"isEnabled"`
+	LookupEnrichmentTable string  `pulumi:"lookupEnrichmentTable"`
+	Name                  *string `pulumi:"name"`
+	Source                string  `pulumi:"source"`
+	Target                string  `pulumi:"target"`
+}
+
+// LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs{...}
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput
+	ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput
+}
+
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs struct {
+	IsEnabled             pulumi.BoolPtrInput   `pulumi:"isEnabled"`
+	LookupEnrichmentTable pulumi.StringInput    `pulumi:"lookupEnrichmentTable"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Source                pulumi.StringInput    `pulumi:"source"`
+	Target                pulumi.StringInput    `pulumi:"target"`
+}
+
+func (LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput)
+}
+
+func (i LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput).ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs, LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtr and LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput
+	ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput
+}
+
+type logsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrType LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs
+
+func LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtr(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput {
+	return (*logsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrType) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrType) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+		return &v
+	}).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *bool {
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) LookupEnrichmentTable() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
+		return v.LookupEnrichmentTable
+	}).(pulumi.StringOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
+		return v.Source
+	}).(pulumi.StringOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
+		return v.Target
+	}).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) ToLogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Elem() LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor
+		return ret
+	}).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) LookupEnrichmentTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LookupEnrichmentTable
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogsCustomPipelineProcessorPipelineProcessorServiceRemapper struct {
 	IsEnabled *bool    `pulumi:"isEnabled"`
 	Name      *string  `pulumi:"name"`
@@ -12733,6 +13061,201 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) So
 
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomPipelineProcessorReferenceTableLookupProcessor struct {
+	IsEnabled             *bool   `pulumi:"isEnabled"`
+	LookupEnrichmentTable string  `pulumi:"lookupEnrichmentTable"`
+	Name                  *string `pulumi:"name"`
+	Source                string  `pulumi:"source"`
+	Target                string  `pulumi:"target"`
+}
+
+// LogsCustomPipelineProcessorReferenceTableLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs and LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorReferenceTableLookupProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs{...}
+type LogsCustomPipelineProcessorReferenceTableLookupProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput
+	ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput
+}
+
+type LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs struct {
+	IsEnabled             pulumi.BoolPtrInput   `pulumi:"isEnabled"`
+	LookupEnrichmentTable pulumi.StringInput    `pulumi:"lookupEnrichmentTable"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Source                pulumi.StringInput    `pulumi:"source"`
+	Target                pulumi.StringInput    `pulumi:"target"`
+}
+
+func (LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput)
+}
+
+func (i LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput).ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs, LogsCustomPipelineProcessorReferenceTableLookupProcessorPtr and LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput
+	ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput
+}
+
+type logsCustomPipelineProcessorReferenceTableLookupProcessorPtrType LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs
+
+func LogsCustomPipelineProcessorReferenceTableLookupProcessorPtr(v *LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput {
+	return (*logsCustomPipelineProcessorReferenceTableLookupProcessorPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorReferenceTableLookupProcessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorReferenceTableLookupProcessorPtrType) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorReferenceTableLookupProcessorPtrType) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorReferenceTableLookupProcessor) *LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+		return &v
+	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) LookupEnrichmentTable() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string {
+		return v.LookupEnrichmentTable
+	}).(pulumi.StringOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string { return v.Source }).(pulumi.StringOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorReferenceTableLookupProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) ToLogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Elem() LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorReferenceTableLookupProcessor
+		return ret
+	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) LookupEnrichmentTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LookupEnrichmentTable
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
 			return nil
 		}
@@ -15556,7 +16079,7 @@ type MonitorVariablesEventQuery struct {
 	GroupBies  []MonitorVariablesEventQueryGroupBy `pulumi:"groupBies"`
 	Indexes    []string                            `pulumi:"indexes"`
 	Name       string                              `pulumi:"name"`
-	Search     *MonitorVariablesEventQuerySearch   `pulumi:"search"`
+	Search     MonitorVariablesEventQuerySearch    `pulumi:"search"`
 }
 
 // MonitorVariablesEventQueryInput is an input type that accepts MonitorVariablesEventQueryArgs and MonitorVariablesEventQueryOutput values.
@@ -15576,7 +16099,7 @@ type MonitorVariablesEventQueryArgs struct {
 	GroupBies  MonitorVariablesEventQueryGroupByArrayInput `pulumi:"groupBies"`
 	Indexes    pulumi.StringArrayInput                     `pulumi:"indexes"`
 	Name       pulumi.StringInput                          `pulumi:"name"`
-	Search     MonitorVariablesEventQuerySearchPtrInput    `pulumi:"search"`
+	Search     MonitorVariablesEventQuerySearchInput       `pulumi:"search"`
 }
 
 func (MonitorVariablesEventQueryArgs) ElementType() reflect.Type {
@@ -15650,8 +16173,8 @@ func (o MonitorVariablesEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o MonitorVariablesEventQueryOutput) Search() MonitorVariablesEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v MonitorVariablesEventQuery) *MonitorVariablesEventQuerySearch { return v.Search }).(MonitorVariablesEventQuerySearchPtrOutput)
+func (o MonitorVariablesEventQueryOutput) Search() MonitorVariablesEventQuerySearchOutput {
+	return o.ApplyT(func(v MonitorVariablesEventQuery) MonitorVariablesEventQuerySearch { return v.Search }).(MonitorVariablesEventQuerySearchOutput)
 }
 
 type MonitorVariablesEventQueryArrayOutput struct{ *pulumi.OutputState }
@@ -16080,47 +16603,6 @@ func (i MonitorVariablesEventQuerySearchArgs) ToMonitorVariablesEventQuerySearch
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesEventQuerySearchOutput)
 }
 
-func (i MonitorVariablesEventQuerySearchArgs) ToMonitorVariablesEventQuerySearchPtrOutput() MonitorVariablesEventQuerySearchPtrOutput {
-	return i.ToMonitorVariablesEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (i MonitorVariablesEventQuerySearchArgs) ToMonitorVariablesEventQuerySearchPtrOutputWithContext(ctx context.Context) MonitorVariablesEventQuerySearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesEventQuerySearchOutput).ToMonitorVariablesEventQuerySearchPtrOutputWithContext(ctx)
-}
-
-// MonitorVariablesEventQuerySearchPtrInput is an input type that accepts MonitorVariablesEventQuerySearchArgs, MonitorVariablesEventQuerySearchPtr and MonitorVariablesEventQuerySearchPtrOutput values.
-// You can construct a concrete instance of `MonitorVariablesEventQuerySearchPtrInput` via:
-//
-//	        MonitorVariablesEventQuerySearchArgs{...}
-//
-//	or:
-//
-//	        nil
-type MonitorVariablesEventQuerySearchPtrInput interface {
-	pulumi.Input
-
-	ToMonitorVariablesEventQuerySearchPtrOutput() MonitorVariablesEventQuerySearchPtrOutput
-	ToMonitorVariablesEventQuerySearchPtrOutputWithContext(context.Context) MonitorVariablesEventQuerySearchPtrOutput
-}
-
-type monitorVariablesEventQuerySearchPtrType MonitorVariablesEventQuerySearchArgs
-
-func MonitorVariablesEventQuerySearchPtr(v *MonitorVariablesEventQuerySearchArgs) MonitorVariablesEventQuerySearchPtrInput {
-	return (*monitorVariablesEventQuerySearchPtrType)(v)
-}
-
-func (*monitorVariablesEventQuerySearchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorVariablesEventQuerySearch)(nil)).Elem()
-}
-
-func (i *monitorVariablesEventQuerySearchPtrType) ToMonitorVariablesEventQuerySearchPtrOutput() MonitorVariablesEventQuerySearchPtrOutput {
-	return i.ToMonitorVariablesEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (i *monitorVariablesEventQuerySearchPtrType) ToMonitorVariablesEventQuerySearchPtrOutputWithContext(ctx context.Context) MonitorVariablesEventQuerySearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesEventQuerySearchPtrOutput)
-}
-
 type MonitorVariablesEventQuerySearchOutput struct{ *pulumi.OutputState }
 
 func (MonitorVariablesEventQuerySearchOutput) ElementType() reflect.Type {
@@ -16135,51 +16617,8 @@ func (o MonitorVariablesEventQuerySearchOutput) ToMonitorVariablesEventQuerySear
 	return o
 }
 
-func (o MonitorVariablesEventQuerySearchOutput) ToMonitorVariablesEventQuerySearchPtrOutput() MonitorVariablesEventQuerySearchPtrOutput {
-	return o.ToMonitorVariablesEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (o MonitorVariablesEventQuerySearchOutput) ToMonitorVariablesEventQuerySearchPtrOutputWithContext(ctx context.Context) MonitorVariablesEventQuerySearchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorVariablesEventQuerySearch) *MonitorVariablesEventQuerySearch {
-		return &v
-	}).(MonitorVariablesEventQuerySearchPtrOutput)
-}
-
 func (o MonitorVariablesEventQuerySearchOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
-}
-
-type MonitorVariablesEventQuerySearchPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitorVariablesEventQuerySearchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorVariablesEventQuerySearch)(nil)).Elem()
-}
-
-func (o MonitorVariablesEventQuerySearchPtrOutput) ToMonitorVariablesEventQuerySearchPtrOutput() MonitorVariablesEventQuerySearchPtrOutput {
-	return o
-}
-
-func (o MonitorVariablesEventQuerySearchPtrOutput) ToMonitorVariablesEventQuerySearchPtrOutputWithContext(ctx context.Context) MonitorVariablesEventQuerySearchPtrOutput {
-	return o
-}
-
-func (o MonitorVariablesEventQuerySearchPtrOutput) Elem() MonitorVariablesEventQuerySearchOutput {
-	return o.ApplyT(func(v *MonitorVariablesEventQuerySearch) MonitorVariablesEventQuerySearch {
-		if v != nil {
-			return *v
-		}
-		var ret MonitorVariablesEventQuerySearch
-		return ret
-	}).(MonitorVariablesEventQuerySearchOutput)
-}
-
-func (o MonitorVariablesEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitorVariablesEventQuerySearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
 }
 
 type OrganizationSettingsSettings struct {
@@ -17843,9 +18282,9 @@ type SecurityMonitoringRuleOptions struct {
 	EvaluationWindow *int `pulumi:"evaluationWindow"`
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions *SecurityMonitoringRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
-	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
 	KeepAlive int `pulumi:"keepAlive"`
-	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 	MaxSignalDuration int `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions *SecurityMonitoringRuleOptionsNewValueOptions `pulumi:"newValueOptions"`
@@ -17871,9 +18310,9 @@ type SecurityMonitoringRuleOptionsArgs struct {
 	EvaluationWindow pulumi.IntPtrInput `pulumi:"evaluationWindow"`
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
-	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
 	KeepAlive pulumi.IntInput `pulumi:"keepAlive"`
-	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 	MaxSignalDuration pulumi.IntInput `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions SecurityMonitoringRuleOptionsNewValueOptionsPtrInput `pulumi:"newValueOptions"`
@@ -17978,12 +18417,12 @@ func (o SecurityMonitoringRuleOptionsOutput) ImpossibleTravelOptions() SecurityM
 	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
-// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
 func (o SecurityMonitoringRuleOptionsOutput) KeepAlive() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) int { return v.KeepAlive }).(pulumi.IntOutput)
 }
 
-// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 func (o SecurityMonitoringRuleOptionsOutput) MaxSignalDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) int { return v.MaxSignalDuration }).(pulumi.IntOutput)
 }
@@ -18059,7 +18498,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) ImpossibleTravelOptions() Securi
 	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
-// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
 func (o SecurityMonitoringRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
 		if v == nil {
@@ -18069,7 +18508,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 func (o SecurityMonitoringRuleOptionsPtrOutput) MaxSignalDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
 		if v == nil {
@@ -24221,7 +24660,7 @@ type SyntheticsTestOptionsList struct {
 	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
 	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
 	InitialNavigationTimeout *int `pulumi:"initialNavigationTimeout"`
-	// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
 	MinFailureDuration *int `pulumi:"minFailureDuration"`
 	// Minimum number of locations in failure required to trigger an alert. Default is `1`.
 	MinLocationFailed *int `pulumi:"minLocationFailed"`
@@ -24274,7 +24713,7 @@ type SyntheticsTestOptionsListArgs struct {
 	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
 	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
 	InitialNavigationTimeout pulumi.IntPtrInput `pulumi:"initialNavigationTimeout"`
-	// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
 	MinFailureDuration pulumi.IntPtrInput `pulumi:"minFailureDuration"`
 	// Minimum number of locations in failure required to trigger an alert. Default is `1`.
 	MinLocationFailed pulumi.IntPtrInput `pulumi:"minLocationFailed"`
@@ -24422,7 +24861,7 @@ func (o SyntheticsTestOptionsListOutput) InitialNavigationTimeout() pulumi.IntPt
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.InitialNavigationTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
 func (o SyntheticsTestOptionsListOutput) MinFailureDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MinFailureDuration }).(pulumi.IntPtrOutput)
 }
@@ -24598,7 +25037,7 @@ func (o SyntheticsTestOptionsListPtrOutput) InitialNavigationTimeout() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum amount of time in failure required to trigger an alert. Default is `0`.
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
 func (o SyntheticsTestOptionsListPtrOutput) MinFailureDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
 		if v == nil {
@@ -30295,6 +30734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWidgetLayoutPtrInput)(nil)).Elem(), DashboardWidgetWidgetLayoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrenceInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrencePtrInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryInput)(nil)).Elem(), IpAllowlistEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryArrayInput)(nil)).Elem(), IpAllowlistEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchiveInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchivePtrInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchiveInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
@@ -30353,6 +30794,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorMessageRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorServiceRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorStatusRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs{})
@@ -30365,6 +30808,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorUserAgentParserInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorReferenceTableLookupProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorServiceRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorServiceRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorServiceRemapperPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorServiceRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorStatusRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorStatusRemapperArgs{})
@@ -30412,7 +30857,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQueryGroupBySortInput)(nil)).Elem(), MonitorVariablesEventQueryGroupBySortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQueryGroupBySortPtrInput)(nil)).Elem(), MonitorVariablesEventQueryGroupBySortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQuerySearchInput)(nil)).Elem(), MonitorVariablesEventQuerySearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQuerySearchPtrInput)(nil)).Elem(), MonitorVariablesEventQuerySearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsInput)(nil)).Elem(), OrganizationSettingsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsPtrInput)(nil)).Elem(), OrganizationSettingsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlInput)(nil)).Elem(), OrganizationSettingsSettingsSamlArgs{})
@@ -30670,6 +31114,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWidgetWidgetLayoutPtrOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrenceOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(IpAllowlistEntryOutput{})
+	pulumi.RegisterOutputType(IpAllowlistEntryArrayOutput{})
 	pulumi.RegisterOutputType(LogsArchiveAzureArchiveOutput{})
 	pulumi.RegisterOutputType(LogsArchiveAzureArchivePtrOutput{})
 	pulumi.RegisterOutputType(LogsArchiveGcsArchiveOutput{})
@@ -30728,6 +31174,8 @@ func init() {
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput{})
@@ -30740,6 +31188,8 @@ func init() {
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorServiceRemapperOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorServiceRemapperPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorStatusRemapperOutput{})
@@ -30787,7 +31237,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitorVariablesEventQueryGroupBySortOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesEventQueryGroupBySortPtrOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesEventQuerySearchOutput{})
-	pulumi.RegisterOutputType(MonitorVariablesEventQuerySearchPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlOutput{})

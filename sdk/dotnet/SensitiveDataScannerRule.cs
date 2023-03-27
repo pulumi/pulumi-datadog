@@ -149,7 +149,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Object describing how the scanned event will be replaced.
+        /// Object describing how the scanned event will be replaced. Defaults to `type: none`
         /// </summary>
         [Output("textReplacement")]
         public Output<Outputs.SensitiveDataScannerRuleTextReplacement?> TextReplacement { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Object describing how the scanned event will be replaced.
+        /// Object describing how the scanned event will be replaced. Defaults to `type: none`
         /// </summary>
         [Input("textReplacement")]
         public Input<Inputs.SensitiveDataScannerRuleTextReplacementArgs>? TextReplacement { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Object describing how the scanned event will be replaced.
+        /// Object describing how the scanned event will be replaced. Defaults to `type: none`
         /// </summary>
         [Input("textReplacement")]
         public Input<Inputs.SensitiveDataScannerRuleTextReplacementGetArgs>? TextReplacement { get; set; }
