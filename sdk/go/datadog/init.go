@@ -20,8 +20,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "datadog:index/apiKey:ApiKey":
-		r = &ApiKey{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
 	case "datadog:index/authnMapping:AuthnMapping":
@@ -132,11 +130,6 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 
 func init() {
 	version, _ := PkgVersion()
-	pulumi.RegisterResourceModule(
-		"datadog",
-		"index/apiKey",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/applicationKey",

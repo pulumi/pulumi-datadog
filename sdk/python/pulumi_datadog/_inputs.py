@@ -465,6 +465,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs',
@@ -878,6 +879,7 @@ __all__ = [
     'DashboardWidgetSloListDefinitionArgs',
     'DashboardWidgetSloListDefinitionRequestArgs',
     'DashboardWidgetSloListDefinitionRequestQueryArgs',
+    'DashboardWidgetSloListDefinitionRequestQuerySortArgs',
     'DashboardWidgetSunburstDefinitionArgs',
     'DashboardWidgetSunburstDefinitionCustomLinkArgs',
     'DashboardWidgetSunburstDefinitionLegendInlineArgs',
@@ -4637,6 +4639,7 @@ class DashboardWidgetCheckStatusDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[str] title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -4704,6 +4707,9 @@ class DashboardWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -10895,6 +10901,7 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[str] title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -10962,6 +10969,9 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -27345,10 +27355,13 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs:
 class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None):
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -27367,6 +27380,42 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs:
     @limit.setter
     def limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -50156,10 +50205,13 @@ class DashboardWidgetSloListDefinitionRequestArgs:
 class DashboardWidgetSloListDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None):
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -50178,6 +50230,42 @@ class DashboardWidgetSloListDefinitionRequestQueryArgs:
     @limit.setter
     def limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetSloListDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -65038,10 +65126,11 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str]):
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -65063,11 +65152,11 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "targetvalue")
 
     @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
 
 
@@ -65075,11 +65164,12 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
 class SyntheticsTestApiStepAssertionTargetxpathArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str],
-                 xpath: pulumi.Input[str]):
+                 xpath: pulumi.Input[str],
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -65092,21 +65182,21 @@ class SyntheticsTestApiStepAssertionTargetxpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "targetvalue")
-
-    @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
-        pulumi.set(self, "targetvalue", value)
-
-    @property
-    @pulumi.getter
     def xpath(self) -> pulumi.Input[str]:
         return pulumi.get(self, "xpath")
 
     @xpath.setter
     def xpath(self, value: pulumi.Input[str]):
         pulumi.set(self, "xpath", value)
+
+    @property
+    @pulumi.getter
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "targetvalue")
+
+    @targetvalue.setter
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "targetvalue", value)
 
 
 @pulumi.input_type
@@ -66041,10 +66131,11 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str]):
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -66066,11 +66157,11 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "targetvalue")
 
     @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
 
 
@@ -66078,11 +66169,12 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
 class SyntheticsTestAssertionTargetxpathArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str],
-                 xpath: pulumi.Input[str]):
+                 xpath: pulumi.Input[str],
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -66095,21 +66187,21 @@ class SyntheticsTestAssertionTargetxpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "targetvalue")
-
-    @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
-        pulumi.set(self, "targetvalue", value)
-
-    @property
-    @pulumi.getter
     def xpath(self) -> pulumi.Input[str]:
         return pulumi.get(self, "xpath")
 
     @xpath.setter
     def xpath(self, value: pulumi.Input[str]):
         pulumi.set(self, "xpath", value)
+
+    @property
+    @pulumi.getter
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "targetvalue")
+
+    @targetvalue.setter
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "targetvalue", value)
 
 
 @pulumi.input_type
@@ -66121,6 +66213,7 @@ class SyntheticsTestBrowserStepArgs:
                  allow_failure: Optional[pulumi.Input[bool]] = None,
                  force_element_update: Optional[pulumi.Input[bool]] = None,
                  is_critical: Optional[pulumi.Input[bool]] = None,
+                 no_screenshot: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: Name of the step.
@@ -66129,6 +66222,7 @@ class SyntheticsTestBrowserStepArgs:
         :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
         :param pulumi.Input[bool] force_element_update: Force update of the "element" parameter for the step
         :param pulumi.Input[bool] is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the step.
         :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -66140,6 +66234,8 @@ class SyntheticsTestBrowserStepArgs:
             pulumi.set(__self__, "force_element_update", force_element_update)
         if is_critical is not None:
             pulumi.set(__self__, "is_critical", is_critical)
+        if no_screenshot is not None:
+            pulumi.set(__self__, "no_screenshot", no_screenshot)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -66214,6 +66310,18 @@ class SyntheticsTestBrowserStepArgs:
     @is_critical.setter
     def is_critical(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_critical", value)
+
+    @property
+    @pulumi.getter(name="noScreenshot")
+    def no_screenshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevents saving screenshots of the step.
+        """
+        return pulumi.get(self, "no_screenshot")
+
+    @no_screenshot.setter
+    def no_screenshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_screenshot", value)
 
     @property
     @pulumi.getter

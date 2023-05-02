@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
     private @Nullable Integer limit;
     private String queryString;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort sort;
 
     private DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery() {}
     public Optional<Integer> limit() {
@@ -21,6 +23,9 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
     }
     public String queryString() {
         return this.queryString;
+    }
+    public Optional<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort> sort() {
+        return Optional.ofNullable(this.sort);
     }
 
     public static Builder builder() {
@@ -34,11 +39,13 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
     public static final class Builder {
         private @Nullable Integer limit;
         private String queryString;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort sort;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.limit = defaults.limit;
     	      this.queryString = defaults.queryString;
+    	      this.sort = defaults.sort;
         }
 
         @CustomType.Setter
@@ -51,10 +58,16 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
             this.queryString = Objects.requireNonNull(queryString);
             return this;
         }
+        @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort sort) {
+            this.sort = sort;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery();
             o.limit = limit;
             o.queryString = queryString;
+            o.sort = sort;
             return o;
         }
     }

@@ -67,6 +67,8 @@ type LookupServiceLevelObjectiveArgs struct {
 
 // A collection of values returned by getServiceLevelObjective.
 type LookupServiceLevelObjectiveResult struct {
+	// The description of the service level objective.
+	Description string `pulumi:"description"`
 	// A SLO ID to limit the search.
 	Id *string `pulumi:"id"`
 	// Filter results based on SLO numerator and denominator.
@@ -75,10 +77,18 @@ type LookupServiceLevelObjectiveResult struct {
 	Name string `pulumi:"name"`
 	// Filter results based on SLO names.
 	NameQuery *string `pulumi:"nameQuery"`
+	// The metric query of good / total events
+	Queries []GetServiceLevelObjectiveQuery `pulumi:"queries"`
 	// Filter results based on a single SLO tag.
 	TagsQuery *string `pulumi:"tagsQuery"`
+	// The primary target threshold of the service level objective.
+	TargetThreshold float64 `pulumi:"targetThreshold"`
+	// The primary timeframe of the service level objective.
+	Timeframe string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
 	Type string `pulumi:"type"`
+	// The primary warning threshold of the service level objective.
+	WarningThreshold float64 `pulumi:"warningThreshold"`
 }
 
 func LookupServiceLevelObjectiveOutput(ctx *pulumi.Context, args LookupServiceLevelObjectiveOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLevelObjectiveResultOutput {
@@ -125,6 +135,11 @@ func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveRe
 	return o
 }
 
+// The description of the service level objective.
+func (o LookupServiceLevelObjectiveResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // A SLO ID to limit the search.
 func (o LookupServiceLevelObjectiveResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -145,14 +160,34 @@ func (o LookupServiceLevelObjectiveResultOutput) NameQuery() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.NameQuery }).(pulumi.StringPtrOutput)
 }
 
+// The metric query of good / total events
+func (o LookupServiceLevelObjectiveResultOutput) Queries() GetServiceLevelObjectiveQueryArrayOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []GetServiceLevelObjectiveQuery { return v.Queries }).(GetServiceLevelObjectiveQueryArrayOutput)
+}
+
 // Filter results based on a single SLO tag.
 func (o LookupServiceLevelObjectiveResultOutput) TagsQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.TagsQuery }).(pulumi.StringPtrOutput)
 }
 
+// The primary target threshold of the service level objective.
+func (o LookupServiceLevelObjectiveResultOutput) TargetThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) float64 { return v.TargetThreshold }).(pulumi.Float64Output)
+}
+
+// The primary timeframe of the service level objective.
+func (o LookupServiceLevelObjectiveResultOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
 // The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
 func (o LookupServiceLevelObjectiveResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The primary warning threshold of the service level objective.
+func (o LookupServiceLevelObjectiveResultOutput) WarningThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) float64 { return v.WarningThreshold }).(pulumi.Float64Output)
 }
 
 func init() {

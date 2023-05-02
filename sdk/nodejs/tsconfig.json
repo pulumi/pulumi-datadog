@@ -13,7 +13,6 @@
         "strict": true
     },
     "files": [
-        "apiKey.ts",
         "applicationKey.ts",
         "authnMapping.ts",
         "aws/getIntegrationLogsServices.ts",
@@ -35,12 +34,10 @@
         "downtime.ts",
         "gcp/index.ts",
         "gcp/integration.ts",
-        "getApiKey.ts",
         "getApplicationKey.ts",
         "getCloudWorkloadSecurityAgentRules.ts",
         "getDashboard.ts",
         "getDashboardList.ts",
-        "getIpRanges.ts",
         "getLogsArchivesOrder.ts",
         "getLogsIndexes.ts",
         "getLogsIndexesOrder.ts",

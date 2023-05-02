@@ -14,14 +14,14 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepAssertionTargetxpath
     {
         public readonly string Operator;
-        public readonly string Targetvalue;
+        public readonly string? Targetvalue;
         public readonly string Xpath;
 
         [OutputConstructor]
         private SyntheticsTestApiStepAssertionTargetxpath(
             string @operator,
 
-            string targetvalue,
+            string? targetvalue,
 
             string xpath)
         {

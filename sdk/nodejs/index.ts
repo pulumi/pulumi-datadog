@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { ApiKeyArgs, ApiKeyState } from "./apiKey";
-export type ApiKey = import("./apiKey").ApiKey;
-export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
-utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
-
 export { ApplicationKeyArgs, ApplicationKeyState } from "./applicationKey";
 export type ApplicationKey = import("./applicationKey").ApplicationKey;
 export const ApplicationKey: typeof import("./applicationKey").ApplicationKey = null as any;
@@ -55,11 +50,6 @@ export type Downtime = import("./downtime").Downtime;
 export const Downtime: typeof import("./downtime").Downtime = null as any;
 utilities.lazyLoad(exports, ["Downtime"], () => require("./downtime"));
 
-export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
-export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
-export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
-
 export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutputArgs } from "./getApplicationKey";
 export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
 export const getApplicationKeyOutput: typeof import("./getApplicationKey").getApplicationKeyOutput = null as any;
@@ -78,10 +68,6 @@ export { GetDashboardListArgs, GetDashboardListResult, GetDashboardListOutputArg
 export const getDashboardList: typeof import("./getDashboardList").getDashboardList = null as any;
 export const getDashboardListOutput: typeof import("./getDashboardList").getDashboardListOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboardList","getDashboardListOutput"], () => require("./getDashboardList"));
-
-export { GetIpRangesResult } from "./getIpRanges";
-export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
-utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
 
 export { GetLogsArchivesOrderResult } from "./getLogsArchivesOrder";
 export const getLogsArchivesOrder: typeof import("./getLogsArchivesOrder").getLogsArchivesOrder = null as any;
@@ -368,8 +354,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "datadog:index/apiKey:ApiKey":
-                return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
             case "datadog:index/authnMapping:AuthnMapping":
@@ -457,7 +441,6 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)

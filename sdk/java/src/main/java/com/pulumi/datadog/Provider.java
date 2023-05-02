@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.ProviderArgs;
 import com.pulumi.datadog.Utilities;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -72,6 +73,36 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> appKey() {
         return Codegen.optional(this.appKey);
     }
+    /**
+     * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * 
+     */
+    @Export(name="httpClientRetryEnabled", type=String.class, parameters={})
+    private Output</* @Nullable */ String> httpClientRetryEnabled;
+
+    /**
+     * @return Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<String>> httpClientRetryEnabled() {
+        return Codegen.optional(this.httpClientRetryEnabled);
+    }
+    /**
+     * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
+     * Default is true. When false, api_key and app_key won&#39;t be checked.
+     * 
+     */
+    @Export(name="validate", type=String.class, parameters={})
+    private Output</* @Nullable */ String> validate;
+
+    /**
+     * @return Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
+     * Default is true. When false, api_key and app_key won&#39;t be checked.
+     * 
+     */
+    public Output<Optional<String>> validate() {
+        return Codegen.optional(this.validate);
+    }
 
     /**
      *
@@ -101,6 +132,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "apiKey",
+                "appKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -67,12 +67,12 @@ Object.defineProperty(exports, "httpClientRetryBackoffMultiplier", {
 });
 
 /**
- * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+ * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
  */
-export declare const httpClientRetryEnabled: boolean | undefined;
+export declare const httpClientRetryEnabled: string | undefined;
 Object.defineProperty(exports, "httpClientRetryEnabled", {
     get() {
-        return __config.getObject<boolean>("httpClientRetryEnabled");
+        return __config.get("httpClientRetryEnabled");
     },
     enumerable: true,
 });
@@ -100,13 +100,13 @@ Object.defineProperty(exports, "httpClientRetryTimeout", {
 });
 
 /**
- * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
- * and app_key won't be checked.
+ * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
+ * Default is true. When false, api_key and app_key won't be checked.
  */
-export declare const validate: boolean | undefined;
+export declare const validate: string | undefined;
 Object.defineProperty(exports, "validate", {
     get() {
-        return __config.getObject<boolean>("validate");
+        return __config.get("validate");
     },
     enumerable: true,
 });

@@ -6,12 +6,14 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepAssertionTargetjsonpath {
     private String jsonpath;
     private String operator;
-    private String targetvalue;
+    private @Nullable String targetvalue;
 
     private SyntheticsTestApiStepAssertionTargetjsonpath() {}
     public String jsonpath() {
@@ -20,8 +22,8 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpath {
     public String operator() {
         return this.operator;
     }
-    public String targetvalue() {
-        return this.targetvalue;
+    public Optional<String> targetvalue() {
+        return Optional.ofNullable(this.targetvalue);
     }
 
     public static Builder builder() {
@@ -35,7 +37,7 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpath {
     public static final class Builder {
         private String jsonpath;
         private String operator;
-        private String targetvalue;
+        private @Nullable String targetvalue;
         public Builder() {}
         public Builder(SyntheticsTestApiStepAssertionTargetjsonpath defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,8 +57,8 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpath {
             return this;
         }
         @CustomType.Setter
-        public Builder targetvalue(String targetvalue) {
-            this.targetvalue = Objects.requireNonNull(targetvalue);
+        public Builder targetvalue(@Nullable String targetvalue) {
+            this.targetvalue = targetvalue;
             return this;
         }
         public SyntheticsTestApiStepAssertionTargetjsonpath build() {

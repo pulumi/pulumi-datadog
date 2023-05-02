@@ -122,8 +122,7 @@ type Monitor struct {
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-	// contact Support at support@datadoghq.com
+	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayOutput `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
@@ -278,8 +277,7 @@ type monitorState struct {
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-	// contact Support at support@datadoghq.com
+	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
@@ -394,8 +392,7 @@ type MonitorState struct {
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-	// contact Support at support@datadoghq.com
+	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
@@ -511,8 +508,7 @@ type monitorArgs struct {
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-	// contact Support at support@datadoghq.com
+	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
@@ -625,8 +621,7 @@ type MonitorArgs struct {
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-	// contact Support at support@datadoghq.com
+	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
@@ -881,8 +876,7 @@ func (o MonitorOutput) NotifyAudit() pulumi.BoolPtrOutput {
 // grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
 // conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
 // in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-// contact Support at support@datadoghq.com
+// to `[*]` configures the monitor to notify as a simple-alert.
 func (o MonitorOutput) NotifyBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.NotifyBies }).(pulumi.StringArrayOutput)
 }
