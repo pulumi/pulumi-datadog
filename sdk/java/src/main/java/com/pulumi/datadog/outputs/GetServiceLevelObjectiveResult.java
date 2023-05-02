@@ -4,13 +4,21 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetServiceLevelObjectiveQuery;
+import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceLevelObjectiveResult {
+    /**
+     * @return The description of the service level objective.
+     * 
+     */
+    private String description;
     /**
      * @return A SLO ID to limit the search.
      * 
@@ -32,17 +40,44 @@ public final class GetServiceLevelObjectiveResult {
      */
     private @Nullable String nameQuery;
     /**
+     * @return The metric query of good / total events
+     * 
+     */
+    private List<GetServiceLevelObjectiveQuery> queries;
+    /**
      * @return Filter results based on a single SLO tag.
      * 
      */
     private @Nullable String tagsQuery;
     /**
+     * @return The primary target threshold of the service level objective.
+     * 
+     */
+    private Double targetThreshold;
+    /**
+     * @return The primary timeframe of the service level objective.
+     * 
+     */
+    private String timeframe;
+    /**
      * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
      * 
      */
     private String type;
+    /**
+     * @return The primary warning threshold of the service level objective.
+     * 
+     */
+    private Double warningThreshold;
 
     private GetServiceLevelObjectiveResult() {}
+    /**
+     * @return The description of the service level objective.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
     /**
      * @return A SLO ID to limit the search.
      * 
@@ -72,6 +107,13 @@ public final class GetServiceLevelObjectiveResult {
         return Optional.ofNullable(this.nameQuery);
     }
     /**
+     * @return The metric query of good / total events
+     * 
+     */
+    public List<GetServiceLevelObjectiveQuery> queries() {
+        return this.queries;
+    }
+    /**
      * @return Filter results based on a single SLO tag.
      * 
      */
@@ -79,11 +121,32 @@ public final class GetServiceLevelObjectiveResult {
         return Optional.ofNullable(this.tagsQuery);
     }
     /**
+     * @return The primary target threshold of the service level objective.
+     * 
+     */
+    public Double targetThreshold() {
+        return this.targetThreshold;
+    }
+    /**
+     * @return The primary timeframe of the service level objective.
+     * 
+     */
+    public String timeframe() {
+        return this.timeframe;
+    }
+    /**
      * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
      * 
      */
     public String type() {
         return this.type;
+    }
+    /**
+     * @return The primary warning threshold of the service level objective.
+     * 
+     */
+    public Double warningThreshold() {
+        return this.warningThreshold;
     }
 
     public static Builder builder() {
@@ -95,23 +158,38 @@ public final class GetServiceLevelObjectiveResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private @Nullable String id;
         private @Nullable String metricsQuery;
         private String name;
         private @Nullable String nameQuery;
+        private List<GetServiceLevelObjectiveQuery> queries;
         private @Nullable String tagsQuery;
+        private Double targetThreshold;
+        private String timeframe;
         private String type;
+        private Double warningThreshold;
         public Builder() {}
         public Builder(GetServiceLevelObjectiveResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.metricsQuery = defaults.metricsQuery;
     	      this.name = defaults.name;
     	      this.nameQuery = defaults.nameQuery;
+    	      this.queries = defaults.queries;
     	      this.tagsQuery = defaults.tagsQuery;
+    	      this.targetThreshold = defaults.targetThreshold;
+    	      this.timeframe = defaults.timeframe;
     	      this.type = defaults.type;
+    	      this.warningThreshold = defaults.warningThreshold;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            this.description = Objects.requireNonNull(description);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -133,8 +211,26 @@ public final class GetServiceLevelObjectiveResult {
             return this;
         }
         @CustomType.Setter
+        public Builder queries(List<GetServiceLevelObjectiveQuery> queries) {
+            this.queries = Objects.requireNonNull(queries);
+            return this;
+        }
+        public Builder queries(GetServiceLevelObjectiveQuery... queries) {
+            return queries(List.of(queries));
+        }
+        @CustomType.Setter
         public Builder tagsQuery(@Nullable String tagsQuery) {
             this.tagsQuery = tagsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetThreshold(Double targetThreshold) {
+            this.targetThreshold = Objects.requireNonNull(targetThreshold);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeframe(String timeframe) {
+            this.timeframe = Objects.requireNonNull(timeframe);
             return this;
         }
         @CustomType.Setter
@@ -142,14 +238,24 @@ public final class GetServiceLevelObjectiveResult {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
+        public Builder warningThreshold(Double warningThreshold) {
+            this.warningThreshold = Objects.requireNonNull(warningThreshold);
+            return this;
+        }
         public GetServiceLevelObjectiveResult build() {
             final var o = new GetServiceLevelObjectiveResult();
+            o.description = description;
             o.id = id;
             o.metricsQuery = metricsQuery;
             o.name = name;
             o.nameQuery = nameQuery;
+            o.queries = queries;
             o.tagsQuery = tagsQuery;
+            o.targetThreshold = targetThreshold;
+            o.timeframe = timeframe;
             o.type = type;
+            o.warningThreshold = warningThreshold;
             return o;
         }
     }

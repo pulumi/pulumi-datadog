@@ -70,6 +70,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
+        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The list of selectable template variable presets for this dashboard.
         /// </summary>
         [Output("templateVariablePresets")]
@@ -205,6 +211,18 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         [Input("templateVariablePresets")]
         private InputList<Inputs.DashboardTemplateVariablePresetArgs>? _templateVariablePresets;
 
@@ -331,6 +349,18 @@ namespace Pulumi.Datadog
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
             set => _restrictedRoles = value;
+        }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
         }
 
         [Input("templateVariablePresets")]

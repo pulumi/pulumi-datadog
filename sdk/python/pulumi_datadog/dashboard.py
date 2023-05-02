@@ -24,6 +24,7 @@ class DashboardArgs:
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class DashboardArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
@@ -60,6 +62,8 @@ class DashboardArgs:
             pulumi.set(__self__, "reflow_type", reflow_type)
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -166,6 +170,18 @@ class DashboardArgs:
         pulumi.set(self, "restricted_roles", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -225,6 +241,7 @@ class _DashboardState:
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -240,6 +257,7 @@ class _DashboardState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -265,6 +283,8 @@ class _DashboardState:
             pulumi.set(__self__, "reflow_type", reflow_type)
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -373,6 +393,18 @@ class _DashboardState:
         pulumi.set(self, "restricted_roles", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -445,6 +477,7 @@ class Dashboard(pulumi.CustomResource):
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -469,6 +502,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -512,6 +546,7 @@ class Dashboard(pulumi.CustomResource):
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -538,6 +573,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["notify_lists"] = notify_lists
             __props__.__dict__["reflow_type"] = reflow_type
             __props__.__dict__["restricted_roles"] = restricted_roles
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["template_variable_presets"] = template_variable_presets
             __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
@@ -564,6 +600,7 @@ class Dashboard(pulumi.CustomResource):
             notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             reflow_type: Optional[pulumi.Input[str]] = None,
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
             template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
@@ -584,6 +621,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -602,6 +640,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["notify_lists"] = notify_lists
         __props__.__dict__["reflow_type"] = reflow_type
         __props__.__dict__["restricted_roles"] = restricted_roles
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["template_variable_presets"] = template_variable_presets
         __props__.__dict__["template_variables"] = template_variables
         __props__.__dict__["title"] = title
@@ -672,6 +711,14 @@ class Dashboard(pulumi.CustomResource):
         UUIDs of roles whose associated users are authorized to edit the dashboard.
         """
         return pulumi.get(self, "restricted_roles")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateVariablePresets")

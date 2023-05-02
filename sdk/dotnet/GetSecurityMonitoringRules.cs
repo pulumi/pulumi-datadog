@@ -20,6 +20,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -52,6 +53,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
