@@ -30,10 +30,6 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Prevents saving screenshots of the step.
-        /// </summary>
-        public readonly bool? NoScreenshot;
-        /// <summary>
         /// Parameters for the step.
         /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParams Params;
@@ -56,8 +52,6 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            bool? noScreenshot,
-
             Outputs.SyntheticsTestBrowserStepParams @params,
 
             int? timeout,
@@ -68,7 +62,6 @@ namespace Pulumi.Datadog.Outputs
             ForceElementUpdate = forceElementUpdate;
             IsCritical = isCritical;
             Name = name;
-            NoScreenshot = noScreenshot;
             Params = @params;
             Timeout = timeout;
             Type = type;

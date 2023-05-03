@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> GroupBies;
         public readonly string Grouping;
         public readonly string? LiveSpan;
-        /// <summary>
-        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
         /// The title of the dashboard.

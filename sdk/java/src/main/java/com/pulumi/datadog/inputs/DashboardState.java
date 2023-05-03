@@ -150,21 +150,6 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
-    @Import(name="tags")
-    private @Nullable Output<List<String>> tags;
-
-    /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
-    public Optional<Output<List<String>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
-    /**
      * The list of selectable template variable presets for this dashboard.
      * 
      */
@@ -250,7 +235,6 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         this.notifyLists = $.notifyLists;
         this.reflowType = $.reflowType;
         this.restrictedRoles = $.restrictedRoles;
-        this.tags = $.tags;
         this.templateVariablePresets = $.templateVariablePresets;
         this.templateVariables = $.templateVariables;
         this.title = $.title;
@@ -490,37 +474,6 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
-        }
-
-        /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(@Nullable Output<List<String>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(List<String> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(String... tags) {
-            return tags(List.of(tags));
         }
 
         /**

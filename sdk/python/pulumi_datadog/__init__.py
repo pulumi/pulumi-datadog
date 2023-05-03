@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .api_key import *
 from .application_key import *
 from .authn_mapping import *
 from .child_organization import *
@@ -14,10 +15,12 @@ from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .downtime import *
+from .get_api_key import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
 from .get_dashboard_list import *
+from .get_ip_ranges import *
 from .get_logs_archives_order import *
 from .get_logs_indexes import *
 from .get_logs_indexes_order import *
@@ -148,6 +151,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.gcp",
   "classes": {
    "datadog:gcp/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apiKey",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apiKey:ApiKey": "ApiKey"
   }
  },
  {

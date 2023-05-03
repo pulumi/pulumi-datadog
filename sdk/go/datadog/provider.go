@@ -27,11 +27,6 @@ type Provider struct {
 	ApiUrl pulumi.StringPtrOutput `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrOutput `pulumi:"appKey"`
-	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-	HttpClientRetryEnabled pulumi.StringPtrOutput `pulumi:"httpClientRetryEnabled"`
-	// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-	// Default is true. When false, api_key and app_key won't be checked.
-	Validate pulumi.StringPtrOutput `pulumi:"validate"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -41,17 +36,6 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
-	}
-	if args.AppKey != nil {
-		args.AppKey = pulumi.ToSecret(args.AppKey).(pulumi.StringPtrInput)
-	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"apiKey",
-		"appKey",
-	})
-	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:datadog", name, args, &resource, opts...)
 	if err != nil {
@@ -75,15 +59,15 @@ type providerArgs struct {
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
 	// The HTTP request retry back off multiplier. Defaults to 2.
 	HttpClientRetryBackoffMultiplier *int `pulumi:"httpClientRetryBackoffMultiplier"`
-	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-	HttpClientRetryEnabled *string `pulumi:"httpClientRetryEnabled"`
+	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+	HttpClientRetryEnabled *bool `pulumi:"httpClientRetryEnabled"`
 	// The HTTP request maximum retry number. Defaults to 3.
 	HttpClientRetryMaxRetries *int `pulumi:"httpClientRetryMaxRetries"`
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
-	// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-	// Default is true. When false, api_key and app_key won't be checked.
-	Validate *string `pulumi:"validate"`
+	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+	// and app_key won't be checked.
+	Validate *bool `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -102,15 +86,15 @@ type ProviderArgs struct {
 	HttpClientRetryBackoffBase pulumi.IntPtrInput
 	// The HTTP request retry back off multiplier. Defaults to 2.
 	HttpClientRetryBackoffMultiplier pulumi.IntPtrInput
-	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-	HttpClientRetryEnabled pulumi.StringPtrInput
+	// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+	HttpClientRetryEnabled pulumi.BoolPtrInput
 	// The HTTP request maximum retry number. Defaults to 3.
 	HttpClientRetryMaxRetries pulumi.IntPtrInput
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
-	// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-	// Default is true. When false, api_key and app_key won't be checked.
-	Validate pulumi.StringPtrInput
+	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+	// and app_key won't be checked.
+	Validate pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -167,17 +151,6 @@ func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
 // (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 func (o ProviderOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AppKey }).(pulumi.StringPtrOutput)
-}
-
-// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-func (o ProviderOutput) HttpClientRetryEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpClientRetryEnabled }).(pulumi.StringPtrOutput)
-}
-
-// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-// Default is true. When false, api_key and app_key won't be checked.
-func (o ProviderOutput) Validate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Validate }).(pulumi.StringPtrOutput)
 }
 
 func init() {

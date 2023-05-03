@@ -35,11 +35,6 @@ public final class SyntheticsTestBrowserStep {
      */
     private String name;
     /**
-     * @return Prevents saving screenshots of the step.
-     * 
-     */
-    private @Nullable Boolean noScreenshot;
-    /**
      * @return Parameters for the step.
      * 
      */
@@ -85,13 +80,6 @@ public final class SyntheticsTestBrowserStep {
         return this.name;
     }
     /**
-     * @return Prevents saving screenshots of the step.
-     * 
-     */
-    public Optional<Boolean> noScreenshot() {
-        return Optional.ofNullable(this.noScreenshot);
-    }
-    /**
      * @return Parameters for the step.
      * 
      */
@@ -126,7 +114,6 @@ public final class SyntheticsTestBrowserStep {
         private @Nullable Boolean forceElementUpdate;
         private @Nullable Boolean isCritical;
         private String name;
-        private @Nullable Boolean noScreenshot;
         private SyntheticsTestBrowserStepParams params;
         private @Nullable Integer timeout;
         private String type;
@@ -137,7 +124,6 @@ public final class SyntheticsTestBrowserStep {
     	      this.forceElementUpdate = defaults.forceElementUpdate;
     	      this.isCritical = defaults.isCritical;
     	      this.name = defaults.name;
-    	      this.noScreenshot = defaults.noScreenshot;
     	      this.params = defaults.params;
     	      this.timeout = defaults.timeout;
     	      this.type = defaults.type;
@@ -164,11 +150,6 @@ public final class SyntheticsTestBrowserStep {
             return this;
         }
         @CustomType.Setter
-        public Builder noScreenshot(@Nullable Boolean noScreenshot) {
-            this.noScreenshot = noScreenshot;
-            return this;
-        }
-        @CustomType.Setter
         public Builder params(SyntheticsTestBrowserStepParams params) {
             this.params = Objects.requireNonNull(params);
             return this;
@@ -189,7 +170,6 @@ public final class SyntheticsTestBrowserStep {
             o.forceElementUpdate = forceElementUpdate;
             o.isCritical = isCritical;
             o.name = name;
-            o.noScreenshot = noScreenshot;
             o.params = params;
             o.timeout = timeout;
             o.type = type;

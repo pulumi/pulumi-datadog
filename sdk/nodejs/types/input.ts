@@ -573,9 +573,6 @@ export interface DashboardWidgetCheckStatusDefinition {
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the dashboard.
@@ -1482,9 +1479,6 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the dashboard.
@@ -3705,12 +3699,6 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
     limit?: pulumi.Input<number>;
     queryString: pulumi.Input<string>;
-    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort>;
-}
-
-export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort {
-    column: pulumi.Input<string>;
-    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
@@ -6770,12 +6758,6 @@ export interface DashboardWidgetSloListDefinitionRequest {
 export interface DashboardWidgetSloListDefinitionRequestQuery {
     limit?: pulumi.Input<number>;
     queryString: pulumi.Input<string>;
-    sort?: pulumi.Input<inputs.DashboardWidgetSloListDefinitionRequestQuerySort>;
-}
-
-export interface DashboardWidgetSloListDefinitionRequestQuerySort {
-    column: pulumi.Input<string>;
-    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinition {
@@ -9171,12 +9153,12 @@ export interface SyntheticsTestApiStepAssertion {
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     jsonpath: pulumi.Input<string>;
     operator: pulumi.Input<string>;
-    targetvalue?: pulumi.Input<string>;
+    targetvalue: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
     operator: pulumi.Input<string>;
-    targetvalue?: pulumi.Input<string>;
+    targetvalue: pulumi.Input<string>;
     xpath: pulumi.Input<string>;
 }
 
@@ -9406,12 +9388,12 @@ export interface SyntheticsTestAssertion {
 export interface SyntheticsTestAssertionTargetjsonpath {
     jsonpath: pulumi.Input<string>;
     operator: pulumi.Input<string>;
-    targetvalue?: pulumi.Input<string>;
+    targetvalue: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
     operator: pulumi.Input<string>;
-    targetvalue?: pulumi.Input<string>;
+    targetvalue: pulumi.Input<string>;
     xpath: pulumi.Input<string>;
 }
 
@@ -9432,10 +9414,6 @@ export interface SyntheticsTestBrowserStep {
      * Name of the step.
      */
     name: pulumi.Input<string>;
-    /**
-     * Prevents saving screenshots of the step.
-     */
-    noScreenshot?: pulumi.Input<boolean>;
     /**
      * Parameters for the step.
      */

@@ -2,8 +2,6 @@ package datadog
 
 import (
 	"fmt"
-	// embed is used to store bridge-metadata.json in the compiled binary
-	_ "embed"
 	"path/filepath"
 	"strings"
 	"unicode"
@@ -102,6 +100,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_dashboard_json":                     {Tok: makeResource(datadogMod, "DashboardJson")},
 			"datadog_metric_tag_configuration":           {Tok: makeResource(datadogMod, "MetricTagConfiguration")},
 			"datadog_slo_correction":                     {Tok: makeResource(datadogMod, "SloCorrection")},
+			"datadog_api_key":                            {Tok: makeResource(datadogMod, "ApiKey")},
 			"datadog_application_key":                    {Tok: makeResource(datadogMod, "ApplicationKey")},
 			"datadog_child_organization":                 {Tok: makeResource(datadogMod, "ChildOrganization")},
 			"datadog_organization_settings":              {Tok: makeResource(datadogMod, "OrganizationSettings")},
@@ -195,7 +194,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
-		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		},
 	}
 
 	strategy := x.TokensKnownModules("datadog_", datadogMod, []string{},
@@ -205,12 +204,7 @@ func Provider() tfbridge.ProviderInfo {
 		}).Unmappable("integration", "integration acts as a sub-module of the next term: "+
 		"integration_aws -> aws_integration, so it is not mapped correctly.")
 	err := x.ComputeDefaults(&prov, strategy)
-	contract.AssertNoErrorf(err, "failed to apply auto token mapping")
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "failed to apply auto aliasing")
+	contract.AssertNoError(err)
 
 	return prov
 }
-
-//go:embed cmd/pulumi-resource-datadog/bridge-metadata.json
-var metadata []byte

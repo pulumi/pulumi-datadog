@@ -41,15 +41,6 @@ export class Provider extends pulumi.ProviderResource {
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      */
     public readonly appKey!: pulumi.Output<string | undefined>;
-    /**
-     * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-     */
-    public readonly httpClientRetryEnabled!: pulumi.Output<string | undefined>;
-    /**
-     * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-     * Default is true. When false, api_key and app_key won't be checked.
-     */
-    public readonly validate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -62,19 +53,17 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
-            resourceInputs["appKey"] = args?.appKey ? pulumi.secret(args.appKey) : undefined;
+            resourceInputs["appKey"] = args ? args.appKey : undefined;
             resourceInputs["httpClientRetryBackoffBase"] = pulumi.output(args ? args.httpClientRetryBackoffBase : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffMultiplier"] = pulumi.output(args ? args.httpClientRetryBackoffMultiplier : undefined).apply(JSON.stringify);
-            resourceInputs["httpClientRetryEnabled"] = args ? args.httpClientRetryEnabled : undefined;
+            resourceInputs["httpClientRetryEnabled"] = pulumi.output(args ? args.httpClientRetryEnabled : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryMaxRetries"] = pulumi.output(args ? args.httpClientRetryMaxRetries : undefined).apply(JSON.stringify);
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
-            resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "appKey"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -108,9 +97,9 @@ export interface ProviderArgs {
      */
     httpClientRetryBackoffMultiplier?: pulumi.Input<number>;
     /**
-     * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      */
-    httpClientRetryEnabled?: pulumi.Input<string>;
+    httpClientRetryEnabled?: pulumi.Input<boolean>;
     /**
      * The HTTP request maximum retry number. Defaults to 3.
      */
@@ -120,8 +109,8 @@ export interface ProviderArgs {
      */
     httpClientRetryTimeout?: pulumi.Input<number>;
     /**
-     * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-     * Default is true. When false, api_key and app_key won't be checked.
+     * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+     * and app_key won't be checked.
      */
-    validate?: pulumi.Input<string>;
+    validate?: pulumi.Input<boolean>;
 }

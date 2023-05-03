@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -63,10 +61,6 @@ export interface GetServiceLevelObjectiveArgs {
  */
 export interface GetServiceLevelObjectiveResult {
     /**
-     * The description of the service level objective.
-     */
-    readonly description: string;
-    /**
      * A SLO ID to limit the search.
      */
     readonly id?: string;
@@ -83,29 +77,13 @@ export interface GetServiceLevelObjectiveResult {
      */
     readonly nameQuery?: string;
     /**
-     * The metric query of good / total events
-     */
-    readonly queries: outputs.GetServiceLevelObjectiveQuery[];
-    /**
      * Filter results based on a single SLO tag.
      */
     readonly tagsQuery?: string;
     /**
-     * The primary target threshold of the service level objective.
-     */
-    readonly targetThreshold: number;
-    /**
-     * The primary timeframe of the service level objective.
-     */
-    readonly timeframe: string;
-    /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
      */
     readonly type: string;
-    /**
-     * The primary warning threshold of the service level objective.
-     */
-    readonly warningThreshold: number;
 }
 /**
  * Use this data source to retrieve information about an existing SLO for use in other resources.

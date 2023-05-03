@@ -466,7 +466,6 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetSloListDefinition',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery',
-    'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinition',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline',
@@ -880,7 +879,6 @@ __all__ = [
     'DashboardWidgetSloListDefinition',
     'DashboardWidgetSloListDefinitionRequest',
     'DashboardWidgetSloListDefinitionRequestQuery',
-    'DashboardWidgetSloListDefinitionRequestQuerySort',
     'DashboardWidgetSunburstDefinition',
     'DashboardWidgetSunburstDefinitionCustomLink',
     'DashboardWidgetSunburstDefinitionLegendInline',
@@ -1205,7 +1203,6 @@ __all__ = [
     'GetSecurityMonitoringRulesRuleQueryResult',
     'GetSecurityMonitoringRulesRuleQueryAgentRuleResult',
     'GetSecurityMonitoringRulesRuleSignalQueryResult',
-    'GetServiceLevelObjectiveQueryResult',
     'GetServiceLevelObjectivesSloResult',
 ]
 
@@ -4366,7 +4363,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
         """
-        :param Sequence[str] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param str title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -4414,9 +4410,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence[str]]:
-        """
-        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -10051,7 +10044,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
         """
-        :param Sequence[str] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param str title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -10099,9 +10091,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence[str]]:
-        """
-        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -24935,13 +24924,10 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery(dict):
 
     def __init__(__self__, *,
                  query_string: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort'] = None):
+                 limit: Optional[int] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -24952,30 +24938,6 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery(dict):
     @pulumi.getter
     def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort(dict):
-    def __init__(__self__, *,
-                 column: str,
-                 order: str):
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def column(self) -> str:
-        return pulumi.get(self, "column")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
 
 
 @pulumi.output_type
@@ -45578,13 +45540,10 @@ class DashboardWidgetSloListDefinitionRequestQuery(dict):
 
     def __init__(__self__, *,
                  query_string: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetSloListDefinitionRequestQuerySort'] = None):
+                 limit: Optional[int] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -45595,30 +45554,6 @@ class DashboardWidgetSloListDefinitionRequestQuery(dict):
     @pulumi.getter
     def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetSloListDefinitionRequestQuerySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class DashboardWidgetSloListDefinitionRequestQuerySort(dict):
-    def __init__(__self__, *,
-                 column: str,
-                 order: str):
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def column(self) -> str:
-        return pulumi.get(self, "column")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
 
 
 @pulumi.output_type
@@ -59465,11 +59400,10 @@ class SyntheticsTestApiStepAssertionTargetjsonpath(dict):
     def __init__(__self__, *,
                  jsonpath: str,
                  operator: str,
-                 targetvalue: Optional[str] = None):
+                 targetvalue: str):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        if targetvalue is not None:
-            pulumi.set(__self__, "targetvalue", targetvalue)
+        pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -59483,7 +59417,7 @@ class SyntheticsTestApiStepAssertionTargetjsonpath(dict):
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> Optional[str]:
+    def targetvalue(self) -> str:
         return pulumi.get(self, "targetvalue")
 
 
@@ -59491,12 +59425,11 @@ class SyntheticsTestApiStepAssertionTargetjsonpath(dict):
 class SyntheticsTestApiStepAssertionTargetxpath(dict):
     def __init__(__self__, *,
                  operator: str,
-                 xpath: str,
-                 targetvalue: Optional[str] = None):
+                 targetvalue: str,
+                 xpath: str):
         pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
-        if targetvalue is not None:
-            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -59505,13 +59438,13 @@ class SyntheticsTestApiStepAssertionTargetxpath(dict):
 
     @property
     @pulumi.getter
-    def xpath(self) -> str:
-        return pulumi.get(self, "xpath")
+    def targetvalue(self) -> str:
+        return pulumi.get(self, "targetvalue")
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> Optional[str]:
-        return pulumi.get(self, "targetvalue")
+    def xpath(self) -> str:
+        return pulumi.get(self, "xpath")
 
 
 @pulumi.output_type
@@ -60280,11 +60213,10 @@ class SyntheticsTestAssertionTargetjsonpath(dict):
     def __init__(__self__, *,
                  jsonpath: str,
                  operator: str,
-                 targetvalue: Optional[str] = None):
+                 targetvalue: str):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        if targetvalue is not None:
-            pulumi.set(__self__, "targetvalue", targetvalue)
+        pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -60298,7 +60230,7 @@ class SyntheticsTestAssertionTargetjsonpath(dict):
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> Optional[str]:
+    def targetvalue(self) -> str:
         return pulumi.get(self, "targetvalue")
 
 
@@ -60306,12 +60238,11 @@ class SyntheticsTestAssertionTargetjsonpath(dict):
 class SyntheticsTestAssertionTargetxpath(dict):
     def __init__(__self__, *,
                  operator: str,
-                 xpath: str,
-                 targetvalue: Optional[str] = None):
+                 targetvalue: str,
+                 xpath: str):
         pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
-        if targetvalue is not None:
-            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -60320,13 +60251,13 @@ class SyntheticsTestAssertionTargetxpath(dict):
 
     @property
     @pulumi.getter
-    def xpath(self) -> str:
-        return pulumi.get(self, "xpath")
+    def targetvalue(self) -> str:
+        return pulumi.get(self, "targetvalue")
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> Optional[str]:
-        return pulumi.get(self, "targetvalue")
+    def xpath(self) -> str:
+        return pulumi.get(self, "xpath")
 
 
 @pulumi.output_type
@@ -60340,8 +60271,6 @@ class SyntheticsTestBrowserStep(dict):
             suggest = "force_element_update"
         elif key == "isCritical":
             suggest = "is_critical"
-        elif key == "noScreenshot":
-            suggest = "no_screenshot"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestBrowserStep. Access the value via the '{suggest}' property getter instead.")
@@ -60361,7 +60290,6 @@ class SyntheticsTestBrowserStep(dict):
                  allow_failure: Optional[bool] = None,
                  force_element_update: Optional[bool] = None,
                  is_critical: Optional[bool] = None,
-                 no_screenshot: Optional[bool] = None,
                  timeout: Optional[int] = None):
         """
         :param str name: Name of the step.
@@ -60370,7 +60298,6 @@ class SyntheticsTestBrowserStep(dict):
         :param bool allow_failure: Determines if the step should be allowed to fail.
         :param bool force_element_update: Force update of the "element" parameter for the step
         :param bool is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
-        :param bool no_screenshot: Prevents saving screenshots of the step.
         :param int timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -60382,8 +60309,6 @@ class SyntheticsTestBrowserStep(dict):
             pulumi.set(__self__, "force_element_update", force_element_update)
         if is_critical is not None:
             pulumi.set(__self__, "is_critical", is_critical)
-        if no_screenshot is not None:
-            pulumi.set(__self__, "no_screenshot", no_screenshot)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -60434,14 +60359,6 @@ class SyntheticsTestBrowserStep(dict):
         Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
         """
         return pulumi.get(self, "is_critical")
-
-    @property
-    @pulumi.getter(name="noScreenshot")
-    def no_screenshot(self) -> Optional[bool]:
-        """
-        Prevents saving screenshots of the step.
-        """
-        return pulumi.get(self, "no_screenshot")
 
     @property
     @pulumi.getter
@@ -62816,25 +62733,6 @@ class GetSecurityMonitoringRulesRuleSignalQueryResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetServiceLevelObjectiveQueryResult(dict):
-    def __init__(__self__, *,
-                 denominator: str,
-                 numerator: str):
-        pulumi.set(__self__, "denominator", denominator)
-        pulumi.set(__self__, "numerator", numerator)
-
-    @property
-    @pulumi.getter
-    def denominator(self) -> str:
-        return pulumi.get(self, "denominator")
-
-    @property
-    @pulumi.getter
-    def numerator(self) -> str:
-        return pulumi.get(self, "numerator")
 
 
 @pulumi.output_type

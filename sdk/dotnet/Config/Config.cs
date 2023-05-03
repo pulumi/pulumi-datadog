@@ -86,11 +86,11 @@ namespace Pulumi.Datadog
             set => _httpClientRetryBackoffMultiplier.Set(value);
         }
 
-        private static readonly __Value<string?> _httpClientRetryEnabled = new __Value<string?>(() => __config.Get("httpClientRetryEnabled"));
+        private static readonly __Value<bool?> _httpClientRetryEnabled = new __Value<bool?>(() => __config.GetBoolean("httpClientRetryEnabled"));
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         /// </summary>
-        public static string? HttpClientRetryEnabled
+        public static bool? HttpClientRetryEnabled
         {
             get => _httpClientRetryEnabled.Get();
             set => _httpClientRetryEnabled.Set(value);
@@ -116,12 +116,12 @@ namespace Pulumi.Datadog
             set => _httpClientRetryTimeout.Set(value);
         }
 
-        private static readonly __Value<string?> _validate = new __Value<string?>(() => __config.Get("validate"));
+        private static readonly __Value<bool?> _validate = new __Value<bool?>(() => __config.GetBoolean("validate"));
         /// <summary>
-        /// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-        /// Default is true. When false, api_key and app_key won't be checked.
+        /// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+        /// and app_key won't be checked.
         /// </summary>
-        public static string? Validate
+        public static bool? Validate
         {
             get => _validate.Get();
             set => _validate.Set(value);

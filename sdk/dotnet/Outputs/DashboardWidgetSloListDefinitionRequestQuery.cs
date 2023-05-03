@@ -15,19 +15,15 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly int? Limit;
         public readonly string QueryString;
-        public readonly Outputs.DashboardWidgetSloListDefinitionRequestQuerySort? Sort;
 
         [OutputConstructor]
         private DashboardWidgetSloListDefinitionRequestQuery(
             int? limit,
 
-            string queryString,
-
-            Outputs.DashboardWidgetSloListDefinitionRequestQuerySort? sort)
+            string queryString)
         {
             Limit = limit;
             QueryString = queryString;
-            Sort = sort;
         }
     }
 }

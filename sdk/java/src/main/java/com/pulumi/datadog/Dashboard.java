@@ -653,20 +653,6 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restrictedRoles);
     }
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
-    @Export(name="tags", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> tags;
-
-    /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
-    }
-    /**
      * The list of selectable template variable presets for this dashboard.
      * 
      */

@@ -79,21 +79,6 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Prevents saving screenshots of the step.
-     * 
-     */
-    @Import(name="noScreenshot")
-    private @Nullable Output<Boolean> noScreenshot;
-
-    /**
-     * @return Prevents saving screenshots of the step.
-     * 
-     */
-    public Optional<Output<Boolean>> noScreenshot() {
-        return Optional.ofNullable(this.noScreenshot);
-    }
-
-    /**
      * Parameters for the step.
      * 
      */
@@ -145,7 +130,6 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
         this.forceElementUpdate = $.forceElementUpdate;
         this.isCritical = $.isCritical;
         this.name = $.name;
-        this.noScreenshot = $.noScreenshot;
         this.params = $.params;
         this.timeout = $.timeout;
         this.type = $.type;
@@ -251,27 +235,6 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param noScreenshot Prevents saving screenshots of the step.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder noScreenshot(@Nullable Output<Boolean> noScreenshot) {
-            $.noScreenshot = noScreenshot;
-            return this;
-        }
-
-        /**
-         * @param noScreenshot Prevents saving screenshots of the step.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder noScreenshot(Boolean noScreenshot) {
-            return noScreenshot(Output.of(noScreenshot));
         }
 
         /**
