@@ -18,8 +18,8 @@ namespace Pulumi.Datadog.Inputs
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
-        [Input("targetvalue")]
-        public Input<string>? Targetvalue { get; set; }
+        [Input("targetvalue", required: true)]
+        public Input<string> Targetvalue { get; set; } = null!;
 
         public SyntheticsTestApiStepAssertionTargetjsonpathGetArgs()
         {

@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
 
 __all__ = [
     'GetServiceLevelObjectiveResult',
@@ -22,10 +21,7 @@ class GetServiceLevelObjectiveResult:
     """
     A collection of values returned by getServiceLevelObjective.
     """
-    def __init__(__self__, description=None, id=None, metrics_query=None, name=None, name_query=None, queries=None, tags_query=None, target_threshold=None, timeframe=None, type=None, warning_threshold=None):
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
+    def __init__(__self__, id=None, metrics_query=None, name=None, name_query=None, tags_query=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,32 +34,12 @@ class GetServiceLevelObjectiveResult:
         if name_query and not isinstance(name_query, str):
             raise TypeError("Expected argument 'name_query' to be a str")
         pulumi.set(__self__, "name_query", name_query)
-        if queries and not isinstance(queries, list):
-            raise TypeError("Expected argument 'queries' to be a list")
-        pulumi.set(__self__, "queries", queries)
         if tags_query and not isinstance(tags_query, str):
             raise TypeError("Expected argument 'tags_query' to be a str")
         pulumi.set(__self__, "tags_query", tags_query)
-        if target_threshold and not isinstance(target_threshold, float):
-            raise TypeError("Expected argument 'target_threshold' to be a float")
-        pulumi.set(__self__, "target_threshold", target_threshold)
-        if timeframe and not isinstance(timeframe, str):
-            raise TypeError("Expected argument 'timeframe' to be a str")
-        pulumi.set(__self__, "timeframe", timeframe)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if warning_threshold and not isinstance(warning_threshold, float):
-            raise TypeError("Expected argument 'warning_threshold' to be a float")
-        pulumi.set(__self__, "warning_threshold", warning_threshold)
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The description of the service level objective.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -98,36 +74,12 @@ class GetServiceLevelObjectiveResult:
         return pulumi.get(self, "name_query")
 
     @property
-    @pulumi.getter
-    def queries(self) -> Sequence['outputs.GetServiceLevelObjectiveQueryResult']:
-        """
-        The metric query of good / total events
-        """
-        return pulumi.get(self, "queries")
-
-    @property
     @pulumi.getter(name="tagsQuery")
     def tags_query(self) -> Optional[str]:
         """
         Filter results based on a single SLO tag.
         """
         return pulumi.get(self, "tags_query")
-
-    @property
-    @pulumi.getter(name="targetThreshold")
-    def target_threshold(self) -> float:
-        """
-        The primary target threshold of the service level objective.
-        """
-        return pulumi.get(self, "target_threshold")
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> str:
-        """
-        The primary timeframe of the service level objective.
-        """
-        return pulumi.get(self, "timeframe")
 
     @property
     @pulumi.getter
@@ -137,14 +89,6 @@ class GetServiceLevelObjectiveResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> float:
-        """
-        The primary warning threshold of the service level objective.
-        """
-        return pulumi.get(self, "warning_threshold")
-
 
 class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
     # pylint: disable=using-constant-test
@@ -152,17 +96,12 @@ class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
         if False:
             yield self
         return GetServiceLevelObjectiveResult(
-            description=self.description,
             id=self.id,
             metrics_query=self.metrics_query,
             name=self.name,
             name_query=self.name_query,
-            queries=self.queries,
             tags_query=self.tags_query,
-            target_threshold=self.target_threshold,
-            timeframe=self.timeframe,
-            type=self.type,
-            warning_threshold=self.warning_threshold)
+            type=self.type)
 
 
 def get_service_level_objective(id: Optional[str] = None,
@@ -199,17 +138,12 @@ def get_service_level_objective(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getServiceLevelObjective:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult).value
 
     return AwaitableGetServiceLevelObjectiveResult(
-        description=__ret__.description,
         id=__ret__.id,
         metrics_query=__ret__.metrics_query,
         name=__ret__.name,
         name_query=__ret__.name_query,
-        queries=__ret__.queries,
         tags_query=__ret__.tags_query,
-        target_threshold=__ret__.target_threshold,
-        timeframe=__ret__.timeframe,
-        type=__ret__.type,
-        warning_threshold=__ret__.warning_threshold)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_service_level_objective)

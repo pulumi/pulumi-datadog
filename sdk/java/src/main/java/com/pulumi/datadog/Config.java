@@ -4,6 +4,7 @@
 package com.pulumi.datadog;
 
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
@@ -51,11 +52,11 @@ public final class Config {
         return Codegen.integerProp("httpClientRetryBackoffMultiplier").config(config).get();
     }
 /**
- * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+ * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
  * 
  */
-    public Optional<String> httpClientRetryEnabled() {
-        return Codegen.stringProp("httpClientRetryEnabled").config(config).get();
+    public Optional<Boolean> httpClientRetryEnabled() {
+        return Codegen.booleanProp("httpClientRetryEnabled").config(config).get();
     }
 /**
  * The HTTP request maximum retry number. Defaults to 3.
@@ -72,11 +73,11 @@ public final class Config {
         return Codegen.integerProp("httpClientRetryTimeout").config(config).get();
     }
 /**
- * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
- * Default is true. When false, api_key and app_key won&#39;t be checked.
+ * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+ * and app_key won&#39;t be checked.
  * 
  */
-    public Optional<String> validate() {
-        return Codegen.stringProp("validate").config(config).get();
+    public Optional<Boolean> validate() {
+        return Codegen.booleanProp("validate").config(config).get();
     }
 }

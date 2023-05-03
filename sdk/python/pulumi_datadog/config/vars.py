@@ -55,11 +55,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_int('httpClientRetryBackoffMultiplier')
 
     @property
-    def http_client_retry_enabled(self) -> Optional[str]:
+    def http_client_retry_enabled(self) -> Optional[bool]:
         """
-        Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
         """
-        return __config__.get('httpClientRetryEnabled')
+        return __config__.get_bool('httpClientRetryEnabled')
 
     @property
     def http_client_retry_max_retries(self) -> Optional[int]:
@@ -76,10 +76,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_int('httpClientRetryTimeout')
 
     @property
-    def validate(self) -> Optional[str]:
+    def validate(self) -> Optional[bool]:
         """
-        Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-        Default is true. When false, api_key and app_key won't be checked.
+        Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+        and app_key won't be checked.
         """
-        return __config__.get('validate')
+        return __config__.get_bool('validate')
 

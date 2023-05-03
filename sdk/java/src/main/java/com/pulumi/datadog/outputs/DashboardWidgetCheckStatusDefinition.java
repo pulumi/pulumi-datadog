@@ -17,10 +17,6 @@ public final class DashboardWidgetCheckStatusDefinition {
     private @Nullable List<String> groupBies;
     private String grouping;
     private @Nullable String liveSpan;
-    /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
     private @Nullable List<String> tags;
     /**
      * @return The title of the dashboard.
@@ -46,10 +42,6 @@ public final class DashboardWidgetCheckStatusDefinition {
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
-    /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
-     * 
-     */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }

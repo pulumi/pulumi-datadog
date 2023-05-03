@@ -78,10 +78,6 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
-    /**
      * The list of selectable template variable presets for this dashboard.
      */
     public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
@@ -123,7 +119,6 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["notifyLists"] = state ? state.notifyLists : undefined;
             resourceInputs["reflowType"] = state ? state.reflowType : undefined;
             resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
             resourceInputs["templateVariables"] = state ? state.templateVariables : undefined;
             resourceInputs["title"] = state ? state.title : undefined;
@@ -144,7 +139,6 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["notifyLists"] = args ? args.notifyLists : undefined;
             resourceInputs["reflowType"] = args ? args.reflowType : undefined;
             resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
             resourceInputs["templateVariables"] = args ? args.templateVariables : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
@@ -195,10 +189,6 @@ export interface DashboardState {
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
@@ -255,10 +245,6 @@ export interface DashboardArgs {
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */

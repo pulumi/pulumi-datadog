@@ -37,12 +37,6 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Prevents saving screenshots of the step.
-        /// </summary>
-        [Input("noScreenshot")]
-        public Input<bool>? NoScreenshot { get; set; }
-
-        /// <summary>
         /// Parameters for the step.
         /// </summary>
         [Input("params", required: true)]

@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -100,17 +101,17 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      * 
      */
-    @Import(name="httpClientRetryEnabled")
-    private @Nullable Output<String> httpClientRetryEnabled;
+    @Import(name="httpClientRetryEnabled", json=true)
+    private @Nullable Output<Boolean> httpClientRetryEnabled;
 
     /**
-     * @return Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * @return Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
      * 
      */
-    public Optional<Output<String>> httpClientRetryEnabled() {
+    public Optional<Output<Boolean>> httpClientRetryEnabled() {
         return Optional.ofNullable(this.httpClientRetryEnabled);
     }
 
@@ -145,19 +146,19 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-     * Default is true. When false, api_key and app_key won&#39;t be checked.
+     * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+     * and app_key won&#39;t be checked.
      * 
      */
-    @Import(name="validate")
-    private @Nullable Output<String> validate;
+    @Import(name="validate", json=true)
+    private @Nullable Output<Boolean> validate;
 
     /**
-     * @return Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-     * Default is true. When false, api_key and app_key won&#39;t be checked.
+     * @return Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+     * and app_key won&#39;t be checked.
      * 
      */
-    public Optional<Output<String>> validate() {
+    public Optional<Output<Boolean>> validate() {
         return Optional.ofNullable(this.validate);
     }
 
@@ -307,23 +308,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpClientRetryEnabled Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+         * @param httpClientRetryEnabled Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder httpClientRetryEnabled(@Nullable Output<String> httpClientRetryEnabled) {
+        public Builder httpClientRetryEnabled(@Nullable Output<Boolean> httpClientRetryEnabled) {
             $.httpClientRetryEnabled = httpClientRetryEnabled;
             return this;
         }
 
         /**
-         * @param httpClientRetryEnabled Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+         * @param httpClientRetryEnabled Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder httpClientRetryEnabled(String httpClientRetryEnabled) {
+        public Builder httpClientRetryEnabled(Boolean httpClientRetryEnabled) {
             return httpClientRetryEnabled(Output.of(httpClientRetryEnabled));
         }
 
@@ -370,25 +371,25 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validate Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-         * Default is true. When false, api_key and app_key won&#39;t be checked.
+         * @param validate Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+         * and app_key won&#39;t be checked.
          * 
          * @return builder
          * 
          */
-        public Builder validate(@Nullable Output<String> validate) {
+        public Builder validate(@Nullable Output<Boolean> validate) {
             $.validate = validate;
             return this;
         }
 
         /**
-         * @param validate Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-         * Default is true. When false, api_key and app_key won&#39;t be checked.
+         * @param validate Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+         * and app_key won&#39;t be checked.
          * 
          * @return builder
          * 
          */
-        public Builder validate(String validate) {
+        public Builder validate(Boolean validate) {
             return validate(Output.of(validate));
         }
 

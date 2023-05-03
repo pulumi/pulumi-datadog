@@ -573,9 +573,6 @@ export interface DashboardWidgetCheckStatusDefinition {
     groupBies?: string[];
     grouping: string;
     liveSpan?: string;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
     tags?: string[];
     /**
      * The title of the dashboard.
@@ -1482,9 +1479,6 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     groupBies?: string[];
     grouping: string;
     liveSpan?: string;
-    /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-     */
     tags?: string[];
     /**
      * The title of the dashboard.
@@ -3705,12 +3699,6 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
     limit?: number;
     queryString: string;
-    sort?: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort;
-}
-
-export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort {
-    column: string;
-    order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
@@ -6770,12 +6758,6 @@ export interface DashboardWidgetSloListDefinitionRequest {
 export interface DashboardWidgetSloListDefinitionRequestQuery {
     limit?: number;
     queryString: string;
-    sort?: outputs.DashboardWidgetSloListDefinitionRequestQuerySort;
-}
-
-export interface DashboardWidgetSloListDefinitionRequestQuerySort {
-    column: string;
-    order: string;
 }
 
 export interface DashboardWidgetSunburstDefinition {
@@ -8283,11 +8265,6 @@ export interface GetSecurityMonitoringRulesRuleSignalQuery {
     ruleId: string;
 }
 
-export interface GetServiceLevelObjectiveQuery {
-    denominator: string;
-    numerator: string;
-}
-
 export interface GetServiceLevelObjectivesSlo {
     /**
      * The ID of this resource.
@@ -9387,12 +9364,12 @@ export interface SyntheticsTestApiStepAssertion {
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     jsonpath: string;
     operator: string;
-    targetvalue?: string;
+    targetvalue: string;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
     operator: string;
-    targetvalue?: string;
+    targetvalue: string;
     xpath: string;
 }
 
@@ -9622,12 +9599,12 @@ export interface SyntheticsTestAssertion {
 export interface SyntheticsTestAssertionTargetjsonpath {
     jsonpath: string;
     operator: string;
-    targetvalue?: string;
+    targetvalue: string;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
     operator: string;
-    targetvalue?: string;
+    targetvalue: string;
     xpath: string;
 }
 
@@ -9648,10 +9625,6 @@ export interface SyntheticsTestBrowserStep {
      * Name of the step.
      */
     name: string;
-    /**
-     * Prevents saving screenshots of the step.
-     */
-    noScreenshot?: boolean;
     /**
      * Parameters for the step.
      */

@@ -38,9 +38,9 @@ httpClientRetryBackoffMultiplier: Optional[int]
 The HTTP request retry back off multiplier. Defaults to 2.
 """
 
-httpClientRetryEnabled: Optional[str]
+httpClientRetryEnabled: Optional[bool]
 """
-Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
 """
 
 httpClientRetryMaxRetries: Optional[int]
@@ -53,9 +53,9 @@ httpClientRetryTimeout: Optional[int]
 The HTTP request retry timeout period. Defaults to 60 seconds.
 """
 
-validate: Optional[str]
+validate: Optional[bool]
 """
-Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-Default is true. When false, api_key and app_key won't be checked.
+Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+and app_key won't be checked.
 """
 

@@ -37,9 +37,9 @@ func GetHttpClientRetryBackoffMultiplier(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "datadog:httpClientRetryBackoffMultiplier")
 }
 
-// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
-func GetHttpClientRetryEnabled(ctx *pulumi.Context) string {
-	return config.Get(ctx, "datadog:httpClientRetryEnabled")
+// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+func GetHttpClientRetryEnabled(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "datadog:httpClientRetryEnabled")
 }
 
 // The HTTP request maximum retry number. Defaults to 3.
@@ -52,8 +52,8 @@ func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "datadog:httpClientRetryTimeout")
 }
 
-// Enables validation of the provided API and APP keys during provider initialization. Valid values are [`true`, `false`].
-// Default is true. When false, api_key and app_key won't be checked.
-func GetValidate(ctx *pulumi.Context) string {
-	return config.Get(ctx, "datadog:validate")
+// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+// and app_key won't be checked.
+func GetValidate(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "datadog:validate")
 }

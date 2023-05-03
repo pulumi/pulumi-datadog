@@ -6,14 +6,12 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestAssertionTargetjsonpath {
     private String jsonpath;
     private String operator;
-    private @Nullable String targetvalue;
+    private String targetvalue;
 
     private SyntheticsTestAssertionTargetjsonpath() {}
     public String jsonpath() {
@@ -22,8 +20,8 @@ public final class SyntheticsTestAssertionTargetjsonpath {
     public String operator() {
         return this.operator;
     }
-    public Optional<String> targetvalue() {
-        return Optional.ofNullable(this.targetvalue);
+    public String targetvalue() {
+        return this.targetvalue;
     }
 
     public static Builder builder() {
@@ -37,7 +35,7 @@ public final class SyntheticsTestAssertionTargetjsonpath {
     public static final class Builder {
         private String jsonpath;
         private String operator;
-        private @Nullable String targetvalue;
+        private String targetvalue;
         public Builder() {}
         public Builder(SyntheticsTestAssertionTargetjsonpath defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,8 +55,8 @@ public final class SyntheticsTestAssertionTargetjsonpath {
             return this;
         }
         @CustomType.Setter
-        public Builder targetvalue(@Nullable String targetvalue) {
-            this.targetvalue = targetvalue;
+        public Builder targetvalue(String targetvalue) {
+            this.targetvalue = Objects.requireNonNull(targetvalue);
             return this;
         }
         public SyntheticsTestAssertionTargetjsonpath build() {
