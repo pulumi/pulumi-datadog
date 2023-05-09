@@ -2,4 +2,5 @@
 
 ---
 upstream-provider-name: terraform-provider-datadog
+pulumi-infer-version: true
 
