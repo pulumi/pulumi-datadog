@@ -55,10 +55,7 @@ type ServiceObject struct {
 	CustomUrl pulumi.StringPtrOutput `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 	OpsgenieApiKey pulumi.StringOutput `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -113,10 +110,7 @@ type serviceObjectState struct {
 	CustomUrl *string `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
 	Name *string `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 	OpsgenieApiKey *string `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region *string `pulumi:"region"`
@@ -127,10 +121,7 @@ type ServiceObjectState struct {
 	CustomUrl pulumi.StringPtrInput
 	// The name for the Opsgenie service.
 	Name pulumi.StringPtrInput
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 	OpsgenieApiKey pulumi.StringPtrInput
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringPtrInput
@@ -145,10 +136,7 @@ type serviceObjectArgs struct {
 	CustomUrl *string `pulumi:"customUrl"`
 	// The name for the Opsgenie service.
 	Name string `pulumi:"name"`
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 	OpsgenieApiKey string `pulumi:"opsgenieApiKey"`
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region string `pulumi:"region"`
@@ -160,10 +148,7 @@ type ServiceObjectArgs struct {
 	CustomUrl pulumi.StringPtrInput
 	// The name for the Opsgenie service.
 	Name pulumi.StringInput
-	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-	// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-	// to solve a drift is to manually mark the Service Object resource with [terraform
-	// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+	// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 	OpsgenieApiKey pulumi.StringInput
 	// The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
 	Region pulumi.StringInput
@@ -266,10 +251,7 @@ func (o ServiceObjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-// to solve a drift is to manually mark the Service Object resource with [terraform
-// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+// The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
 func (o ServiceObjectOutput) OpsgenieApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.OpsgenieApiKey }).(pulumi.StringOutput)
 }

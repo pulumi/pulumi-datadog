@@ -62,10 +62,7 @@ export class ServiceObject extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      */
     public readonly opsgenieApiKey!: pulumi.Output<string>;
     /**
@@ -126,10 +123,7 @@ export interface ServiceObjectState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      */
     opsgenieApiKey?: pulumi.Input<string>;
     /**
@@ -151,10 +145,7 @@ export interface ServiceObjectArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      */
     opsgenieApiKey: pulumi.Input<string>;
     /**

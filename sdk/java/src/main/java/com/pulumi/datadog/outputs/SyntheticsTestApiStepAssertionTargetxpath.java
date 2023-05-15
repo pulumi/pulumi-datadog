@@ -6,19 +6,21 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepAssertionTargetxpath {
     private String operator;
-    private String targetvalue;
+    private @Nullable String targetvalue;
     private String xpath;
 
     private SyntheticsTestApiStepAssertionTargetxpath() {}
     public String operator() {
         return this.operator;
     }
-    public String targetvalue() {
-        return this.targetvalue;
+    public Optional<String> targetvalue() {
+        return Optional.ofNullable(this.targetvalue);
     }
     public String xpath() {
         return this.xpath;
@@ -34,7 +36,7 @@ public final class SyntheticsTestApiStepAssertionTargetxpath {
     @CustomType.Builder
     public static final class Builder {
         private String operator;
-        private String targetvalue;
+        private @Nullable String targetvalue;
         private String xpath;
         public Builder() {}
         public Builder(SyntheticsTestApiStepAssertionTargetxpath defaults) {
@@ -50,8 +52,8 @@ public final class SyntheticsTestApiStepAssertionTargetxpath {
             return this;
         }
         @CustomType.Setter
-        public Builder targetvalue(String targetvalue) {
-            this.targetvalue = Objects.requireNonNull(targetvalue);
+        public Builder targetvalue(@Nullable String targetvalue) {
+            this.targetvalue = targetvalue;
             return this;
         }
         @CustomType.Setter

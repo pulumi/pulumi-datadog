@@ -8,6 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to list all existing logs pipelines for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const pipelines = datadog.getLogsPipelines({});
+ * // Using data source to set pipeline order
+ * const lpo = new datadog.LogsPipelineOrder("lpo", {
+ *     name: "lpo",
+ *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),
+ * });
+ * ```
  */
 export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsPipelinesResult> {
     args = args || {};
@@ -47,6 +61,20 @@ export interface GetLogsPipelinesResult {
 }
 /**
  * Use this data source to list all existing logs pipelines for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const pipelines = datadog.getLogsPipelines({});
+ * // Using data source to set pipeline order
+ * const lpo = new datadog.LogsPipelineOrder("lpo", {
+ *     name: "lpo",
+ *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),
+ * });
+ * ```
  */
 export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsPipelinesResult> {
     return pulumi.output(args).apply((a: any) => getLogsPipelines(a, opts))

@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());

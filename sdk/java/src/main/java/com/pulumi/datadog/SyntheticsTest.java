@@ -444,18 +444,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deviceIds);
     }
     /**
-     * Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-     * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-     * retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      * 
      */
     @Export(name="locations", type=List.class, parameters={String.class})
     private Output<List<String>> locations;
 
     /**
-     * @return Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-     * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-     * retrieve the list of locations.
+     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      * 
      */
     public Output<List<String>> locations() {

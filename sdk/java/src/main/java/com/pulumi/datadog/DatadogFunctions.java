@@ -14,6 +14,8 @@ import com.pulumi.datadog.inputs.GetDashboardArgs;
 import com.pulumi.datadog.inputs.GetDashboardListArgs;
 import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardPlainArgs;
+import com.pulumi.datadog.inputs.GetHostsArgs;
+import com.pulumi.datadog.inputs.GetHostsPlainArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
 import com.pulumi.datadog.inputs.GetLogsPipelinesPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorArgs;
@@ -47,6 +49,7 @@ import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
+import com.pulumi.datadog.outputs.GetHostsResult;
 import com.pulumi.datadog.outputs.GetIpRangesResult;
 import com.pulumi.datadog.outputs.GetLogsArchivesOrderResult;
 import com.pulumi.datadog.outputs.GetLogsIndexesOrderResult;
@@ -61,6 +64,7 @@ import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
+import com.pulumi.datadog.outputs.GetSensitiveDataScannerGroupOrderResult;
 import com.pulumi.datadog.outputs.GetSensitiveDataScannerStandardPatternResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
@@ -1099,6 +1103,240 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getDashboardList:getDashboardList", TypeShape.of(GetDashboardListResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetHostsResult> getHosts() {
+        return getHosts(GetHostsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain() {
+        return getHostsPlain(GetHostsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args) {
+        return getHosts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args) {
+        return getHostsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about your live hosts in Datadog.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetHostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
+     *             .includeHostsMetadata(true)
+     *             .includeMutedHostsData(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
@@ -1755,12 +1993,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines() {
         return getLogsPipelines(GetLogsPipelinesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain() {
@@ -1769,12 +2011,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args) {
         return getLogsPipelines(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args) {
@@ -1783,12 +2029,16 @@ public final class DatadogFunctions {
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to list all existing logs pipelines for use in other resources.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args, InvokeOptions options) {
@@ -3327,6 +3577,246 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", TypeShape.of(GetSecurityMonitoringRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder() {
+        return getSensitiveDataScannerGroupOrder(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain() {
+        return getSensitiveDataScannerGroupOrderPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder(InvokeArgs args) {
+        return getSensitiveDataScannerGroupOrder(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain(InvokeArgs args) {
+        return getSensitiveDataScannerGroupOrderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
+     * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
+     * 
+     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.

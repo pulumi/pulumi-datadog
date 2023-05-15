@@ -88,20 +88,14 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
     @Export(name="opsgenieApiKey", type=String.class, parameters={})
     private Output<String> opsgenieApiKey;
 
     /**
-     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
     public Output<String> opsgenieApiKey() {

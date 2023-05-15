@@ -20,6 +20,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -53,6 +54,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -148,6 +150,10 @@ namespace Pulumi.Datadog
     public sealed class GetServiceLevelObjectiveResult
     {
         /// <summary>
+        /// The description of the service level objective.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// A SLO ID to limit the search.
         /// </summary>
         public readonly string? Id;
@@ -164,16 +170,34 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? NameQuery;
         /// <summary>
+        /// The metric query of good / total events
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceLevelObjectiveQueryResult> Queries;
+        /// <summary>
         /// Filter results based on a single SLO tag.
         /// </summary>
         public readonly string? TagsQuery;
         /// <summary>
+        /// The primary target threshold of the service level objective.
+        /// </summary>
+        public readonly double TargetThreshold;
+        /// <summary>
+        /// The primary timeframe of the service level objective.
+        /// </summary>
+        public readonly string Timeframe;
+        /// <summary>
         /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The primary warning threshold of the service level objective.
+        /// </summary>
+        public readonly double WarningThreshold;
 
         [OutputConstructor]
         private GetServiceLevelObjectiveResult(
+            string description,
+
             string? id,
 
             string? metricsQuery,
@@ -182,16 +206,29 @@ namespace Pulumi.Datadog
 
             string? nameQuery,
 
+            ImmutableArray<Outputs.GetServiceLevelObjectiveQueryResult> queries,
+
             string? tagsQuery,
 
-            string type)
+            double targetThreshold,
+
+            string timeframe,
+
+            string type,
+
+            double warningThreshold)
         {
+            Description = description;
             Id = id;
             MetricsQuery = metricsQuery;
             Name = name;
             NameQuery = nameQuery;
+            Queries = queries;
             TagsQuery = tagsQuery;
+            TargetThreshold = targetThreshold;
+            Timeframe = timeframe;
             Type = type;
+            WarningThreshold = warningThreshold;
         }
     }
 }

@@ -20,6 +20,7 @@ from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
 from .get_dashboard_list import *
+from .get_hosts import *
 from .get_ip_ranges import *
 from .get_logs_archives_order import *
 from .get_logs_indexes import *
@@ -34,6 +35,7 @@ from .get_roles import *
 from .get_rum_application import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
+from .get_sensitive_data_scanner_group_order import *
 from .get_sensitive_data_scanner_standard_pattern import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
@@ -63,6 +65,7 @@ from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
 from .sensitive_data_scanner_group import *
+from .sensitive_data_scanner_group_order import *
 from .sensitive_data_scanner_rule import *
 from .service_account import *
 from .service_definition_yaml import *
@@ -83,8 +86,14 @@ if typing.TYPE_CHECKING:
     aws = __aws
     import pulumi_datadog.azure as __azure
     azure = __azure
+    import pulumi_datadog.cloudflare as __cloudflare
+    cloudflare = __cloudflare
     import pulumi_datadog.config as __config
     config = __config
+    import pulumi_datadog.confluent as __confluent
+    confluent = __confluent
+    import pulumi_datadog.fastly as __fastly
+    fastly = __fastly
     import pulumi_datadog.gcp as __gcp
     gcp = __gcp
     import pulumi_datadog.opsgenie as __opsgenie
@@ -96,7 +105,10 @@ if typing.TYPE_CHECKING:
 else:
     aws = _utilities.lazy_import('pulumi_datadog.aws')
     azure = _utilities.lazy_import('pulumi_datadog.azure')
+    cloudflare = _utilities.lazy_import('pulumi_datadog.cloudflare')
     config = _utilities.lazy_import('pulumi_datadog.config')
+    confluent = _utilities.lazy_import('pulumi_datadog.confluent')
+    fastly = _utilities.lazy_import('pulumi_datadog.fastly')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
     opsgenie = _utilities.lazy_import('pulumi_datadog.opsgenie')
     pagerduty = _utilities.lazy_import('pulumi_datadog.pagerduty')
@@ -143,6 +155,46 @@ _utilities.register(
   "fqn": "pulumi_datadog.azure",
   "classes": {
    "datadog:azure/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "cloudflare/integrationAccount",
+  "fqn": "pulumi_datadog.cloudflare",
+  "classes": {
+   "datadog:cloudflare/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "confluent/integrationAccount",
+  "fqn": "pulumi_datadog.confluent",
+  "classes": {
+   "datadog:confluent/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "confluent/integrationResource",
+  "fqn": "pulumi_datadog.confluent",
+  "classes": {
+   "datadog:confluent/integrationResource:IntegrationResource": "IntegrationResource"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "fastly/integrationAccount",
+  "fqn": "pulumi_datadog.fastly",
+  "classes": {
+   "datadog:fastly/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "fastly/integrationService",
+  "fqn": "pulumi_datadog.fastly",
+  "classes": {
+   "datadog:fastly/integrationService:IntegrationService": "IntegrationService"
   }
  },
  {
@@ -399,6 +451,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": "SensitiveDataScannerGroup"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/sensitiveDataScannerGroupOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": "SensitiveDataScannerGroupOrder"
   }
  },
  {

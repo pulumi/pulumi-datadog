@@ -16,6 +16,7 @@ namespace Pulumi.Datadog
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
@@ -182,8 +183,7 @@ namespace Pulumi.Datadog
         /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        /// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-        /// contact Support at support@datadoghq.com
+        /// to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         [Output("notifyBies")]
         public Output<ImmutableArray<string>> NotifyBies { get; private set; } = null!;
@@ -467,8 +467,7 @@ namespace Pulumi.Datadog
         /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        /// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-        /// contact Support at support@datadoghq.com
+        /// to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public InputList<string> NotifyBies
         {
@@ -748,8 +747,7 @@ namespace Pulumi.Datadog
         /// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
         /// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
         /// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-        /// to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-        /// contact Support at support@datadoghq.com
+        /// to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public InputList<string> NotifyBies
         {

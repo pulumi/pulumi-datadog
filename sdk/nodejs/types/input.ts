@@ -573,6 +573,9 @@ export interface DashboardWidgetCheckStatusDefinition {
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
+    /**
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the dashboard.
@@ -1479,6 +1482,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     grouping: pulumi.Input<string>;
     liveSpan?: pulumi.Input<string>;
+    /**
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the dashboard.
@@ -3648,6 +3654,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    additionalQueryFilters?: pulumi.Input<string>;
     globalTimeTarget?: pulumi.Input<string>;
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
@@ -3699,6 +3706,12 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
     limit?: pulumi.Input<number>;
     queryString: pulumi.Input<string>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
@@ -6707,6 +6720,7 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    additionalQueryFilters?: pulumi.Input<string>;
     globalTimeTarget?: pulumi.Input<string>;
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
@@ -6758,6 +6772,12 @@ export interface DashboardWidgetSloListDefinitionRequest {
 export interface DashboardWidgetSloListDefinitionRequestQuery {
     limit?: pulumi.Input<number>;
     queryString: pulumi.Input<string>;
+    sort?: pulumi.Input<inputs.DashboardWidgetSloListDefinitionRequestQuerySort>;
+}
+
+export interface DashboardWidgetSloListDefinitionRequestQuerySort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinition {
@@ -9145,7 +9165,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetxpath>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: pulumi.Input<string>;
 }
@@ -9153,12 +9173,12 @@ export interface SyntheticsTestApiStepAssertion {
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     jsonpath: pulumi.Input<string>;
     operator: pulumi.Input<string>;
-    targetvalue: pulumi.Input<string>;
+    targetvalue?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
     operator: pulumi.Input<string>;
-    targetvalue: pulumi.Input<string>;
+    targetvalue?: pulumi.Input<string>;
     xpath: pulumi.Input<string>;
 }
 
@@ -9380,7 +9400,7 @@ export interface SyntheticsTestAssertion {
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetxpath>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: pulumi.Input<string>;
 }
@@ -9388,12 +9408,12 @@ export interface SyntheticsTestAssertion {
 export interface SyntheticsTestAssertionTargetjsonpath {
     jsonpath: pulumi.Input<string>;
     operator: pulumi.Input<string>;
-    targetvalue: pulumi.Input<string>;
+    targetvalue?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
     operator: pulumi.Input<string>;
-    targetvalue: pulumi.Input<string>;
+    targetvalue?: pulumi.Input<string>;
     xpath: pulumi.Input<string>;
 }
 
@@ -9414,6 +9434,10 @@ export interface SyntheticsTestBrowserStep {
      * Name of the step.
      */
     name: pulumi.Input<string>;
+    /**
+     * Prevents saving screenshots of the step.
+     */
+    noScreenshot?: pulumi.Input<boolean>;
     /**
      * Parameters for the step.
      */

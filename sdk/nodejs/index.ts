@@ -79,6 +79,11 @@ export const getDashboardList: typeof import("./getDashboardList").getDashboardL
 export const getDashboardListOutput: typeof import("./getDashboardList").getDashboardListOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboardList","getDashboardListOutput"], () => require("./getDashboardList"));
 
+export { GetHostsArgs, GetHostsResult, GetHostsOutputArgs } from "./getHosts";
+export const getHosts: typeof import("./getHosts").getHosts = null as any;
+export const getHostsOutput: typeof import("./getHosts").getHostsOutput = null as any;
+utilities.lazyLoad(exports, ["getHosts","getHostsOutput"], () => require("./getHosts"));
+
 export { GetIpRangesResult } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
 utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
@@ -142,6 +147,10 @@ export { GetSecurityMonitoringRulesArgs, GetSecurityMonitoringRulesResult, GetSe
 export const getSecurityMonitoringRules: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRules = null as any;
 export const getSecurityMonitoringRulesOutput: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityMonitoringRules","getSecurityMonitoringRulesOutput"], () => require("./getSecurityMonitoringRules"));
+
+export { GetSensitiveDataScannerGroupOrderResult } from "./getSensitiveDataScannerGroupOrder";
+export const getSensitiveDataScannerGroupOrder: typeof import("./getSensitiveDataScannerGroupOrder").getSensitiveDataScannerGroupOrder = null as any;
+utilities.lazyLoad(exports, ["getSensitiveDataScannerGroupOrder"], () => require("./getSensitiveDataScannerGroupOrder"));
 
 export { GetSensitiveDataScannerStandardPatternArgs, GetSensitiveDataScannerStandardPatternResult, GetSensitiveDataScannerStandardPatternOutputArgs } from "./getSensitiveDataScannerStandardPattern";
 export const getSensitiveDataScannerStandardPattern: typeof import("./getSensitiveDataScannerStandardPattern").getSensitiveDataScannerStandardPattern = null as any;
@@ -287,6 +296,11 @@ export type SensitiveDataScannerGroup = import("./sensitiveDataScannerGroup").Se
 export const SensitiveDataScannerGroup: typeof import("./sensitiveDataScannerGroup").SensitiveDataScannerGroup = null as any;
 utilities.lazyLoad(exports, ["SensitiveDataScannerGroup"], () => require("./sensitiveDataScannerGroup"));
 
+export { SensitiveDataScannerGroupOrderArgs, SensitiveDataScannerGroupOrderState } from "./sensitiveDataScannerGroupOrder";
+export type SensitiveDataScannerGroupOrder = import("./sensitiveDataScannerGroupOrder").SensitiveDataScannerGroupOrder;
+export const SensitiveDataScannerGroupOrder: typeof import("./sensitiveDataScannerGroupOrder").SensitiveDataScannerGroupOrder = null as any;
+utilities.lazyLoad(exports, ["SensitiveDataScannerGroupOrder"], () => require("./sensitiveDataScannerGroupOrder"));
+
 export { SensitiveDataScannerRuleArgs, SensitiveDataScannerRuleState } from "./sensitiveDataScannerRule";
 export type SensitiveDataScannerRule = import("./sensitiveDataScannerRule").SensitiveDataScannerRule;
 export const SensitiveDataScannerRule: typeof import("./sensitiveDataScannerRule").SensitiveDataScannerRule = null as any;
@@ -346,7 +360,10 @@ utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookC
 // Export sub-modules:
 import * as aws from "./aws";
 import * as azure from "./azure";
+import * as cloudflare from "./cloudflare";
 import * as config from "./config";
+import * as confluent from "./confluent";
+import * as fastly from "./fastly";
 import * as gcp from "./gcp";
 import * as opsgenie from "./opsgenie";
 import * as pagerduty from "./pagerduty";
@@ -356,7 +373,10 @@ import * as types from "./types";
 export {
     aws,
     azure,
+    cloudflare,
     config,
+    confluent,
+    fastly,
     gcp,
     opsgenie,
     pagerduty,
@@ -430,6 +450,8 @@ const _module = {
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
                 return new SensitiveDataScannerGroup(name, <any>undefined, { urn })
+            case "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder":
+                return new SensitiveDataScannerGroupOrder(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule":
                 return new SensitiveDataScannerRule(name, <any>undefined, { urn })
             case "datadog:index/serviceAccount:ServiceAccount":
@@ -488,6 +510,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaul
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroupOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)

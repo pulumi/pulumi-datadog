@@ -41,6 +41,8 @@ type Dashboard struct {
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -106,6 +108,8 @@ type dashboardState struct {
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+	Tags []string `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -137,6 +141,8 @@ type DashboardState struct {
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+	Tags pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
@@ -170,6 +176,8 @@ type dashboardArgs struct {
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+	Tags []string `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -200,6 +208,8 @@ type DashboardArgs struct {
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+	Tags pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
@@ -339,6 +349,11 @@ func (o DashboardOutput) ReflowType() pulumi.StringPtrOutput {
 // UUIDs of roles whose associated users are authorized to edit the dashboard.
 func (o DashboardOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+func (o DashboardOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // The list of selectable template variable presets for this dashboard.

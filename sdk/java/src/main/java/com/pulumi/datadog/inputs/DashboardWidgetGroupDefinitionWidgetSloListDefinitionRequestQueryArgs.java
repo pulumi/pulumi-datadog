@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -30,11 +31,19 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
         return this.queryString;
     }
 
+    @Import(name="sort")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs> sort;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs $) {
         this.limit = $.limit;
         this.queryString = $.queryString;
+        this.sort = $.sort;
     }
 
     public static Builder builder() {
@@ -71,6 +80,15 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
 
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
+        }
+
+        public Builder sort(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        public Builder sort(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs build() {
