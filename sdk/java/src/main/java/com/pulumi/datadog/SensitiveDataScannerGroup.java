@@ -70,7 +70,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * Description of the Datadog scanning group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -84,7 +84,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * Filter object the scanning group applies.
      * 
      */
-    @Export(name="filter", type=SensitiveDataScannerGroupFilter.class, parameters={})
+    @Export(name="filter", refs={SensitiveDataScannerGroupFilter.class}, tree="[0]")
     private Output<SensitiveDataScannerGroupFilter> filter;
 
     /**
@@ -98,7 +98,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * Whether or not the scanning group is enabled. If the group doesn&#39;t contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
     /**
@@ -112,7 +112,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * Name of the Datadog scanning group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * List of products the scanning group applies.
      * 
      */
-    @Export(name="productLists", type=List.class, parameters={String.class})
+    @Export(name="productLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> productLists;
 
     /**

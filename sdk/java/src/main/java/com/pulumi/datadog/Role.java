@@ -78,7 +78,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * Name of the role.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -92,7 +92,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={RolePermission.class})
+    @Export(name="permissions", refs={List.class,RolePermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RolePermission>> permissions;
 
     /**
@@ -106,7 +106,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * Number of users that have this role.
      * 
      */
-    @Export(name="userCount", type=Integer.class, parameters={})
+    @Export(name="userCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> userCount;
 
     /**
@@ -120,7 +120,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * If set to `false`, skip the validation call done during plan.
      * 
      */
-    @Export(name="validate", type=Boolean.class, parameters={})
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**

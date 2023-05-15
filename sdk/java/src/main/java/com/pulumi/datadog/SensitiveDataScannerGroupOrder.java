@@ -63,7 +63,7 @@ public class SensitiveDataScannerGroupOrder extends com.pulumi.resources.CustomR
      * The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
-    @Export(name="groupIds", type=List.class, parameters={String.class})
+    @Export(name="groupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groupIds;
 
     /**

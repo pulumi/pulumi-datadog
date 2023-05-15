@@ -65,7 +65,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The API key associated with your Confluent account.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -79,7 +79,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The API secret associated with your Confluent account.
      * 
      */
-    @Export(name="apiSecret", type=String.class, parameters={})
+    @Export(name="apiSecret", refs={String.class}, tree="[0]")
     private Output<String> apiSecret;
 
     /**
@@ -93,7 +93,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**

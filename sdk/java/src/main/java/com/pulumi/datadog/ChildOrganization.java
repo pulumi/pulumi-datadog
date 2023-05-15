@@ -58,7 +58,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * Datadog API key.
      * 
      */
-    @Export(name="apiKeys", type=List.class, parameters={ChildOrganizationApiKey.class})
+    @Export(name="apiKeys", refs={List.class,ChildOrganizationApiKey.class}, tree="[0,1]")
     private Output<List<ChildOrganizationApiKey>> apiKeys;
 
     /**
@@ -72,7 +72,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * An application key with its associated metadata.
      * 
      */
-    @Export(name="applicationKeys", type=List.class, parameters={ChildOrganizationApplicationKey.class})
+    @Export(name="applicationKeys", refs={List.class,ChildOrganizationApplicationKey.class}, tree="[0,1]")
     private Output<List<ChildOrganizationApplicationKey>> applicationKeys;
 
     /**
@@ -86,7 +86,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * Description of the organization.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -100,7 +100,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * Name for Child Organization after creation.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * The `public_id` of the organization you are operating within.
      * 
      */
-    @Export(name="publicId", type=String.class, parameters={})
+    @Export(name="publicId", refs={String.class}, tree="[0]")
     private Output<String> publicId;
 
     /**
@@ -128,7 +128,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * Organization settings
      * 
      */
-    @Export(name="settings", type=List.class, parameters={ChildOrganizationSetting.class})
+    @Export(name="settings", refs={List.class,ChildOrganizationSetting.class}, tree="[0,1]")
     private Output<List<ChildOrganizationSetting>> settings;
 
     /**
@@ -142,7 +142,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * Information about a user
      * 
      */
-    @Export(name="users", type=List.class, parameters={ChildOrganizationUser.class})
+    @Export(name="users", refs={List.class,ChildOrganizationUser.class}, tree="[0,1]")
     private Output<List<ChildOrganizationUser>> users;
 
     /**

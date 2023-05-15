@@ -98,7 +98,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Cases for generating signals.
      * 
      */
-    @Export(name="cases", type=List.class, parameters={SecurityMonitoringRuleCase.class})
+    @Export(name="cases", refs={List.class,SecurityMonitoringRuleCase.class}, tree="[0,1]")
     private Output<List<SecurityMonitoringRuleCase>> cases;
 
     /**
@@ -112,7 +112,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Whether the rule is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -126,7 +126,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Additional queries to filter matched events before they are processed.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={SecurityMonitoringRuleFilter.class})
+    @Export(name="filters", refs={List.class,SecurityMonitoringRuleFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleFilter>> filters;
 
     /**
@@ -140,7 +140,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Whether the notifications include the triggering group-by values in their title.
      * 
      */
-    @Export(name="hasExtendedTitle", type=Boolean.class, parameters={})
+    @Export(name="hasExtendedTitle", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasExtendedTitle;
 
     /**
@@ -154,7 +154,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Message for generated signals.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output<String> message;
 
     /**
@@ -168,7 +168,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * The name of the rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Options on rules.
      * 
      */
-    @Export(name="options", type=SecurityMonitoringRuleOptions.class, parameters={})
+    @Export(name="options", refs={SecurityMonitoringRuleOptions.class}, tree="[0]")
     private Output</* @Nullable */ SecurityMonitoringRuleOptions> options;
 
     /**
@@ -196,7 +196,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Queries for selecting logs which are part of the rule.
      * 
      */
-    @Export(name="queries", type=List.class, parameters={SecurityMonitoringRuleQuery.class})
+    @Export(name="queries", refs={List.class,SecurityMonitoringRuleQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleQuery>> queries;
 
     /**
@@ -210,7 +210,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Queries for selecting logs which are part of the rule.
      * 
      */
-    @Export(name="signalQueries", type=List.class, parameters={SecurityMonitoringRuleSignalQuery.class})
+    @Export(name="signalQueries", refs={List.class,SecurityMonitoringRuleSignalQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleSignalQuery>> signalQueries;
 
     /**
@@ -224,7 +224,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * Tags for generated signals.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -238,7 +238,7 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

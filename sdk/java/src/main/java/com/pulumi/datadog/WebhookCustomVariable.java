@@ -63,7 +63,7 @@ public class WebhookCustomVariable extends com.pulumi.resources.CustomResource {
      * Whether the custom variable is secret or not.
      * 
      */
-    @Export(name="isSecret", type=Boolean.class, parameters={})
+    @Export(name="isSecret", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isSecret;
 
     /**
@@ -77,7 +77,7 @@ public class WebhookCustomVariable extends com.pulumi.resources.CustomResource {
      * The name of the variable. It corresponds with `&lt;CUSTOM_VARIABLE_NAME&gt;`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class WebhookCustomVariable extends com.pulumi.resources.CustomResource {
      * The value of the custom variable.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

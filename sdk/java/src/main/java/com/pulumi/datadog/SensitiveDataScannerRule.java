@@ -104,7 +104,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Description of the rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -118,7 +118,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
      * 
      */
-    @Export(name="excludedNamespaces", type=List.class, parameters={String.class})
+    @Export(name="excludedNamespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedNamespaces;
 
     /**
@@ -132,7 +132,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Id of the scanning group the rule belongs to.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -146,7 +146,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Whether or not the rule is enabled.
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**
@@ -160,7 +160,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Name of the rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
     /**
@@ -174,7 +174,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
      * 
      */
-    @Export(name="namespaces", type=List.class, parameters={String.class})
+    @Export(name="namespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> namespaces;
 
     /**
@@ -188,7 +188,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Not included if there is a relationship to a standard pattern.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
@@ -202,7 +202,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      * 
      */
-    @Export(name="standardPatternId", type=String.class, parameters={})
+    @Export(name="standardPatternId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> standardPatternId;
 
     /**
@@ -216,7 +216,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * List of tags.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -230,7 +230,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * Object describing how the scanned event will be replaced. Defaults to `type: none`
      * 
      */
-    @Export(name="textReplacement", type=SensitiveDataScannerRuleTextReplacement.class, parameters={})
+    @Export(name="textReplacement", refs={SensitiveDataScannerRuleTextReplacement.class}, tree="[0]")
     private Output</* @Nullable */ SensitiveDataScannerRuleTextReplacement> textReplacement;
 
     /**

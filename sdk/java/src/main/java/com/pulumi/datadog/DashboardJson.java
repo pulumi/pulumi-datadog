@@ -549,7 +549,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * The JSON formatted definition of the Dashboard.
      * 
      */
-    @Export(name="dashboard", type=String.class, parameters={})
+    @Export(name="dashboard", refs={String.class}, tree="[0]")
     private Output<String> dashboard;
 
     /**
@@ -563,7 +563,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * The list of dashboard lists this dashboard belongs to.
      * 
      */
-    @Export(name="dashboardLists", type=List.class, parameters={Integer.class})
+    @Export(name="dashboardLists", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> dashboardLists;
 
     /**
@@ -577,7 +577,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * The list of dashboard lists this dashboard should be removed from. Internal only.
      * 
      */
-    @Export(name="dashboardListsRemoveds", type=List.class, parameters={Integer.class})
+    @Export(name="dashboardListsRemoveds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> dashboardListsRemoveds;
 
     /**
@@ -591,7 +591,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * The URL of the dashboard.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
