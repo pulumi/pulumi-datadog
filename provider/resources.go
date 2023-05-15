@@ -79,6 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:   "https://github.com/pulumi/pulumi-datadog",
 		Config:       map[string]*tfbridge.SchemaInfo{},
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		Version:      version.Version,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
 			"datadog_downtime":                   {Tok: makeResource(datadogMod, "Downtime")},
