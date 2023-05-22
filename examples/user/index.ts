@@ -16,7 +16,6 @@ import * as datadog from "@pulumi/datadog";
 
 let user = new datadog.User("my-user", {
     email: "new@example.com",
-    handle: "new@example.com",
     name: "New User",
 });
 
