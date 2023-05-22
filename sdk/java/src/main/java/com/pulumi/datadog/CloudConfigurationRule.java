@@ -99,7 +99,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Whether the cloud configuration rule is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -113,7 +113,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
      * 
      */
-    @Export(name="groupBies", type=List.class, parameters={String.class})
+    @Export(name="groupBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupBies;
 
     /**
@@ -127,7 +127,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * The message associated to the rule that will be shown in findings and signals.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output<String> message;
 
     /**
@@ -141,7 +141,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * The name of the cloud configuration rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Notification targets for signals. Defaults to empty list.
      * 
      */
-    @Export(name="notifications", type=List.class, parameters={String.class})
+    @Export(name="notifications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifications;
 
     /**
@@ -169,7 +169,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Policy written in Rego format.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -183,7 +183,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Related resource types to be checked by the rule. Defaults to empty list.
      * 
      */
-    @Export(name="relatedResourceTypes", type=List.class, parameters={String.class})
+    @Export(name="relatedResourceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> relatedResourceTypes;
 
     /**
@@ -197,7 +197,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Main resource type to be checked by the rule.
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -211,7 +211,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      * 
      */
-    @Export(name="severity", type=String.class, parameters={})
+    @Export(name="severity", refs={String.class}, tree="[0]")
     private Output<String> severity;
 
     /**
@@ -225,7 +225,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * Tags of the rule, propagated to findings and signals. Defaults to empty list.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**

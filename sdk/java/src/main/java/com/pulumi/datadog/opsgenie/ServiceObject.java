@@ -63,7 +63,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The custom url for a custom region.
      * 
      */
-    @Export(name="customUrl", type=String.class, parameters={})
+    @Export(name="customUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customUrl;
 
     /**
@@ -77,7 +77,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The name for the Opsgenie service.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,20 +88,14 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
-    @Export(name="opsgenieApiKey", type=String.class, parameters={})
+    @Export(name="opsgenieApiKey", refs={String.class}, tree="[0]")
     private Output<String> opsgenieApiKey;
 
     /**
-     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is
-     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
-     * to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
     public Output<String> opsgenieApiKey() {
@@ -111,7 +105,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetApiKeyResult {
     /**
-     * @return Id for API Key.
+     * @return The ID of this resource.
      * 
      */
     private @Nullable String id;
@@ -29,7 +29,7 @@ public final class GetApiKeyResult {
 
     private GetApiKeyResult() {}
     /**
-     * @return Id for API Key.
+     * @return The ID of this resource.
      * 
      */
     public Optional<String> id() {

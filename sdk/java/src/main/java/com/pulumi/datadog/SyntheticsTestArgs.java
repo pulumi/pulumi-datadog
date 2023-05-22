@@ -119,18 +119,14 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-     * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-     * retrieve the list of locations.
+     * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      * 
      */
     @Import(name="locations", required=true)
     private Output<List<String>> locations;
 
     /**
-     * @return Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-     * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-     * retrieve the list of locations.
+     * @return Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      * 
      */
     public Output<List<String>> locations() {
@@ -570,9 +566,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-         * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-         * retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
          * 
          * @return builder
          * 
@@ -583,9 +577,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-         * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-         * retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
          * 
          * @return builder
          * 
@@ -595,9 +587,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param locations Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-         * source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-         * retrieve the list of locations.
+         * @param locations Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
          * 
          * @return builder
          * 

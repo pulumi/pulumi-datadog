@@ -17,16 +17,16 @@
 package main
 
 import (
+	"context"
 	_ "embed"
 
 	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
-	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 )
 
 //go:embed schema-embed.json
 var pulumiSchema []byte
 
 func main() {
-	tfbridge.Main("datadog", version.Version, datadog.Provider(), pulumiSchema)
+	tfbridge.MainWithMuxer(context.Background(), "datadog", datadog.Provider(), pulumiSchema)
 }

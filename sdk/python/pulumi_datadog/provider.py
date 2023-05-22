@@ -19,10 +19,10 @@ class ProviderArgs:
                  app_key: Optional[pulumi.Input[str]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
-                 validate: Optional[pulumi.Input[bool]] = None):
+                 validate: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
@@ -34,11 +34,11 @@ class ProviderArgs:
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
-        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-               and app_key won't be checked.
+        :param pulumi.Input[str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+               is true. When false, api_key won't be checked.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -125,14 +125,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="httpClientRetryEnabled")
-    def http_client_retry_enabled(self) -> Optional[pulumi.Input[bool]]:
+    def http_client_retry_enabled(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         """
         return pulumi.get(self, "http_client_retry_enabled")
 
     @http_client_retry_enabled.setter
-    def http_client_retry_enabled(self, value: Optional[pulumi.Input[bool]]):
+    def http_client_retry_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_client_retry_enabled", value)
 
     @property
@@ -161,15 +161,15 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[bool]]:
+    def validate(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-        and app_key won't be checked.
+        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+        is true. When false, api_key won't be checked.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[bool]]):
+    def validate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validate", value)
 
 
@@ -183,10 +183,10 @@ class Provider(pulumi.ProviderResource):
                  app_key: Optional[pulumi.Input[str]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
-                 validate: Optional[pulumi.Input[bool]] = None,
+                 validate: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The provider type for the datadog package. By default, resources use package-wide configuration
@@ -205,11 +205,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         :param pulumi.Input[int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
-        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        :param pulumi.Input[str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-               and app_key won't be checked.
+        :param pulumi.Input[str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+               is true. When false, api_key won't be checked.
         """
         ...
     @overload
@@ -243,10 +243,10 @@ class Provider(pulumi.ProviderResource):
                  app_key: Optional[pulumi.Input[str]] = None,
                  http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
                  http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
                  http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
                  http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
-                 validate: Optional[pulumi.Input[bool]] = None,
+                 validate: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,15 +256,17 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["api_url"] = api_url
-            __props__.__dict__["app_key"] = app_key
+            __props__.__dict__["app_key"] = None if app_key is None else pulumi.Output.secret(app_key)
             __props__.__dict__["http_client_retry_backoff_base"] = pulumi.Output.from_input(http_client_retry_backoff_base).apply(pulumi.runtime.to_json) if http_client_retry_backoff_base is not None else None
             __props__.__dict__["http_client_retry_backoff_multiplier"] = pulumi.Output.from_input(http_client_retry_backoff_multiplier).apply(pulumi.runtime.to_json) if http_client_retry_backoff_multiplier is not None else None
-            __props__.__dict__["http_client_retry_enabled"] = pulumi.Output.from_input(http_client_retry_enabled).apply(pulumi.runtime.to_json) if http_client_retry_enabled is not None else None
+            __props__.__dict__["http_client_retry_enabled"] = http_client_retry_enabled
             __props__.__dict__["http_client_retry_max_retries"] = pulumi.Output.from_input(http_client_retry_max_retries).apply(pulumi.runtime.to_json) if http_client_retry_max_retries is not None else None
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
-            __props__.__dict__["validate"] = pulumi.Output.from_input(validate).apply(pulumi.runtime.to_json) if validate is not None else None
+            __props__.__dict__["validate"] = validate
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'datadog',
             resource_name,
@@ -298,4 +300,21 @@ class Provider(pulumi.ProviderResource):
         (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         """
         return pulumi.get(self, "app_key")
+
+    @property
+    @pulumi.getter(name="httpClientRetryEnabled")
+    def http_client_retry_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        """
+        return pulumi.get(self, "http_client_retry_enabled")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+        is true. When false, api_key won't be checked.
+        """
+        return pulumi.get(self, "validate")
 

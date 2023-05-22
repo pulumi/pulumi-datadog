@@ -83,7 +83,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * The compute rule to compute the log-based metric. This field can&#39;t be updated after creation.
      * 
      */
-    @Export(name="compute", type=LogsMetricCompute.class, parameters={})
+    @Export(name="compute", refs={LogsMetricCompute.class}, tree="[0]")
     private Output<LogsMetricCompute> compute;
 
     /**
@@ -97,7 +97,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
      * 
      */
-    @Export(name="filter", type=LogsMetricFilter.class, parameters={})
+    @Export(name="filter", refs={LogsMetricFilter.class}, tree="[0]")
     private Output<LogsMetricFilter> filter;
 
     /**
@@ -111,7 +111,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * The rules for the group by.
      * 
      */
-    @Export(name="groupBies", type=List.class, parameters={LogsMetricGroupBy.class})
+    @Export(name="groupBies", refs={List.class,LogsMetricGroupBy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LogsMetricGroupBy>> groupBies;
 
     /**
@@ -125,7 +125,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * The name of the log-based metric. This field can&#39;t be updated after creation.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -62,7 +62,7 @@ public class LogsIntegrationPipeline extends com.pulumi.resources.CustomResource
      * Boolean value to enable your pipeline.
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**

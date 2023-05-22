@@ -87,7 +87,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * The number of log events you can send in this index per day before you are rate-limited.
      * 
      */
-    @Export(name="dailyLimit", type=Integer.class, parameters={})
+    @Export(name="dailyLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dailyLimit;
 
     /**
@@ -101,7 +101,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.
      * 
      */
-    @Export(name="disableDailyLimit", type=Boolean.class, parameters={})
+    @Export(name="disableDailyLimit", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableDailyLimit;
 
     /**
@@ -115,7 +115,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * List of exclusion filters.
      * 
      */
-    @Export(name="exclusionFilters", type=List.class, parameters={LogsIndexExclusionFilter.class})
+    @Export(name="exclusionFilters", refs={List.class,LogsIndexExclusionFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LogsIndexExclusionFilter>> exclusionFilters;
 
     /**
@@ -129,7 +129,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * Logs filter
      * 
      */
-    @Export(name="filters", type=List.class, parameters={LogsIndexFilter.class})
+    @Export(name="filters", refs={List.class,LogsIndexFilter.class}, tree="[0,1]")
     private Output<List<LogsIndexFilter>> filters;
 
     /**
@@ -143,7 +143,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * The name of the index.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * The number of days before logs are deleted from this index.
      * 
      */
-    @Export(name="retentionDays", type=Integer.class, parameters={})
+    @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionDays;
 
     /**

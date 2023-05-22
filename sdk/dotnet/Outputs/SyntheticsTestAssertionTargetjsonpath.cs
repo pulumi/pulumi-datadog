@@ -15,7 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string Jsonpath;
         public readonly string Operator;
-        public readonly string Targetvalue;
+        public readonly string? Targetvalue;
 
         [OutputConstructor]
         private SyntheticsTestAssertionTargetjsonpath(
@@ -23,7 +23,7 @@ namespace Pulumi.Datadog.Outputs
 
             string @operator,
 
-            string targetvalue)
+            string? targetvalue)
         {
             Jsonpath = jsonpath;
             Operator = @operator;

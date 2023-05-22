@@ -21,6 +21,7 @@ namespace Pulumi.Datadog
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -32,6 +33,7 @@ namespace Pulumi.Datadog
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -42,6 +44,7 @@ namespace Pulumi.Datadog
     /// which you can now use in your request definition:
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -53,6 +56,7 @@ namespace Pulumi.Datadog
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
@@ -418,9 +422,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-        /// retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
@@ -634,9 +636,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-        /// retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         /// </summary>
         public InputList<string> Locations
         {
@@ -827,9 +827,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _locations;
 
         /// <summary>
-        /// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-        /// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-        /// retrieve the list of locations.
+        /// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         /// </summary>
         public InputList<string> Locations
         {

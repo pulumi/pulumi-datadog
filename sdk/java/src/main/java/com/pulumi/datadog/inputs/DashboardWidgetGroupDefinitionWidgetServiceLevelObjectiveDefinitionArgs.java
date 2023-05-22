@@ -17,6 +17,13 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
 
     public static final DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs();
 
+    @Import(name="additionalQueryFilters")
+    private @Nullable Output<String> additionalQueryFilters;
+
+    public Optional<Output<String>> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
+
     @Import(name="globalTimeTarget")
     private @Nullable Output<String> globalTimeTarget;
 
@@ -91,6 +98,7 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
     private DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs(DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs $) {
+        this.additionalQueryFilters = $.additionalQueryFilters;
         this.globalTimeTarget = $.globalTimeTarget;
         this.showErrorBudget = $.showErrorBudget;
         this.sloId = $.sloId;
@@ -118,6 +126,15 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
 
         public Builder(DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs defaults) {
             $ = new DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalQueryFilters(@Nullable Output<String> additionalQueryFilters) {
+            $.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+
+        public Builder additionalQueryFilters(String additionalQueryFilters) {
+            return additionalQueryFilters(Output.of(additionalQueryFilters));
         }
 
         public Builder globalTimeTarget(@Nullable Output<String> globalTimeTarget) {

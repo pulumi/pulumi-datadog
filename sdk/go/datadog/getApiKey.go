@@ -48,7 +48,7 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyArgs struct {
-	// Id for API Key.
+	// The ID of this resource.
 	Id *string `pulumi:"id"`
 	// Name for API Key.
 	Name *string `pulumi:"name"`
@@ -56,7 +56,7 @@ type LookupApiKeyArgs struct {
 
 // A collection of values returned by getApiKey.
 type LookupApiKeyResult struct {
-	// Id for API Key.
+	// The ID of this resource.
 	Id *string `pulumi:"id"`
 	// The value of the API Key.
 	Key string `pulumi:"key"`
@@ -79,7 +79,7 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyOutputArgs struct {
-	// Id for API Key.
+	// The ID of this resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name for API Key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -104,7 +104,7 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx cont
 	return o
 }
 
-// Id for API Key.
+// The ID of this resource.
 func (o LookupApiKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

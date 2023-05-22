@@ -83,7 +83,7 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      * The JSON formatted definition of the monitor.
      * 
      */
-    @Export(name="monitor", type=String.class, parameters={})
+    @Export(name="monitor", refs={String.class}, tree="[0]")
     private Output<String> monitor;
 
     /**
@@ -97,7 +97,7 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      * The URL of the monitor.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

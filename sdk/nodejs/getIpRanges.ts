@@ -52,7 +52,7 @@ export interface GetIpRangesResult {
      */
     readonly apmIpv6s: string[];
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of this resource.
      */
     readonly id: string;
     /**
@@ -82,7 +82,7 @@ export interface GetIpRangesResult {
     /**
      * A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
      */
-    readonly syntheticsIpv4ByLocation: {[key: string]: any};
+    readonly syntheticsIpv4ByLocation: {[key: string]: string};
     /**
      * An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
      */
@@ -90,7 +90,7 @@ export interface GetIpRangesResult {
     /**
      * A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
      */
-    readonly syntheticsIpv6ByLocation: {[key: string]: any};
+    readonly syntheticsIpv6ByLocation: {[key: string]: string};
     /**
      * An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
      */

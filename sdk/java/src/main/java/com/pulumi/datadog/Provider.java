@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.ProviderArgs;
 import com.pulumi.datadog.Utilities;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -26,7 +27,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -44,7 +45,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * https://docs.datadoghq.com/getting_started/site/ for all available regions.
      * 
      */
-    @Export(name="apiUrl", type=String.class, parameters={})
+    @Export(name="apiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiUrl;
 
     /**
@@ -62,7 +63,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      * 
      */
-    @Export(name="appKey", type=String.class, parameters={})
+    @Export(name="appKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appKey;
 
     /**
@@ -71,6 +72,36 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> appKey() {
         return Codegen.optional(this.appKey);
+    }
+    /**
+     * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * 
+     */
+    @Export(name="httpClientRetryEnabled", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> httpClientRetryEnabled;
+
+    /**
+     * @return Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<String>> httpClientRetryEnabled() {
+        return Codegen.optional(this.httpClientRetryEnabled);
+    }
+    /**
+     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+     * is true. When false, api_key won&#39;t be checked.
+     * 
+     */
+    @Export(name="validate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> validate;
+
+    /**
+     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+     * is true. When false, api_key won&#39;t be checked.
+     * 
+     */
+    public Output<Optional<String>> validate() {
+        return Codegen.optional(this.validate);
     }
 
     /**
@@ -101,6 +132,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "apiKey",
+                "appKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

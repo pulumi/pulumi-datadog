@@ -36,7 +36,7 @@ class GetApiKeyResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Id for API Key.
+        The ID of this resource.
         """
         return pulumi.get(self, "id")
 
@@ -84,7 +84,7 @@ def get_api_key(id: Optional[str] = None,
     ```
 
 
-    :param str id: Id for API Key.
+    :param str id: The ID of this resource.
     :param str name: Name for API Key.
     """
     __args__ = dict()
@@ -116,7 +116,7 @@ def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str id: Id for API Key.
+    :param str id: The ID of this resource.
     :param str name: Name for API Key.
     """
     ...

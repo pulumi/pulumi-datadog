@@ -369,9 +369,7 @@ type SyntheticsTest struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayOutput `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-	// retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
@@ -457,9 +455,7 @@ type syntheticsTestState struct {
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds []string `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-	// retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message *string `pulumi:"message"`
@@ -505,9 +501,7 @@ type SyntheticsTestState struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayInput
-	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-	// retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message pulumi.StringPtrInput
@@ -557,9 +551,7 @@ type syntheticsTestArgs struct {
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds []string `pulumi:"deviceIds"`
-	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-	// retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message *string `pulumi:"message"`
@@ -604,9 +596,7 @@ type SyntheticsTestArgs struct {
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
 	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayInput
-	// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-	// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-	// retrieve the list of locations.
+	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
 	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message pulumi.StringPtrInput
@@ -754,9 +744,7 @@ func (o SyntheticsTestOutput) DeviceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.DeviceIds }).(pulumi.StringArrayOutput)
 }
 
-// Array of locations used to run the test. Refer to [the Datadog Synthetics location data
-// source](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/synthetics_locations) to
-// retrieve the list of locations.
+// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 func (o SyntheticsTestOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
 }

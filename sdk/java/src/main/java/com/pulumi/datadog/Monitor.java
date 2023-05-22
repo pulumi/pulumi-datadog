@@ -81,7 +81,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * monitors. Defaults to `false`.
      * 
      */
-    @Export(name="enableLogsSample", type=Boolean.class, parameters={})
+    @Export(name="enableLogsSample", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableLogsSample;
 
     /**
@@ -97,7 +97,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * monitors.
      * 
      */
-    @Export(name="enableSamples", type=Boolean.class, parameters={})
+    @Export(name="enableSamples", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableSamples;
 
     /**
@@ -112,7 +112,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      * 
      */
-    @Export(name="escalationMessage", type=String.class, parameters={})
+    @Export(name="escalationMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> escalationMessage;
 
     /**
@@ -129,7 +129,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * data during evaluation.
      * 
      */
-    @Export(name="evaluationDelay", type=Integer.class, parameters={})
+    @Export(name="evaluationDelay", refs={Integer.class}, tree="[0]")
     private Output<Integer> evaluationDelay;
 
     /**
@@ -147,7 +147,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * composite monitor).
      * 
      */
-    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
@@ -164,7 +164,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
      * 
      */
-    @Export(name="groupRetentionDuration", type=String.class, parameters={})
+    @Export(name="groupRetentionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupRetentionDuration;
 
     /**
@@ -181,7 +181,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * `false`.
      * 
      */
-    @Export(name="groupbySimpleMonitor", type=Boolean.class, parameters={})
+    @Export(name="groupbySimpleMonitor", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> groupbySimpleMonitor;
 
     /**
@@ -197,7 +197,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Defaults to `true`.
      * 
      */
-    @Export(name="includeTags", type=Boolean.class, parameters={})
+    @Export(name="includeTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeTags;
 
     /**
@@ -216,7 +216,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use `restricted_roles`. */
-    @Export(name="locked", type=Boolean.class, parameters={})
+    @Export(name="locked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> locked;
 
     /**
@@ -230,7 +230,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A message to include with notifications for this monitor.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output<String> message;
 
     /**
@@ -245,7 +245,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * required for, anomaly monitors.
      * 
      */
-    @Export(name="monitorThresholdWindows", type=MonitorMonitorThresholdWindows.class, parameters={})
+    @Export(name="monitorThresholdWindows", refs={MonitorMonitorThresholdWindows.class}, tree="[0]")
     private Output</* @Nullable */ MonitorMonitorThresholdWindows> monitorThresholdWindows;
 
     /**
@@ -260,7 +260,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Alert thresholds of the monitor.
      * 
      */
-    @Export(name="monitorThresholds", type=MonitorMonitorThresholds.class, parameters={})
+    @Export(name="monitorThresholds", refs={MonitorMonitorThresholds.class}, tree="[0]")
     private Output</* @Nullable */ MonitorMonitorThresholds> monitorThresholds;
 
     /**
@@ -274,7 +274,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Name of Datadog monitor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -289,7 +289,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * nonzero value.
      * 
      */
-    @Export(name="newGroupDelay", type=Integer.class, parameters={})
+    @Export(name="newGroupDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> newGroupDelay;
 
     /**
@@ -311,7 +311,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use `new_group_delay` except when setting `new_host_delay` to zero. */
-    @Export(name="newHostDelay", type=Integer.class, parameters={})
+    @Export(name="newHostDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> newHostDelay;
 
     /**
@@ -329,7 +329,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      * 
      */
-    @Export(name="noDataTimeframe", type=Integer.class, parameters={})
+    @Export(name="noDataTimeframe", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> noDataTimeframe;
 
     /**
@@ -344,7 +344,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Toggles the display of additional content sent in the monitor notification.
      * 
      */
-    @Export(name="notificationPresetName", type=String.class, parameters={})
+    @Export(name="notificationPresetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationPresetName;
 
     /**
@@ -358,7 +358,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      * 
      */
-    @Export(name="notifyAudit", type=Boolean.class, parameters={})
+    @Export(name="notifyAudit", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> notifyAudit;
 
     /**
@@ -373,11 +373,10 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
      * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
      * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-     * to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-     * contact Support at support@datadoghq.com
+     * to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
-    @Export(name="notifyBies", type=List.class, parameters={String.class})
+    @Export(name="notifyBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyBies;
 
     /**
@@ -385,8 +384,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
      * conditions by setting `notify_by` to `[&#39;cluster&#39;]`. Tags mentioned in `notify_by` must be a subset of the grouping tags
      * in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-     * to `[*]` configures the monitor to notify as a simple-alert. **NOTE:** Currently in private beta. To request access,
-     * contact Support at support@datadoghq.com
+     * to `[*]` configures the monitor to notify as a simple-alert.
      * 
      */
     public Output<Optional<List<String>>> notifyBies() {
@@ -396,7 +394,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      * 
      */
-    @Export(name="notifyNoData", type=Boolean.class, parameters={})
+    @Export(name="notifyNoData", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> notifyNoData;
 
     /**
@@ -415,7 +413,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
      * 
      */
-    @Export(name="onMissingData", type=String.class, parameters={})
+    @Export(name="onMissingData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onMissingData;
 
     /**
@@ -434,7 +432,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -454,7 +452,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -475,7 +473,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * re-notify if it&#39;s not resolved.
      * 
      */
-    @Export(name="renotifyInterval", type=Integer.class, parameters={})
+    @Export(name="renotifyInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> renotifyInterval;
 
     /**
@@ -490,7 +488,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The number of re-notification messages that should be sent on the current status.
      * 
      */
-    @Export(name="renotifyOccurrences", type=Integer.class, parameters={})
+    @Export(name="renotifyOccurrences", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> renotifyOccurrences;
 
     /**
@@ -504,7 +502,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The types of statuses for which re-notification messages should be sent.
      * 
      */
-    @Export(name="renotifyStatuses", type=List.class, parameters={String.class})
+    @Export(name="renotifyStatuses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> renotifyStatuses;
 
     /**
@@ -520,7 +518,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * all times` and `in total` aggregation. `false` otherwise.
      * 
      */
-    @Export(name="requireFullWindow", type=Boolean.class, parameters={})
+    @Export(name="requireFullWindow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireFullWindow;
 
     /**
@@ -539,7 +537,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * field.
      * 
      */
-    @Export(name="restrictedRoles", type=List.class, parameters={String.class})
+    @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> restrictedRoles;
 
     /**
@@ -556,7 +554,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Configuration options for scheduling.
      * 
      */
-    @Export(name="schedulingOptions", type=List.class, parameters={MonitorSchedulingOption.class})
+    @Export(name="schedulingOptions", refs={List.class,MonitorSchedulingOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorSchedulingOption>> schedulingOptions;
 
     /**
@@ -571,7 +569,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -587,7 +585,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      * 
      */
-    @Export(name="timeoutH", type=Integer.class, parameters={})
+    @Export(name="timeoutH", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeoutH;
 
     /**
@@ -604,7 +602,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * cannot be changed after a monitor is created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -620,7 +618,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * If set to `false`, skip the validation call done during plan.
      * 
      */
-    @Export(name="validate", type=Boolean.class, parameters={})
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**
@@ -630,7 +628,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> validate() {
         return Codegen.optional(this.validate);
     }
-    @Export(name="variables", type=MonitorVariables.class, parameters={})
+    @Export(name="variables", refs={MonitorVariables.class}, tree="[0]")
     private Output</* @Nullable */ MonitorVariables> variables;
 
     public Output<Optional<MonitorVariables>> variables() {

@@ -465,6 +465,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs',
@@ -878,6 +879,7 @@ __all__ = [
     'DashboardWidgetSloListDefinitionArgs',
     'DashboardWidgetSloListDefinitionRequestArgs',
     'DashboardWidgetSloListDefinitionRequestQueryArgs',
+    'DashboardWidgetSloListDefinitionRequestQuerySortArgs',
     'DashboardWidgetSunburstDefinitionArgs',
     'DashboardWidgetSunburstDefinitionCustomLinkArgs',
     'DashboardWidgetSunburstDefinitionLegendInlineArgs',
@@ -4637,6 +4639,7 @@ class DashboardWidgetCheckStatusDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[str] title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -4704,6 +4707,9 @@ class DashboardWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -10895,6 +10901,7 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[str] title: The title of the dashboard.
         """
         pulumi.set(__self__, "check", check)
@@ -10962,6 +10969,9 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -27014,6 +27024,7 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs:
                  time_windows: pulumi.Input[Sequence[pulumi.Input[str]]],
                  view_mode: pulumi.Input[str],
                  view_type: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  global_time_target: Optional[pulumi.Input[str]] = None,
                  show_error_budget: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -27026,6 +27037,8 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs:
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
         pulumi.set(__self__, "view_type", view_type)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if global_time_target is not None:
             pulumi.set(__self__, "global_time_target", global_time_target)
         if show_error_budget is not None:
@@ -27072,6 +27085,15 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs:
     @view_type.setter
     def view_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "view_type", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="globalTimeTarget")
@@ -27345,10 +27367,13 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs:
 class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None):
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -27367,6 +27392,42 @@ class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs:
     @limit.setter
     def limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -49825,6 +49886,7 @@ class DashboardWidgetServiceLevelObjectiveDefinitionArgs:
                  time_windows: pulumi.Input[Sequence[pulumi.Input[str]]],
                  view_mode: pulumi.Input[str],
                  view_type: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  global_time_target: Optional[pulumi.Input[str]] = None,
                  show_error_budget: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -49837,6 +49899,8 @@ class DashboardWidgetServiceLevelObjectiveDefinitionArgs:
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
         pulumi.set(__self__, "view_type", view_type)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if global_time_target is not None:
             pulumi.set(__self__, "global_time_target", global_time_target)
         if show_error_budget is not None:
@@ -49883,6 +49947,15 @@ class DashboardWidgetServiceLevelObjectiveDefinitionArgs:
     @view_type.setter
     def view_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "view_type", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="globalTimeTarget")
@@ -50156,10 +50229,13 @@ class DashboardWidgetSloListDefinitionRequestArgs:
 class DashboardWidgetSloListDefinitionRequestQueryArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None):
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']] = None):
         pulumi.set(__self__, "query_string", query_string)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
 
     @property
     @pulumi.getter(name="queryString")
@@ -50178,6 +50254,42 @@ class DashboardWidgetSloListDefinitionRequestQueryArgs:
     @limit.setter
     def limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetSloListDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+
+@pulumi.input_type
+class DashboardWidgetSloListDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -64943,7 +65055,7 @@ class SyntheticsTestApiStepAssertionArgs:
                  targetxpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetxpathArgs']] = None):
         """
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -64976,7 +65088,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         return pulumi.get(self, "type")
 
@@ -65038,10 +65150,11 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str]):
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -65063,11 +65176,11 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "targetvalue")
 
     @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
 
 
@@ -65075,11 +65188,12 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
 class SyntheticsTestApiStepAssertionTargetxpathArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str],
-                 xpath: pulumi.Input[str]):
+                 xpath: pulumi.Input[str],
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -65092,21 +65206,21 @@ class SyntheticsTestApiStepAssertionTargetxpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "targetvalue")
-
-    @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
-        pulumi.set(self, "targetvalue", value)
-
-    @property
-    @pulumi.getter
     def xpath(self) -> pulumi.Input[str]:
         return pulumi.get(self, "xpath")
 
     @xpath.setter
     def xpath(self, value: pulumi.Input[str]):
         pulumi.set(self, "xpath", value)
+
+    @property
+    @pulumi.getter
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "targetvalue")
+
+    @targetvalue.setter
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "targetvalue", value)
 
 
 @pulumi.input_type
@@ -65946,7 +66060,7 @@ class SyntheticsTestAssertionArgs:
                  targetxpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetxpathArgs']] = None):
         """
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -65979,7 +66093,7 @@ class SyntheticsTestAssertionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         return pulumi.get(self, "type")
 
@@ -66041,10 +66155,11 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str]):
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -66066,11 +66181,11 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "targetvalue")
 
     @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
 
 
@@ -66078,11 +66193,12 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
 class SyntheticsTestAssertionTargetxpathArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
-                 targetvalue: pulumi.Input[str],
-                 xpath: pulumi.Input[str]):
+                 xpath: pulumi.Input[str],
+                 targetvalue: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "targetvalue", targetvalue)
         pulumi.set(__self__, "xpath", xpath)
+        if targetvalue is not None:
+            pulumi.set(__self__, "targetvalue", targetvalue)
 
     @property
     @pulumi.getter
@@ -66095,21 +66211,21 @@ class SyntheticsTestAssertionTargetxpathArgs:
 
     @property
     @pulumi.getter
-    def targetvalue(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "targetvalue")
-
-    @targetvalue.setter
-    def targetvalue(self, value: pulumi.Input[str]):
-        pulumi.set(self, "targetvalue", value)
-
-    @property
-    @pulumi.getter
     def xpath(self) -> pulumi.Input[str]:
         return pulumi.get(self, "xpath")
 
     @xpath.setter
     def xpath(self, value: pulumi.Input[str]):
         pulumi.set(self, "xpath", value)
+
+    @property
+    @pulumi.getter
+    def targetvalue(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "targetvalue")
+
+    @targetvalue.setter
+    def targetvalue(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "targetvalue", value)
 
 
 @pulumi.input_type
@@ -66121,6 +66237,7 @@ class SyntheticsTestBrowserStepArgs:
                  allow_failure: Optional[pulumi.Input[bool]] = None,
                  force_element_update: Optional[pulumi.Input[bool]] = None,
                  is_critical: Optional[pulumi.Input[bool]] = None,
+                 no_screenshot: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: Name of the step.
@@ -66129,6 +66246,7 @@ class SyntheticsTestBrowserStepArgs:
         :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
         :param pulumi.Input[bool] force_element_update: Force update of the "element" parameter for the step
         :param pulumi.Input[bool] is_critical: Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the step.
         :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
         """
         pulumi.set(__self__, "name", name)
@@ -66140,6 +66258,8 @@ class SyntheticsTestBrowserStepArgs:
             pulumi.set(__self__, "force_element_update", force_element_update)
         if is_critical is not None:
             pulumi.set(__self__, "is_critical", is_critical)
+        if no_screenshot is not None:
+            pulumi.set(__self__, "no_screenshot", no_screenshot)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -66214,6 +66334,18 @@ class SyntheticsTestBrowserStepArgs:
     @is_critical.setter
     def is_critical(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_critical", value)
+
+    @property
+    @pulumi.getter(name="noScreenshot")
+    def no_screenshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevents saving screenshots of the step.
+        """
+        return pulumi.get(self, "no_screenshot")
+
+    @no_screenshot.setter
+    def no_screenshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_screenshot", value)
 
     @property
     @pulumi.getter

@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.resources.ResourceArgs {
@@ -27,11 +29,11 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         return this.operator;
     }
 
-    @Import(name="targetvalue", required=true)
-    private Output<String> targetvalue;
+    @Import(name="targetvalue")
+    private @Nullable Output<String> targetvalue;
 
-    public Output<String> targetvalue() {
-        return this.targetvalue;
+    public Optional<Output<String>> targetvalue() {
+        return Optional.ofNullable(this.targetvalue);
     }
 
     private SyntheticsTestAssertionTargetjsonpathArgs() {}
@@ -78,7 +80,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
             return operator(Output.of(operator));
         }
 
-        public Builder targetvalue(Output<String> targetvalue) {
+        public Builder targetvalue(@Nullable Output<String> targetvalue) {
             $.targetvalue = targetvalue;
             return this;
         }
@@ -90,7 +92,6 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         public SyntheticsTestAssertionTargetjsonpathArgs build() {
             $.jsonpath = Objects.requireNonNull($.jsonpath, "expected parameter 'jsonpath' to be non-null");
             $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.targetvalue = Objects.requireNonNull($.targetvalue, "expected parameter 'targetvalue' to be non-null");
             return $;
         }
     }

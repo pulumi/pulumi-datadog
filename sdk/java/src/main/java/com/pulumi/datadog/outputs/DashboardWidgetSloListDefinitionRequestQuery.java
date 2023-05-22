@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionRequestQuerySort;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetSloListDefinitionRequestQuery {
     private @Nullable Integer limit;
     private String queryString;
+    private @Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort;
 
     private DashboardWidgetSloListDefinitionRequestQuery() {}
     public Optional<Integer> limit() {
@@ -21,6 +23,9 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
     }
     public String queryString() {
         return this.queryString;
+    }
+    public Optional<DashboardWidgetSloListDefinitionRequestQuerySort> sort() {
+        return Optional.ofNullable(this.sort);
     }
 
     public static Builder builder() {
@@ -34,11 +39,13 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
     public static final class Builder {
         private @Nullable Integer limit;
         private String queryString;
+        private @Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort;
         public Builder() {}
         public Builder(DashboardWidgetSloListDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.limit = defaults.limit;
     	      this.queryString = defaults.queryString;
+    	      this.sort = defaults.sort;
         }
 
         @CustomType.Setter
@@ -51,10 +58,16 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
             this.queryString = Objects.requireNonNull(queryString);
             return this;
         }
+        @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort) {
+            this.sort = sort;
+            return this;
+        }
         public DashboardWidgetSloListDefinitionRequestQuery build() {
             final var o = new DashboardWidgetSloListDefinitionRequestQuery();
             o.limit = limit;
             o.queryString = queryString;
+            o.sort = sort;
             return o;
         }
     }

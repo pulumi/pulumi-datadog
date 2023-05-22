@@ -77,7 +77,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
      * 
      */
-    @Export(name="accessKeyId", type=String.class, parameters={})
+    @Export(name="accessKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessKeyId;
 
     /**
@@ -91,7 +91,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your AWS Account ID without dashes.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
     /**
@@ -105,7 +105,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      * 
      */
-    @Export(name="accountSpecificNamespaceRules", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="accountSpecificNamespaceRules", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> accountSpecificNamespaceRules;
 
     /**
@@ -119,7 +119,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
      * 
      */
-    @Export(name="cspmResourceCollectionEnabled", type=String.class, parameters={})
+    @Export(name="cspmResourceCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> cspmResourceCollectionEnabled;
 
     /**
@@ -133,7 +133,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * An array of AWS regions to exclude from metrics collection.
      * 
      */
-    @Export(name="excludedRegions", type=List.class, parameters={String.class})
+    @Export(name="excludedRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedRegions;
 
     /**
@@ -148,7 +148,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Terraform.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
@@ -163,7 +163,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
-    @Export(name="filterTags", type=List.class, parameters={String.class})
+    @Export(name="filterTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> filterTags;
 
     /**
@@ -177,7 +177,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
      * 
      */
-    @Export(name="hostTags", type=List.class, parameters={String.class})
+    @Export(name="hostTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> hostTags;
 
     /**
@@ -191,7 +191,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Whether Datadog collects metrics for this AWS account.
      * 
      */
-    @Export(name="metricsCollectionEnabled", type=String.class, parameters={})
+    @Export(name="metricsCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> metricsCollectionEnabled;
 
     /**
@@ -205,7 +205,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Whether Datadog collects a standard set of resources from your AWS account.
      * 
      */
-    @Export(name="resourceCollectionEnabled", type=String.class, parameters={})
+    @Export(name="resourceCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> resourceCollectionEnabled;
 
     /**
@@ -219,7 +219,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your Datadog role delegation name.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleName;
 
     /**
@@ -233,7 +233,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
      * 
      */
-    @Export(name="secretAccessKey", type=String.class, parameters={})
+    @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretAccessKey;
 
     /**

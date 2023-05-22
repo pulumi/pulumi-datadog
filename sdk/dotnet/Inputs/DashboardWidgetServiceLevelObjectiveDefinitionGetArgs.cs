@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetServiceLevelObjectiveDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalQueryFilters")]
+        public Input<string>? AdditionalQueryFilters { get; set; }
+
         [Input("globalTimeTarget")]
         public Input<string>? GlobalTimeTarget { get; set; }
 

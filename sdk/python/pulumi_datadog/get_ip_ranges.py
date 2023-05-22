@@ -131,7 +131,7 @@ class GetIpRangesResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of this resource.
         """
         return pulumi.get(self, "id")
 
@@ -185,7 +185,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="syntheticsIpv4ByLocation")
-    def synthetics_ipv4_by_location(self) -> Mapping[str, Any]:
+    def synthetics_ipv4_by_location(self) -> Mapping[str, str]:
         """
         A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
         """
@@ -201,7 +201,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="syntheticsIpv6ByLocation")
-    def synthetics_ipv6_by_location(self) -> Mapping[str, Any]:
+    def synthetics_ipv6_by_location(self) -> Mapping[str, str]:
         """
         A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
         """

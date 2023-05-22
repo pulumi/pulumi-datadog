@@ -60,7 +60,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      * 
      */
-    @Export(name="serviceKey", type=String.class, parameters={})
+    @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
     /**
@@ -74,7 +74,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * Your Service name in PagerDuty.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**

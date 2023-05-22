@@ -20,6 +20,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -70,7 +72,7 @@ namespace Pulumi.Datadog
     public sealed class GetApiKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id for API Key.
+        /// The ID of this resource.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -90,7 +92,7 @@ namespace Pulumi.Datadog
     public sealed class GetApiKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id for API Key.
+        /// The ID of this resource.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -112,7 +114,7 @@ namespace Pulumi.Datadog
     public sealed class GetApiKeyResult
     {
         /// <summary>
-        /// Id for API Key.
+        /// The ID of this resource.
         /// </summary>
         public readonly string? Id;
         /// <summary>

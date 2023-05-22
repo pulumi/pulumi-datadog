@@ -4,7 +4,6 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +42,7 @@ public final class GetIpRangesResult {
      */
     private List<String> apmIpv6s;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     private String id;
@@ -81,7 +80,7 @@ public final class GetIpRangesResult {
      * @return A map of IPv4 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
      * 
      */
-    private Map<String,Object> syntheticsIpv4ByLocation;
+    private Map<String,String> syntheticsIpv4ByLocation;
     /**
      * @return An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
      * 
@@ -91,7 +90,7 @@ public final class GetIpRangesResult {
      * @return A map of IPv6 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
      * 
      */
-    private Map<String,Object> syntheticsIpv6ByLocation;
+    private Map<String,String> syntheticsIpv6ByLocation;
     /**
      * @return An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
      * 
@@ -152,7 +151,7 @@ public final class GetIpRangesResult {
         return this.apmIpv6s;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     public String id() {
@@ -204,7 +203,7 @@ public final class GetIpRangesResult {
      * @return A map of IPv4 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
      * 
      */
-    public Map<String,Object> syntheticsIpv4ByLocation() {
+    public Map<String,String> syntheticsIpv4ByLocation() {
         return this.syntheticsIpv4ByLocation;
     }
     /**
@@ -218,7 +217,7 @@ public final class GetIpRangesResult {
      * @return A map of IPv6 prefixes (string of concatenated IPs, delimited by &#39;,&#39;) by location.
      * 
      */
-    public Map<String,Object> syntheticsIpv6ByLocation() {
+    public Map<String,String> syntheticsIpv6ByLocation() {
         return this.syntheticsIpv6ByLocation;
     }
     /**
@@ -265,9 +264,9 @@ public final class GetIpRangesResult {
         private List<String> orchestratorIpv6s;
         private List<String> processIpv4s;
         private List<String> processIpv6s;
-        private Map<String,Object> syntheticsIpv4ByLocation;
+        private Map<String,String> syntheticsIpv4ByLocation;
         private List<String> syntheticsIpv4s;
-        private Map<String,Object> syntheticsIpv6ByLocation;
+        private Map<String,String> syntheticsIpv6ByLocation;
         private List<String> syntheticsIpv6s;
         private List<String> webhooksIpv4s;
         private List<String> webhooksIpv6s;
@@ -397,7 +396,7 @@ public final class GetIpRangesResult {
             return processIpv6s(List.of(processIpv6s));
         }
         @CustomType.Setter
-        public Builder syntheticsIpv4ByLocation(Map<String,Object> syntheticsIpv4ByLocation) {
+        public Builder syntheticsIpv4ByLocation(Map<String,String> syntheticsIpv4ByLocation) {
             this.syntheticsIpv4ByLocation = Objects.requireNonNull(syntheticsIpv4ByLocation);
             return this;
         }
@@ -410,7 +409,7 @@ public final class GetIpRangesResult {
             return syntheticsIpv4s(List.of(syntheticsIpv4s));
         }
         @CustomType.Setter
-        public Builder syntheticsIpv6ByLocation(Map<String,Object> syntheticsIpv6ByLocation) {
+        public Builder syntheticsIpv6ByLocation(Map<String,String> syntheticsIpv6ByLocation) {
             this.syntheticsIpv6ByLocation = Objects.requireNonNull(syntheticsIpv6ByLocation);
             return this;
         }

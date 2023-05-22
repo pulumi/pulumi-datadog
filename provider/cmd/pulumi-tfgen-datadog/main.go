@@ -16,10 +16,9 @@ package main
 
 import (
 	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
-	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 )
 
 func main() {
-	tfgen.Main("datadog", version.Version, datadog.Provider())
+	tfgen.MainWithMuxer("datadog", datadog.Provider())
 }

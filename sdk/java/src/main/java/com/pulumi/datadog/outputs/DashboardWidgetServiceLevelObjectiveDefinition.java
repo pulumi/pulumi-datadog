@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetServiceLevelObjectiveDefinition {
+    private @Nullable String additionalQueryFilters;
     private @Nullable String globalTimeTarget;
     private @Nullable Boolean showErrorBudget;
     private String sloId;
@@ -28,6 +29,9 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
     private String viewType;
 
     private DashboardWidgetServiceLevelObjectiveDefinition() {}
+    public Optional<String> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
     public Optional<String> globalTimeTarget() {
         return Optional.ofNullable(this.globalTimeTarget);
     }
@@ -69,6 +73,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalQueryFilters;
         private @Nullable String globalTimeTarget;
         private @Nullable Boolean showErrorBudget;
         private String sloId;
@@ -81,6 +86,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         public Builder() {}
         public Builder(DashboardWidgetServiceLevelObjectiveDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalQueryFilters = defaults.additionalQueryFilters;
     	      this.globalTimeTarget = defaults.globalTimeTarget;
     	      this.showErrorBudget = defaults.showErrorBudget;
     	      this.sloId = defaults.sloId;
@@ -92,6 +98,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
     	      this.viewType = defaults.viewType;
         }
 
+        @CustomType.Setter
+        public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
+            this.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
         @CustomType.Setter
         public Builder globalTimeTarget(@Nullable String globalTimeTarget) {
             this.globalTimeTarget = globalTimeTarget;
@@ -142,6 +153,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         }
         public DashboardWidgetServiceLevelObjectiveDefinition build() {
             final var o = new DashboardWidgetServiceLevelObjectiveDefinition();
+            o.additionalQueryFilters = additionalQueryFilters;
             o.globalTimeTarget = globalTimeTarget;
             o.showErrorBudget = showErrorBudget;
             o.sloId = sloId;

@@ -20,6 +20,7 @@ namespace Pulumi.Datadog
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Datadog = Pulumi.Datadog;
         /// 
@@ -65,7 +66,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> ApmIpv6s;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of this resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -95,7 +96,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SyntheticsIpv4ByLocation;
+        public readonly ImmutableDictionary<string, string> SyntheticsIpv4ByLocation;
         /// <summary>
         /// An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
         /// </summary>
@@ -103,7 +104,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SyntheticsIpv6ByLocation;
+        public readonly ImmutableDictionary<string, string> SyntheticsIpv6ByLocation;
         /// <summary>
         /// An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
         /// </summary>
@@ -145,11 +146,11 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> processIpv6s,
 
-            ImmutableDictionary<string, object> syntheticsIpv4ByLocation,
+            ImmutableDictionary<string, string> syntheticsIpv4ByLocation,
 
             ImmutableArray<string> syntheticsIpv4s,
 
-            ImmutableDictionary<string, object> syntheticsIpv6ByLocation,
+            ImmutableDictionary<string, string> syntheticsIpv6ByLocation,
 
             ImmutableArray<string> syntheticsIpv6s,
 

@@ -15,14 +15,14 @@ public final class GetApiKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetApiKeyPlainArgs Empty = new GetApiKeyPlainArgs();
 
     /**
-     * Id for API Key.
+     * The ID of this resource.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Id for API Key.
+     * @return The ID of this resource.
      * 
      */
     public Optional<String> id() {
@@ -70,7 +70,7 @@ public final class GetApiKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id for API Key.
+         * @param id The ID of this resource.
          * 
          * @return builder
          * 

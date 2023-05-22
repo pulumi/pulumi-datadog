@@ -573,6 +573,9 @@ export interface DashboardWidgetCheckStatusDefinition {
     groupBies?: string[];
     grouping: string;
     liveSpan?: string;
+    /**
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     */
     tags?: string[];
     /**
      * The title of the dashboard.
@@ -1479,6 +1482,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     groupBies?: string[];
     grouping: string;
     liveSpan?: string;
+    /**
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     */
     tags?: string[];
     /**
      * The title of the dashboard.
@@ -3648,6 +3654,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    additionalQueryFilters?: string;
     globalTimeTarget?: string;
     showErrorBudget?: boolean;
     sloId: string;
@@ -3699,6 +3706,12 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
     limit?: number;
     queryString: string;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
@@ -6707,6 +6720,7 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    additionalQueryFilters?: string;
     globalTimeTarget?: string;
     showErrorBudget?: boolean;
     sloId: string;
@@ -6758,6 +6772,12 @@ export interface DashboardWidgetSloListDefinitionRequest {
 export interface DashboardWidgetSloListDefinitionRequestQuery {
     limit?: number;
     queryString: string;
+    sort?: outputs.DashboardWidgetSloListDefinitionRequestQuerySort;
+}
+
+export interface DashboardWidgetSloListDefinitionRequestQuerySort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetSunburstDefinition {
@@ -8074,6 +8094,43 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     name: string;
 }
 
+export interface GetHostsHostList {
+    aliases: string[];
+    apps: string[];
+    awsName: string;
+    hostName: string;
+    /**
+     * The ID of this resource.
+     */
+    id: number;
+    isMuted: boolean;
+    lastReportedTime: number;
+    meta: outputs.GetHostsHostListMeta;
+    metrics: outputs.GetHostsHostListMetrics;
+    muteTimeout: number;
+    name: string;
+    sources: string[];
+    up: boolean;
+}
+
+export interface GetHostsHostListMeta {
+    agentVersion: string;
+    cpuCores: number;
+    gohai: string;
+    machine: string;
+    platform: string;
+    processor: string;
+    pythonVersion: string;
+    socketFqdn: string;
+    socketHostname: string;
+}
+
+export interface GetHostsHostListMetrics {
+    cpu: number;
+    iowait: number;
+    load: number;
+}
+
 export interface GetLogsIndexesLogsIndex {
     dailyLimit: number;
     exclusionFilters: outputs.GetLogsIndexesLogsIndexExclusionFilter[];
@@ -8263,6 +8320,11 @@ export interface GetSecurityMonitoringRulesRuleSignalQuery {
     defaultRuleId?: string;
     name?: string;
     ruleId: string;
+}
+
+export interface GetServiceLevelObjectiveQuery {
+    denominator: string;
+    numerator: string;
 }
 
 export interface GetServiceLevelObjectivesSlo {
@@ -9356,7 +9418,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetxpath?: outputs.SyntheticsTestApiStepAssertionTargetxpath;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: string;
 }
@@ -9364,12 +9426,12 @@ export interface SyntheticsTestApiStepAssertion {
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
     jsonpath: string;
     operator: string;
-    targetvalue: string;
+    targetvalue?: string;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
     operator: string;
-    targetvalue: string;
+    targetvalue?: string;
     xpath: string;
 }
 
@@ -9591,7 +9653,7 @@ export interface SyntheticsTestAssertion {
      */
     targetxpath?: outputs.SyntheticsTestAssertionTargetxpath;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: string;
 }
@@ -9599,12 +9661,12 @@ export interface SyntheticsTestAssertion {
 export interface SyntheticsTestAssertionTargetjsonpath {
     jsonpath: string;
     operator: string;
-    targetvalue: string;
+    targetvalue?: string;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
     operator: string;
-    targetvalue: string;
+    targetvalue?: string;
     xpath: string;
 }
 
@@ -9625,6 +9687,10 @@ export interface SyntheticsTestBrowserStep {
      * Name of the step.
      */
     name: string;
+    /**
+     * Prevents saving screenshots of the step.
+     */
+    noScreenshot?: boolean;
     /**
      * Parameters for the step.
      */

@@ -72,7 +72,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * Cases of the rule, this is used to update notifications.
      * 
      */
-    @Export(name="cases", type=List.class, parameters={SecurityMonitoringDefaultRuleCase.class})
+    @Export(name="cases", refs={List.class,SecurityMonitoringDefaultRuleCase.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleCase>> cases;
 
     /**
@@ -86,7 +86,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * Enable the rule.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -100,7 +100,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * Additional queries to filter matched events before they are processed.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={SecurityMonitoringDefaultRuleFilter.class})
+    @Export(name="filters", refs={List.class,SecurityMonitoringDefaultRuleFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleFilter>> filters;
 
     /**
@@ -114,7 +114,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      * 
      */
-    @Export(name="options", type=SecurityMonitoringDefaultRuleOptions.class, parameters={})
+    @Export(name="options", refs={SecurityMonitoringDefaultRuleOptions.class}, tree="[0]")
     private Output</* @Nullable */ SecurityMonitoringDefaultRuleOptions> options;
 
     /**
@@ -128,7 +128,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * The rule type.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

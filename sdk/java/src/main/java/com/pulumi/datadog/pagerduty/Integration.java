@@ -76,7 +76,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your PagerDuty API token.
      * 
      */
-    @Export(name="apiToken", type=String.class, parameters={})
+    @Export(name="apiToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiToken;
 
     /**
@@ -90,7 +90,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Array of your schedule URLs.
      * 
      */
-    @Export(name="schedules", type=List.class, parameters={String.class})
+    @Export(name="schedules", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> schedules;
 
     /**
@@ -104,7 +104,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your PagerDuty account’s personalized subdomain name.
      * 
      */
-    @Export(name="subdomain", type=String.class, parameters={})
+    @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**

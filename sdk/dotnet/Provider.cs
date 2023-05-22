@@ -40,6 +40,19 @@ namespace Pulumi.Datadog
         [Output("appKey")]
         public Output<string?> AppKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        /// </summary>
+        [Output("httpClientRetryEnabled")]
+        public Output<string?> HttpClientRetryEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+        /// is true. When false, api_key won't be checked.
+        /// </summary>
+        [Output("validate")]
+        public Output<string?> Validate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -58,6 +71,11 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                    "appKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -68,11 +86,21 @@ namespace Pulumi.Datadog
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
@@ -84,11 +112,21 @@ namespace Pulumi.Datadog
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
 
+        [Input("appKey")]
+        private Input<string>? _appKey;
+
         /// <summary>
         /// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         /// </summary>
-        [Input("appKey")]
-        public Input<string>? AppKey { get; set; }
+        public Input<string>? AppKey
+        {
+            get => _appKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _appKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The HTTP request retry back off base. Defaults to 2.
@@ -103,10 +141,10 @@ namespace Pulumi.Datadog
         public Input<int>? HttpClientRetryBackoffMultiplier { get; set; }
 
         /// <summary>
-        /// Enables request retries on HTTP status codes 429 and 5xx. Defaults to `true`.
+        /// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         /// </summary>
-        [Input("httpClientRetryEnabled", json: true)]
-        public Input<bool>? HttpClientRetryEnabled { get; set; }
+        [Input("httpClientRetryEnabled")]
+        public Input<string>? HttpClientRetryEnabled { get; set; }
 
         /// <summary>
         /// The HTTP request maximum retry number. Defaults to 3.
@@ -121,11 +159,11 @@ namespace Pulumi.Datadog
         public Input<int>? HttpClientRetryTimeout { get; set; }
 
         /// <summary>
-        /// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-        /// and app_key won't be checked.
+        /// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
+        /// is true. When false, api_key won't be checked.
         /// </summary>
-        [Input("validate", json: true)]
-        public Input<bool>? Validate { get; set; }
+        [Input("validate")]
+        public Input<string>? Validate { get; set; }
 
         public ProviderArgs()
         {

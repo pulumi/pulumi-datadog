@@ -74,7 +74,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * Definition of an azure archive.
      * 
      */
-    @Export(name="azureArchive", type=LogsArchiveAzureArchive.class, parameters={})
+    @Export(name="azureArchive", refs={LogsArchiveAzureArchive.class}, tree="[0]")
     private Output</* @Nullable */ LogsArchiveAzureArchive> azureArchive;
 
     /**
@@ -88,7 +88,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * Definition of a GCS archive.
      * 
      */
-    @Export(name="gcsArchive", type=LogsArchiveGcsArchive.class, parameters={})
+    @Export(name="gcsArchive", refs={LogsArchiveGcsArchive.class}, tree="[0]")
     private Output</* @Nullable */ LogsArchiveGcsArchive> gcsArchive;
 
     /**
@@ -102,7 +102,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      * 
      */
-    @Export(name="includeTags", type=Boolean.class, parameters={})
+    @Export(name="includeTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeTags;
 
     /**
@@ -116,7 +116,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * Your archive name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * The archive query/filter. Logs matching this query are included in the archive.
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -144,7 +144,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * To limit the rehydration scan size for the archive, set a value in GB.
      * 
      */
-    @Export(name="rehydrationMaxScanSizeInGb", type=Integer.class, parameters={})
+    @Export(name="rehydrationMaxScanSizeInGb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rehydrationMaxScanSizeInGb;
 
     /**
@@ -158,7 +158,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * An array of tags to add to rehydrated logs from an archive.
      * 
      */
-    @Export(name="rehydrationTags", type=List.class, parameters={String.class})
+    @Export(name="rehydrationTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> rehydrationTags;
 
     /**
@@ -172,7 +172,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * Definition of an s3 archive.
      * 
      */
-    @Export(name="s3Archive", type=LogsArchiveS3Archive.class, parameters={})
+    @Export(name="s3Archive", refs={LogsArchiveS3Archive.class}, tree="[0]")
     private Output</* @Nullable */ LogsArchiveS3Archive> s3Archive;
 
     /**

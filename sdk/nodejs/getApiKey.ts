@@ -33,7 +33,7 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetApiKeyArgs {
     /**
-     * Id for API Key.
+     * The ID of this resource.
      */
     id?: string;
     /**
@@ -47,7 +47,7 @@ export interface GetApiKeyArgs {
  */
 export interface GetApiKeyResult {
     /**
-     * Id for API Key.
+     * The ID of this resource.
      */
     readonly id?: string;
     /**
@@ -82,7 +82,7 @@ export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetApiKeyOutputArgs {
     /**
-     * Id for API Key.
+     * The ID of this resource.
      */
     id?: pulumi.Input<string>;
     /**

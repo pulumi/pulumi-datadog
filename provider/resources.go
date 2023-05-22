@@ -1,18 +1,23 @@
 package datadog
 
 import (
+	// Allow embedding files
+	"context"
+	_ "embed"
 	"fmt"
 	"path/filepath"
 	"strings"
 	"unicode"
 
 	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/terraform-providers/terraform-provider-datadog/datadog"
+	"github.com/terraform-providers/terraform-provider-datadog/datadog/fwprovider"
 )
 
 const (
@@ -56,17 +61,25 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 	return makeMember(mod, res)
 }
 
+//go:embed cmd/pulumi-resource-datadog/bridge-metadata.json
+var metadata []byte
+
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(datadog.Provider())
+	p := pfbridge.MuxShimWithPF(context.Background(),
+		shimv2.NewProvider(datadog.Provider()),
+		fwprovider.New(),
+	)
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "datadog",
-		Description: "A Pulumi package for creating and managing Datadog resources.",
-		Keywords:    []string{"pulumi", "datadog"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-datadog",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		P:            p,
+		Name:         "datadog",
+		Description:  "A Pulumi package for creating and managing Datadog resources.",
+		Keywords:     []string{"pulumi", "datadog"},
+		License:      "Apache-2.0",
+		Homepage:     "https://pulumi.io",
+		Repository:   "https://github.com/pulumi/pulumi-datadog",
+		Config:       map[string]*tfbridge.SchemaInfo{},
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		Version:      version.Version,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
 			"datadog_downtime":                   {Tok: makeResource(datadogMod, "Downtime")},
@@ -197,14 +210,47 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	strategy := x.TokensKnownModules("datadog_", datadogMod, []string{},
+	strategy := x.TokensKnownModules("datadog_", datadogMod, []string{
+		"integration",
+	},
 		func(module, name string) (string, error) {
+			// Datadog puts integration tokens into their own module, where
+			// each integration partner gets their own module.
+			if strings.EqualFold(module, "integration") {
+				var isDataSource bool
+				if pre, post, found := strings.Cut(name, "get"); found && pre == "" {
+					isDataSource = true
+					name = post
+				}
+
+				nameR := []rune(name)
+				var didSet bool
+				for i := 1; i < len(name); i++ {
+					if unicode.IsUpper(nameR[i]) {
+						name = "Integration" + string(nameR[i:])
+						module = string(append([]rune{unicode.ToLower(nameR[0])},
+							nameR[1:i]...))
+						didSet = true
+						break
+					}
+				}
+				contract.Assertf(didSet,
+					"We failed to correctly map the integration token module=%q, name=%q",
+					module, name)
+
+				if isDataSource {
+					name = "get" + name
+				}
+			}
+
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
-		}).Unmappable("integration", "integration acts as a sub-module of the next term: "+
-		"integration_aws -> aws_integration, so it is not mapped correctly.")
+		})
 	err := x.ComputeDefaults(&prov, strategy)
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "failed to apply mapping strategy")
+
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "failed to apply token aliasing")
 
 	return prov
 }
