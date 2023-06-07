@@ -88,7 +88,49 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+//			_, err := datadog.NewSyntheticsTest(ctx, "testUptime", &datadog.SyntheticsTestArgs{
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("200"),
+//						Type:     pulumi.String("statusCode"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Name:    pulumi.String("An Uptime test on example.org"),
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					TickEvery: pulumi.Int(900),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Method: pulumi.String("GET"),
+//					Url:    pulumi.String("https://www.example.org"),
+//				},
+//				RequestHeaders: pulumi.AnyMap{
+//					"Content-Type": pulumi.Any("application/json"),
+//				},
+//				Status:  pulumi.String("live"),
+//				Subtype: pulumi.String("http"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
 //				Assertions: datadog.SyntheticsTestAssertionArray{
 //					&datadog.SyntheticsTestAssertionArgs{
 //						Operator: pulumi.String("is"),
@@ -235,7 +277,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewSyntheticsTest(ctx, "test", &datadog.SyntheticsTestArgs{
+//			_, err = datadog.NewSyntheticsTest(ctx, "testMultiStep", &datadog.SyntheticsTestArgs{
 //				ApiSteps: datadog.SyntheticsTestApiStepArray{
 //					&datadog.SyntheticsTestApiStepArgs{
 //						Assertions: datadog.SyntheticsTestApiStepAssertionArray{
@@ -282,7 +324,12 @@ import (
 //				},
 //				Status:  pulumi.String("live"),
 //				Subtype: pulumi.String("multi"),
-//				Type:    pulumi.String("api"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				Type: pulumi.String("api"),
 //			})
 //			if err != nil {
 //				return err

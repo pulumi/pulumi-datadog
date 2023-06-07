@@ -96,7 +96,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      * 
      */
-    @Export(name="category", refs={String.class}, tree="[0]")
+    @Export(name="category", type=String.class, parameters={})
     private Output<String> category;
 
     /**
@@ -110,7 +110,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Description of the correction being made.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -124,7 +124,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      * 
      */
-    @Export(name="duration", refs={Integer.class}, tree="[0]")
+    @Export(name="duration", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> duration;
 
     /**
@@ -138,7 +138,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
      * 
      */
-    @Export(name="end", refs={Integer.class}, tree="[0]")
+    @Export(name="end", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> end;
 
     /**
@@ -152,7 +152,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      * 
      */
-    @Export(name="rrule", refs={String.class}, tree="[0]")
+    @Export(name="rrule", type=String.class, parameters={})
     private Output</* @Nullable */ String> rrule;
 
     /**
@@ -166,7 +166,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * ID of the SLO that this correction will be applied to.
      * 
      */
-    @Export(name="sloId", refs={String.class}, tree="[0]")
+    @Export(name="sloId", type=String.class, parameters={})
     private Output<String> sloId;
 
     /**
@@ -180,7 +180,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * Starting time of the correction in epoch seconds.
      * 
      */
-    @Export(name="start", refs={Integer.class}, tree="[0]")
+    @Export(name="start", type=Integer.class, parameters={})
     private Output<Integer> start;
 
     /**
@@ -194,7 +194,7 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
      * The timezone to display in the UI for the correction times (defaults to &#34;UTC&#34;)
      * 
      */
-    @Export(name="timezone", refs={String.class}, tree="[0]")
+    @Export(name="timezone", type=String.class, parameters={})
     private Output</* @Nullable */ String> timezone;
 
     /**

@@ -71,7 +71,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The headers attached to the webhook.
      * 
      */
-    @Export(name="customHeaders", refs={String.class}, tree="[0]")
+    @Export(name="customHeaders", type=String.class, parameters={})
     private Output</* @Nullable */ String> customHeaders;
 
     /**
@@ -85,7 +85,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Encoding type. Valid values are `json`, `form`.
      * 
      */
-    @Export(name="encodeAs", refs={String.class}, tree="[0]")
+    @Export(name="encodeAs", type=String.class, parameters={})
     private Output<String> encodeAs;
 
     /**
@@ -99,7 +99,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the webhook. It corresponds with `&lt;WEBHOOK_NAME&gt;`.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The payload of the webhook.
      * 
      */
-    @Export(name="payload", refs={String.class}, tree="[0]")
+    @Export(name="payload", type=String.class, parameters={})
     private Output<String> payload;
 
     /**
@@ -127,7 +127,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The URL of the webhook.
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

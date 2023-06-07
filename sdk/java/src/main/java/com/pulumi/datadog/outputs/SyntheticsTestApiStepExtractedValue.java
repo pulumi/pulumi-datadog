@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepExtractedValueParser;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public final class SyntheticsTestApiStepExtractedValue {
      */
     private String name;
     private SyntheticsTestApiStepExtractedValueParser parser;
+    private @Nullable Boolean secure;
     /**
      * @return Synthetics test type. Valid values are `api`, `browser`.
      * 
@@ -38,6 +40,9 @@ public final class SyntheticsTestApiStepExtractedValue {
     }
     public SyntheticsTestApiStepExtractedValueParser parser() {
         return this.parser;
+    }
+    public Optional<Boolean> secure() {
+        return Optional.ofNullable(this.secure);
     }
     /**
      * @return Synthetics test type. Valid values are `api`, `browser`.
@@ -59,6 +64,7 @@ public final class SyntheticsTestApiStepExtractedValue {
         private @Nullable String field;
         private String name;
         private SyntheticsTestApiStepExtractedValueParser parser;
+        private @Nullable Boolean secure;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestApiStepExtractedValue defaults) {
@@ -66,6 +72,7 @@ public final class SyntheticsTestApiStepExtractedValue {
     	      this.field = defaults.field;
     	      this.name = defaults.name;
     	      this.parser = defaults.parser;
+    	      this.secure = defaults.secure;
     	      this.type = defaults.type;
         }
 
@@ -85,6 +92,11 @@ public final class SyntheticsTestApiStepExtractedValue {
             return this;
         }
         @CustomType.Setter
+        public Builder secure(@Nullable Boolean secure) {
+            this.secure = secure;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -94,6 +106,7 @@ public final class SyntheticsTestApiStepExtractedValue {
             o.field = field;
             o.name = name;
             o.parser = parser;
+            o.secure = secure;
             o.type = type;
             return o;
         }

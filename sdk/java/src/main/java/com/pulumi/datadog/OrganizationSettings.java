@@ -61,7 +61,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Description of the organization.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
@@ -75,7 +75,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Name for Organization.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output</* @Nullable */ String> name;
 
     /**
@@ -89,7 +89,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * The `public_id` of the organization you are operating within.
      * 
      */
-    @Export(name="publicId", refs={String.class}, tree="[0]")
+    @Export(name="publicId", type=String.class, parameters={})
     private Output<String> publicId;
 
     /**
@@ -103,7 +103,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * Organization settings
      * 
      */
-    @Export(name="settings", refs={OrganizationSettingsSettings.class}, tree="[0]")
+    @Export(name="settings", type=OrganizationSettingsSettings.class, parameters={})
     private Output<OrganizationSettingsSettings> settings;
 
     /**

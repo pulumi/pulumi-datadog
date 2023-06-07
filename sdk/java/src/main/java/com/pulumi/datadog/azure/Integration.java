@@ -67,7 +67,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Silence monitors for expected Azure VM shutdowns.
      * 
      */
-    @Export(name="automute", refs={Boolean.class}, tree="[0]")
+    @Export(name="automute", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automute;
 
     /**
@@ -81,7 +81,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your Azure web application ID.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -95,7 +95,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * (Required for Initial Creation) Your Azure web application secret key.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
@@ -109,7 +109,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
-    @Export(name="hostFilters", refs={String.class}, tree="[0]")
+    @Export(name="hostFilters", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostFilters;
 
     /**
@@ -123,7 +123,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your Azure Active Directory ID.
      * 
      */
-    @Export(name="tenantName", refs={String.class}, tree="[0]")
+    @Export(name="tenantName", type=String.class, parameters={})
     private Output<String> tenantName;
 
     /**

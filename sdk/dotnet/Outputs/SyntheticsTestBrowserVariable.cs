@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
+        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+        /// </summary>
+        public readonly bool? Secure;
+        /// <summary>
         /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         public readonly string Type;
@@ -44,12 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? pattern,
 
+            bool? secure,
+
             string type)
         {
             Example = example;
             Id = id;
             Name = name;
             Pattern = pattern;
+            Secure = secure;
             Type = type;
         }
     }

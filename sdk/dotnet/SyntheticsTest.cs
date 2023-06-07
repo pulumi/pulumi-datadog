@@ -64,6 +64,58 @@ namespace Pulumi.Datadog
     /// {
     ///     // Example Usage (Synthetics API test)
     ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    ///     var testUptime = new Datadog.SyntheticsTest("testUptime", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "200",
+    ///                 Type = "statusCode",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An Uptime test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         RequestHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "http",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Authenticated API test)
+    ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
     ///     var testApi = new Datadog.SyntheticsTest("testApi", new()
     ///     {
     ///         Assertions = new[]
@@ -244,7 +296,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Multistep API test)
     ///     // Create a new Datadog Synthetics Multistep API test
-    ///     var test = new Datadog.SyntheticsTest("test", new()
+    ///     var testMultiStep = new Datadog.SyntheticsTest("testMultiStep", new()
     ///     {
     ///         ApiSteps = new[]
     ///         {
@@ -304,6 +356,12 @@ namespace Pulumi.Datadog
     ///         },
     ///         Status = "live",
     ///         Subtype = "multi",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
     ///         Type = "api",
     ///     });
     /// 

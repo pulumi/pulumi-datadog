@@ -66,7 +66,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * The description of the Agent rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -80,7 +80,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * Whether the Agent rule is enabled.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -94,7 +94,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * The SECL expression of the Agent rule.
      * 
      */
-    @Export(name="expression", refs={String.class}, tree="[0]")
+    @Export(name="expression", type=String.class, parameters={})
     private Output<String> expression;
 
     /**
@@ -108,7 +108,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * The name of the Agent rule.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

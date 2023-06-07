@@ -143,7 +143,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
     /**
-     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * @return The definition for a Run Workflow widget.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
@@ -345,7 +345,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
-     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * @return The definition for a Run Workflow widget.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition> runWorkflowDefinition() {

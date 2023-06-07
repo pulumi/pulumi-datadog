@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery? ProcessQuery;
+        public readonly Outputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery? SloQuery;
 
         [OutputConstructor]
         private DashboardWidgetChangeDefinitionRequestQuery(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery? metricQuery,
 
-            Outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery? processQuery)
+            Outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery? processQuery,
+
+            Outputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery? sloQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            SloQuery = sloQuery;
         }
     }
 }

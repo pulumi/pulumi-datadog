@@ -61,7 +61,7 @@ public class RumApplication extends com.pulumi.resources.CustomResource {
      * The client token
      * 
      */
-    @Export(name="clientToken", refs={String.class}, tree="[0]")
+    @Export(name="clientToken", type=String.class, parameters={})
     private Output<String> clientToken;
 
     /**
@@ -75,7 +75,7 @@ public class RumApplication extends com.pulumi.resources.CustomResource {
      * The name of the RUM application
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -89,7 +89,7 @@ public class RumApplication extends com.pulumi.resources.CustomResource {
      * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**

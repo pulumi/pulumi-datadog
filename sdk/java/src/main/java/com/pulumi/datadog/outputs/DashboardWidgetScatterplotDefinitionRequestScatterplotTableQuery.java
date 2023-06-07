@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestSca
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery() {}
     public Optional<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     public Optional<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery build() {
             final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

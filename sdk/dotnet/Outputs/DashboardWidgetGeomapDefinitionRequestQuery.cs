@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery? ProcessQuery;
+        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery? SloQuery;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinitionRequestQuery(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery? metricQuery,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery? processQuery)
+            Outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery? processQuery,
+
+            Outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery? sloQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            SloQuery = sloQuery;
         }
     }
 }

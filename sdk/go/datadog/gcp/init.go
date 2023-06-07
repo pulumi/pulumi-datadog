@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:gcp/integration:Integration":
 		r = &Integration{}
+	case "datadog:gcp/integrationSts:IntegrationSts":
+		r = &IntegrationSts{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"gcp/integration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"gcp/integrationSts",
 		&module{version},
 	)
 }

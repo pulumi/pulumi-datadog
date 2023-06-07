@@ -70,7 +70,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Slack account name.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -84,7 +84,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Slack channel name.
      * 
      */
-    @Export(name="channelName", refs={String.class}, tree="[0]")
+    @Export(name="channelName", type=String.class, parameters={})
     private Output<String> channelName;
 
     /**
@@ -98,7 +98,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Configuration options for what is shown in an alert event message.
      * 
      */
-    @Export(name="display", refs={ChannelDisplay.class}, tree="[0]")
+    @Export(name="display", type=ChannelDisplay.class, parameters={})
     private Output<ChannelDisplay> display;
 
     /**

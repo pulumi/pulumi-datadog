@@ -63,7 +63,7 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      * 
      */
-    @Export(name="indexes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="indexes", type=List.class, parameters={String.class})
     private Output<List<String>> indexes;
 
     /**
@@ -77,7 +77,7 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      * The unique name of the index order resource.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }
 
+        [Input("sort")]
+        public Input<Inputs.DashboardWidgetListStreamDefinitionRequestQuerySortGetArgs>? Sort { get; set; }
+
         [Input("storage")]
         public Input<string>? Storage { get; set; }
 

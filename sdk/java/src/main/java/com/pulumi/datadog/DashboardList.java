@@ -121,7 +121,7 @@ public class DashboardList extends com.pulumi.resources.CustomResource {
      * A set of dashboard items that belong to this list
      * 
      */
-    @Export(name="dashItems", refs={List.class,DashboardListDashItem.class}, tree="[0,1]")
+    @Export(name="dashItems", type=List.class, parameters={DashboardListDashItem.class})
     private Output</* @Nullable */ List<DashboardListDashItem>> dashItems;
 
     /**
@@ -135,7 +135,7 @@ public class DashboardList extends com.pulumi.resources.CustomResource {
      * The name of the Dashboard List
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

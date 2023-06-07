@@ -363,14 +363,14 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * The definition for a Run Workflow widget.
      * 
      */
     @Import(name="runWorkflowDefinition")
     private @Nullable Output<DashboardWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
 
     /**
-     * @return The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * @return The definition for a Run Workflow widget.
      * 
      */
     public Optional<Output<DashboardWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
@@ -1040,7 +1040,7 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * @param runWorkflowDefinition The definition for a Run Workflow widget.
          * 
          * @return builder
          * 
@@ -1051,7 +1051,7 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runWorkflowDefinition The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+         * @param runWorkflowDefinition The definition for a Run Workflow widget.
          * 
          * @return builder
          * 

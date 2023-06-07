@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScat
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs() {}
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
 
         public Builder processQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs build() {
