@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.9.2
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.2
-	github.com/pulumi/pulumi/sdk/v3 v3.67.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.1
+	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 	github.com/terraform-providers/terraform-provider-datadog v3.21.0+incompatible
 )
 
@@ -14,7 +14,7 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
 	github.com/hashicorp/terraform-plugin-test => github.com/hashicorp/terraform-plugin-test v1.3.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20230508235100-3bace90c87ae
+	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20230607220106-3e9e35014bd3
 )
 
 require (
@@ -43,7 +43,8 @@ require (
 	github.com/Azure/go-autorest/logger v0.2.1 // indirect
 	github.com/Azure/go-autorest/tracing v0.6.0 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.4.0 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.12.1-0.20230502182220-3bc6edb7524d // indirect
+	github.com/BurntSushi/toml v1.2.1 // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.13.0 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
@@ -193,10 +194,10 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.2 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.67.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.69.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
-	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
