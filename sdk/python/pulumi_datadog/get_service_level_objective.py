@@ -181,7 +181,7 @@ def get_service_level_objective(id: Optional[str] = None,
 
     test = datadog.get_service_level_objective(name_query="My test SLO",
         tags_query="foo:bar")
-    api_slo = datadog.get_service_level_objective(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
     ```
 
 
@@ -229,7 +229,7 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
 
     test = datadog.get_service_level_objective(name_query="My test SLO",
         tags_query="foo:bar")
-    api_slo = datadog.get_service_level_objective(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
     ```
 
 

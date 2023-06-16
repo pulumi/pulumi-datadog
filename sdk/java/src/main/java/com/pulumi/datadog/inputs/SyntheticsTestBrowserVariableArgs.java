@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,6 +77,21 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
     }
 
     /**
+     * Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     * 
+     */
+    @Import(name="secure")
+    private @Nullable Output<Boolean> secure;
+
+    /**
+     * @return Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     * 
+     */
+    public Optional<Output<Boolean>> secure() {
+        return Optional.ofNullable(this.secure);
+    }
+
+    /**
      * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
      * 
      */
@@ -97,6 +113,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         this.id = $.id;
         this.name = $.name;
         this.pattern = $.pattern;
+        this.secure = $.secure;
         this.type = $.type;
     }
 
@@ -200,6 +217,27 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
          */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
+        }
+
+        /**
+         * @param secure Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(@Nullable Output<Boolean> secure) {
+            $.secure = secure;
+            return this;
+        }
+
+        /**
+         * @param secure Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(Boolean secure) {
+            return secure(Output.of(secure));
         }
 
         /**

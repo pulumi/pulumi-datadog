@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryApm
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetToplistDefinitionRequestQueryArgs extends com.
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetToplistDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetToplistDefinitionRequestQueryArgs(DashboardWidgetToplistDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetToplistDefinitionRequestQueryArgs extends com.
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetToplistDefinitionRequestQueryArgs extends com.
 
         public Builder processQuery(DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetToplistDefinitionRequestQueryArgs build() {

@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseries
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery() {}
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

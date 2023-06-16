@@ -27,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
+        [Input("sloQuery")]
+        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs>? SloQuery { get; set; }
+
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs()
         {
         }

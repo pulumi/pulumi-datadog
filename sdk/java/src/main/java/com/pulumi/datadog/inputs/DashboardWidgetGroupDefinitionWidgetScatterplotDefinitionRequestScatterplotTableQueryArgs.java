@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplot
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs(DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
 
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs build() {

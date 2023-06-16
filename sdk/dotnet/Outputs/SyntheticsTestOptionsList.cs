@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AcceptSelfSigned;
         /// <summary>
-        /// Allows loading insecure content for an HTTP test.
+        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>
-        /// Ignore server certificate error.
+        /// Ignore server certificate error for browser tests.
         /// </summary>
         public readonly bool? IgnoreServerCertificateError;
         /// <summary>

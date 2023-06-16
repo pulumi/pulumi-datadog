@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? AcceptSelfSigned { get; set; }
 
         /// <summary>
-        /// Allows loading insecure content for an HTTP test.
+        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
         /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? HttpVersion { get; set; }
 
         /// <summary>
-        /// Ignore server certificate error.
+        /// Ignore server certificate error for browser tests.
         /// </summary>
         [Input("ignoreServerCertificateError")]
         public Input<bool>? IgnoreServerCertificateError { get; set; }

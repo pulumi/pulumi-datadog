@@ -181,6 +181,16 @@ export const getSyntheticsTest: typeof import("./getSyntheticsTest").getSyntheti
 export const getSyntheticsTestOutput: typeof import("./getSyntheticsTest").getSyntheticsTestOutput = null as any;
 utilities.lazyLoad(exports, ["getSyntheticsTest","getSyntheticsTestOutput"], () => require("./getSyntheticsTest"));
 
+export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
+export const getTeam: typeof import("./getTeam").getTeam = null as any;
+export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
+utilities.lazyLoad(exports, ["getTeam","getTeamOutput"], () => require("./getTeam"));
+
+export { GetTeamMembershipsArgs, GetTeamMembershipsResult, GetTeamMembershipsOutputArgs } from "./getTeamMemberships";
+export const getTeamMemberships: typeof import("./getTeamMemberships").getTeamMemberships = null as any;
+export const getTeamMembershipsOutput: typeof import("./getTeamMemberships").getTeamMembershipsOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamMemberships","getTeamMembershipsOutput"], () => require("./getTeamMemberships"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -326,6 +336,16 @@ export type SloCorrection = import("./sloCorrection").SloCorrection;
 export const SloCorrection: typeof import("./sloCorrection").SloCorrection = null as any;
 utilities.lazyLoad(exports, ["SloCorrection"], () => require("./sloCorrection"));
 
+export { SpansMetricArgs, SpansMetricState } from "./spansMetric";
+export type SpansMetric = import("./spansMetric").SpansMetric;
+export const SpansMetric: typeof import("./spansMetric").SpansMetric = null as any;
+utilities.lazyLoad(exports, ["SpansMetric"], () => require("./spansMetric"));
+
+export { SyntheticsConcurrencyCapArgs, SyntheticsConcurrencyCapState } from "./syntheticsConcurrencyCap";
+export type SyntheticsConcurrencyCap = import("./syntheticsConcurrencyCap").SyntheticsConcurrencyCap;
+export const SyntheticsConcurrencyCap: typeof import("./syntheticsConcurrencyCap").SyntheticsConcurrencyCap = null as any;
+utilities.lazyLoad(exports, ["SyntheticsConcurrencyCap"], () => require("./syntheticsConcurrencyCap"));
+
 export { SyntheticsGlobalVariableArgs, SyntheticsGlobalVariableState } from "./syntheticsGlobalVariable";
 export type SyntheticsGlobalVariable = import("./syntheticsGlobalVariable").SyntheticsGlobalVariable;
 export const SyntheticsGlobalVariable: typeof import("./syntheticsGlobalVariable").SyntheticsGlobalVariable = null as any;
@@ -340,6 +360,21 @@ export { SyntheticsTestArgs, SyntheticsTestState } from "./syntheticsTest";
 export type SyntheticsTest = import("./syntheticsTest").SyntheticsTest;
 export const SyntheticsTest: typeof import("./syntheticsTest").SyntheticsTest = null as any;
 utilities.lazyLoad(exports, ["SyntheticsTest"], () => require("./syntheticsTest"));
+
+export { TeamArgs, TeamState } from "./team";
+export type Team = import("./team").Team;
+export const Team: typeof import("./team").Team = null as any;
+utilities.lazyLoad(exports, ["Team"], () => require("./team"));
+
+export { TeamLinkArgs, TeamLinkState } from "./teamLink";
+export type TeamLink = import("./teamLink").TeamLink;
+export const TeamLink: typeof import("./teamLink").TeamLink = null as any;
+utilities.lazyLoad(exports, ["TeamLink"], () => require("./teamLink"));
+
+export { TeamMembershipArgs, TeamMembershipState } from "./teamMembership";
+export type TeamMembership = import("./teamMembership").TeamMembership;
+export const TeamMembership: typeof import("./teamMembership").TeamMembership = null as any;
+utilities.lazyLoad(exports, ["TeamMembership"], () => require("./teamMembership"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -462,12 +497,22 @@ const _module = {
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
             case "datadog:index/sloCorrection:SloCorrection":
                 return new SloCorrection(name, <any>undefined, { urn })
+            case "datadog:index/spansMetric:SpansMetric":
+                return new SpansMetric(name, <any>undefined, { urn })
+            case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
+                return new SyntheticsConcurrencyCap(name, <any>undefined, { urn })
             case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
                 return new SyntheticsGlobalVariable(name, <any>undefined, { urn })
             case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
                 return new SyntheticsPrivateLocation(name, <any>undefined, { urn })
             case "datadog:index/syntheticsTest:SyntheticsTest":
                 return new SyntheticsTest(name, <any>undefined, { urn })
+            case "datadog:index/team:Team":
+                return new Team(name, <any>undefined, { urn })
+            case "datadog:index/teamLink:TeamLink":
+                return new TeamLink(name, <any>undefined, { urn })
+            case "datadog:index/teamMembership:TeamMembership":
+                return new TeamMembership(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "datadog:index/webhook:Webhook":
@@ -516,9 +561,14 @@ pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/spansMetric", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)

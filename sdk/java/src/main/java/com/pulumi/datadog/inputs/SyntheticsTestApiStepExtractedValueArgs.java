@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepExtractedValueParserArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,6 +46,13 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         return this.parser;
     }
 
+    @Import(name="secure")
+    private @Nullable Output<Boolean> secure;
+
+    public Optional<Output<Boolean>> secure() {
+        return Optional.ofNullable(this.secure);
+    }
+
     /**
      * Synthetics test type. Valid values are `api`, `browser`.
      * 
@@ -66,6 +74,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         this.field = $.field;
         this.name = $.name;
         this.parser = $.parser;
+        this.secure = $.secure;
         this.type = $.type;
     }
 
@@ -124,6 +133,15 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
 
         public Builder parser(SyntheticsTestApiStepExtractedValueParserArgs parser) {
             return parser(Output.of(parser));
+        }
+
+        public Builder secure(@Nullable Output<Boolean> secure) {
+            $.secure = secure;
+            return this;
+        }
+
+        public Builder secure(Boolean secure) {
+            return secure(Output.of(secure));
         }
 
         /**

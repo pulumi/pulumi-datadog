@@ -42,6 +42,10 @@ import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariableArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariablePlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestPlainArgs;
+import com.pulumi.datadog.inputs.GetTeamArgs;
+import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
+import com.pulumi.datadog.inputs.GetTeamPlainArgs;
 import com.pulumi.datadog.inputs.GetUserArgs;
 import com.pulumi.datadog.inputs.GetUserPlainArgs;
 import com.pulumi.datadog.outputs.GetApiKeyResult;
@@ -71,6 +75,8 @@ import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
 import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
+import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
+import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetUserResult;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
@@ -4417,6 +4423,380 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamResult> getTeam() {
+        return getTeam(GetTeamArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamResult> getTeamPlain() {
+        return getTeamPlain(GetTeamPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
+        return getTeam(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args) {
+        return getTeamPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog team.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog team memberships.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
+     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamMembershipsResult> getTeamMemberships(GetTeamMembershipsArgs args) {
+        return getTeamMemberships(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog team memberships.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
+     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args) {
+        return getTeamMembershipsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog team memberships.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
+     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamMembershipsResult> getTeamMemberships(GetTeamMembershipsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog team memberships.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
+     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.

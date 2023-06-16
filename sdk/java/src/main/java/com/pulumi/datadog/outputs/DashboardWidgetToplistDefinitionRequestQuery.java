@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryAp
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
     private @Nullable DashboardWidgetToplistDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetToplistDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetToplistDefinitionRequestQuery() {}
     public Optional<DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
     public Optional<DashboardWidgetToplistDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetToplistDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
         private @Nullable DashboardWidgetToplistDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetToplistDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetToplistDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetToplistDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetToplistDefinitionRequestQuery build() {
             final var o = new DashboardWidgetToplistDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

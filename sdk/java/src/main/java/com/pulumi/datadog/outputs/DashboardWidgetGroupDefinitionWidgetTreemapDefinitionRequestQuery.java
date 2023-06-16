@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDef
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery() {}
     public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
     public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
         private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

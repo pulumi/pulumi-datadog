@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQuery
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryArgs extends c
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetQueryTableDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetQueryTableDefinitionRequestQueryArgs(DashboardWidgetQueryTableDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryArgs extends c
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryArgs extends c
 
         public Builder processQuery(DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetQueryTableDefinitionRequestQueryArgs build() {

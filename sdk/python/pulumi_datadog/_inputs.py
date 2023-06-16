@@ -53,6 +53,7 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetChangeDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs',
@@ -115,6 +116,7 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs',
@@ -154,6 +156,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupByArgs',
@@ -216,6 +219,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupByArgs',
@@ -304,6 +308,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs',
     'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs',
     'DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs',
@@ -339,6 +344,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupByArgs',
@@ -383,6 +389,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupByArgs',
@@ -413,6 +420,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs',
@@ -506,6 +514,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupByArgs',
@@ -557,6 +566,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs',
@@ -604,6 +614,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupByArgs',
@@ -636,6 +647,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs',
     'DashboardWidgetHeatmapDefinitionArgs',
     'DashboardWidgetHeatmapDefinitionCustomLinkArgs',
@@ -718,6 +730,7 @@ __all__ = [
     'DashboardWidgetListStreamDefinitionRequestArgs',
     'DashboardWidgetListStreamDefinitionRequestColumnArgs',
     'DashboardWidgetListStreamDefinitionRequestQueryArgs',
+    'DashboardWidgetListStreamDefinitionRequestQuerySortArgs',
     'DashboardWidgetLogStreamDefinitionArgs',
     'DashboardWidgetLogStreamDefinitionSortArgs',
     'DashboardWidgetManageStatusDefinitionArgs',
@@ -753,6 +766,7 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs',
@@ -797,6 +811,7 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs',
@@ -827,6 +842,7 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs',
+    'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs',
@@ -920,6 +936,7 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs',
@@ -971,6 +988,7 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs',
@@ -1018,6 +1036,7 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs',
@@ -1050,6 +1069,7 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
+    'DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetWidgetLayoutArgs',
     'DowntimeRecurrenceArgs',
     'IpAllowlistEntryArgs',
@@ -1137,6 +1157,9 @@ __all__ = [
     'SensitiveDataScannerRuleTextReplacementArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
+    'SpansMetricComputeArgs',
+    'SpansMetricFilterArgs',
+    'SpansMetricGroupByArgs',
     'SyntheticsGlobalVariableOptionsArgs',
     'SyntheticsGlobalVariableOptionsTotpParametersArgs',
     'SyntheticsGlobalVariableParseTestOptionsArgs',
@@ -1787,7 +1810,7 @@ class DashboardWidgetArgs:
         :param pulumi.Input['DashboardWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
-        :param pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        :param pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
         :param pulumi.Input['DashboardWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -2123,7 +2146,7 @@ class DashboardWidgetArgs:
     @pulumi.getter(name="runWorkflowDefinition")
     def run_workflow_definition(self) -> Optional[pulumi.Input['DashboardWidgetRunWorkflowDefinitionArgs']]:
         """
-        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        The definition for a Run Workflow widget.
         """
         return pulumi.get(self, "run_workflow_definition")
 
@@ -3499,7 +3522,8 @@ class DashboardWidgetChangeDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -3510,6 +3534,8 @@ class DashboardWidgetChangeDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -3555,6 +3581,15 @@ class DashboardWidgetChangeDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -4176,6 +4211,80 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -6971,7 +7080,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -6982,6 +7092,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -7027,6 +7139,15 @@ class DashboardWidgetGeomapDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -7651,6 +7772,80 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGeomapDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
@@ -8063,7 +8258,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs'] query_table_definition: The definition for a Query Table widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs'] query_value_definition: The definition for a Query Value widget.
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs'] run_workflow_definition: The definition for a Run Workflow widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs'] service_level_objective_definition: The definition for a Service Level Objective widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -8385,7 +8580,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @pulumi.getter(name="runWorkflowDefinition")
     def run_workflow_definition(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs']]:
         """
-        The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        The definition for a Run Workflow widget.
         """
         return pulumi.get(self, "run_workflow_definition")
 
@@ -9761,7 +9956,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -9772,6 +9968,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -9817,6 +10015,15 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -10438,6 +10645,80 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQue
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -13233,7 +13514,8 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -13244,6 +13526,8 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -13289,6 +13573,15 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -13910,6 +14203,80 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQue
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -18096,6 +18463,7 @@ class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
                  event_size: Optional[pulumi.Input[str]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         if event_size is not None:
@@ -18104,6 +18472,8 @@ class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
             pulumi.set(__self__, "query_string", query_string)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
         if storage is not None:
             pulumi.set(__self__, "storage", storage)
 
@@ -18145,12 +18515,48 @@ class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs:
 
     @property
     @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+    @property
+    @pulumi.getter
     def storage(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "storage")
 
     @storage.setter
     def storage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -19907,7 +20313,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -19918,6 +20325,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -19963,6 +20372,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -20584,6 +21002,80 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProces
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -22452,7 +22944,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -22463,6 +22956,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -22508,6 +23003,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -23129,6 +23633,80 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProces
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -24134,7 +24712,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -24145,6 +24724,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -24190,6 +24771,15 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -24811,6 +25401,80 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -28982,7 +29646,8 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -28993,6 +29658,8 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -29038,6 +29705,15 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -29659,6 +30335,80 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQ
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -31809,7 +32559,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -31820,6 +32571,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -31865,6 +32618,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -32486,6 +33248,80 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProces
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -34465,7 +35301,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -34476,6 +35313,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -34521,6 +35360,15 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -35142,6 +35990,80 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQu
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -36301,7 +37223,8 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -36312,6 +37235,8 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -36357,6 +37282,15 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -36978,6 +37912,80 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQu
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -40958,6 +41966,7 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
                  event_size: Optional[pulumi.Input[str]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
+                 sort: Optional[pulumi.Input['DashboardWidgetListStreamDefinitionRequestQuerySortArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         if event_size is not None:
@@ -40966,6 +41975,8 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
             pulumi.set(__self__, "indexes", indexes)
         if query_string is not None:
             pulumi.set(__self__, "query_string", query_string)
+        if sort is not None:
+            pulumi.set(__self__, "sort", sort)
         if storage is not None:
             pulumi.set(__self__, "storage", storage)
 
@@ -41007,12 +42018,48 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
 
     @property
     @pulumi.getter
+    def sort(self) -> Optional[pulumi.Input['DashboardWidgetListStreamDefinitionRequestQuerySortArgs']]:
+        return pulumi.get(self, "sort")
+
+    @sort.setter
+    def sort(self, value: Optional[pulumi.Input['DashboardWidgetListStreamDefinitionRequestQuerySortArgs']]):
+        pulumi.set(self, "sort", value)
+
+    @property
+    @pulumi.getter
     def storage(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "storage")
 
     @storage.setter
     def storage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage", value)
+
+
+@pulumi.input_type
+class DashboardWidgetListStreamDefinitionRequestQuerySortArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 order: pulumi.Input[str]):
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -42769,7 +43816,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -42780,6 +43828,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -42825,6 +43875,15 @@ class DashboardWidgetQueryTableDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -43446,6 +44505,80 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -45314,7 +46447,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -45325,6 +46459,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -45370,6 +46506,15 @@ class DashboardWidgetQueryValueDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -45991,6 +47136,80 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -46996,7 +48215,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -47007,6 +48227,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -47052,6 +48274,15 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -47673,6 +48904,80 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -51844,7 +53149,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -51855,6 +53161,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -51900,6 +53208,15 @@ class DashboardWidgetSunburstDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -52521,6 +53838,80 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -54671,7 +56062,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -54682,6 +56074,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -54727,6 +56121,15 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -55348,6 +56751,80 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -57327,7 +58804,8 @@ class DashboardWidgetToplistDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -57338,6 +58816,8 @@ class DashboardWidgetToplistDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -57383,6 +58863,15 @@ class DashboardWidgetToplistDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -58004,6 +59493,80 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -59163,7 +60726,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryArgs:
                  apm_resource_stats_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs']] = None,
                  event_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs']] = None,
                  metric_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs']] = None,
-                 process_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None):
+                 process_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']] = None,
+                 slo_query: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs']] = None):
         if apm_dependency_stats_query is not None:
             pulumi.set(__self__, "apm_dependency_stats_query", apm_dependency_stats_query)
         if apm_resource_stats_query is not None:
@@ -59174,6 +60738,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryArgs:
             pulumi.set(__self__, "metric_query", metric_query)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
 
     @property
     @pulumi.getter(name="apmDependencyStatsQuery")
@@ -59219,6 +60785,15 @@ class DashboardWidgetTreemapDefinitionRequestQueryArgs:
     @process_query.setter
     def process_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs']]):
         pulumi.set(self, "process_query", value)
+
+    @property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs']]:
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs']]):
+        pulumi.set(self, "slo_query", value)
 
 
 @pulumi.input_type
@@ -59840,6 +61415,80 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs:
     @text_filter.setter
     def text_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_filter", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[str],
+                 measure: pulumi.Input[str],
+                 slo_id: pulumi.Input[str],
+                 group_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 slo_query_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "measure", measure)
+        pulumi.set(__self__, "slo_id", slo_id)
+        if group_mode is not None:
+            pulumi.set(__self__, "group_mode", group_mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slo_query_type is not None:
+            pulumi.set(__self__, "slo_query_type", slo_query_type)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: pulumi.Input[str]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="groupMode")
+    def group_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_mode")
+
+    @group_mode.setter
+    def group_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sloQueryType")
+    def slo_query_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "slo_query_type")
+
+    @slo_query_type.setter
+    def slo_query_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slo_query_type", value)
 
 
 @pulumi.input_type
@@ -64662,6 +66311,121 @@ class ServiceLevelObjectiveThresholdArgs:
 
 
 @pulumi.input_type
+class SpansMetricComputeArgs:
+    def __init__(__self__, *,
+                 aggregation_type: pulumi.Input[str],
+                 include_percentiles: Optional[pulumi.Input[bool]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aggregation_type: The type of aggregation to use. This field can't be updated after creation.
+        :param pulumi.Input[bool] include_percentiles: Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+        :param pulumi.Input[str] path: The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+        """
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if include_percentiles is not None:
+            pulumi.set(__self__, "include_percentiles", include_percentiles)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> pulumi.Input[str]:
+        """
+        The type of aggregation to use. This field can't be updated after creation.
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @aggregation_type.setter
+    def aggregation_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation_type", value)
+
+    @property
+    @pulumi.getter(name="includePercentiles")
+    def include_percentiles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregation_type` is `distribution`.
+        """
+        return pulumi.get(self, "include_percentiles")
+
+    @include_percentiles.setter
+    def include_percentiles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_percentiles", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class SpansMetricFilterArgs:
+    def __init__(__self__, *,
+                 query: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] query: The search query - following the span search syntax.
+        """
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The search query - following the span search syntax.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class SpansMetricGroupByArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 tag_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: The path to the value the span-based metric will be aggregated over.
+        :param pulumi.Input[str] tag_name: Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+        """
+        pulumi.set(__self__, "path", path)
+        if tag_name is not None:
+            pulumi.set(__self__, "tag_name", tag_name)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path to the value the span-based metric will be aggregated over.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+        """
+        return pulumi.get(self, "tag_name")
+
+    @tag_name.setter
+    def tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_name", value)
+
+
+@pulumi.input_type
 class SyntheticsGlobalVariableOptionsArgs:
     def __init__(__self__, *,
                  totp_parameters: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsTotpParametersArgs']] = None):
@@ -65229,7 +66993,8 @@ class SyntheticsTestApiStepExtractedValueArgs:
                  name: pulumi.Input[str],
                  parser: pulumi.Input['SyntheticsTestApiStepExtractedValueParserArgs'],
                  type: pulumi.Input[str],
-                 field: Optional[pulumi.Input[str]] = None):
+                 field: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
@@ -65239,6 +67004,8 @@ class SyntheticsTestApiStepExtractedValueArgs:
         pulumi.set(__self__, "type", type)
         if field is not None:
             pulumi.set(__self__, "field", field)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -65281,6 +67048,15 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @field.setter
     def field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
 
 
 @pulumi.input_type
@@ -66697,13 +68473,15 @@ class SyntheticsTestBrowserVariableArgs:
                  type: pulumi.Input[str],
                  example: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 pattern: Optional[pulumi.Input[str]] = None):
+                 pattern: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
         :param pulumi.Input[str] type: Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         :param pulumi.Input[str] example: Example for the variable.
         :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         :param pulumi.Input[str] pattern: Pattern of the variable.
+        :param pulumi.Input[bool] secure: Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -66713,6 +68491,8 @@ class SyntheticsTestBrowserVariableArgs:
             pulumi.set(__self__, "id", id)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -66773,6 +68553,18 @@ class SyntheticsTestBrowserVariableArgs:
     @pattern.setter
     def pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
 
 
 @pulumi.input_type
@@ -66895,14 +68687,14 @@ class SyntheticsTestOptionsListArgs:
         """
         :param pulumi.Input[int] tick_every: How often the test should run (in seconds).
         :param pulumi.Input[bool] accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
-        :param pulumi.Input[bool] allow_insecure: Allows loading insecure content for an HTTP test.
+        :param pulumi.Input[bool] allow_insecure: Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
         :param pulumi.Input[bool] check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param pulumi.Input['SyntheticsTestOptionsListCiArgs'] ci: CI/CD options for a Synthetic test.
         :param pulumi.Input[bool] disable_cors: Disable Cross-Origin Resource Sharing for browser tests.
         :param pulumi.Input[bool] disable_csp: Disable Content Security Policy for browser tests.
         :param pulumi.Input[bool] follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param pulumi.Input[str] http_version: HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
-        :param pulumi.Input[bool] ignore_server_certificate_error: Ignore server certificate error.
+        :param pulumi.Input[bool] ignore_server_certificate_error: Ignore server certificate error for browser tests.
         :param pulumi.Input[int] initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
         :param pulumi.Input[int] min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
         :param pulumi.Input[int] min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
@@ -66982,7 +68774,7 @@ class SyntheticsTestOptionsListArgs:
     @pulumi.getter(name="allowInsecure")
     def allow_insecure(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allows loading insecure content for an HTTP test.
+        Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
         """
         return pulumi.get(self, "allow_insecure")
 
@@ -67066,7 +68858,7 @@ class SyntheticsTestOptionsListArgs:
     @pulumi.getter(name="ignoreServerCertificateError")
     def ignore_server_certificate_error(self) -> Optional[pulumi.Input[bool]]:
         """
-        Ignore server certificate error.
+        Ignore server certificate error for browser tests.
         """
         return pulumi.get(self, "ignore_server_certificate_error")
 

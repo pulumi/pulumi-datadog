@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesD
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryArgs build() {

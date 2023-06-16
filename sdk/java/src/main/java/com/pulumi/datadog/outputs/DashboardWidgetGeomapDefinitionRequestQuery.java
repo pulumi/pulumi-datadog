@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryApm
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetGeomapDefinitionRequestQuery() {}
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetGeomapDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetGeomapDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetGeomapDefinitionRequestQuery build() {
             final var o = new DashboardWidgetGeomapDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

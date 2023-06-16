@@ -27,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
+        [Input("sloQuery")]
+        public Input<Inputs.DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }
+
         public DashboardWidgetTreemapDefinitionRequestQueryArgs()
         {
         }

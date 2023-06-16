@@ -94,12 +94,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceLevelObjective{}
 	case "datadog:index/sloCorrection:SloCorrection":
 		r = &SloCorrection{}
+	case "datadog:index/spansMetric:SpansMetric":
+		r = &SpansMetric{}
+	case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
+		r = &SyntheticsConcurrencyCap{}
 	case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
 		r = &SyntheticsGlobalVariable{}
 	case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
 		r = &SyntheticsPrivateLocation{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
 		r = &SyntheticsTest{}
+	case "datadog:index/team:Team":
+		r = &Team{}
+	case "datadog:index/teamLink:TeamLink":
+		r = &TeamLink{}
+	case "datadog:index/teamMembership:TeamMembership":
+		r = &TeamMembership{}
 	case "datadog:index/user:User":
 		r = &User{}
 	case "datadog:index/webhook:Webhook":
@@ -321,6 +331,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/spansMetric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/syntheticsConcurrencyCap",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/syntheticsGlobalVariable",
 		&module{version},
 	)
@@ -332,6 +352,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/syntheticsTest",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamLink",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamMembership",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

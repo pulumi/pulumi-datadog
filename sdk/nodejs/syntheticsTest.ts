@@ -39,6 +39,43 @@ import * as utilities from "./utilities";
  *
  * // Example Usage (Synthetics API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ * const testUptime = new datadog.SyntheticsTest("testUptime", {
+ *     assertions: [{
+ *         operator: "is",
+ *         target: "200",
+ *         type: "statusCode",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An Uptime test on example.org",
+ *     optionsList: {
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         tickEvery: 900,
+ *     },
+ *     requestDefinition: {
+ *         method: "GET",
+ *         url: "https://www.example.org",
+ *     },
+ *     requestHeaders: {
+ *         "Content-Type": "application/json",
+ *     },
+ *     status: "live",
+ *     subtype: "http",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * // Example Usage (Authenticated API test)
+ * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  * const testApi = new datadog.SyntheticsTest("testApi", {
  *     assertions: [{
  *         operator: "is",
@@ -164,7 +201,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics Multistep API test)
  * // Create a new Datadog Synthetics Multistep API test
- * const test = new datadog.SyntheticsTest("test", {
+ * const testMultiStep = new datadog.SyntheticsTest("testMultiStep", {
  *     apiSteps: [
  *         {
  *             assertions: [{
@@ -205,6 +242,11 @@ import * as utilities from "./utilities";
  *     },
  *     status: "live",
  *     subtype: "multi",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
  *     type: "api",
  * });
  * // Example Usage (Synthetics Browser test)

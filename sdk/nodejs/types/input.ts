@@ -206,7 +206,7 @@ export interface DashboardWidget {
      */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinition>;
     /**
-     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * The definition for a Run Workflow widget.
      */
     runWorkflowDefinition?: pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinition>;
     /**
@@ -424,6 +424,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
@@ -501,6 +502,15 @@ export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
@@ -895,6 +905,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -972,6 +983,15 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
@@ -1115,7 +1135,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition>;
     /**
-     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * The definition for a Run Workflow widget.
      */
     runWorkflowDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition>;
     /**
@@ -1333,6 +1353,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
@@ -1410,6 +1431,15 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
@@ -1804,6 +1834,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -1881,6 +1912,15 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery {
@@ -2480,7 +2520,13 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
     eventSize?: pulumi.Input<string>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     queryString?: pulumi.Input<string>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort>;
     storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
@@ -2709,6 +2755,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
@@ -2786,6 +2833,15 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
@@ -3042,6 +3098,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
@@ -3119,6 +3176,15 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery {
@@ -3268,6 +3334,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
@@ -3345,6 +3412,15 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
@@ -3931,6 +4007,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4008,6 +4085,15 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery {
@@ -4306,6 +4392,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4383,6 +4470,15 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
@@ -4656,6 +4752,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4733,6 +4830,15 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery {
@@ -4903,6 +5009,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4980,6 +5087,15 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
@@ -5546,7 +5662,13 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
     eventSize?: pulumi.Input<string>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     queryString?: pulumi.Input<string>;
+    sort?: pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestQuerySort>;
     storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
@@ -5775,6 +5897,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
@@ -5852,6 +5975,15 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
@@ -6108,6 +6240,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
@@ -6185,6 +6318,15 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
@@ -6334,6 +6476,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     eventQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
@@ -6411,6 +6554,15 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
@@ -6997,6 +7149,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7074,6 +7227,15 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
@@ -7372,6 +7534,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7449,6 +7612,15 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
@@ -7722,6 +7894,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7799,6 +7972,15 @@ export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQuery {
@@ -7969,6 +8151,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuery {
     eventQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery>;
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQuerySloQuery>;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -8046,6 +8229,15 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
     sort?: pulumi.Input<string>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
+    dataSource: pulumi.Input<string>;
+    groupMode?: pulumi.Input<string>;
+    measure: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetWidgetLayout {
@@ -9048,6 +9240,39 @@ export interface ServiceLevelObjectiveThreshold {
     warningDisplay?: pulumi.Input<string>;
 }
 
+export interface SpansMetricCompute {
+    /**
+     * The type of aggregation to use. This field can't be updated after creation.
+     */
+    aggregationType: pulumi.Input<string>;
+    /**
+     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+     */
+    includePercentiles?: pulumi.Input<boolean>;
+    /**
+     * The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+     */
+    path?: pulumi.Input<string>;
+}
+
+export interface SpansMetricFilter {
+    /**
+     * The search query - following the span search syntax.
+     */
+    query?: pulumi.Input<string>;
+}
+
+export interface SpansMetricGroupBy {
+    /**
+     * The path to the value the span-based metric will be aggregated over.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+     */
+    tagName?: pulumi.Input<string>;
+}
+
 export interface SyntheticsGlobalVariableOptions {
     /**
      * Parameters needed for MFA/TOTP.
@@ -9189,6 +9414,7 @@ export interface SyntheticsTestApiStepExtractedValue {
      */
     name: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsTestApiStepExtractedValueParser>;
+    secure?: pulumi.Input<boolean>;
     /**
      * Synthetics test type. Valid values are `api`, `browser`.
      */
@@ -9513,6 +9739,10 @@ export interface SyntheticsTestBrowserVariable {
      */
     pattern?: pulumi.Input<string>;
     /**
+     * Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     */
+    secure?: pulumi.Input<boolean>;
+    /**
      * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
      */
     type: pulumi.Input<string>;
@@ -9545,7 +9775,7 @@ export interface SyntheticsTestOptionsList {
      */
     acceptSelfSigned?: pulumi.Input<boolean>;
     /**
-     * Allows loading insecure content for an HTTP test.
+     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
@@ -9573,7 +9803,7 @@ export interface SyntheticsTestOptionsList {
      */
     httpVersion?: pulumi.Input<string>;
     /**
-     * Ignore server certificate error.
+     * Ignore server certificate error for browser tests.
      */
     ignoreServerCertificateError?: pulumi.Input<boolean>;
     /**

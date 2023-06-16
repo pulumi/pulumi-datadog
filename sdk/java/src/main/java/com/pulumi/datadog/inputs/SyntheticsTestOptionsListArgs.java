@@ -39,14 +39,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Allows loading insecure content for an HTTP test.
+     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      * 
      */
     @Import(name="allowInsecure")
     private @Nullable Output<Boolean> allowInsecure;
 
     /**
-     * @return Allows loading insecure content for an HTTP test.
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Output<Boolean>> allowInsecure() {
@@ -144,14 +144,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Ignore server certificate error.
+     * Ignore server certificate error for browser tests.
      * 
      */
     @Import(name="ignoreServerCertificateError")
     private @Nullable Output<Boolean> ignoreServerCertificateError;
 
     /**
-     * @return Ignore server certificate error.
+     * @return Ignore server certificate error for browser tests.
      * 
      */
     public Optional<Output<Boolean>> ignoreServerCertificateError() {
@@ -380,7 +380,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP test.
+         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP test.
+         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ignoreServerCertificateError Ignore server certificate error.
+         * @param ignoreServerCertificateError Ignore server certificate error for browser tests.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ignoreServerCertificateError Ignore server certificate error.
+         * @param ignoreServerCertificateError Ignore server certificate error for browser tests.
          * 
          * @return builder
          * 

@@ -273,6 +273,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -585,6 +588,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -776,6 +782,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -1088,6 +1097,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -1522,6 +1534,9 @@
                                                                                         "fields": {
                                                                                             "indexes": {
                                                                                                 "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -1708,6 +1723,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -1928,6 +1946,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -2083,6 +2104,9 @@
                                                                                                                     }
                                                                                                                 }
                                                                                                             }
+                                                                                                        },
+                                                                                                        "slo_query": {
+                                                                                                            "maxItemsOne": true
                                                                                                         }
                                                                                                     }
                                                                                                 }
@@ -2557,6 +2581,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -2809,6 +2836,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -3038,6 +3068,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -3206,6 +3239,9 @@
                                                                                                         }
                                                                                                     }
                                                                                                 }
+                                                                                            },
+                                                                                            "slo_query": {
+                                                                                                "maxItemsOne": true
                                                                                             }
                                                                                         }
                                                                                     }
@@ -3620,6 +3656,9 @@
                                                                 "fields": {
                                                                     "indexes": {
                                                                         "maxItemsOne": false
+                                                                    },
+                                                                    "sort": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -3806,6 +3845,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -4026,6 +4068,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -4181,6 +4226,9 @@
                                                                                             }
                                                                                         }
                                                                                     }
+                                                                                },
+                                                                                "slo_query": {
+                                                                                    "maxItemsOne": true
                                                                                 }
                                                                             }
                                                                         }
@@ -4655,6 +4703,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -4907,6 +4958,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -5136,6 +5190,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -5304,6 +5361,9 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "slo_query": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -5439,6 +5499,15 @@
             "datadog_integration_gcp": {
                 "current": "datadog:gcp/integration:Integration",
                 "majorVersion": 4
+            },
+            "datadog_integration_gcp_sts": {
+                "current": "datadog:gcp/integrationSts:IntegrationSts",
+                "majorVersion": 4,
+                "fields": {
+                    "host_filters": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_integration_opsgenie_service_object": {
                 "current": "datadog:opsgenie/serviceObject:ServiceObject",
@@ -6189,6 +6258,19 @@
                 "current": "datadog:index/sloCorrection:SloCorrection",
                 "majorVersion": 4
             },
+            "datadog_spans_metric": {
+                "current": "datadog:index/spansMetric:SpansMetric",
+                "majorVersion": 4,
+                "fields": {
+                    "group_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_synthetics_concurrency_cap": {
+                "current": "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap",
+                "majorVersion": 4
+            },
             "datadog_synthetics_global_variable": {
                 "current": "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable",
                 "majorVersion": 4,
@@ -6427,6 +6509,18 @@
                     }
                 }
             },
+            "datadog_team": {
+                "current": "datadog:index/team:Team",
+                "majorVersion": 4
+            },
+            "datadog_team_link": {
+                "current": "datadog:index/teamLink:TeamLink",
+                "majorVersion": 4
+            },
+            "datadog_team_membership": {
+                "current": "datadog:index/teamMembership:TeamMembership",
+                "majorVersion": 4
+            },
             "datadog_user": {
                 "current": "datadog:index/user:User",
                 "majorVersion": 4,
@@ -6466,6 +6560,9 @@
             },
             "datadog_integration_aws_logs_services": {
                 "current": "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices"
+            },
+            "datadog_integration_aws_namespace_rules": {
+                "current": "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules"
             },
             "datadog_ip_ranges": {
                 "current": "datadog:index/getIpRanges:getIpRanges"
@@ -6530,6 +6627,12 @@
             "datadog_synthetics_test": {
                 "current": "datadog:index/getSyntheticsTest:getSyntheticsTest"
             },
+            "datadog_team": {
+                "current": "datadog:index/getTeam:getTeam"
+            },
+            "datadog_team_memberships": {
+                "current": "datadog:index/getTeamMemberships:getTeamMemberships"
+            },
             "datadog_user": {
                 "current": "datadog:index/getUser:getUser"
             }
@@ -6548,6 +6651,7 @@
             "datadog:fastly/integrationAccount:IntegrationAccount": 1,
             "datadog:fastly/integrationService:IntegrationService": 1,
             "datadog:gcp/integration:Integration": 0,
+            "datadog:gcp/integrationSts:IntegrationSts": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/applicationKey:ApplicationKey": 0,
             "datadog:index/authnMapping:AuthnMapping": 0,
@@ -6585,9 +6689,14 @@
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": 0,
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": 0,
             "datadog:index/sloCorrection:SloCorrection": 0,
+            "datadog:index/spansMetric:SpansMetric": 1,
+            "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": 1,
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 0,
             "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": 0,
             "datadog:index/syntheticsTest:SyntheticsTest": 0,
+            "datadog:index/team:Team": 1,
+            "datadog:index/teamLink:TeamLink": 1,
+            "datadog:index/teamMembership:TeamMembership": 1,
             "datadog:index/user:User": 0,
             "datadog:index/webhook:Webhook": 0,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 0,
@@ -6598,6 +6707,7 @@
         },
         "functions": {
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
+            "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
             "datadog:index/getApiKey:getApiKey": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 0,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
@@ -6625,6 +6735,8 @@
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 0,
             "datadog:index/getSyntheticsLocations:getSyntheticsLocations": 0,
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
+            "datadog:index/getTeam:getTeam": 1,
+            "datadog:index/getTeamMemberships:getTeamMemberships": 1,
             "datadog:index/getUser:getUser": 0
         }
     },
@@ -6641,6 +6753,7 @@
             "datadog:fastly/integrationAccount:IntegrationAccount": "datadog_integration_fastly_account",
             "datadog:fastly/integrationService:IntegrationService": "datadog_integration_fastly_service",
             "datadog:gcp/integration:Integration": "datadog_integration_gcp",
+            "datadog:gcp/integrationSts:IntegrationSts": "datadog_integration_gcp_sts",
             "datadog:index/apiKey:ApiKey": "datadog_api_key",
             "datadog:index/applicationKey:ApplicationKey": "datadog_application_key",
             "datadog:index/authnMapping:AuthnMapping": "datadog_authn_mapping",
@@ -6678,9 +6791,14 @@
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": "datadog_service_definition_yaml",
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": "datadog_service_level_objective",
             "datadog:index/sloCorrection:SloCorrection": "datadog_slo_correction",
+            "datadog:index/spansMetric:SpansMetric": "datadog_spans_metric",
+            "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": "datadog_synthetics_concurrency_cap",
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": "datadog_synthetics_global_variable",
             "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": "datadog_synthetics_private_location",
             "datadog:index/syntheticsTest:SyntheticsTest": "datadog_synthetics_test",
+            "datadog:index/team:Team": "datadog_team",
+            "datadog:index/teamLink:TeamLink": "datadog_team_link",
+            "datadog:index/teamMembership:TeamMembership": "datadog_team_membership",
             "datadog:index/user:User": "datadog_user",
             "datadog:index/webhook:Webhook": "datadog_webhook",
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": "datadog_webhook_custom_variable",
@@ -6691,6 +6809,7 @@
         },
         "functions": {
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": "datadog_integration_aws_logs_services",
+            "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": "datadog_integration_aws_namespace_rules",
             "datadog:index/getApiKey:getApiKey": "datadog_api_key",
             "datadog:index/getApplicationKey:getApplicationKey": "datadog_application_key",
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": "datadog_cloud_workload_security_agent_rules",
@@ -6718,11 +6837,16 @@
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": "datadog_synthetics_global_variable",
             "datadog:index/getSyntheticsLocations:getSyntheticsLocations": "datadog_synthetics_locations",
             "datadog:index/getSyntheticsTest:getSyntheticsTest": "datadog_synthetics_test",
+            "datadog:index/getTeam:getTeam": "datadog_team",
+            "datadog:index/getTeamMemberships:getTeamMemberships": "datadog_team_memberships",
             "datadog:index/getUser:getUser": "datadog_user"
         },
         "renamedProperties": {
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": {
                 "awsLogsServices": "aws_logs_services"
+            },
+            "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": {
+                "namespaceRules": "namespace_rules"
             },
             "datadog:aws/integration:Integration": {
                 "accessKeyId": "access_key_id",
@@ -6782,6 +6906,12 @@
                 "privateKey": "private_key",
                 "privateKeyId": "private_key_id",
                 "projectId": "project_id"
+            },
+            "datadog:gcp/integrationSts:IntegrationSts": {
+                "clientEmail": "client_email",
+                "delegateAccountEmail": "delegate_account_email",
+                "hostFilters": "host_filters",
+                "isCspmEnabled": "is_cspm_enabled"
             },
             "datadog:index/ChildOrganizationSetting:ChildOrganizationSetting": {
                 "privateWidgetShare": "private_widget_share",
@@ -6921,7 +7051,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -6952,6 +7083,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetChangeDefinitionRequestQuerySloQuery:DashboardWidgetChangeDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetChangeDefinitionRequestRumQuery:DashboardWidgetChangeDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -7102,7 +7239,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -7133,6 +7271,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGeomapDefinitionRequestQuerySloQuery:DashboardWidgetGeomapDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGeomapDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -7266,7 +7410,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -7297,6 +7442,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -7447,7 +7598,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -7478,6 +7630,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -7801,7 +7959,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -7832,6 +7991,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -7932,7 +8097,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -7963,6 +8129,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -8025,7 +8197,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -8056,6 +8229,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX": {
                 "apmQuery": "apm_query",
@@ -8275,7 +8454,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -8306,6 +8486,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -8425,7 +8611,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -8456,6 +8643,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -8563,7 +8756,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -8594,6 +8788,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -8670,7 +8870,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -8701,6 +8902,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetWidgetLayout:DashboardWidgetGroupDefinitionWidgetWidgetLayout": {
                 "isColumnBreak": "is_column_break"
@@ -9015,7 +9222,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9046,6 +9254,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetQueryTableDefinitionRequestQuerySloQuery:DashboardWidgetQueryTableDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetQueryTableDefinitionRequestRumQuery:DashboardWidgetQueryTableDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -9146,7 +9360,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9177,6 +9392,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetQueryValueDefinitionRequestQuerySloQuery:DashboardWidgetQueryValueDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetQueryValueDefinitionRequestRumQuery:DashboardWidgetQueryValueDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -9239,7 +9460,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9270,6 +9492,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetScatterplotDefinitionRequestX:DashboardWidgetScatterplotDefinitionRequestX": {
                 "apmQuery": "apm_query",
@@ -9489,7 +9717,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9520,6 +9749,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetSunburstDefinitionRequestQuerySloQuery:DashboardWidgetSunburstDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetSunburstDefinitionRequestRumQuery:DashboardWidgetSunburstDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -9639,7 +9874,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9670,6 +9906,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery:DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetTimeseriesDefinitionRequestRumQuery:DashboardWidgetTimeseriesDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -9777,7 +10019,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9808,6 +10051,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetToplistDefinitionRequestQuerySloQuery:DashboardWidgetToplistDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetToplistDefinitionRequestRumQuery:DashboardWidgetToplistDefinitionRequestRumQuery": {
                 "computeQuery": "compute_query",
@@ -9884,7 +10133,8 @@
                 "apmResourceStatsQuery": "apm_resource_stats_query",
                 "eventQuery": "event_query",
                 "metricQuery": "metric_query",
-                "processQuery": "process_query"
+                "processQuery": "process_query",
+                "sloQuery": "slo_query"
             },
             "datadog:index/DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery:DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery": {
                 "dataSource": "data_source",
@@ -9915,6 +10165,12 @@
                 "isNormalizedCpu": "is_normalized_cpu",
                 "tagFilters": "tag_filters",
                 "textFilter": "text_filter"
+            },
+            "datadog:index/DashboardWidgetTreemapDefinitionRequestQuerySloQuery:DashboardWidgetTreemapDefinitionRequestQuerySloQuery": {
+                "dataSource": "data_source",
+                "groupMode": "group_mode",
+                "sloId": "slo_id",
+                "sloQueryType": "slo_query_type"
             },
             "datadog:index/DashboardWidgetWidgetLayout:DashboardWidgetWidgetLayout": {
                 "isColumnBreak": "is_column_break"
@@ -10199,6 +10455,13 @@
             "datadog:index/ServiceLevelObjectiveThreshold:ServiceLevelObjectiveThreshold": {
                 "targetDisplay": "target_display",
                 "warningDisplay": "warning_display"
+            },
+            "datadog:index/SpansMetricCompute:SpansMetricCompute": {
+                "aggregationType": "aggregation_type",
+                "includePercentiles": "include_percentiles"
+            },
+            "datadog:index/SpansMetricGroupBy:SpansMetricGroupBy": {
+                "tagName": "tag_name"
             },
             "datadog:index/SyntheticsGlobalVariableOptions:SyntheticsGlobalVariableOptions": {
                 "totpParameters": "totp_parameters"
@@ -10577,6 +10840,21 @@
             "datadog:index/getSyntheticsTest:getSyntheticsTest": {
                 "testId": "test_id"
             },
+            "datadog:index/getTeam:getTeam": {
+                "filterKeyword": "filter_keyword",
+                "linkCount": "link_count",
+                "teamId": "team_id",
+                "userCount": "user_count"
+            },
+            "datadog:index/getTeamMemberships:getTeamMemberships": {
+                "filterKeyword": "filter_keyword",
+                "teamId": "team_id",
+                "teamMemberships": "team_memberships"
+            },
+            "datadog:index/getTeamMembershipsTeamMembership:getTeamMembershipsTeamMembership": {
+                "teamId": "team_id",
+                "userId": "user_id"
+            },
             "datadog:index/ipAllowlist:IpAllowlist": {
                 "entries": "entry"
             },
@@ -10702,6 +10980,12 @@
             "datadog:index/sloCorrection:SloCorrection": {
                 "sloId": "slo_id"
             },
+            "datadog:index/spansMetric:SpansMetric": {
+                "groupBies": "group_by"
+            },
+            "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": {
+                "onDemandConcurrencyCap": "on_demand_concurrency_cap"
+            },
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": {
                 "parseTestId": "parse_test_id",
                 "parseTestOptions": "parse_test_options",
@@ -10723,6 +11007,17 @@
                 "requestProxy": "request_proxy",
                 "requestQuery": "request_query",
                 "setCookie": "set_cookie"
+            },
+            "datadog:index/team:Team": {
+                "linkCount": "link_count",
+                "userCount": "user_count"
+            },
+            "datadog:index/teamLink:TeamLink": {
+                "teamId": "team_id"
+            },
+            "datadog:index/teamMembership:TeamMembership": {
+                "teamId": "team_id",
+                "userId": "user_id"
             },
             "datadog:index/user:User": {
                 "sendUserInvitation": "send_user_invitation",

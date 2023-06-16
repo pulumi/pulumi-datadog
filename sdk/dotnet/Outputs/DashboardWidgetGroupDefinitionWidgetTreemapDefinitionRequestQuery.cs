@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery? ProcessQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery? SloQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery? metricQuery,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery? processQuery)
+            Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery? processQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery? sloQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            SloQuery = sloQuery;
         }
     }
 }

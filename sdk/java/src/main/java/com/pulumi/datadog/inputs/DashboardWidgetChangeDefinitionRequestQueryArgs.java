@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryApmR
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetChangeDefinitionRequestQueryArgs extends com.p
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetChangeDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetChangeDefinitionRequestQueryArgs(DashboardWidgetChangeDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryArgs extends com.p
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetChangeDefinitionRequestQueryArgs extends com.p
 
         public Builder processQuery(DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetChangeDefinitionRequestQueryArgs build() {

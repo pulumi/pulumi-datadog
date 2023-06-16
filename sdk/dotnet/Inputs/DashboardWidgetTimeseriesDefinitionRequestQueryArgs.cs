@@ -27,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
+        [Input("sloQuery")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }
+
         public DashboardWidgetTimeseriesDefinitionRequestQueryArgs()
         {
         }

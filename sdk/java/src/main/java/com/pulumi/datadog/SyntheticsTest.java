@@ -141,6 +141,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var testUptime = new SyntheticsTest(&#34;testUptime&#34;, SyntheticsTestArgs.builder()        
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .operator(&#34;is&#34;)
+ *                 .target(&#34;200&#34;)
+ *                 .type(&#34;statusCode&#34;)
+ *                 .build())
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .name(&#34;An Uptime test on example.org&#34;)
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .method(&#34;GET&#34;)
+ *                 .url(&#34;https://www.example.org&#34;)
+ *                 .build())
+ *             .requestHeaders(Map.of(&#34;Content-Type&#34;, &#34;application/json&#34;))
+ *             .status(&#34;live&#34;)
+ *             .subtype(&#34;http&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
+ *             .type(&#34;api&#34;)
+ *             .build());
+ * 
  *         var testApi = new SyntheticsTest(&#34;testApi&#34;, SyntheticsTestArgs.builder()        
  *             .assertions(SyntheticsTestAssertionArgs.builder()
  *                 .operator(&#34;is&#34;)
@@ -258,7 +291,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;api&#34;)
  *             .build());
  * 
- *         var test = new SyntheticsTest(&#34;test&#34;, SyntheticsTestArgs.builder()        
+ *         var testMultiStep = new SyntheticsTest(&#34;testMultiStep&#34;, SyntheticsTestArgs.builder()        
  *             .apiSteps(            
  *                 SyntheticsTestApiStepArgs.builder()
  *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
@@ -298,6 +331,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .status(&#34;live&#34;)
  *             .subtype(&#34;multi&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
  *             .type(&#34;api&#34;)
  *             .build());
  * 
