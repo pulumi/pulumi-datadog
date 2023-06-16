@@ -10,6 +10,11 @@ export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
 utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
+export { IntegrationStsArgs, IntegrationStsState } from "./integrationSts";
+export type IntegrationSts = import("./integrationSts").IntegrationSts;
+export const IntegrationSts: typeof import("./integrationSts").IntegrationSts = null as any;
+utilities.lazyLoad(exports, ["IntegrationSts"], () => require("./integrationSts"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "datadog:gcp/integration:Integration":
                 return new Integration(name, <any>undefined, { urn })
+            case "datadog:gcp/integrationSts:IntegrationSts":
+                return new IntegrationSts(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "gcp/integration", _module)
+pulumi.runtime.registerResourceModule("datadog", "gcp/integrationSts", _module)

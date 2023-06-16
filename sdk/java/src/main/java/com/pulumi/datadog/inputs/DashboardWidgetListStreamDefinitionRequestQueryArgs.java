@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestQuerySortArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +45,13 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         return Optional.ofNullable(this.queryString);
     }
 
+    @Import(name="sort")
+    private @Nullable Output<DashboardWidgetListStreamDefinitionRequestQuerySortArgs> sort;
+
+    public Optional<Output<DashboardWidgetListStreamDefinitionRequestQuerySortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
     @Import(name="storage")
     private @Nullable Output<String> storage;
 
@@ -58,6 +66,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         this.eventSize = $.eventSize;
         this.indexes = $.indexes;
         this.queryString = $.queryString;
+        this.sort = $.sort;
         this.storage = $.storage;
     }
 
@@ -117,6 +126,15 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
 
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
+        }
+
+        public Builder sort(@Nullable Output<DashboardWidgetListStreamDefinitionRequestQuerySortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        public Builder sort(DashboardWidgetListStreamDefinitionRequestQuerySortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         public Builder storage(@Nullable Output<String> storage) {

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,11 @@ public final class SyntheticsTestBrowserVariable {
      * 
      */
     private @Nullable String pattern;
+    /**
+     * @return Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     * 
+     */
+    private @Nullable Boolean secure;
     /**
      * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
      * 
@@ -67,6 +73,13 @@ public final class SyntheticsTestBrowserVariable {
         return Optional.ofNullable(this.pattern);
     }
     /**
+     * @return Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     * 
+     */
+    public Optional<Boolean> secure() {
+        return Optional.ofNullable(this.secure);
+    }
+    /**
      * @return Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
      * 
      */
@@ -87,6 +100,7 @@ public final class SyntheticsTestBrowserVariable {
         private @Nullable String id;
         private String name;
         private @Nullable String pattern;
+        private @Nullable Boolean secure;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestBrowserVariable defaults) {
@@ -95,6 +109,7 @@ public final class SyntheticsTestBrowserVariable {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.pattern = defaults.pattern;
+    	      this.secure = defaults.secure;
     	      this.type = defaults.type;
         }
 
@@ -119,6 +134,11 @@ public final class SyntheticsTestBrowserVariable {
             return this;
         }
         @CustomType.Setter
+        public Builder secure(@Nullable Boolean secure) {
+            this.secure = secure;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -129,6 +149,7 @@ public final class SyntheticsTestBrowserVariable {
             o.id = id;
             o.name = name;
             o.pattern = pattern;
+            o.secure = secure;
             o.type = type;
             return o;
         }

@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefi
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
 
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs build() {

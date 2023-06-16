@@ -98,7 +98,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
         /// <summary>
-        /// The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        /// The definition for a Run Workflow widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetRunWorkflowDefinition? RunWorkflowDefinition;
         /// <summary>

@@ -19,6 +19,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         public readonly Outputs.SyntheticsTestApiStepExtractedValueParser Parser;
+        public readonly bool? Secure;
         /// <summary>
         /// Synthetics test type. Valid values are `api`, `browser`.
         /// </summary>
@@ -32,11 +33,14 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestApiStepExtractedValueParser parser,
 
+            bool? secure,
+
             string type)
         {
             Field = field;
             Name = name;
             Parser = parser;
+            Secure = secure;
             Type = type;
         }
     }

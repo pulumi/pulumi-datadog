@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryAp
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
     private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetTreemapDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetTreemapDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetTreemapDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetTreemapDefinitionRequestQuery() {}
     public Optional<DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
     public Optional<DashboardWidgetTreemapDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetTreemapDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
         private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetTreemapDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetTreemapDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetTreemapDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetTreemapDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetTreemapDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetTreemapDefinitionRequestQuery build() {
             final var o = new DashboardWidgetTreemapDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQuery {
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

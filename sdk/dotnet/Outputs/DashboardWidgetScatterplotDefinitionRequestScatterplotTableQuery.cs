@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? ProcessQuery;
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? SloQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery(
@@ -29,13 +30,16 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery? metricQuery,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? processQuery)
+            Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? processQuery,
+
+            Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? sloQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            SloQuery = sloQuery;
         }
     }
 }

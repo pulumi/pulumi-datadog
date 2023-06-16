@@ -42,6 +42,8 @@ from .get_service_level_objectives import *
 from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
 from .get_synthetics_test import *
+from .get_team import *
+from .get_team_memberships import *
 from .get_user import *
 from .ip_allowlist import *
 from .logs_archive import *
@@ -71,9 +73,14 @@ from .service_account import *
 from .service_definition_yaml import *
 from .service_level_objective import *
 from .slo_correction import *
+from .spans_metric import *
+from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_test import *
+from .team import *
+from .team_link import *
+from .team_membership import *
 from .user import *
 from .webhook import *
 from .webhook_custom_variable import *
@@ -203,6 +210,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.gcp",
   "classes": {
    "datadog:gcp/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "gcp/integrationSts",
+  "fqn": "pulumi_datadog.gcp",
+  "classes": {
+   "datadog:gcp/integrationSts:IntegrationSts": "IntegrationSts"
   }
  },
  {
@@ -503,6 +518,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/spansMetric",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/spansMetric:SpansMetric": "SpansMetric"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/syntheticsConcurrencyCap",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": "SyntheticsConcurrencyCap"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/syntheticsGlobalVariable",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -523,6 +554,30 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/syntheticsTest:SyntheticsTest": "SyntheticsTest"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/team",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamLink",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamLink:TeamLink": "TeamLink"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamMembership",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamMembership:TeamMembership": "TeamMembership"
   }
  },
  {

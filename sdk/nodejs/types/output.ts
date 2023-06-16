@@ -206,7 +206,7 @@ export interface DashboardWidget {
      */
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
     /**
-     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * The definition for a Run Workflow widget.
      */
     runWorkflowDefinition?: outputs.DashboardWidgetRunWorkflowDefinition;
     /**
@@ -424,6 +424,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
@@ -501,6 +502,15 @@ export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
@@ -895,6 +905,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -972,6 +983,15 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
@@ -1115,7 +1135,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
     /**
-     * The definition for a Run Workflow widget. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+     * The definition for a Run Workflow widget.
      */
     runWorkflowDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition;
     /**
@@ -1333,6 +1353,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
@@ -1410,6 +1431,15 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
@@ -1804,6 +1834,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -1881,6 +1912,15 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery {
@@ -2480,7 +2520,13 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
     eventSize?: string;
     indexes?: string[];
     queryString?: string;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort;
     storage?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
@@ -2709,6 +2755,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
@@ -2786,6 +2833,15 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
@@ -3042,6 +3098,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
@@ -3119,6 +3176,15 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery {
@@ -3268,6 +3334,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
@@ -3345,6 +3412,15 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
@@ -3931,6 +4007,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4008,6 +4085,15 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery {
@@ -4306,6 +4392,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4383,6 +4470,15 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
@@ -4656,6 +4752,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4733,6 +4830,15 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery {
@@ -4903,6 +5009,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -4980,6 +5087,15 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
@@ -5546,7 +5662,13 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
     eventSize?: string;
     indexes?: string[];
     queryString?: string;
+    sort?: outputs.DashboardWidgetListStreamDefinitionRequestQuerySort;
     storage?: string;
+}
+
+export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
@@ -5775,6 +5897,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
@@ -5852,6 +5975,15 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
@@ -6108,6 +6240,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
@@ -6185,6 +6318,15 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
@@ -6334,6 +6476,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     eventQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
@@ -6411,6 +6554,15 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
@@ -6997,6 +7149,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7074,6 +7227,15 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
@@ -7372,6 +7534,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7449,6 +7612,15 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
@@ -7722,6 +7894,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetToplistDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
@@ -7799,6 +7972,15 @@ export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQuery {
@@ -7969,6 +8151,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuery {
     eventQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery;
+    sloQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
@@ -8046,6 +8229,15 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
     sort?: string;
     tagFilters?: string[];
     textFilter?: string;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
+    dataSource: string;
+    groupMode?: string;
+    measure: string;
+    name?: string;
+    sloId: string;
+    sloQueryType?: string;
 }
 
 export interface DashboardWidgetWidgetLayout {
@@ -8334,6 +8526,19 @@ export interface GetServiceLevelObjectivesSlo {
     id: string;
     name: string;
     type: string;
+}
+
+export interface GetTeamMembershipsTeamMembership {
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    role: string;
+    /**
+     * The team's identifier.
+     */
+    teamId: string;
+    userId: string;
 }
 
 export interface IpAllowlistEntry {
@@ -9301,6 +9506,39 @@ export interface ServiceLevelObjectiveThreshold {
     warningDisplay: string;
 }
 
+export interface SpansMetricCompute {
+    /**
+     * The type of aggregation to use. This field can't be updated after creation.
+     */
+    aggregationType: string;
+    /**
+     * Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+     */
+    includePercentiles?: boolean;
+    /**
+     * The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+     */
+    path?: string;
+}
+
+export interface SpansMetricFilter {
+    /**
+     * The search query - following the span search syntax.
+     */
+    query: string;
+}
+
+export interface SpansMetricGroupBy {
+    /**
+     * The path to the value the span-based metric will be aggregated over.
+     */
+    path: string;
+    /**
+     * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+     */
+    tagName: string;
+}
+
 export interface SyntheticsGlobalVariableOptions {
     /**
      * Parameters needed for MFA/TOTP.
@@ -9442,6 +9680,7 @@ export interface SyntheticsTestApiStepExtractedValue {
      */
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
+    secure?: boolean;
     /**
      * Synthetics test type. Valid values are `api`, `browser`.
      */
@@ -9766,6 +10005,10 @@ export interface SyntheticsTestBrowserVariable {
      */
     pattern?: string;
     /**
+     * Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+     */
+    secure?: boolean;
+    /**
      * Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
      */
     type: string;
@@ -9798,7 +10041,7 @@ export interface SyntheticsTestOptionsList {
      */
     acceptSelfSigned?: boolean;
     /**
-     * Allows loading insecure content for an HTTP test.
+     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      */
     allowInsecure?: boolean;
     /**
@@ -9826,7 +10069,7 @@ export interface SyntheticsTestOptionsList {
      */
     httpVersion?: string;
     /**
-     * Ignore server certificate error.
+     * Ignore server certificate error for browser tests.
      */
     ignoreServerCertificateError?: boolean;
     /**

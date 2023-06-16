@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetListStreamDefinitionRequestQuerySort;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
     private @Nullable String eventSize;
     private @Nullable List<String> indexes;
     private @Nullable String queryString;
+    private @Nullable DashboardWidgetListStreamDefinitionRequestQuerySort sort;
     private @Nullable String storage;
 
     private DashboardWidgetListStreamDefinitionRequestQuery() {}
@@ -30,6 +32,9 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
     }
     public Optional<String> queryString() {
         return Optional.ofNullable(this.queryString);
+    }
+    public Optional<DashboardWidgetListStreamDefinitionRequestQuerySort> sort() {
+        return Optional.ofNullable(this.sort);
     }
     public Optional<String> storage() {
         return Optional.ofNullable(this.storage);
@@ -48,6 +53,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
         private @Nullable String eventSize;
         private @Nullable List<String> indexes;
         private @Nullable String queryString;
+        private @Nullable DashboardWidgetListStreamDefinitionRequestQuerySort sort;
         private @Nullable String storage;
         public Builder() {}
         public Builder(DashboardWidgetListStreamDefinitionRequestQuery defaults) {
@@ -56,6 +62,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
     	      this.eventSize = defaults.eventSize;
     	      this.indexes = defaults.indexes;
     	      this.queryString = defaults.queryString;
+    	      this.sort = defaults.sort;
     	      this.storage = defaults.storage;
         }
 
@@ -83,6 +90,11 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetListStreamDefinitionRequestQuerySort sort) {
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storage(@Nullable String storage) {
             this.storage = storage;
             return this;
@@ -93,6 +105,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
             o.eventSize = eventSize;
             o.indexes = indexes;
             o.queryString = queryString;
+            o.sort = sort;
             o.storage = storage;
             return o;
         }

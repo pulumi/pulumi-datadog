@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQuer
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryEventQuery eventQuery;
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery metricQuery;
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery processQuery;
+    private @Nullable DashboardWidgetQueryTableDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetQueryTableDefinitionRequestQuery() {}
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
@@ -37,6 +39,9 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    public Optional<DashboardWidgetQueryTableDefinitionRequestQuerySloQuery> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
         private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardWidgetQueryTableDefinitionRequestQuerySloQuery sloQuery;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,6 +66,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.sloQuery = defaults.sloQuery;
         }
 
         @CustomType.Setter
@@ -87,6 +94,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
             this.processQuery = processQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder sloQuery(@Nullable DashboardWidgetQueryTableDefinitionRequestQuerySloQuery sloQuery) {
+            this.sloQuery = sloQuery;
+            return this;
+        }
         public DashboardWidgetQueryTableDefinitionRequestQuery build() {
             final var o = new DashboardWidgetQueryTableDefinitionRequestQuery();
             o.apmDependencyStatsQuery = apmDependencyStatsQuery;
@@ -94,6 +106,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQuery {
             o.eventQuery = eventQuery;
             o.metricQuery = metricQuery;
             o.processQuery = processQuery;
+            o.sloQuery = sloQuery;
             return o;
         }
     }

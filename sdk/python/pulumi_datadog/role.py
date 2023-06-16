@@ -164,10 +164,10 @@ class Role(pulumi.CustomResource):
             name="foo",
             permissions=[
                 datadog.RolePermissionArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=bar.permissions["monitorsDowntime"],
                 ),
                 datadog.RolePermissionArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=bar.permissions["monitorsWrite"],
                 ),
             ])
         ```
@@ -207,10 +207,10 @@ class Role(pulumi.CustomResource):
             name="foo",
             permissions=[
                 datadog.RolePermissionArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=bar.permissions["monitorsDowntime"],
                 ),
                 datadog.RolePermissionArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=bar.permissions["monitorsWrite"],
                 ),
             ])
         ```

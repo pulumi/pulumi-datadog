@@ -17,6 +17,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? EventSize;
         public readonly ImmutableArray<string> Indexes;
         public readonly string? QueryString;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort? Sort;
         public readonly string? Storage;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? queryString,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort? sort,
+
             string? storage)
         {
             DataSource = dataSource;
             EventSize = eventSize;
             Indexes = indexes;
             QueryString = queryString;
+            Sort = sort;
             Storage = storage;
         }
     }

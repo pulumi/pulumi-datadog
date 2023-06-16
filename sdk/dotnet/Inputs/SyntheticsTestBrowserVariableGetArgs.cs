@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
+        /// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+        /// </summary>
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
+
+        /// <summary>
         /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         [Input("type", required: true)]

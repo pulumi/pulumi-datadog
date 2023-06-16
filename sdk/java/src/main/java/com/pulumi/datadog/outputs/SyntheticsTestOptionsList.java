@@ -25,7 +25,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean acceptSelfSigned;
     /**
-     * @return Allows loading insecure content for an HTTP test.
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      * 
      */
     private @Nullable Boolean allowInsecure;
@@ -60,7 +60,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable String httpVersion;
     /**
-     * @return Ignore server certificate error.
+     * @return Ignore server certificate error for browser tests.
      * 
      */
     private @Nullable Boolean ignoreServerCertificateError;
@@ -122,7 +122,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.acceptSelfSigned);
     }
     /**
-     * @return Allows loading insecure content for an HTTP test.
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Boolean> allowInsecure() {
@@ -171,7 +171,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.httpVersion);
     }
     /**
-     * @return Ignore server certificate error.
+     * @return Ignore server certificate error for browser tests.
      * 
      */
     public Optional<Boolean> ignoreServerCertificateError() {

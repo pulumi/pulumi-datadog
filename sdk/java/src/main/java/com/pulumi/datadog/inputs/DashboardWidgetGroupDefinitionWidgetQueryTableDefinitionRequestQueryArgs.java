@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableD
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,6 +55,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         return Optional.ofNullable(this.processQuery);
     }
 
+    @Import(name="sloQuery")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs> sloQuery;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs $) {
@@ -62,6 +70,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.sloQuery = $.sloQuery;
     }
 
     public static Builder builder() {
@@ -125,6 +134,15 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
+        }
+
+        public Builder sloQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        public Builder sloQuery(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryArgs sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs build() {
