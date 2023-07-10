@@ -92,9 +92,9 @@ def get_roles(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult).value
 
     return AwaitableGetRolesResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        roles=__ret__.roles)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        roles=pulumi.get(__ret__, 'roles'))
 
 
 @_utilities.lift_output_func(get_roles)

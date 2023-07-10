@@ -106,11 +106,11 @@ def get_synthetics_test(test_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSyntheticsTest:getSyntheticsTest', __args__, opts=opts, typ=GetSyntheticsTestResult).value
 
     return AwaitableGetSyntheticsTestResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        test_id=__ret__.test_id,
-        url=__ret__.url)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        test_id=pulumi.get(__ret__, 'test_id'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_synthetics_test)

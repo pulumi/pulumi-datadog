@@ -74,5 +74,5 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
     __ret__ = pulumi.runtime.invoke('datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules', __args__, opts=opts, typ=GetCloudWorkloadSecurityAgentRulesResult).value
 
     return AwaitableGetCloudWorkloadSecurityAgentRulesResult(
-        agent_rules=__ret__.agent_rules,
-        id=__ret__.id)
+        agent_rules=pulumi.get(__ret__, 'agent_rules'),
+        id=pulumi.get(__ret__, 'id'))

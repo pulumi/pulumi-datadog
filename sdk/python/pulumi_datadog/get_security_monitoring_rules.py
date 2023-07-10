@@ -151,13 +151,13 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules', __args__, opts=opts, typ=GetSecurityMonitoringRulesResult).value
 
     return AwaitableGetSecurityMonitoringRulesResult(
-        default_only_filter=__ret__.default_only_filter,
-        id=__ret__.id,
-        name_filter=__ret__.name_filter,
-        rule_ids=__ret__.rule_ids,
-        rules=__ret__.rules,
-        tags_filters=__ret__.tags_filters,
-        user_only_filter=__ret__.user_only_filter)
+        default_only_filter=pulumi.get(__ret__, 'default_only_filter'),
+        id=pulumi.get(__ret__, 'id'),
+        name_filter=pulumi.get(__ret__, 'name_filter'),
+        rule_ids=pulumi.get(__ret__, 'rule_ids'),
+        rules=pulumi.get(__ret__, 'rules'),
+        tags_filters=pulumi.get(__ret__, 'tags_filters'),
+        user_only_filter=pulumi.get(__ret__, 'user_only_filter'))
 
 
 @_utilities.lift_output_func(get_security_monitoring_rules)

@@ -167,15 +167,15 @@ def get_hosts(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getHosts:getHosts', __args__, opts=opts, typ=GetHostsResult).value
 
     return AwaitableGetHostsResult(
-        filter=__ret__.filter,
-        from_=__ret__.from_,
-        host_lists=__ret__.host_lists,
-        id=__ret__.id,
-        include_muted_hosts_data=__ret__.include_muted_hosts_data,
-        sort_dir=__ret__.sort_dir,
-        sort_field=__ret__.sort_field,
-        total_matching=__ret__.total_matching,
-        total_returned=__ret__.total_returned)
+        filter=pulumi.get(__ret__, 'filter'),
+        from_=pulumi.get(__ret__, 'from_'),
+        host_lists=pulumi.get(__ret__, 'host_lists'),
+        id=pulumi.get(__ret__, 'id'),
+        include_muted_hosts_data=pulumi.get(__ret__, 'include_muted_hosts_data'),
+        sort_dir=pulumi.get(__ret__, 'sort_dir'),
+        sort_field=pulumi.get(__ret__, 'sort_field'),
+        total_matching=pulumi.get(__ret__, 'total_matching'),
+        total_returned=pulumi.get(__ret__, 'total_returned'))
 
 
 @_utilities.lift_output_func(get_hosts)

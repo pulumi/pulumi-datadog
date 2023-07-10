@@ -94,8 +94,8 @@ def get_dashboard_list(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getDashboardList:getDashboardList', __args__, opts=opts, typ=GetDashboardListResult).value
 
     return AwaitableGetDashboardListResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_dashboard_list)

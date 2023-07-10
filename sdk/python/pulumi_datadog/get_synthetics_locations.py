@@ -64,5 +64,5 @@ def get_synthetics_locations(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     __ret__ = pulumi.runtime.invoke('datadog:index/getSyntheticsLocations:getSyntheticsLocations', __args__, opts=opts, typ=GetSyntheticsLocationsResult).value
 
     return AwaitableGetSyntheticsLocationsResult(
-        id=__ret__.id,
-        locations=__ret__.locations)
+        id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'))

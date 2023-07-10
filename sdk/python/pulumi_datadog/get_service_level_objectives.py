@@ -137,12 +137,12 @@ def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getServiceLevelObjectives:getServiceLevelObjectives', __args__, opts=opts, typ=GetServiceLevelObjectivesResult).value
 
     return AwaitableGetServiceLevelObjectivesResult(
-        id=__ret__.id,
-        ids=__ret__.ids,
-        metrics_query=__ret__.metrics_query,
-        name_query=__ret__.name_query,
-        slos=__ret__.slos,
-        tags_query=__ret__.tags_query)
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        metrics_query=pulumi.get(__ret__, 'metrics_query'),
+        name_query=pulumi.get(__ret__, 'name_query'),
+        slos=pulumi.get(__ret__, 'slos'),
+        tags_query=pulumi.get(__ret__, 'tags_query'))
 
 
 @_utilities.lift_output_func(get_service_level_objectives)

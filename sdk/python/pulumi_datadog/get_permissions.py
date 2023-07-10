@@ -91,9 +91,9 @@ def get_permissions(include_restricted: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
-        id=__ret__.id,
-        include_restricted=__ret__.include_restricted,
-        permissions=__ret__.permissions)
+        id=pulumi.get(__ret__, 'id'),
+        include_restricted=pulumi.get(__ret__, 'include_restricted'),
+        permissions=pulumi.get(__ret__, 'permissions'))
 
 
 @_utilities.lift_output_func(get_permissions)

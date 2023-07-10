@@ -82,9 +82,9 @@ def get_synthetics_global_variable(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable', __args__, opts=opts, typ=GetSyntheticsGlobalVariableResult).value
 
     return AwaitableGetSyntheticsGlobalVariableResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_synthetics_global_variable)

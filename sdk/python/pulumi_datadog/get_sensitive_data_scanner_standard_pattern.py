@@ -106,11 +106,11 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult).value
 
     return AwaitableGetSensitiveDataScannerStandardPatternResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        name=__ret__.name,
-        pattern=__ret__.pattern,
-        tags=__ret__.tags)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sensitive_data_scanner_standard_pattern)

@@ -74,5 +74,5 @@ def get_logs_indexes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     __ret__ = pulumi.runtime.invoke('datadog:index/getLogsIndexes:getLogsIndexes', __args__, opts=opts, typ=GetLogsIndexesResult).value
 
     return AwaitableGetLogsIndexesResult(
-        id=__ret__.id,
-        logs_indexes=__ret__.logs_indexes)
+        id=pulumi.get(__ret__, 'id'),
+        logs_indexes=pulumi.get(__ret__, 'logs_indexes'))

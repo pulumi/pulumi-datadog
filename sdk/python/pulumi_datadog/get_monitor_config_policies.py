@@ -74,5 +74,5 @@ def get_monitor_config_policies(opts: Optional[pulumi.InvokeOptions] = None) -> 
     __ret__ = pulumi.runtime.invoke('datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies', __args__, opts=opts, typ=GetMonitorConfigPoliciesResult).value
 
     return AwaitableGetMonitorConfigPoliciesResult(
-        id=__ret__.id,
-        monitor_config_policies=__ret__.monitor_config_policies)
+        id=pulumi.get(__ret__, 'id'),
+        monitor_config_policies=pulumi.get(__ret__, 'monitor_config_policies'))
