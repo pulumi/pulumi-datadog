@@ -11,6 +11,32 @@ import (
 )
 
 // Use this data source to retrieve information about an existing user to use it in an other resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.LookupUser(ctx, &datadog.LookupUserArgs{
+//				Filter: "user.name@company.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("datadog:index/getUser:getUser", args, &rv, opts...)
@@ -22,6 +48,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
+	// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 }
@@ -30,6 +58,8 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// Email of the user.
 	Email string `pulumi:"email"`
+	// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
@@ -53,6 +83,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
+	// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
@@ -79,6 +111,11 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 // Email of the user.
 func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+func (o LookupUserResultOutput) ExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }
 
 // Filter all users by the given string.

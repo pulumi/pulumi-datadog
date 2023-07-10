@@ -6073,6 +6073,22 @@
                     }
                 }
             },
+            "datadog_restriction_policy": {
+                "current": "datadog:index/restrictionPolicy:RestrictionPolicy",
+                "majorVersion": 4,
+                "fields": {
+                    "bindings": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "principals": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_role": {
                 "current": "datadog:index/role:Role",
                 "majorVersion": 4,
@@ -6228,6 +6244,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "datadog_service_account_application_key": {
+                "current": "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey",
+                "majorVersion": 4
             },
             "datadog_service_definition_yaml": {
                 "current": "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml",
@@ -6934,6 +6954,15 @@
                     }
                 }
             },
+            "datadog_service_account": {
+                "current": "datadog:index/getServiceAccount:getServiceAccount",
+                "majorVersion": 4,
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_service_level_objective": {
                 "current": "datadog:index/getServiceLevelObjective:getServiceLevelObjective",
                 "majorVersion": 4,
@@ -7035,6 +7064,7 @@
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": 0,
             "datadog:index/monitorJson:MonitorJson": 0,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
+            "datadog:index/restrictionPolicy:RestrictionPolicy": 1,
             "datadog:index/role:Role": 0,
             "datadog:index/rumApplication:RumApplication": 0,
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
@@ -7044,6 +7074,7 @@
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": 1,
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": 0,
             "datadog:index/serviceAccount:ServiceAccount": 0,
+            "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": 1,
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": 0,
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": 0,
             "datadog:index/sloCorrection:SloCorrection": 0,
@@ -7088,6 +7119,7 @@
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": 0,
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": 1,
             "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": 0,
+            "datadog:index/getServiceAccount:getServiceAccount": 1,
             "datadog:index/getServiceLevelObjective:getServiceLevelObjective": 0,
             "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives": 0,
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": 0,
@@ -7137,6 +7169,7 @@
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": "datadog_monitor_config_policy",
             "datadog:index/monitorJson:MonitorJson": "datadog_monitor_json",
             "datadog:index/organizationSettings:OrganizationSettings": "datadog_organization_settings",
+            "datadog:index/restrictionPolicy:RestrictionPolicy": "datadog_restriction_policy",
             "datadog:index/role:Role": "datadog_role",
             "datadog:index/rumApplication:RumApplication": "datadog_rum_application",
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": "datadog_security_monitoring_default_rule",
@@ -7146,6 +7179,7 @@
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": "datadog_sensitive_data_scanner_group_order",
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": "datadog_sensitive_data_scanner_rule",
             "datadog:index/serviceAccount:ServiceAccount": "datadog_service_account",
+            "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": "datadog_service_account_application_key",
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": "datadog_service_definition_yaml",
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": "datadog_service_level_objective",
             "datadog:index/sloCorrection:SloCorrection": "datadog_slo_correction",
@@ -7190,6 +7224,7 @@
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": "datadog_security_monitoring_rules",
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": "datadog_sensitive_data_scanner_group_order",
             "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": "datadog_sensitive_data_scanner_standard_pattern",
+            "datadog:index/getServiceAccount:getServiceAccount": "datadog_service_account",
             "datadog:index/getServiceLevelObjective:getServiceLevelObjective": "datadog_service_level_objective",
             "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives": "datadog_service_level_objectives",
             "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable": "datadog_synthetics_global_variable",
@@ -11182,6 +11217,9 @@
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": {
                 "groupIds": "group_ids"
             },
+            "datadog:index/getServiceAccount:getServiceAccount": {
+                "filterStatus": "filter_status"
+            },
             "datadog:index/getServiceLevelObjective:getServiceLevelObjective": {
                 "metricsQuery": "metrics_query",
                 "nameQuery": "name_query",
@@ -11212,6 +11250,9 @@
             "datadog:index/getTeamMembershipsTeamMembership:getTeamMembershipsTeamMembership": {
                 "teamId": "team_id",
                 "userId": "user_id"
+            },
+            "datadog:index/getUser:getUser": {
+                "exactMatch": "exact_match"
             },
             "datadog:index/ipAllowlist:IpAllowlist": {
                 "entries": "entry"
@@ -11289,6 +11330,9 @@
             "datadog:index/organizationSettings:OrganizationSettings": {
                 "publicId": "public_id"
             },
+            "datadog:index/restrictionPolicy:RestrictionPolicy": {
+                "resourceId": "resource_id"
+            },
             "datadog:index/role:Role": {
                 "permissions": "permission",
                 "userCount": "user_count"
@@ -11325,6 +11369,10 @@
                 "isEnabled": "is_enabled",
                 "standardPatternId": "standard_pattern_id",
                 "textReplacement": "text_replacement"
+            },
+            "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": {
+                "createdAt": "created_at",
+                "serviceAccountId": "service_account_id"
             },
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": {
                 "serviceDefinition": "service_definition"

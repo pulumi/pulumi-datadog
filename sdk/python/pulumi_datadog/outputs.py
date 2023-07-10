@@ -1141,6 +1141,7 @@ __all__ = [
     'OrganizationSettingsSettingsSamlAutocreateUsersDomains',
     'OrganizationSettingsSettingsSamlIdpInitiatedLogin',
     'OrganizationSettingsSettingsSamlStrictMode',
+    'RestrictionPolicyBinding',
     'RolePermission',
     'SecurityMonitoringDefaultRuleCase',
     'SecurityMonitoringDefaultRuleFilter',
@@ -59695,6 +59696,37 @@ class OrganizationSettingsSettingsSamlStrictMode(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RestrictionPolicyBinding(dict):
+    def __init__(__self__, *,
+                 principals: Optional[Sequence[str]] = None,
+                 relation: Optional[str] = None):
+        """
+        :param Sequence[str] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        :param str relation: The role/level of access.
+        """
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
+        if relation is not None:
+            pulumi.set(__self__, "relation", relation)
+
+    @property
+    @pulumi.getter
+    def principals(self) -> Optional[Sequence[str]]:
+        """
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        """
+        return pulumi.get(self, "principals")
+
+    @property
+    @pulumi.getter
+    def relation(self) -> Optional[str]:
+        """
+        The role/level of access.
+        """
+        return pulumi.get(self, "relation")
 
 
 @pulumi.output_type

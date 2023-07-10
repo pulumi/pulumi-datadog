@@ -21195,6 +21195,112 @@ func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RestrictionPolicyBinding struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+	Principals []string `pulumi:"principals"`
+	// The role/level of access.
+	Relation *string `pulumi:"relation"`
+}
+
+// RestrictionPolicyBindingInput is an input type that accepts RestrictionPolicyBindingArgs and RestrictionPolicyBindingOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingInput` via:
+//
+//	RestrictionPolicyBindingArgs{...}
+type RestrictionPolicyBindingInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput
+	ToRestrictionPolicyBindingOutputWithContext(context.Context) RestrictionPolicyBindingOutput
+}
+
+type RestrictionPolicyBindingArgs struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	// The role/level of access.
+	Relation pulumi.StringPtrInput `pulumi:"relation"`
+}
+
+func (RestrictionPolicyBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return i.ToRestrictionPolicyBindingOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingOutput)
+}
+
+// RestrictionPolicyBindingArrayInput is an input type that accepts RestrictionPolicyBindingArray and RestrictionPolicyBindingArrayOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingArrayInput` via:
+//
+//	RestrictionPolicyBindingArray{ RestrictionPolicyBindingArgs{...} }
+type RestrictionPolicyBindingArrayInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput
+	ToRestrictionPolicyBindingArrayOutputWithContext(context.Context) RestrictionPolicyBindingArrayOutput
+}
+
+type RestrictionPolicyBindingArray []RestrictionPolicyBindingInput
+
+func (RestrictionPolicyBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return i.ToRestrictionPolicyBindingArrayOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingArrayOutput)
+}
+
+type RestrictionPolicyBindingOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return o
+}
+
+// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+func (o RestrictionPolicyBindingOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+// The role/level of access.
+func (o RestrictionPolicyBindingOutput) Relation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) *string { return v.Relation }).(pulumi.StringPtrOutput)
+}
+
+type RestrictionPolicyBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) Index(i pulumi.IntInput) RestrictionPolicyBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestrictionPolicyBinding {
+		return vs[0].([]RestrictionPolicyBinding)[vs[1].(int)]
+	}).(RestrictionPolicyBindingOutput)
+}
+
 type RolePermission struct {
 	// ID of the permission to assign.
 	Id string `pulumi:"id"`
@@ -35611,6 +35717,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModeInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModePtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingInput)(nil)).Elem(), RestrictionPolicyBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingArrayInput)(nil)).Elem(), RestrictionPolicyBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionInput)(nil)).Elem(), RolePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionArrayInput)(nil)).Elem(), RolePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArgs{})
@@ -36049,6 +36157,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModeOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModePtrOutput{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingOutput{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingArrayOutput{})
 	pulumi.RegisterOutputType(RolePermissionOutput{})
 	pulumi.RegisterOutputType(RolePermissionArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseOutput{})

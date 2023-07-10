@@ -21,10 +21,13 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, email=None, filter=None, id=None, name=None):
+    def __init__(__self__, email=None, exact_match=None, filter=None, id=None, name=None):
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
+        if exact_match and not isinstance(exact_match, bool):
+            raise TypeError("Expected argument 'exact_match' to be a bool")
+        pulumi.set(__self__, "exact_match", exact_match)
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
@@ -42,6 +45,14 @@ class GetUserResult:
         Email of the user.
         """
         return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[bool]:
+        """
+        When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        """
+        return pulumi.get(self, "exact_match")
 
     @property
     @pulumi.getter
@@ -75,38 +86,63 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             email=self.email,
+            exact_match=self.exact_match,
             filter=self.filter,
             id=self.id,
             name=self.name)
 
 
-def get_user(filter: Optional[str] = None,
+def get_user(exact_match: Optional[bool] = None,
+             filter: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
 
+    ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_user(filter="user.name@company.com")
+    ```
+
+
+    :param bool exact_match: When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
     :param str filter: Filter all users by the given string.
     """
     __args__ = dict()
+    __args__['exactMatch'] = exact_match
     __args__['filter'] = filter
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
         email=pulumi.get(__ret__, 'email'),
+        exact_match=pulumi.get(__ret__, 'exact_match'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(filter: Optional[pulumi.Input[str]] = None,
+def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
+                    filter: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
 
+    ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_user(filter="user.name@company.com")
+    ```
+
+
+    :param bool exact_match: When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
     :param str filter: Filter all users by the given string.
     """
     ...

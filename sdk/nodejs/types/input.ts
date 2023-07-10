@@ -8990,6 +8990,17 @@ export interface OrganizationSettingsSettingsSamlStrictMode {
     enabled?: pulumi.Input<boolean>;
 }
 
+export interface RestrictionPolicyBinding {
+    /**
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+     */
+    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The role/level of access.
+     */
+    relation?: pulumi.Input<string>;
+}
+
 export interface RolePermission {
     /**
      * ID of the permission to assign.

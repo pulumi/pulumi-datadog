@@ -25535,6 +25535,22 @@
             },
             "type": "object"
         },
+        "datadog:index/RestrictionPolicyBinding:RestrictionPolicyBinding": {
+            "properties": {
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.\n"
+                },
+                "relation": {
+                    "type": "string",
+                    "description": "The role/level of access.\n"
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/RolePermission:RolePermission": {
             "properties": {
                 "id": {
@@ -28980,7 +28996,7 @@
             }
         },
         "datadog:gcp/integration:Integration": {
-            "description": "Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.\n\n\n## Import\n\nGoogle Cloud Platform integrations can be imported using their project ID, e.g.\n\n```sh\n $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id\n```\n\n ",
+            "description": "This resource is deprecated — use the `datadog.gcp.IntegrationSts resource` instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.\n\n\n## Import\n\nGoogle Cloud Platform integrations can be imported using their project ID, e.g.\n\n```sh\n $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id\n```\n\n ",
             "properties": {
                 "automute": {
                     "type": "boolean",
@@ -29720,7 +29736,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of dashboard lists this dashboard belongs to.\n"
+                    "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                 },
                 "dashboardListsRemoveds": {
                     "type": "array",
@@ -29809,7 +29825,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of dashboard lists this dashboard belongs to.\n"
+                    "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                 },
                 "description": {
                     "type": "string",
@@ -29892,7 +29908,7 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "A list of dashboard lists this dashboard belongs to.\n"
+                        "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                     },
                     "dashboardListsRemoveds": {
                         "type": "array",
@@ -29985,7 +30001,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "The list of dashboard lists this dashboard belongs to.\n"
+                    "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                 },
                 "dashboardListsRemoveds": {
                     "type": "array",
@@ -30014,7 +30030,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "The list of dashboard lists this dashboard belongs to.\n"
+                    "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                 },
                 "url": {
                     "type": "string",
@@ -30036,7 +30052,7 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "The list of dashboard lists this dashboard belongs to.\n"
+                        "description": "A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding\ndashboard lists using Terraform as it causes inconsistent behavior.\n"
                     },
                     "dashboardListsRemoveds": {
                         "type": "array",
@@ -31755,6 +31771,55 @@
                 "type": "object"
             }
         },
+        "datadog:index/restrictionPolicy:RestrictionPolicy": {
+            "description": "Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst foo = new datadog.RestrictionPolicy(\"foo\", {\n    bindings: [\n        {\n            principals: [\"role:00000000-0000-1111-0000-000000000000\"],\n            relation: \"editor\",\n        },\n        {\n            principals: [\"org:10000000-0000-1111-0000-000000000000\"],\n            relation: \"viewer\",\n        },\n    ],\n    resourceId: \"security-rule:abc-def-ghi\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nfoo = datadog.RestrictionPolicy(\"foo\",\n    bindings=[\n        datadog.RestrictionPolicyBindingArgs(\n            principals=[\"role:00000000-0000-1111-0000-000000000000\"],\n            relation=\"editor\",\n        ),\n        datadog.RestrictionPolicyBindingArgs(\n            principals=[\"org:10000000-0000-1111-0000-000000000000\"],\n            relation=\"viewer\",\n        ),\n    ],\n    resource_id=\"security-rule:abc-def-ghi\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new Datadog.RestrictionPolicy(\"foo\", new()\n    {\n        Bindings = new[]\n        {\n            new Datadog.Inputs.RestrictionPolicyBindingArgs\n            {\n                Principals = new[]\n                {\n                    \"role:00000000-0000-1111-0000-000000000000\",\n                },\n                Relation = \"editor\",\n            },\n            new Datadog.Inputs.RestrictionPolicyBindingArgs\n            {\n                Principals = new[]\n                {\n                    \"org:10000000-0000-1111-0000-000000000000\",\n                },\n                Relation = \"viewer\",\n            },\n        },\n        ResourceId = \"security-rule:abc-def-ghi\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewRestrictionPolicy(ctx, \"foo\", \u0026datadog.RestrictionPolicyArgs{\n\t\t\tBindings: datadog.RestrictionPolicyBindingArray{\n\t\t\t\t\u0026datadog.RestrictionPolicyBindingArgs{\n\t\t\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"role:00000000-0000-1111-0000-000000000000\"),\n\t\t\t\t\t},\n\t\t\t\t\tRelation: pulumi.String(\"editor\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.RestrictionPolicyBindingArgs{\n\t\t\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"org:10000000-0000-1111-0000-000000000000\"),\n\t\t\t\t\t},\n\t\t\t\t\tRelation: pulumi.String(\"viewer\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tResourceId: pulumi.String(\"security-rule:abc-def-ghi\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.RestrictionPolicy;\nimport com.pulumi.datadog.RestrictionPolicyArgs;\nimport com.pulumi.datadog.inputs.RestrictionPolicyBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new RestrictionPolicy(\"foo\", RestrictionPolicyArgs.builder()        \n            .bindings(            \n                RestrictionPolicyBindingArgs.builder()\n                    .principals(\"role:00000000-0000-1111-0000-000000000000\")\n                    .relation(\"editor\")\n                    .build(),\n                RestrictionPolicyBindingArgs.builder()\n                    .principals(\"org:10000000-0000-1111-0000-000000000000\")\n                    .relation(\"viewer\")\n                    .build())\n            .resourceId(\"security-rule:abc-def-ghi\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: datadog:RestrictionPolicy\n    properties:\n      bindings:\n        - principals:\n            - role:00000000-0000-1111-0000-000000000000\n          relation: editor\n        - principals:\n            - org:10000000-0000-1111-0000-000000000000\n          relation: viewer\n      resourceId: security-rule:abc-def-ghi\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list \"\"\n```\n\n ",
+            "properties": {
+                "bindings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/RestrictionPolicyBinding:RestrictionPolicyBinding"
+                    }
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "Identifier for the resource, formatted as resource*type:resource*id.\n"
+                }
+            },
+            "required": [
+                "resourceId"
+            ],
+            "inputProperties": {
+                "bindings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/RestrictionPolicyBinding:RestrictionPolicyBinding"
+                    }
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "Identifier for the resource, formatted as resource*type:resource*id.\n"
+                }
+            },
+            "requiredInputs": [
+                "resourceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RestrictionPolicy resources.\n",
+                "properties": {
+                    "bindings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/RestrictionPolicyBinding:RestrictionPolicyBinding"
+                        }
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Identifier for the resource, formatted as resource*type:resource*id.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/role:Role": {
             "description": "Provides a Datadog role resource. This can be used to create and manage Datadog roles.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst bar = datadog.getPermissions({});\n// Create a new Datadog role\nconst foo = new datadog.Role(\"foo\", {\n    name: \"foo\",\n    permissions: [\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsDowntime),\n        },\n        {\n            id: bar.then(bar =\u003e bar.permissions?.monitorsWrite),\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nbar = datadog.get_permissions()\n# Create a new Datadog role\nfoo = datadog.Role(\"foo\",\n    name=\"foo\",\n    permissions=[\n        datadog.RolePermissionArgs(\n            id=bar.permissions[\"monitorsDowntime\"],\n        ),\n        datadog.RolePermissionArgs(\n            id=bar.permissions[\"monitorsWrite\"],\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var bar = Datadog.GetPermissions.Invoke();\n\n    // Create a new Datadog role\n    var foo = new Datadog.Role(\"foo\", new()\n    {\n        Name = \"foo\",\n        Permissions = new[]\n        {\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsDowntime),\n            },\n            new Datadog.Inputs.RolePermissionArgs\n            {\n                Id = bar.Apply(getPermissionsResult =\u003e getPermissionsResult.Permissions?.MonitorsWrite),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbar, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewRole(ctx, \"foo\", \u0026datadog.RoleArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t\tPermissions: datadog.RolePermissionArray{\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsDowntime),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.RolePermissionArgs{\n\t\t\t\t\tId: *pulumi.String(bar.Permissions.MonitorsWrite),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetPermissionsArgs;\nimport com.pulumi.datadog.Role;\nimport com.pulumi.datadog.RoleArgs;\nimport com.pulumi.datadog.inputs.RolePermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var bar = DatadogFunctions.getPermissions();\n\n        var foo = new Role(\"foo\", RoleArgs.builder()        \n            .name(\"foo\")\n            .permissions(            \n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsDowntime()))\n                    .build(),\n                RolePermissionArgs.builder()\n                    .id(bar.applyValue(getPermissionsResult -\u003e getPermissionsResult.permissions().monitorsWrite()))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog role\n  foo:\n    type: datadog:Role\n    properties:\n      name: foo\n      permissions:\n        - id: ${bar.permissions.monitorsDowntime}\n        - id: ${bar.permissions.monitorsWrite}\nvariables:\n  bar:\n    fn::invoke:\n      Function: datadog:getPermissions\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRoles can be imported using their ID, e.g.\n\n```sh\n $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
@@ -32646,6 +32711,80 @@
                             "type": "string"
                         },
                         "description": "A list a role IDs to assign to the service account.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": {
+            "description": "Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create new service_account_application_key resource\nconst foo = new datadog.ServiceAccountApplicationKey(\"foo\", {\n    name: \"Application key for managing dashboards\",\n    serviceAccountId: \"00000000-0000-1234-0000-000000000000\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create new service_account_application_key resource\nfoo = datadog.ServiceAccountApplicationKey(\"foo\",\n    name=\"Application key for managing dashboards\",\n    service_account_id=\"00000000-0000-1234-0000-000000000000\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create new service_account_application_key resource\n    var foo = new Datadog.ServiceAccountApplicationKey(\"foo\", new()\n    {\n        Name = \"Application key for managing dashboards\",\n        ServiceAccountId = \"00000000-0000-1234-0000-000000000000\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceAccountApplicationKey(ctx, \"foo\", \u0026datadog.ServiceAccountApplicationKeyArgs{\n\t\t\tName:             pulumi.String(\"Application key for managing dashboards\"),\n\t\t\tServiceAccountId: pulumi.String(\"00000000-0000-1234-0000-000000000000\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.ServiceAccountApplicationKey;\nimport com.pulumi.datadog.ServiceAccountApplicationKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new ServiceAccountApplicationKey(\"foo\", ServiceAccountApplicationKeyArgs.builder()        \n            .name(\"Application key for managing dashboards\")\n            .serviceAccountId(\"00000000-0000-1234-0000-000000000000\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create new service_account_application_key resource\n  foo:\n    type: datadog:ServiceAccountApplicationKey\n    properties:\n      name: Application key for managing dashboards\n      serviceAccountId: 00000000-0000-1234-0000-000000000000\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nImporting a service account's application key cannot import the value of the key.\n\n```sh\n $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this \"\u003cservice_account_id\u003e:\u003capplication_key_id\u003e\"\n```\n\n ",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "Creation date of the application key.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The value of the service account application key. This value cannot be imported.\n",
+                    "secret": true
+                },
+                "last4": {
+                    "type": "string",
+                    "description": "The last four characters of the application key.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the application key.\n"
+                },
+                "serviceAccountId": {
+                    "type": "string",
+                    "description": "ID of the service account that owns this key.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "key",
+                "last4",
+                "name",
+                "serviceAccountId"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the application key.\n"
+                },
+                "serviceAccountId": {
+                    "type": "string",
+                    "description": "ID of the service account that owns this key.\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "serviceAccountId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceAccountApplicationKey resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Creation date of the application key.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The value of the service account application key. This value cannot be imported.\n",
+                        "secret": true
+                    },
+                    "last4": {
+                        "type": "string",
+                        "description": "The last four characters of the application key.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the application key.\n"
+                    },
+                    "serviceAccountId": {
+                        "type": "string",
+                        "description": "ID of the service account that owns this key.\n"
                     }
                 },
                 "type": "object"
@@ -35706,6 +35845,96 @@
                 ]
             }
         },
+        "datadog:index/getServiceAccount:getServiceAccount": {
+            "description": "Use this data source to retrieve information about an existing Datadog service account.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceAccount.\n",
+                "properties": {
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter all users and service accounts by name, email, or role.\n"
+                    },
+                    "filterStatus": {
+                        "type": "string",
+                        "description": "Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The service account's ID.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceAccount.\n",
+                "properties": {
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Whether the user is disabled.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email of the user.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter all users and service accounts by name, email, or role.\n"
+                    },
+                    "filterStatus": {
+                        "type": "string",
+                        "description": "Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.\n"
+                    },
+                    "handle": {
+                        "type": "string",
+                        "description": "Handle of the user.\n"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "URL of the user's icon.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The service account's ID.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the user.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Roles assigned to this service account.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the user.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the user.\n"
+                    },
+                    "verified": {
+                        "type": "boolean",
+                        "description": "Whether the user is verified.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "disabled",
+                    "email",
+                    "handle",
+                    "icon",
+                    "id",
+                    "name",
+                    "roles",
+                    "status",
+                    "title",
+                    "verified"
+                ]
+            }
+        },
         "datadog:index/getServiceLevelObjective:getServiceLevelObjective": {
             "description": "Use this data source to retrieve information about an existing SLO for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getServiceLevelObjective({\n    nameQuery: \"My test SLO\",\n    tagsQuery: \"foo:bar\",\n});\nconst apiSlo = datadog.getServiceLevelObjective({\n    id: data.terraform_remote_state.api.outputs.slo,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_service_level_objective(name_query=\"My test SLO\",\n    tags_query=\"foo:bar\")\napi_slo = datadog.get_service_level_objective(id=data[\"terraform_remote_state\"][\"api\"][\"outputs\"][\"slo\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetServiceLevelObjective.Invoke(new()\n    {\n        NameQuery = \"My test SLO\",\n        TagsQuery = \"foo:bar\",\n    });\n\n    var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()\n    {\n        Id = data.Terraform_remote_state.Api.Outputs.Slo,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupServiceLevelObjective(ctx, \u0026datadog.LookupServiceLevelObjectiveArgs{\n\t\t\tNameQuery: pulumi.StringRef(\"My test SLO\"),\n\t\t\tTagsQuery: pulumi.StringRef(\"foo:bar\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.LookupServiceLevelObjective(ctx, \u0026datadog.LookupServiceLevelObjectiveArgs{\n\t\t\tId: pulumi.StringRef(data.Terraform_remote_state.Api.Outputs.Slo),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()\n            .nameQuery(\"My test SLO\")\n            .tagsQuery(\"foo:bar\")\n            .build());\n\n        final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()\n            .id(data.terraform_remote_state().api().outputs().slo())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: datadog:getServiceLevelObjective\n      Arguments:\n        nameQuery: My test SLO\n        tagsQuery: foo:bar\n  apiSlo:\n    fn::invoke:\n      Function: datadog:getServiceLevelObjective\n      Arguments:\n        id: ${data.terraform_remote_state.api.outputs.slo}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -36099,10 +36328,14 @@
             }
         },
         "datadog:index/getUser:getUser": {
-            "description": "Use this data source to retrieve information about an existing user to use it in an other resources.\n",
+            "description": "Use this data source to retrieve information about an existing user to use it in an other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getUser({\n    filter: \"user.name@company.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_user(filter=\"user.name@company.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Datadog.GetUser.Invoke(new()\n    {\n        Filter = \"user.name@company.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupUser(ctx, \u0026datadog.LookupUserArgs{\n\t\t\tFilter: \"user.name@company.com\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = DatadogFunctions.getUser(GetUserArgs.builder()\n            .filter(\"user.name@company.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: datadog:getUser\n      Arguments:\n        filter: user.name@company.com\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getUser.\n",
                 "properties": {
+                    "exactMatch": {
+                        "type": "boolean",
+                        "description": "When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.\n"
+                    },
                     "filter": {
                         "type": "string",
                         "description": "Filter all users by the given string.\n"
@@ -36119,6 +36352,10 @@
                     "email": {
                         "type": "string",
                         "description": "Email of the user.\n"
+                    },
+                    "exactMatch": {
+                        "type": "boolean",
+                        "description": "When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.\n"
                     },
                     "filter": {
                         "type": "string",

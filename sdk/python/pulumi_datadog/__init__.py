@@ -37,6 +37,7 @@ from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_sensitive_data_scanner_group_order import *
 from .get_sensitive_data_scanner_standard_pattern import *
+from .get_service_account import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
 from .get_synthetics_global_variable import *
@@ -61,6 +62,7 @@ from .monitor_config_policy import *
 from .monitor_json import *
 from .organization_settings import *
 from .provider import *
+from .restriction_policy import *
 from .role import *
 from .rum_application import *
 from .security_monitoring_default_rule import *
@@ -70,6 +72,7 @@ from .sensitive_data_scanner_group import *
 from .sensitive_data_scanner_group_order import *
 from .sensitive_data_scanner_rule import *
 from .service_account import *
+from .service_account_application_key import *
 from .service_definition_yaml import *
 from .service_level_objective import *
 from .slo_correction import *
@@ -422,6 +425,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/restrictionPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/restrictionPolicy:RestrictionPolicy": "RestrictionPolicy"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/role",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -490,6 +501,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/serviceAccount:ServiceAccount": "ServiceAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/serviceAccountApplicationKey",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": "ServiceAccountApplicationKey"
   }
  },
  {

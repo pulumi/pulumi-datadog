@@ -560,14 +560,16 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
         return this.dashboard;
     }
     /**
-     * The list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      * 
      */
     @Export(name="dashboardLists", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> dashboardLists;
 
     /**
-     * @return The list of dashboard lists this dashboard belongs to.
+     * @return A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      * 
      */
     public Output<Optional<List<Integer>>> dashboardLists() {

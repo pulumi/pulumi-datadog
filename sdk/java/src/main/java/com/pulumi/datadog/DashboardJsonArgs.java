@@ -33,14 +33,16 @@ public final class DashboardJsonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      * 
      */
     @Import(name="dashboardLists")
     private @Nullable Output<List<Integer>> dashboardLists;
 
     /**
-     * @return The list of dashboard lists this dashboard belongs to.
+     * @return A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      * 
      */
     public Optional<Output<List<Integer>>> dashboardLists() {
@@ -110,7 +112,8 @@ public final class DashboardJsonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardLists The list of dashboard lists this dashboard belongs to.
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+         * dashboard lists using Terraform as it causes inconsistent behavior.
          * 
          * @return builder
          * 
@@ -121,7 +124,8 @@ public final class DashboardJsonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardLists The list of dashboard lists this dashboard belongs to.
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+         * dashboard lists using Terraform as it causes inconsistent behavior.
          * 
          * @return builder
          * 
@@ -131,7 +135,8 @@ public final class DashboardJsonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardLists The list of dashboard lists this dashboard belongs to.
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+         * dashboard lists using Terraform as it causes inconsistent behavior.
          * 
          * @return builder
          * 
