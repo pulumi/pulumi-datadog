@@ -6,7 +6,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.13.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.53.0
 	github.com/pulumi/pulumi/sdk/v3 v3.74.0
-	github.com/terraform-providers/terraform-provider-datadog v3.21.0+incompatible
+	github.com/terraform-providers/terraform-provider-datadog v0.0.0
 )
 
 replace (
@@ -14,7 +14,7 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
 	github.com/hashicorp/terraform-plugin-test => github.com/hashicorp/terraform-plugin-test v1.3.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20230607220106-3e9e35014bd3
+	github.com/terraform-providers/terraform-provider-datadog => ../upstream
 )
 
 require (
