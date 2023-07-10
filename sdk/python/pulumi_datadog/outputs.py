@@ -1638,6 +1638,9 @@ class DashboardTemplateVariable(dict):
         """
         The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
         """
+        warnings.warn("""Use `defaults` instead.""", DeprecationWarning)
+        pulumi.log.warn("""default is deprecated: Use `defaults` instead.""")
+
         return pulumi.get(self, "default")
 
     @property
@@ -1732,6 +1735,9 @@ class DashboardTemplateVariablePresetTemplateVariable(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        warnings.warn("""Use `values` instead.""", DeprecationWarning)
+        pulumi.log.warn("""value is deprecated: Use `values` instead.""")
+
         return pulumi.get(self, "value")
 
     @property
@@ -60206,6 +60212,9 @@ class SecurityMonitoringRuleQuery(dict):
         """
         **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
         """
+        warnings.warn("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""", DeprecationWarning)
+        pulumi.log.warn("""agent_rules is deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.""")
+
         return pulumi.get(self, "agent_rules")
 
     @property
@@ -60238,6 +60247,9 @@ class SecurityMonitoringRuleQuery(dict):
         """
         The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         """
+        warnings.warn("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""metric is deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "metric")
 
     @property
@@ -64657,6 +64669,9 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
     @property
     @pulumi.getter(name="agentRules")
     def agent_rules(self) -> Optional[Sequence['outputs.GetSecurityMonitoringRulesRuleQueryAgentRuleResult']]:
+        warnings.warn("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""", DeprecationWarning)
+        pulumi.log.warn("""agent_rules is deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.""")
+
         return pulumi.get(self, "agent_rules")
 
     @property
@@ -64677,6 +64692,9 @@ class GetSecurityMonitoringRulesRuleQueryResult(dict):
     @property
     @pulumi.getter
     def metric(self) -> Optional[str]:
+        warnings.warn("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""metric is deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "metric")
 
     @property

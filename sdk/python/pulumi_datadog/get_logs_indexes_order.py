@@ -73,5 +73,5 @@ def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> Await
     __ret__ = pulumi.runtime.invoke('datadog:index/getLogsIndexesOrder:getLogsIndexesOrder', __args__, opts=opts, typ=GetLogsIndexesOrderResult).value
 
     return AwaitableGetLogsIndexesOrderResult(
-        id=__ret__.id,
-        index_names=__ret__.index_names)
+        id=pulumi.get(__ret__, 'id'),
+        index_names=pulumi.get(__ret__, 'index_names'))

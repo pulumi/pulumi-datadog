@@ -94,9 +94,9 @@ def get_application_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getApplicationKey:getApplicationKey', __args__, opts=opts, typ=GetApplicationKeyResult).value
 
     return AwaitableGetApplicationKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_application_key)

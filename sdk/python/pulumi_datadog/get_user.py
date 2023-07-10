@@ -94,10 +94,10 @@ def get_user(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        email=__ret__.email,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        name=__ret__.name)
+        email=pulumi.get(__ret__, 'email'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_user)

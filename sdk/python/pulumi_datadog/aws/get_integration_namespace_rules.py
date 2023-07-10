@@ -73,5 +73,5 @@ def get_integration_namespace_rules(opts: Optional[pulumi.InvokeOptions] = None)
     __ret__ = pulumi.runtime.invoke('datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules', __args__, opts=opts, typ=GetIntegrationNamespaceRulesResult).value
 
     return AwaitableGetIntegrationNamespaceRulesResult(
-        id=__ret__.id,
-        namespace_rules=__ret__.namespace_rules)
+        id=pulumi.get(__ret__, 'id'),
+        namespace_rules=pulumi.get(__ret__, 'namespace_rules'))

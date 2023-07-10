@@ -199,17 +199,17 @@ def get_service_level_objective(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getServiceLevelObjective:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult).value
 
     return AwaitableGetServiceLevelObjectiveResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        metrics_query=__ret__.metrics_query,
-        name=__ret__.name,
-        name_query=__ret__.name_query,
-        queries=__ret__.queries,
-        tags_query=__ret__.tags_query,
-        target_threshold=__ret__.target_threshold,
-        timeframe=__ret__.timeframe,
-        type=__ret__.type,
-        warning_threshold=__ret__.warning_threshold)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        metrics_query=pulumi.get(__ret__, 'metrics_query'),
+        name=pulumi.get(__ret__, 'name'),
+        name_query=pulumi.get(__ret__, 'name_query'),
+        queries=pulumi.get(__ret__, 'queries'),
+        tags_query=pulumi.get(__ret__, 'tags_query'),
+        target_threshold=pulumi.get(__ret__, 'target_threshold'),
+        timeframe=pulumi.get(__ret__, 'timeframe'),
+        type=pulumi.get(__ret__, 'type'),
+        warning_threshold=pulumi.get(__ret__, 'warning_threshold'))
 
 
 @_utilities.lift_output_func(get_service_level_objective)

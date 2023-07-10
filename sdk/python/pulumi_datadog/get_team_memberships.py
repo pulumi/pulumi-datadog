@@ -108,10 +108,10 @@ def get_team_memberships(filter_keyword: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getTeamMemberships:getTeamMemberships', __args__, opts=opts, typ=GetTeamMembershipsResult).value
 
     return AwaitableGetTeamMembershipsResult(
-        filter_keyword=__ret__.filter_keyword,
-        id=__ret__.id,
-        team_id=__ret__.team_id,
-        team_memberships=__ret__.team_memberships)
+        filter_keyword=pulumi.get(__ret__, 'filter_keyword'),
+        id=pulumi.get(__ret__, 'id'),
+        team_id=pulumi.get(__ret__, 'team_id'),
+        team_memberships=pulumi.get(__ret__, 'team_memberships'))
 
 
 @_utilities.lift_output_func(get_team_memberships)

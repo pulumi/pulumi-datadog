@@ -96,9 +96,9 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getLogsPipelines:getLogsPipelines', __args__, opts=opts, typ=GetLogsPipelinesResult).value
 
     return AwaitableGetLogsPipelinesResult(
-        id=__ret__.id,
-        is_read_only=__ret__.is_read_only,
-        logs_pipelines=__ret__.logs_pipelines)
+        id=pulumi.get(__ret__, 'id'),
+        is_read_only=pulumi.get(__ret__, 'is_read_only'),
+        logs_pipelines=pulumi.get(__ret__, 'logs_pipelines'))
 
 
 @_utilities.lift_output_func(get_logs_pipelines)

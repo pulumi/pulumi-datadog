@@ -6541,100 +6541,458 @@
         },
         "datasources": {
             "datadog_api_key": {
-                "current": "datadog:index/getApiKey:getApiKey"
+                "current": "datadog:index/getApiKey:getApiKey",
+                "majorVersion": 4
             },
             "datadog_application_key": {
-                "current": "datadog:index/getApplicationKey:getApplicationKey"
+                "current": "datadog:index/getApplicationKey:getApplicationKey",
+                "majorVersion": 4
             },
             "datadog_cloud_workload_security_agent_rules": {
-                "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules"
+                "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
+                "majorVersion": 4,
+                "fields": {
+                    "agent_rules": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_dashboard": {
-                "current": "datadog:index/getDashboard:getDashboard"
+                "current": "datadog:index/getDashboard:getDashboard",
+                "majorVersion": 4
             },
             "datadog_dashboard_list": {
-                "current": "datadog:index/getDashboardList:getDashboardList"
+                "current": "datadog:index/getDashboardList:getDashboardList",
+                "majorVersion": 4
             },
             "datadog_hosts": {
-                "current": "datadog:index/getHosts:getHosts"
+                "current": "datadog:index/getHosts:getHosts",
+                "majorVersion": 4,
+                "fields": {
+                    "host_list": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "elem": {
+                                "fields": {
+                                    "aliases": {
+                                        "maxItemsOne": false
+                                    },
+                                    "apps": {
+                                        "maxItemsOne": false
+                                    },
+                                    "sources": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "datadog_integration_aws_logs_services": {
-                "current": "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices"
+                "current": "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices",
+                "majorVersion": 4,
+                "fields": {
+                    "aws_logs_services": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_integration_aws_namespace_rules": {
-                "current": "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules"
+                "current": "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules",
+                "majorVersion": 4,
+                "fields": {
+                    "namespace_rules": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_ip_ranges": {
-                "current": "datadog:index/getIpRanges:getIpRanges"
+                "current": "datadog:index/getIpRanges:getIpRanges",
+                "majorVersion": 4,
+                "fields": {
+                    "agents_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "agents_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "api_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "api_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "apm_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "apm_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "logs_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "logs_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "orchestrator_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "orchestrator_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "process_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "process_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "synthetics_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "synthetics_ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "webhooks_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "webhooks_ipv6": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_logs_archives_order": {
-                "current": "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder"
+                "current": "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder",
+                "majorVersion": 4,
+                "fields": {
+                    "archive_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_logs_indexes": {
-                "current": "datadog:index/getLogsIndexes:getLogsIndexes"
+                "current": "datadog:index/getLogsIndexes:getLogsIndexes",
+                "majorVersion": 4,
+                "fields": {
+                    "logs_indexes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "exclusion_filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "filter": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "filter": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "datadog_logs_indexes_order": {
-                "current": "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder"
+                "current": "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder",
+                "majorVersion": 4,
+                "fields": {
+                    "index_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_logs_pipelines": {
-                "current": "datadog:index/getLogsPipelines:getLogsPipelines"
+                "current": "datadog:index/getLogsPipelines:getLogsPipelines",
+                "majorVersion": 4,
+                "fields": {
+                    "logs_pipelines": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filter": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "datadog_monitor": {
-                "current": "datadog:index/getMonitor:getMonitor"
+                "current": "datadog:index/getMonitor:getMonitor",
+                "majorVersion": 4,
+                "fields": {
+                    "monitor_tags_filter": {
+                        "maxItemsOne": false
+                    },
+                    "monitor_threshold_windows": {
+                        "maxItemsOne": false
+                    },
+                    "monitor_thresholds": {
+                        "maxItemsOne": false
+                    },
+                    "notify_by": {
+                        "maxItemsOne": false
+                    },
+                    "renotify_statuses": {
+                        "maxItemsOne": false
+                    },
+                    "restricted_roles": {
+                        "maxItemsOne": false
+                    },
+                    "scheduling_options": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "evaluation_window": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "tags_filter": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_monitor_config_policies": {
-                "current": "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies"
+                "current": "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies",
+                "majorVersion": 4,
+                "fields": {
+                    "monitor_config_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tag_policy": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "valid_tag_values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "datadog_monitors": {
-                "current": "datadog:index/getMonitors:getMonitors"
+                "current": "datadog:index/getMonitors:getMonitors",
+                "majorVersion": 4,
+                "fields": {
+                    "monitor_tags_filter": {
+                        "maxItemsOne": false
+                    },
+                    "monitors": {
+                        "maxItemsOne": false
+                    },
+                    "tags_filter": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_permissions": {
-                "current": "datadog:index/getPermissions:getPermissions"
+                "current": "datadog:index/getPermissions:getPermissions",
+                "majorVersion": 4
             },
             "datadog_role": {
-                "current": "datadog:index/getRole:getRole"
+                "current": "datadog:index/getRole:getRole",
+                "majorVersion": 4
             },
             "datadog_roles": {
-                "current": "datadog:index/getRoles:getRoles"
+                "current": "datadog:index/getRoles:getRoles",
+                "majorVersion": 4,
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_rum_application": {
-                "current": "datadog:index/getRumApplication:getRumApplication"
+                "current": "datadog:index/getRumApplication:getRumApplication",
+                "majorVersion": 4
             },
             "datadog_security_monitoring_filters": {
-                "current": "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters"
+                "current": "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters",
+                "majorVersion": 4,
+                "fields": {
+                    "filters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "exclusion_filter": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "filters_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_security_monitoring_rules": {
-                "current": "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules"
+                "current": "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules",
+                "majorVersion": 4,
+                "fields": {
+                    "rule_ids": {
+                        "maxItemsOne": false
+                    },
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "case": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "notifications": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "filter": {
+                                    "maxItemsOne": false
+                                },
+                                "options": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "impossible_travel_options": {
+                                                "maxItemsOne": true
+                                            },
+                                            "new_value_options": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "query": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "agent_rule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "distinct_fields": {
+                                                "maxItemsOne": false
+                                            },
+                                            "group_by_fields": {
+                                                "maxItemsOne": false
+                                            },
+                                            "metrics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "signal_query": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "correlated_by_fields": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags_filter": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_sensitive_data_scanner_group_order": {
-                "current": "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder"
+                "current": "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder",
+                "majorVersion": 4,
+                "fields": {
+                    "group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_sensitive_data_scanner_standard_pattern": {
-                "current": "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern"
+                "current": "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_service_level_objective": {
-                "current": "datadog:index/getServiceLevelObjective:getServiceLevelObjective"
+                "current": "datadog:index/getServiceLevelObjective:getServiceLevelObjective",
+                "majorVersion": 4,
+                "fields": {
+                    "query": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_service_level_objectives": {
-                "current": "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives"
+                "current": "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives",
+                "majorVersion": 4,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    },
+                    "slos": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_synthetics_global_variable": {
-                "current": "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable"
+                "current": "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_synthetics_locations": {
-                "current": "datadog:index/getSyntheticsLocations:getSyntheticsLocations"
+                "current": "datadog:index/getSyntheticsLocations:getSyntheticsLocations",
+                "majorVersion": 4
             },
             "datadog_synthetics_test": {
-                "current": "datadog:index/getSyntheticsTest:getSyntheticsTest"
+                "current": "datadog:index/getSyntheticsTest:getSyntheticsTest",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_team": {
-                "current": "datadog:index/getTeam:getTeam"
+                "current": "datadog:index/getTeam:getTeam",
+                "majorVersion": 4
             },
             "datadog_team_memberships": {
-                "current": "datadog:index/getTeamMemberships:getTeamMemberships"
+                "current": "datadog:index/getTeamMemberships:getTeamMemberships",
+                "majorVersion": 4,
+                "fields": {
+                    "team_memberships": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_user": {
-                "current": "datadog:index/getUser:getUser"
+                "current": "datadog:index/getUser:getUser",
+                "majorVersion": 4
             }
         }
     },

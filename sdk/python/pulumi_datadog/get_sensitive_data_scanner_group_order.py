@@ -74,5 +74,5 @@ def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] 
     __ret__ = pulumi.runtime.invoke('datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder', __args__, opts=opts, typ=GetSensitiveDataScannerGroupOrderResult).value
 
     return AwaitableGetSensitiveDataScannerGroupOrderResult(
-        group_ids=__ret__.group_ids,
-        id=__ret__.id)
+        group_ids=pulumi.get(__ret__, 'group_ids'),
+        id=pulumi.get(__ret__, 'id'))

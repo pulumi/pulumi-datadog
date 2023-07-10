@@ -113,11 +113,11 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getMonitors:getMonitors', __args__, opts=opts, typ=GetMonitorsResult).value
 
     return AwaitableGetMonitorsResult(
-        id=__ret__.id,
-        monitor_tags_filters=__ret__.monitor_tags_filters,
-        monitors=__ret__.monitors,
-        name_filter=__ret__.name_filter,
-        tags_filters=__ret__.tags_filters)
+        id=pulumi.get(__ret__, 'id'),
+        monitor_tags_filters=pulumi.get(__ret__, 'monitor_tags_filters'),
+        monitors=pulumi.get(__ret__, 'monitors'),
+        name_filter=pulumi.get(__ret__, 'name_filter'),
+        tags_filters=pulumi.get(__ret__, 'tags_filters'))
 
 
 @_utilities.lift_output_func(get_monitors)

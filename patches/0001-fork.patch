@@ -1,0 +1,78 @@
+diff --git b/docs/resources/dashboard_list.md a/docs/resources/dashboard_list.md
+index 7e38f433..f01dbf81 100644
+--- b/docs/resources/dashboard_list.md
++++ a/docs/resources/dashboard_list.md
+@@ -15,7 +15,12 @@ Provides a Datadog dashboard_list resource. This can be used to create and manag
+ ```terraform
+ # Create a new Dashboard List with two Dashboards
+ resource "datadog_dashboard_list" "new_list" {
+-  name = "Terraform Created List"
++  depends_on = [
++    datadog_dashboard.screen,
++    datadog_dashboard.time
++  ]
++
++  name = "Automated Created List"
+   dash_item {
+     type    = "custom_timeboard"
+     dash_id = datadog_dashboard.time.id
+@@ -28,7 +33,7 @@ resource "datadog_dashboard_list" "new_list" {
+ 
+ resource "datadog_dashboard" "time" {
+   title        = "TF Test Layout Dashboard"
+-  description  = "Created using the Datadog provider in Terraform"
++  description  = "Created using the Datadog provider"
+   layout_type  = "ordered"
+   is_read_only = true
+   widget {
+@@ -44,7 +49,7 @@ resource "datadog_dashboard" "time" {
+ 
+ resource "datadog_dashboard" "screen" {
+   title        = "TF Test Free Layout Dashboard"
+-  description  = "Created using the Datadog provider in Terraform"
++  description  = "Created using the Datadog provider"
+   layout_type  = "free"
+   is_read_only = false
+   widget {
+diff --git b/docs/resources/integration_pagerduty.md a/docs/resources/integration_pagerduty.md
+index ec59058e..035dff0b 100644
+--- b/docs/resources/integration_pagerduty.md
++++ a/docs/resources/integration_pagerduty.md
+@@ -13,9 +13,6 @@ Provides a Datadog - PagerDuty resource. This can be used to create and manage D
+ ## Example Usage
+ 
+ ```terraform
+-# Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
+-
+-# Services as Individual Resources
+ resource "datadog_integration_pagerduty" "pd" {
+   schedules = [
+     "https://ddog.pagerduty.com/schedules/X123VF",
+diff --git b/docs/resources/integration_pagerduty_service_object.md a/docs/resources/integration_pagerduty_service_object.md
+index c052b1f0..be5d7ee2 100644
+--- b/docs/resources/integration_pagerduty_service_object.md
++++ a/docs/resources/integration_pagerduty_service_object.md
+@@ -29,8 +29,8 @@ resource "datadog_integration_pagerduty_service_object" "testing_bar" {
+ 
+ ### Required
+ 
+-- `service_key` (String, Sensitive) Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way to solve a drift is to manually mark the Service Object resource with [terraform taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+-- `service_name` (String) Your Service name in PagerDuty.
++- **service_key** (String, Sensitive) Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
++- **service_name** (String) Your Service name in PagerDuty.
+ 
+ ### Read-Only
+ 
+diff --git b/docs/resources/monitor.md a/docs/resources/monitor.md
+index 5878da75..03661e6b 100644
+--- b/docs/resources/monitor.md
++++ a/docs/resources/monitor.md
+@@ -41,7 +41,7 @@ resource "datadog_monitor" "foo" {
+ 
+ Email notifications can be sent to specific users by using the same `@username` notation as events.
+ - `name` (String) Name of Datadog monitor.
+-- `query` (String) The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
++- `query` (String) The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. Provider previews will validate query contents unless `validate` is set to `false`.
+ 
+ **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+ - `type` (String) The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created. Valid values are `composite`, `event alert`, `log alert`, `metric alert`, `process alert`, `query alert`, `rum alert`, `service check`, `synthetics alert`, `trace-analytics alert`, `slo alert`, `event-v2 alert`, `audit alert`, `ci-pipelines alert`, `ci-tests alert`, `error-tracking alert`.

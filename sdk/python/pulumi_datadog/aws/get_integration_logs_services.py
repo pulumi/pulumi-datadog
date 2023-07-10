@@ -65,5 +65,5 @@ def get_integration_logs_services(opts: Optional[pulumi.InvokeOptions] = None) -
     __ret__ = pulumi.runtime.invoke('datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices', __args__, opts=opts, typ=GetIntegrationLogsServicesResult).value
 
     return AwaitableGetIntegrationLogsServicesResult(
-        aws_logs_services=__ret__.aws_logs_services,
-        id=__ret__.id)
+        aws_logs_services=pulumi.get(__ret__, 'aws_logs_services'),
+        id=pulumi.get(__ret__, 'id'))

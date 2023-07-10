@@ -103,10 +103,10 @@ def get_dashboard(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getDashboard:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        title=__ret__.title,
-        url=__ret__.url)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        title=pulumi.get(__ret__, 'title'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_dashboard)

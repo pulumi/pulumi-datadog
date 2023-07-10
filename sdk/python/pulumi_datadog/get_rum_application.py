@@ -124,12 +124,12 @@ def get_rum_application(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getRumApplication:getRumApplication', __args__, opts=opts, typ=GetRumApplicationResult).value
 
     return AwaitableGetRumApplicationResult(
-        client_token=__ret__.client_token,
-        id=__ret__.id,
-        name=__ret__.name,
-        name_filter=__ret__.name_filter,
-        type=__ret__.type,
-        type_filter=__ret__.type_filter)
+        client_token=pulumi.get(__ret__, 'client_token'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        name_filter=pulumi.get(__ret__, 'name_filter'),
+        type=pulumi.get(__ret__, 'type'),
+        type_filter=pulumi.get(__ret__, 'type_filter'))
 
 
 @_utilities.lift_output_func(get_rum_application)

@@ -1632,6 +1632,9 @@ class DashboardTemplateVariableArgs:
         """
         The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
         """
+        warnings.warn("""Use `defaults` instead.""", DeprecationWarning)
+        pulumi.log.warn("""default is deprecated: Use `defaults` instead.""")
+
         return pulumi.get(self, "default")
 
     @default.setter
@@ -1736,6 +1739,9 @@ class DashboardTemplateVariablePresetTemplateVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""Use `values` instead.""", DeprecationWarning)
+        pulumi.log.warn("""value is deprecated: Use `values` instead.""")
+
         return pulumi.get(self, "value")
 
     @value.setter
@@ -65904,6 +65910,9 @@ class SecurityMonitoringRuleQueryArgs:
         """
         **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
         """
+        warnings.warn("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""", DeprecationWarning)
+        pulumi.log.warn("""agent_rules is deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.""")
+
         return pulumi.get(self, "agent_rules")
 
     @agent_rules.setter
@@ -65952,6 +65961,9 @@ class SecurityMonitoringRuleQueryArgs:
         """
         The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         """
+        warnings.warn("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""metric is deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "metric")
 
     @metric.setter

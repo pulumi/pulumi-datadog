@@ -28,13 +28,105 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV21", &datadog.ServiceDefinitionYamlArgs{
-//				ServiceDefinition: pulumi.String("schema-version: v2.1\ndd-service: shopping-cart\nteam: e-commerce-team\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\ndescription: shopping cart service responsible for managing shopping carts\ntier: high\nlifecycle: production\napplication: e-commerce\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\n  - name: shopping-cart architecture\n    type: doc\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    type: doc\n    provider: wiki\n    url: https://wiki/shopping-cart\n  - name: shopping-cart source code\n    type: repo\n    provider: github\n    url: http://github/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: \n    service-url: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  mycompany.com/shopping-cart:\n    customField: customValue\n\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV2", &datadog.ServiceDefinitionYamlArgs{
-//				ServiceDefinition: pulumi.String("schema-version: v2\ndd-service: shopping-cart\nteam: E Commerce\ncontacts:\n  - name: Support Email\n    type: email\n    contact: team@shopping.com\n  - name: Support Slack\n    type: slack\n    contact: https://www.slack.com/archives/shopping-cart\nrepos:\n  - name: shopping-cart source code\n    provider: github\n    url: http://github/shopping-cart\ndocs:\n  - name: shopping-cart architecture\n    provider: gdoc\n    url: https://google.drive/shopping-cart-architecture\n  - name: shopping-cart service Wiki\n    provider: wiki\n    url: https://wiki/shopping-cart\nlinks:\n  - name: shopping-cart runbook\n    type: runbook\n    url: https://runbook/shopping-cart\ntags:\n  - business-unit:retail\n  - cost-center:engineering\nintegrations:\n  pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart\nextensions:\n  datadoghq.com/shopping-cart:\n    customField: customValue\n\n"),
+//				ServiceDefinition: pulumi.String(`schema-version: v2.1
+//
+// dd-service: shopping-cart
+// team: e-commerce-team
+// contacts:
+//   - name: Support Email
+//     type: email
+//     contact: team@shopping.com
+//   - name: Support Slack
+//     type: slack
+//     contact: https://www.slack.com/archives/shopping-cart
+//
+// description: shopping cart service responsible for managing shopping carts
+// tier: high
+// lifecycle: production
+// application: e-commerce
+// links:
+//   - name: shopping-cart runbook
+//     type: runbook
+//     url: https://runbook/shopping-cart
+//   - name: shopping-cart architecture
+//     type: doc
+//     provider: gdoc
+//     url: https://google.drive/shopping-cart-architecture
+//   - name: shopping-cart service Wiki
+//     type: doc
+//     provider: wiki
+//     url: https://wiki/shopping-cart
+//   - name: shopping-cart source code
+//     type: repo
+//     provider: github
+//     url: http://github/shopping-cart
+//
+// tags:
+//   - business-unit:retail
+//   - cost-center:engineering
+//
+// integrations:
+//
+//	pagerduty:
+//	  service-url: https://www.pagerduty.com/service-directory/Pshopping-cart
+//
+// extensions:
+//
+//	mycompany.com/shopping-cart:
+//	  customField: customValue
+//
+// `),
+//
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV2", &datadog.ServiceDefinitionYamlArgs{
+//		ServiceDefinition: pulumi.String(`schema-version: v2
+//
+// dd-service: shopping-cart
+// team: E Commerce
+// contacts:
+//   - name: Support Email
+//     type: email
+//     contact: team@shopping.com
+//   - name: Support Slack
+//     type: slack
+//     contact: https://www.slack.com/archives/shopping-cart
+//
+// repos:
+//   - name: shopping-cart source code
+//     provider: github
+//     url: http://github/shopping-cart
+//
+// docs:
+//   - name: shopping-cart architecture
+//     provider: gdoc
+//     url: https://google.drive/shopping-cart-architecture
+//   - name: shopping-cart service Wiki
+//     provider: wiki
+//     url: https://wiki/shopping-cart
+//
+// links:
+//   - name: shopping-cart runbook
+//     type: runbook
+//     url: https://runbook/shopping-cart
+//
+// tags:
+//   - business-unit:retail
+//   - cost-center:engineering
+//
+// integrations:
+//
+//	pagerduty: https://www.pagerduty.com/service-directory/Pshopping-cart
+//
+// extensions:
+//
+//	datadoghq.com/shopping-cart:
+//	  customField: customValue
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

@@ -86,6 +86,6 @@ def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None)
     __ret__ = pulumi.runtime.invoke('datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters', __args__, opts=opts, typ=GetSecurityMonitoringFiltersResult).value
 
     return AwaitableGetSecurityMonitoringFiltersResult(
-        filters=__ret__.filters,
-        filters_ids=__ret__.filters_ids,
-        id=__ret__.id)
+        filters=pulumi.get(__ret__, 'filters'),
+        filters_ids=pulumi.get(__ret__, 'filters_ids'),
+        id=pulumi.get(__ret__, 'id'))

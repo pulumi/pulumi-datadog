@@ -64,5 +64,5 @@ def get_logs_archives_order(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     __ret__ = pulumi.runtime.invoke('datadog:index/getLogsArchivesOrder:getLogsArchivesOrder', __args__, opts=opts, typ=GetLogsArchivesOrderResult).value
 
     return AwaitableGetLogsArchivesOrderResult(
-        archive_ids=__ret__.archive_ids,
-        id=__ret__.id)
+        archive_ids=pulumi.get(__ret__, 'archive_ids'),
+        id=pulumi.get(__ret__, 'id'))

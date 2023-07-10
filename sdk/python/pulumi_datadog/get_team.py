@@ -166,15 +166,15 @@ def get_team(filter_keyword: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        description=__ret__.description,
-        filter_keyword=__ret__.filter_keyword,
-        handle=__ret__.handle,
-        id=__ret__.id,
-        link_count=__ret__.link_count,
-        name=__ret__.name,
-        summary=__ret__.summary,
-        team_id=__ret__.team_id,
-        user_count=__ret__.user_count)
+        description=pulumi.get(__ret__, 'description'),
+        filter_keyword=pulumi.get(__ret__, 'filter_keyword'),
+        handle=pulumi.get(__ret__, 'handle'),
+        id=pulumi.get(__ret__, 'id'),
+        link_count=pulumi.get(__ret__, 'link_count'),
+        name=pulumi.get(__ret__, 'name'),
+        summary=pulumi.get(__ret__, 'summary'),
+        team_id=pulumi.get(__ret__, 'team_id'),
+        user_count=pulumi.get(__ret__, 'user_count'))
 
 
 @_utilities.lift_output_func(get_team)
