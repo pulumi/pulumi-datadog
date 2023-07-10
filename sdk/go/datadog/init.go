@@ -70,6 +70,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitorJson{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
+	case "datadog:index/restrictionPolicy:RestrictionPolicy":
+		r = &RestrictionPolicy{}
 	case "datadog:index/role:Role":
 		r = &Role{}
 	case "datadog:index/rumApplication:RumApplication":
@@ -88,6 +90,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SensitiveDataScannerRule{}
 	case "datadog:index/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
+	case "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey":
+		r = &ServiceAccountApplicationKey{}
 	case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
 		r = &ServiceDefinitionYaml{}
 	case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
@@ -271,6 +275,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/restrictionPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/role",
 		&module{version},
 	)
@@ -312,6 +321,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/serviceAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/serviceAccountApplicationKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

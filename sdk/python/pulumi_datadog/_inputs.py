@@ -1140,6 +1140,7 @@ __all__ = [
     'OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs',
     'OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs',
     'OrganizationSettingsSettingsSamlStrictModeArgs',
+    'RestrictionPolicyBindingArgs',
     'RolePermissionArgs',
     'SecurityMonitoringDefaultRuleCaseArgs',
     'SecurityMonitoringDefaultRuleFilterArgs',
@@ -65382,6 +65383,45 @@ class OrganizationSettingsSettingsSamlStrictModeArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class RestrictionPolicyBindingArgs:
+    def __init__(__self__, *,
+                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 relation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        :param pulumi.Input[str] relation: The role/level of access.
+        """
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
+        if relation is not None:
+            pulumi.set(__self__, "relation", relation)
+
+    @property
+    @pulumi.getter
+    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
+        """
+        return pulumi.get(self, "principals")
+
+    @principals.setter
+    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "principals", value)
+
+    @property
+    @pulumi.getter
+    def relation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role/level of access.
+        """
+        return pulumi.get(self, "relation")
+
+    @relation.setter
+    def relation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relation", value)
 
 
 @pulumi.input_type

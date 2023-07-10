@@ -4,8 +4,11 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
@@ -14,6 +17,11 @@ public final class GetUserResult {
      * 
      */
     private String email;
+    /**
+     * @return When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     * 
+     */
+    private @Nullable Boolean exactMatch;
     /**
      * @return Filter all users by the given string.
      * 
@@ -37,6 +45,13 @@ public final class GetUserResult {
      */
     public String email() {
         return this.email;
+    }
+    /**
+     * @return When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
     }
     /**
      * @return Filter all users by the given string.
@@ -70,6 +85,7 @@ public final class GetUserResult {
     @CustomType.Builder
     public static final class Builder {
         private String email;
+        private @Nullable Boolean exactMatch;
         private String filter;
         private String id;
         private String name;
@@ -77,6 +93,7 @@ public final class GetUserResult {
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
+    	      this.exactMatch = defaults.exactMatch;
     	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -85,6 +102,11 @@ public final class GetUserResult {
         @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+            this.exactMatch = exactMatch;
             return this;
         }
         @CustomType.Setter
@@ -105,6 +127,7 @@ public final class GetUserResult {
         public GetUserResult build() {
             final var o = new GetUserResult();
             o.email = email;
+            o.exactMatch = exactMatch;
             o.filter = filter;
             o.id = id;
             o.name = name;

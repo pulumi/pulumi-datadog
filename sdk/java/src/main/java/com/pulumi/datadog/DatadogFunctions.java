@@ -34,6 +34,8 @@ import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
 import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternPlainArgs;
+import com.pulumi.datadog.inputs.GetServiceAccountArgs;
+import com.pulumi.datadog.inputs.GetServiceAccountPlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivePlainArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
@@ -70,6 +72,7 @@ import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
 import com.pulumi.datadog.outputs.GetSensitiveDataScannerGroupOrderResult;
 import com.pulumi.datadog.outputs.GetSensitiveDataScannerStandardPatternResult;
+import com.pulumi.datadog.outputs.GetServiceAccountResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
@@ -3853,6 +3856,48 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static Output<GetServiceAccountResult> getServiceAccount() {
+        return getServiceAccount(GetServiceAccountArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
+        return getServiceAccountPlain(GetServiceAccountPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
+        return getServiceAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
+        return getServiceAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog service account.
+     * 
+     */
+    public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
@@ -4801,12 +4846,72 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -4815,12 +4920,72 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing user to use it in an other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

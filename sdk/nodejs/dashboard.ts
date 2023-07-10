@@ -44,7 +44,8 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * A list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      */
     public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
     /**
@@ -162,7 +163,8 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * A list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -226,7 +228,8 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * A list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+     * dashboard lists using Terraform as it causes inconsistent behavior.
      */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**

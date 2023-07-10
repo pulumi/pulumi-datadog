@@ -157,6 +157,11 @@ export const getSensitiveDataScannerStandardPattern: typeof import("./getSensiti
 export const getSensitiveDataScannerStandardPatternOutput: typeof import("./getSensitiveDataScannerStandardPattern").getSensitiveDataScannerStandardPatternOutput = null as any;
 utilities.lazyLoad(exports, ["getSensitiveDataScannerStandardPattern","getSensitiveDataScannerStandardPatternOutput"], () => require("./getSensitiveDataScannerStandardPattern"));
 
+export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
+export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
+export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
+
 export { GetServiceLevelObjectiveArgs, GetServiceLevelObjectiveResult, GetServiceLevelObjectiveOutputArgs } from "./getServiceLevelObjective";
 export const getServiceLevelObjective: typeof import("./getServiceLevelObjective").getServiceLevelObjective = null as any;
 export const getServiceLevelObjectiveOutput: typeof import("./getServiceLevelObjective").getServiceLevelObjectiveOutput = null as any;
@@ -276,6 +281,11 @@ export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
+export { RestrictionPolicyArgs, RestrictionPolicyState } from "./restrictionPolicy";
+export type RestrictionPolicy = import("./restrictionPolicy").RestrictionPolicy;
+export const RestrictionPolicy: typeof import("./restrictionPolicy").RestrictionPolicy = null as any;
+utilities.lazyLoad(exports, ["RestrictionPolicy"], () => require("./restrictionPolicy"));
+
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
@@ -320,6 +330,11 @@ export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
 export type ServiceAccount = import("./serviceAccount").ServiceAccount;
 export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
 utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
+
+export { ServiceAccountApplicationKeyArgs, ServiceAccountApplicationKeyState } from "./serviceAccountApplicationKey";
+export type ServiceAccountApplicationKey = import("./serviceAccountApplicationKey").ServiceAccountApplicationKey;
+export const ServiceAccountApplicationKey: typeof import("./serviceAccountApplicationKey").ServiceAccountApplicationKey = null as any;
+utilities.lazyLoad(exports, ["ServiceAccountApplicationKey"], () => require("./serviceAccountApplicationKey"));
 
 export { ServiceDefinitionYamlArgs, ServiceDefinitionYamlState } from "./serviceDefinitionYaml";
 export type ServiceDefinitionYaml = import("./serviceDefinitionYaml").ServiceDefinitionYaml;
@@ -473,6 +488,8 @@ const _module = {
                 return new MonitorJson(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
+            case "datadog:index/restrictionPolicy:RestrictionPolicy":
+                return new RestrictionPolicy(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
             case "datadog:index/rumApplication:RumApplication":
@@ -491,6 +508,8 @@ const _module = {
                 return new SensitiveDataScannerRule(name, <any>undefined, { urn })
             case "datadog:index/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
+            case "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey":
+                return new ServiceAccountApplicationKey(name, <any>undefined, { urn })
             case "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml":
                 return new ServiceDefinitionYaml(name, <any>undefined, { urn })
             case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
@@ -549,6 +568,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
@@ -558,6 +578,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGrou
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroupOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/serviceAccountApplicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)

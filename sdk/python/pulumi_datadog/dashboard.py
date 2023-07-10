@@ -33,7 +33,8 @@ class DashboardArgs:
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+               dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
@@ -101,7 +102,8 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+        dashboard lists using Terraform as it causes inconsistent behavior.
         """
         return pulumi.get(self, "dashboard_lists")
 
@@ -252,7 +254,8 @@ class _DashboardState:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+               dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -303,7 +306,8 @@ class _DashboardState:
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+        dashboard lists using Terraform as it causes inconsistent behavior.
         """
         return pulumi.get(self, "dashboard_lists")
 
@@ -501,7 +505,8 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+               dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
@@ -619,7 +624,8 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+               dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -658,7 +664,8 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
-        A list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
+        dashboard lists using Terraform as it causes inconsistent behavior.
         """
         return pulumi.get(self, "dashboard_lists")
 

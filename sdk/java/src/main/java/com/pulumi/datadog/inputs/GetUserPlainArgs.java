@@ -4,13 +4,31 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
+
+    /**
+     * When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Boolean exactMatch;
+
+    /**
+     * @return When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * Filter all users by the given string.
@@ -30,6 +48,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserPlainArgs() {}
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
+        this.exactMatch = $.exactMatch;
         this.filter = $.filter;
     }
 
@@ -49,6 +68,17 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetUserPlainArgs defaults) {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
         }
 
         /**

@@ -6,11 +6,23 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing user to use it in an other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getUser({
+ *     filter: "user.name@company.com",
+ * });
+ * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getUser:getUser", {
+        "exactMatch": args.exactMatch,
         "filter": args.filter,
     }, opts);
 }
@@ -19,6 +31,10 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     */
+    exactMatch?: boolean;
     /**
      * Filter all users by the given string.
      */
@@ -34,6 +50,10 @@ export interface GetUserResult {
      */
     readonly email: string;
     /**
+     * When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     */
+    readonly exactMatch?: boolean;
+    /**
      * Filter all users by the given string.
      */
     readonly filter: string;
@@ -48,6 +68,17 @@ export interface GetUserResult {
 }
 /**
  * Use this data source to retrieve information about an existing user to use it in an other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getUser({
+ *     filter: "user.name@company.com",
+ * });
+ * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
@@ -57,6 +88,10 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    /**
+     * When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+     */
+    exactMatch?: pulumi.Input<boolean>;
     /**
      * Filter all users by the given string.
      */

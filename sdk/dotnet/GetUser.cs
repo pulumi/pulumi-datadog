@@ -13,12 +13,56 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about an existing user to use it in an other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetUser.Invoke(new()
+        ///     {
+        ///         Filter = "user.name@company.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("datadog:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing user to use it in an other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetUser.Invoke(new()
+        ///     {
+        ///         Filter = "user.name@company.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("datadog:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -27,6 +71,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// </summary>
+        [Input("exactMatch")]
+        public bool? ExactMatch { get; set; }
+
         /// <summary>
         /// Filter all users by the given string.
         /// </summary>
@@ -41,6 +91,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// </summary>
+        [Input("exactMatch")]
+        public Input<bool>? ExactMatch { get; set; }
+
         /// <summary>
         /// Filter all users by the given string.
         /// </summary>
@@ -62,6 +118,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Email;
         /// <summary>
+        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// </summary>
+        public readonly bool? ExactMatch;
+        /// <summary>
         /// Filter all users by the given string.
         /// </summary>
         public readonly string Filter;
@@ -78,6 +138,8 @@ namespace Pulumi.Datadog
         private GetUserResult(
             string email,
 
+            bool? exactMatch,
+
             string filter,
 
             string id,
@@ -85,6 +147,7 @@ namespace Pulumi.Datadog
             string name)
         {
             Email = email;
+            ExactMatch = exactMatch;
             Filter = filter;
             Id = id;
             Name = name;
