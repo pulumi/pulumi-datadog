@@ -7281,6 +7281,7 @@
             },
             "datadog:confluent/integrationResource:IntegrationResource": {
                 "accountId": "account_id",
+                "enableCustomMetrics": "enable_custom_metrics",
                 "resourceId": "resource_id",
                 "resourceType": "resource_type"
             },
@@ -7478,6 +7479,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetChangeDefinitionRequestQuerySloQuery:DashboardWidgetChangeDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -7666,6 +7668,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGeomapDefinitionRequestQuerySloQuery:DashboardWidgetGeomapDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -7837,6 +7840,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -8025,6 +8029,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -8386,6 +8391,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -8524,6 +8530,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -8624,6 +8631,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -8881,6 +8889,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9038,6 +9047,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9183,6 +9193,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9297,6 +9308,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery:DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9649,6 +9661,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetQueryTableDefinitionRequestQuerySloQuery:DashboardWidgetQueryTableDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9787,6 +9800,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetQueryValueDefinitionRequestQuerySloQuery:DashboardWidgetQueryValueDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -9887,6 +9901,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery:DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -10144,6 +10159,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetSunburstDefinitionRequestQuerySloQuery:DashboardWidgetSunburstDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -10301,6 +10317,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery:DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -10446,6 +10463,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetToplistDefinitionRequestQuerySloQuery:DashboardWidgetToplistDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
@@ -10560,6 +10578,7 @@
                 "textFilter": "text_filter"
             },
             "datadog:index/DashboardWidgetTreemapDefinitionRequestQuerySloQuery:DashboardWidgetTreemapDefinitionRequestQuerySloQuery": {
+                "additionalQueryFilters": "additional_query_filters",
                 "dataSource": "data_source",
                 "groupMode": "group_mode",
                 "sloId": "slo_id",
