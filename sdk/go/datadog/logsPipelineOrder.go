@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewLogsPipelineOrder(ctx *pulumi.Context,
 	if args.Pipelines == nil {
 		return nil, errors.New("invalid value for required argument 'Pipelines'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogsPipelineOrder
 	err := ctx.RegisterResource("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args, &resource, opts...)
 	if err != nil {

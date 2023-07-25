@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    private @Nullable String additionalQueryFilters;
     private String dataSource;
     private @Nullable String groupMode;
     private String measure;
@@ -19,6 +20,9 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     private @Nullable String sloQueryType;
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery() {}
+    public Optional<String> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
     public String dataSource() {
         return this.dataSource;
     }
@@ -47,6 +51,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalQueryFilters;
         private String dataSource;
         private @Nullable String groupMode;
         private String measure;
@@ -56,6 +61,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         public Builder() {}
         public Builder(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalQueryFilters = defaults.additionalQueryFilters;
     	      this.dataSource = defaults.dataSource;
     	      this.groupMode = defaults.groupMode;
     	      this.measure = defaults.measure;
@@ -64,6 +70,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     	      this.sloQueryType = defaults.sloQueryType;
         }
 
+        @CustomType.Setter
+        public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
+            this.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             this.dataSource = Objects.requireNonNull(dataSource);
@@ -96,6 +107,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery build() {
             final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery();
+            o.additionalQueryFilters = additionalQueryFilters;
             o.dataSource = dataSource;
             o.groupMode = groupMode;
             o.measure = measure;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,6 +78,7 @@ func NewSecurityMonitoringDefaultRule(ctx *pulumi.Context,
 		args = &SecurityMonitoringDefaultRuleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityMonitoringDefaultRule
 	err := ctx.RegisterResource("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", name, args, &resource, opts...)
 	if err != nil {

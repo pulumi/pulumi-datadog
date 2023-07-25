@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +18,30 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
      * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
      * 
      */
-    @Import(name="principals")
-    private @Nullable Output<List<String>> principals;
+    @Import(name="principals", required=true)
+    private Output<List<String>> principals;
 
     /**
      * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
      * 
      */
-    public Optional<Output<List<String>>> principals() {
-        return Optional.ofNullable(this.principals);
+    public Output<List<String>> principals() {
+        return this.principals;
     }
 
     /**
-     * The role/level of access.
+     * The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
      * 
      */
-    @Import(name="relation")
-    private @Nullable Output<String> relation;
+    @Import(name="relation", required=true)
+    private Output<String> relation;
 
     /**
-     * @return The role/level of access.
+     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
      * 
      */
-    public Optional<Output<String>> relation() {
-        return Optional.ofNullable(this.relation);
+    public Output<String> relation() {
+        return this.relation;
     }
 
     private RestrictionPolicyBindingArgs() {}
@@ -77,7 +75,7 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder principals(@Nullable Output<List<String>> principals) {
+        public Builder principals(Output<List<String>> principals) {
             $.principals = principals;
             return this;
         }
@@ -103,18 +101,18 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param relation The role/level of access.
+         * @param relation The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
          * 
          * @return builder
          * 
          */
-        public Builder relation(@Nullable Output<String> relation) {
+        public Builder relation(Output<String> relation) {
             $.relation = relation;
             return this;
         }
 
         /**
-         * @param relation The role/level of access.
+         * @param relation The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
          * 
          * @return builder
          * 
@@ -124,6 +122,8 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         public RestrictionPolicyBindingArgs build() {
+            $.principals = Objects.requireNonNull($.principals, "expected parameter 'principals' to be non-null");
+            $.relation = Objects.requireNonNull($.relation, "expected parameter 'relation' to be non-null");
             return $;
         }
     }

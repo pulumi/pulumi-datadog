@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,6 +61,7 @@ import (
 //
 // ```
 func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opts ...pulumi.InvokeOption) (*LookupDashboardListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDashboardListResult
 	err := ctx.Invoke("datadog:index/getDashboardList:getDashboardList", args, &rv, opts...)
 	if err != nil {

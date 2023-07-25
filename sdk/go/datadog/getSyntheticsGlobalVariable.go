@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
 func LookupSyntheticsGlobalVariable(ctx *pulumi.Context, args *LookupSyntheticsGlobalVariableArgs, opts ...pulumi.InvokeOption) (*LookupSyntheticsGlobalVariableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyntheticsGlobalVariableResult
 	err := ctx.Invoke("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args, &rv, opts...)
 	if err != nil {

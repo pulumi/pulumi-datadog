@@ -72,6 +72,10 @@ export class IntegrationResource extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     */
+    public readonly enableCustomMetrics!: pulumi.Output<boolean>;
+    /**
      * The ID associated with a Confluent resource.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class IntegrationResource extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IntegrationResourceState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["enableCustomMetrics"] = state ? state.enableCustomMetrics : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -110,6 +115,7 @@ export class IntegrationResource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["enableCustomMetrics"] = args ? args.enableCustomMetrics : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -127,6 +133,10 @@ export interface IntegrationResourceState {
      * Confluent Account ID.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     */
+    enableCustomMetrics?: pulumi.Input<boolean>;
     /**
      * The ID associated with a Confluent resource.
      */
@@ -149,6 +159,10 @@ export interface IntegrationResourceArgs {
      * Confluent Account ID.
      */
     accountId: pulumi.Input<string>;
+    /**
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     */
+    enableCustomMetrics?: pulumi.Input<boolean>;
     /**
      * The ID associated with a Confluent resource.
      */

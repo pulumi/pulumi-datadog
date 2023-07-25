@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,6 +66,7 @@ func NewSyntheticsConcurrencyCap(ctx *pulumi.Context,
 	if args.OnDemandConcurrencyCap == nil {
 		return nil, errors.New("invalid value for required argument 'OnDemandConcurrencyCap'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SyntheticsConcurrencyCap
 	err := ctx.RegisterResource("datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap", name, args, &resource, opts...)
 	if err != nil {

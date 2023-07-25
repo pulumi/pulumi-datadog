@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,6 +89,7 @@ func NewSensitiveDataScannerGroup(ctx *pulumi.Context,
 	if args.ProductLists == nil {
 		return nil, errors.New("invalid value for required argument 'ProductLists'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SensitiveDataScannerGroup
 	err := ctx.RegisterResource("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetTeamMemberships(ctx *pulumi.Context, args *GetTeamMembershipsArgs, opts ...pulumi.InvokeOption) (*GetTeamMembershipsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTeamMembershipsResult
 	err := ctx.Invoke("datadog:index/getTeamMemberships:getTeamMemberships", args, &rv, opts...)
 	if err != nil {

@@ -16,17 +16,21 @@ class IntegrationResourceArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
+                 enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IntegrationResource resource.
         :param pulumi.Input[str] account_id: Confluent Account ID.
         :param pulumi.Input[str] resource_id: The ID associated with a Confluent resource.
+        :param pulumi.Input[bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "resource_id", resource_id)
+        if enable_custom_metrics is not None:
+            pulumi.set(__self__, "enable_custom_metrics", enable_custom_metrics)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if tags is not None:
@@ -57,6 +61,18 @@ class IntegrationResourceArgs:
         pulumi.set(self, "resource_id", value)
 
     @property
+    @pulumi.getter(name="enableCustomMetrics")
+    def enable_custom_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        """
+        return pulumi.get(self, "enable_custom_metrics")
+
+    @enable_custom_metrics.setter
+    def enable_custom_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_custom_metrics", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -85,18 +101,22 @@ class IntegrationResourceArgs:
 class _IntegrationResourceState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationResource resources.
         :param pulumi.Input[str] account_id: Confluent Account ID.
+        :param pulumi.Input[bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
         :param pulumi.Input[str] resource_id: The ID associated with a Confluent resource.
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if enable_custom_metrics is not None:
+            pulumi.set(__self__, "enable_custom_metrics", enable_custom_metrics)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_type is not None:
@@ -115,6 +135,18 @@ class _IntegrationResourceState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="enableCustomMetrics")
+    def enable_custom_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        """
+        return pulumi.get(self, "enable_custom_metrics")
+
+    @enable_custom_metrics.setter
+    def enable_custom_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_custom_metrics", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -159,6 +191,7 @@ class IntegrationResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,6 +232,7 @@ class IntegrationResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Confluent Account ID.
+        :param pulumi.Input[bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
         :param pulumi.Input[str] resource_id: The ID associated with a Confluent resource.
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
@@ -258,6 +292,7 @@ class IntegrationResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -273,6 +308,7 @@ class IntegrationResource(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["enable_custom_metrics"] = enable_custom_metrics
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -289,6 +325,7 @@ class IntegrationResource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
+            enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'IntegrationResource':
@@ -300,6 +337,7 @@ class IntegrationResource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Confluent Account ID.
+        :param pulumi.Input[bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
         :param pulumi.Input[str] resource_id: The ID associated with a Confluent resource.
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
@@ -309,6 +347,7 @@ class IntegrationResource(pulumi.CustomResource):
         __props__ = _IntegrationResourceState.__new__(_IntegrationResourceState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["enable_custom_metrics"] = enable_custom_metrics
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["tags"] = tags
@@ -321,6 +360,14 @@ class IntegrationResource(pulumi.CustomResource):
         Confluent Account ID.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="enableCustomMetrics")
+    def enable_custom_metrics(self) -> pulumi.Output[bool]:
+        """
+        Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        """
+        return pulumi.get(self, "enable_custom_metrics")
 
     @property
     @pulumi.getter(name="resourceId")

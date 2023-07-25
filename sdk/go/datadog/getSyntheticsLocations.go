@@ -4,11 +4,13 @@
 package datadog
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
 func GetSyntheticsLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSyntheticsLocationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSyntheticsLocationsResult
 	err := ctx.Invoke("datadog:index/getSyntheticsLocations:getSyntheticsLocations", nil, &rv, opts...)
 	if err != nil {

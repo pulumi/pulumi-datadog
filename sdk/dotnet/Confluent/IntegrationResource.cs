@@ -65,6 +65,12 @@ namespace Pulumi.Datadog.Confluent
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        /// </summary>
+        [Output("enableCustomMetrics")]
+        public Output<bool> EnableCustomMetrics { get; private set; } = null!;
+
+        /// <summary>
         /// The ID associated with a Confluent resource.
         /// </summary>
         [Output("resourceId")]
@@ -135,6 +141,12 @@ namespace Pulumi.Datadog.Confluent
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
+        /// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        /// </summary>
+        [Input("enableCustomMetrics")]
+        public Input<bool>? EnableCustomMetrics { get; set; }
+
+        /// <summary>
         /// The ID associated with a Confluent resource.
         /// </summary>
         [Input("resourceId", required: true)]
@@ -171,6 +183,12 @@ namespace Pulumi.Datadog.Confluent
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+        /// </summary>
+        [Input("enableCustomMetrics")]
+        public Input<bool>? EnableCustomMetrics { get; set; }
 
         /// <summary>
         /// The ID associated with a Confluent resource.

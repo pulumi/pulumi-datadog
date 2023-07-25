@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewIntegrationSts(ctx *pulumi.Context,
 	if args.ClientEmail == nil {
 		return nil, errors.New("invalid value for required argument 'ClientEmail'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationSts
 	err := ctx.RegisterResource("datadog:gcp/integrationSts:IntegrationSts", name, args, &resource, opts...)
 	if err != nil {

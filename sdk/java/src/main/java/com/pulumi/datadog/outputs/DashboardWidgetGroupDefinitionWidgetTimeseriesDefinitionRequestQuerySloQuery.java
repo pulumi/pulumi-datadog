@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    private @Nullable String additionalQueryFilters;
     private String dataSource;
     private @Nullable String groupMode;
     private String measure;
@@ -19,6 +20,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     private @Nullable String sloQueryType;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery() {}
+    public Optional<String> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
     public String dataSource() {
         return this.dataSource;
     }
@@ -47,6 +51,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalQueryFilters;
         private String dataSource;
         private @Nullable String groupMode;
         private String measure;
@@ -56,6 +61,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalQueryFilters = defaults.additionalQueryFilters;
     	      this.dataSource = defaults.dataSource;
     	      this.groupMode = defaults.groupMode;
     	      this.measure = defaults.measure;
@@ -64,6 +70,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     	      this.sloQueryType = defaults.sloQueryType;
         }
 
+        @CustomType.Setter
+        public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
+            this.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             this.dataSource = Objects.requireNonNull(dataSource);
@@ -96,6 +107,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery();
+            o.additionalQueryFilters = additionalQueryFilters;
             o.dataSource = dataSource;
             o.groupMode = groupMode;
             o.measure = measure;

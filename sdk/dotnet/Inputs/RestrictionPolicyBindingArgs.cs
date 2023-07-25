@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class RestrictionPolicyBindingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("principals")]
+        [Input("principals", required: true)]
         private InputList<string>? _principals;
 
         /// <summary>
@@ -25,10 +25,10 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The role/level of access.
+        /// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
         /// </summary>
-        [Input("relation")]
-        public Input<string>? Relation { get; set; }
+        [Input("relation", required: true)]
+        public Input<string> Relation { get; set; } = null!;
 
         public RestrictionPolicyBindingArgs()
         {

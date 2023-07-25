@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve information about your live hosts in Datadog.
 func GetHosts(ctx *pulumi.Context, args *GetHostsArgs, opts ...pulumi.InvokeOption) (*GetHostsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostsResult
 	err := ctx.Invoke("datadog:index/getHosts:getHosts", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources.
+ * Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
  *
  * ## Example Usage
  *

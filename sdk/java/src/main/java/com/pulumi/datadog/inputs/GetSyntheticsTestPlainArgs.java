@@ -13,14 +13,14 @@ public final class GetSyntheticsTestPlainArgs extends com.pulumi.resources.Invok
     public static final GetSyntheticsTestPlainArgs Empty = new GetSyntheticsTestPlainArgs();
 
     /**
-     * The synthetic test id to search for
+     * The synthetic test id or URL to search for
      * 
      */
     @Import(name="testId", required=true)
     private String testId;
 
     /**
-     * @return The synthetic test id to search for
+     * @return The synthetic test id or URL to search for
      * 
      */
     public String testId() {
@@ -52,7 +52,7 @@ public final class GetSyntheticsTestPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param testId The synthetic test id to search for
+         * @param testId The synthetic test id or URL to search for
          * 
          * @return builder
          * 

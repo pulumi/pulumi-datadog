@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -557,6 +558,7 @@ func NewDashboardJson(ctx *pulumi.Context,
 	if args.Dashboard == nil {
 		return nil, errors.New("invalid value for required argument 'Dashboard'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DashboardJson
 	err := ctx.RegisterResource("datadog:index/dashboardJson:DashboardJson", name, args, &resource, opts...)
 	if err != nil {

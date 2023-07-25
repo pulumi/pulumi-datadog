@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewIntegration(ctx *pulumi.Context,
 		"secretAccessKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Integration
 	err := ctx.RegisterResource("datadog:aws/integration:Integration", name, args, &resource, opts...)
 	if err != nil {

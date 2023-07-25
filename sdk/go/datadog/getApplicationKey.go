@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupApplicationKey(ctx *pulumi.Context, args *LookupApplicationKeyArgs, opts ...pulumi.InvokeOption) (*LookupApplicationKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationKeyResult
 	err := ctx.Invoke("datadog:index/getApplicationKey:getApplicationKey", args, &rv, opts...)
 	if err != nil {

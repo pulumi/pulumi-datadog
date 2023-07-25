@@ -28,7 +28,7 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The synthetic test id to search for
+        /// The synthetic test id or URL to search for
         /// </summary>
         [Input("testId", required: true)]
         public string TestId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The synthetic test id to search for
+        /// The synthetic test id or URL to search for
         /// </summary>
         [Input("testId", required: true)]
         public Input<string> TestId { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
-        /// The synthetic test id to search for
+        /// The synthetic test id or URL to search for
         /// </summary>
         public readonly string TestId;
         /// <summary>

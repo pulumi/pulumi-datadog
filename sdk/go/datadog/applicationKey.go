@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewApplicationKey(ctx *pulumi.Context,
 		"key",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationKey
 	err := ctx.RegisterResource("datadog:index/applicationKey:ApplicationKey", name, args, &resource, opts...)
 	if err != nil {

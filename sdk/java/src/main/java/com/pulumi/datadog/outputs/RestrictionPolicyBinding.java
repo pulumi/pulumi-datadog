@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RestrictionPolicyBinding {
@@ -16,12 +14,12 @@ public final class RestrictionPolicyBinding {
      * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
      * 
      */
-    private @Nullable List<String> principals;
+    private List<String> principals;
     /**
-     * @return The role/level of access.
+     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
      * 
      */
-    private @Nullable String relation;
+    private String relation;
 
     private RestrictionPolicyBinding() {}
     /**
@@ -29,14 +27,14 @@ public final class RestrictionPolicyBinding {
      * 
      */
     public List<String> principals() {
-        return this.principals == null ? List.of() : this.principals;
+        return this.principals;
     }
     /**
-     * @return The role/level of access.
+     * @return The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
      * 
      */
-    public Optional<String> relation() {
-        return Optional.ofNullable(this.relation);
+    public String relation() {
+        return this.relation;
     }
 
     public static Builder builder() {
@@ -48,8 +46,8 @@ public final class RestrictionPolicyBinding {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> principals;
-        private @Nullable String relation;
+        private List<String> principals;
+        private String relation;
         public Builder() {}
         public Builder(RestrictionPolicyBinding defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,16 +56,16 @@ public final class RestrictionPolicyBinding {
         }
 
         @CustomType.Setter
-        public Builder principals(@Nullable List<String> principals) {
-            this.principals = principals;
+        public Builder principals(List<String> principals) {
+            this.principals = Objects.requireNonNull(principals);
             return this;
         }
         public Builder principals(String... principals) {
             return principals(List.of(principals));
         }
         @CustomType.Setter
-        public Builder relation(@Nullable String relation) {
-            this.relation = relation;
+        public Builder relation(String relation) {
+            this.relation = Objects.requireNonNull(relation);
             return this;
         }
         public RestrictionPolicyBinding build() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,6 +140,7 @@ func NewCloudConfigurationRule(ctx *pulumi.Context,
 	if args.Severity == nil {
 		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudConfigurationRule
 	err := ctx.RegisterResource("datadog:index/cloudConfigurationRule:CloudConfigurationRule", name, args, &resource, opts...)
 	if err != nil {

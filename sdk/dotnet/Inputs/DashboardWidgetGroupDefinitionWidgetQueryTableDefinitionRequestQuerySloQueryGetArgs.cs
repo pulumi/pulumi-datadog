@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalQueryFilters")]
+        public Input<string>? AdditionalQueryFilters { get; set; }
+
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 

@@ -18,15 +18,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Principals;
         /// <summary>
-        /// The role/level of access.
+        /// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
         /// </summary>
-        public readonly string? Relation;
+        public readonly string Relation;
 
         [OutputConstructor]
         private RestrictionPolicyBinding(
             ImmutableArray<string> principals,
 
-            string? relation)
+            string relation)
         {
             Principals = principals;
             Relation = relation;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewIntegrationLogCollection(ctx *pulumi.Context,
 	if args.Services == nil {
 		return nil, errors.New("invalid value for required argument 'Services'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationLogCollection
 	err := ctx.RegisterResource("datadog:aws/integrationLogCollection:IntegrationLogCollection", name, args, &resource, opts...)
 	if err != nil {

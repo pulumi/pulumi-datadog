@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewServiceObject(ctx *pulumi.Context,
 		"opsgenieApiKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceObject
 	err := ctx.RegisterResource("datadog:opsgenie/serviceObject:ServiceObject", name, args, &resource, opts...)
 	if err != nil {

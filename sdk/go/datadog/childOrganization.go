@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ func NewChildOrganization(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChildOrganization
 	err := ctx.RegisterResource("datadog:index/childOrganization:ChildOrganization", name, args, &resource, opts...)
 	if err != nil {

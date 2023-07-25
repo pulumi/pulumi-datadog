@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func GetLogsIndexes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogsIndexesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsIndexesResult
 	err := ctx.Invoke("datadog:index/getLogsIndexes:getLogsIndexes", nil, &rv, opts...)
 	if err != nil {

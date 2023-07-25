@@ -4,11 +4,13 @@
 package aws
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve all AWS log ready services.
 func GetIntegrationLogsServices(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIntegrationLogsServicesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIntegrationLogsServicesResult
 	err := ctx.Invoke("datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices", nil, &rv, opts...)
 	if err != nil {

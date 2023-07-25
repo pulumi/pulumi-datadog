@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 func GetApiKey(ctx *pulumi.Context) string {

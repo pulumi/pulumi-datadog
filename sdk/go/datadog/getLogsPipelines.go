@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ import (
 //
 // ```
 func GetLogsPipelines(ctx *pulumi.Context, args *GetLogsPipelinesArgs, opts ...pulumi.InvokeOption) (*GetLogsPipelinesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsPipelinesResult
 	err := ctx.Invoke("datadog:index/getLogsPipelines:getLogsPipelines", args, &rv, opts...)
 	if err != nil {

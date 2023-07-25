@@ -26,7 +26,7 @@ public final class GetSyntheticsTestResult {
      */
     private List<String> tags;
     /**
-     * @return The synthetic test id to search for
+     * @return The synthetic test id or URL to search for
      * 
      */
     private String testId;
@@ -59,7 +59,7 @@ public final class GetSyntheticsTestResult {
         return this.tags;
     }
     /**
-     * @return The synthetic test id to search for
+     * @return The synthetic test id or URL to search for
      * 
      */
     public String testId() {

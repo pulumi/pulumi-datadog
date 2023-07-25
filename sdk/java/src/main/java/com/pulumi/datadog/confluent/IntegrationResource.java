@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.confluent.IntegrationResourceArgs;
 import com.pulumi.datadog.confluent.inputs.IntegrationResourceState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -85,6 +86,20 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+    /**
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * 
+     */
+    @Export(name="enableCustomMetrics", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableCustomMetrics;
+
+    /**
+     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * 
+     */
+    public Output<Boolean> enableCustomMetrics() {
+        return this.enableCustomMetrics;
     }
     /**
      * The ID associated with a Confluent resource.

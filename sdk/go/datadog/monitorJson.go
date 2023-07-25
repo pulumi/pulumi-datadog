@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewMonitorJson(ctx *pulumi.Context,
 	if args.Monitor == nil {
 		return nil, errors.New("invalid value for required argument 'Monitor'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitorJson
 	err := ctx.RegisterResource("datadog:index/monitorJson:MonitorJson", name, args, &resource, opts...)
 	if err != nil {

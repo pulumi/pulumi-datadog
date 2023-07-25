@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -122,6 +123,7 @@ func NewSloCorrection(ctx *pulumi.Context,
 	if args.Start == nil {
 		return nil, errors.New("invalid value for required argument 'Start'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SloCorrection
 	err := ctx.RegisterResource("datadog:index/sloCorrection:SloCorrection", name, args, &resource, opts...)
 	if err != nil {

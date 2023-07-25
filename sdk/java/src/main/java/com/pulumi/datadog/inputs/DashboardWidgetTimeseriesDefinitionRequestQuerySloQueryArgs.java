@@ -15,6 +15,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs e
 
     public static final DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs Empty = new DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs();
 
+    @Import(name="additionalQueryFilters")
+    private @Nullable Output<String> additionalQueryFilters;
+
+    public Optional<Output<String>> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
+
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
@@ -60,6 +67,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs e
     private DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs() {}
 
     private DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs(DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs $) {
+        this.additionalQueryFilters = $.additionalQueryFilters;
         this.dataSource = $.dataSource;
         this.groupMode = $.groupMode;
         this.measure = $.measure;
@@ -84,6 +92,15 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs e
 
         public Builder(DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs defaults) {
             $ = new DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalQueryFilters(@Nullable Output<String> additionalQueryFilters) {
+            $.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+
+        public Builder additionalQueryFilters(String additionalQueryFilters) {
+            return additionalQueryFilters(Output.of(additionalQueryFilters));
         }
 
         public Builder dataSource(Output<String> dataSource) {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,6 +105,7 @@ func NewMetricTagConfiguration(ctx *pulumi.Context,
 	if args.Tags == nil {
 		return nil, errors.New("invalid value for required argument 'Tags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricTagConfiguration
 	err := ctx.RegisterResource("datadog:index/metricTagConfiguration:MetricTagConfiguration", name, args, &resource, opts...)
 	if err != nil {

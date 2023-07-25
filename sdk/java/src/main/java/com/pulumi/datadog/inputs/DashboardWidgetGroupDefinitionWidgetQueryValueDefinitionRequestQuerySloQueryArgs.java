@@ -15,6 +15,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs();
 
+    @Import(name="additionalQueryFilters")
+    private @Nullable Output<String> additionalQueryFilters;
+
+    public Optional<Output<String>> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
+
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
@@ -60,6 +67,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs $) {
+        this.additionalQueryFilters = $.additionalQueryFilters;
         this.dataSource = $.dataSource;
         this.groupMode = $.groupMode;
         this.measure = $.measure;
@@ -84,6 +92,15 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
         public Builder(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs defaults) {
             $ = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalQueryFilters(@Nullable Output<String> additionalQueryFilters) {
+            $.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+
+        public Builder additionalQueryFilters(String additionalQueryFilters) {
+            return additionalQueryFilters(Output.of(additionalQueryFilters));
         }
 
         public Builder dataSource(Output<String> dataSource) {

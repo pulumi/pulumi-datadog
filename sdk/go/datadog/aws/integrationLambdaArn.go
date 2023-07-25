@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewIntegrationLambdaArn(ctx *pulumi.Context,
 	if args.LambdaArn == nil {
 		return nil, errors.New("invalid value for required argument 'LambdaArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationLambdaArn
 	err := ctx.RegisterResource("datadog:aws/integrationLambdaArn:IntegrationLambdaArn", name, args, &resource, opts...)
 	if err != nil {
