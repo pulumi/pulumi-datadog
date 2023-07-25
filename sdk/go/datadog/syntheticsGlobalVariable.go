@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewSyntheticsGlobalVariable(ctx *pulumi.Context,
 		"value",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SyntheticsGlobalVariable
 	err := ctx.RegisterResource("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable", name, args, &resource, opts...)
 	if err != nil {

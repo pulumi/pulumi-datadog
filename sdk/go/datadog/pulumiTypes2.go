@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DashboardWidgetToplistDefinitionRequestAuditQuery struct {
 	ComputeQuery  *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery  `pulumi:"computeQuery"`
@@ -4241,12 +4244,13 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextF
 }
 
 type DashboardWidgetToplistDefinitionRequestQuerySloQuery struct {
-	DataSource   string  `pulumi:"dataSource"`
-	GroupMode    *string `pulumi:"groupMode"`
-	Measure      string  `pulumi:"measure"`
-	Name         *string `pulumi:"name"`
-	SloId        string  `pulumi:"sloId"`
-	SloQueryType *string `pulumi:"sloQueryType"`
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	DataSource             string  `pulumi:"dataSource"`
+	GroupMode              *string `pulumi:"groupMode"`
+	Measure                string  `pulumi:"measure"`
+	Name                   *string `pulumi:"name"`
+	SloId                  string  `pulumi:"sloId"`
+	SloQueryType           *string `pulumi:"sloQueryType"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQuerySloQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs and DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput values.
@@ -4261,12 +4265,13 @@ type DashboardWidgetToplistDefinitionRequestQuerySloQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs struct {
-	DataSource   pulumi.StringInput    `pulumi:"dataSource"`
-	GroupMode    pulumi.StringPtrInput `pulumi:"groupMode"`
-	Measure      pulumi.StringInput    `pulumi:"measure"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	SloId        pulumi.StringInput    `pulumi:"sloId"`
-	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	DataSource             pulumi.StringInput    `pulumi:"dataSource"`
+	GroupMode              pulumi.StringPtrInput `pulumi:"groupMode"`
+	Measure                pulumi.StringInput    `pulumi:"measure"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	SloId                  pulumi.StringInput    `pulumi:"sloId"`
+	SloQueryType           pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
@@ -4346,6 +4351,10 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) ToDashboardW
 	}).(DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput)
 }
 
+func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
+}
+
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -4392,6 +4401,15 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Elem() Da
 		var ret DashboardWidgetToplistDefinitionRequestQuerySloQuery
 		return ret
 	}).(DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
@@ -9618,12 +9636,13 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TextF
 }
 
 type DashboardWidgetTreemapDefinitionRequestQuerySloQuery struct {
-	DataSource   string  `pulumi:"dataSource"`
-	GroupMode    *string `pulumi:"groupMode"`
-	Measure      string  `pulumi:"measure"`
-	Name         *string `pulumi:"name"`
-	SloId        string  `pulumi:"sloId"`
-	SloQueryType *string `pulumi:"sloQueryType"`
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	DataSource             string  `pulumi:"dataSource"`
+	GroupMode              *string `pulumi:"groupMode"`
+	Measure                string  `pulumi:"measure"`
+	Name                   *string `pulumi:"name"`
+	SloId                  string  `pulumi:"sloId"`
+	SloQueryType           *string `pulumi:"sloQueryType"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQuerySloQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs and DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput values.
@@ -9638,12 +9657,13 @@ type DashboardWidgetTreemapDefinitionRequestQuerySloQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs struct {
-	DataSource   pulumi.StringInput    `pulumi:"dataSource"`
-	GroupMode    pulumi.StringPtrInput `pulumi:"groupMode"`
-	Measure      pulumi.StringInput    `pulumi:"measure"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	SloId        pulumi.StringInput    `pulumi:"sloId"`
-	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	DataSource             pulumi.StringInput    `pulumi:"dataSource"`
+	GroupMode              pulumi.StringPtrInput `pulumi:"groupMode"`
+	Measure                pulumi.StringInput    `pulumi:"measure"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	SloId                  pulumi.StringInput    `pulumi:"sloId"`
+	SloQueryType           pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
@@ -9723,6 +9743,10 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToDashboardW
 	}).(DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput)
 }
 
+func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
+}
+
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -9769,6 +9793,15 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Elem() Da
 		var ret DashboardWidgetTreemapDefinitionRequestQuerySloQuery
 		return ret
 	}).(DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput)
+}
+
+func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
@@ -21198,8 +21231,8 @@ func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Enabled() pulumi.Bo
 type RestrictionPolicyBinding struct {
 	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
 	Principals []string `pulumi:"principals"`
-	// The role/level of access.
-	Relation *string `pulumi:"relation"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation string `pulumi:"relation"`
 }
 
 // RestrictionPolicyBindingInput is an input type that accepts RestrictionPolicyBindingArgs and RestrictionPolicyBindingOutput values.
@@ -21216,8 +21249,8 @@ type RestrictionPolicyBindingInput interface {
 type RestrictionPolicyBindingArgs struct {
 	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
 	Principals pulumi.StringArrayInput `pulumi:"principals"`
-	// The role/level of access.
-	Relation pulumi.StringPtrInput `pulumi:"relation"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation pulumi.StringInput `pulumi:"relation"`
 }
 
 func (RestrictionPolicyBindingArgs) ElementType() reflect.Type {
@@ -21276,9 +21309,9 @@ func (o RestrictionPolicyBindingOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestrictionPolicyBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }
 
-// The role/level of access.
-func (o RestrictionPolicyBindingOutput) Relation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RestrictionPolicyBinding) *string { return v.Relation }).(pulumi.StringPtrOutput)
+// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+func (o RestrictionPolicyBindingOutput) Relation() pulumi.StringOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) string { return v.Relation }).(pulumi.StringOutput)
 }
 
 type RestrictionPolicyBindingArrayOutput struct{ *pulumi.OutputState }

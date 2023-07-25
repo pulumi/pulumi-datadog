@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func GetPermissions(ctx *pulumi.Context, args *GetPermissionsArgs, opts ...pulumi.InvokeOption) (*GetPermissionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPermissionsResult
 	err := ctx.Invoke("datadog:index/getPermissions:getPermissions", args, &rv, opts...)
 	if err != nil {

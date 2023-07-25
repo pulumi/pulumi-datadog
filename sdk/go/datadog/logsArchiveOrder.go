@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,6 +65,7 @@ func NewLogsArchiveOrder(ctx *pulumi.Context,
 		args = &LogsArchiveOrderArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogsArchiveOrder
 	err := ctx.RegisterResource("datadog:index/logsArchiveOrder:LogsArchiveOrder", name, args, &resource, opts...)
 	if err != nil {

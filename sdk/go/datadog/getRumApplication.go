@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a Datadog RUM Application.
 func LookupRumApplication(ctx *pulumi.Context, args *LookupRumApplicationArgs, opts ...pulumi.InvokeOption) (*LookupRumApplicationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRumApplicationResult
 	err := ctx.Invoke("datadog:index/getRumApplication:getRumApplication", args, &rv, opts...)
 	if err != nil {

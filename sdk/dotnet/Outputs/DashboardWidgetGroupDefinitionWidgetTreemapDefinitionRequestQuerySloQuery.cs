@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery
     {
+        public readonly string? AdditionalQueryFilters;
         public readonly string DataSource;
         public readonly string? GroupMode;
         public readonly string Measure;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery(
+            string? additionalQueryFilters,
+
             string dataSource,
 
             string? groupMode,
@@ -34,6 +37,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? sloQueryType)
         {
+            AdditionalQueryFilters = additionalQueryFilters;
             DataSource = dataSource;
             GroupMode = groupMode;
             Measure = measure;

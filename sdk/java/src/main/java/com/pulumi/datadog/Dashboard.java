@@ -501,7 +501,9 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 DashboardWidgetArgs.builder()
  *                     .timeseriesDefinition(DashboardWidgetTimeseriesDefinitionArgs.builder()
- *                         .request(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .request(                        
+ *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                         .build())
  *                     .widgetLayout(DashboardWidgetWidgetLayoutArgs.builder()
  *                         .height(16)

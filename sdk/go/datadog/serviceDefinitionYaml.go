@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -127,6 +128,41 @@ import (
 //
 // `),
 //
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionBackstage", &datadog.ServiceDefinitionYamlArgs{
+//		ServiceDefinition: pulumi.String(`apiVersion: backstage.io/v1alpha1
+//
+// kind: Component
+// metadata:
+//
+//	annotations:
+//	  backstage.io/techdocs-ref: http://a/b/c
+//	  some.annotation: value
+//	namespace: default
+//	name: shopping-cart
+//	title: Shopping Cart
+//	description: A shopping cart service
+//	tags: ["taga:valuea", "tagb:valueb"]
+//	links:
+//	  - title: Wiki
+//	    url: https://wiki/shopping-cart
+//	    icon: help
+//	ignore-attribute:
+//	  id: 1
+//	  value: "value"
+//
+// spec:
+//
+//	type: service
+//	lifecycle: production
+//	owner: e-commerce
+//	system: retail
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -161,6 +197,7 @@ func NewServiceDefinitionYaml(ctx *pulumi.Context,
 	if args.ServiceDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceDefinition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceDefinitionYaml
 	err := ctx.RegisterResource("datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml", name, args, &resource, opts...)
 	if err != nil {

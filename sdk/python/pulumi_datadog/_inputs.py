@@ -4226,12 +4226,15 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -4265,6 +4268,15 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -7784,12 +7796,15 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -7823,6 +7838,15 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -10660,12 +10684,15 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryAr
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -10699,6 +10726,15 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQueryAr
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -14218,12 +14254,15 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryAr
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -14257,6 +14296,15 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQueryAr
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -21017,12 +21065,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQue
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -21056,6 +21107,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQue
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -23648,12 +23708,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQue
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -23687,6 +23750,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQue
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -25416,12 +25488,15 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -25455,6 +25530,15 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplo
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -30350,12 +30434,15 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -30389,6 +30476,15 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -33263,12 +33359,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQue
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -33302,6 +33401,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQue
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -36005,12 +36113,15 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryA
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -36044,6 +36155,15 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryA
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -37927,12 +38047,15 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryA
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -37966,6 +38089,15 @@ class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryA
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -44520,12 +44652,15 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -44559,6 +44694,15 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -47151,12 +47295,15 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -47190,6 +47337,15 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -48919,12 +49075,15 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryAr
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -48958,6 +49117,15 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryAr
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -53853,12 +54021,15 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -53892,6 +54063,15 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -56766,12 +56946,15 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -56805,6 +56988,15 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -59508,12 +59700,15 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -59547,6 +59742,15 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -61430,12 +61634,15 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs:
                  data_source: pulumi.Input[str],
                  measure: pulumi.Input[str],
                  slo_id: pulumi.Input[str],
+                 additional_query_filters: Optional[pulumi.Input[str]] = None,
                  group_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  slo_query_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
         pulumi.set(__self__, "slo_id", slo_id)
+        if additional_query_filters is not None:
+            pulumi.set(__self__, "additional_query_filters", additional_query_filters)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -61469,6 +61676,15 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs:
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slo_id", value)
+
+    @property
+    @pulumi.getter(name="additionalQueryFilters")
+    def additional_query_filters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "additional_query_filters")
+
+    @additional_query_filters.setter
+    def additional_query_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_query_filters", value)
 
     @property
     @pulumi.getter(name="groupMode")
@@ -65388,39 +65604,37 @@ class OrganizationSettingsSettingsSamlStrictModeArgs:
 @pulumi.input_type
 class RestrictionPolicyBindingArgs:
     def __init__(__self__, *,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 relation: Optional[pulumi.Input[str]] = None):
+                 principals: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 relation: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
-        :param pulumi.Input[str] relation: The role/level of access.
+        :param pulumi.Input[str] relation: The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
         """
-        if principals is not None:
-            pulumi.set(__self__, "principals", principals)
-        if relation is not None:
-            pulumi.set(__self__, "relation", relation)
+        pulumi.set(__self__, "principals", principals)
+        pulumi.set(__self__, "relation", relation)
 
     @property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def principals(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def principals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "principals", value)
 
     @property
     @pulumi.getter
-    def relation(self) -> Optional[pulumi.Input[str]]:
+    def relation(self) -> pulumi.Input[str]:
         """
-        The role/level of access.
+        The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
         """
         return pulumi.get(self, "relation")
 
     @relation.setter
-    def relation(self, value: Optional[pulumi.Input[str]]):
+    def relation(self, value: pulumi.Input[str]):
         pulumi.set(self, "relation", value)
 
 

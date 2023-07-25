@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,6 +66,7 @@ func NewOrganizationSettings(ctx *pulumi.Context,
 		args = &OrganizationSettingsArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationSettings
 	err := ctx.RegisterResource("datadog:index/organizationSettings:OrganizationSettings", name, args, &resource, opts...)
 	if err != nil {

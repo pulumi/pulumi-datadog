@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
 func GetSensitiveDataScannerStandardPattern(ctx *pulumi.Context, args *GetSensitiveDataScannerStandardPatternArgs, opts ...pulumi.InvokeOption) (*GetSensitiveDataScannerStandardPatternResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSensitiveDataScannerStandardPatternResult
 	err := ctx.Invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args, &rv, opts...)
 	if err != nil {

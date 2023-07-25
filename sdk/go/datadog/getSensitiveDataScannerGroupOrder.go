@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupSensitiveDataScannerGroupOrder(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSensitiveDataScannerGroupOrderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveDataScannerGroupOrderResult
 	err := ctx.Invoke("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", nil, &rv, opts...)
 	if err != nil {

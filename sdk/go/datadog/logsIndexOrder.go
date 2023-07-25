@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,6 +71,7 @@ func NewLogsIndexOrder(ctx *pulumi.Context,
 	if args.Indexes == nil {
 		return nil, errors.New("invalid value for required argument 'Indexes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogsIndexOrder
 	err := ctx.RegisterResource("datadog:index/logsIndexOrder:LogsIndexOrder", name, args, &resource, opts...)
 	if err != nil {

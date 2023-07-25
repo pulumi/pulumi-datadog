@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,6 +66,7 @@ func NewMonitorConfigPolicy(ctx *pulumi.Context,
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitorConfigPolicy
 	err := ctx.RegisterResource("datadog:index/monitorConfigPolicy:MonitorConfigPolicy", name, args, &resource, opts...)
 	if err != nil {

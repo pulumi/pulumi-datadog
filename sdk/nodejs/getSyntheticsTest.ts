@@ -20,7 +20,7 @@ export function getSyntheticsTest(args: GetSyntheticsTestArgs, opts?: pulumi.Inv
  */
 export interface GetSyntheticsTestArgs {
     /**
-     * The synthetic test id to search for
+     * The synthetic test id or URL to search for
      */
     testId: string;
 }
@@ -42,7 +42,7 @@ export interface GetSyntheticsTestResult {
      */
     readonly tags: string[];
     /**
-     * The synthetic test id to search for
+     * The synthetic test id or URL to search for
      */
     readonly testId: string;
     /**
@@ -62,7 +62,7 @@ export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?
  */
 export interface GetSyntheticsTestOutputArgs {
     /**
-     * The synthetic test id to search for
+     * The synthetic test id or URL to search for
      */
     testId: pulumi.Input<string>;
 }

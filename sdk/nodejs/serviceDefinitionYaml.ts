@@ -91,6 +91,32 @@ import * as utilities from "./utilities";
  *     customField: customValue
  *
  * `});
+ * // Service Definition with backstage.io Schema
+ * const serviceDefinitionBackstage = new datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", {serviceDefinition: `apiVersion: backstage.io/v1alpha1
+ * kind: Component
+ * metadata:
+ *   annotations:
+ *     backstage.io/techdocs-ref: http://a/b/c
+ *     some.annotation: value
+ *   namespace: default
+ *   name: shopping-cart
+ *   title: Shopping Cart
+ *   description: A shopping cart service
+ *   tags: ["taga:valuea", "tagb:valueb"]
+ *   links:
+ *     - title: Wiki
+ *       url: https://wiki/shopping-cart
+ *       icon: help
+ *   ignore-attribute:
+ *     id: 1
+ *     value: "value"
+ * spec:
+ *   type: service
+ *   lifecycle: production
+ *   owner: e-commerce
+ *   system: retail
+ *
+ * `});
  * ```
  *
  * ## Import

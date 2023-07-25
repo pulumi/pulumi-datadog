@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ func NewRumApplication(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RumApplication
 	err := ctx.RegisterResource("datadog:index/rumApplication:RumApplication", name, args, &resource, opts...)
 	if err != nil {

@@ -66,7 +66,7 @@ class GetSyntheticsTestResult:
     @pulumi.getter(name="testId")
     def test_id(self) -> str:
         """
-        The synthetic test id to search for
+        The synthetic test id or URL to search for
         """
         return pulumi.get(self, "test_id")
 
@@ -98,7 +98,7 @@ def get_synthetics_test(test_id: Optional[str] = None,
     Use this data source to retrieve a Datadog Synthetic Test.
 
 
-    :param str test_id: The synthetic test id to search for
+    :param str test_id: The synthetic test id or URL to search for
     """
     __args__ = dict()
     __args__['testId'] = test_id
@@ -120,6 +120,6 @@ def get_synthetics_test_output(test_id: Optional[pulumi.Input[str]] = None,
     Use this data source to retrieve a Datadog Synthetic Test.
 
 
-    :param str test_id: The synthetic test id to search for
+    :param str test_id: The synthetic test id or URL to search for
     """
     ...

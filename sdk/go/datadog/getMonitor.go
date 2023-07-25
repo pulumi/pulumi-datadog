@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitorResult
 	err := ctx.Invoke("datadog:index/getMonitor:getMonitor", args, &rv, opts...)
 	if err != nil {

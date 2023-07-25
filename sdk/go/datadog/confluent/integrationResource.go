@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,8 @@ type IntegrationResource struct {
 
 	// Confluent Account ID.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	EnableCustomMetrics pulumi.BoolOutput `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
@@ -89,6 +92,7 @@ func NewIntegrationResource(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationResource
 	err := ctx.RegisterResource("datadog:confluent/integrationResource:IntegrationResource", name, args, &resource, opts...)
 	if err != nil {
@@ -113,6 +117,8 @@ func GetIntegrationResource(ctx *pulumi.Context,
 type integrationResourceState struct {
 	// Confluent Account ID.
 	AccountId *string `pulumi:"accountId"`
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	EnableCustomMetrics *bool `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
@@ -124,6 +130,8 @@ type integrationResourceState struct {
 type IntegrationResourceState struct {
 	// Confluent Account ID.
 	AccountId pulumi.StringPtrInput
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	EnableCustomMetrics pulumi.BoolPtrInput
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringPtrInput
 	// The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
@@ -139,6 +147,8 @@ func (IntegrationResourceState) ElementType() reflect.Type {
 type integrationResourceArgs struct {
 	// Confluent Account ID.
 	AccountId string `pulumi:"accountId"`
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	EnableCustomMetrics *bool `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId string `pulumi:"resourceId"`
 	// The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
@@ -151,6 +161,8 @@ type integrationResourceArgs struct {
 type IntegrationResourceArgs struct {
 	// Confluent Account ID.
 	AccountId pulumi.StringInput
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	EnableCustomMetrics pulumi.BoolPtrInput
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringInput
 	// The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
@@ -249,6 +261,11 @@ func (o IntegrationResourceOutput) ToIntegrationResourceOutputWithContext(ctx co
 // Confluent Account ID.
 func (o IntegrationResourceOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResource) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+func (o IntegrationResourceOutput) EnableCustomMetrics() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IntegrationResource) pulumi.BoolOutput { return v.EnableCustomMetrics }).(pulumi.BoolOutput)
 }
 
 // The ID associated with a Confluent resource.

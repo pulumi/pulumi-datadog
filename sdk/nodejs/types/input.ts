@@ -505,6 +505,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -986,6 +987,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -1434,6 +1436,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -1915,6 +1918,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -2836,6 +2840,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -3179,6 +3184,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -3415,6 +3421,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -4088,6 +4095,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -4473,6 +4481,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -4833,6 +4842,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -5090,6 +5100,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -5978,6 +5989,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -6321,6 +6333,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -6557,6 +6570,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -7230,6 +7244,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -7615,6 +7630,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -7975,6 +7991,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -8232,6 +8249,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
+    additionalQueryFilters?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     groupMode?: pulumi.Input<string>;
     measure: pulumi.Input<string>;
@@ -8994,11 +9012,11 @@ export interface RestrictionPolicyBinding {
     /**
      * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `org`. The org ID can be obtained through the api/v2/users API.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The role/level of access.
+     * The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
      */
-    relation?: pulumi.Input<string>;
+    relation: pulumi.Input<string>;
 }
 
 export interface RolePermission {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to list several existing monitors for use in other resources.
 func GetMonitors(ctx *pulumi.Context, args *GetMonitorsArgs, opts ...pulumi.InvokeOption) (*GetMonitorsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMonitorsResult
 	err := ctx.Invoke("datadog:index/getMonitors:getMonitors", args, &rv, opts...)
 	if err != nil {

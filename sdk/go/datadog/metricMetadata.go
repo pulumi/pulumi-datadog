@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewMetricMetadata(ctx *pulumi.Context,
 	if args.Metric == nil {
 		return nil, errors.New("invalid value for required argument 'Metric'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricMetadata
 	err := ctx.RegisterResource("datadog:index/metricMetadata:MetricMetadata", name, args, &resource, opts...)
 	if err != nil {

@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func GetSecurityMonitoringFilters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringFiltersResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityMonitoringFiltersResult
 	err := ctx.Invoke("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", nil, &rv, opts...)
 	if err != nil {

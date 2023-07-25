@@ -8,10 +8,11 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources.
+// Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
 //
 // ## Example Usage
 //
@@ -78,6 +79,7 @@ func NewRestrictionPolicy(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestrictionPolicy
 	err := ctx.RegisterResource("datadog:index/restrictionPolicy:RestrictionPolicy", name, args, &resource, opts...)
 	if err != nil {

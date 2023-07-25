@@ -15,6 +15,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
 
     public static final DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs();
 
+    @Import(name="additionalQueryFilters")
+    private @Nullable Output<String> additionalQueryFilters;
+
+    public Optional<Output<String>> additionalQueryFilters() {
+        return Optional.ofNullable(this.additionalQueryFilters);
+    }
+
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
@@ -60,6 +67,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs $) {
+        this.additionalQueryFilters = $.additionalQueryFilters;
         this.dataSource = $.dataSource;
         this.groupMode = $.groupMode;
         this.measure = $.measure;
@@ -84,6 +92,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
 
         public Builder(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs defaults) {
             $ = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalQueryFilters(@Nullable Output<String> additionalQueryFilters) {
+            $.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+
+        public Builder additionalQueryFilters(String additionalQueryFilters) {
+            return additionalQueryFilters(Output.of(additionalQueryFilters));
         }
 
         public Builder dataSource(Output<String> dataSource) {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.confluent;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+
+    /**
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * 
+     */
+    @Import(name="enableCustomMetrics")
+    private @Nullable Output<Boolean> enableCustomMetrics;
+
+    /**
+     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * 
+     */
+    public Optional<Output<Boolean>> enableCustomMetrics() {
+        return Optional.ofNullable(this.enableCustomMetrics);
     }
 
     /**
@@ -80,6 +96,7 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
 
     private IntegrationResourceArgs(IntegrationResourceArgs $) {
         this.accountId = $.accountId;
+        this.enableCustomMetrics = $.enableCustomMetrics;
         this.resourceId = $.resourceId;
         this.resourceType = $.resourceType;
         this.tags = $.tags;
@@ -122,6 +139,27 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCustomMetrics(@Nullable Output<Boolean> enableCustomMetrics) {
+            $.enableCustomMetrics = enableCustomMetrics;
+            return this;
+        }
+
+        /**
+         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCustomMetrics(Boolean enableCustomMetrics) {
+            return enableCustomMetrics(Output.of(enableCustomMetrics));
         }
 
         /**

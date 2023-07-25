@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a Datadog Synthetic Test.
 func LookupSyntheticsTest(ctx *pulumi.Context, args *LookupSyntheticsTestArgs, opts ...pulumi.InvokeOption) (*LookupSyntheticsTestResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyntheticsTestResult
 	err := ctx.Invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", args, &rv, opts...)
 	if err != nil {
@@ -22,7 +24,7 @@ func LookupSyntheticsTest(ctx *pulumi.Context, args *LookupSyntheticsTestArgs, o
 
 // A collection of arguments for invoking getSyntheticsTest.
 type LookupSyntheticsTestArgs struct {
-	// The synthetic test id to search for
+	// The synthetic test id or URL to search for
 	TestId string `pulumi:"testId"`
 }
 
@@ -34,7 +36,7 @@ type LookupSyntheticsTestResult struct {
 	Name string `pulumi:"name"`
 	// A list of tags assigned to the synthetic test.
 	Tags []string `pulumi:"tags"`
-	// The synthetic test id to search for
+	// The synthetic test id or URL to search for
 	TestId string `pulumi:"testId"`
 	// The start URL of the synthetic test.
 	Url string `pulumi:"url"`
@@ -55,7 +57,7 @@ func LookupSyntheticsTestOutput(ctx *pulumi.Context, args LookupSyntheticsTestOu
 
 // A collection of arguments for invoking getSyntheticsTest.
 type LookupSyntheticsTestOutputArgs struct {
-	// The synthetic test id to search for
+	// The synthetic test id or URL to search for
 	TestId pulumi.StringInput `pulumi:"testId"`
 }
 
@@ -93,7 +95,7 @@ func (o LookupSyntheticsTestResultOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The synthetic test id to search for
+// The synthetic test id or URL to search for
 func (o LookupSyntheticsTestResultOutput) TestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.TestId }).(pulumi.StringOutput)
 }

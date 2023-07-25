@@ -152,6 +152,32 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
             customField: customValue
 
         \"\"\")
+        # Service Definition with backstage.io Schema
+        service_definition_backstage = datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
+        kind: Component
+        metadata:
+          annotations:
+            backstage.io/techdocs-ref: http://a/b/c
+            some.annotation: value
+          namespace: default
+          name: shopping-cart
+          title: Shopping Cart
+          description: A shopping cart service
+          tags: ["taga:valuea", "tagb:valueb"]
+          links:
+            - title: Wiki
+              url: https://wiki/shopping-cart
+              icon: help
+          ignore-attribute:
+            id: 1
+            value: "value"
+        spec:
+          type: service
+          lifecycle: production
+          owner: e-commerce
+          system: retail
+
+        \"\"\")
         ```
 
         ## Import
@@ -255,6 +281,32 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           datadoghq.com/shopping-cart:
             customField: customValue
+
+        \"\"\")
+        # Service Definition with backstage.io Schema
+        service_definition_backstage = datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
+        kind: Component
+        metadata:
+          annotations:
+            backstage.io/techdocs-ref: http://a/b/c
+            some.annotation: value
+          namespace: default
+          name: shopping-cart
+          title: Shopping Cart
+          description: A shopping cart service
+          tags: ["taga:valuea", "tagb:valueb"]
+          links:
+            - title: Wiki
+              url: https://wiki/shopping-cart
+              icon: help
+          ignore-attribute:
+            id: 1
+            value: "value"
+        spec:
+          type: service
+          lifecycle: production
+          owner: e-commerce
+          system: retail
 
         \"\"\")
         ```

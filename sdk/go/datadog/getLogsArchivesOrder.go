@@ -4,11 +4,13 @@
 package datadog
 
 import (
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Get the current order of your logs archives.
 func GetLogsArchivesOrder(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogsArchivesOrderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsArchivesOrderResult
 	err := ctx.Invoke("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", nil, &rv, opts...)
 	if err != nil {

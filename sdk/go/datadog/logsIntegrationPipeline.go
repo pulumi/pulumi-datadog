@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,6 +62,7 @@ func NewLogsIntegrationPipeline(ctx *pulumi.Context,
 		args = &LogsIntegrationPipelineArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogsIntegrationPipeline
 	err := ctx.RegisterResource("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, args, &resource, opts...)
 	if err != nil {

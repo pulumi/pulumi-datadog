@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetServiceLevelObjectives(ctx *pulumi.Context, args *GetServiceLevelObjectivesArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelObjectivesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelObjectivesResult
 	err := ctx.Invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args, &rv, opts...)
 	if err != nil {

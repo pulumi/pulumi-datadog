@@ -122,6 +122,35 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
+ *         var serviceDefinitionBackstage = new ServiceDefinitionYaml(&#34;serviceDefinitionBackstage&#34;, ServiceDefinitionYamlArgs.builder()        
+ *             .serviceDefinition(&#34;&#34;&#34;
+ * apiVersion: backstage.io/v1alpha1
+ * kind: Component
+ * metadata:
+ *   annotations:
+ *     backstage.io/techdocs-ref: http://a/b/c
+ *     some.annotation: value
+ *   namespace: default
+ *   name: shopping-cart
+ *   title: Shopping Cart
+ *   description: A shopping cart service
+ *   tags: [&#34;taga:valuea&#34;, &#34;tagb:valueb&#34;]
+ *   links:
+ *     - title: Wiki
+ *       url: https://wiki/shopping-cart
+ *       icon: help
+ *   ignore-attribute:
+ *     id: 1
+ *     value: &#34;value&#34;
+ * spec:
+ *   type: service
+ *   lifecycle: production
+ *   owner: e-commerce
+ *   system: retail
+ * 
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
  *     }
  * }
  * ```

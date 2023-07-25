@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ func NewWebhookCustomVariable(ctx *pulumi.Context,
 		"value",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebhookCustomVariable
 	err := ctx.RegisterResource("datadog:index/webhookCustomVariable:WebhookCustomVariable", name, args, &resource, opts...)
 	if err != nil {
