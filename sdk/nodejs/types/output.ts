@@ -61,6 +61,17 @@ export interface ChildOrganizationUser {
     name: string;
 }
 
+export interface CloudConfigurationRuleFilter {
+    /**
+     * The type of filtering action. Valid values are `require`, `suppress`.
+     */
+    action: string;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
+    query: string;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -8293,6 +8304,42 @@ export interface DowntimeRecurrence {
     weekDays?: string[];
 }
 
+export interface DowntimeScheduleMonitorIdentifier {
+    /**
+     * ID of the monitor to prevent notifications.
+     */
+    monitorId?: number;
+    /**
+     * A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+     */
+    monitorTags?: string[];
+}
+
+export interface DowntimeScheduleOneTimeSchedule {
+    /**
+     * ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+     */
+    end?: string;
+    /**
+     * ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     */
+    start: string;
+}
+
+export interface DowntimeScheduleRecurringSchedule {
+    recurrences?: outputs.DowntimeScheduleRecurringScheduleRecurrence[];
+    /**
+     * The timezone in which to schedule the downtime.
+     */
+    timezone: string;
+}
+
+export interface DowntimeScheduleRecurringScheduleRecurrence {
+    duration: string;
+    rrule: string;
+    start: string;
+}
+
 export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     description: string;
     enabled: boolean;
@@ -9858,6 +9905,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     numberOfPackets?: number;
     /**
+     * Persist cookies across redirects.
+     */
+    persistCookies?: boolean;
+    /**
      * Port to use when performing the test.
      */
     port?: number;
@@ -10303,6 +10354,10 @@ export interface SyntheticsTestRequestDefinition {
      * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
      */
     numberOfPackets?: number;
+    /**
+     * Persist cookies across redirects.
+     */
+    persistCookies?: boolean;
     /**
      * Port to use when performing the test.
      */

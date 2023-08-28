@@ -19,6 +19,7 @@ __all__ = [
     'ChildOrganizationSettingSamlIdpInitiatedLogin',
     'ChildOrganizationSettingSamlStrictMode',
     'ChildOrganizationUser',
+    'CloudConfigurationRuleFilter',
     'DashboardListDashItem',
     'DashboardTemplateVariable',
     'DashboardTemplateVariablePreset',
@@ -1073,6 +1074,10 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestQuerySloQuery',
     'DashboardWidgetWidgetLayout',
     'DowntimeRecurrence',
+    'DowntimeScheduleMonitorIdentifier',
+    'DowntimeScheduleOneTimeSchedule',
+    'DowntimeScheduleRecurringSchedule',
+    'DowntimeScheduleRecurringScheduleRecurrence',
     'IpAllowlistEntry',
     'LogsArchiveAzureArchive',
     'LogsArchiveGcsArchive',
@@ -1527,6 +1532,35 @@ class ChildOrganizationUser(dict):
         Name for Child Organization after creation.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CloudConfigurationRuleFilter(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 query: str):
+        """
+        :param str action: The type of filtering action. Valid values are `require`, `suppress`.
+        :param str query: Query for selecting logs to apply the filtering action.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The type of filtering action. Valid values are `require`, `suppress`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        Query for selecting logs to apply the filtering action.
+        """
+        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -56176,6 +56210,141 @@ class DowntimeRecurrence(dict):
 
 
 @pulumi.output_type
+class DowntimeScheduleMonitorIdentifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitorId":
+            suggest = "monitor_id"
+        elif key == "monitorTags":
+            suggest = "monitor_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DowntimeScheduleMonitorIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DowntimeScheduleMonitorIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DowntimeScheduleMonitorIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitor_id: Optional[int] = None,
+                 monitor_tags: Optional[Sequence[str]] = None):
+        """
+        :param int monitor_id: ID of the monitor to prevent notifications.
+        :param Sequence[str] monitor_tags: A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitor_tags` to `[*]` configures the downtime to mute all monitors for the given scope.
+        """
+        if monitor_id is not None:
+            pulumi.set(__self__, "monitor_id", monitor_id)
+        if monitor_tags is not None:
+            pulumi.set(__self__, "monitor_tags", monitor_tags)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[int]:
+        """
+        ID of the monitor to prevent notifications.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @property
+    @pulumi.getter(name="monitorTags")
+    def monitor_tags(self) -> Optional[Sequence[str]]:
+        """
+        A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitor_tags` to `[*]` configures the downtime to mute all monitors for the given scope.
+        """
+        return pulumi.get(self, "monitor_tags")
+
+
+@pulumi.output_type
+class DowntimeScheduleOneTimeSchedule(dict):
+    def __init__(__self__, *,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param str end: ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+        :param str start: ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class DowntimeScheduleRecurringSchedule(dict):
+    def __init__(__self__, *,
+                 recurrences: Optional[Sequence['outputs.DowntimeScheduleRecurringScheduleRecurrence']] = None,
+                 timezone: Optional[str] = None):
+        """
+        :param str timezone: The timezone in which to schedule the downtime.
+        """
+        if recurrences is not None:
+            pulumi.set(__self__, "recurrences", recurrences)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def recurrences(self) -> Optional[Sequence['outputs.DowntimeScheduleRecurringScheduleRecurrence']]:
+        return pulumi.get(self, "recurrences")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        The timezone in which to schedule the downtime.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class DowntimeScheduleRecurringScheduleRecurrence(dict):
+    def __init__(__self__, *,
+                 duration: str,
+                 rrule: str,
+                 start: Optional[str] = None):
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "rrule", rrule)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def rrule(self) -> str:
+        return pulumi.get(self, "rrule")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
 class IpAllowlistEntry(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -61860,6 +62029,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             suggest = "no_saving_response_body"
         elif key == "numberOfPackets":
             suggest = "number_of_packets"
+        elif key == "persistCookies":
+            suggest = "persist_cookies"
         elif key == "shouldTrackHops":
             suggest = "should_track_hops"
 
@@ -61888,6 +62059,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
                  method: Optional[str] = None,
                  no_saving_response_body: Optional[bool] = None,
                  number_of_packets: Optional[int] = None,
+                 persist_cookies: Optional[bool] = None,
                  port: Optional[int] = None,
                  servername: Optional[str] = None,
                  service: Optional[str] = None,
@@ -61906,6 +62078,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+        :param bool persist_cookies: Persist cookies across redirects.
         :param int port: Port to use when performing the test.
         :param str servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param str service: The gRPC service on which you want to perform the gRPC call.
@@ -61939,6 +62112,8 @@ class SyntheticsTestApiStepRequestDefinition(dict):
             pulumi.set(__self__, "no_saving_response_body", no_saving_response_body)
         if number_of_packets is not None:
             pulumi.set(__self__, "number_of_packets", number_of_packets)
+        if persist_cookies is not None:
+            pulumi.set(__self__, "persist_cookies", persist_cookies)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if servername is not None:
@@ -62049,6 +62224,14 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         """
         return pulumi.get(self, "number_of_packets")
+
+    @property
+    @pulumi.getter(name="persistCookies")
+    def persist_cookies(self) -> Optional[bool]:
+        """
+        Persist cookies across redirects.
+        """
+        return pulumi.get(self, "persist_cookies")
 
     @property
     @pulumi.getter
@@ -63631,6 +63814,8 @@ class SyntheticsTestRequestDefinition(dict):
             suggest = "no_saving_response_body"
         elif key == "numberOfPackets":
             suggest = "number_of_packets"
+        elif key == "persistCookies":
+            suggest = "persist_cookies"
         elif key == "shouldTrackHops":
             suggest = "should_track_hops"
 
@@ -63657,6 +63842,7 @@ class SyntheticsTestRequestDefinition(dict):
                  method: Optional[str] = None,
                  no_saving_response_body: Optional[bool] = None,
                  number_of_packets: Optional[int] = None,
+                 persist_cookies: Optional[bool] = None,
                  port: Optional[int] = None,
                  servername: Optional[str] = None,
                  service: Optional[str] = None,
@@ -63675,6 +63861,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+        :param bool persist_cookies: Persist cookies across redirects.
         :param int port: Port to use when performing the test.
         :param str servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param str service: The gRPC service on which you want to perform the gRPC call.
@@ -63704,6 +63891,8 @@ class SyntheticsTestRequestDefinition(dict):
             pulumi.set(__self__, "no_saving_response_body", no_saving_response_body)
         if number_of_packets is not None:
             pulumi.set(__self__, "number_of_packets", number_of_packets)
+        if persist_cookies is not None:
+            pulumi.set(__self__, "persist_cookies", persist_cookies)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if servername is not None:
@@ -63804,6 +63993,14 @@ class SyntheticsTestRequestDefinition(dict):
         Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         """
         return pulumi.get(self, "number_of_packets")
+
+    @property
+    @pulumi.getter(name="persistCookies")
+    def persist_cookies(self) -> Optional[bool]:
+        """
+        Persist cookies across redirects.
+        """
+        return pulumi.get(self, "persist_cookies")
 
     @property
     @pulumi.getter

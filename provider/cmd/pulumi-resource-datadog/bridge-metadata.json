@@ -58,6 +58,9 @@
                 "current": "datadog:index/cloudConfigurationRule:CloudConfigurationRule",
                 "majorVersion": 4,
                 "fields": {
+                    "filter": {
+                        "maxItemsOne": false
+                    },
                     "group_by": {
                         "maxItemsOne": false
                     },
@@ -5425,6 +5428,36 @@
                     }
                 }
             },
+            "datadog_downtime_schedule": {
+                "current": "datadog:index/downtimeSchedule:DowntimeSchedule",
+                "majorVersion": 4,
+                "fields": {
+                    "monitor_identifier": {
+                        "elem": {
+                            "fields": {
+                                "monitor_tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "notify_end_states": {
+                        "maxItemsOne": false
+                    },
+                    "notify_end_types": {
+                        "maxItemsOne": false
+                    },
+                    "recurring_schedule": {
+                        "elem": {
+                            "fields": {
+                                "recurrence": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_integration_aws": {
                 "current": "datadog:aws/integration:Integration",
                 "majorVersion": 4,
@@ -6541,6 +6574,10 @@
                 "current": "datadog:index/teamMembership:TeamMembership",
                 "majorVersion": 4
             },
+            "datadog_team_permission_setting": {
+                "current": "datadog:index/teamPermissionSetting:TeamPermissionSetting",
+                "majorVersion": 4
+            },
             "datadog_user": {
                 "current": "datadog:index/user:User",
                 "majorVersion": 4,
@@ -7047,8 +7084,9 @@
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
-            "datadog:index/dashboardList:DashboardList": 0,
+            "datadog:index/dashboardList:DashboardList": 1,
             "datadog:index/downtime:Downtime": 0,
+            "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
             "datadog:index/ipAllowlist:IpAllowlist": 0,
             "datadog:index/logsArchive:LogsArchive": 0,
             "datadog:index/logsArchiveOrder:LogsArchiveOrder": 0,
@@ -7086,6 +7124,7 @@
             "datadog:index/team:Team": 1,
             "datadog:index/teamLink:TeamLink": 1,
             "datadog:index/teamMembership:TeamMembership": 1,
+            "datadog:index/teamPermissionSetting:TeamPermissionSetting": 1,
             "datadog:index/user:User": 0,
             "datadog:index/webhook:Webhook": 0,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 0,
@@ -7101,7 +7140,7 @@
             "datadog:index/getApplicationKey:getApplicationKey": 0,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
             "datadog:index/getDashboard:getDashboard": 0,
-            "datadog:index/getDashboardList:getDashboardList": 0,
+            "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getHosts:getHosts": 1,
             "datadog:index/getIpRanges:getIpRanges": 1,
             "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder": 0,
@@ -7154,6 +7193,7 @@
             "datadog:index/dashboardJson:DashboardJson": "datadog_dashboard_json",
             "datadog:index/dashboardList:DashboardList": "datadog_dashboard_list",
             "datadog:index/downtime:Downtime": "datadog_downtime",
+            "datadog:index/downtimeSchedule:DowntimeSchedule": "datadog_downtime_schedule",
             "datadog:index/ipAllowlist:IpAllowlist": "datadog_ip_allowlist",
             "datadog:index/logsArchive:LogsArchive": "datadog_logs_archive",
             "datadog:index/logsArchiveOrder:LogsArchiveOrder": "datadog_logs_archive_order",
@@ -7191,6 +7231,7 @@
             "datadog:index/team:Team": "datadog_team",
             "datadog:index/teamLink:TeamLink": "datadog_team_link",
             "datadog:index/teamMembership:TeamMembership": "datadog_team_membership",
+            "datadog:index/teamPermissionSetting:TeamPermissionSetting": "datadog_team_permission_setting",
             "datadog:index/user:User": "datadog_user",
             "datadog:index/webhook:Webhook": "datadog_webhook",
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": "datadog_webhook_custom_variable",
@@ -7267,8 +7308,11 @@
                 "tagFilterStr": "tag_filter_str"
             },
             "datadog:azure/integration:Integration": {
+                "appServicePlanFilters": "app_service_plan_filters",
                 "clientId": "client_id",
                 "clientSecret": "client_secret",
+                "cspmEnabled": "cspm_enabled",
+                "customMetricsEnabled": "custom_metrics_enabled",
                 "hostFilters": "host_filters",
                 "tenantName": "tenant_name"
             },
@@ -10592,6 +10636,13 @@
                 "untilOccurrences": "until_occurrences",
                 "weekDays": "week_days"
             },
+            "datadog:index/DowntimeScheduleMonitorIdentifier:DowntimeScheduleMonitorIdentifier": {
+                "monitorId": "monitor_id",
+                "monitorTags": "monitor_tags"
+            },
+            "datadog:index/DowntimeScheduleRecurringSchedule:DowntimeScheduleRecurringSchedule": {
+                "recurrences": "recurrence"
+            },
             "datadog:index/IpAllowlistEntry:IpAllowlistEntry": {
                 "cidrBlock": "cidr_block"
             },
@@ -10919,6 +10970,7 @@
                 "followRedirects": "follow_redirects",
                 "noSavingResponseBody": "no_saving_response_body",
                 "numberOfPackets": "number_of_packets",
+                "persistCookies": "persist_cookies",
                 "shouldTrackHops": "should_track_hops"
             },
             "datadog:index/SyntheticsTestBrowserStep:SyntheticsTestBrowserStep": {
@@ -10986,6 +11038,7 @@
                 "dnsServerPort": "dns_server_port",
                 "noSavingResponseBody": "no_saving_response_body",
                 "numberOfPackets": "number_of_packets",
+                "persistCookies": "persist_cookies",
                 "shouldTrackHops": "should_track_hops"
             },
             "datadog:index/childOrganization:ChildOrganization": {
@@ -10995,6 +11048,7 @@
                 "users": "user"
             },
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": {
+                "filters": "filter",
                 "groupBies": "group_by",
                 "relatedResourceTypes": "related_resource_types",
                 "resourceType": "resource_type"
@@ -11026,6 +11080,15 @@
                 "muteFirstRecoveryNotification": "mute_first_recovery_notification",
                 "scopes": "scope",
                 "startDate": "start_date"
+            },
+            "datadog:index/downtimeSchedule:DowntimeSchedule": {
+                "displayTimezone": "display_timezone",
+                "monitorIdentifier": "monitor_identifier",
+                "muteFirstRecoveryNotification": "mute_first_recovery_notification",
+                "notifyEndStates": "notify_end_states",
+                "notifyEndTypes": "notify_end_types",
+                "oneTimeSchedule": "one_time_schedule",
+                "recurringSchedule": "recurring_schedule"
             },
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": {
                 "agentRules": "agent_rules"
@@ -11443,6 +11506,9 @@
             "datadog:index/teamMembership:TeamMembership": {
                 "teamId": "team_id",
                 "userId": "user_id"
+            },
+            "datadog:index/teamPermissionSetting:TeamPermissionSetting": {
+                "teamId": "team_id"
             },
             "datadog:index/user:User": {
                 "sendUserInvitation": "send_user_invitation",

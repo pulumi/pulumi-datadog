@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
     ///     // Manage a Datadog metric's metadata
     ///     var requestTime = new Datadog.MetricMetadata("requestTime", new()
     ///     {
-    ///         Description = "99th percentile request time in millseconds",
+    ///         Description = "99th percentile request time in milliseconds",
     ///         Metric = "request.time",
     ///         ShortName = "Request time",
     ///         Type = "gauge",

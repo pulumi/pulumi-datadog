@@ -17,21 +17,33 @@ class IntegrationArgs:
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
                  tenant_name: pulumi.Input[str],
+                 app_service_plan_filters: Optional[pulumi.Input[str]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
+                 cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[str] app_service_plan_filters: String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
+        :param pulumi.Input[bool] cspm_enabled: Enable Cloud Security Management Misconfigurations for your organization.
+        :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "tenant_name", tenant_name)
+        if app_service_plan_filters is not None:
+            pulumi.set(__self__, "app_service_plan_filters", app_service_plan_filters)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
+        if cspm_enabled is not None:
+            pulumi.set(__self__, "cspm_enabled", cspm_enabled)
+        if custom_metrics_enabled is not None:
+            pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
 
@@ -72,6 +84,18 @@ class IntegrationArgs:
         pulumi.set(self, "tenant_name", value)
 
     @property
+    @pulumi.getter(name="appServicePlanFilters")
+    def app_service_plan_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        """
+        return pulumi.get(self, "app_service_plan_filters")
+
+    @app_service_plan_filters.setter
+    def app_service_plan_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_filters", value)
+
+    @property
     @pulumi.getter
     def automute(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -82,6 +106,30 @@ class IntegrationArgs:
     @automute.setter
     def automute(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "automute", value)
+
+    @property
+    @pulumi.getter(name="cspmEnabled")
+    def cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Cloud Security Management Misconfigurations for your organization.
+        """
+        return pulumi.get(self, "cspm_enabled")
+
+    @cspm_enabled.setter
+    def cspm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cspm_enabled", value)
+
+    @property
+    @pulumi.getter(name="customMetricsEnabled")
+    def custom_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable custom metrics for your organization.
+        """
+        return pulumi.get(self, "custom_metrics_enabled")
+
+    @custom_metrics_enabled.setter
+    def custom_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_metrics_enabled", value)
 
     @property
     @pulumi.getter(name="hostFilters")
@@ -99,29 +147,53 @@ class IntegrationArgs:
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
+                 app_service_plan_filters: Optional[pulumi.Input[str]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[str] app_service_plan_filters: String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
+        :param pulumi.Input[bool] cspm_enabled: Enable Cloud Security Management Misconfigurations for your organization.
+        :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
+        if app_service_plan_filters is not None:
+            pulumi.set(__self__, "app_service_plan_filters", app_service_plan_filters)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if cspm_enabled is not None:
+            pulumi.set(__self__, "cspm_enabled", cspm_enabled)
+        if custom_metrics_enabled is not None:
+            pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter(name="appServicePlanFilters")
+    def app_service_plan_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        """
+        return pulumi.get(self, "app_service_plan_filters")
+
+    @app_service_plan_filters.setter
+    def app_service_plan_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_filters", value)
 
     @property
     @pulumi.getter
@@ -160,6 +232,30 @@ class _IntegrationState:
         pulumi.set(self, "client_secret", value)
 
     @property
+    @pulumi.getter(name="cspmEnabled")
+    def cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Cloud Security Management Misconfigurations for your organization.
+        """
+        return pulumi.get(self, "cspm_enabled")
+
+    @cspm_enabled.setter
+    def cspm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cspm_enabled", value)
+
+    @property
+    @pulumi.getter(name="customMetricsEnabled")
+    def custom_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable custom metrics for your organization.
+        """
+        return pulumi.get(self, "custom_metrics_enabled")
+
+    @custom_metrics_enabled.setter
+    def custom_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_metrics_enabled", value)
+
+    @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
@@ -189,9 +285,12 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_plan_filters: Optional[pulumi.Input[str]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -206,8 +305,12 @@ class Integration(pulumi.CustomResource):
 
         # Create a new Datadog - Microsoft Azure integration
         sandbox = datadog.azure.Integration("sandbox",
+            app_service_plan_filters="examplefilter:true,example:another",
+            automute=True,
             client_id="<azure_client_id>",
             client_secret="<azure_client_secret_key>",
+            cspm_enabled=True,
+            custom_metrics_enabled=False,
             host_filters="examplefilter:true,example:true",
             tenant_name="<azure_tenant_name>")
         ```
@@ -222,9 +325,12 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_plan_filters: String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
+        :param pulumi.Input[bool] cspm_enabled: Enable Cloud Security Management Misconfigurations for your organization.
+        :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
@@ -245,8 +351,12 @@ class Integration(pulumi.CustomResource):
 
         # Create a new Datadog - Microsoft Azure integration
         sandbox = datadog.azure.Integration("sandbox",
+            app_service_plan_filters="examplefilter:true,example:another",
+            automute=True,
             client_id="<azure_client_id>",
             client_secret="<azure_client_secret_key>",
+            cspm_enabled=True,
+            custom_metrics_enabled=False,
             host_filters="examplefilter:true,example:true",
             tenant_name="<azure_tenant_name>")
         ```
@@ -274,9 +384,12 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_plan_filters: Optional[pulumi.Input[str]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -288,6 +401,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
+            __props__.__dict__["app_service_plan_filters"] = app_service_plan_filters
             __props__.__dict__["automute"] = automute
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
@@ -295,6 +409,8 @@ class Integration(pulumi.CustomResource):
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
+            __props__.__dict__["cspm_enabled"] = cspm_enabled
+            __props__.__dict__["custom_metrics_enabled"] = custom_metrics_enabled
             __props__.__dict__["host_filters"] = host_filters
             if tenant_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_name'")
@@ -311,9 +427,12 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_filters: Optional[pulumi.Input[str]] = None,
             automute: Optional[pulumi.Input[bool]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
+            cspm_enabled: Optional[pulumi.Input[bool]] = None,
+            custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
             tenant_name: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
@@ -323,9 +442,12 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_plan_filters: String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
         :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
+        :param pulumi.Input[bool] cspm_enabled: Enable Cloud Security Management Misconfigurations for your organization.
+        :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
@@ -333,12 +455,23 @@ class Integration(pulumi.CustomResource):
 
         __props__ = _IntegrationState.__new__(_IntegrationState)
 
+        __props__.__dict__["app_service_plan_filters"] = app_service_plan_filters
         __props__.__dict__["automute"] = automute
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["cspm_enabled"] = cspm_enabled
+        __props__.__dict__["custom_metrics_enabled"] = custom_metrics_enabled
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["tenant_name"] = tenant_name
         return Integration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appServicePlanFilters")
+    def app_service_plan_filters(self) -> pulumi.Output[Optional[str]]:
+        """
+        String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        """
+        return pulumi.get(self, "app_service_plan_filters")
 
     @property
     @pulumi.getter
@@ -363,6 +496,22 @@ class Integration(pulumi.CustomResource):
         (Required for Initial Creation) Your Azure web application secret key.
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="cspmEnabled")
+    def cspm_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Cloud Security Management Misconfigurations for your organization.
+        """
+        return pulumi.get(self, "cspm_enabled")
+
+    @property
+    @pulumi.getter(name="customMetricsEnabled")
+    def custom_metrics_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable custom metrics for your organization.
+        """
+        return pulumi.get(self, "custom_metrics_enabled")
 
     @property
     @pulumi.getter(name="hostFilters")

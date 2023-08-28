@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DashboardList{}
 	case "datadog:index/downtime:Downtime":
 		r = &Downtime{}
+	case "datadog:index/downtimeSchedule:DowntimeSchedule":
+		r = &DowntimeSchedule{}
 	case "datadog:index/ipAllowlist:IpAllowlist":
 		r = &IpAllowlist{}
 	case "datadog:index/logsArchive:LogsArchive":
@@ -115,6 +117,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamLink{}
 	case "datadog:index/teamMembership:TeamMembership":
 		r = &TeamMembership{}
+	case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
+		r = &TeamPermissionSetting{}
 	case "datadog:index/user:User":
 		r = &User{}
 	case "datadog:index/webhook:Webhook":
@@ -200,6 +204,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/downtime",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/downtimeSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -385,6 +394,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/teamMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamPermissionSetting",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

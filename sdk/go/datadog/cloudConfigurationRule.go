@@ -95,6 +95,8 @@ type CloudConfigurationRule struct {
 
 	// Whether the cloud configuration rule is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed. Defaults to empty list
+	Filters CloudConfigurationRuleFilterArrayOutput `pulumi:"filters"`
 	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
 	GroupBies pulumi.StringArrayOutput `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
@@ -165,6 +167,8 @@ func GetCloudConfigurationRule(ctx *pulumi.Context,
 type cloudConfigurationRuleState struct {
 	// Whether the cloud configuration rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed. Defaults to empty list
+	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
 	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
 	GroupBies []string `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
@@ -188,6 +192,8 @@ type cloudConfigurationRuleState struct {
 type CloudConfigurationRuleState struct {
 	// Whether the cloud configuration rule is enabled.
 	Enabled pulumi.BoolPtrInput
+	// Additional queries to filter matched events before they are processed. Defaults to empty list
+	Filters CloudConfigurationRuleFilterArrayInput
 	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
 	GroupBies pulumi.StringArrayInput
 	// The message associated to the rule that will be shown in findings and signals.
@@ -215,6 +221,8 @@ func (CloudConfigurationRuleState) ElementType() reflect.Type {
 type cloudConfigurationRuleArgs struct {
 	// Whether the cloud configuration rule is enabled.
 	Enabled bool `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed. Defaults to empty list
+	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
 	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
 	GroupBies []string `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
@@ -239,6 +247,8 @@ type cloudConfigurationRuleArgs struct {
 type CloudConfigurationRuleArgs struct {
 	// Whether the cloud configuration rule is enabled.
 	Enabled pulumi.BoolInput
+	// Additional queries to filter matched events before they are processed. Defaults to empty list
+	Filters CloudConfigurationRuleFilterArrayInput
 	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
 	GroupBies pulumi.StringArrayInput
 	// The message associated to the rule that will be shown in findings and signals.
@@ -349,6 +359,11 @@ func (o CloudConfigurationRuleOutput) ToCloudConfigurationRuleOutputWithContext(
 // Whether the cloud configuration rule is enabled.
 func (o CloudConfigurationRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Additional queries to filter matched events before they are processed. Defaults to empty list
+func (o CloudConfigurationRuleOutput) Filters() CloudConfigurationRuleFilterArrayOutput {
+	return o.ApplyT(func(v *CloudConfigurationRule) CloudConfigurationRuleFilterArrayOutput { return v.Filters }).(CloudConfigurationRuleFilterArrayOutput)
 }
 
 // Fields to group by when generating signals, e.g. @resource. Defaults to empty list.

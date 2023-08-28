@@ -91,6 +91,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? NumberOfPackets { get; set; }
 
         /// <summary>
+        /// Persist cookies across redirects.
+        /// </summary>
+        [Input("persistCookies")]
+        public Input<bool>? PersistCookies { get; set; }
+
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         [Input("port")]

@@ -25,8 +25,12 @@ namespace Pulumi.Datadog.Azure
     ///     // Create a new Datadog - Microsoft Azure integration
     ///     var sandbox = new Datadog.Azure.Integration("sandbox", new()
     ///     {
+    ///         AppServicePlanFilters = "examplefilter:true,example:another",
+    ///         Automute = true,
     ///         ClientId = "&lt;azure_client_id&gt;",
     ///         ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///         CspmEnabled = true,
+    ///         CustomMetricsEnabled = false,
     ///         HostFilters = "examplefilter:true,example:true",
     ///         TenantName = "&lt;azure_tenant_name&gt;",
     ///     });
@@ -46,6 +50,12 @@ namespace Pulumi.Datadog.Azure
     public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        /// </summary>
+        [Output("appServicePlanFilters")]
+        public Output<string?> AppServicePlanFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
         /// </summary>
         [Output("automute")]
@@ -62,6 +72,18 @@ namespace Pulumi.Datadog.Azure
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// </summary>
+        [Output("cspmEnabled")]
+        public Output<bool?> CspmEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable custom metrics for your organization.
+        /// </summary>
+        [Output("customMetricsEnabled")]
+        public Output<bool?> CustomMetricsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
@@ -126,6 +148,12 @@ namespace Pulumi.Datadog.Azure
     public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        /// </summary>
+        [Input("appServicePlanFilters")]
+        public Input<string>? AppServicePlanFilters { get; set; }
+
+        /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
         /// </summary>
         [Input("automute")]
@@ -154,6 +182,18 @@ namespace Pulumi.Datadog.Azure
         }
 
         /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// </summary>
+        [Input("cspmEnabled")]
+        public Input<bool>? CspmEnabled { get; set; }
+
+        /// <summary>
+        /// Enable custom metrics for your organization.
+        /// </summary>
+        [Input("customMetricsEnabled")]
+        public Input<bool>? CustomMetricsEnabled { get; set; }
+
+        /// <summary>
         /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Input("hostFilters")]
@@ -173,6 +213,12 @@ namespace Pulumi.Datadog.Azure
 
     public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+        /// </summary>
+        [Input("appServicePlanFilters")]
+        public Input<string>? AppServicePlanFilters { get; set; }
+
         /// <summary>
         /// Silence monitors for expected Azure VM shutdowns.
         /// </summary>
@@ -200,6 +246,18 @@ namespace Pulumi.Datadog.Azure
                 _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// </summary>
+        [Input("cspmEnabled")]
+        public Input<bool>? CspmEnabled { get; set; }
+
+        /// <summary>
+        /// Enable custom metrics for your organization.
+        /// </summary>
+        [Input("customMetricsEnabled")]
+        public Input<bool>? CustomMetricsEnabled { get; set; }
 
         /// <summary>
         /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`

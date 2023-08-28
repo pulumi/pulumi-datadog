@@ -14,7 +14,9 @@
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
             "namespaces": {
                 "aws": "Aws",
                 "azure": "Azure",
@@ -25,37 +27,32 @@
                 "pagerduty": "PagerDuty",
                 "slack": "Slack"
             },
-            "packageReferences": {
-                "Pulumi": "3.*"
-            }
+            "compatibility": "tfbridge20"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageDescription": "A Pulumi package for creating and managing Datadog resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing Datadog resources.",
-            "packageName": "",
-            "pluginName": "",
-            "pluginVersion": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
@@ -321,6 +318,23 @@
                     ]
                 }
             }
+        },
+        "datadog:index/CloudConfigurationRuleFilter:CloudConfigurationRuleFilter": {
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "The type of filtering action. Valid values are `require`, `suppress`.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Query for selecting logs to apply the filtering action.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "action",
+                "query"
+            ]
         },
         "datadog:index/DashboardListDashItem:DashboardListDashItem": {
             "properties": {
@@ -24052,6 +24066,91 @@
                 "type"
             ]
         },
+        "datadog:index/DowntimeScheduleMonitorIdentifier:DowntimeScheduleMonitorIdentifier": {
+            "properties": {
+                "monitorId": {
+                    "type": "integer",
+                    "description": "ID of the monitor to prevent notifications.\n"
+                },
+                "monitorTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitor_tags` to `[*]` configures the downtime to mute all monitors for the given scope.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DowntimeScheduleOneTimeSchedule:DowntimeScheduleOneTimeSchedule": {
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "description": "ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.\n"
+                },
+                "start": {
+                    "type": "string",
+                    "description": "ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "start"
+                    ]
+                }
+            }
+        },
+        "datadog:index/DowntimeScheduleRecurringSchedule:DowntimeScheduleRecurringSchedule": {
+            "properties": {
+                "recurrences": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DowntimeScheduleRecurringScheduleRecurrence:DowntimeScheduleRecurringScheduleRecurrence"
+                    }
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "The timezone in which to schedule the downtime.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "timezone"
+                    ]
+                }
+            }
+        },
+        "datadog:index/DowntimeScheduleRecurringScheduleRecurrence:DowntimeScheduleRecurringScheduleRecurrence": {
+            "properties": {
+                "duration": {
+                    "type": "string"
+                },
+                "rrule": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "rrule"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "duration",
+                        "rrule",
+                        "start"
+                    ]
+                }
+            }
+        },
         "datadog:index/IpAllowlistEntry:IpAllowlistEntry": {
             "properties": {
                 "cidrBlock": {
@@ -26498,6 +26597,10 @@
                     "type": "integer",
                     "description": "Number of pings to use per test for ICMP tests (`subtype = \"icmp\"`) between 0 and 10.\n"
                 },
+                "persistCookies": {
+                    "type": "boolean",
+                    "description": "Persist cookies across redirects.\n"
+                },
                 "port": {
                     "type": "integer",
                     "description": "Port to use when performing the test.\n"
@@ -27180,6 +27283,10 @@
                 "numberOfPackets": {
                     "type": "integer",
                     "description": "Number of pings to use per test for ICMP tests (`subtype = \"icmp\"`) between 0 and 10.\n"
+                },
+                "persistCookies": {
+                    "type": "boolean",
+                    "description": "Persist cookies across redirects.\n"
                 },
                 "port": {
                     "type": "integer",
@@ -28652,8 +28759,12 @@
             }
         },
         "datadog:azure/integration:Integration": {
-            "description": "Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Microsoft Azure integration\nconst sandbox = new datadog.azure.Integration(\"sandbox\", {\n    clientId: \"\u003cazure_client_id\u003e\",\n    clientSecret: \"\u003cazure_client_secret_key\u003e\",\n    hostFilters: \"examplefilter:true,example:true\",\n    tenantName: \"\u003cazure_tenant_name\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Microsoft Azure integration\nsandbox = datadog.azure.Integration(\"sandbox\",\n    client_id=\"\u003cazure_client_id\u003e\",\n    client_secret=\"\u003cazure_client_secret_key\u003e\",\n    host_filters=\"examplefilter:true,example:true\",\n    tenant_name=\"\u003cazure_tenant_name\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Microsoft Azure integration\n    var sandbox = new Datadog.Azure.Integration(\"sandbox\", new()\n    {\n        ClientId = \"\u003cazure_client_id\u003e\",\n        ClientSecret = \"\u003cazure_client_secret_key\u003e\",\n        HostFilters = \"examplefilter:true,example:true\",\n        TenantName = \"\u003cazure_tenant_name\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/azure\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azure.NewIntegration(ctx, \"sandbox\", \u0026azure.IntegrationArgs{\n\t\t\tClientId:     pulumi.String(\"\u003cazure_client_id\u003e\"),\n\t\t\tClientSecret: pulumi.String(\"\u003cazure_client_secret_key\u003e\"),\n\t\t\tHostFilters:  pulumi.String(\"examplefilter:true,example:true\"),\n\t\t\tTenantName:   pulumi.String(\"\u003cazure_tenant_name\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.azure.Integration;\nimport com.pulumi.datadog.azure.IntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sandbox = new Integration(\"sandbox\", IntegrationArgs.builder()        \n            .clientId(\"\u003cazure_client_id\u003e\")\n            .clientSecret(\"\u003cazure_client_secret_key\u003e\")\n            .hostFilters(\"examplefilter:true,example:true\")\n            .tenantName(\"\u003cazure_tenant_name\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Microsoft Azure integration\n  sandbox:\n    type: datadog:azure:Integration\n    properties:\n      clientId: \u003cazure_client_id\u003e\n      clientSecret: \u003cazure_client_secret_key\u003e\n      hostFilters: examplefilter:true,example:true\n      tenantName: \u003cazure_tenant_name\u003e\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nMicrosoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).\n\n```sh\n $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}\n```\n\n ",
+            "description": "Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Microsoft Azure integration\nconst sandbox = new datadog.azure.Integration(\"sandbox\", {\n    appServicePlanFilters: \"examplefilter:true,example:another\",\n    automute: true,\n    clientId: \"\u003cazure_client_id\u003e\",\n    clientSecret: \"\u003cazure_client_secret_key\u003e\",\n    cspmEnabled: true,\n    customMetricsEnabled: false,\n    hostFilters: \"examplefilter:true,example:true\",\n    tenantName: \"\u003cazure_tenant_name\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Microsoft Azure integration\nsandbox = datadog.azure.Integration(\"sandbox\",\n    app_service_plan_filters=\"examplefilter:true,example:another\",\n    automute=True,\n    client_id=\"\u003cazure_client_id\u003e\",\n    client_secret=\"\u003cazure_client_secret_key\u003e\",\n    cspm_enabled=True,\n    custom_metrics_enabled=False,\n    host_filters=\"examplefilter:true,example:true\",\n    tenant_name=\"\u003cazure_tenant_name\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Datadog - Microsoft Azure integration\n    var sandbox = new Datadog.Azure.Integration(\"sandbox\", new()\n    {\n        AppServicePlanFilters = \"examplefilter:true,example:another\",\n        Automute = true,\n        ClientId = \"\u003cazure_client_id\u003e\",\n        ClientSecret = \"\u003cazure_client_secret_key\u003e\",\n        CspmEnabled = true,\n        CustomMetricsEnabled = false,\n        HostFilters = \"examplefilter:true,example:true\",\n        TenantName = \"\u003cazure_tenant_name\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/azure\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azure.NewIntegration(ctx, \"sandbox\", \u0026azure.IntegrationArgs{\n\t\t\tAppServicePlanFilters: pulumi.String(\"examplefilter:true,example:another\"),\n\t\t\tAutomute:              pulumi.Bool(true),\n\t\t\tClientId:              pulumi.String(\"\u003cazure_client_id\u003e\"),\n\t\t\tClientSecret:          pulumi.String(\"\u003cazure_client_secret_key\u003e\"),\n\t\t\tCspmEnabled:           pulumi.Bool(true),\n\t\t\tCustomMetricsEnabled:  pulumi.Bool(false),\n\t\t\tHostFilters:           pulumi.String(\"examplefilter:true,example:true\"),\n\t\t\tTenantName:            pulumi.String(\"\u003cazure_tenant_name\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.azure.Integration;\nimport com.pulumi.datadog.azure.IntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sandbox = new Integration(\"sandbox\", IntegrationArgs.builder()        \n            .appServicePlanFilters(\"examplefilter:true,example:another\")\n            .automute(true)\n            .clientId(\"\u003cazure_client_id\u003e\")\n            .clientSecret(\"\u003cazure_client_secret_key\u003e\")\n            .cspmEnabled(true)\n            .customMetricsEnabled(false)\n            .hostFilters(\"examplefilter:true,example:true\")\n            .tenantName(\"\u003cazure_tenant_name\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog - Microsoft Azure integration\n  sandbox:\n    type: datadog:azure:Integration\n    properties:\n      appServicePlanFilters: examplefilter:true,example:another\n      automute: true\n      clientId: \u003cazure_client_id\u003e\n      clientSecret: \u003cazure_client_secret_key\u003e\n      cspmEnabled: true\n      customMetricsEnabled: false\n      hostFilters: examplefilter:true,example:true\n      tenantName: \u003cazure_tenant_name\u003e\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nMicrosoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).\n\n```sh\n $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}\n```\n\n ",
             "properties": {
+                "appServicePlanFilters": {
+                    "type": "string",
+                    "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                },
                 "automute": {
                     "type": "boolean",
                     "description": "Silence monitors for expected Azure VM shutdowns.\n"
@@ -28666,6 +28777,14 @@
                     "type": "string",
                     "description": "(Required for Initial Creation) Your Azure web application secret key.\n",
                     "secret": true
+                },
+                "cspmEnabled": {
+                    "type": "boolean",
+                    "description": "Enable Cloud Security Management Misconfigurations for your organization.\n"
+                },
+                "customMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable custom metrics for your organization.\n"
                 },
                 "hostFilters": {
                     "type": "string",
@@ -28682,6 +28801,10 @@
                 "tenantName"
             ],
             "inputProperties": {
+                "appServicePlanFilters": {
+                    "type": "string",
+                    "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                },
                 "automute": {
                     "type": "boolean",
                     "description": "Silence monitors for expected Azure VM shutdowns.\n"
@@ -28694,6 +28817,14 @@
                     "type": "string",
                     "description": "(Required for Initial Creation) Your Azure web application secret key.\n",
                     "secret": true
+                },
+                "cspmEnabled": {
+                    "type": "boolean",
+                    "description": "Enable Cloud Security Management Misconfigurations for your organization.\n"
+                },
+                "customMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Enable custom metrics for your organization.\n"
                 },
                 "hostFilters": {
                     "type": "string",
@@ -28712,6 +28843,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Integration resources.\n",
                 "properties": {
+                    "appServicePlanFilters": {
+                        "type": "string",
+                        "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                    },
                     "automute": {
                         "type": "boolean",
                         "description": "Silence monitors for expected Azure VM shutdowns.\n"
@@ -28724,6 +28859,14 @@
                         "type": "string",
                         "description": "(Required for Initial Creation) Your Azure web application secret key.\n",
                         "secret": true
+                    },
+                    "cspmEnabled": {
+                        "type": "boolean",
+                        "description": "Enable Cloud Security Management Misconfigurations for your organization.\n"
+                    },
+                    "customMetricsEnabled": {
+                        "type": "boolean",
+                        "description": "Enable custom metrics for your organization.\n"
                     },
                     "hostFilters": {
                         "type": "string",
@@ -29550,6 +29693,13 @@
                     "type": "boolean",
                     "description": "Whether the cloud configuration rule is enabled.\n"
                 },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/CloudConfigurationRuleFilter:CloudConfigurationRuleFilter"
+                    },
+                    "description": "Additional queries to filter matched events before they are processed. Defaults to empty list\n"
+                },
                 "groupBies": {
                     "type": "array",
                     "items": {
@@ -29611,6 +29761,13 @@
                 "enabled": {
                     "type": "boolean",
                     "description": "Whether the cloud configuration rule is enabled.\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/CloudConfigurationRuleFilter:CloudConfigurationRuleFilter"
+                    },
+                    "description": "Additional queries to filter matched events before they are processed. Defaults to empty list\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -29675,6 +29832,13 @@
                     "enabled": {
                         "type": "boolean",
                         "description": "Whether the cloud configuration rule is enabled.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/CloudConfigurationRuleFilter:CloudConfigurationRuleFilter"
+                        },
+                        "description": "Additional queries to filter matched events before they are processed. Defaults to empty list\n"
                     },
                     "groupBies": {
                         "type": "array",
@@ -30388,6 +30552,146 @@
                 "type": "object"
             }
         },
+        "datadog:index/downtimeSchedule:DowntimeSchedule": {
+            "description": "Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DowntimeSchedule;\nimport com.pulumi.datadog.DowntimeScheduleArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var downtimeScheduleExample = new DowntimeSchedule(\"downtimeScheduleExample\", DowntimeScheduleArgs.builder()        \n            .displayTimezone(\"America/New_York\")\n            .message(\"Message about the downtime\")\n            .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()\n                .monitor_tags(                \n                    \"test:123\",\n                    \"data:test\")\n                .build())\n            .muteFirstRecoveryNotification(true)\n            .notifyEndStates(            \n                \"alert\",\n                \"warn\")\n            .notifyEndTypes(            \n                \"canceled\",\n                \"expired\")\n            .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()\n                .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .timezone(\"America/New_York\")\n                .build())\n            .scope(\"env:us9-prod7 AND team:test123\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  downtimeScheduleExample:\n    type: datadog:DowntimeSchedule\n    properties:\n      displayTimezone: America/New_York\n      message: Message about the downtime\n      monitorIdentifier:\n        monitor_tags:\n          - test:123\n          - data:test\n      muteFirstRecoveryNotification: true\n      notifyEndStates:\n        - alert\n        - warn\n      notifyEndTypes:\n        - canceled\n        - expired\n      recurringSchedule:\n        recurrence:\n          - duration: 1h\n            rrule: FREQ=DAILY;INTERVAL=1\n            start: 2050-01-02T03:04:05\n        timezone: America/New_York\n      scope: env:us9-prod7 AND team:test123\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list \"00e000000-0000-1234-0000-000000000000\"\n```\n\n ",
+            "properties": {
+                "displayTimezone": {
+                    "type": "string",
+                    "description": "The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.\n"
+                },
+                "monitorIdentifier": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleMonitorIdentifier:DowntimeScheduleMonitorIdentifier"
+                },
+                "muteFirstRecoveryNotification": {
+                    "type": "boolean",
+                    "description": "If the first recovery notification during a downtime should be muted.\n"
+                },
+                "notifyEndStates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "States that will trigger a monitor notification when the `notify_end_types` action occurs.\n"
+                },
+                "notifyEndTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.\n"
+                },
+                "oneTimeSchedule": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleOneTimeSchedule:DowntimeScheduleOneTimeSchedule"
+                },
+                "recurringSchedule": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleRecurringSchedule:DowntimeScheduleRecurringSchedule"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).\n"
+                }
+            },
+            "required": [
+                "displayTimezone",
+                "muteFirstRecoveryNotification",
+                "notifyEndStates",
+                "notifyEndTypes",
+                "scope"
+            ],
+            "inputProperties": {
+                "displayTimezone": {
+                    "type": "string",
+                    "description": "The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.\n"
+                },
+                "monitorIdentifier": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleMonitorIdentifier:DowntimeScheduleMonitorIdentifier"
+                },
+                "muteFirstRecoveryNotification": {
+                    "type": "boolean",
+                    "description": "If the first recovery notification during a downtime should be muted.\n"
+                },
+                "notifyEndStates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "States that will trigger a monitor notification when the `notify_end_types` action occurs.\n"
+                },
+                "notifyEndTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.\n"
+                },
+                "oneTimeSchedule": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleOneTimeSchedule:DowntimeScheduleOneTimeSchedule"
+                },
+                "recurringSchedule": {
+                    "$ref": "#/types/datadog:index/DowntimeScheduleRecurringSchedule:DowntimeScheduleRecurringSchedule"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).\n"
+                }
+            },
+            "requiredInputs": [
+                "scope"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DowntimeSchedule resources.\n",
+                "properties": {
+                    "displayTimezone": {
+                        "type": "string",
+                        "description": "The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.\n"
+                    },
+                    "monitorIdentifier": {
+                        "$ref": "#/types/datadog:index/DowntimeScheduleMonitorIdentifier:DowntimeScheduleMonitorIdentifier"
+                    },
+                    "muteFirstRecoveryNotification": {
+                        "type": "boolean",
+                        "description": "If the first recovery notification during a downtime should be muted.\n"
+                    },
+                    "notifyEndStates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "States that will trigger a monitor notification when the `notify_end_types` action occurs.\n"
+                    },
+                    "notifyEndTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.\n"
+                    },
+                    "oneTimeSchedule": {
+                        "$ref": "#/types/datadog:index/DowntimeScheduleOneTimeSchedule:DowntimeScheduleOneTimeSchedule"
+                    },
+                    "recurringSchedule": {
+                        "$ref": "#/types/datadog:index/DowntimeScheduleRecurringSchedule:DowntimeScheduleRecurringSchedule"
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/ipAllowlist:IpAllowlist": {
             "description": "Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist\n",
             "properties": {
@@ -31008,7 +31312,7 @@
             }
         },
         "datadog:index/metricMetadata:MetricMetadata": {
-            "description": "Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a Datadog metric's metadata\nconst requestTime = new datadog.MetricMetadata(\"requestTime\", {\n    description: \"99th percentile request time in millseconds\",\n    metric: \"request.time\",\n    shortName: \"Request time\",\n    type: \"gauge\",\n    unit: \"millisecond\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a Datadog metric's metadata\nrequest_time = datadog.MetricMetadata(\"requestTime\",\n    description=\"99th percentile request time in millseconds\",\n    metric=\"request.time\",\n    short_name=\"Request time\",\n    type=\"gauge\",\n    unit=\"millisecond\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a Datadog metric's metadata\n    var requestTime = new Datadog.MetricMetadata(\"requestTime\", new()\n    {\n        Description = \"99th percentile request time in millseconds\",\n        Metric = \"request.time\",\n        ShortName = \"Request time\",\n        Type = \"gauge\",\n        Unit = \"millisecond\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricMetadata(ctx, \"requestTime\", \u0026datadog.MetricMetadataArgs{\n\t\t\tDescription: pulumi.String(\"99th percentile request time in millseconds\"),\n\t\t\tMetric:      pulumi.String(\"request.time\"),\n\t\t\tShortName:   pulumi.String(\"Request time\"),\n\t\t\tType:        pulumi.String(\"gauge\"),\n\t\t\tUnit:        pulumi.String(\"millisecond\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricMetadata;\nimport com.pulumi.datadog.MetricMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var requestTime = new MetricMetadata(\"requestTime\", MetricMetadataArgs.builder()        \n            .description(\"99th percentile request time in millseconds\")\n            .metric(\"request.time\")\n            .shortName(\"Request time\")\n            .type(\"gauge\")\n            .unit(\"millisecond\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a Datadog metric's metadata\n  requestTime:\n    type: datadog:MetricMetadata\n    properties:\n      description: 99th percentile request time in millseconds\n      metric: request.time\n      shortName: Request time\n      type: gauge\n      unit: millisecond\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time\n```\n\n ",
+            "description": "Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a Datadog metric's metadata\nconst requestTime = new datadog.MetricMetadata(\"requestTime\", {\n    description: \"99th percentile request time in milliseconds\",\n    metric: \"request.time\",\n    shortName: \"Request time\",\n    type: \"gauge\",\n    unit: \"millisecond\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a Datadog metric's metadata\nrequest_time = datadog.MetricMetadata(\"requestTime\",\n    description=\"99th percentile request time in milliseconds\",\n    metric=\"request.time\",\n    short_name=\"Request time\",\n    type=\"gauge\",\n    unit=\"millisecond\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Manage a Datadog metric's metadata\n    var requestTime = new Datadog.MetricMetadata(\"requestTime\", new()\n    {\n        Description = \"99th percentile request time in milliseconds\",\n        Metric = \"request.time\",\n        ShortName = \"Request time\",\n        Type = \"gauge\",\n        Unit = \"millisecond\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricMetadata(ctx, \"requestTime\", \u0026datadog.MetricMetadataArgs{\n\t\t\tDescription: pulumi.String(\"99th percentile request time in milliseconds\"),\n\t\t\tMetric:      pulumi.String(\"request.time\"),\n\t\t\tShortName:   pulumi.String(\"Request time\"),\n\t\t\tType:        pulumi.String(\"gauge\"),\n\t\t\tUnit:        pulumi.String(\"millisecond\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.MetricMetadata;\nimport com.pulumi.datadog.MetricMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var requestTime = new MetricMetadata(\"requestTime\", MetricMetadataArgs.builder()        \n            .description(\"99th percentile request time in milliseconds\")\n            .metric(\"request.time\")\n            .shortName(\"Request time\")\n            .type(\"gauge\")\n            .unit(\"millisecond\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Manage a Datadog metric's metadata\n  requestTime:\n    type: datadog:MetricMetadata\n    properties:\n      description: 99th percentile request time in milliseconds\n      metric: request.time\n      shortName: Request time\n      type: gauge\n      unit: millisecond\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -34154,6 +34458,65 @@
                 "type": "object"
             }
         },
+        "datadog:index/teamPermissionSetting:TeamPermissionSetting": {
+            "description": "Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst fooTeam = new datadog.Team(\"fooTeam\", {\n    description: \"Example team\",\n    handle: \"example-team-updated\",\n    name: \"Example Team-updated\",\n});\nconst fooTeamPermissionSetting = new datadog.TeamPermissionSetting(\"fooTeamPermissionSetting\", {\n    teamId: fooTeam.id,\n    action: \"manage_membership\",\n    value: \"organization\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nfoo_team = datadog.Team(\"fooTeam\",\n    description=\"Example team\",\n    handle=\"example-team-updated\",\n    name=\"Example Team-updated\")\nfoo_team_permission_setting = datadog.TeamPermissionSetting(\"fooTeamPermissionSetting\",\n    team_id=foo_team.id,\n    action=\"manage_membership\",\n    value=\"organization\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fooTeam = new Datadog.Team(\"fooTeam\", new()\n    {\n        Description = \"Example team\",\n        Handle = \"example-team-updated\",\n        Name = \"Example Team-updated\",\n    });\n\n    var fooTeamPermissionSetting = new Datadog.TeamPermissionSetting(\"fooTeamPermissionSetting\", new()\n    {\n        TeamId = fooTeam.Id,\n        Action = \"manage_membership\",\n        Value = \"organization\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooTeam, err := datadog.NewTeam(ctx, \"fooTeam\", \u0026datadog.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Example team\"),\n\t\t\tHandle:      pulumi.String(\"example-team-updated\"),\n\t\t\tName:        pulumi.String(\"Example Team-updated\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewTeamPermissionSetting(ctx, \"fooTeamPermissionSetting\", \u0026datadog.TeamPermissionSettingArgs{\n\t\t\tTeamId: fooTeam.ID(),\n\t\t\tAction: pulumi.String(\"manage_membership\"),\n\t\t\tValue:  pulumi.String(\"organization\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.Team;\nimport com.pulumi.datadog.TeamArgs;\nimport com.pulumi.datadog.TeamPermissionSetting;\nimport com.pulumi.datadog.TeamPermissionSettingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fooTeam = new Team(\"fooTeam\", TeamArgs.builder()        \n            .description(\"Example team\")\n            .handle(\"example-team-updated\")\n            .name(\"Example Team-updated\")\n            .build());\n\n        var fooTeamPermissionSetting = new TeamPermissionSetting(\"fooTeamPermissionSetting\", TeamPermissionSettingArgs.builder()        \n            .teamId(fooTeam.id())\n            .action(\"manage_membership\")\n            .value(\"organization\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fooTeam:\n    type: datadog:Team\n    properties:\n      description: Example team\n      handle: example-team-updated\n      name: Example Team-updated\n  fooTeamPermissionSetting:\n    type: datadog:TeamPermissionSetting\n    properties:\n      teamId: ${fooTeam.id}\n      action: manage_membership\n      value: organization\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "The identifier for the action. Valid values are `manage_membership`, `edit`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID of the team the team permission setting is associated with.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.\n"
+                }
+            },
+            "required": [
+                "action",
+                "teamId",
+                "value"
+            ],
+            "inputProperties": {
+                "action": {
+                    "type": "string",
+                    "description": "The identifier for the action. Valid values are `manage_membership`, `edit`.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID of the team the team permission setting is associated with.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.\n"
+                }
+            },
+            "requiredInputs": [
+                "action",
+                "teamId",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TeamPermissionSetting resources.\n",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The identifier for the action. Valid values are `manage_membership`, `edit`.\n"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "ID of the team the team permission setting is associated with.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/user:User": {
             "description": "Provides a Datadog user resource. This can be used to create and manage Datadog users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst roRole = datadog.getRole({\n    filter: \"Datadog Read Only Role\",\n});\n// Create a new Datadog user\nconst foo = new datadog.User(\"foo\", {\n    email: \"new@example.com\",\n    roles: [roRole.then(roRole =\u003e roRole.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nro_role = datadog.get_role(filter=\"Datadog Read Only Role\")\n# Create a new Datadog user\nfoo = datadog.User(\"foo\",\n    email=\"new@example.com\",\n    roles=[ro_role.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var roRole = Datadog.GetRole.Invoke(new()\n    {\n        Filter = \"Datadog Read Only Role\",\n    });\n\n    // Create a new Datadog user\n    var foo = new Datadog.User(\"foo\", new()\n    {\n        Email = \"new@example.com\",\n        Roles = new[]\n        {\n            roRole.Apply(getRoleResult =\u003e getRoleResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\troRole, err := datadog.LookupRole(ctx, \u0026datadog.LookupRoleArgs{\n\t\t\tFilter: \"Datadog Read Only Role\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewUser(ctx, \"foo\", \u0026datadog.UserArgs{\n\t\t\tEmail: pulumi.String(\"new@example.com\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\t*pulumi.String(roRole.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DatadogFunctions;\nimport com.pulumi.datadog.inputs.GetRoleArgs;\nimport com.pulumi.datadog.User;\nimport com.pulumi.datadog.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()\n            .filter(\"Datadog Read Only Role\")\n            .build());\n\n        var foo = new User(\"foo\", UserArgs.builder()        \n            .email(\"new@example.com\")\n            .roles(roRole.applyValue(getRoleResult -\u003e getRoleResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Datadog user\n  foo:\n    type: datadog:User\n    properties:\n      email: new@example.com\n      roles:\n        - ${roRole.id}\nvariables:\n  roRole:\n    fn::invoke:\n      Function: datadog:getRole\n      Arguments:\n        filter: Datadog Read Only Role\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4\n```\n\n ",
             "properties": {
@@ -34873,7 +35236,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "description": "The ID of this resource.\n"
                     },
                     "name": {
                         "type": "string",
@@ -34882,8 +35245,8 @@
                 },
                 "type": "object",
                 "required": [
-                    "name",
-                    "id"
+                    "id",
+                    "name"
                 ]
             }
         },
@@ -36405,7 +36768,7 @@
                 "properties": {
                     "exactMatch": {
                         "type": "boolean",
-                        "description": "When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.\n"
+                        "description": "When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.\n"
                     },
                     "filter": {
                         "type": "string",
@@ -36426,7 +36789,7 @@
                     },
                     "exactMatch": {
                         "type": "boolean",
-                        "description": "When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.\n"
+                        "description": "When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.\n"
                     },
                     "filter": {
                         "type": "string",

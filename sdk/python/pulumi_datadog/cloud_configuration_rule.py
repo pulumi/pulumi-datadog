@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CloudConfigurationRuleArgs', 'CloudConfigurationRule']
 
@@ -20,6 +22,7 @@ class CloudConfigurationRuleArgs:
                  policy: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
                  severity: pulumi.Input[str],
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  related_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,6 +35,7 @@ class CloudConfigurationRuleArgs:
         :param pulumi.Input[str] policy: Policy written in Rego format.
         :param pulumi.Input[str] resource_type: Main resource type to be checked by the rule.
         :param pulumi.Input[str] severity: Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
@@ -43,6 +47,8 @@ class CloudConfigurationRuleArgs:
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "severity", severity)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if notifications is not None:
@@ -125,6 +131,18 @@ class CloudConfigurationRuleArgs:
         pulumi.set(self, "severity", value)
 
     @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]]:
+        """
+        Additional queries to filter matched events before they are processed. Defaults to empty list
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -177,6 +195,7 @@ class CloudConfigurationRuleArgs:
 class _CloudConfigurationRuleState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -189,6 +208,7 @@ class _CloudConfigurationRuleState:
         """
         Input properties used for looking up and filtering CloudConfigurationRule resources.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
@@ -201,6 +221,8 @@ class _CloudConfigurationRuleState:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if message is not None:
@@ -231,6 +253,18 @@ class _CloudConfigurationRuleState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]]:
+        """
+        Additional queries to filter matched events before they are processed. Defaults to empty list
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
 
     @property
     @pulumi.getter(name="groupBies")
@@ -347,6 +381,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -415,6 +450,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
@@ -502,6 +538,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -523,6 +560,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["filters"] = filters
             __props__.__dict__["group_bies"] = group_bies
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
@@ -553,6 +591,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             message: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -570,6 +609,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
@@ -585,6 +625,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         __props__ = _CloudConfigurationRuleState.__new__(_CloudConfigurationRuleState)
 
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["filters"] = filters
         __props__.__dict__["group_bies"] = group_bies
         __props__.__dict__["message"] = message
         __props__.__dict__["name"] = name
@@ -603,6 +644,14 @@ class CloudConfigurationRule(pulumi.CustomResource):
         Whether the cloud configuration rule is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudConfigurationRuleFilter']]]:
+        """
+        Additional queries to filter matched events before they are processed. Defaults to empty list
+        """
+        return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="groupBies")

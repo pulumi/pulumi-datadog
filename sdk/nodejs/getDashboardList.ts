@@ -57,7 +57,7 @@ export interface GetDashboardListArgs {
  */
 export interface GetDashboardListResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of this resource.
      */
     readonly id: string;
     /**

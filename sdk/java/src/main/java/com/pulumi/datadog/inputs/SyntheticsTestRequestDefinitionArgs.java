@@ -184,6 +184,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
+     * Persist cookies across redirects.
+     * 
+     */
+    @Import(name="persistCookies")
+    private @Nullable Output<Boolean> persistCookies;
+
+    /**
+     * @return Persist cookies across redirects.
+     * 
+     */
+    public Optional<Output<Boolean>> persistCookies() {
+        return Optional.ofNullable(this.persistCookies);
+    }
+
+    /**
      * Port to use when performing the test.
      * 
      */
@@ -287,6 +302,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         this.method = $.method;
         this.noSavingResponseBody = $.noSavingResponseBody;
         this.numberOfPackets = $.numberOfPackets;
+        this.persistCookies = $.persistCookies;
         this.port = $.port;
         this.servername = $.servername;
         this.service = $.service;
@@ -552,6 +568,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          */
         public Builder numberOfPackets(Integer numberOfPackets) {
             return numberOfPackets(Output.of(numberOfPackets));
+        }
+
+        /**
+         * @param persistCookies Persist cookies across redirects.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistCookies(@Nullable Output<Boolean> persistCookies) {
+            $.persistCookies = persistCookies;
+            return this;
+        }
+
+        /**
+         * @param persistCookies Persist cookies across redirects.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistCookies(Boolean persistCookies) {
+            return persistCookies(Output.of(persistCookies));
         }
 
         /**

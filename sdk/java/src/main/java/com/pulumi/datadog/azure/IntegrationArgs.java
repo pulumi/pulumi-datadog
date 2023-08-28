@@ -17,6 +17,21 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     public static final IntegrationArgs Empty = new IntegrationArgs();
 
     /**
+     * String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     * 
+     */
+    @Import(name="appServicePlanFilters")
+    private @Nullable Output<String> appServicePlanFilters;
+
+    /**
+     * @return String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     * 
+     */
+    public Optional<Output<String>> appServicePlanFilters() {
+        return Optional.ofNullable(this.appServicePlanFilters);
+    }
+
+    /**
      * Silence monitors for expected Azure VM shutdowns.
      * 
      */
@@ -62,6 +77,36 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable Cloud Security Management Misconfigurations for your organization.
+     * 
+     */
+    @Import(name="cspmEnabled")
+    private @Nullable Output<Boolean> cspmEnabled;
+
+    /**
+     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * 
+     */
+    public Optional<Output<Boolean>> cspmEnabled() {
+        return Optional.ofNullable(this.cspmEnabled);
+    }
+
+    /**
+     * Enable custom metrics for your organization.
+     * 
+     */
+    @Import(name="customMetricsEnabled")
+    private @Nullable Output<Boolean> customMetricsEnabled;
+
+    /**
+     * @return Enable custom metrics for your organization.
+     * 
+     */
+    public Optional<Output<Boolean>> customMetricsEnabled() {
+        return Optional.ofNullable(this.customMetricsEnabled);
+    }
+
+    /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      * 
      */
@@ -94,9 +139,12 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     private IntegrationArgs() {}
 
     private IntegrationArgs(IntegrationArgs $) {
+        this.appServicePlanFilters = $.appServicePlanFilters;
         this.automute = $.automute;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.cspmEnabled = $.cspmEnabled;
+        this.customMetricsEnabled = $.customMetricsEnabled;
         this.hostFilters = $.hostFilters;
         this.tenantName = $.tenantName;
     }
@@ -117,6 +165,27 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(IntegrationArgs defaults) {
             $ = new IntegrationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appServicePlanFilters String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appServicePlanFilters(@Nullable Output<String> appServicePlanFilters) {
+            $.appServicePlanFilters = appServicePlanFilters;
+            return this;
+        }
+
+        /**
+         * @param appServicePlanFilters String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appServicePlanFilters(String appServicePlanFilters) {
+            return appServicePlanFilters(Output.of(appServicePlanFilters));
         }
 
         /**
@@ -180,6 +249,48 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cspmEnabled(@Nullable Output<Boolean> cspmEnabled) {
+            $.cspmEnabled = cspmEnabled;
+            return this;
+        }
+
+        /**
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cspmEnabled(Boolean cspmEnabled) {
+            return cspmEnabled(Output.of(cspmEnabled));
+        }
+
+        /**
+         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMetricsEnabled(@Nullable Output<Boolean> customMetricsEnabled) {
+            $.customMetricsEnabled = customMetricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMetricsEnabled(Boolean customMetricsEnabled) {
+            return customMetricsEnabled(Output.of(customMetricsEnabled));
         }
 
         /**

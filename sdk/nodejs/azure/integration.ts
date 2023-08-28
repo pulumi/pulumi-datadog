@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  *
  * // Create a new Datadog - Microsoft Azure integration
  * const sandbox = new datadog.azure.Integration("sandbox", {
+ *     appServicePlanFilters: "examplefilter:true,example:another",
+ *     automute: true,
  *     clientId: "<azure_client_id>",
  *     clientSecret: "<azure_client_secret_key>",
+ *     cspmEnabled: true,
+ *     customMetricsEnabled: false,
  *     hostFilters: "examplefilter:true,example:true",
  *     tenantName: "<azure_tenant_name>",
  * });
@@ -59,6 +63,10 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
+     * String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     */
+    public readonly appServicePlanFilters!: pulumi.Output<string | undefined>;
+    /**
      * Silence monitors for expected Azure VM shutdowns.
      */
     public readonly automute!: pulumi.Output<boolean | undefined>;
@@ -70,6 +78,14 @@ export class Integration extends pulumi.CustomResource {
      * (Required for Initial Creation) Your Azure web application secret key.
      */
     public readonly clientSecret!: pulumi.Output<string>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization.
+     */
+    public readonly cspmEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable custom metrics for your organization.
+     */
+    public readonly customMetricsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */
@@ -92,9 +108,12 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
+            resourceInputs["appServicePlanFilters"] = state ? state.appServicePlanFilters : undefined;
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["cspmEnabled"] = state ? state.cspmEnabled : undefined;
+            resourceInputs["customMetricsEnabled"] = state ? state.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
             resourceInputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
@@ -108,9 +127,12 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.tenantName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantName'");
             }
+            resourceInputs["appServicePlanFilters"] = args ? args.appServicePlanFilters : undefined;
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["cspmEnabled"] = args ? args.cspmEnabled : undefined;
+            resourceInputs["customMetricsEnabled"] = args ? args.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
         }
@@ -126,6 +148,10 @@ export class Integration extends pulumi.CustomResource {
  */
 export interface IntegrationState {
     /**
+     * String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     */
+    appServicePlanFilters?: pulumi.Input<string>;
+    /**
      * Silence monitors for expected Azure VM shutdowns.
      */
     automute?: pulumi.Input<boolean>;
@@ -137,6 +163,14 @@ export interface IntegrationState {
      * (Required for Initial Creation) Your Azure web application secret key.
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization.
+     */
+    cspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable custom metrics for your organization.
+     */
+    customMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */
@@ -152,6 +186,10 @@ export interface IntegrationState {
  */
 export interface IntegrationArgs {
     /**
+     * String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     */
+    appServicePlanFilters?: pulumi.Input<string>;
+    /**
      * Silence monitors for expected Azure VM shutdowns.
      */
     automute?: pulumi.Input<boolean>;
@@ -163,6 +201,14 @@ export interface IntegrationArgs {
      * (Required for Initial Creation) Your Azure web application secret key.
      */
     clientSecret: pulumi.Input<string>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization.
+     */
+    cspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable custom metrics for your organization.
+     */
+    customMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */

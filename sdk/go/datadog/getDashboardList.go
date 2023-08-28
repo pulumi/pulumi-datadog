@@ -78,7 +78,7 @@ type LookupDashboardListArgs struct {
 
 // A collection of values returned by getDashboardList.
 type LookupDashboardListResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of this resource.
 	Id string `pulumi:"id"`
 	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
@@ -122,7 +122,7 @@ func (o LookupDashboardListResultOutput) ToLookupDashboardListResultOutputWithCo
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of this resource.
 func (o LookupDashboardListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Id }).(pulumi.StringOutput)
 }

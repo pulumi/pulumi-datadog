@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDashboardListResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     private String id;
@@ -22,7 +22,7 @@ public final class GetDashboardListResult {
 
     private GetDashboardListResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     public String id() {
