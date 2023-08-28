@@ -42,8 +42,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
+ *             .appServicePlanFilters(&#34;examplefilter:true,example:another&#34;)
+ *             .automute(true)
  *             .clientId(&#34;&lt;azure_client_id&gt;&#34;)
  *             .clientSecret(&#34;&lt;azure_client_secret_key&gt;&#34;)
+ *             .cspmEnabled(true)
+ *             .customMetricsEnabled(false)
  *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
  *             .tenantName(&#34;&lt;azure_tenant_name&gt;&#34;)
  *             .build());
@@ -63,6 +67,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:azure/integration:Integration")
 public class Integration extends com.pulumi.resources.CustomResource {
+    /**
+     * String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     * 
+     */
+    @Export(name="appServicePlanFilters", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> appServicePlanFilters;
+
+    /**
+     * @return String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+     * 
+     */
+    public Output<Optional<String>> appServicePlanFilters() {
+        return Codegen.optional(this.appServicePlanFilters);
+    }
     /**
      * Silence monitors for expected Azure VM shutdowns.
      * 
@@ -104,6 +122,34 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clientSecret() {
         return this.clientSecret;
+    }
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization.
+     * 
+     */
+    @Export(name="cspmEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> cspmEnabled;
+
+    /**
+     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * 
+     */
+    public Output<Optional<Boolean>> cspmEnabled() {
+        return Codegen.optional(this.cspmEnabled);
+    }
+    /**
+     * Enable custom metrics for your organization.
+     * 
+     */
+    @Export(name="customMetricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> customMetricsEnabled;
+
+    /**
+     * @return Enable custom metrics for your organization.
+     * 
+     */
+    public Output<Optional<Boolean>> customMetricsEnabled() {
+        return Codegen.optional(this.customMetricsEnabled);
     }
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`

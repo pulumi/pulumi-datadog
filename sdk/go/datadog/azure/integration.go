@@ -29,10 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
-//				ClientId:     pulumi.String("<azure_client_id>"),
-//				ClientSecret: pulumi.String("<azure_client_secret_key>"),
-//				HostFilters:  pulumi.String("examplefilter:true,example:true"),
-//				TenantName:   pulumi.String("<azure_tenant_name>"),
+//				AppServicePlanFilters: pulumi.String("examplefilter:true,example:another"),
+//				Automute:              pulumi.Bool(true),
+//				ClientId:              pulumi.String("<azure_client_id>"),
+//				ClientSecret:          pulumi.String("<azure_client_secret_key>"),
+//				CspmEnabled:           pulumi.Bool(true),
+//				CustomMetricsEnabled:  pulumi.Bool(false),
+//				HostFilters:           pulumi.String("examplefilter:true,example:true"),
+//				TenantName:            pulumi.String("<azure_tenant_name>"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,12 +59,18 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+	AppServicePlanFilters pulumi.StringPtrOutput `pulumi:"appServicePlanFilters"`
 	// Silence monitors for expected Azure VM shutdowns.
 	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+	// Enable Cloud Security Management Misconfigurations for your organization.
+	CspmEnabled pulumi.BoolPtrOutput `pulumi:"cspmEnabled"`
+	// Enable custom metrics for your organization.
+	CustomMetricsEnabled pulumi.BoolPtrOutput `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
@@ -113,12 +123,18 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
+	// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+	AppServicePlanFilters *string `pulumi:"appServicePlanFilters"`
 	// Silence monitors for expected Azure VM shutdowns.
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId *string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// Enable Cloud Security Management Misconfigurations for your organization.
+	CspmEnabled *bool `pulumi:"cspmEnabled"`
+	// Enable custom metrics for your organization.
+	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
@@ -126,12 +142,18 @@ type integrationState struct {
 }
 
 type IntegrationState struct {
+	// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+	AppServicePlanFilters pulumi.StringPtrInput
 	// Silence monitors for expected Azure VM shutdowns.
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringPtrInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringPtrInput
+	// Enable Cloud Security Management Misconfigurations for your organization.
+	CspmEnabled pulumi.BoolPtrInput
+	// Enable custom metrics for your organization.
+	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
 	// Your Azure Active Directory ID.
@@ -143,12 +165,18 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
+	// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+	AppServicePlanFilters *string `pulumi:"appServicePlanFilters"`
 	// Silence monitors for expected Azure VM shutdowns.
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret string `pulumi:"clientSecret"`
+	// Enable Cloud Security Management Misconfigurations for your organization.
+	CspmEnabled *bool `pulumi:"cspmEnabled"`
+	// Enable custom metrics for your organization.
+	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your Azure Active Directory ID.
@@ -157,12 +185,18 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
+	// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+	AppServicePlanFilters pulumi.StringPtrInput
 	// Silence monitors for expected Azure VM shutdowns.
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringInput
+	// Enable Cloud Security Management Misconfigurations for your organization.
+	CspmEnabled pulumi.BoolPtrInput
+	// Enable custom metrics for your organization.
+	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
 	// Your Azure Active Directory ID.
@@ -256,6 +290,11 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.
+func (o IntegrationOutput) AppServicePlanFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.AppServicePlanFilters }).(pulumi.StringPtrOutput)
+}
+
 // Silence monitors for expected Azure VM shutdowns.
 func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
@@ -269,6 +308,16 @@ func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 // (Required for Initial Creation) Your Azure web application secret key.
 func (o IntegrationOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Enable Cloud Security Management Misconfigurations for your organization.
+func (o IntegrationOutput) CspmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CspmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enable custom metrics for your organization.
+func (o IntegrationOutput) CustomMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CustomMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`

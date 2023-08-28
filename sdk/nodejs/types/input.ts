@@ -61,6 +61,17 @@ export interface ChildOrganizationUser {
     name?: pulumi.Input<string>;
 }
 
+export interface CloudConfigurationRuleFilter {
+    /**
+     * The type of filtering action. Valid values are `require`, `suppress`.
+     */
+    action: pulumi.Input<string>;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -8293,6 +8304,42 @@ export interface DowntimeRecurrence {
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface DowntimeScheduleMonitorIdentifier {
+    /**
+     * ID of the monitor to prevent notifications.
+     */
+    monitorId?: pulumi.Input<number>;
+    /**
+     * A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+     */
+    monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DowntimeScheduleOneTimeSchedule {
+    /**
+     * ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+     */
+    end?: pulumi.Input<string>;
+    /**
+     * ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     */
+    start?: pulumi.Input<string>;
+}
+
+export interface DowntimeScheduleRecurringSchedule {
+    recurrences?: pulumi.Input<pulumi.Input<inputs.DowntimeScheduleRecurringScheduleRecurrence>[]>;
+    /**
+     * The timezone in which to schedule the downtime.
+     */
+    timezone?: pulumi.Input<string>;
+}
+
+export interface DowntimeScheduleRecurringScheduleRecurrence {
+    duration: pulumi.Input<string>;
+    rrule: pulumi.Input<string>;
+    start?: pulumi.Input<string>;
+}
+
 export interface IpAllowlistEntry {
     cidrBlock: pulumi.Input<string>;
     /**
@@ -9592,6 +9639,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     numberOfPackets?: pulumi.Input<number>;
     /**
+     * Persist cookies across redirects.
+     */
+    persistCookies?: pulumi.Input<boolean>;
+    /**
      * Port to use when performing the test.
      */
     port?: pulumi.Input<number>;
@@ -10037,6 +10088,10 @@ export interface SyntheticsTestRequestDefinition {
      * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
      */
     numberOfPackets?: pulumi.Input<number>;
+    /**
+     * Persist cookies across redirects.
+     */
+    persistCookies?: pulumi.Input<boolean>;
     /**
      * Port to use when performing the test.
      */

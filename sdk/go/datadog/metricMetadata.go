@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewMetricMetadata(ctx, "requestTime", &datadog.MetricMetadataArgs{
-//				Description: pulumi.String("99th percentile request time in millseconds"),
+//				Description: pulumi.String("99th percentile request time in milliseconds"),
 //				Metric:      pulumi.String("request.time"),
 //				ShortName:   pulumi.String("Request time"),
 //				Type:        pulumi.String("gauge"),

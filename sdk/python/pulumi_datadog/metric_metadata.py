@@ -274,7 +274,7 @@ class MetricMetadata(pulumi.CustomResource):
 
         # Manage a Datadog metric's metadata
         request_time = datadog.MetricMetadata("requestTime",
-            description="99th percentile request time in millseconds",
+            description="99th percentile request time in milliseconds",
             metric="request.time",
             short_name="Request time",
             type="gauge",
@@ -314,7 +314,7 @@ class MetricMetadata(pulumi.CustomResource):
 
         # Manage a Datadog metric's metadata
         request_time = datadog.MetricMetadata("requestTime",
-            description="99th percentile request time in millseconds",
+            description="99th percentile request time in milliseconds",
             metric="request.time",
             short_name="Request time",
             type="gauge",

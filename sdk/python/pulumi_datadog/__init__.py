@@ -15,6 +15,7 @@ from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .downtime import *
+from .downtime_schedule import *
 from .get_api_key import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
@@ -84,6 +85,7 @@ from .synthetics_test import *
 from .team import *
 from .team_link import *
 from .team_membership import *
+from .team_permission_setting import *
 from .user import *
 from .webhook import *
 from .webhook_custom_variable import *
@@ -301,6 +303,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/downtime:Downtime": "Downtime"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/downtimeSchedule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/downtimeSchedule:DowntimeSchedule": "DowntimeSchedule"
   }
  },
  {
@@ -597,6 +607,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/teamMembership:TeamMembership": "TeamMembership"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamPermissionSetting",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamPermissionSetting:TeamPermissionSetting": "TeamPermissionSetting"
   }
  },
  {

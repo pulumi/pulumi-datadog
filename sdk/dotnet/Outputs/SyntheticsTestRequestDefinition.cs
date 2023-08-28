@@ -58,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? NumberOfPackets;
         /// <summary>
+        /// Persist cookies across redirects.
+        /// </summary>
+        public readonly bool? PersistCookies;
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         public readonly int? Port;
@@ -106,6 +110,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? numberOfPackets,
 
+            bool? persistCookies,
+
             int? port,
 
             string? servername,
@@ -129,6 +135,7 @@ namespace Pulumi.Datadog.Outputs
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
             NumberOfPackets = numberOfPackets;
+            PersistCookies = persistCookies;
             Port = port;
             Servername = servername;
             Service = service;

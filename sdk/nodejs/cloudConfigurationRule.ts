@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -93,6 +95,10 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
+     * Additional queries to filter matched events before they are processed. Defaults to empty list
+     */
+    public readonly filters!: pulumi.Output<outputs.CloudConfigurationRuleFilter[] | undefined>;
+    /**
      * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
      */
     public readonly groupBies!: pulumi.Output<string[] | undefined>;
@@ -143,6 +149,7 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CloudConfigurationRuleState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["groupBies"] = state ? state.groupBies : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -173,6 +180,7 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'severity'");
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["groupBies"] = args ? args.groupBies : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -196,6 +204,10 @@ export interface CloudConfigurationRuleState {
      * Whether the cloud configuration rule is enabled.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Additional queries to filter matched events before they are processed. Defaults to empty list
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
     /**
      * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
      */
@@ -242,6 +254,10 @@ export interface CloudConfigurationRuleArgs {
      * Whether the cloud configuration rule is enabled.
      */
     enabled: pulumi.Input<boolean>;
+    /**
+     * Additional queries to filter matched events before they are processed. Defaults to empty list
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
     /**
      * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
      */

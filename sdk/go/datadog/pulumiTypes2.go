@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute struct {
+	Aggregation string  `pulumi:"aggregation"`
+	Facet       *string `pulumi:"facet"`
+	Interval    *int    `pulumi:"interval"`
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs{...}
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs struct {
+	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
+	Facet       pulumi.StringPtrInput `pulumi:"facet"`
+	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput)
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray and DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray{ DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs{...} }
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray []DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
+		return vs[0].([]DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute)[vs[1].(int)]
+	}).(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput)
+}
+
 type DashboardWidgetToplistDefinitionRequestAuditQuery struct {
 	ComputeQuery  *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery  `pulumi:"computeQuery"`
 	GroupBies     []DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy      `pulumi:"groupBies"`
@@ -10281,6 +10387,578 @@ func (o DowntimeRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
 		}
 		return v.WeekDays
 	}).(pulumi.StringArrayOutput)
+}
+
+type DowntimeScheduleMonitorIdentifier struct {
+	// ID of the monitor to prevent notifications.
+	MonitorId *int `pulumi:"monitorId"`
+	// A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+	MonitorTags []string `pulumi:"monitorTags"`
+}
+
+// DowntimeScheduleMonitorIdentifierInput is an input type that accepts DowntimeScheduleMonitorIdentifierArgs and DowntimeScheduleMonitorIdentifierOutput values.
+// You can construct a concrete instance of `DowntimeScheduleMonitorIdentifierInput` via:
+//
+//	DowntimeScheduleMonitorIdentifierArgs{...}
+type DowntimeScheduleMonitorIdentifierInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleMonitorIdentifierOutput() DowntimeScheduleMonitorIdentifierOutput
+	ToDowntimeScheduleMonitorIdentifierOutputWithContext(context.Context) DowntimeScheduleMonitorIdentifierOutput
+}
+
+type DowntimeScheduleMonitorIdentifierArgs struct {
+	// ID of the monitor to prevent notifications.
+	MonitorId pulumi.IntPtrInput `pulumi:"monitorId"`
+	// A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+	MonitorTags pulumi.StringArrayInput `pulumi:"monitorTags"`
+}
+
+func (DowntimeScheduleMonitorIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleMonitorIdentifier)(nil)).Elem()
+}
+
+func (i DowntimeScheduleMonitorIdentifierArgs) ToDowntimeScheduleMonitorIdentifierOutput() DowntimeScheduleMonitorIdentifierOutput {
+	return i.ToDowntimeScheduleMonitorIdentifierOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleMonitorIdentifierArgs) ToDowntimeScheduleMonitorIdentifierOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleMonitorIdentifierOutput)
+}
+
+func (i DowntimeScheduleMonitorIdentifierArgs) ToDowntimeScheduleMonitorIdentifierPtrOutput() DowntimeScheduleMonitorIdentifierPtrOutput {
+	return i.ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleMonitorIdentifierArgs) ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleMonitorIdentifierOutput).ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(ctx)
+}
+
+// DowntimeScheduleMonitorIdentifierPtrInput is an input type that accepts DowntimeScheduleMonitorIdentifierArgs, DowntimeScheduleMonitorIdentifierPtr and DowntimeScheduleMonitorIdentifierPtrOutput values.
+// You can construct a concrete instance of `DowntimeScheduleMonitorIdentifierPtrInput` via:
+//
+//	        DowntimeScheduleMonitorIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type DowntimeScheduleMonitorIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleMonitorIdentifierPtrOutput() DowntimeScheduleMonitorIdentifierPtrOutput
+	ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(context.Context) DowntimeScheduleMonitorIdentifierPtrOutput
+}
+
+type downtimeScheduleMonitorIdentifierPtrType DowntimeScheduleMonitorIdentifierArgs
+
+func DowntimeScheduleMonitorIdentifierPtr(v *DowntimeScheduleMonitorIdentifierArgs) DowntimeScheduleMonitorIdentifierPtrInput {
+	return (*downtimeScheduleMonitorIdentifierPtrType)(v)
+}
+
+func (*downtimeScheduleMonitorIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleMonitorIdentifier)(nil)).Elem()
+}
+
+func (i *downtimeScheduleMonitorIdentifierPtrType) ToDowntimeScheduleMonitorIdentifierPtrOutput() DowntimeScheduleMonitorIdentifierPtrOutput {
+	return i.ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *downtimeScheduleMonitorIdentifierPtrType) ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleMonitorIdentifierPtrOutput)
+}
+
+type DowntimeScheduleMonitorIdentifierOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleMonitorIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleMonitorIdentifier)(nil)).Elem()
+}
+
+func (o DowntimeScheduleMonitorIdentifierOutput) ToDowntimeScheduleMonitorIdentifierOutput() DowntimeScheduleMonitorIdentifierOutput {
+	return o
+}
+
+func (o DowntimeScheduleMonitorIdentifierOutput) ToDowntimeScheduleMonitorIdentifierOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierOutput {
+	return o
+}
+
+func (o DowntimeScheduleMonitorIdentifierOutput) ToDowntimeScheduleMonitorIdentifierPtrOutput() DowntimeScheduleMonitorIdentifierPtrOutput {
+	return o.ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o DowntimeScheduleMonitorIdentifierOutput) ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DowntimeScheduleMonitorIdentifier) *DowntimeScheduleMonitorIdentifier {
+		return &v
+	}).(DowntimeScheduleMonitorIdentifierPtrOutput)
+}
+
+// ID of the monitor to prevent notifications.
+func (o DowntimeScheduleMonitorIdentifierOutput) MonitorId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DowntimeScheduleMonitorIdentifier) *int { return v.MonitorId }).(pulumi.IntPtrOutput)
+}
+
+// A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+func (o DowntimeScheduleMonitorIdentifierOutput) MonitorTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DowntimeScheduleMonitorIdentifier) []string { return v.MonitorTags }).(pulumi.StringArrayOutput)
+}
+
+type DowntimeScheduleMonitorIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleMonitorIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleMonitorIdentifier)(nil)).Elem()
+}
+
+func (o DowntimeScheduleMonitorIdentifierPtrOutput) ToDowntimeScheduleMonitorIdentifierPtrOutput() DowntimeScheduleMonitorIdentifierPtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleMonitorIdentifierPtrOutput) ToDowntimeScheduleMonitorIdentifierPtrOutputWithContext(ctx context.Context) DowntimeScheduleMonitorIdentifierPtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleMonitorIdentifierPtrOutput) Elem() DowntimeScheduleMonitorIdentifierOutput {
+	return o.ApplyT(func(v *DowntimeScheduleMonitorIdentifier) DowntimeScheduleMonitorIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret DowntimeScheduleMonitorIdentifier
+		return ret
+	}).(DowntimeScheduleMonitorIdentifierOutput)
+}
+
+// ID of the monitor to prevent notifications.
+func (o DowntimeScheduleMonitorIdentifierPtrOutput) MonitorId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DowntimeScheduleMonitorIdentifier) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorId
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match **all** provided monitor tags. Setting `monitorTags` to `[*]` configures the downtime to mute all monitors for the given scope.
+func (o DowntimeScheduleMonitorIdentifierPtrOutput) MonitorTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DowntimeScheduleMonitorIdentifier) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorTags
+	}).(pulumi.StringArrayOutput)
+}
+
+type DowntimeScheduleOneTimeSchedule struct {
+	// ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+	End *string `pulumi:"end"`
+	// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+	Start *string `pulumi:"start"`
+}
+
+// DowntimeScheduleOneTimeScheduleInput is an input type that accepts DowntimeScheduleOneTimeScheduleArgs and DowntimeScheduleOneTimeScheduleOutput values.
+// You can construct a concrete instance of `DowntimeScheduleOneTimeScheduleInput` via:
+//
+//	DowntimeScheduleOneTimeScheduleArgs{...}
+type DowntimeScheduleOneTimeScheduleInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleOneTimeScheduleOutput() DowntimeScheduleOneTimeScheduleOutput
+	ToDowntimeScheduleOneTimeScheduleOutputWithContext(context.Context) DowntimeScheduleOneTimeScheduleOutput
+}
+
+type DowntimeScheduleOneTimeScheduleArgs struct {
+	// ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (DowntimeScheduleOneTimeScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleOneTimeSchedule)(nil)).Elem()
+}
+
+func (i DowntimeScheduleOneTimeScheduleArgs) ToDowntimeScheduleOneTimeScheduleOutput() DowntimeScheduleOneTimeScheduleOutput {
+	return i.ToDowntimeScheduleOneTimeScheduleOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleOneTimeScheduleArgs) ToDowntimeScheduleOneTimeScheduleOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleOneTimeScheduleOutput)
+}
+
+func (i DowntimeScheduleOneTimeScheduleArgs) ToDowntimeScheduleOneTimeSchedulePtrOutput() DowntimeScheduleOneTimeSchedulePtrOutput {
+	return i.ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleOneTimeScheduleArgs) ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleOneTimeScheduleOutput).ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(ctx)
+}
+
+// DowntimeScheduleOneTimeSchedulePtrInput is an input type that accepts DowntimeScheduleOneTimeScheduleArgs, DowntimeScheduleOneTimeSchedulePtr and DowntimeScheduleOneTimeSchedulePtrOutput values.
+// You can construct a concrete instance of `DowntimeScheduleOneTimeSchedulePtrInput` via:
+//
+//	        DowntimeScheduleOneTimeScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DowntimeScheduleOneTimeSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleOneTimeSchedulePtrOutput() DowntimeScheduleOneTimeSchedulePtrOutput
+	ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(context.Context) DowntimeScheduleOneTimeSchedulePtrOutput
+}
+
+type downtimeScheduleOneTimeSchedulePtrType DowntimeScheduleOneTimeScheduleArgs
+
+func DowntimeScheduleOneTimeSchedulePtr(v *DowntimeScheduleOneTimeScheduleArgs) DowntimeScheduleOneTimeSchedulePtrInput {
+	return (*downtimeScheduleOneTimeSchedulePtrType)(v)
+}
+
+func (*downtimeScheduleOneTimeSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleOneTimeSchedule)(nil)).Elem()
+}
+
+func (i *downtimeScheduleOneTimeSchedulePtrType) ToDowntimeScheduleOneTimeSchedulePtrOutput() DowntimeScheduleOneTimeSchedulePtrOutput {
+	return i.ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *downtimeScheduleOneTimeSchedulePtrType) ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleOneTimeSchedulePtrOutput)
+}
+
+type DowntimeScheduleOneTimeScheduleOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleOneTimeScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleOneTimeSchedule)(nil)).Elem()
+}
+
+func (o DowntimeScheduleOneTimeScheduleOutput) ToDowntimeScheduleOneTimeScheduleOutput() DowntimeScheduleOneTimeScheduleOutput {
+	return o
+}
+
+func (o DowntimeScheduleOneTimeScheduleOutput) ToDowntimeScheduleOneTimeScheduleOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeScheduleOutput {
+	return o
+}
+
+func (o DowntimeScheduleOneTimeScheduleOutput) ToDowntimeScheduleOneTimeSchedulePtrOutput() DowntimeScheduleOneTimeSchedulePtrOutput {
+	return o.ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DowntimeScheduleOneTimeScheduleOutput) ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DowntimeScheduleOneTimeSchedule) *DowntimeScheduleOneTimeSchedule {
+		return &v
+	}).(DowntimeScheduleOneTimeSchedulePtrOutput)
+}
+
+// ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+func (o DowntimeScheduleOneTimeScheduleOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DowntimeScheduleOneTimeSchedule) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+func (o DowntimeScheduleOneTimeScheduleOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DowntimeScheduleOneTimeSchedule) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type DowntimeScheduleOneTimeSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleOneTimeSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleOneTimeSchedule)(nil)).Elem()
+}
+
+func (o DowntimeScheduleOneTimeSchedulePtrOutput) ToDowntimeScheduleOneTimeSchedulePtrOutput() DowntimeScheduleOneTimeSchedulePtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleOneTimeSchedulePtrOutput) ToDowntimeScheduleOneTimeSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleOneTimeSchedulePtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleOneTimeSchedulePtrOutput) Elem() DowntimeScheduleOneTimeScheduleOutput {
+	return o.ApplyT(func(v *DowntimeScheduleOneTimeSchedule) DowntimeScheduleOneTimeSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DowntimeScheduleOneTimeSchedule
+		return ret
+	}).(DowntimeScheduleOneTimeScheduleOutput)
+}
+
+// ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the downtime never ends.
+func (o DowntimeScheduleOneTimeSchedulePtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DowntimeScheduleOneTimeSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+func (o DowntimeScheduleOneTimeSchedulePtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DowntimeScheduleOneTimeSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+type DowntimeScheduleRecurringSchedule struct {
+	Recurrences []DowntimeScheduleRecurringScheduleRecurrence `pulumi:"recurrences"`
+	// The timezone in which to schedule the downtime.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// DowntimeScheduleRecurringScheduleInput is an input type that accepts DowntimeScheduleRecurringScheduleArgs and DowntimeScheduleRecurringScheduleOutput values.
+// You can construct a concrete instance of `DowntimeScheduleRecurringScheduleInput` via:
+//
+//	DowntimeScheduleRecurringScheduleArgs{...}
+type DowntimeScheduleRecurringScheduleInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleRecurringScheduleOutput() DowntimeScheduleRecurringScheduleOutput
+	ToDowntimeScheduleRecurringScheduleOutputWithContext(context.Context) DowntimeScheduleRecurringScheduleOutput
+}
+
+type DowntimeScheduleRecurringScheduleArgs struct {
+	Recurrences DowntimeScheduleRecurringScheduleRecurrenceArrayInput `pulumi:"recurrences"`
+	// The timezone in which to schedule the downtime.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (DowntimeScheduleRecurringScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleRecurringSchedule)(nil)).Elem()
+}
+
+func (i DowntimeScheduleRecurringScheduleArgs) ToDowntimeScheduleRecurringScheduleOutput() DowntimeScheduleRecurringScheduleOutput {
+	return i.ToDowntimeScheduleRecurringScheduleOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleRecurringScheduleArgs) ToDowntimeScheduleRecurringScheduleOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleRecurringScheduleOutput)
+}
+
+func (i DowntimeScheduleRecurringScheduleArgs) ToDowntimeScheduleRecurringSchedulePtrOutput() DowntimeScheduleRecurringSchedulePtrOutput {
+	return i.ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleRecurringScheduleArgs) ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleRecurringSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleRecurringScheduleOutput).ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(ctx)
+}
+
+// DowntimeScheduleRecurringSchedulePtrInput is an input type that accepts DowntimeScheduleRecurringScheduleArgs, DowntimeScheduleRecurringSchedulePtr and DowntimeScheduleRecurringSchedulePtrOutput values.
+// You can construct a concrete instance of `DowntimeScheduleRecurringSchedulePtrInput` via:
+//
+//	        DowntimeScheduleRecurringScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DowntimeScheduleRecurringSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleRecurringSchedulePtrOutput() DowntimeScheduleRecurringSchedulePtrOutput
+	ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(context.Context) DowntimeScheduleRecurringSchedulePtrOutput
+}
+
+type downtimeScheduleRecurringSchedulePtrType DowntimeScheduleRecurringScheduleArgs
+
+func DowntimeScheduleRecurringSchedulePtr(v *DowntimeScheduleRecurringScheduleArgs) DowntimeScheduleRecurringSchedulePtrInput {
+	return (*downtimeScheduleRecurringSchedulePtrType)(v)
+}
+
+func (*downtimeScheduleRecurringSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleRecurringSchedule)(nil)).Elem()
+}
+
+func (i *downtimeScheduleRecurringSchedulePtrType) ToDowntimeScheduleRecurringSchedulePtrOutput() DowntimeScheduleRecurringSchedulePtrOutput {
+	return i.ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *downtimeScheduleRecurringSchedulePtrType) ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleRecurringSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleRecurringSchedulePtrOutput)
+}
+
+type DowntimeScheduleRecurringScheduleOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleRecurringScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleRecurringSchedule)(nil)).Elem()
+}
+
+func (o DowntimeScheduleRecurringScheduleOutput) ToDowntimeScheduleRecurringScheduleOutput() DowntimeScheduleRecurringScheduleOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleOutput) ToDowntimeScheduleRecurringScheduleOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleOutput) ToDowntimeScheduleRecurringSchedulePtrOutput() DowntimeScheduleRecurringSchedulePtrOutput {
+	return o.ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DowntimeScheduleRecurringScheduleOutput) ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleRecurringSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DowntimeScheduleRecurringSchedule) *DowntimeScheduleRecurringSchedule {
+		return &v
+	}).(DowntimeScheduleRecurringSchedulePtrOutput)
+}
+
+func (o DowntimeScheduleRecurringScheduleOutput) Recurrences() DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return o.ApplyT(func(v DowntimeScheduleRecurringSchedule) []DowntimeScheduleRecurringScheduleRecurrence {
+		return v.Recurrences
+	}).(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput)
+}
+
+// The timezone in which to schedule the downtime.
+func (o DowntimeScheduleRecurringScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DowntimeScheduleRecurringSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type DowntimeScheduleRecurringSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleRecurringSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DowntimeScheduleRecurringSchedule)(nil)).Elem()
+}
+
+func (o DowntimeScheduleRecurringSchedulePtrOutput) ToDowntimeScheduleRecurringSchedulePtrOutput() DowntimeScheduleRecurringSchedulePtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringSchedulePtrOutput) ToDowntimeScheduleRecurringSchedulePtrOutputWithContext(ctx context.Context) DowntimeScheduleRecurringSchedulePtrOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringSchedulePtrOutput) Elem() DowntimeScheduleRecurringScheduleOutput {
+	return o.ApplyT(func(v *DowntimeScheduleRecurringSchedule) DowntimeScheduleRecurringSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DowntimeScheduleRecurringSchedule
+		return ret
+	}).(DowntimeScheduleRecurringScheduleOutput)
+}
+
+func (o DowntimeScheduleRecurringSchedulePtrOutput) Recurrences() DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return o.ApplyT(func(v *DowntimeScheduleRecurringSchedule) []DowntimeScheduleRecurringScheduleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrences
+	}).(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput)
+}
+
+// The timezone in which to schedule the downtime.
+func (o DowntimeScheduleRecurringSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DowntimeScheduleRecurringSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type DowntimeScheduleRecurringScheduleRecurrence struct {
+	Duration string  `pulumi:"duration"`
+	Rrule    string  `pulumi:"rrule"`
+	Start    *string `pulumi:"start"`
+}
+
+// DowntimeScheduleRecurringScheduleRecurrenceInput is an input type that accepts DowntimeScheduleRecurringScheduleRecurrenceArgs and DowntimeScheduleRecurringScheduleRecurrenceOutput values.
+// You can construct a concrete instance of `DowntimeScheduleRecurringScheduleRecurrenceInput` via:
+//
+//	DowntimeScheduleRecurringScheduleRecurrenceArgs{...}
+type DowntimeScheduleRecurringScheduleRecurrenceInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleRecurringScheduleRecurrenceOutput() DowntimeScheduleRecurringScheduleRecurrenceOutput
+	ToDowntimeScheduleRecurringScheduleRecurrenceOutputWithContext(context.Context) DowntimeScheduleRecurringScheduleRecurrenceOutput
+}
+
+type DowntimeScheduleRecurringScheduleRecurrenceArgs struct {
+	Duration pulumi.StringInput    `pulumi:"duration"`
+	Rrule    pulumi.StringInput    `pulumi:"rrule"`
+	Start    pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (DowntimeScheduleRecurringScheduleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrence)(nil)).Elem()
+}
+
+func (i DowntimeScheduleRecurringScheduleRecurrenceArgs) ToDowntimeScheduleRecurringScheduleRecurrenceOutput() DowntimeScheduleRecurringScheduleRecurrenceOutput {
+	return i.ToDowntimeScheduleRecurringScheduleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleRecurringScheduleRecurrenceArgs) ToDowntimeScheduleRecurringScheduleRecurrenceOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleRecurringScheduleRecurrenceOutput)
+}
+
+// DowntimeScheduleRecurringScheduleRecurrenceArrayInput is an input type that accepts DowntimeScheduleRecurringScheduleRecurrenceArray and DowntimeScheduleRecurringScheduleRecurrenceArrayOutput values.
+// You can construct a concrete instance of `DowntimeScheduleRecurringScheduleRecurrenceArrayInput` via:
+//
+//	DowntimeScheduleRecurringScheduleRecurrenceArray{ DowntimeScheduleRecurringScheduleRecurrenceArgs{...} }
+type DowntimeScheduleRecurringScheduleRecurrenceArrayInput interface {
+	pulumi.Input
+
+	ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutput() DowntimeScheduleRecurringScheduleRecurrenceArrayOutput
+	ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutputWithContext(context.Context) DowntimeScheduleRecurringScheduleRecurrenceArrayOutput
+}
+
+type DowntimeScheduleRecurringScheduleRecurrenceArray []DowntimeScheduleRecurringScheduleRecurrenceInput
+
+func (DowntimeScheduleRecurringScheduleRecurrenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DowntimeScheduleRecurringScheduleRecurrence)(nil)).Elem()
+}
+
+func (i DowntimeScheduleRecurringScheduleRecurrenceArray) ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutput() DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return i.ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutputWithContext(context.Background())
+}
+
+func (i DowntimeScheduleRecurringScheduleRecurrenceArray) ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput)
+}
+
+type DowntimeScheduleRecurringScheduleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleRecurringScheduleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrence)(nil)).Elem()
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) ToDowntimeScheduleRecurringScheduleRecurrenceOutput() DowntimeScheduleRecurringScheduleRecurrenceOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) ToDowntimeScheduleRecurringScheduleRecurrenceOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleRecurrenceOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Rrule() pulumi.StringOutput {
+	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) string { return v.Rrule }).(pulumi.StringOutput)
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type DowntimeScheduleRecurringScheduleRecurrenceArrayOutput struct{ *pulumi.OutputState }
+
+func (DowntimeScheduleRecurringScheduleRecurrenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DowntimeScheduleRecurringScheduleRecurrence)(nil)).Elem()
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceArrayOutput) ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutput() DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceArrayOutput) ToDowntimeScheduleRecurringScheduleRecurrenceArrayOutputWithContext(ctx context.Context) DowntimeScheduleRecurringScheduleRecurrenceArrayOutput {
+	return o
+}
+
+func (o DowntimeScheduleRecurringScheduleRecurrenceArrayOutput) Index(i pulumi.IntInput) DowntimeScheduleRecurringScheduleRecurrenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DowntimeScheduleRecurringScheduleRecurrence {
+		return vs[0].([]DowntimeScheduleRecurringScheduleRecurrence)[vs[1].(int)]
+	}).(DowntimeScheduleRecurringScheduleRecurrenceOutput)
 }
 
 type IpAllowlistEntry struct {
@@ -26664,6 +27342,8 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	NoSavingResponseBody *bool `pulumi:"noSavingResponseBody"`
 	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 	NumberOfPackets *int `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies *bool `pulumi:"persistCookies"`
 	// Port to use when performing the test.
 	Port *int `pulumi:"port"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -26714,6 +27394,8 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	NoSavingResponseBody pulumi.BoolPtrInput `pulumi:"noSavingResponseBody"`
 	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
 	// Port to use when performing the test.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -26866,6 +27548,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) NoSavingResponseBody() pul
 // Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) NumberOfPackets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.NumberOfPackets }).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
 }
 
 // Port to use when performing the test.
@@ -27048,6 +27735,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) NumberOfPackets() pulum
 		}
 		return v.NumberOfPackets
 	}).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistCookies
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Port to use when performing the test.
@@ -31181,6 +31878,8 @@ type SyntheticsTestRequestDefinition struct {
 	NoSavingResponseBody *bool `pulumi:"noSavingResponseBody"`
 	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 	NumberOfPackets *int `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies *bool `pulumi:"persistCookies"`
 	// Port to use when performing the test.
 	Port *int `pulumi:"port"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -31229,6 +31928,8 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	NoSavingResponseBody pulumi.BoolPtrInput `pulumi:"noSavingResponseBody"`
 	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
 	// Port to use when performing the test.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -31373,6 +32074,11 @@ func (o SyntheticsTestRequestDefinitionOutput) NoSavingResponseBody() pulumi.Boo
 // Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
 func (o SyntheticsTestRequestDefinitionOutput) NumberOfPackets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.NumberOfPackets }).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestRequestDefinitionOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
 }
 
 // Port to use when performing the test.
@@ -31537,6 +32243,16 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) NumberOfPackets() pulumi.IntPt
 		}
 		return v.NumberOfPackets
 	}).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestRequestDefinitionPtrOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistCookies
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Port to use when performing the test.
@@ -35493,6 +36209,8 @@ func (o GetTeamMembershipsTeamMembershipArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestAuditQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestAuditQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestAuditQueryPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestAuditQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs{})
@@ -35617,6 +36335,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWidgetLayoutPtrInput)(nil)).Elem(), DashboardWidgetWidgetLayoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrenceInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrencePtrInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleMonitorIdentifierInput)(nil)).Elem(), DowntimeScheduleMonitorIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleMonitorIdentifierPtrInput)(nil)).Elem(), DowntimeScheduleMonitorIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleOneTimeScheduleInput)(nil)).Elem(), DowntimeScheduleOneTimeScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleOneTimeSchedulePtrInput)(nil)).Elem(), DowntimeScheduleOneTimeScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringSchedulePtrInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceArrayInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryInput)(nil)).Elem(), IpAllowlistEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryArrayInput)(nil)).Elem(), IpAllowlistEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchiveInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
@@ -35933,6 +36659,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloArrayInput)(nil)).Elem(), GetServiceLevelObjectivesSloArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestAuditQueryOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput{})
@@ -36057,6 +36785,14 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWidgetWidgetLayoutPtrOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrenceOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleMonitorIdentifierOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleMonitorIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleOneTimeScheduleOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleOneTimeSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleRecurringSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceOutput{})
+	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(IpAllowlistEntryOutput{})
 	pulumi.RegisterOutputType(IpAllowlistEntryArrayOutput{})
 	pulumi.RegisterOutputType(LogsArchiveAzureArchiveOutput{})

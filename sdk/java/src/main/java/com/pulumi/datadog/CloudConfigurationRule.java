@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.CloudConfigurationRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.CloudConfigurationRuleState;
+import com.pulumi.datadog.outputs.CloudConfigurationRuleFilter;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -108,6 +109,20 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
+    }
+    /**
+     * Additional queries to filter matched events before they are processed. Defaults to empty list
+     * 
+     */
+    @Export(name="filters", refs={List.class,CloudConfigurationRuleFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<CloudConfigurationRuleFilter>> filters;
+
+    /**
+     * @return Additional queries to filter matched events before they are processed. Defaults to empty list
+     * 
+     */
+    public Output<Optional<List<CloudConfigurationRuleFilter>>> filters() {
+        return Codegen.optional(this.filters);
     }
     /**
      * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.

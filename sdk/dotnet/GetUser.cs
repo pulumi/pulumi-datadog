@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
         /// </summary>
         [Input("exactMatch")]
         public bool? ExactMatch { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.Datadog
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
         /// </summary>
         [Input("exactMatch")]
         public Input<bool>? ExactMatch { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Email;
         /// <summary>
-        /// When true, `filter` string is exact matched againts the users `email`, followed by `name` attribute.
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
         /// </summary>
         public readonly bool? ExactMatch;
         /// <summary>

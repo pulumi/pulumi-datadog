@@ -55,6 +55,11 @@ export type Downtime = import("./downtime").Downtime;
 export const Downtime: typeof import("./downtime").Downtime = null as any;
 utilities.lazyLoad(exports, ["Downtime"], () => require("./downtime"));
 
+export { DowntimeScheduleArgs, DowntimeScheduleState } from "./downtimeSchedule";
+export type DowntimeSchedule = import("./downtimeSchedule").DowntimeSchedule;
+export const DowntimeSchedule: typeof import("./downtimeSchedule").DowntimeSchedule = null as any;
+utilities.lazyLoad(exports, ["DowntimeSchedule"], () => require("./downtimeSchedule"));
+
 export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
 export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
@@ -391,6 +396,11 @@ export type TeamMembership = import("./teamMembership").TeamMembership;
 export const TeamMembership: typeof import("./teamMembership").TeamMembership = null as any;
 utilities.lazyLoad(exports, ["TeamMembership"], () => require("./teamMembership"));
 
+export { TeamPermissionSettingArgs, TeamPermissionSettingState } from "./teamPermissionSetting";
+export type TeamPermissionSetting = import("./teamPermissionSetting").TeamPermissionSetting;
+export const TeamPermissionSetting: typeof import("./teamPermissionSetting").TeamPermissionSetting = null as any;
+utilities.lazyLoad(exports, ["TeamPermissionSetting"], () => require("./teamPermissionSetting"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -458,6 +468,8 @@ const _module = {
                 return new DashboardList(name, <any>undefined, { urn })
             case "datadog:index/downtime:Downtime":
                 return new Downtime(name, <any>undefined, { urn })
+            case "datadog:index/downtimeSchedule:DowntimeSchedule":
+                return new DowntimeSchedule(name, <any>undefined, { urn })
             case "datadog:index/ipAllowlist:IpAllowlist":
                 return new IpAllowlist(name, <any>undefined, { urn })
             case "datadog:index/logsArchive:LogsArchive":
@@ -532,6 +544,8 @@ const _module = {
                 return new TeamLink(name, <any>undefined, { urn })
             case "datadog:index/teamMembership:TeamMembership":
                 return new TeamMembership(name, <any>undefined, { urn })
+            case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
+                return new TeamPermissionSetting(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "datadog:index/webhook:Webhook":
@@ -553,6 +567,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchiveOrder", _module)
@@ -590,6 +605,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)

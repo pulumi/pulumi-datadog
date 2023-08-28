@@ -91,6 +91,12 @@ namespace Pulumi.Datadog
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Additional queries to filter matched events before they are processed. Defaults to empty list
+        /// </summary>
+        [Output("filters")]
+        public Output<ImmutableArray<Outputs.CloudConfigurationRuleFilter>> Filters { get; private set; } = null!;
+
+        /// <summary>
         /// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
         /// </summary>
         [Output("groupBies")]
@@ -196,6 +202,18 @@ namespace Pulumi.Datadog
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        [Input("filters")]
+        private InputList<Inputs.CloudConfigurationRuleFilterArgs>? _filters;
+
+        /// <summary>
+        /// Additional queries to filter matched events before they are processed. Defaults to empty list
+        /// </summary>
+        public InputList<Inputs.CloudConfigurationRuleFilterArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.CloudConfigurationRuleFilterArgs>());
+            set => _filters = value;
+        }
+
         [Input("groupBies")]
         private InputList<string>? _groupBies;
 
@@ -287,6 +305,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.CloudConfigurationRuleFilterGetArgs>? _filters;
+
+        /// <summary>
+        /// Additional queries to filter matched events before they are processed. Defaults to empty list
+        /// </summary>
+        public InputList<Inputs.CloudConfigurationRuleFilterGetArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.CloudConfigurationRuleFilterGetArgs>());
+            set => _filters = value;
+        }
 
         [Input("groupBies")]
         private InputList<string>? _groupBies;

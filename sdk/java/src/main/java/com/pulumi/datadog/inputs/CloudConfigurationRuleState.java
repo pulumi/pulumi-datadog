@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.CloudConfigurationRuleFilterArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -30,6 +31,21 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * Additional queries to filter matched events before they are processed. Defaults to empty list
+     * 
+     */
+    @Import(name="filters")
+    private @Nullable Output<List<CloudConfigurationRuleFilterArgs>> filters;
+
+    /**
+     * @return Additional queries to filter matched events before they are processed. Defaults to empty list
+     * 
+     */
+    public Optional<Output<List<CloudConfigurationRuleFilterArgs>>> filters() {
+        return Optional.ofNullable(this.filters);
     }
 
     /**
@@ -171,6 +187,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
 
     private CloudConfigurationRuleState(CloudConfigurationRuleState $) {
         this.enabled = $.enabled;
+        this.filters = $.filters;
         this.groupBies = $.groupBies;
         this.message = $.message;
         this.name = $.name;
@@ -219,6 +236,37 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param filters Additional queries to filter matched events before they are processed. Defaults to empty list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(@Nullable Output<List<CloudConfigurationRuleFilterArgs>> filters) {
+            $.filters = filters;
+            return this;
+        }
+
+        /**
+         * @param filters Additional queries to filter matched events before they are processed. Defaults to empty list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(List<CloudConfigurationRuleFilterArgs> filters) {
+            return filters(Output.of(filters));
+        }
+
+        /**
+         * @param filters Additional queries to filter matched events before they are processed. Defaults to empty list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filters(CloudConfigurationRuleFilterArgs... filters) {
+            return filters(List.of(filters));
         }
 
         /**

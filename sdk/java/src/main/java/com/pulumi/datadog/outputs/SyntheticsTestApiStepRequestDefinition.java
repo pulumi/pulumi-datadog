@@ -72,6 +72,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Integer numberOfPackets;
     /**
+     * @return Persist cookies across redirects.
+     * 
+     */
+    private @Nullable Boolean persistCookies;
+    /**
      * @return Port to use when performing the test.
      * 
      */
@@ -187,6 +192,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.numberOfPackets);
     }
     /**
+     * @return Persist cookies across redirects.
+     * 
+     */
+    public Optional<Boolean> persistCookies() {
+        return Optional.ofNullable(this.persistCookies);
+    }
+    /**
      * @return Port to use when performing the test.
      * 
      */
@@ -251,6 +263,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
         private @Nullable Integer numberOfPackets;
+        private @Nullable Boolean persistCookies;
         private @Nullable Integer port;
         private @Nullable String servername;
         private @Nullable String service;
@@ -273,6 +286,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
     	      this.numberOfPackets = defaults.numberOfPackets;
+    	      this.persistCookies = defaults.persistCookies;
     	      this.port = defaults.port;
     	      this.servername = defaults.servername;
     	      this.service = defaults.service;
@@ -350,6 +364,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder persistCookies(@Nullable Boolean persistCookies) {
+            this.persistCookies = persistCookies;
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
@@ -394,6 +413,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             o.method = method;
             o.noSavingResponseBody = noSavingResponseBody;
             o.numberOfPackets = numberOfPackets;
+            o.persistCookies = persistCookies;
             o.port = port;
             o.servername = servername;
             o.service = service;

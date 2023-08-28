@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * // Manage a Datadog metric's metadata
  * const requestTime = new datadog.MetricMetadata("requestTime", {
- *     description: "99th percentile request time in millseconds",
+ *     description: "99th percentile request time in milliseconds",
  *     metric: "request.time",
  *     shortName: "Request time",
  *     type: "gauge",
