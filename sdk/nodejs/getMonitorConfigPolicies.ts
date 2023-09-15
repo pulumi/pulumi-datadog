@@ -38,3 +38,18 @@ export interface GetMonitorConfigPoliciesResult {
      */
     readonly monitorConfigPolicies: outputs.GetMonitorConfigPoliciesMonitorConfigPolicy[];
 }
+/**
+ * Use this data source to list existing monitor config policies for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getMonitorConfigPolicies({});
+ * ```
+ */
+export function getMonitorConfigPoliciesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorConfigPoliciesResult> {
+    return pulumi.output(getMonitorConfigPolicies(opts))
+}

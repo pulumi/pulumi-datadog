@@ -35,6 +35,31 @@ namespace Pulumi.Datadog.Aws
         /// </summary>
         public static Task<GetIntegrationNamespaceRulesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationNamespaceRulesResult>("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var rules = Datadog.Aws.GetIntegrationNamespaceRules.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIntegrationNamespaceRulesResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationNamespaceRulesResult>("datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -34,8 +34,8 @@ namespace Pulumi.Datadog
         ///         Name = "lpo",
         ///         Pipelines = .Select(pipeline =&gt; 
         ///         {
-        ///             return  pipeline.Id;
-        ///         }),
+        ///             return pipeline.Id;
+        ///         }).ToList(),
         ///     });
         /// 
         /// });
@@ -69,8 +69,8 @@ namespace Pulumi.Datadog
         ///         Name = "lpo",
         ///         Pipelines = .Select(pipeline =&gt; 
         ///         {
-        ///             return  pipeline.Id;
-        ///         }),
+        ///             return pipeline.Id;
+        ///         }).ToList(),
         ///     });
         /// 
         /// });

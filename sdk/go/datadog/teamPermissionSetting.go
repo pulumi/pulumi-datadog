@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
@@ -162,6 +163,12 @@ func (i *TeamPermissionSetting) ToTeamPermissionSettingOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TeamPermissionSettingOutput)
 }
 
+func (i *TeamPermissionSetting) ToOutput(ctx context.Context) pulumix.Output[*TeamPermissionSetting] {
+	return pulumix.Output[*TeamPermissionSetting]{
+		OutputState: i.ToTeamPermissionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamPermissionSettingArrayInput is an input type that accepts TeamPermissionSettingArray and TeamPermissionSettingArrayOutput values.
 // You can construct a concrete instance of `TeamPermissionSettingArrayInput` via:
 //
@@ -185,6 +192,12 @@ func (i TeamPermissionSettingArray) ToTeamPermissionSettingArrayOutput() TeamPer
 
 func (i TeamPermissionSettingArray) ToTeamPermissionSettingArrayOutputWithContext(ctx context.Context) TeamPermissionSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamPermissionSettingArrayOutput)
+}
+
+func (i TeamPermissionSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamPermissionSetting] {
+	return pulumix.Output[[]*TeamPermissionSetting]{
+		OutputState: i.ToTeamPermissionSettingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TeamPermissionSettingMapInput is an input type that accepts TeamPermissionSettingMap and TeamPermissionSettingMapOutput values.
@@ -212,6 +225,12 @@ func (i TeamPermissionSettingMap) ToTeamPermissionSettingMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TeamPermissionSettingMapOutput)
 }
 
+func (i TeamPermissionSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamPermissionSetting] {
+	return pulumix.Output[map[string]*TeamPermissionSetting]{
+		OutputState: i.ToTeamPermissionSettingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamPermissionSettingOutput struct{ *pulumi.OutputState }
 
 func (TeamPermissionSettingOutput) ElementType() reflect.Type {
@@ -224,6 +243,12 @@ func (o TeamPermissionSettingOutput) ToTeamPermissionSettingOutput() TeamPermiss
 
 func (o TeamPermissionSettingOutput) ToTeamPermissionSettingOutputWithContext(ctx context.Context) TeamPermissionSettingOutput {
 	return o
+}
+
+func (o TeamPermissionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamPermissionSetting] {
+	return pulumix.Output[*TeamPermissionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier for the action. Valid values are `manageMembership`, `edit`.
@@ -255,6 +280,12 @@ func (o TeamPermissionSettingArrayOutput) ToTeamPermissionSettingArrayOutputWith
 	return o
 }
 
+func (o TeamPermissionSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamPermissionSetting] {
+	return pulumix.Output[[]*TeamPermissionSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TeamPermissionSettingArrayOutput) Index(i pulumi.IntInput) TeamPermissionSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamPermissionSetting {
 		return vs[0].([]*TeamPermissionSetting)[vs[1].(int)]
@@ -273,6 +304,12 @@ func (o TeamPermissionSettingMapOutput) ToTeamPermissionSettingMapOutput() TeamP
 
 func (o TeamPermissionSettingMapOutput) ToTeamPermissionSettingMapOutputWithContext(ctx context.Context) TeamPermissionSettingMapOutput {
 	return o
+}
+
+func (o TeamPermissionSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamPermissionSetting] {
+	return pulumix.Output[map[string]*TeamPermissionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamPermissionSettingMapOutput) MapIndex(k pulumi.StringInput) TeamPermissionSettingOutput {

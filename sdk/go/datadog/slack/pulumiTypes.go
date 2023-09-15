@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i ChannelDisplayArgs) ToChannelDisplayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDisplayOutput)
 }
 
+func (i ChannelDisplayArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDisplay] {
+	return pulumix.Output[ChannelDisplay]{
+		OutputState: i.ToChannelDisplayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ChannelDisplayArgs) ToChannelDisplayPtrOutput() ChannelDisplayPtrOutput {
 	return i.ToChannelDisplayPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *channelDisplayPtrType) ToChannelDisplayPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDisplayPtrOutput)
 }
 
+func (i *channelDisplayPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDisplay] {
+	return pulumix.Output[*ChannelDisplay]{
+		OutputState: i.ToChannelDisplayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelDisplayOutput struct{ *pulumi.OutputState }
 
 func (ChannelDisplayOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o ChannelDisplayOutput) ToChannelDisplayPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDisplay) *ChannelDisplay {
 		return &v
 	}).(ChannelDisplayPtrOutput)
+}
+
+func (o ChannelDisplayOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDisplay] {
+	return pulumix.Output[ChannelDisplay]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Show the main body of the alert event.
@@ -155,6 +174,12 @@ func (o ChannelDisplayPtrOutput) ToChannelDisplayPtrOutput() ChannelDisplayPtrOu
 
 func (o ChannelDisplayPtrOutput) ToChannelDisplayPtrOutputWithContext(ctx context.Context) ChannelDisplayPtrOutput {
 	return o
+}
+
+func (o ChannelDisplayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDisplay] {
+	return pulumix.Output[*ChannelDisplay]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelDisplayPtrOutput) Elem() ChannelDisplayOutput {

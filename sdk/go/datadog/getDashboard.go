@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
@@ -102,6 +103,12 @@ func (o LookupDashboardResultOutput) ToLookupDashboardResultOutput() LookupDashb
 
 func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ctx context.Context) LookupDashboardResultOutput {
 	return o
+}
+
+func (o LookupDashboardResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDashboardResult] {
+	return pulumix.Output[LookupDashboardResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing SLO for use in other resources.
@@ -135,6 +136,12 @@ func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveRe
 
 func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveResultOutputWithContext(ctx context.Context) LookupServiceLevelObjectiveResultOutput {
 	return o
+}
+
+func (o LookupServiceLevelObjectiveResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceLevelObjectiveResult] {
+	return pulumix.Output[LookupServiceLevelObjectiveResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the service level objective.

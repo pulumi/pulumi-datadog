@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `OrganizationSettings`.
@@ -162,6 +163,12 @@ func (i *ChildOrganization) ToChildOrganizationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationOutput)
 }
 
+func (i *ChildOrganization) ToOutput(ctx context.Context) pulumix.Output[*ChildOrganization] {
+	return pulumix.Output[*ChildOrganization]{
+		OutputState: i.ToChildOrganizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChildOrganizationArrayInput is an input type that accepts ChildOrganizationArray and ChildOrganizationArrayOutput values.
 // You can construct a concrete instance of `ChildOrganizationArrayInput` via:
 //
@@ -185,6 +192,12 @@ func (i ChildOrganizationArray) ToChildOrganizationArrayOutput() ChildOrganizati
 
 func (i ChildOrganizationArray) ToChildOrganizationArrayOutputWithContext(ctx context.Context) ChildOrganizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationArrayOutput)
+}
+
+func (i ChildOrganizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChildOrganization] {
+	return pulumix.Output[[]*ChildOrganization]{
+		OutputState: i.ToChildOrganizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChildOrganizationMapInput is an input type that accepts ChildOrganizationMap and ChildOrganizationMapOutput values.
@@ -212,6 +225,12 @@ func (i ChildOrganizationMap) ToChildOrganizationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationMapOutput)
 }
 
+func (i ChildOrganizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChildOrganization] {
+	return pulumix.Output[map[string]*ChildOrganization]{
+		OutputState: i.ToChildOrganizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChildOrganizationOutput struct{ *pulumi.OutputState }
 
 func (ChildOrganizationOutput) ElementType() reflect.Type {
@@ -224,6 +243,12 @@ func (o ChildOrganizationOutput) ToChildOrganizationOutput() ChildOrganizationOu
 
 func (o ChildOrganizationOutput) ToChildOrganizationOutputWithContext(ctx context.Context) ChildOrganizationOutput {
 	return o
+}
+
+func (o ChildOrganizationOutput) ToOutput(ctx context.Context) pulumix.Output[*ChildOrganization] {
+	return pulumix.Output[*ChildOrganization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Datadog API key.
@@ -275,6 +300,12 @@ func (o ChildOrganizationArrayOutput) ToChildOrganizationArrayOutputWithContext(
 	return o
 }
 
+func (o ChildOrganizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChildOrganization] {
+	return pulumix.Output[[]*ChildOrganization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChildOrganizationArrayOutput) Index(i pulumi.IntInput) ChildOrganizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChildOrganization {
 		return vs[0].([]*ChildOrganization)[vs[1].(int)]
@@ -293,6 +324,12 @@ func (o ChildOrganizationMapOutput) ToChildOrganizationMapOutput() ChildOrganiza
 
 func (o ChildOrganizationMapOutput) ToChildOrganizationMapOutputWithContext(ctx context.Context) ChildOrganizationMapOutput {
 	return o
+}
+
+func (o ChildOrganizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChildOrganization] {
+	return pulumix.Output[map[string]*ChildOrganization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChildOrganizationMapOutput) MapIndex(k pulumi.StringInput) ChildOrganizationOutput {

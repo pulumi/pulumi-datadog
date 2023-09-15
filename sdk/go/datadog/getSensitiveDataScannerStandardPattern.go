@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
@@ -78,6 +79,12 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) ToGetSensitiveDataSc
 
 func (o GetSensitiveDataScannerStandardPatternResultOutput) ToGetSensitiveDataScannerStandardPatternResultOutputWithContext(ctx context.Context) GetSensitiveDataScannerStandardPatternResultOutput {
 	return o
+}
+
+func (o GetSensitiveDataScannerStandardPatternResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSensitiveDataScannerStandardPatternResult] {
+	return pulumix.Output[GetSensitiveDataScannerStandardPatternResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Filter all the Datadog standard patterns by name.

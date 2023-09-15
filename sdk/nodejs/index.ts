@@ -72,7 +72,8 @@ utilities.lazyLoad(exports, ["getApplicationKey","getApplicationKeyOutput"], () 
 
 export { GetCloudWorkloadSecurityAgentRulesResult } from "./getCloudWorkloadSecurityAgentRules";
 export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRules = null as any;
-utilities.lazyLoad(exports, ["getCloudWorkloadSecurityAgentRules"], () => require("./getCloudWorkloadSecurityAgentRules"));
+export const getCloudWorkloadSecurityAgentRulesOutput: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudWorkloadSecurityAgentRules","getCloudWorkloadSecurityAgentRulesOutput"], () => require("./getCloudWorkloadSecurityAgentRules"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
@@ -91,19 +92,23 @@ utilities.lazyLoad(exports, ["getHosts","getHostsOutput"], () => require("./getH
 
 export { GetIpRangesResult } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
-utilities.lazyLoad(exports, ["getIpRanges"], () => require("./getIpRanges"));
+export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
+utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
 
 export { GetLogsArchivesOrderResult } from "./getLogsArchivesOrder";
 export const getLogsArchivesOrder: typeof import("./getLogsArchivesOrder").getLogsArchivesOrder = null as any;
-utilities.lazyLoad(exports, ["getLogsArchivesOrder"], () => require("./getLogsArchivesOrder"));
+export const getLogsArchivesOrderOutput: typeof import("./getLogsArchivesOrder").getLogsArchivesOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getLogsArchivesOrder","getLogsArchivesOrderOutput"], () => require("./getLogsArchivesOrder"));
 
 export { GetLogsIndexesResult } from "./getLogsIndexes";
 export const getLogsIndexes: typeof import("./getLogsIndexes").getLogsIndexes = null as any;
-utilities.lazyLoad(exports, ["getLogsIndexes"], () => require("./getLogsIndexes"));
+export const getLogsIndexesOutput: typeof import("./getLogsIndexes").getLogsIndexesOutput = null as any;
+utilities.lazyLoad(exports, ["getLogsIndexes","getLogsIndexesOutput"], () => require("./getLogsIndexes"));
 
 export { GetLogsIndexesOrderResult } from "./getLogsIndexesOrder";
 export const getLogsIndexesOrder: typeof import("./getLogsIndexesOrder").getLogsIndexesOrder = null as any;
-utilities.lazyLoad(exports, ["getLogsIndexesOrder"], () => require("./getLogsIndexesOrder"));
+export const getLogsIndexesOrderOutput: typeof import("./getLogsIndexesOrder").getLogsIndexesOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getLogsIndexesOrder","getLogsIndexesOrderOutput"], () => require("./getLogsIndexesOrder"));
 
 export { GetLogsPipelinesArgs, GetLogsPipelinesResult, GetLogsPipelinesOutputArgs } from "./getLogsPipelines";
 export const getLogsPipelines: typeof import("./getLogsPipelines").getLogsPipelines = null as any;
@@ -117,7 +122,8 @@ utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./
 
 export { GetMonitorConfigPoliciesResult } from "./getMonitorConfigPolicies";
 export const getMonitorConfigPolicies: typeof import("./getMonitorConfigPolicies").getMonitorConfigPolicies = null as any;
-utilities.lazyLoad(exports, ["getMonitorConfigPolicies"], () => require("./getMonitorConfigPolicies"));
+export const getMonitorConfigPoliciesOutput: typeof import("./getMonitorConfigPolicies").getMonitorConfigPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitorConfigPolicies","getMonitorConfigPoliciesOutput"], () => require("./getMonitorConfigPolicies"));
 
 export { GetMonitorsArgs, GetMonitorsResult, GetMonitorsOutputArgs } from "./getMonitors";
 export const getMonitors: typeof import("./getMonitors").getMonitors = null as any;
@@ -146,7 +152,8 @@ utilities.lazyLoad(exports, ["getRumApplication","getRumApplicationOutput"], () 
 
 export { GetSecurityMonitoringFiltersResult } from "./getSecurityMonitoringFilters";
 export const getSecurityMonitoringFilters: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFilters = null as any;
-utilities.lazyLoad(exports, ["getSecurityMonitoringFilters"], () => require("./getSecurityMonitoringFilters"));
+export const getSecurityMonitoringFiltersOutput: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFiltersOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringFilters","getSecurityMonitoringFiltersOutput"], () => require("./getSecurityMonitoringFilters"));
 
 export { GetSecurityMonitoringRulesArgs, GetSecurityMonitoringRulesResult, GetSecurityMonitoringRulesOutputArgs } from "./getSecurityMonitoringRules";
 export const getSecurityMonitoringRules: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRules = null as any;
@@ -155,7 +162,8 @@ utilities.lazyLoad(exports, ["getSecurityMonitoringRules","getSecurityMonitoring
 
 export { GetSensitiveDataScannerGroupOrderResult } from "./getSensitiveDataScannerGroupOrder";
 export const getSensitiveDataScannerGroupOrder: typeof import("./getSensitiveDataScannerGroupOrder").getSensitiveDataScannerGroupOrder = null as any;
-utilities.lazyLoad(exports, ["getSensitiveDataScannerGroupOrder"], () => require("./getSensitiveDataScannerGroupOrder"));
+export const getSensitiveDataScannerGroupOrderOutput: typeof import("./getSensitiveDataScannerGroupOrder").getSensitiveDataScannerGroupOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getSensitiveDataScannerGroupOrder","getSensitiveDataScannerGroupOrderOutput"], () => require("./getSensitiveDataScannerGroupOrder"));
 
 export { GetSensitiveDataScannerStandardPatternArgs, GetSensitiveDataScannerStandardPatternResult, GetSensitiveDataScannerStandardPatternOutputArgs } from "./getSensitiveDataScannerStandardPattern";
 export const getSensitiveDataScannerStandardPattern: typeof import("./getSensitiveDataScannerStandardPattern").getSensitiveDataScannerStandardPattern = null as any;
@@ -184,7 +192,8 @@ utilities.lazyLoad(exports, ["getSyntheticsGlobalVariable","getSyntheticsGlobalV
 
 export { GetSyntheticsLocationsResult } from "./getSyntheticsLocations";
 export const getSyntheticsLocations: typeof import("./getSyntheticsLocations").getSyntheticsLocations = null as any;
-utilities.lazyLoad(exports, ["getSyntheticsLocations"], () => require("./getSyntheticsLocations"));
+export const getSyntheticsLocationsOutput: typeof import("./getSyntheticsLocations").getSyntheticsLocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSyntheticsLocations","getSyntheticsLocationsOutput"], () => require("./getSyntheticsLocations"));
 
 export { GetSyntheticsTestArgs, GetSyntheticsTestResult, GetSyntheticsTestOutputArgs } from "./getSyntheticsTest";
 export const getSyntheticsTest: typeof import("./getSyntheticsTest").getSyntheticsTest = null as any;

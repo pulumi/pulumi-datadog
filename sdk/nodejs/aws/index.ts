@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export { GetIntegrationLogsServicesResult } from "./getIntegrationLogsServices";
 export const getIntegrationLogsServices: typeof import("./getIntegrationLogsServices").getIntegrationLogsServices = null as any;
-utilities.lazyLoad(exports, ["getIntegrationLogsServices"], () => require("./getIntegrationLogsServices"));
+export const getIntegrationLogsServicesOutput: typeof import("./getIntegrationLogsServices").getIntegrationLogsServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationLogsServices","getIntegrationLogsServicesOutput"], () => require("./getIntegrationLogsServices"));
 
 export { GetIntegrationNamespaceRulesResult } from "./getIntegrationNamespaceRules";
 export const getIntegrationNamespaceRules: typeof import("./getIntegrationNamespaceRules").getIntegrationNamespaceRules = null as any;
-utilities.lazyLoad(exports, ["getIntegrationNamespaceRules"], () => require("./getIntegrationNamespaceRules"));
+export const getIntegrationNamespaceRulesOutput: typeof import("./getIntegrationNamespaceRules").getIntegrationNamespaceRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationNamespaceRules","getIntegrationNamespaceRulesOutput"], () => require("./getIntegrationNamespaceRules"));
 
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
@@ -175,6 +176,12 @@ func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipOutput)
 }
 
+func (i *TeamMembership) ToOutput(ctx context.Context) pulumix.Output[*TeamMembership] {
+	return pulumix.Output[*TeamMembership]{
+		OutputState: i.ToTeamMembershipOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamMembershipArrayInput is an input type that accepts TeamMembershipArray and TeamMembershipArrayOutput values.
 // You can construct a concrete instance of `TeamMembershipArrayInput` via:
 //
@@ -198,6 +205,12 @@ func (i TeamMembershipArray) ToTeamMembershipArrayOutput() TeamMembershipArrayOu
 
 func (i TeamMembershipArray) ToTeamMembershipArrayOutputWithContext(ctx context.Context) TeamMembershipArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipArrayOutput)
+}
+
+func (i TeamMembershipArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamMembership] {
+	return pulumix.Output[[]*TeamMembership]{
+		OutputState: i.ToTeamMembershipArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TeamMembershipMapInput is an input type that accepts TeamMembershipMap and TeamMembershipMapOutput values.
@@ -225,6 +238,12 @@ func (i TeamMembershipMap) ToTeamMembershipMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipMapOutput)
 }
 
+func (i TeamMembershipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamMembership] {
+	return pulumix.Output[map[string]*TeamMembership]{
+		OutputState: i.ToTeamMembershipMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamMembershipOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipOutput) ElementType() reflect.Type {
@@ -237,6 +256,12 @@ func (o TeamMembershipOutput) ToTeamMembershipOutput() TeamMembershipOutput {
 
 func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
 	return o
+}
+
+func (o TeamMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamMembership] {
+	return pulumix.Output[*TeamMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The user's role within the team. Valid values are `admin`.
@@ -268,6 +293,12 @@ func (o TeamMembershipArrayOutput) ToTeamMembershipArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o TeamMembershipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamMembership] {
+	return pulumix.Output[[]*TeamMembership]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TeamMembershipArrayOutput) Index(i pulumi.IntInput) TeamMembershipOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamMembership {
 		return vs[0].([]*TeamMembership)[vs[1].(int)]
@@ -286,6 +317,12 @@ func (o TeamMembershipMapOutput) ToTeamMembershipMapOutput() TeamMembershipMapOu
 
 func (o TeamMembershipMapOutput) ToTeamMembershipMapOutputWithContext(ctx context.Context) TeamMembershipMapOutput {
 	return o
+}
+
+func (o TeamMembershipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamMembership] {
+	return pulumix.Output[map[string]*TeamMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamMembershipMapOutput) MapIndex(k pulumi.StringInput) TeamMembershipOutput {

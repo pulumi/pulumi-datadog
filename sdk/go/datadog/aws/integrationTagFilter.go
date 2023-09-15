@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
@@ -164,6 +165,12 @@ func (i *IntegrationTagFilter) ToIntegrationTagFilterOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterOutput)
 }
 
+func (i *IntegrationTagFilter) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTagFilter] {
+	return pulumix.Output[*IntegrationTagFilter]{
+		OutputState: i.ToIntegrationTagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationTagFilterArrayInput is an input type that accepts IntegrationTagFilterArray and IntegrationTagFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationTagFilterArrayInput` via:
 //
@@ -187,6 +194,12 @@ func (i IntegrationTagFilterArray) ToIntegrationTagFilterArrayOutput() Integrati
 
 func (i IntegrationTagFilterArray) ToIntegrationTagFilterArrayOutputWithContext(ctx context.Context) IntegrationTagFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterArrayOutput)
+}
+
+func (i IntegrationTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationTagFilter] {
+	return pulumix.Output[[]*IntegrationTagFilter]{
+		OutputState: i.ToIntegrationTagFilterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationTagFilterMapInput is an input type that accepts IntegrationTagFilterMap and IntegrationTagFilterMapOutput values.
@@ -214,6 +227,12 @@ func (i IntegrationTagFilterMap) ToIntegrationTagFilterMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterMapOutput)
 }
 
+func (i IntegrationTagFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationTagFilter] {
+	return pulumix.Output[map[string]*IntegrationTagFilter]{
+		OutputState: i.ToIntegrationTagFilterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationTagFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTagFilterOutput) ElementType() reflect.Type {
@@ -226,6 +245,12 @@ func (o IntegrationTagFilterOutput) ToIntegrationTagFilterOutput() IntegrationTa
 
 func (o IntegrationTagFilterOutput) ToIntegrationTagFilterOutputWithContext(ctx context.Context) IntegrationTagFilterOutput {
 	return o
+}
+
+func (o IntegrationTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTagFilter] {
+	return pulumix.Output[*IntegrationTagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
@@ -257,6 +282,12 @@ func (o IntegrationTagFilterArrayOutput) ToIntegrationTagFilterArrayOutputWithCo
 	return o
 }
 
+func (o IntegrationTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationTagFilter] {
+	return pulumix.Output[[]*IntegrationTagFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTagFilterArrayOutput) Index(i pulumi.IntInput) IntegrationTagFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationTagFilter {
 		return vs[0].([]*IntegrationTagFilter)[vs[1].(int)]
@@ -275,6 +306,12 @@ func (o IntegrationTagFilterMapOutput) ToIntegrationTagFilterMapOutput() Integra
 
 func (o IntegrationTagFilterMapOutput) ToIntegrationTagFilterMapOutputWithContext(ctx context.Context) IntegrationTagFilterMapOutput {
 	return o
+}
+
+func (o IntegrationTagFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationTagFilter] {
+	return pulumix.Output[map[string]*IntegrationTagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationTagFilterMapOutput) MapIndex(k pulumi.StringInput) IntegrationTagFilterOutput {

@@ -27,3 +27,9 @@ export interface GetSyntheticsLocationsResult {
      */
     readonly locations: {[key: string]: any};
 }
+/**
+ * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
+ */
+export function getSyntheticsLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsLocationsResult> {
+    return pulumi.output(getSyntheticsLocations(opts))
+}

@@ -27,3 +27,9 @@ export interface GetLogsArchivesOrderResult {
      */
     readonly id: string;
 }
+/**
+ * Get the current order of your logs archives.
+ */
+export function getLogsArchivesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsArchivesOrderResult> {
+    return pulumi.output(getLogsArchivesOrder(opts))
+}

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
@@ -214,6 +215,12 @@ func (i *LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsAr
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOutput)
 }
 
+func (i *LogsArchive) ToOutput(ctx context.Context) pulumix.Output[*LogsArchive] {
+	return pulumix.Output[*LogsArchive]{
+		OutputState: i.ToLogsArchiveOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogsArchiveArrayInput is an input type that accepts LogsArchiveArray and LogsArchiveArrayOutput values.
 // You can construct a concrete instance of `LogsArchiveArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i LogsArchiveArray) ToLogsArchiveArrayOutput() LogsArchiveArrayOutput {
 
 func (i LogsArchiveArray) ToLogsArchiveArrayOutputWithContext(ctx context.Context) LogsArchiveArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveArrayOutput)
+}
+
+func (i LogsArchiveArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsArchive] {
+	return pulumix.Output[[]*LogsArchive]{
+		OutputState: i.ToLogsArchiveArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogsArchiveMapInput is an input type that accepts LogsArchiveMap and LogsArchiveMapOutput values.
@@ -264,6 +277,12 @@ func (i LogsArchiveMap) ToLogsArchiveMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveMapOutput)
 }
 
+func (i LogsArchiveMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsArchive] {
+	return pulumix.Output[map[string]*LogsArchive]{
+		OutputState: i.ToLogsArchiveMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogsArchiveOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o LogsArchiveOutput) ToLogsArchiveOutput() LogsArchiveOutput {
 
 func (o LogsArchiveOutput) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
 	return o
+}
+
+func (o LogsArchiveOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsArchive] {
+	return pulumix.Output[*LogsArchive]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Definition of an azure archive.
@@ -332,6 +357,12 @@ func (o LogsArchiveArrayOutput) ToLogsArchiveArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o LogsArchiveArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsArchive] {
+	return pulumix.Output[[]*LogsArchive]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogsArchiveArrayOutput) Index(i pulumi.IntInput) LogsArchiveOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsArchive {
 		return vs[0].([]*LogsArchive)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o LogsArchiveMapOutput) ToLogsArchiveMapOutput() LogsArchiveMapOutput {
 
 func (o LogsArchiveMapOutput) ToLogsArchiveMapOutputWithContext(ctx context.Context) LogsArchiveMapOutput {
 	return o
+}
+
+func (o LogsArchiveMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsArchive] {
+	return pulumix.Output[map[string]*LogsArchive]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogsArchiveMapOutput) MapIndex(k pulumi.StringInput) LogsArchiveOutput {

@@ -36,3 +36,18 @@ export interface GetLogsIndexesOrderResult {
      */
     readonly indexNames: string[];
 }
+/**
+ * Get the current order of your log indexes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getLogsIndexesOrder({});
+ * ```
+ */
+export function getLogsIndexesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesOrderResult> {
+    return pulumi.output(getLogsIndexesOrder(opts))
+}

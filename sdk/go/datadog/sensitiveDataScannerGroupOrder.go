@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
@@ -138,6 +139,12 @@ func (i *SensitiveDataScannerGroupOrder) ToSensitiveDataScannerGroupOrderOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupOrderOutput)
 }
 
+func (i *SensitiveDataScannerGroupOrder) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[*SensitiveDataScannerGroupOrder]{
+		OutputState: i.ToSensitiveDataScannerGroupOrderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SensitiveDataScannerGroupOrderArrayInput is an input type that accepts SensitiveDataScannerGroupOrderArray and SensitiveDataScannerGroupOrderArrayOutput values.
 // You can construct a concrete instance of `SensitiveDataScannerGroupOrderArrayInput` via:
 //
@@ -161,6 +168,12 @@ func (i SensitiveDataScannerGroupOrderArray) ToSensitiveDataScannerGroupOrderArr
 
 func (i SensitiveDataScannerGroupOrderArray) ToSensitiveDataScannerGroupOrderArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupOrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupOrderArrayOutput)
+}
+
+func (i SensitiveDataScannerGroupOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[[]*SensitiveDataScannerGroupOrder]{
+		OutputState: i.ToSensitiveDataScannerGroupOrderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SensitiveDataScannerGroupOrderMapInput is an input type that accepts SensitiveDataScannerGroupOrderMap and SensitiveDataScannerGroupOrderMapOutput values.
@@ -188,6 +201,12 @@ func (i SensitiveDataScannerGroupOrderMap) ToSensitiveDataScannerGroupOrderMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupOrderMapOutput)
 }
 
+func (i SensitiveDataScannerGroupOrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[map[string]*SensitiveDataScannerGroupOrder]{
+		OutputState: i.ToSensitiveDataScannerGroupOrderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SensitiveDataScannerGroupOrderOutput struct{ *pulumi.OutputState }
 
 func (SensitiveDataScannerGroupOrderOutput) ElementType() reflect.Type {
@@ -200,6 +219,12 @@ func (o SensitiveDataScannerGroupOrderOutput) ToSensitiveDataScannerGroupOrderOu
 
 func (o SensitiveDataScannerGroupOrderOutput) ToSensitiveDataScannerGroupOrderOutputWithContext(ctx context.Context) SensitiveDataScannerGroupOrderOutput {
 	return o
+}
+
+func (o SensitiveDataScannerGroupOrderOutput) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[*SensitiveDataScannerGroupOrder]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
@@ -221,6 +246,12 @@ func (o SensitiveDataScannerGroupOrderArrayOutput) ToSensitiveDataScannerGroupOr
 	return o
 }
 
+func (o SensitiveDataScannerGroupOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[[]*SensitiveDataScannerGroupOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SensitiveDataScannerGroupOrderArrayOutput) Index(i pulumi.IntInput) SensitiveDataScannerGroupOrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SensitiveDataScannerGroupOrder {
 		return vs[0].([]*SensitiveDataScannerGroupOrder)[vs[1].(int)]
@@ -239,6 +270,12 @@ func (o SensitiveDataScannerGroupOrderMapOutput) ToSensitiveDataScannerGroupOrde
 
 func (o SensitiveDataScannerGroupOrderMapOutput) ToSensitiveDataScannerGroupOrderMapOutputWithContext(ctx context.Context) SensitiveDataScannerGroupOrderMapOutput {
 	return o
+}
+
+func (o SensitiveDataScannerGroupOrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerGroupOrder] {
+	return pulumix.Output[map[string]*SensitiveDataScannerGroupOrder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SensitiveDataScannerGroupOrderMapOutput) MapIndex(k pulumi.StringInput) SensitiveDataScannerGroupOrderOutput {

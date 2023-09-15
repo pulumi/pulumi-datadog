@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
@@ -207,6 +208,12 @@ func (i *MetricTagConfiguration) ToMetricTagConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationOutput)
 }
 
+func (i *MetricTagConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MetricTagConfiguration] {
+	return pulumix.Output[*MetricTagConfiguration]{
+		OutputState: i.ToMetricTagConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricTagConfigurationArrayInput is an input type that accepts MetricTagConfigurationArray and MetricTagConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricTagConfigurationArrayInput` via:
 //
@@ -230,6 +237,12 @@ func (i MetricTagConfigurationArray) ToMetricTagConfigurationArrayOutput() Metri
 
 func (i MetricTagConfigurationArray) ToMetricTagConfigurationArrayOutputWithContext(ctx context.Context) MetricTagConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationArrayOutput)
+}
+
+func (i MetricTagConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricTagConfiguration] {
+	return pulumix.Output[[]*MetricTagConfiguration]{
+		OutputState: i.ToMetricTagConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricTagConfigurationMapInput is an input type that accepts MetricTagConfigurationMap and MetricTagConfigurationMapOutput values.
@@ -257,6 +270,12 @@ func (i MetricTagConfigurationMap) ToMetricTagConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationMapOutput)
 }
 
+func (i MetricTagConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricTagConfiguration] {
+	return pulumix.Output[map[string]*MetricTagConfiguration]{
+		OutputState: i.ToMetricTagConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricTagConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationOutput) ElementType() reflect.Type {
@@ -269,6 +288,12 @@ func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutput() MetricTag
 
 func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutputWithContext(ctx context.Context) MetricTagConfigurationOutput {
 	return o
+}
+
+func (o MetricTagConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricTagConfiguration] {
+	return pulumix.Output[*MetricTagConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
@@ -310,6 +335,12 @@ func (o MetricTagConfigurationArrayOutput) ToMetricTagConfigurationArrayOutputWi
 	return o
 }
 
+func (o MetricTagConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricTagConfiguration] {
+	return pulumix.Output[[]*MetricTagConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricTagConfigurationArrayOutput) Index(i pulumi.IntInput) MetricTagConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricTagConfiguration {
 		return vs[0].([]*MetricTagConfiguration)[vs[1].(int)]
@@ -328,6 +359,12 @@ func (o MetricTagConfigurationMapOutput) ToMetricTagConfigurationMapOutput() Met
 
 func (o MetricTagConfigurationMapOutput) ToMetricTagConfigurationMapOutputWithContext(ctx context.Context) MetricTagConfigurationMapOutput {
 	return o
+}
+
+func (o MetricTagConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricTagConfiguration] {
+	return pulumix.Output[map[string]*MetricTagConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricTagConfigurationMapOutput) MapIndex(k pulumi.StringInput) MetricTagConfigurationOutput {

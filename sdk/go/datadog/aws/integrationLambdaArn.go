@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
@@ -152,6 +153,12 @@ func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnOutput)
 }
 
+func (i *IntegrationLambdaArn) ToOutput(ctx context.Context) pulumix.Output[*IntegrationLambdaArn] {
+	return pulumix.Output[*IntegrationLambdaArn]{
+		OutputState: i.ToIntegrationLambdaArnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationLambdaArnArrayInput is an input type that accepts IntegrationLambdaArnArray and IntegrationLambdaArnArrayOutput values.
 // You can construct a concrete instance of `IntegrationLambdaArnArrayInput` via:
 //
@@ -175,6 +182,12 @@ func (i IntegrationLambdaArnArray) ToIntegrationLambdaArnArrayOutput() Integrati
 
 func (i IntegrationLambdaArnArray) ToIntegrationLambdaArnArrayOutputWithContext(ctx context.Context) IntegrationLambdaArnArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnArrayOutput)
+}
+
+func (i IntegrationLambdaArnArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationLambdaArn] {
+	return pulumix.Output[[]*IntegrationLambdaArn]{
+		OutputState: i.ToIntegrationLambdaArnArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationLambdaArnMapInput is an input type that accepts IntegrationLambdaArnMap and IntegrationLambdaArnMapOutput values.
@@ -202,6 +215,12 @@ func (i IntegrationLambdaArnMap) ToIntegrationLambdaArnMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnMapOutput)
 }
 
+func (i IntegrationLambdaArnMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationLambdaArn] {
+	return pulumix.Output[map[string]*IntegrationLambdaArn]{
+		OutputState: i.ToIntegrationLambdaArnMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationLambdaArnOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLambdaArnOutput) ElementType() reflect.Type {
@@ -214,6 +233,12 @@ func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutput() IntegrationLa
 
 func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
 	return o
+}
+
+func (o IntegrationLambdaArnOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationLambdaArn] {
+	return pulumix.Output[*IntegrationLambdaArn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
@@ -240,6 +265,12 @@ func (o IntegrationLambdaArnArrayOutput) ToIntegrationLambdaArnArrayOutputWithCo
 	return o
 }
 
+func (o IntegrationLambdaArnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationLambdaArn] {
+	return pulumix.Output[[]*IntegrationLambdaArn]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationLambdaArnArrayOutput) Index(i pulumi.IntInput) IntegrationLambdaArnOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationLambdaArn {
 		return vs[0].([]*IntegrationLambdaArn)[vs[1].(int)]
@@ -258,6 +289,12 @@ func (o IntegrationLambdaArnMapOutput) ToIntegrationLambdaArnMapOutput() Integra
 
 func (o IntegrationLambdaArnMapOutput) ToIntegrationLambdaArnMapOutputWithContext(ctx context.Context) IntegrationLambdaArnMapOutput {
 	return o
+}
+
+func (o IntegrationLambdaArnMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationLambdaArn] {
+	return pulumix.Output[map[string]*IntegrationLambdaArn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationLambdaArnMapOutput) MapIndex(k pulumi.StringInput) IntegrationLambdaArnOutput {

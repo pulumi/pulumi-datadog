@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
@@ -110,6 +111,12 @@ func (i *IpAllowlist) ToIpAllowlistOutputWithContext(ctx context.Context) IpAllo
 	return pulumi.ToOutputWithContext(ctx, i).(IpAllowlistOutput)
 }
 
+func (i *IpAllowlist) ToOutput(ctx context.Context) pulumix.Output[*IpAllowlist] {
+	return pulumix.Output[*IpAllowlist]{
+		OutputState: i.ToIpAllowlistOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IpAllowlistArrayInput is an input type that accepts IpAllowlistArray and IpAllowlistArrayOutput values.
 // You can construct a concrete instance of `IpAllowlistArrayInput` via:
 //
@@ -133,6 +140,12 @@ func (i IpAllowlistArray) ToIpAllowlistArrayOutput() IpAllowlistArrayOutput {
 
 func (i IpAllowlistArray) ToIpAllowlistArrayOutputWithContext(ctx context.Context) IpAllowlistArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpAllowlistArrayOutput)
+}
+
+func (i IpAllowlistArray) ToOutput(ctx context.Context) pulumix.Output[[]*IpAllowlist] {
+	return pulumix.Output[[]*IpAllowlist]{
+		OutputState: i.ToIpAllowlistArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IpAllowlistMapInput is an input type that accepts IpAllowlistMap and IpAllowlistMapOutput values.
@@ -160,6 +173,12 @@ func (i IpAllowlistMap) ToIpAllowlistMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IpAllowlistMapOutput)
 }
 
+func (i IpAllowlistMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpAllowlist] {
+	return pulumix.Output[map[string]*IpAllowlist]{
+		OutputState: i.ToIpAllowlistMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpAllowlistOutput struct{ *pulumi.OutputState }
 
 func (IpAllowlistOutput) ElementType() reflect.Type {
@@ -172,6 +191,12 @@ func (o IpAllowlistOutput) ToIpAllowlistOutput() IpAllowlistOutput {
 
 func (o IpAllowlistOutput) ToIpAllowlistOutputWithContext(ctx context.Context) IpAllowlistOutput {
 	return o
+}
+
+func (o IpAllowlistOutput) ToOutput(ctx context.Context) pulumix.Output[*IpAllowlist] {
+	return pulumix.Output[*IpAllowlist]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the IP Allowlist is enabled.
@@ -198,6 +223,12 @@ func (o IpAllowlistArrayOutput) ToIpAllowlistArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o IpAllowlistArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IpAllowlist] {
+	return pulumix.Output[[]*IpAllowlist]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpAllowlistArrayOutput) Index(i pulumi.IntInput) IpAllowlistOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IpAllowlist {
 		return vs[0].([]*IpAllowlist)[vs[1].(int)]
@@ -216,6 +247,12 @@ func (o IpAllowlistMapOutput) ToIpAllowlistMapOutput() IpAllowlistMapOutput {
 
 func (o IpAllowlistMapOutput) ToIpAllowlistMapOutputWithContext(ctx context.Context) IpAllowlistMapOutput {
 	return o
+}
+
+func (o IpAllowlistMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpAllowlist] {
+	return pulumix.Output[map[string]*IpAllowlist]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpAllowlistMapOutput) MapIndex(k pulumi.StringInput) IpAllowlistOutput {

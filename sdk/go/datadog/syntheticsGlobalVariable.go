@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
@@ -232,6 +233,12 @@ func (i *SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOutput)
 }
 
+func (i *SyntheticsGlobalVariable) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsGlobalVariable] {
+	return pulumix.Output[*SyntheticsGlobalVariable]{
+		OutputState: i.ToSyntheticsGlobalVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SyntheticsGlobalVariableArrayInput is an input type that accepts SyntheticsGlobalVariableArray and SyntheticsGlobalVariableArrayOutput values.
 // You can construct a concrete instance of `SyntheticsGlobalVariableArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i SyntheticsGlobalVariableArray) ToSyntheticsGlobalVariableArrayOutput() S
 
 func (i SyntheticsGlobalVariableArray) ToSyntheticsGlobalVariableArrayOutputWithContext(ctx context.Context) SyntheticsGlobalVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableArrayOutput)
+}
+
+func (i SyntheticsGlobalVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsGlobalVariable] {
+	return pulumix.Output[[]*SyntheticsGlobalVariable]{
+		OutputState: i.ToSyntheticsGlobalVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SyntheticsGlobalVariableMapInput is an input type that accepts SyntheticsGlobalVariableMap and SyntheticsGlobalVariableMapOutput values.
@@ -282,6 +295,12 @@ func (i SyntheticsGlobalVariableMap) ToSyntheticsGlobalVariableMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableMapOutput)
 }
 
+func (i SyntheticsGlobalVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsGlobalVariable] {
+	return pulumix.Output[map[string]*SyntheticsGlobalVariable]{
+		OutputState: i.ToSyntheticsGlobalVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SyntheticsGlobalVariableOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsGlobalVariableOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutput() Synth
 
 func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput {
 	return o
+}
+
+func (o SyntheticsGlobalVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsGlobalVariable] {
+	return pulumix.Output[*SyntheticsGlobalVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the global variable.
@@ -357,6 +382,12 @@ func (o SyntheticsGlobalVariableArrayOutput) ToSyntheticsGlobalVariableArrayOutp
 	return o
 }
 
+func (o SyntheticsGlobalVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsGlobalVariable] {
+	return pulumix.Output[[]*SyntheticsGlobalVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SyntheticsGlobalVariableArrayOutput) Index(i pulumi.IntInput) SyntheticsGlobalVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyntheticsGlobalVariable {
 		return vs[0].([]*SyntheticsGlobalVariable)[vs[1].(int)]
@@ -375,6 +406,12 @@ func (o SyntheticsGlobalVariableMapOutput) ToSyntheticsGlobalVariableMapOutput()
 
 func (o SyntheticsGlobalVariableMapOutput) ToSyntheticsGlobalVariableMapOutputWithContext(ctx context.Context) SyntheticsGlobalVariableMapOutput {
 	return o
+}
+
+func (o SyntheticsGlobalVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsGlobalVariable] {
+	return pulumix.Output[map[string]*SyntheticsGlobalVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SyntheticsGlobalVariableMapOutput) MapIndex(k pulumi.StringInput) SyntheticsGlobalVariableOutput {
