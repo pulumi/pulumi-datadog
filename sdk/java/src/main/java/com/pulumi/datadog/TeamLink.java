@@ -71,7 +71,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * The link&#39;s label.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -85,7 +85,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * The link&#39;s position, used to sort links for the team.
      * 
      */
-    @Export(name="position", type=Integer.class, parameters={})
+    @Export(name="position", refs={Integer.class}, tree="[0]")
     private Output<Integer> position;
 
     /**
@@ -99,7 +99,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * ID of the team the link is associated with.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -113,7 +113,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * The URL for the link.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

@@ -78,7 +78,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * Exclusion filters to exclude some logs from the security filter.
      * 
      */
-    @Export(name="exclusionFilters", type=List.class, parameters={SecurityMonitoringFilterExclusionFilter.class})
+    @Export(name="exclusionFilters", refs={List.class,SecurityMonitoringFilterExclusionFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringFilterExclusionFilter>> exclusionFilters;
 
     /**
@@ -92,7 +92,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * The filtered data type. Valid values are `logs`.
      * 
      */
-    @Export(name="filteredDataType", type=String.class, parameters={})
+    @Export(name="filteredDataType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filteredDataType;
 
     /**
@@ -106,7 +106,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * Whether the security filter is enabled.
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
     /**
@@ -120,7 +120,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * The name of the security filter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -134,7 +134,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * The query of the security filter.
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -148,7 +148,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * The version of the security filter.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

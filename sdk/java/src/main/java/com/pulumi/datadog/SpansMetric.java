@@ -76,19 +76,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/spansMetric:SpansMetric")
 public class SpansMetric extends com.pulumi.resources.CustomResource {
-    @Export(name="compute", type=SpansMetricCompute.class, parameters={})
+    @Export(name="compute", refs={SpansMetricCompute.class}, tree="[0]")
     private Output</* @Nullable */ SpansMetricCompute> compute;
 
     public Output<Optional<SpansMetricCompute>> compute() {
         return Codegen.optional(this.compute);
     }
-    @Export(name="filter", type=SpansMetricFilter.class, parameters={})
+    @Export(name="filter", refs={SpansMetricFilter.class}, tree="[0]")
     private Output</* @Nullable */ SpansMetricFilter> filter;
 
     public Output<Optional<SpansMetricFilter>> filter() {
         return Codegen.optional(this.filter);
     }
-    @Export(name="groupBies", type=List.class, parameters={SpansMetricGroupBy.class})
+    @Export(name="groupBies", refs={List.class,SpansMetricGroupBy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpansMetricGroupBy>> groupBies;
 
     public Output<Optional<List<SpansMetricGroupBy>>> groupBies() {
@@ -98,7 +98,7 @@ public class SpansMetric extends com.pulumi.resources.CustomResource {
      * The name of the span-based metric. This field can&#39;t be updated after creation.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

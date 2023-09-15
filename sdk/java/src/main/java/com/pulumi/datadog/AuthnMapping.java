@@ -69,7 +69,7 @@ public class AuthnMapping extends com.pulumi.resources.CustomResource {
      * Identity provider key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -83,7 +83,7 @@ public class AuthnMapping extends com.pulumi.resources.CustomResource {
      * The ID of a role to attach to all users with the corresponding key and value.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -97,7 +97,7 @@ public class AuthnMapping extends com.pulumi.resources.CustomResource {
      * Identity provider value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

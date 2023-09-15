@@ -77,7 +77,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * Confluent Account ID.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -91,7 +91,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
      * 
      */
-    @Export(name="enableCustomMetrics", type=Boolean.class, parameters={})
+    @Export(name="enableCustomMetrics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableCustomMetrics;
 
     /**
@@ -105,7 +105,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * The ID associated with a Confluent resource.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -119,7 +119,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
     /**
@@ -133,7 +133,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**

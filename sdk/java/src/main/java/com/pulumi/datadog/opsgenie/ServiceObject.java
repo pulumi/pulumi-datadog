@@ -63,7 +63,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The custom url for a custom region.
      * 
      */
-    @Export(name="customUrl", type=String.class, parameters={})
+    @Export(name="customUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customUrl;
 
     /**
@@ -77,7 +77,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The name for the Opsgenie service.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
-    @Export(name="opsgenieApiKey", type=String.class, parameters={})
+    @Export(name="opsgenieApiKey", refs={String.class}, tree="[0]")
     private Output<String> opsgenieApiKey;
 
     /**
@@ -105,7 +105,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**

@@ -71,7 +71,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * When true indicates this downtime is being actively applied
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
     /**
@@ -85,7 +85,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      * 
      */
-    @Export(name="activeChildId", type=Integer.class, parameters={})
+    @Export(name="activeChildId", refs={Integer.class}, tree="[0]")
     private Output<Integer> activeChildId;
 
     /**
@@ -99,7 +99,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * When true indicates this downtime is not being applied
      * 
      */
-    @Export(name="disabled", type=Boolean.class, parameters={})
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disabled;
 
     /**
@@ -113,7 +113,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      * 
      */
-    @Export(name="end", type=Integer.class, parameters={})
+    @Export(name="end", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> end;
 
     /**
@@ -127,7 +127,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * String representing date and time to end the downtime in RFC3339 format.
      * 
      */
-    @Export(name="endDate", type=String.class, parameters={})
+    @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDate;
 
     /**
@@ -141,7 +141,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * An optional message to provide when creating the downtime, can include notification handles
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
     /**
@@ -155,7 +155,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * When specified, this downtime will only apply to this monitor
      * 
      */
-    @Export(name="monitorId", type=Integer.class, parameters={})
+    @Export(name="monitorId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> monitorId;
 
     /**
@@ -169,7 +169,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      * 
      */
-    @Export(name="monitorTags", type=List.class, parameters={String.class})
+    @Export(name="monitorTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> monitorTags;
 
     /**
@@ -183,7 +183,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * When true the first recovery notification during the downtime will be muted
      * 
      */
-    @Export(name="muteFirstRecoveryNotification", type=Boolean.class, parameters={})
+    @Export(name="muteFirstRecoveryNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> muteFirstRecoveryNotification;
 
     /**
@@ -197,7 +197,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * Optional recurring schedule for this downtime
      * 
      */
-    @Export(name="recurrence", type=DowntimeRecurrence.class, parameters={})
+    @Export(name="recurrence", refs={DowntimeRecurrence.class}, tree="[0]")
     private Output</* @Nullable */ DowntimeRecurrence> recurrence;
 
     /**
@@ -211,7 +211,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * specify the group scope to which this downtime applies. For everything use &#39;*&#39;
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -225,7 +225,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      * 
      */
-    @Export(name="start", type=Integer.class, parameters={})
+    @Export(name="start", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> start;
 
     /**
@@ -239,7 +239,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * String representing date and time to start the downtime in RFC3339 format.
      * 
      */
-    @Export(name="startDate", type=String.class, parameters={})
+    @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startDate;
 
     /**
@@ -253,7 +253,7 @@ public class Downtime extends com.pulumi.resources.CustomResource {
      * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**

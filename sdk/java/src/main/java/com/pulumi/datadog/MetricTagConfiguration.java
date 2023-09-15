@@ -86,7 +86,7 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
      * 
      */
-    @Export(name="aggregations", type=List.class, parameters={MetricTagConfigurationAggregation.class})
+    @Export(name="aggregations", refs={List.class,MetricTagConfigurationAggregation.class}, tree="[0,1]")
     private Output<List<MetricTagConfigurationAggregation>> aggregations;
 
     /**
@@ -100,7 +100,7 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
-    @Export(name="includePercentiles", type=Boolean.class, parameters={})
+    @Export(name="includePercentiles", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includePercentiles;
 
     /**
@@ -114,7 +114,7 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      * The metric name for this resource.
      * 
      */
-    @Export(name="metricName", type=String.class, parameters={})
+    @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
     /**
@@ -128,7 +128,7 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      * 
      */
-    @Export(name="metricType", type=String.class, parameters={})
+    @Export(name="metricType", refs={String.class}, tree="[0]")
     private Output<String> metricType;
 
     /**
@@ -142,7 +142,7 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      * A list of tag keys that will be queryable for your metric.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tags;
 
     /**

@@ -64,7 +64,7 @@ public class LogsArchiveOrder extends com.pulumi.resources.CustomResource {
      * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      * 
      */
-    @Export(name="archiveIds", type=List.class, parameters={String.class})
+    @Export(name="archiveIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> archiveIds;
 
     /**

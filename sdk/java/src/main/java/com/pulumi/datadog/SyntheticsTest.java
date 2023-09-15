@@ -400,7 +400,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Steps for multistep api tests
      * 
      */
-    @Export(name="apiSteps", type=List.class, parameters={SyntheticsTestApiStep.class})
+    @Export(name="apiSteps", refs={List.class,SyntheticsTestApiStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestApiStep>> apiSteps;
 
     /**
@@ -414,7 +414,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      * 
      */
-    @Export(name="assertions", type=List.class, parameters={SyntheticsTestAssertion.class})
+    @Export(name="assertions", refs={List.class,SyntheticsTestAssertion.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestAssertion>> assertions;
 
     /**
@@ -428,7 +428,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Steps for browser tests.
      * 
      */
-    @Export(name="browserSteps", type=List.class, parameters={SyntheticsTestBrowserStep.class})
+    @Export(name="browserSteps", refs={List.class,SyntheticsTestBrowserStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestBrowserStep>> browserSteps;
 
     /**
@@ -442,7 +442,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      * 
      */
-    @Export(name="browserVariables", type=List.class, parameters={SyntheticsTestBrowserVariable.class})
+    @Export(name="browserVariables", refs={List.class,SyntheticsTestBrowserVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestBrowserVariable>> browserVariables;
 
     /**
@@ -456,7 +456,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
      * 
      */
-    @Export(name="configVariables", type=List.class, parameters={SyntheticsTestConfigVariable.class})
+    @Export(name="configVariables", refs={List.class,SyntheticsTestConfigVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SyntheticsTestConfigVariable>> configVariables;
 
     /**
@@ -470,7 +470,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Required if `type = &#34;browser&#34;`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      * 
      */
-    @Export(name="deviceIds", type=List.class, parameters={String.class})
+    @Export(name="deviceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceIds;
 
     /**
@@ -484,7 +484,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      * 
      */
-    @Export(name="locations", type=List.class, parameters={String.class})
+    @Export(name="locations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> locations;
 
     /**
@@ -498,7 +498,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
     /**
@@ -512,7 +512,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * ID of the monitor associated with the Datadog synthetics test.
      * 
      */
-    @Export(name="monitorId", type=Integer.class, parameters={})
+    @Export(name="monitorId", refs={Integer.class}, tree="[0]")
     private Output<Integer> monitorId;
 
     /**
@@ -526,7 +526,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Name of Datadog synthetics test.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -536,7 +536,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="optionsList", type=SyntheticsTestOptionsList.class, parameters={})
+    @Export(name="optionsList", refs={SyntheticsTestOptionsList.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsTestOptionsList> optionsList;
 
     public Output<Optional<SyntheticsTestOptionsList>> optionsList() {
@@ -546,7 +546,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      * 
      */
-    @Export(name="requestBasicauth", type=SyntheticsTestRequestBasicauth.class, parameters={})
+    @Export(name="requestBasicauth", refs={SyntheticsTestRequestBasicauth.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsTestRequestBasicauth> requestBasicauth;
 
     /**
@@ -560,7 +560,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      * 
      */
-    @Export(name="requestClientCertificate", type=SyntheticsTestRequestClientCertificate.class, parameters={})
+    @Export(name="requestClientCertificate", refs={SyntheticsTestRequestClientCertificate.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsTestRequestClientCertificate> requestClientCertificate;
 
     /**
@@ -574,7 +574,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Required if `type = &#34;api&#34;`. The synthetics test request.
      * 
      */
-    @Export(name="requestDefinition", type=SyntheticsTestRequestDefinition.class, parameters={})
+    @Export(name="requestDefinition", refs={SyntheticsTestRequestDefinition.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsTestRequestDefinition> requestDefinition;
 
     /**
@@ -588,7 +588,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Header name and value map.
      * 
      */
-    @Export(name="requestHeaders", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="requestHeaders", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> requestHeaders;
 
     /**
@@ -602,7 +602,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * The proxy to perform the test.
      * 
      */
-    @Export(name="requestProxy", type=SyntheticsTestRequestProxy.class, parameters={})
+    @Export(name="requestProxy", refs={SyntheticsTestRequestProxy.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsTestRequestProxy> requestProxy;
 
     /**
@@ -616,7 +616,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Query arguments name and value map.
      * 
      */
-    @Export(name="requestQuery", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="requestQuery", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> requestQuery;
 
     /**
@@ -630,7 +630,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      * 
      */
-    @Export(name="setCookie", type=String.class, parameters={})
+    @Export(name="setCookie", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setCookie;
 
     /**
@@ -644,7 +644,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -658,7 +658,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
-    @Export(name="subtype", type=String.class, parameters={})
+    @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subtype;
 
     /**
@@ -672,7 +672,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -686,7 +686,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

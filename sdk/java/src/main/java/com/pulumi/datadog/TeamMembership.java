@@ -78,7 +78,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * The user&#39;s role within the team. Valid values are `admin`.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
@@ -92,7 +92,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * ID of the team the team membership is associated with.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -106,7 +106,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * The ID of the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

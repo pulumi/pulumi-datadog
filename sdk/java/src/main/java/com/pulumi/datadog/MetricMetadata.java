@@ -65,7 +65,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * A description of the metric.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -79,7 +79,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * The name of the metric.
      * 
      */
-    @Export(name="metric", type=String.class, parameters={})
+    @Export(name="metric", refs={String.class}, tree="[0]")
     private Output<String> metric;
 
     /**
@@ -93,7 +93,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * Per unit of the metric such as `second` in `bytes per second`.
      * 
      */
-    @Export(name="perUnit", type=String.class, parameters={})
+    @Export(name="perUnit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> perUnit;
 
     /**
@@ -107,7 +107,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * A short name of the metric.
      * 
      */
-    @Export(name="shortName", type=String.class, parameters={})
+    @Export(name="shortName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shortName;
 
     /**
@@ -121,7 +121,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * If applicable, statsd flush interval in seconds for the metric.
      * 
      */
-    @Export(name="statsdInterval", type=Integer.class, parameters={})
+    @Export(name="statsdInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> statsdInterval;
 
     /**
@@ -135,7 +135,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * Metric type such as `gauge` or `rate`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -149,7 +149,7 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
      * Primary unit of the metric such as `byte` or `operation`.
      * 
      */
-    @Export(name="unit", type=String.class, parameters={})
+    @Export(name="unit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unit;
 
     /**

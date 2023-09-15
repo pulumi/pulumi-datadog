@@ -63,7 +63,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * The identifier for the action. Valid values are `manage_membership`, `edit`.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -77,7 +77,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * ID of the team the team permission setting is associated with.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -91,7 +91,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

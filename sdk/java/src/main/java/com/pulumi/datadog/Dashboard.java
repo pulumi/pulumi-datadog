@@ -543,7 +543,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * dashboard lists using Terraform as it causes inconsistent behavior.
      * 
      */
-    @Export(name="dashboardLists", type=List.class, parameters={Integer.class})
+    @Export(name="dashboardLists", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> dashboardLists;
 
     /**
@@ -558,7 +558,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * A list of dashboard lists this dashboard should be removed from. Internal only.
      * 
      */
-    @Export(name="dashboardListsRemoveds", type=List.class, parameters={Integer.class})
+    @Export(name="dashboardListsRemoveds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> dashboardListsRemoveds;
 
     /**
@@ -572,7 +572,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The description of the dashboard.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -590,7 +590,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Prefer using `restricted_roles` to define which roles are required to edit the dashboard. */
-    @Export(name="isReadOnly", type=Boolean.class, parameters={})
+    @Export(name="isReadOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isReadOnly;
 
     /**
@@ -604,7 +604,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The layout type of the dashboard. Valid values are `ordered`, `free`.
      * 
      */
-    @Export(name="layoutType", type=String.class, parameters={})
+    @Export(name="layoutType", refs={String.class}, tree="[0]")
     private Output<String> layoutType;
 
     /**
@@ -618,7 +618,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The list of handles for the users to notify when changes are made to this dashboard.
      * 
      */
-    @Export(name="notifyLists", type=List.class, parameters={String.class})
+    @Export(name="notifyLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyLists;
 
     /**
@@ -632,7 +632,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it&#39;s set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      * 
      */
-    @Export(name="reflowType", type=String.class, parameters={})
+    @Export(name="reflowType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reflowType;
 
     /**
@@ -646,7 +646,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      * 
      */
-    @Export(name="restrictedRoles", type=List.class, parameters={String.class})
+    @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> restrictedRoles;
 
     /**
@@ -660,7 +660,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -674,7 +674,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The list of selectable template variable presets for this dashboard.
      * 
      */
-    @Export(name="templateVariablePresets", type=List.class, parameters={DashboardTemplateVariablePreset.class})
+    @Export(name="templateVariablePresets", refs={List.class,DashboardTemplateVariablePreset.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardTemplateVariablePreset>> templateVariablePresets;
 
     /**
@@ -688,7 +688,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The list of template variables for this dashboard.
      * 
      */
-    @Export(name="templateVariables", type=List.class, parameters={DashboardTemplateVariable.class})
+    @Export(name="templateVariables", refs={List.class,DashboardTemplateVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardTemplateVariable>> templateVariables;
 
     /**
@@ -702,7 +702,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The title of the dashboard.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -716,7 +716,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The URL of the dashboard.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -730,7 +730,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The list of widgets to display on the dashboard.
      * 
      */
-    @Export(name="widgets", type=List.class, parameters={DashboardWidget.class})
+    @Export(name="widgets", refs={List.class,DashboardWidget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardWidget>> widgets;
 
     /**

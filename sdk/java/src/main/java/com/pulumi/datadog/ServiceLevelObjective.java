@@ -120,7 +120,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A description of this service level objective.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A boolean indicating whether this monitor can be deleted even if it&#39;s referenced by other resources (for example, dashboards).
      * 
      */
-    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
@@ -148,7 +148,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A static set of groups to filter monitor-based SLOs
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
@@ -162,7 +162,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A static set of monitor IDs to use as part of the SLO
      * 
      */
-    @Export(name="monitorIds", type=List.class, parameters={Integer.class})
+    @Export(name="monitorIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> monitorIds;
 
     /**
@@ -176,7 +176,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * Name of Datadog service level objective
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -190,7 +190,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * The metric query of good / total events
      * 
      */
-    @Export(name="query", type=ServiceLevelObjectiveQuery.class, parameters={})
+    @Export(name="query", refs={ServiceLevelObjectiveQuery.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLevelObjectiveQuery> query;
 
     /**
@@ -204,7 +204,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -218,7 +218,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * The objective&#39;s target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      * 
      */
-    @Export(name="targetThreshold", type=Double.class, parameters={})
+    @Export(name="targetThreshold", refs={Double.class}, tree="[0]")
     private Output<Double> targetThreshold;
 
     /**
@@ -232,7 +232,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      * 
      */
-    @Export(name="thresholds", type=List.class, parameters={ServiceLevelObjectiveThreshold.class})
+    @Export(name="thresholds", refs={List.class,ServiceLevelObjectiveThreshold.class}, tree="[0,1]")
     private Output<List<ServiceLevelObjectiveThreshold>> thresholds;
 
     /**
@@ -246,7 +246,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
-    @Export(name="timeframe", type=String.class, parameters={})
+    @Export(name="timeframe", refs={String.class}, tree="[0]")
     private Output<String> timeframe;
 
     /**
@@ -260,7 +260,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -274,7 +274,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * Whether or not to validate the SLO.
      * 
      */
-    @Export(name="validate", type=Boolean.class, parameters={})
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**
@@ -288,7 +288,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * The objective&#39;s warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      * 
      */
-    @Export(name="warningThreshold", type=Double.class, parameters={})
+    @Export(name="warningThreshold", refs={Double.class}, tree="[0]")
     private Output<Double> warningThreshold;
 
     /**

@@ -27,7 +27,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -45,7 +45,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * https://docs.datadoghq.com/getting_started/site/ for all available regions.
      * 
      */
-    @Export(name="apiUrl", type=String.class, parameters={})
+    @Export(name="apiUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiUrl;
 
     /**
@@ -63,7 +63,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      * 
      */
-    @Export(name="appKey", type=String.class, parameters={})
+    @Export(name="appKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appKey;
 
     /**
@@ -77,7 +77,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
      * 
      */
-    @Export(name="httpClientRetryEnabled", type=String.class, parameters={})
+    @Export(name="httpClientRetryEnabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpClientRetryEnabled;
 
     /**
@@ -92,7 +92,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * is true. When false, api_key won&#39;t be checked.
      * 
      */
-    @Export(name="validate", type=String.class, parameters={})
+    @Export(name="validate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validate;
 
     /**

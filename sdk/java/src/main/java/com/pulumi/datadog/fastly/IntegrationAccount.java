@@ -60,7 +60,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The API key for the Fastly account.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -74,7 +74,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The name of the Fastly account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

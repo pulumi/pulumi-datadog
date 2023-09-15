@@ -26,7 +26,7 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      * Whether the IP Allowlist is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -40,7 +40,7 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      * Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
      * 
      */
-    @Export(name="entries", type=List.class, parameters={IpAllowlistEntry.class})
+    @Export(name="entries", refs={List.class,IpAllowlistEntry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IpAllowlistEntry>> entries;
 
     /**

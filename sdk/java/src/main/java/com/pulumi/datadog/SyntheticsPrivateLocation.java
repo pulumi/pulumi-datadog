@@ -68,7 +68,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      * 
      */
-    @Export(name="config", type=String.class, parameters={})
+    @Export(name="config", refs={String.class}, tree="[0]")
     private Output<String> config;
 
     /**
@@ -82,7 +82,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * Description of the private location.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -96,7 +96,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * The private location metadata
      * 
      */
-    @Export(name="metadata", type=SyntheticsPrivateLocationMetadata.class, parameters={})
+    @Export(name="metadata", refs={SyntheticsPrivateLocationMetadata.class}, tree="[0]")
     private Output</* @Nullable */ SyntheticsPrivateLocationMetadata> metadata;
 
     /**
@@ -110,7 +110,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * Synthetics private location name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class SyntheticsPrivateLocation extends com.pulumi.resources.CustomResour
      * A list of tags to associate with your synthetics private location.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
