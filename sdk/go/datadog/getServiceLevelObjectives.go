@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about multiple SLOs for use in other resources.
@@ -118,6 +119,12 @@ func (o GetServiceLevelObjectivesResultOutput) ToGetServiceLevelObjectivesResult
 
 func (o GetServiceLevelObjectivesResultOutput) ToGetServiceLevelObjectivesResultOutputWithContext(ctx context.Context) GetServiceLevelObjectivesResultOutput {
 	return o
+}
+
+func (o GetServiceLevelObjectivesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceLevelObjectivesResult] {
+	return pulumix.Output[GetServiceLevelObjectivesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

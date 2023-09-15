@@ -32,7 +32,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * Silence monitors for expected GCE instance shutdowns.
      * 
      */
-    @Export(name="automute", refs={Boolean.class}, tree="[0]")
+    @Export(name="automute", type=Boolean.class, parameters={})
     private Output<Boolean> automute;
 
     /**
@@ -46,7 +46,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * Your service account email address.
      * 
      */
-    @Export(name="clientEmail", refs={String.class}, tree="[0]")
+    @Export(name="clientEmail", type=String.class, parameters={})
     private Output<String> clientEmail;
 
     /**
@@ -60,7 +60,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * Datadog&#39;s STS Delegate Email.
      * 
      */
-    @Export(name="delegateAccountEmail", refs={String.class}, tree="[0]")
+    @Export(name="delegateAccountEmail", type=String.class, parameters={})
     private Output<String> delegateAccountEmail;
 
     /**
@@ -74,7 +74,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * Your Host Filters.
      * 
      */
-    @Export(name="hostFilters", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="hostFilters", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> hostFilters;
 
     /**
@@ -88,7 +88,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
      * 
      */
-    @Export(name="isCspmEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="isCspmEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> isCspmEnabled;
 
     /**

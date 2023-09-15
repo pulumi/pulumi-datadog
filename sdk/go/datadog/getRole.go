@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing role for use in other resources.
@@ -102,6 +103,12 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutput() LookupRoleResultOutpu
 
 func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.Context) LookupRoleResultOutput {
 	return o
+}
+
+func (o LookupRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleResult] {
+	return pulumix.Output[LookupRoleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string on which to filter the roles.

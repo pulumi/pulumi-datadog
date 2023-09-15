@@ -63,7 +63,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The API key (or token) for the Cloudflare account.
      * 
      */
-    @Export(name="apiKey", refs={String.class}, tree="[0]")
+    @Export(name="apiKey", type=String.class, parameters={})
     private Output<String> apiKey;
 
     /**
@@ -77,7 +77,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
      * 
      */
-    @Export(name="email", refs={String.class}, tree="[0]")
+    @Export(name="email", type=String.class, parameters={})
     private Output</* @Nullable */ String> email;
 
     /**
@@ -91,7 +91,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The name of the Cloudflare account.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list several existing monitors for use in other resources.
@@ -86,6 +87,12 @@ func (o GetMonitorsResultOutput) ToGetMonitorsResultOutput() GetMonitorsResultOu
 
 func (o GetMonitorsResultOutput) ToGetMonitorsResultOutputWithContext(ctx context.Context) GetMonitorsResultOutput {
 	return o
+}
+
+func (o GetMonitorsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMonitorsResult] {
+	return pulumix.Output[GetMonitorsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

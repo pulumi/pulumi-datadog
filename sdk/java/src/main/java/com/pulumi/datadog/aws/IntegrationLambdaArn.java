@@ -64,7 +64,7 @@ public class IntegrationLambdaArn extends com.pulumi.resources.CustomResource {
      * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
     /**
@@ -78,7 +78,7 @@ public class IntegrationLambdaArn extends com.pulumi.resources.CustomResource {
      * The ARN of the Datadog forwarder Lambda.
      * 
      */
-    @Export(name="lambdaArn", refs={String.class}, tree="[0]")
+    @Export(name="lambdaArn", type=String.class, parameters={})
     private Output<String> lambdaArn;
 
     /**

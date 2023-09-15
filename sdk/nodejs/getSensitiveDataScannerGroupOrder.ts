@@ -37,3 +37,19 @@ export interface GetSensitiveDataScannerGroupOrderResult {
      */
     readonly id: string;
 }
+/**
+ * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getSensitiveDataScannerGroupOrder({});
+ * const foobar = new datadog.SensitiveDataScannerGroupOrder("foobar", {groupIds: foo.then(foo => foo.groupIds)});
+ * ```
+ */
+export function getSensitiveDataScannerGroupOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerGroupOrderResult> {
+    return pulumi.output(getSensitiveDataScannerGroupOrder(opts))
+}

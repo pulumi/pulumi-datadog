@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about your live hosts in Datadog.
@@ -102,6 +103,12 @@ func (o GetHostsResultOutput) ToGetHostsResultOutput() GetHostsResultOutput {
 
 func (o GetHostsResultOutput) ToGetHostsResultOutputWithContext(ctx context.Context) GetHostsResultOutput {
 	return o
+}
+
+func (o GetHostsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetHostsResult] {
+	return pulumix.Output[GetHostsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // String to filter search results.

@@ -63,7 +63,7 @@ public class IntegrationTagFilter extends com.pulumi.resources.CustomResource {
      * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
     /**
@@ -77,7 +77,7 @@ public class IntegrationTagFilter extends com.pulumi.resources.CustomResource {
      * The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
      * 
      */
-    @Export(name="namespace", refs={String.class}, tree="[0]")
+    @Export(name="namespace", type=String.class, parameters={})
     private Output<String> namespace;
 
     /**
@@ -91,7 +91,7 @@ public class IntegrationTagFilter extends com.pulumi.resources.CustomResource {
      * The tag filter string.
      * 
      */
-    @Export(name="tagFilterStr", refs={String.class}, tree="[0]")
+    @Export(name="tagFilterStr", type=String.class, parameters={})
     private Output<String> tagFilterStr;
 
     /**

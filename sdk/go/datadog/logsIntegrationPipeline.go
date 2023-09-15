@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `LogsPipelineOrder` resource. If you don't need the `pipelineOrder` feature, this resource declaration can be omitted.
@@ -132,6 +133,12 @@ func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineOutput)
 }
 
+func (i *LogsIntegrationPipeline) ToOutput(ctx context.Context) pulumix.Output[*LogsIntegrationPipeline] {
+	return pulumix.Output[*LogsIntegrationPipeline]{
+		OutputState: i.ToLogsIntegrationPipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogsIntegrationPipelineArrayInput is an input type that accepts LogsIntegrationPipelineArray and LogsIntegrationPipelineArrayOutput values.
 // You can construct a concrete instance of `LogsIntegrationPipelineArrayInput` via:
 //
@@ -155,6 +162,12 @@ func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutput() Log
 
 func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutputWithContext(ctx context.Context) LogsIntegrationPipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineArrayOutput)
+}
+
+func (i LogsIntegrationPipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIntegrationPipeline] {
+	return pulumix.Output[[]*LogsIntegrationPipeline]{
+		OutputState: i.ToLogsIntegrationPipelineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogsIntegrationPipelineMapInput is an input type that accepts LogsIntegrationPipelineMap and LogsIntegrationPipelineMapOutput values.
@@ -182,6 +195,12 @@ func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineMapOutput)
 }
 
+func (i LogsIntegrationPipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIntegrationPipeline] {
+	return pulumix.Output[map[string]*LogsIntegrationPipeline]{
+		OutputState: i.ToLogsIntegrationPipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogsIntegrationPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineOutput) ElementType() reflect.Type {
@@ -194,6 +213,12 @@ func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutput() LogsInt
 
 func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutputWithContext(ctx context.Context) LogsIntegrationPipelineOutput {
 	return o
+}
+
+func (o LogsIntegrationPipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsIntegrationPipeline] {
+	return pulumix.Output[*LogsIntegrationPipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value to enable your pipeline.
@@ -215,6 +240,12 @@ func (o LogsIntegrationPipelineArrayOutput) ToLogsIntegrationPipelineArrayOutput
 	return o
 }
 
+func (o LogsIntegrationPipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIntegrationPipeline] {
+	return pulumix.Output[[]*LogsIntegrationPipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogsIntegrationPipelineArrayOutput) Index(i pulumi.IntInput) LogsIntegrationPipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsIntegrationPipeline {
 		return vs[0].([]*LogsIntegrationPipeline)[vs[1].(int)]
@@ -233,6 +264,12 @@ func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutput() L
 
 func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutputWithContext(ctx context.Context) LogsIntegrationPipelineMapOutput {
 	return o
+}
+
+func (o LogsIntegrationPipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIntegrationPipeline] {
+	return pulumix.Output[map[string]*LogsIntegrationPipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogsIntegrationPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsIntegrationPipelineOutput {

@@ -36,3 +36,18 @@ export interface GetIntegrationNamespaceRulesResult {
      */
     readonly namespaceRules: string[];
 }
+/**
+ * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const rules = datadog.aws.getIntegrationNamespaceRules({});
+ * ```
+ */
+export function getIntegrationNamespaceRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationNamespaceRulesResult> {
+    return pulumi.output(getIntegrationNamespaceRules(opts))
+}

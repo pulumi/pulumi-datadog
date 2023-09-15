@@ -65,7 +65,7 @@ public class LogsPipelineOrder extends com.pulumi.resources.CustomResource {
      * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -79,7 +79,7 @@ public class LogsPipelineOrder extends com.pulumi.resources.CustomResource {
      * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
      * 
      */
-    @Export(name="pipelines", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="pipelines", type=List.class, parameters={String.class})
     private Output<List<String>> pipelines;
 
     /**

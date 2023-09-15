@@ -62,7 +62,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Free-form markdown description/content for the team&#39;s homepage.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
@@ -76,7 +76,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The team&#39;s identifier
      * 
      */
-    @Export(name="handle", refs={String.class}, tree="[0]")
+    @Export(name="handle", type=String.class, parameters={})
     private Output<String> handle;
 
     /**
@@ -90,7 +90,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The number of links belonging to the team.
      * 
      */
-    @Export(name="linkCount", refs={Integer.class}, tree="[0]")
+    @Export(name="linkCount", type=Integer.class, parameters={})
     private Output<Integer> linkCount;
 
     /**
@@ -104,7 +104,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The name of the team.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * A brief summary of the team, derived from the `description`.
      * 
      */
-    @Export(name="summary", refs={String.class}, tree="[0]")
+    @Export(name="summary", type=String.class, parameters={})
     private Output<String> summary;
 
     /**
@@ -132,7 +132,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The number of users belonging to the team.
      * 
      */
-    @Export(name="userCount", refs={Integer.class}, tree="[0]")
+    @Export(name="userCount", type=Integer.class, parameters={})
     private Output<Integer> userCount;
 
     /**

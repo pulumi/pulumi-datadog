@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
@@ -173,6 +174,12 @@ func (i *DowntimeSchedule) ToDowntimeScheduleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleOutput)
 }
 
+func (i *DowntimeSchedule) ToOutput(ctx context.Context) pulumix.Output[*DowntimeSchedule] {
+	return pulumix.Output[*DowntimeSchedule]{
+		OutputState: i.ToDowntimeScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DowntimeScheduleArrayInput is an input type that accepts DowntimeScheduleArray and DowntimeScheduleArrayOutput values.
 // You can construct a concrete instance of `DowntimeScheduleArrayInput` via:
 //
@@ -196,6 +203,12 @@ func (i DowntimeScheduleArray) ToDowntimeScheduleArrayOutput() DowntimeScheduleA
 
 func (i DowntimeScheduleArray) ToDowntimeScheduleArrayOutputWithContext(ctx context.Context) DowntimeScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleArrayOutput)
+}
+
+func (i DowntimeScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*DowntimeSchedule] {
+	return pulumix.Output[[]*DowntimeSchedule]{
+		OutputState: i.ToDowntimeScheduleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DowntimeScheduleMapInput is an input type that accepts DowntimeScheduleMap and DowntimeScheduleMapOutput values.
@@ -223,6 +236,12 @@ func (i DowntimeScheduleMap) ToDowntimeScheduleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeScheduleMapOutput)
 }
 
+func (i DowntimeScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DowntimeSchedule] {
+	return pulumix.Output[map[string]*DowntimeSchedule]{
+		OutputState: i.ToDowntimeScheduleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DowntimeScheduleOutput struct{ *pulumi.OutputState }
 
 func (DowntimeScheduleOutput) ElementType() reflect.Type {
@@ -235,6 +254,12 @@ func (o DowntimeScheduleOutput) ToDowntimeScheduleOutput() DowntimeScheduleOutpu
 
 func (o DowntimeScheduleOutput) ToDowntimeScheduleOutputWithContext(ctx context.Context) DowntimeScheduleOutput {
 	return o
+}
+
+func (o DowntimeScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*DowntimeSchedule] {
+	return pulumix.Output[*DowntimeSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
@@ -293,6 +318,12 @@ func (o DowntimeScheduleArrayOutput) ToDowntimeScheduleArrayOutputWithContext(ct
 	return o
 }
 
+func (o DowntimeScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DowntimeSchedule] {
+	return pulumix.Output[[]*DowntimeSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DowntimeScheduleArrayOutput) Index(i pulumi.IntInput) DowntimeScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DowntimeSchedule {
 		return vs[0].([]*DowntimeSchedule)[vs[1].(int)]
@@ -311,6 +342,12 @@ func (o DowntimeScheduleMapOutput) ToDowntimeScheduleMapOutput() DowntimeSchedul
 
 func (o DowntimeScheduleMapOutput) ToDowntimeScheduleMapOutputWithContext(ctx context.Context) DowntimeScheduleMapOutput {
 	return o
+}
+
+func (o DowntimeScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DowntimeSchedule] {
+	return pulumix.Output[map[string]*DowntimeSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DowntimeScheduleMapOutput) MapIndex(k pulumi.StringInput) DowntimeScheduleOutput {

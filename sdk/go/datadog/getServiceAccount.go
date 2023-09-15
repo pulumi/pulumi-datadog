@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing Datadog service account.
@@ -100,6 +101,12 @@ func (o LookupServiceAccountResultOutput) ToLookupServiceAccountResultOutput() L
 
 func (o LookupServiceAccountResultOutput) ToLookupServiceAccountResultOutputWithContext(ctx context.Context) LookupServiceAccountResultOutput {
 	return o
+}
+
+func (o LookupServiceAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceAccountResult] {
+	return pulumix.Output[LookupServiceAccountResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the user is disabled.

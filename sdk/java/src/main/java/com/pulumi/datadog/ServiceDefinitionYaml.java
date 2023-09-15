@@ -168,7 +168,7 @@ public class ServiceDefinitionYaml extends com.pulumi.resources.CustomResource {
      * The YAML/JSON formatted definition of the service
      * 
      */
-    @Export(name="serviceDefinition", refs={String.class}, tree="[0]")
+    @Export(name="serviceDefinition", type=String.class, parameters={})
     private Output<String> serviceDefinition;
 
     /**

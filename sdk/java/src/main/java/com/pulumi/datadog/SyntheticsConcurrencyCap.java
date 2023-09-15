@@ -61,7 +61,7 @@ public class SyntheticsConcurrencyCap extends com.pulumi.resources.CustomResourc
      * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
      * 
      */
-    @Export(name="onDemandConcurrencyCap", refs={Integer.class}, tree="[0]")
+    @Export(name="onDemandConcurrencyCap", type=Integer.class, parameters={})
     private Output<Integer> onDemandConcurrencyCap;
 
     /**

@@ -63,7 +63,7 @@ public class MonitorConfigPolicy extends com.pulumi.resources.CustomResource {
      * The monitor config policy type Valid values are `tag`.
      * 
      */
-    @Export(name="policyType", refs={String.class}, tree="[0]")
+    @Export(name="policyType", type=String.class, parameters={})
     private Output<String> policyType;
 
     /**
@@ -77,7 +77,7 @@ public class MonitorConfigPolicy extends com.pulumi.resources.CustomResource {
      * Config for a tag policy. Only set if `policy_type` is `tag`.
      * 
      */
-    @Export(name="tagPolicy", refs={MonitorConfigPolicyTagPolicy.class}, tree="[0]")
+    @Export(name="tagPolicy", type=MonitorConfigPolicyTagPolicy.class, parameters={})
     private Output</* @Nullable */ MonitorConfigPolicyTagPolicy> tagPolicy;
 
     /**

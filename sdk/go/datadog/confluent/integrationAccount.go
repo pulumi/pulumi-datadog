@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
@@ -169,6 +170,12 @@ func (i *IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountOutput)
 }
 
+func (i *IntegrationAccount) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccount] {
+	return pulumix.Output[*IntegrationAccount]{
+		OutputState: i.ToIntegrationAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationAccountArrayInput is an input type that accepts IntegrationAccountArray and IntegrationAccountArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountArrayInput` via:
 //
@@ -192,6 +199,12 @@ func (i IntegrationAccountArray) ToIntegrationAccountArrayOutput() IntegrationAc
 
 func (i IntegrationAccountArray) ToIntegrationAccountArrayOutputWithContext(ctx context.Context) IntegrationAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountArrayOutput)
+}
+
+func (i IntegrationAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccount] {
+	return pulumix.Output[[]*IntegrationAccount]{
+		OutputState: i.ToIntegrationAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationAccountMapInput is an input type that accepts IntegrationAccountMap and IntegrationAccountMapOutput values.
@@ -219,6 +232,12 @@ func (i IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
+func (i IntegrationAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccount] {
+	return pulumix.Output[map[string]*IntegrationAccount]{
+		OutputState: i.ToIntegrationAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationAccountOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
@@ -231,6 +250,12 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutput() IntegrationAccoun
 
 func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput {
 	return o
+}
+
+func (o IntegrationAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccount] {
+	return pulumix.Output[*IntegrationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API key associated with your Confluent account.
@@ -262,6 +287,12 @@ func (o IntegrationAccountArrayOutput) ToIntegrationAccountArrayOutputWithContex
 	return o
 }
 
+func (o IntegrationAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccount] {
+	return pulumix.Output[[]*IntegrationAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationAccountArrayOutput) Index(i pulumi.IntInput) IntegrationAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccount {
 		return vs[0].([]*IntegrationAccount)[vs[1].(int)]
@@ -280,6 +311,12 @@ func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() Integration
 
 func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
 	return o
+}
+
+func (o IntegrationAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccount] {
+	return pulumix.Output[map[string]*IntegrationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAccountMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountOutput {

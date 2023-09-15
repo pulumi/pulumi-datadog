@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
@@ -699,6 +700,12 @@ func (i *SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOutput)
 }
 
+func (i *SyntheticsTest) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsTest] {
+	return pulumix.Output[*SyntheticsTest]{
+		OutputState: i.ToSyntheticsTestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SyntheticsTestArrayInput is an input type that accepts SyntheticsTestArray and SyntheticsTestArrayOutput values.
 // You can construct a concrete instance of `SyntheticsTestArrayInput` via:
 //
@@ -722,6 +729,12 @@ func (i SyntheticsTestArray) ToSyntheticsTestArrayOutput() SyntheticsTestArrayOu
 
 func (i SyntheticsTestArray) ToSyntheticsTestArrayOutputWithContext(ctx context.Context) SyntheticsTestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestArrayOutput)
+}
+
+func (i SyntheticsTestArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsTest] {
+	return pulumix.Output[[]*SyntheticsTest]{
+		OutputState: i.ToSyntheticsTestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SyntheticsTestMapInput is an input type that accepts SyntheticsTestMap and SyntheticsTestMapOutput values.
@@ -749,6 +762,12 @@ func (i SyntheticsTestMap) ToSyntheticsTestMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMapOutput)
 }
 
+func (i SyntheticsTestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsTest] {
+	return pulumix.Output[map[string]*SyntheticsTest]{
+		OutputState: i.ToSyntheticsTestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SyntheticsTestOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestOutput) ElementType() reflect.Type {
@@ -761,6 +780,12 @@ func (o SyntheticsTestOutput) ToSyntheticsTestOutput() SyntheticsTestOutput {
 
 func (o SyntheticsTestOutput) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
 	return o
+}
+
+func (o SyntheticsTestOutput) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsTest] {
+	return pulumix.Output[*SyntheticsTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Steps for multistep api tests
@@ -888,6 +913,12 @@ func (o SyntheticsTestArrayOutput) ToSyntheticsTestArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o SyntheticsTestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsTest] {
+	return pulumix.Output[[]*SyntheticsTest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SyntheticsTestArrayOutput) Index(i pulumi.IntInput) SyntheticsTestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyntheticsTest {
 		return vs[0].([]*SyntheticsTest)[vs[1].(int)]
@@ -906,6 +937,12 @@ func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutput() SyntheticsTestMapOu
 
 func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutputWithContext(ctx context.Context) SyntheticsTestMapOutput {
 	return o
+}
+
+func (o SyntheticsTestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsTest] {
+	return pulumix.Output[map[string]*SyntheticsTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SyntheticsTestMapOutput) MapIndex(k pulumi.StringInput) SyntheticsTestOutput {

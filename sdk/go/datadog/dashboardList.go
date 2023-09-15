@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog dashboardList resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
@@ -203,6 +204,12 @@ func (i *DashboardList) ToDashboardListOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListOutput)
 }
 
+func (i *DashboardList) ToOutput(ctx context.Context) pulumix.Output[*DashboardList] {
+	return pulumix.Output[*DashboardList]{
+		OutputState: i.ToDashboardListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DashboardListArrayInput is an input type that accepts DashboardListArray and DashboardListArrayOutput values.
 // You can construct a concrete instance of `DashboardListArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i DashboardListArray) ToDashboardListArrayOutput() DashboardListArrayOutpu
 
 func (i DashboardListArray) ToDashboardListArrayOutputWithContext(ctx context.Context) DashboardListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListArrayOutput)
+}
+
+func (i DashboardListArray) ToOutput(ctx context.Context) pulumix.Output[[]*DashboardList] {
+	return pulumix.Output[[]*DashboardList]{
+		OutputState: i.ToDashboardListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DashboardListMapInput is an input type that accepts DashboardListMap and DashboardListMapOutput values.
@@ -253,6 +266,12 @@ func (i DashboardListMap) ToDashboardListMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListMapOutput)
 }
 
+func (i DashboardListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DashboardList] {
+	return pulumix.Output[map[string]*DashboardList]{
+		OutputState: i.ToDashboardListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DashboardListOutput struct{ *pulumi.OutputState }
 
 func (DashboardListOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o DashboardListOutput) ToDashboardListOutput() DashboardListOutput {
 
 func (o DashboardListOutput) ToDashboardListOutputWithContext(ctx context.Context) DashboardListOutput {
 	return o
+}
+
+func (o DashboardListOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardList] {
+	return pulumix.Output[*DashboardList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A set of dashboard items that belong to this list
@@ -291,6 +316,12 @@ func (o DashboardListArrayOutput) ToDashboardListArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DashboardListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DashboardList] {
+	return pulumix.Output[[]*DashboardList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DashboardListArrayOutput) Index(i pulumi.IntInput) DashboardListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DashboardList {
 		return vs[0].([]*DashboardList)[vs[1].(int)]
@@ -309,6 +340,12 @@ func (o DashboardListMapOutput) ToDashboardListMapOutput() DashboardListMapOutpu
 
 func (o DashboardListMapOutput) ToDashboardListMapOutputWithContext(ctx context.Context) DashboardListMapOutput {
 	return o
+}
+
+func (o DashboardListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DashboardList] {
+	return pulumix.Output[map[string]*DashboardList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DashboardListMapOutput) MapIndex(k pulumi.StringInput) DashboardListOutput {

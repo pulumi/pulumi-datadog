@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Security Monitoring Rule API resource for security filters.
@@ -200,6 +201,12 @@ func (i *SecurityMonitoringFilter) ToSecurityMonitoringFilterOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterOutput)
 }
 
+func (i *SecurityMonitoringFilter) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringFilter] {
+	return pulumix.Output[*SecurityMonitoringFilter]{
+		OutputState: i.ToSecurityMonitoringFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityMonitoringFilterArrayInput is an input type that accepts SecurityMonitoringFilterArray and SecurityMonitoringFilterArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringFilterArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i SecurityMonitoringFilterArray) ToSecurityMonitoringFilterArrayOutput() S
 
 func (i SecurityMonitoringFilterArray) ToSecurityMonitoringFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterArrayOutput)
+}
+
+func (i SecurityMonitoringFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringFilter] {
+	return pulumix.Output[[]*SecurityMonitoringFilter]{
+		OutputState: i.ToSecurityMonitoringFilterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityMonitoringFilterMapInput is an input type that accepts SecurityMonitoringFilterMap and SecurityMonitoringFilterMapOutput values.
@@ -250,6 +263,12 @@ func (i SecurityMonitoringFilterMap) ToSecurityMonitoringFilterMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterMapOutput)
 }
 
+func (i SecurityMonitoringFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringFilter] {
+	return pulumix.Output[map[string]*SecurityMonitoringFilter]{
+		OutputState: i.ToSecurityMonitoringFilterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityMonitoringFilterOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringFilterOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterOutput() Secur
 
 func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterOutput {
 	return o
+}
+
+func (o SecurityMonitoringFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringFilter] {
+	return pulumix.Output[*SecurityMonitoringFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Exclusion filters to exclude some logs from the security filter.
@@ -310,6 +335,12 @@ func (o SecurityMonitoringFilterArrayOutput) ToSecurityMonitoringFilterArrayOutp
 	return o
 }
 
+func (o SecurityMonitoringFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringFilter] {
+	return pulumix.Output[[]*SecurityMonitoringFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityMonitoringFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityMonitoringFilter {
 		return vs[0].([]*SecurityMonitoringFilter)[vs[1].(int)]
@@ -328,6 +359,12 @@ func (o SecurityMonitoringFilterMapOutput) ToSecurityMonitoringFilterMapOutput()
 
 func (o SecurityMonitoringFilterMapOutput) ToSecurityMonitoringFilterMapOutputWithContext(ctx context.Context) SecurityMonitoringFilterMapOutput {
 	return o
+}
+
+func (o SecurityMonitoringFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringFilter] {
+	return pulumix.Output[map[string]*SecurityMonitoringFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityMonitoringFilterMapOutput) MapIndex(k pulumi.StringInput) SecurityMonitoringFilterOutput {

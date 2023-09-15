@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog SpansMetric resource. This can be used to create and manage Datadog spans_metric.
@@ -123,6 +124,12 @@ func (i *SpansMetric) ToSpansMetricOutputWithContext(ctx context.Context) SpansM
 	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricOutput)
 }
 
+func (i *SpansMetric) ToOutput(ctx context.Context) pulumix.Output[*SpansMetric] {
+	return pulumix.Output[*SpansMetric]{
+		OutputState: i.ToSpansMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpansMetricArrayInput is an input type that accepts SpansMetricArray and SpansMetricArrayOutput values.
 // You can construct a concrete instance of `SpansMetricArrayInput` via:
 //
@@ -146,6 +153,12 @@ func (i SpansMetricArray) ToSpansMetricArrayOutput() SpansMetricArrayOutput {
 
 func (i SpansMetricArray) ToSpansMetricArrayOutputWithContext(ctx context.Context) SpansMetricArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricArrayOutput)
+}
+
+func (i SpansMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpansMetric] {
+	return pulumix.Output[[]*SpansMetric]{
+		OutputState: i.ToSpansMetricArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpansMetricMapInput is an input type that accepts SpansMetricMap and SpansMetricMapOutput values.
@@ -173,6 +186,12 @@ func (i SpansMetricMap) ToSpansMetricMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricMapOutput)
 }
 
+func (i SpansMetricMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpansMetric] {
+	return pulumix.Output[map[string]*SpansMetric]{
+		OutputState: i.ToSpansMetricMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpansMetricOutput struct{ *pulumi.OutputState }
 
 func (SpansMetricOutput) ElementType() reflect.Type {
@@ -185,6 +204,12 @@ func (o SpansMetricOutput) ToSpansMetricOutput() SpansMetricOutput {
 
 func (o SpansMetricOutput) ToSpansMetricOutputWithContext(ctx context.Context) SpansMetricOutput {
 	return o
+}
+
+func (o SpansMetricOutput) ToOutput(ctx context.Context) pulumix.Output[*SpansMetric] {
+	return pulumix.Output[*SpansMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpansMetricOutput) Compute() SpansMetricComputePtrOutput {
@@ -218,6 +243,12 @@ func (o SpansMetricArrayOutput) ToSpansMetricArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SpansMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpansMetric] {
+	return pulumix.Output[[]*SpansMetric]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpansMetricArrayOutput) Index(i pulumi.IntInput) SpansMetricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpansMetric {
 		return vs[0].([]*SpansMetric)[vs[1].(int)]
@@ -236,6 +267,12 @@ func (o SpansMetricMapOutput) ToSpansMetricMapOutput() SpansMetricMapOutput {
 
 func (o SpansMetricMapOutput) ToSpansMetricMapOutputWithContext(ctx context.Context) SpansMetricMapOutput {
 	return o
+}
+
+func (o SpansMetricMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpansMetric] {
+	return pulumix.Output[map[string]*SpansMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpansMetricMapOutput) MapIndex(k pulumi.StringInput) SpansMetricOutput {

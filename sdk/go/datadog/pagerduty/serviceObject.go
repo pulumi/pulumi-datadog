@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
@@ -154,6 +155,12 @@ func (i *ServiceObject) ToServiceObjectOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectOutput)
 }
 
+func (i *ServiceObject) ToOutput(ctx context.Context) pulumix.Output[*ServiceObject] {
+	return pulumix.Output[*ServiceObject]{
+		OutputState: i.ToServiceObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceObjectArrayInput is an input type that accepts ServiceObjectArray and ServiceObjectArrayOutput values.
 // You can construct a concrete instance of `ServiceObjectArrayInput` via:
 //
@@ -177,6 +184,12 @@ func (i ServiceObjectArray) ToServiceObjectArrayOutput() ServiceObjectArrayOutpu
 
 func (i ServiceObjectArray) ToServiceObjectArrayOutputWithContext(ctx context.Context) ServiceObjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectArrayOutput)
+}
+
+func (i ServiceObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceObject] {
+	return pulumix.Output[[]*ServiceObject]{
+		OutputState: i.ToServiceObjectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceObjectMapInput is an input type that accepts ServiceObjectMap and ServiceObjectMapOutput values.
@@ -204,6 +217,12 @@ func (i ServiceObjectMap) ToServiceObjectMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectMapOutput)
 }
 
+func (i ServiceObjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceObject] {
+	return pulumix.Output[map[string]*ServiceObject]{
+		OutputState: i.ToServiceObjectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceObjectOutput struct{ *pulumi.OutputState }
 
 func (ServiceObjectOutput) ElementType() reflect.Type {
@@ -216,6 +235,12 @@ func (o ServiceObjectOutput) ToServiceObjectOutput() ServiceObjectOutput {
 
 func (o ServiceObjectOutput) ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput {
 	return o
+}
+
+func (o ServiceObjectOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceObject] {
+	return pulumix.Output[*ServiceObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
@@ -242,6 +267,12 @@ func (o ServiceObjectArrayOutput) ToServiceObjectArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ServiceObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceObject] {
+	return pulumix.Output[[]*ServiceObject]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceObjectArrayOutput) Index(i pulumi.IntInput) ServiceObjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceObject {
 		return vs[0].([]*ServiceObject)[vs[1].(int)]
@@ -260,6 +291,12 @@ func (o ServiceObjectMapOutput) ToServiceObjectMapOutput() ServiceObjectMapOutpu
 
 func (o ServiceObjectMapOutput) ToServiceObjectMapOutputWithContext(ctx context.Context) ServiceObjectMapOutput {
 	return o
+}
+
+func (o ServiceObjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceObject] {
+	return pulumix.Output[map[string]*ServiceObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceObjectMapOutput) MapIndex(k pulumi.StringInput) ServiceObjectOutput {

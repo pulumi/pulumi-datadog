@@ -60,7 +60,7 @@ public class ApplicationKey extends com.pulumi.resources.CustomResource {
      * The value of the Application Key.
      * 
      */
-    @Export(name="key", refs={String.class}, tree="[0]")
+    @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
@@ -74,7 +74,7 @@ public class ApplicationKey extends com.pulumi.resources.CustomResource {
      * Name for Application Key.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

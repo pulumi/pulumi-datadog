@@ -86,7 +86,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * The timezone in which to display the downtime&#39;s start and end times in Datadog applications. This is not used as an offset for scheduling.
      * 
      */
-    @Export(name="displayTimezone", refs={String.class}, tree="[0]")
+    @Export(name="displayTimezone", type=String.class, parameters={})
     private Output<String> displayTimezone;
 
     /**
@@ -100,7 +100,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      * 
      */
-    @Export(name="message", refs={String.class}, tree="[0]")
+    @Export(name="message", type=String.class, parameters={})
     private Output</* @Nullable */ String> message;
 
     /**
@@ -110,7 +110,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> message() {
         return Codegen.optional(this.message);
     }
-    @Export(name="monitorIdentifier", refs={DowntimeScheduleMonitorIdentifier.class}, tree="[0]")
+    @Export(name="monitorIdentifier", type=DowntimeScheduleMonitorIdentifier.class, parameters={})
     private Output</* @Nullable */ DowntimeScheduleMonitorIdentifier> monitorIdentifier;
 
     public Output<Optional<DowntimeScheduleMonitorIdentifier>> monitorIdentifier() {
@@ -120,7 +120,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * If the first recovery notification during a downtime should be muted.
      * 
      */
-    @Export(name="muteFirstRecoveryNotification", refs={Boolean.class}, tree="[0]")
+    @Export(name="muteFirstRecoveryNotification", type=Boolean.class, parameters={})
     private Output<Boolean> muteFirstRecoveryNotification;
 
     /**
@@ -134,7 +134,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * States that will trigger a monitor notification when the `notify_end_types` action occurs.
      * 
      */
-    @Export(name="notifyEndStates", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="notifyEndStates", type=List.class, parameters={String.class})
     private Output<List<String>> notifyEndStates;
 
     /**
@@ -148,7 +148,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
      * 
      */
-    @Export(name="notifyEndTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="notifyEndTypes", type=List.class, parameters={String.class})
     private Output<List<String>> notifyEndTypes;
 
     /**
@@ -158,13 +158,13 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
     public Output<List<String>> notifyEndTypes() {
         return this.notifyEndTypes;
     }
-    @Export(name="oneTimeSchedule", refs={DowntimeScheduleOneTimeSchedule.class}, tree="[0]")
+    @Export(name="oneTimeSchedule", type=DowntimeScheduleOneTimeSchedule.class, parameters={})
     private Output</* @Nullable */ DowntimeScheduleOneTimeSchedule> oneTimeSchedule;
 
     public Output<Optional<DowntimeScheduleOneTimeSchedule>> oneTimeSchedule() {
         return Codegen.optional(this.oneTimeSchedule);
     }
-    @Export(name="recurringSchedule", refs={DowntimeScheduleRecurringSchedule.class}, tree="[0]")
+    @Export(name="recurringSchedule", type=DowntimeScheduleRecurringSchedule.class, parameters={})
     private Output</* @Nullable */ DowntimeScheduleRecurringSchedule> recurringSchedule;
 
     public Output<Optional<DowntimeScheduleRecurringSchedule>> recurringSchedule() {
@@ -174,7 +174,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**

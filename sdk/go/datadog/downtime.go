@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
@@ -260,6 +261,12 @@ func (i *Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeOutput)
 }
 
+func (i *Downtime) ToOutput(ctx context.Context) pulumix.Output[*Downtime] {
+	return pulumix.Output[*Downtime]{
+		OutputState: i.ToDowntimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DowntimeArrayInput is an input type that accepts DowntimeArray and DowntimeArrayOutput values.
 // You can construct a concrete instance of `DowntimeArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i DowntimeArray) ToDowntimeArrayOutput() DowntimeArrayOutput {
 
 func (i DowntimeArray) ToDowntimeArrayOutputWithContext(ctx context.Context) DowntimeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeArrayOutput)
+}
+
+func (i DowntimeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Downtime] {
+	return pulumix.Output[[]*Downtime]{
+		OutputState: i.ToDowntimeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DowntimeMapInput is an input type that accepts DowntimeMap and DowntimeMapOutput values.
@@ -310,6 +323,12 @@ func (i DowntimeMap) ToDowntimeMapOutputWithContext(ctx context.Context) Downtim
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeMapOutput)
 }
 
+func (i DowntimeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Downtime] {
+	return pulumix.Output[map[string]*Downtime]{
+		OutputState: i.ToDowntimeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DowntimeOutput struct{ *pulumi.OutputState }
 
 func (DowntimeOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o DowntimeOutput) ToDowntimeOutput() DowntimeOutput {
 
 func (o DowntimeOutput) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
 	return o
+}
+
+func (o DowntimeOutput) ToOutput(ctx context.Context) pulumix.Output[*Downtime] {
+	return pulumix.Output[*Downtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When true indicates this downtime is being actively applied
@@ -408,6 +433,12 @@ func (o DowntimeArrayOutput) ToDowntimeArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DowntimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Downtime] {
+	return pulumix.Output[[]*Downtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DowntimeArrayOutput) Index(i pulumi.IntInput) DowntimeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Downtime {
 		return vs[0].([]*Downtime)[vs[1].(int)]
@@ -426,6 +457,12 @@ func (o DowntimeMapOutput) ToDowntimeMapOutput() DowntimeMapOutput {
 
 func (o DowntimeMapOutput) ToDowntimeMapOutputWithContext(ctx context.Context) DowntimeMapOutput {
 	return o
+}
+
+func (o DowntimeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Downtime] {
+	return pulumix.Output[map[string]*Downtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DowntimeMapOutput) MapIndex(k pulumi.StringInput) DowntimeOutput {

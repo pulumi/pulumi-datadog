@@ -72,7 +72,7 @@ public class IntegrationService extends com.pulumi.resources.CustomResource {
      * Fastly Account id.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountId;
 
     /**
@@ -86,7 +86,7 @@ public class IntegrationService extends com.pulumi.resources.CustomResource {
      * The ID of the Fastly service.
      * 
      */
-    @Export(name="serviceId", refs={String.class}, tree="[0]")
+    @Export(name="serviceId", type=String.class, parameters={})
     private Output<String> serviceId;
 
     /**
@@ -100,7 +100,7 @@ public class IntegrationService extends com.pulumi.resources.CustomResource {
      * A list of tags for the Fastly service.
      * 
      */
-    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="tags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tags;
 
     /**

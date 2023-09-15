@@ -69,7 +69,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user is disabled.
      * 
      */
-    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="disabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
@@ -83,7 +83,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Email address for user.
      * 
      */
-    @Export(name="email", refs={String.class}, tree="[0]")
+    @Export(name="email", type=String.class, parameters={})
     private Output<String> email;
 
     /**
@@ -97,7 +97,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Name for user.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output</* @Nullable */ String> name;
 
     /**
@@ -111,7 +111,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A list a role IDs to assign to the user.
      * 
      */
-    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="roles", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> roles;
 
     /**
@@ -125,7 +125,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether an invitation email should be sent when the user is created.
      * 
      */
-    @Export(name="sendUserInvitation", refs={Boolean.class}, tree="[0]")
+    @Export(name="sendUserInvitation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sendUserInvitation;
 
     /**
@@ -139,7 +139,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ID of the user invitation that was sent when creating the user.
      * 
      */
-    @Export(name="userInvitationId", refs={String.class}, tree="[0]")
+    @Export(name="userInvitationId", type=String.class, parameters={})
     private Output<String> userInvitationId;
 
     /**
@@ -153,7 +153,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Returns `true` if the user is verified.
      * 
      */
-    @Export(name="verified", refs={Boolean.class}, tree="[0]")
+    @Export(name="verified", type=Boolean.class, parameters={})
     private Output<Boolean> verified;
 
     /**

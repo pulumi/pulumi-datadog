@@ -70,7 +70,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Whether the service account is disabled.
      * 
      */
-    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="disabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
@@ -84,7 +84,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Email of the associated user.
      * 
      */
-    @Export(name="email", refs={String.class}, tree="[0]")
+    @Export(name="email", type=String.class, parameters={})
     private Output<String> email;
 
     /**
@@ -98,7 +98,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Name for the service account.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output</* @Nullable */ String> name;
 
     /**
@@ -112,7 +112,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * A list a role IDs to assign to the service account.
      * 
      */
-    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="roles", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> roles;
 
     /**

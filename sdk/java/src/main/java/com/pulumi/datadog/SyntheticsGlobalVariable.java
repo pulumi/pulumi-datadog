@@ -71,7 +71,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * Description of the global variable.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -85,7 +85,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * Synthetics global variable name.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * Additional options for the variable, such as a MFA token.
      * 
      */
-    @Export(name="options", refs={SyntheticsGlobalVariableOptions.class}, tree="[0]")
+    @Export(name="options", type=SyntheticsGlobalVariableOptions.class, parameters={})
     private Output</* @Nullable */ SyntheticsGlobalVariableOptions> options;
 
     /**
@@ -113,7 +113,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * Id of the Synthetics test to use for a variable from test.
      * 
      */
-    @Export(name="parseTestId", refs={String.class}, tree="[0]")
+    @Export(name="parseTestId", type=String.class, parameters={})
     private Output</* @Nullable */ String> parseTestId;
 
     /**
@@ -127,7 +127,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * ID of the Synthetics test to use a source of the global variable value.
      * 
      */
-    @Export(name="parseTestOptions", refs={SyntheticsGlobalVariableParseTestOptions.class}, tree="[0]")
+    @Export(name="parseTestOptions", type=SyntheticsGlobalVariableParseTestOptions.class, parameters={})
     private Output</* @Nullable */ SyntheticsGlobalVariableParseTestOptions> parseTestOptions;
 
     /**
@@ -141,7 +141,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * A list of role identifiers to associate with the Synthetics global variable.
      * 
      */
-    @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="restrictedRoles", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> restrictedRoles;
 
     /**
@@ -155,7 +155,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * If set to true, the value of the global variable is hidden. Defaults to `false`.
      * 
      */
-    @Export(name="secure", refs={Boolean.class}, tree="[0]")
+    @Export(name="secure", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> secure;
 
     /**
@@ -169,7 +169,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * A list of tags to associate with your synthetics global variable.
      * 
      */
-    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="tags", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -183,7 +183,7 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
      * The value of the global variable.
      * 
      */
-    @Export(name="value", refs={String.class}, tree="[0]")
+    @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog dashboard JSON resource. This can be used to create and manage Datadog dashboards using the JSON definition.
@@ -652,6 +653,12 @@ func (i *DashboardJson) ToDashboardJsonOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardJsonOutput)
 }
 
+func (i *DashboardJson) ToOutput(ctx context.Context) pulumix.Output[*DashboardJson] {
+	return pulumix.Output[*DashboardJson]{
+		OutputState: i.ToDashboardJsonOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DashboardJsonArrayInput is an input type that accepts DashboardJsonArray and DashboardJsonArrayOutput values.
 // You can construct a concrete instance of `DashboardJsonArrayInput` via:
 //
@@ -675,6 +682,12 @@ func (i DashboardJsonArray) ToDashboardJsonArrayOutput() DashboardJsonArrayOutpu
 
 func (i DashboardJsonArray) ToDashboardJsonArrayOutputWithContext(ctx context.Context) DashboardJsonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardJsonArrayOutput)
+}
+
+func (i DashboardJsonArray) ToOutput(ctx context.Context) pulumix.Output[[]*DashboardJson] {
+	return pulumix.Output[[]*DashboardJson]{
+		OutputState: i.ToDashboardJsonArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DashboardJsonMapInput is an input type that accepts DashboardJsonMap and DashboardJsonMapOutput values.
@@ -702,6 +715,12 @@ func (i DashboardJsonMap) ToDashboardJsonMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardJsonMapOutput)
 }
 
+func (i DashboardJsonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DashboardJson] {
+	return pulumix.Output[map[string]*DashboardJson]{
+		OutputState: i.ToDashboardJsonMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DashboardJsonOutput struct{ *pulumi.OutputState }
 
 func (DashboardJsonOutput) ElementType() reflect.Type {
@@ -714,6 +733,12 @@ func (o DashboardJsonOutput) ToDashboardJsonOutput() DashboardJsonOutput {
 
 func (o DashboardJsonOutput) ToDashboardJsonOutputWithContext(ctx context.Context) DashboardJsonOutput {
 	return o
+}
+
+func (o DashboardJsonOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardJson] {
+	return pulumix.Output[*DashboardJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The JSON formatted definition of the Dashboard.
@@ -751,6 +776,12 @@ func (o DashboardJsonArrayOutput) ToDashboardJsonArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DashboardJsonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DashboardJson] {
+	return pulumix.Output[[]*DashboardJson]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DashboardJsonArrayOutput) Index(i pulumi.IntInput) DashboardJsonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DashboardJson {
 		return vs[0].([]*DashboardJson)[vs[1].(int)]
@@ -769,6 +800,12 @@ func (o DashboardJsonMapOutput) ToDashboardJsonMapOutput() DashboardJsonMapOutpu
 
 func (o DashboardJsonMapOutput) ToDashboardJsonMapOutputWithContext(ctx context.Context) DashboardJsonMapOutput {
 	return o
+}
+
+func (o DashboardJsonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DashboardJson] {
+	return pulumix.Output[map[string]*DashboardJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DashboardJsonMapOutput) MapIndex(k pulumi.StringInput) DashboardJsonOutput {

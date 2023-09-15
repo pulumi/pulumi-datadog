@@ -34,7 +34,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Silence monitors for expected GCE instance shutdowns.
      * 
      */
-    @Export(name="automute", refs={Boolean.class}, tree="[0]")
+    @Export(name="automute", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automute;
 
     /**
@@ -48,7 +48,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your email found in your JSON service account key.
      * 
      */
-    @Export(name="clientEmail", refs={String.class}, tree="[0]")
+    @Export(name="clientEmail", type=String.class, parameters={})
     private Output<String> clientEmail;
 
     /**
@@ -62,7 +62,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your ID found in your JSON service account key.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -76,7 +76,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Whether Datadog collects cloud security posture management resources from your GCP project.
      * 
      */
-    @Export(name="cspmResourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="cspmResourceCollectionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> cspmResourceCollectionEnabled;
 
     /**
@@ -90,7 +90,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      * 
      */
-    @Export(name="hostFilters", refs={String.class}, tree="[0]")
+    @Export(name="hostFilters", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostFilters;
 
     /**
@@ -104,7 +104,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your private key name found in your JSON service account key.
      * 
      */
-    @Export(name="privateKey", refs={String.class}, tree="[0]")
+    @Export(name="privateKey", type=String.class, parameters={})
     private Output<String> privateKey;
 
     /**
@@ -118,7 +118,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your private key ID found in your JSON service account key.
      * 
      */
-    @Export(name="privateKeyId", refs={String.class}, tree="[0]")
+    @Export(name="privateKeyId", type=String.class, parameters={})
     private Output<String> privateKeyId;
 
     /**
@@ -132,7 +132,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
      * Your Google Cloud project ID found in your JSON service account key.
      * 
      */
-    @Export(name="projectId", refs={String.class}, tree="[0]")
+    @Export(name="projectId", type=String.class, parameters={})
     private Output<String> projectId;
 
     /**

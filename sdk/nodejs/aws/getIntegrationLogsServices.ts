@@ -29,3 +29,9 @@ export interface GetIntegrationLogsServicesResult {
      */
     readonly id: string;
 }
+/**
+ * Use this data source to retrieve all AWS log ready services.
+ */
+export function getIntegrationLogsServicesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationLogsServicesResult> {
+    return pulumi.output(getIntegrationLogsServices(opts))
+}

@@ -63,7 +63,7 @@ public class IntegrationLogCollection extends com.pulumi.resources.CustomResourc
      * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
     /**
@@ -77,7 +77,7 @@ public class IntegrationLogCollection extends com.pulumi.resources.CustomResourc
      * A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
      * 
      */
-    @Export(name="services", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="services", type=List.class, parameters={String.class})
     private Output<List<String>> services;
 
     /**

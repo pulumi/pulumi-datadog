@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/restrictionPolicy:RestrictionPolicy")
 public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
-    @Export(name="bindings", refs={List.class,RestrictionPolicyBinding.class}, tree="[0,1]")
+    @Export(name="bindings", type=List.class, parameters={RestrictionPolicyBinding.class})
     private Output</* @Nullable */ List<RestrictionPolicyBinding>> bindings;
 
     public Output<Optional<List<RestrictionPolicyBinding>>> bindings() {
@@ -78,7 +78,7 @@ public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
      * Identifier for the resource, formatted as resource*type:resource*id.
      * 
      */
-    @Export(name="resourceId", refs={String.class}, tree="[0]")
+    @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**

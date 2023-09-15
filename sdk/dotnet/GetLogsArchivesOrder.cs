@@ -16,6 +16,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetLogsArchivesOrderResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsArchivesOrderResult>("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get the current order of your logs archives.
+        /// </summary>
+        public static Output<GetLogsArchivesOrderResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsArchivesOrderResult>("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

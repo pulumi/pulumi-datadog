@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
@@ -275,6 +276,12 @@ func (i *SensitiveDataScannerRule) ToSensitiveDataScannerRuleOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleOutput)
 }
 
+func (i *SensitiveDataScannerRule) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerRule] {
+	return pulumix.Output[*SensitiveDataScannerRule]{
+		OutputState: i.ToSensitiveDataScannerRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SensitiveDataScannerRuleArrayInput is an input type that accepts SensitiveDataScannerRuleArray and SensitiveDataScannerRuleArrayOutput values.
 // You can construct a concrete instance of `SensitiveDataScannerRuleArrayInput` via:
 //
@@ -298,6 +305,12 @@ func (i SensitiveDataScannerRuleArray) ToSensitiveDataScannerRuleArrayOutput() S
 
 func (i SensitiveDataScannerRuleArray) ToSensitiveDataScannerRuleArrayOutputWithContext(ctx context.Context) SensitiveDataScannerRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleArrayOutput)
+}
+
+func (i SensitiveDataScannerRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerRule] {
+	return pulumix.Output[[]*SensitiveDataScannerRule]{
+		OutputState: i.ToSensitiveDataScannerRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SensitiveDataScannerRuleMapInput is an input type that accepts SensitiveDataScannerRuleMap and SensitiveDataScannerRuleMapOutput values.
@@ -325,6 +338,12 @@ func (i SensitiveDataScannerRuleMap) ToSensitiveDataScannerRuleMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleMapOutput)
 }
 
+func (i SensitiveDataScannerRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerRule] {
+	return pulumix.Output[map[string]*SensitiveDataScannerRule]{
+		OutputState: i.ToSensitiveDataScannerRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SensitiveDataScannerRuleOutput struct{ *pulumi.OutputState }
 
 func (SensitiveDataScannerRuleOutput) ElementType() reflect.Type {
@@ -337,6 +356,12 @@ func (o SensitiveDataScannerRuleOutput) ToSensitiveDataScannerRuleOutput() Sensi
 
 func (o SensitiveDataScannerRuleOutput) ToSensitiveDataScannerRuleOutputWithContext(ctx context.Context) SensitiveDataScannerRuleOutput {
 	return o
+}
+
+func (o SensitiveDataScannerRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerRule] {
+	return pulumix.Output[*SensitiveDataScannerRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the rule.
@@ -405,6 +430,12 @@ func (o SensitiveDataScannerRuleArrayOutput) ToSensitiveDataScannerRuleArrayOutp
 	return o
 }
 
+func (o SensitiveDataScannerRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerRule] {
+	return pulumix.Output[[]*SensitiveDataScannerRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SensitiveDataScannerRuleArrayOutput) Index(i pulumi.IntInput) SensitiveDataScannerRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SensitiveDataScannerRule {
 		return vs[0].([]*SensitiveDataScannerRule)[vs[1].(int)]
@@ -423,6 +454,12 @@ func (o SensitiveDataScannerRuleMapOutput) ToSensitiveDataScannerRuleMapOutput()
 
 func (o SensitiveDataScannerRuleMapOutput) ToSensitiveDataScannerRuleMapOutputWithContext(ctx context.Context) SensitiveDataScannerRuleMapOutput {
 	return o
+}
+
+func (o SensitiveDataScannerRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerRule] {
+	return pulumix.Output[map[string]*SensitiveDataScannerRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SensitiveDataScannerRuleMapOutput) MapIndex(k pulumi.StringInput) SensitiveDataScannerRuleOutput {

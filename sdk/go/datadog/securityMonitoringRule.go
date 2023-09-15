@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadogSecurityDefaultRule` instead.
@@ -279,6 +280,12 @@ func (i *SecurityMonitoringRule) ToSecurityMonitoringRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOutput)
 }
 
+func (i *SecurityMonitoringRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringRule] {
+	return pulumix.Output[*SecurityMonitoringRule]{
+		OutputState: i.ToSecurityMonitoringRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityMonitoringRuleArrayInput is an input type that accepts SecurityMonitoringRuleArray and SecurityMonitoringRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringRuleArrayInput` via:
 //
@@ -302,6 +309,12 @@ func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutput() Secur
 
 func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleArrayOutput)
+}
+
+func (i SecurityMonitoringRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringRule] {
+	return pulumix.Output[[]*SecurityMonitoringRule]{
+		OutputState: i.ToSecurityMonitoringRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityMonitoringRuleMapInput is an input type that accepts SecurityMonitoringRuleMap and SecurityMonitoringRuleMapOutput values.
@@ -329,6 +342,12 @@ func (i SecurityMonitoringRuleMap) ToSecurityMonitoringRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleMapOutput)
 }
 
+func (i SecurityMonitoringRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringRule] {
+	return pulumix.Output[map[string]*SecurityMonitoringRule]{
+		OutputState: i.ToSecurityMonitoringRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityMonitoringRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringRuleOutput) ElementType() reflect.Type {
@@ -341,6 +360,12 @@ func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutput() SecurityM
 
 func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleOutput {
 	return o
+}
+
+func (o SecurityMonitoringRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringRule] {
+	return pulumix.Output[*SecurityMonitoringRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cases for generating signals.
@@ -412,6 +437,12 @@ func (o SecurityMonitoringRuleArrayOutput) ToSecurityMonitoringRuleArrayOutputWi
 	return o
 }
 
+func (o SecurityMonitoringRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringRule] {
+	return pulumix.Output[[]*SecurityMonitoringRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityMonitoringRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityMonitoringRule {
 		return vs[0].([]*SecurityMonitoringRule)[vs[1].(int)]
@@ -430,6 +461,12 @@ func (o SecurityMonitoringRuleMapOutput) ToSecurityMonitoringRuleMapOutput() Sec
 
 func (o SecurityMonitoringRuleMapOutput) ToSecurityMonitoringRuleMapOutputWithContext(ctx context.Context) SecurityMonitoringRuleMapOutput {
 	return o
+}
+
+func (o SecurityMonitoringRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringRule] {
+	return pulumix.Output[map[string]*SecurityMonitoringRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityMonitoringRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityMonitoringRuleOutput {

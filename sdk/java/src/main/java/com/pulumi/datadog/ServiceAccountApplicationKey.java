@@ -63,7 +63,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * Creation date of the application key.
      * 
      */
-    @Export(name="createdAt", refs={String.class}, tree="[0]")
+    @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
     /**
@@ -77,7 +77,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * The value of the service account application key. This value cannot be imported.
      * 
      */
-    @Export(name="key", refs={String.class}, tree="[0]")
+    @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
@@ -91,7 +91,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * The last four characters of the application key.
      * 
      */
-    @Export(name="last4", refs={String.class}, tree="[0]")
+    @Export(name="last4", type=String.class, parameters={})
     private Output<String> last4;
 
     /**
@@ -105,7 +105,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * Name of the application key.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * ID of the service account that owns this key.
      * 
      */
-    @Export(name="serviceAccountId", refs={String.class}, tree="[0]")
+    @Export(name="serviceAccountId", type=String.class, parameters={})
     private Output<String> serviceAccountId;
 
     /**

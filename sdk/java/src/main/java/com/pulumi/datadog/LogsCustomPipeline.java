@@ -214,25 +214,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/logsCustomPipeline:LogsCustomPipeline")
 public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
-    @Export(name="filters", refs={List.class,LogsCustomPipelineFilter.class}, tree="[0,1]")
+    @Export(name="filters", type=List.class, parameters={LogsCustomPipelineFilter.class})
     private Output<List<LogsCustomPipelineFilter>> filters;
 
     public Output<List<LogsCustomPipelineFilter>> filters() {
         return this.filters;
     }
-    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="isEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isEnabled;
 
     public Output<Optional<Boolean>> isEnabled() {
         return Codegen.optional(this.isEnabled);
     }
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="processors", refs={List.class,LogsCustomPipelineProcessor.class}, tree="[0,1]")
+    @Export(name="processors", type=List.class, parameters={LogsCustomPipelineProcessor.class})
     private Output</* @Nullable */ List<LogsCustomPipelineProcessor>> processors;
 
     public Output<Optional<List<LogsCustomPipelineProcessor>>> processors() {
