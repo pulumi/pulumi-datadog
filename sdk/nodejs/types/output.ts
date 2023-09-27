@@ -3851,6 +3851,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery;
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery {
@@ -4177,6 +4178,10 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSe
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle {
+    palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
@@ -7000,6 +7005,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     queries?: outputs.DashboardWidgetSunburstDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery;
+    style?: outputs.DashboardWidgetSunburstDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
@@ -7326,6 +7332,10 @@ export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompu
     aggregation: string;
     facet?: string;
     interval?: number;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestStyle {
+    palette?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinition {

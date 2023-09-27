@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestProces
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestStyle;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +32,7 @@ public final class DashboardWidgetSunburstDefinitionRequest {
     private @Nullable List<DashboardWidgetSunburstDefinitionRequestQuery> queries;
     private @Nullable DashboardWidgetSunburstDefinitionRequestRumQuery rumQuery;
     private @Nullable DashboardWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSunburstDefinitionRequestStyle style;
 
     private DashboardWidgetSunburstDefinitionRequest() {}
     public Optional<DashboardWidgetSunburstDefinitionRequestApmQuery> apmQuery() {
@@ -63,6 +65,9 @@ public final class DashboardWidgetSunburstDefinitionRequest {
     public Optional<DashboardWidgetSunburstDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    public Optional<DashboardWidgetSunburstDefinitionRequestStyle> style() {
+        return Optional.ofNullable(this.style);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -83,6 +88,7 @@ public final class DashboardWidgetSunburstDefinitionRequest {
         private @Nullable List<DashboardWidgetSunburstDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetSunburstDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetSunburstDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardWidgetSunburstDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -96,6 +102,7 @@ public final class DashboardWidgetSunburstDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -154,6 +161,11 @@ public final class DashboardWidgetSunburstDefinitionRequest {
             this.securityQuery = securityQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetSunburstDefinitionRequestStyle style) {
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetSunburstDefinitionRequest build() {
             final var o = new DashboardWidgetSunburstDefinitionRequest();
             o.apmQuery = apmQuery;
@@ -166,6 +178,7 @@ public final class DashboardWidgetSunburstDefinitionRequest {
             o.queries = queries;
             o.rumQuery = rumQuery;
             o.securityQuery = securityQuery;
+            o.style = style;
             return o;
         }
     }

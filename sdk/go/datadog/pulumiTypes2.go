@@ -14,6 +14,325 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBy struct {
+	Facet     *string                                                          `pulumi:"facet"`
+	Limit     *int                                                             `pulumi:"limit"`
+	SortQuery *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs and DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs{...}
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs struct {
+	Facet     pulumi.StringPtrInput                                                   `pulumi:"facet"`
+	Limit     pulumi.IntPtrInput                                                      `pulumi:"limit"`
+	SortQuery DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBy] {
+	return pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBy]{
+		OutputState: i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray and DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray{ DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs{...} }
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray []DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray) ToOutput(ctx context.Context) pulumix.Output[[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy] {
+	return pulumix.Output[[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy]{
+		OutputState: i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBy] {
+	return pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy] {
+	return pulumix.Output[[]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
+		return vs[0].([]DashboardWidgetToplistDefinitionRequestApmQueryGroupBy)[vs[1].(int)]
+	}).(DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery struct {
+	Aggregation string  `pulumi:"aggregation"`
+	Facet       *string `pulumi:"facet"`
+	Order       string  `pulumi:"order"`
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput` via:
+//
+//	DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{...}
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs struct {
+	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
+	Facet       pulumi.StringPtrInput `pulumi:"facet"`
+	Order       pulumi.StringInput    `pulumi:"order"`
+}
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput)
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery] {
+	return pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery]{
+		OutputState: i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput).ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs, DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtr and DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput` via:
+//
+//	        DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
+	ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
+}
+
+type dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs
+
+func DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtr(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput {
+	return (*dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput)
+}
+
+func (i *dashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery] {
+	return pulumix.Output[*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery]{
+		OutputState: i.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o.ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+		return &v
+	}).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery] {
+	return pulumix.Output[DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ToDashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery] {
+	return pulumix.Output[*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Elem() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery
+		return ret
+	}).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
 type DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute struct {
 	Aggregation string  `pulumi:"aggregation"`
 	Facet       *string `pulumi:"facet"`
@@ -41610,6 +41929,10 @@ func (o GetTeamMembershipsTeamMembershipArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetToplistDefinitionRequestAuditQueryInput)(nil)).Elem(), DashboardWidgetToplistDefinitionRequestAuditQueryArgs{})
@@ -42060,6 +42383,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloArrayInput)(nil)).Elem(), GetServiceLevelObjectivesSloArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetToplistDefinitionRequestAuditQueryOutput{})

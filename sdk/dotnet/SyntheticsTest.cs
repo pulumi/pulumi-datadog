@@ -531,6 +531,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata to include when performing the gRPC test.
+        /// </summary>
+        [Output("requestMetadata")]
+        public Output<ImmutableDictionary<string, object>?> RequestMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// The proxy to perform the test.
         /// </summary>
         [Output("requestProxy")]
@@ -747,6 +753,18 @@ namespace Pulumi.Datadog
             set => _requestHeaders = value;
         }
 
+        [Input("requestMetadata")]
+        private InputMap<object>? _requestMetadata;
+
+        /// <summary>
+        /// Metadata to include when performing the gRPC test.
+        /// </summary>
+        public InputMap<object> RequestMetadata
+        {
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            set => _requestMetadata = value;
+        }
+
         /// <summary>
         /// The proxy to perform the test.
         /// </summary>
@@ -942,6 +960,18 @@ namespace Pulumi.Datadog
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
             set => _requestHeaders = value;
+        }
+
+        [Input("requestMetadata")]
+        private InputMap<object>? _requestMetadata;
+
+        /// <summary>
+        /// Metadata to include when performing the gRPC test.
+        /// </summary>
+        public InputMap<object> RequestMetadata
+        {
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            set => _requestMetadata = value;
         }
 
         /// <summary>

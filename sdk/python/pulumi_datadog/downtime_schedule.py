@@ -308,7 +308,7 @@ class DowntimeSchedule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 
         ## Import
 
@@ -332,7 +332,7 @@ class DowntimeSchedule(pulumi.CustomResource):
                  args: DowntimeScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+        Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
 
         ## Import
 

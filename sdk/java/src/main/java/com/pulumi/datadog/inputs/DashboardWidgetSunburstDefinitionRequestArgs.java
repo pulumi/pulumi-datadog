@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestProcess
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -95,6 +96,13 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
         return Optional.ofNullable(this.securityQuery);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetSunburstDefinitionRequestStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetSunburstDefinitionRequestStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetSunburstDefinitionRequestArgs() {}
 
     private DashboardWidgetSunburstDefinitionRequestArgs(DashboardWidgetSunburstDefinitionRequestArgs $) {
@@ -108,6 +116,7 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -224,6 +233,15 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
 
         public Builder securityQuery(DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetSunburstDefinitionRequestStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetSunburstDefinitionRequestStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetSunburstDefinitionRequestArgs build() {

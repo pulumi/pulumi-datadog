@@ -599,6 +599,20 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestHeaders);
     }
     /**
+     * Metadata to include when performing the gRPC test.
+     * 
+     */
+    @Export(name="requestMetadata", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
+    private Output</* @Nullable */ Map<String,Object>> requestMetadata;
+
+    /**
+     * @return Metadata to include when performing the gRPC test.
+     * 
+     */
+    public Output<Optional<Map<String,Object>>> requestMetadata() {
+        return Codegen.optional(this.requestMetadata);
+    }
+    /**
      * The proxy to perform the test.
      * 
      */

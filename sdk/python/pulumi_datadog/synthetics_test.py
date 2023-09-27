@@ -32,6 +32,7 @@ class SyntheticsTestArgs:
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
                  request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -88,6 +90,8 @@ class SyntheticsTestArgs:
             pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
+        if request_metadata is not None:
+            pulumi.set(__self__, "request_metadata", request_metadata)
         if request_proxy is not None:
             pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
@@ -289,6 +293,18 @@ class SyntheticsTestArgs:
         pulumi.set(self, "request_headers", value)
 
     @property
+    @pulumi.getter(name="requestMetadata")
+    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Metadata to include when performing the gRPC test.
+        """
+        return pulumi.get(self, "request_metadata")
+
+    @request_metadata.setter
+    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "request_metadata", value)
+
+    @property
     @pulumi.getter(name="requestProxy")
     def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]:
         """
@@ -367,6 +383,7 @@ class _SyntheticsTestState:
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
                  request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
@@ -390,6 +407,7 @@ class _SyntheticsTestState:
         :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -428,6 +446,8 @@ class _SyntheticsTestState:
             pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
+        if request_metadata is not None:
+            pulumi.set(__self__, "request_metadata", request_metadata)
         if request_proxy is not None:
             pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
@@ -621,6 +641,18 @@ class _SyntheticsTestState:
         pulumi.set(self, "request_headers", value)
 
     @property
+    @pulumi.getter(name="requestMetadata")
+    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Metadata to include when performing the gRPC test.
+        """
+        return pulumi.get(self, "request_metadata")
+
+    @request_metadata.setter
+    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "request_metadata", value)
+
+    @property
     @pulumi.getter(name="requestProxy")
     def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]:
         """
@@ -724,6 +756,7 @@ class SyntheticsTest(pulumi.CustomResource):
                  request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
                  request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
@@ -1038,6 +1071,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -1372,6 +1406,7 @@ class SyntheticsTest(pulumi.CustomResource):
                  request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
                  request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
@@ -1406,6 +1441,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__.__dict__["request_client_certificate"] = request_client_certificate
             __props__.__dict__["request_definition"] = request_definition
             __props__.__dict__["request_headers"] = request_headers
+            __props__.__dict__["request_metadata"] = request_metadata
             __props__.__dict__["request_proxy"] = request_proxy
             __props__.__dict__["request_query"] = request_query
             __props__.__dict__["set_cookie"] = set_cookie
@@ -1443,6 +1479,7 @@ class SyntheticsTest(pulumi.CustomResource):
             request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
             request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             set_cookie: Optional[pulumi.Input[str]] = None,
@@ -1471,6 +1508,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -1498,6 +1536,7 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__.__dict__["request_client_certificate"] = request_client_certificate
         __props__.__dict__["request_definition"] = request_definition
         __props__.__dict__["request_headers"] = request_headers
+        __props__.__dict__["request_metadata"] = request_metadata
         __props__.__dict__["request_proxy"] = request_proxy
         __props__.__dict__["request_query"] = request_query
         __props__.__dict__["set_cookie"] = set_cookie
@@ -1623,6 +1662,14 @@ class SyntheticsTest(pulumi.CustomResource):
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
+
+    @property
+    @pulumi.getter(name="requestMetadata")
+    def request_metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        Metadata to include when performing the gRPC test.
+        """
+        return pulumi.get(self, "request_metadata")
 
     @property
     @pulumi.getter(name="requestProxy")

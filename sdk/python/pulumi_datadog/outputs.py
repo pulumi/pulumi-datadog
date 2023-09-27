@@ -527,6 +527,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute',
+    'DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent',
@@ -949,6 +950,7 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy',
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute',
+    'DashboardWidgetSunburstDefinitionRequestStyle',
     'DashboardWidgetTimeseriesDefinition',
     'DashboardWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetTimeseriesDefinitionEvent',
@@ -26002,7 +26004,8 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest(dict):
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery']] = None,
                  rum_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery'] = None):
+                 security_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery'] = None,
+                 style: Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle'] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
         if audit_query is not None:
@@ -26023,6 +26026,8 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest(dict):
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if style is not None:
+            pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter(name="apmQuery")
@@ -26073,6 +26078,11 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest(dict):
     @pulumi.getter(name="securityQuery")
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
+
+    @property
+    @pulumi.getter
+    def style(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle']:
+        return pulumi.get(self, "style")
 
 
 @pulumi.output_type
@@ -28230,6 +28240,19 @@ class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle(dict):
+    def __init__(__self__, *,
+                 palette: Optional[str] = None):
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        return pulumi.get(self, "palette")
 
 
 @pulumi.output_type
@@ -47333,7 +47356,8 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQuery']] = None,
                  rum_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery'] = None):
+                 security_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery'] = None,
+                 style: Optional['outputs.DashboardWidgetSunburstDefinitionRequestStyle'] = None):
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
         if audit_query is not None:
@@ -47354,6 +47378,8 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
             pulumi.set(__self__, "rum_query", rum_query)
         if security_query is not None:
             pulumi.set(__self__, "security_query", security_query)
+        if style is not None:
+            pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter(name="apmQuery")
@@ -47404,6 +47430,11 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
     @pulumi.getter(name="securityQuery")
     def security_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
+
+    @property
+    @pulumi.getter
+    def style(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestStyle']:
+        return pulumi.get(self, "style")
 
 
 @pulumi.output_type
@@ -49561,6 +49592,19 @@ class DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSunburstDefinitionRequestStyle(dict):
+    def __init__(__self__, *,
+                 palette: Optional[str] = None):
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+
+    @property
+    @pulumi.getter
+    def palette(self) -> Optional[str]:
+        return pulumi.get(self, "palette")
 
 
 @pulumi.output_type
