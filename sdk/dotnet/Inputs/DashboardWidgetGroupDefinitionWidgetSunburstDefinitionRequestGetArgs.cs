@@ -52,6 +52,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
+        [Input("style")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleGetArgs>? Style { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestGetArgs()
         {
         }

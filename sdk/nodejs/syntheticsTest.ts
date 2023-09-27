@@ -390,6 +390,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * Metadata to include when performing the gRPC test.
+     */
+    public readonly requestMetadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The proxy to perform the test.
      */
     public readonly requestProxy!: pulumi.Output<outputs.SyntheticsTestRequestProxy | undefined>;
@@ -446,6 +450,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = state ? state.requestDefinition : undefined;
             resourceInputs["requestHeaders"] = state ? state.requestHeaders : undefined;
+            resourceInputs["requestMetadata"] = state ? state.requestMetadata : undefined;
             resourceInputs["requestProxy"] = state ? state.requestProxy : undefined;
             resourceInputs["requestQuery"] = state ? state.requestQuery : undefined;
             resourceInputs["setCookie"] = state ? state.setCookie : undefined;
@@ -481,6 +486,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = args ? args.requestDefinition : undefined;
             resourceInputs["requestHeaders"] = args ? args.requestHeaders : undefined;
+            resourceInputs["requestMetadata"] = args ? args.requestMetadata : undefined;
             resourceInputs["requestProxy"] = args ? args.requestProxy : undefined;
             resourceInputs["requestQuery"] = args ? args.requestQuery : undefined;
             resourceInputs["setCookie"] = args ? args.setCookie : undefined;
@@ -556,6 +562,10 @@ export interface SyntheticsTestState {
      * Header name and value map.
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Metadata to include when performing the gRPC test.
+     */
+    requestMetadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The proxy to perform the test.
      */
@@ -643,6 +653,10 @@ export interface SyntheticsTestArgs {
      * Header name and value map.
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Metadata to include when performing the gRPC test.
+     */
+    requestMetadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The proxy to perform the test.
      */

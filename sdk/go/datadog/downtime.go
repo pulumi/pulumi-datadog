@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
+// This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 //
 // ## Example Usage
 //

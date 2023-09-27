@@ -446,7 +446,7 @@ class Downtime(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
+        This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
         ## Example Usage
 
@@ -493,7 +493,7 @@ class Downtime(pulumi.CustomResource):
                  args: DowntimeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
+        This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
         ## Example Usage
 

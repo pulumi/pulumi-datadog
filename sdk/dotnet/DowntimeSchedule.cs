@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+    /// Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
     /// 
     /// ## Import
     /// 

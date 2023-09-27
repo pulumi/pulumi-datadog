@@ -247,6 +247,21 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Metadata to include when performing the gRPC test.
+     * 
+     */
+    @Import(name="requestMetadata")
+    private @Nullable Output<Map<String,Object>> requestMetadata;
+
+    /**
+     * @return Metadata to include when performing the gRPC test.
+     * 
+     */
+    public Optional<Output<Map<String,Object>>> requestMetadata() {
+        return Optional.ofNullable(this.requestMetadata);
+    }
+
+    /**
      * The proxy to perform the test.
      * 
      */
@@ -369,6 +384,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         this.requestClientCertificate = $.requestClientCertificate;
         this.requestDefinition = $.requestDefinition;
         this.requestHeaders = $.requestHeaders;
+        this.requestMetadata = $.requestMetadata;
         this.requestProxy = $.requestProxy;
         this.requestQuery = $.requestQuery;
         this.setCookie = $.setCookie;
@@ -767,6 +783,27 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
          */
         public Builder requestHeaders(Map<String,Object> requestHeaders) {
             return requestHeaders(Output.of(requestHeaders));
+        }
+
+        /**
+         * @param requestMetadata Metadata to include when performing the gRPC test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMetadata(@Nullable Output<Map<String,Object>> requestMetadata) {
+            $.requestMetadata = requestMetadata;
+            return this;
+        }
+
+        /**
+         * @param requestMetadata Metadata to include when performing the gRPC test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMetadata(Map<String,Object> requestMetadata) {
+            return requestMetadata(Output.of(requestMetadata));
         }
 
         /**

@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.
+ * Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
  * 
  * ## Example Usage
  * 

@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDef
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -95,6 +96,13 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         return Optional.ofNullable(this.securityQuery);
     }
 
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs> style;
+
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs $) {
@@ -108,6 +116,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -224,6 +233,15 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
         public Builder securityQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        public Builder style(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs build() {

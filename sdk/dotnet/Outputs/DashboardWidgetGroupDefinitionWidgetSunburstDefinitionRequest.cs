@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest(
@@ -44,7 +45,9 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery? securityQuery)
+            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery? securityQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
             AuditQuery = auditQuery;
@@ -56,6 +59,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Style = style;
         }
     }
 }

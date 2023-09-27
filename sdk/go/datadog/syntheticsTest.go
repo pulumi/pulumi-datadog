@@ -435,6 +435,8 @@ type SyntheticsTest struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrOutput `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
+	// Metadata to include when performing the gRPC test.
+	RequestMetadata pulumi.MapOutput `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrOutput `pulumi:"requestProxy"`
 	// Query arguments name and value map.
@@ -522,6 +524,8 @@ type syntheticsTestState struct {
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// Metadata to include when performing the gRPC test.
+	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
@@ -568,6 +572,8 @@ type SyntheticsTestState struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
+	// Metadata to include when performing the gRPC test.
+	RequestMetadata pulumi.MapInput
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
@@ -616,6 +622,8 @@ type syntheticsTestArgs struct {
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// Metadata to include when performing the gRPC test.
+	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
@@ -661,6 +669,8 @@ type SyntheticsTestArgs struct {
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
+	// Metadata to include when performing the gRPC test.
+	RequestMetadata pulumi.MapInput
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestRequestProxyPtrInput
 	// Query arguments name and value map.
@@ -862,6 +872,11 @@ func (o SyntheticsTestOutput) RequestDefinition() SyntheticsTestRequestDefinitio
 // Header name and value map.
 func (o SyntheticsTestOutput) RequestHeaders() pulumi.MapOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.MapOutput { return v.RequestHeaders }).(pulumi.MapOutput)
+}
+
+// Metadata to include when performing the gRPC test.
+func (o SyntheticsTestOutput) RequestMetadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *SyntheticsTest) pulumi.MapOutput { return v.RequestMetadata }).(pulumi.MapOutput)
 }
 
 // The proxy to perform the test.

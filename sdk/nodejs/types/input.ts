@@ -3851,6 +3851,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
     queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery>;
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery {
@@ -4177,6 +4178,10 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSe
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle {
+    palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
@@ -7000,6 +7005,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery>;
+    style?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
@@ -7326,6 +7332,10 @@ export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompu
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestStyle {
+    palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinition {
