@@ -10845,6 +10845,9 @@
                 },
                 "securityQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery"
+                },
+                "style": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle"
                 }
             },
             "type": "object"
@@ -11835,6 +11838,14 @@
             "required": [
                 "aggregation"
             ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle:DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle": {
+            "properties": {
+                "palette": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition": {
             "properties": {
@@ -20197,6 +20208,9 @@
                 },
                 "securityQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestSecurityQuery:DashboardWidgetSunburstDefinitionRequestSecurityQuery"
+                },
+                "style": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinitionRequestStyle:DashboardWidgetSunburstDefinitionRequestStyle"
                 }
             },
             "type": "object"
@@ -21187,6 +21201,14 @@
             "required": [
                 "aggregation"
             ]
+        },
+        "datadog:index/DashboardWidgetSunburstDefinitionRequestStyle:DashboardWidgetSunburstDefinitionRequestStyle": {
+            "properties": {
+                "palette": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/DashboardWidgetTimeseriesDefinition:DashboardWidgetTimeseriesDefinition": {
             "properties": {
@@ -28765,7 +28787,7 @@
             "properties": {
                 "appServicePlanFilters": {
                     "type": "string",
-                    "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                    "description": "This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).\n"
                 },
                 "automute": {
                     "type": "boolean",
@@ -28805,7 +28827,7 @@
             "inputProperties": {
                 "appServicePlanFilters": {
                     "type": "string",
-                    "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                    "description": "This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).\n"
                 },
                 "automute": {
                     "type": "boolean",
@@ -28847,7 +28869,7 @@
                 "properties": {
                     "appServicePlanFilters": {
                         "type": "string",
-                        "description": "String of app service plan tag(s) (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. For example, `env:production,deploymentgroup:red`.\n"
+                        "description": "This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).\n"
                     },
                     "automute": {
                         "type": "boolean",
@@ -30359,7 +30381,7 @@
             }
         },
         "datadog:index/downtime:Downtime": {
-            "description": "Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Example: downtime for all monitors\n// Create a new daily 1700-0900 Datadog downtime for all monitors\nconst foo = new datadog.Downtime(\"foo\", {\n    end: 1483365600,\n    recurrence: {\n        period: 1,\n        type: \"days\",\n    },\n    scopes: [\"*\"],\n    start: 1483308000,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Example: downtime for all monitors\n# Create a new daily 1700-0900 Datadog downtime for all monitors\nfoo = datadog.Downtime(\"foo\",\n    end=1483365600,\n    recurrence=datadog.DowntimeRecurrenceArgs(\n        period=1,\n        type=\"days\",\n    ),\n    scopes=[\"*\"],\n    start=1483308000)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Example: downtime for all monitors\n    // Create a new daily 1700-0900 Datadog downtime for all monitors\n    var foo = new Datadog.Downtime(\"foo\", new()\n    {\n        End = 1483365600,\n        Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs\n        {\n            Period = 1,\n            Type = \"days\",\n        },\n        Scopes = new[]\n        {\n            \"*\",\n        },\n        Start = 1483308000,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewDowntime(ctx, \"foo\", \u0026datadog.DowntimeArgs{\n\t\t\tEnd: pulumi.Int(1483365600),\n\t\t\tRecurrence: \u0026datadog.DowntimeRecurrenceArgs{\n\t\t\t\tPeriod: pulumi.Int(1),\n\t\t\t\tType:   pulumi.String(\"days\"),\n\t\t\t},\n\t\t\tScopes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"*\"),\n\t\t\t},\n\t\t\tStart: pulumi.Int(1483308000),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.Downtime;\nimport com.pulumi.datadog.DowntimeArgs;\nimport com.pulumi.datadog.inputs.DowntimeRecurrenceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new Downtime(\"foo\", DowntimeArgs.builder()        \n            .end(1483365600)\n            .recurrence(DowntimeRecurrenceArgs.builder()\n                .period(1)\n                .type(\"days\")\n                .build())\n            .scopes(\"*\")\n            .start(1483308000)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Example: downtime for all monitors\n  # // Create a new daily 1700-0900 Datadog downtime for all monitors\n  foo:\n    type: datadog:Downtime\n    properties:\n      end: 1.4833656e+09\n      recurrence:\n        period: 1\n        type: days\n      scopes:\n        - '*'\n      start: 1.483308e+09\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081\n```\n\n ",
+            "description": "This resource is deprecated — use the `datadog.DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Example: downtime for all monitors\n// Create a new daily 1700-0900 Datadog downtime for all monitors\nconst foo = new datadog.Downtime(\"foo\", {\n    end: 1483365600,\n    recurrence: {\n        period: 1,\n        type: \"days\",\n    },\n    scopes: [\"*\"],\n    start: 1483308000,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Example: downtime for all monitors\n# Create a new daily 1700-0900 Datadog downtime for all monitors\nfoo = datadog.Downtime(\"foo\",\n    end=1483365600,\n    recurrence=datadog.DowntimeRecurrenceArgs(\n        period=1,\n        type=\"days\",\n    ),\n    scopes=[\"*\"],\n    start=1483308000)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Example: downtime for all monitors\n    // Create a new daily 1700-0900 Datadog downtime for all monitors\n    var foo = new Datadog.Downtime(\"foo\", new()\n    {\n        End = 1483365600,\n        Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs\n        {\n            Period = 1,\n            Type = \"days\",\n        },\n        Scopes = new[]\n        {\n            \"*\",\n        },\n        Start = 1483308000,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewDowntime(ctx, \"foo\", \u0026datadog.DowntimeArgs{\n\t\t\tEnd: pulumi.Int(1483365600),\n\t\t\tRecurrence: \u0026datadog.DowntimeRecurrenceArgs{\n\t\t\t\tPeriod: pulumi.Int(1),\n\t\t\t\tType:   pulumi.String(\"days\"),\n\t\t\t},\n\t\t\tScopes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"*\"),\n\t\t\t},\n\t\t\tStart: pulumi.Int(1483308000),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.Downtime;\nimport com.pulumi.datadog.DowntimeArgs;\nimport com.pulumi.datadog.inputs.DowntimeRecurrenceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new Downtime(\"foo\", DowntimeArgs.builder()        \n            .end(1483365600)\n            .recurrence(DowntimeRecurrenceArgs.builder()\n                .period(1)\n                .type(\"days\")\n                .build())\n            .scopes(\"*\")\n            .start(1483308000)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Example: downtime for all monitors\n  # // Create a new daily 1700-0900 Datadog downtime for all monitors\n  foo:\n    type: datadog:Downtime\n    properties:\n      end: 1.4833656e+09\n      recurrence:\n        period: 1\n        type: days\n      scopes:\n        - '*'\n      start: 1.483308e+09\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081\n```\n\n ",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -30555,7 +30577,7 @@
             }
         },
         "datadog:index/downtimeSchedule:DowntimeSchedule": {
-            "description": "Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes. **NOTE:** Currently in private beta. To request access, contact Support at support@datadoghq.com.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DowntimeSchedule;\nimport com.pulumi.datadog.DowntimeScheduleArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var downtimeScheduleExample = new DowntimeSchedule(\"downtimeScheduleExample\", DowntimeScheduleArgs.builder()        \n            .displayTimezone(\"America/New_York\")\n            .message(\"Message about the downtime\")\n            .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()\n                .monitor_tags(                \n                    \"test:123\",\n                    \"data:test\")\n                .build())\n            .muteFirstRecoveryNotification(true)\n            .notifyEndStates(            \n                \"alert\",\n                \"warn\")\n            .notifyEndTypes(            \n                \"canceled\",\n                \"expired\")\n            .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()\n                .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .timezone(\"America/New_York\")\n                .build())\n            .scope(\"env:us9-prod7 AND team:test123\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  downtimeScheduleExample:\n    type: datadog:DowntimeSchedule\n    properties:\n      displayTimezone: America/New_York\n      message: Message about the downtime\n      monitorIdentifier:\n        monitor_tags:\n          - test:123\n          - data:test\n      muteFirstRecoveryNotification: true\n      notifyEndStates:\n        - alert\n        - warn\n      notifyEndTypes:\n        - canceled\n        - expired\n      recurringSchedule:\n        recurrence:\n          - duration: 1h\n            rrule: FREQ=DAILY;INTERVAL=1\n            start: 2050-01-02T03:04:05\n        timezone: America/New_York\n      scope: env:us9-prod7 AND team:test123\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list \"00e000000-0000-1234-0000-000000000000\"\n```\n\n ",
+            "description": "Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DowntimeSchedule;\nimport com.pulumi.datadog.DowntimeScheduleArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs;\nimport com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var downtimeScheduleExample = new DowntimeSchedule(\"downtimeScheduleExample\", DowntimeScheduleArgs.builder()        \n            .displayTimezone(\"America/New_York\")\n            .message(\"Message about the downtime\")\n            .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()\n                .monitor_tags(                \n                    \"test:123\",\n                    \"data:test\")\n                .build())\n            .muteFirstRecoveryNotification(true)\n            .notifyEndStates(            \n                \"alert\",\n                \"warn\")\n            .notifyEndTypes(            \n                \"canceled\",\n                \"expired\")\n            .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()\n                .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n                .timezone(\"America/New_York\")\n                .build())\n            .scope(\"env:us9-prod7 AND team:test123\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  downtimeScheduleExample:\n    type: datadog:DowntimeSchedule\n    properties:\n      displayTimezone: America/New_York\n      message: Message about the downtime\n      monitorIdentifier:\n        monitor_tags:\n          - test:123\n          - data:test\n      muteFirstRecoveryNotification: true\n      notifyEndStates:\n        - alert\n        - warn\n      notifyEndTypes:\n        - canceled\n        - expired\n      recurringSchedule:\n        recurrence:\n          - duration: 1h\n            rrule: FREQ=DAILY;INTERVAL=1\n            start: 2050-01-02T03:04:05\n        timezone: America/New_York\n      scope: env:us9-prod7 AND team:test123\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list \"00e000000-0000-1234-0000-000000000000\"\n```\n\n ",
             "properties": {
                 "displayTimezone": {
                     "type": "string",
@@ -33958,6 +33980,13 @@
                     },
                     "description": "Header name and value map.\n"
                 },
+                "requestMetadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Metadata to include when performing the gRPC test.\n"
+                },
                 "requestProxy": {
                     "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",
                     "description": "The proxy to perform the test.\n"
@@ -34079,6 +34108,13 @@
                         "$ref": "pulumi.json#/Any"
                     },
                     "description": "Header name and value map.\n"
+                },
+                "requestMetadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Metadata to include when performing the gRPC test.\n"
                 },
                 "requestProxy": {
                     "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",
@@ -34206,6 +34242,13 @@
                             "$ref": "pulumi.json#/Any"
                         },
                         "description": "Header name and value map.\n"
+                    },
+                    "requestMetadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Metadata to include when performing the gRPC test.\n"
                     },
                     "requestProxy": {
                         "$ref": "#/types/datadog:index/SyntheticsTestRequestProxy:SyntheticsTestRequestProxy",

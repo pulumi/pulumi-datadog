@@ -2636,6 +2636,9 @@
                                                                                             }
                                                                                         }
                                                                                     }
+                                                                                },
+                                                                                "style": {
+                                                                                    "maxItemsOne": true
                                                                                 }
                                                                             }
                                                                         }
@@ -4758,6 +4761,9 @@
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        "style": {
+                                                            "maxItemsOne": true
                                                         }
                                                     }
                                                 }
@@ -11492,6 +11498,7 @@
                 "requestClientCertificate": "request_client_certificate",
                 "requestDefinition": "request_definition",
                 "requestHeaders": "request_headers",
+                "requestMetadata": "request_metadata",
                 "requestProxy": "request_proxy",
                 "requestQuery": "request_query",
                 "setCookie": "set_cookie"
