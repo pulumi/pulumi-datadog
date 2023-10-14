@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+    /**
+     * @return If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * 
+     */
     private @Nullable Boolean baselineUserLocations;
 
     private SecurityMonitoringRuleOptionsImpossibleTravelOptions() {}
+    /**
+     * @return If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * 
+     */
     public Optional<Boolean> baselineUserLocations() {
         return Optional.ofNullable(this.baselineUserLocations);
     }

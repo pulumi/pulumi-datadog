@@ -12,20 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChildOrganizationApiKey {
     private @Nullable String key;
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     private @Nullable String name;
 
     private ChildOrganizationApiKey() {}
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

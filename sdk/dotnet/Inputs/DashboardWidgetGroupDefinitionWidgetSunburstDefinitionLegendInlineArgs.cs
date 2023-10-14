@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to hide the percentages of the groups.
+        /// </summary>
         [Input("hidePercent")]
         public Input<bool>? HidePercent { get; set; }
 
+        /// <summary>
+        /// Setting this to True hides values.
+        /// </summary>
         [Input("hideValue")]
         public Input<bool>? HideValue { get; set; }
 
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

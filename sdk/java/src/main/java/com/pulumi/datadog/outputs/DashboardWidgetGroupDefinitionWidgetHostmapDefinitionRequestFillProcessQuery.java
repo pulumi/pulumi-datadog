@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery {
+    /**
+     * @return A list of processes.
+     * 
+     */
     private @Nullable List<String> filterBies;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     private String metric;
+    /**
+     * @return Your chosen search term.
+     * 
+     */
     private @Nullable String searchBy;
 
     private DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery() {}
+    /**
+     * @return A list of processes.
+     * 
+     */
     public List<String> filterBies() {
         return this.filterBies == null ? List.of() : this.filterBies;
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public String metric() {
         return this.metric;
     }
+    /**
+     * @return Your chosen search term.
+     * 
+     */
     public Optional<String> searchBy() {
         return Optional.ofNullable(this.searchBy);
     }

@@ -13,19 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinition
     {
+        /// <summary>
+        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// The image URL to display as a banner for the group.
+        /// </summary>
         public readonly string? BannerImg;
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the group. Valid values are `ordered`.
         /// </summary>
         public readonly string LayoutType;
+        /// <summary>
+        /// Whether to show the title or not.
+        /// </summary>
         public readonly bool? ShowTitle;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The list of widgets to display on the dashboard.
+        /// The list of widgets in this group.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidget> Widgets;
 

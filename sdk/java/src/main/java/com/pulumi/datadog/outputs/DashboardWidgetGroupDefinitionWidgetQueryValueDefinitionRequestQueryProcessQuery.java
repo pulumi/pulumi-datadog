@@ -14,41 +14,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     private @Nullable String aggregator;
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return Whether to normalize the CPU percentages.
+     * 
+     */
     private @Nullable Boolean isNormalizedCpu;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     private String metric;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable String sort;
+    /**
+     * @return An array of tags to filter by.
+     * 
+     */
     private @Nullable List<String> tagFilters;
+    /**
+     * @return The text to use as a filter.
+     * 
+     */
     private @Nullable String textFilter;
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery() {}
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return Whether to normalize the CPU percentages.
+     * 
+     */
     public Optional<Boolean> isNormalizedCpu() {
         return Optional.ofNullable(this.isNormalizedCpu);
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public String metric() {
         return this.metric;
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<String> sort() {
         return Optional.ofNullable(this.sort);
     }
+    /**
+     * @return An array of tags to filter by.
+     * 
+     */
     public List<String> tagFilters() {
         return this.tagFilters == null ? List.of() : this.tagFilters;
     }
+    /**
+     * @return The text to use as a filter.
+     * 
+     */
     public Optional<String> textFilter() {
         return Optional.ofNullable(this.textFilter);
     }

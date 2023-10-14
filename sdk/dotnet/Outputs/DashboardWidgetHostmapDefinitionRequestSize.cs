@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHostmapDefinitionRequestSize
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery? ApmQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery? LogQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery? SecurityQuery;
 
         [OutputConstructor]

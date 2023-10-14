@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * @return The facet name.
+     * 
+     */
     private String facet;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort sort;
 
     private DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy() {}
+    /**
+     * @return The facet name.
+     * 
+     */
     public String facet() {
         return this.facet;
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort> sort() {
         return Optional.ofNullable(this.sort);
     }

@@ -361,7 +361,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly locations!: pulumi.Output<string[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * For UDP and websocket tests, message to send with the request.
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
@@ -382,7 +382,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
-     * Required if `type = "api"`. The synthetics test request.
+     * The request for the api step.
      */
     public readonly requestDefinition!: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
     /**
@@ -410,7 +410,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -418,7 +418,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -534,7 +534,7 @@ export interface SyntheticsTestState {
      */
     locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -555,7 +555,7 @@ export interface SyntheticsTestState {
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
-     * Required if `type = "api"`. The synthetics test request.
+     * The request for the api step.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**
@@ -583,7 +583,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -591,7 +591,7 @@ export interface SyntheticsTestState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type?: pulumi.Input<string>;
 }
@@ -629,7 +629,7 @@ export interface SyntheticsTestArgs {
      */
     locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * For UDP and websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -646,7 +646,7 @@ export interface SyntheticsTestArgs {
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
-     * Required if `type = "api"`. The synthetics test request.
+     * The request for the api step.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**
@@ -674,7 +674,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -682,7 +682,7 @@ export interface SyntheticsTestArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: pulumi.Input<string>;
 }

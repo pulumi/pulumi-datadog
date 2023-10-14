@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Widget column field.
+        /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
+        /// <summary>
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// </summary>
         [Input("width", required: true)]
         public Input<string> Width { get; set; } = null!;
 

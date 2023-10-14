@@ -9,18 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIntegrationLogsServicesAwsLogsService {
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private String id;
     private String label;
 
     private GetIntegrationLogsServicesAwsLogsService() {}
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

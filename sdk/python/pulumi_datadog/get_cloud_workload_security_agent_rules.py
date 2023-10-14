@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetCloudWorkloadSecurityAgentRulesResult',
     'AwaitableGetCloudWorkloadSecurityAgentRulesResult',
     'get_cloud_workload_security_agent_rules',
+    'get_cloud_workload_security_agent_rules_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
     return AwaitableGetCloudWorkloadSecurityAgentRulesResult(
         agent_rules=pulumi.get(__ret__, 'agent_rules'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_cloud_workload_security_agent_rules)
+def get_cloud_workload_security_agent_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWorkloadSecurityAgentRulesResult]:
+    """
+    Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_cloud_workload_security_agent_rules()
+    ```
+    """
+    ...

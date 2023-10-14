@@ -56,7 +56,6 @@ func GetLogsPipelines(ctx *pulumi.Context, args *GetLogsPipelinesArgs, opts ...p
 
 // A collection of arguments for invoking getLogsPipelines.
 type GetLogsPipelinesArgs struct {
-	// Filter parameter for retrieved pipelines
 	IsReadOnly *string `pulumi:"isReadOnly"`
 }
 
@@ -85,7 +84,6 @@ func GetLogsPipelinesOutput(ctx *pulumi.Context, args GetLogsPipelinesOutputArgs
 
 // A collection of arguments for invoking getLogsPipelines.
 type GetLogsPipelinesOutputArgs struct {
-	// Filter parameter for retrieved pipelines
 	IsReadOnly pulumi.StringPtrInput `pulumi:"isReadOnly"`
 }
 

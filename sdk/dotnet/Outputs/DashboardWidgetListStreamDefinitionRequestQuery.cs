@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetListStreamDefinitionRequestQuery
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// The size to use to display an event. Valid values are `s`, `l`.
+        /// </summary>
         public readonly string? EventSize;
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public readonly ImmutableArray<string> Indexes;
+        /// <summary>
+        /// Widget query.
+        /// </summary>
         public readonly string? QueryString;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly Outputs.DashboardWidgetListStreamDefinitionRequestQuerySort? Sort;
+        /// <summary>
+        /// Storage location (private beta).
+        /// </summary>
         public readonly string? Storage;
 
         [OutputConstructor]

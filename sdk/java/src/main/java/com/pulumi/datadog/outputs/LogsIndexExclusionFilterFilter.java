@@ -17,6 +17,10 @@ public final class LogsIndexExclusionFilterFilter {
      * 
      */
     private @Nullable String query;
+    /**
+     * @return The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     private @Nullable Double sampleRate;
 
     private LogsIndexExclusionFilterFilter() {}
@@ -27,6 +31,10 @@ public final class LogsIndexExclusionFilterFilter {
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }
+    /**
+     * @return The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     public Optional<Double> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }

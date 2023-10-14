@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
 
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         [Input("facet")]
         public Input<string>? Facet { get; set; }
 
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         [Input("order", required: true)]
         public Input<string> Order { get; set; } = null!;
 

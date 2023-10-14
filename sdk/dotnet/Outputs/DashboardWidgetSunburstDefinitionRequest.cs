@@ -13,16 +13,43 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetSunburstDefinitionRequest
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery? AuditQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery? NetworkQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestStyle? Style;
 
         [OutputConstructor]

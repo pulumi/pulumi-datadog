@@ -13,16 +13,32 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
 
     public static final SyntheticsGlobalVariableOptionsTotpParametersArgs Empty = new SyntheticsGlobalVariableOptionsTotpParametersArgs();
 
+    /**
+     * Number of digits for the OTP.
+     * 
+     */
     @Import(name="digits", required=true)
     private Output<Integer> digits;
 
+    /**
+     * @return Number of digits for the OTP.
+     * 
+     */
     public Output<Integer> digits() {
         return this.digits;
     }
 
+    /**
+     * Interval for which to refresh the token (in seconds).
+     * 
+     */
     @Import(name="refreshInterval", required=true)
     private Output<Integer> refreshInterval;
 
+    /**
+     * @return Interval for which to refresh the token (in seconds).
+     * 
+     */
     public Output<Integer> refreshInterval() {
         return this.refreshInterval;
     }
@@ -52,20 +68,44 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
             $ = new SyntheticsGlobalVariableOptionsTotpParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param digits Number of digits for the OTP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digits(Output<Integer> digits) {
             $.digits = digits;
             return this;
         }
 
+        /**
+         * @param digits Number of digits for the OTP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digits(Integer digits) {
             return digits(Output.of(digits));
         }
 
+        /**
+         * @param refreshInterval Interval for which to refresh the token (in seconds).
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshInterval(Output<Integer> refreshInterval) {
             $.refreshInterval = refreshInterval;
             return this;
         }
 
+        /**
+         * @param refreshInterval Interval for which to refresh the token (in seconds).
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshInterval(Integer refreshInterval) {
             return refreshInterval(Output.of(refreshInterval));
         }

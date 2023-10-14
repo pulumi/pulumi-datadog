@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         public readonly string Aggregation;
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         public readonly string? Facet;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string Order;
 
         [OutputConstructor]

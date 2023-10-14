@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         public readonly string Aggregation;
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string? Order;
 
         [OutputConstructor]

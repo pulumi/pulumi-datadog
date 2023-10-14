@@ -16,9 +16,17 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs();
 
+    /**
+     * Column properties used by the front end for display.
+     * 
+     */
     @Import(name="columns", required=true)
     private Output<List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>> columns;
 
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     public Output<List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>> columns() {
         return this.columns;
     }
@@ -30,9 +38,17 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         return this.query;
     }
 
+    /**
+     * Widget response format. Valid values are `event_list`.
+     * 
+     */
     @Import(name="responseFormat", required=true)
     private Output<String> responseFormat;
 
+    /**
+     * @return Widget response format. Valid values are `event_list`.
+     * 
+     */
     public Output<String> responseFormat() {
         return this.responseFormat;
     }
@@ -63,15 +79,33 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(Output<List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>> columns) {
             $.columns = columns;
             return this;
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs> columns) {
             return columns(Output.of(columns));
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs... columns) {
             return columns(List.of(columns));
         }
@@ -85,11 +119,23 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             return query(Output.of(query));
         }
 
+        /**
+         * @param responseFormat Widget response format. Valid values are `event_list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseFormat(Output<String> responseFormat) {
             $.responseFormat = responseFormat;
             return this;
         }
 
+        /**
+         * @param responseFormat Widget response format. Valid values are `event_list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseFormat(String responseFormat) {
             return responseFormat(Output.of(responseFormat));
         }

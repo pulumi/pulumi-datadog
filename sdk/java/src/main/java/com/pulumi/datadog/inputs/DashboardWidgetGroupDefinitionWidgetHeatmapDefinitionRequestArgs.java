@@ -21,51 +21,107 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
 
     public static final DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Styling options for widget formulas.
+     * 
+     */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyleArgs> style;
 
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyleArgs>> style() {
         return Optional.ofNullable(this.style);
     }
@@ -100,65 +156,149 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
             $ = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyleArgs> style) {
             $.style = style;
             return this;
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyleArgs style) {
             return style(Output.of(style));
         }

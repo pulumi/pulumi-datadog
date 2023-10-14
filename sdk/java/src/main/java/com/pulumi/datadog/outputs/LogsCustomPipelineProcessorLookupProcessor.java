@@ -13,29 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorLookupProcessor {
+    /**
+     * @return Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     * 
+     */
     private @Nullable String defaultLookup;
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return List of entries of the lookup table using `key,value` format.
+     * 
+     */
     private List<String> lookupTables;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     private String source;
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     private String target;
 
     private LogsCustomPipelineProcessorLookupProcessor() {}
+    /**
+     * @return Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     * 
+     */
     public Optional<String> defaultLookup() {
         return Optional.ofNullable(this.defaultLookup);
     }
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return List of entries of the lookup table using `key,value` format.
+     * 
+     */
     public List<String> lookupTables() {
         return this.lookupTables;
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public String source() {
         return this.source;
     }
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public String target() {
         return this.target;
     }

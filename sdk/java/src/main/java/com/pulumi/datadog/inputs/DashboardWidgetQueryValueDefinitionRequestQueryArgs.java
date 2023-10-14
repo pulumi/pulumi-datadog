@@ -20,44 +20,92 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryArgs extends c
 
     public static final DashboardWidgetQueryValueDefinitionRequestQueryArgs Empty = new DashboardWidgetQueryValueDefinitionRequestQueryArgs();
 
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmDependencyStatsQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery;
 
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
 
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmResourceStatsQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery;
 
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
 
+    /**
+     * A timeseries formula and functions events query.
+     * 
+     */
     @Import(name="eventQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs> eventQuery;
 
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs>> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
 
+    /**
+     * A timeseries formula and functions metrics query.
+     * 
+     */
     @Import(name="metricQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs> metricQuery;
 
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs>> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The slo query using formulas and functions.
+     * 
+     */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs> sloQuery;
 
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs>> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }
@@ -91,56 +139,128 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryArgs extends c
             $ = new DashboardWidgetQueryValueDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery) {
             $.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery) {
             $.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQueryArgs apmResourceStatsQuery) {
             return apmResourceStatsQuery(Output.of(apmResourceStatsQuery));
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs> eventQuery) {
             $.eventQuery = eventQuery;
             return this;
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs eventQuery) {
             return eventQuery(Output.of(eventQuery));
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs> metricQuery) {
             $.metricQuery = metricQuery;
             return this;
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs metricQuery) {
             return metricQuery(Output.of(metricQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs> sloQuery) {
             $.sloQuery = sloQuery;
             return this;
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
         }

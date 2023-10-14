@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetMonitorConfigPoliciesResult',
     'AwaitableGetMonitorConfigPoliciesResult',
     'get_monitor_config_policies',
+    'get_monitor_config_policies_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_monitor_config_policies(opts: Optional[pulumi.InvokeOptions] = None) -> 
     return AwaitableGetMonitorConfigPoliciesResult(
         id=pulumi.get(__ret__, 'id'),
         monitor_config_policies=pulumi.get(__ret__, 'monitor_config_policies'))
+
+
+@_utilities.lift_output_func(get_monitor_config_policies)
+def get_monitor_config_policies_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorConfigPoliciesResult]:
+    """
+    Use this data source to list existing monitor config policies for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_monitor_config_policies()
+    ```
+    """
+    ...

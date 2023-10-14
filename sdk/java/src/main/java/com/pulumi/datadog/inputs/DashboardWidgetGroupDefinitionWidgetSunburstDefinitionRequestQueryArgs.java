@@ -20,44 +20,92 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
     public static final DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs();
 
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmDependencyStatsQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery;
 
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
 
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmResourceStatsQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery;
 
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
 
+    /**
+     * A timeseries formula and functions events query.
+     * 
+     */
     @Import(name="eventQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryArgs> eventQuery;
 
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryArgs>> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
 
+    /**
+     * A timeseries formula and functions metrics query.
+     * 
+     */
     @Import(name="metricQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs> metricQuery;
 
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs>> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The slo query using formulas and functions.
+     * 
+     */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs> sloQuery;
 
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs>> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }
@@ -91,56 +139,128 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             $ = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery) {
             $.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery) {
             $.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs apmResourceStatsQuery) {
             return apmResourceStatsQuery(Output.of(apmResourceStatsQuery));
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryArgs> eventQuery) {
             $.eventQuery = eventQuery;
             return this;
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryArgs eventQuery) {
             return eventQuery(Output.of(eventQuery));
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs> metricQuery) {
             $.metricQuery = metricQuery;
             return this;
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQueryArgs metricQuery) {
             return metricQuery(Output.of(metricQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs> sloQuery) {
             $.sloQuery = sloQuery;
             return this;
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
         }

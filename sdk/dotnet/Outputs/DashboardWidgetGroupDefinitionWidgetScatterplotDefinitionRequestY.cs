@@ -13,12 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         public readonly string? Aggregator;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery? ApmQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery? LogQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery? SecurityQuery;
 
         [OutputConstructor]

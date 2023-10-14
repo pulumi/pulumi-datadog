@@ -138,7 +138,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.MonitorMonitorThresholds?> MonitorThresholds { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Datadog monitor.
+        /// The name of query for use in formulas.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -212,13 +212,7 @@ namespace Pulumi.Datadog
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// The events search string.
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
@@ -419,7 +413,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.MonitorMonitorThresholdsArgs>? MonitorThresholds { get; set; }
 
         /// <summary>
-        /// Name of Datadog monitor.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -499,13 +493,7 @@ namespace Pulumi.Datadog
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// The events search string.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -699,7 +687,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.MonitorMonitorThresholdsGetArgs>? MonitorThresholds { get; set; }
 
         /// <summary>
-        /// Name of Datadog monitor.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -779,13 +767,7 @@ namespace Pulumi.Datadog
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// The events search string.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }

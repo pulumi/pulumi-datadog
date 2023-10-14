@@ -95,7 +95,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `jsonPath` or `regex`.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -183,7 +183,7 @@ export interface SyntheticsGlobalVariableState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `jsonPath` or `regex`.
      */
     value?: pulumi.Input<string>;
 }
@@ -225,7 +225,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `jsonPath` or `regex`.
      */
     value: pulumi.Input<string>;
 }

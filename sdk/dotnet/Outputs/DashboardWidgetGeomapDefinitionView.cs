@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGeomapDefinitionView
     {
+        /// <summary>
+        /// The two-letter ISO code of a country to focus the map on (or `WORLD`).
+        /// </summary>
         public readonly string Focus;
 
         [OutputConstructor]

@@ -13,29 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * 
+     */
     private @Nullable String eventSize;
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     private @Nullable List<String> indexes;
+    /**
+     * @return Widget query.
+     * 
+     */
     private @Nullable String queryString;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort sort;
+    /**
+     * @return Storage location (private beta).
+     * 
+     */
     private @Nullable String storage;
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery() {}
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * 
+     */
     public Optional<String> eventSize() {
         return Optional.ofNullable(this.eventSize);
     }
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
     }
+    /**
+     * @return Widget query.
+     * 
+     */
     public Optional<String> queryString() {
         return Optional.ofNullable(this.queryString);
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort> sort() {
         return Optional.ofNullable(this.sort);
     }
+    /**
+     * @return Storage location (private beta).
+     * 
+     */
     public Optional<String> storage() {
         return Optional.ofNullable(this.storage);
     }

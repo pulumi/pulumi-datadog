@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionRequestMetadata {
+    /**
+     * @return The expression alias.
+     * 
+     */
     private @Nullable String aliasName;
+    /**
+     * @return The expression name.
+     * 
+     */
     private String expression;
 
     private DashboardWidgetTimeseriesDefinitionRequestMetadata() {}
+    /**
+     * @return The expression alias.
+     * 
+     */
     public Optional<String> aliasName() {
         return Optional.ofNullable(this.aliasName);
     }
+    /**
+     * @return The expression name.
+     * 
+     */
     public String expression() {
         return this.expression;
     }

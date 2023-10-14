@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceObjectArgs', 'ServiceObject']
@@ -25,11 +25,26 @@ class ServiceObjectArgs:
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "opsgenie_api_key", opsgenie_api_key)
-        pulumi.set(__self__, "region", region)
+        ServiceObjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            opsgenie_api_key=opsgenie_api_key,
+            region=region,
+            custom_url=custom_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opsgenie_api_key: pulumi.Input[str],
+             region: pulumi.Input[str],
+             custom_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("opsgenie_api_key", opsgenie_api_key)
+        _setter("region", region)
         if custom_url is not None:
-            pulumi.set(__self__, "custom_url", custom_url)
+            _setter("custom_url", custom_url)
 
     @property
     @pulumi.getter
@@ -94,14 +109,29 @@ class _ServiceObjectState:
         :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
+        _ServiceObjectState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_url=custom_url,
+            name=name,
+            opsgenie_api_key=opsgenie_api_key,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opsgenie_api_key: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_url is not None:
-            pulumi.set(__self__, "custom_url", custom_url)
+            _setter("custom_url", custom_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if opsgenie_api_key is not None:
-            pulumi.set(__self__, "opsgenie_api_key", opsgenie_api_key)
+            _setter("opsgenie_api_key", opsgenie_api_key)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="customUrl")
@@ -223,6 +253,10 @@ class ServiceObject(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceObjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

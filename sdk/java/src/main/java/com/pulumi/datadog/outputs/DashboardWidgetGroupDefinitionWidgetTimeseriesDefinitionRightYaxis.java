@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis {
+    /**
+     * @return Always include zero or fit the axis to the data range.
+     * 
+     */
     private @Nullable Boolean includeZero;
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     private @Nullable String label;
+    /**
+     * @return Specify the maximum value to show on the Y-axis.
+     * 
+     */
     private @Nullable String max;
+    /**
+     * @return Specify the minimum value to show on the Y-axis.
+     * 
+     */
     private @Nullable String min;
+    /**
+     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * 
+     */
     private @Nullable String scale;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis() {}
+    /**
+     * @return Always include zero or fit the axis to the data range.
+     * 
+     */
     public Optional<Boolean> includeZero() {
         return Optional.ofNullable(this.includeZero);
     }
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return Specify the maximum value to show on the Y-axis.
+     * 
+     */
     public Optional<String> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Specify the minimum value to show on the Y-axis.
+     * 
+     */
     public Optional<String> min() {
         return Optional.ofNullable(this.min);
     }
+    /**
+     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * 
+     */
     public Optional<String> scale() {
         return Optional.ofNullable(this.scale);
     }

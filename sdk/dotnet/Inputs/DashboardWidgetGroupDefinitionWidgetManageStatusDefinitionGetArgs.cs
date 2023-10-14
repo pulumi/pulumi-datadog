@@ -12,39 +12,66 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to colorize text or background. Valid values are `background`, `text`.
+        /// </summary>
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
 
+        /// <summary>
+        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
+        /// <summary>
+        /// A Boolean indicating whether to hide empty categories.
+        /// </summary>
         [Input("hideZeroCounts")]
         public Input<bool>? HideZeroCounts { get; set; }
 
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// A Boolean indicating whether to show when monitors/groups last triggered.
+        /// </summary>
         [Input("showLastTriggered")]
         public Input<bool>? ShowLastTriggered { get; set; }
 
+        /// <summary>
+        /// Whether to show the priorities column.
+        /// </summary>
         [Input("showPriority")]
         public Input<bool>? ShowPriority { get; set; }
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }
 
+        /// <summary>
+        /// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+        /// </summary>
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

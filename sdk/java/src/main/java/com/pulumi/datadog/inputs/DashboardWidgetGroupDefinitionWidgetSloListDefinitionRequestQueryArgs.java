@@ -17,23 +17,47 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
 
     public static final DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs();
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * Widget query.
+     * 
+     */
     @Import(name="queryString", required=true)
     private Output<String> queryString;
 
+    /**
+     * @return Widget query.
+     * 
+     */
     public Output<String> queryString() {
         return this.queryString;
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs>> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -64,29 +88,65 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
             $ = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param queryString Widget query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryString(Output<String> queryString) {
             $.queryString = queryString;
             return this;
         }
 
+        /**
+         * @param queryString Widget query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortArgs sort) {
             return sort(Output.of(sort));
         }

@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptionsListScheduling
     {
+        /// <summary>
+        /// Array containing objects describing the scheduling pattern to apply to each day.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestOptionsListSchedulingTimeframe> Timeframes;
+        /// <summary>
+        /// Timezone in which the timeframe is based.
+        /// </summary>
         public readonly string Timezone;
 
         [OutputConstructor]

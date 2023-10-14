@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepRequestDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
@@ -57,6 +60,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("dnsServerPort")]
         public Input<int>? DnsServerPort { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the API HTTP test should follow redirects.
+        /// </summary>
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 

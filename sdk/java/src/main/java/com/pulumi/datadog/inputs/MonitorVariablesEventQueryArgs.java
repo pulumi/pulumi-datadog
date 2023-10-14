@@ -19,44 +19,92 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
 
     public static final MonitorVariablesEventQueryArgs Empty = new MonitorVariablesEventQueryArgs();
 
+    /**
+     * The compute options.
+     * 
+     */
     @Import(name="computes", required=true)
     private Output<List<MonitorVariablesEventQueryComputeArgs>> computes;
 
+    /**
+     * @return The compute options.
+     * 
+     */
     public Output<List<MonitorVariablesEventQueryComputeArgs>> computes() {
         return this.computes;
     }
 
+    /**
+     * The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * 
+     */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
+    /**
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * 
+     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
 
+    /**
+     * Group by options.
+     * 
+     */
     @Import(name="groupBies")
     private @Nullable Output<List<MonitorVariablesEventQueryGroupByArgs>> groupBies;
 
+    /**
+     * @return Group by options.
+     * 
+     */
     public Optional<Output<List<MonitorVariablesEventQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
+    /**
+     * An array of index names to query in the stream.
+     * 
+     */
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public Optional<Output<List<String>>> indexes() {
         return Optional.ofNullable(this.indexes);
     }
 
+    /**
+     * The name of query for use in formulas.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of query for use in formulas.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The search options.
+     * 
+     */
     @Import(name="search", required=true)
     private Output<MonitorVariablesEventQuerySearchArgs> search;
 
+    /**
+     * @return The search options.
+     * 
+     */
     public Output<MonitorVariablesEventQuerySearchArgs> search() {
         return this.search;
     }
@@ -90,68 +138,158 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
             $ = new MonitorVariablesEventQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param computes The compute options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computes(Output<List<MonitorVariablesEventQueryComputeArgs>> computes) {
             $.computes = computes;
             return this;
         }
 
+        /**
+         * @param computes The compute options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computes(List<MonitorVariablesEventQueryComputeArgs> computes) {
             return computes(Output.of(computes));
         }
 
+        /**
+         * @param computes The compute options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computes(MonitorVariablesEventQueryComputeArgs... computes) {
             return computes(List.of(computes));
         }
 
+        /**
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
+        /**
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
+        /**
+         * @param groupBies Group by options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(@Nullable Output<List<MonitorVariablesEventQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
 
+        /**
+         * @param groupBies Group by options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(List<MonitorVariablesEventQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
+        /**
+         * @param groupBies Group by options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(MonitorVariablesEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(@Nullable Output<List<String>> indexes) {
             $.indexes = indexes;
             return this;
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(List<String> indexes) {
             return indexes(Output.of(indexes));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(String... indexes) {
             return indexes(List.of(indexes));
         }
 
+        /**
+         * @param name The name of query for use in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of query for use in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param search The search options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder search(Output<MonitorVariablesEventQuerySearchArgs> search) {
             $.search = search;
             return this;
         }
 
+        /**
+         * @param search The search options.
+         * 
+         * @return builder
+         * 
+         */
         public Builder search(MonitorVariablesEventQuerySearchArgs search) {
             return search(Output.of(search));
         }

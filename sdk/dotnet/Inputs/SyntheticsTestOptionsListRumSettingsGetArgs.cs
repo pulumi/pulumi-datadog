@@ -12,11 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsListRumSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// RUM application ID used to collect RUM data for the browser test.
+        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         [Input("clientTokenId")]
         private Input<int>? _clientTokenId;
+
+        /// <summary>
+        /// RUM application API key ID used to collect RUM data for the browser test.
+        /// </summary>
         public Input<int>? ClientTokenId
         {
             get => _clientTokenId;
@@ -27,6 +34,9 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// Determines whether RUM data is collected during test runs.
+        /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 

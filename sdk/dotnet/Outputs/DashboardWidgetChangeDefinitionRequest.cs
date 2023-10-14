@@ -13,19 +13,55 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetChangeDefinitionRequest
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+        /// </summary>
         public readonly string? ChangeType;
+        /// <summary>
+        /// Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+        /// </summary>
         public readonly string? CompareTo;
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+        /// </summary>
         public readonly bool? IncreaseGood;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// What to order by. Valid values are `change`, `name`, `present`, `past`.
+        /// </summary>
         public readonly string? OrderBy;
+        /// <summary>
+        /// Widget sorting method. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string? OrderDir;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// If set to `true`, displays the current value.
+        /// </summary>
         public readonly bool? ShowPresent;
 
         [OutputConstructor]

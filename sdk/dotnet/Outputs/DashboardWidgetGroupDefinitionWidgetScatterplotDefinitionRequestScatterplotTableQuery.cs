@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery
     {
+        /// <summary>
+        /// The APM Dependency Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        /// <summary>
+        /// The APM Resource Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery? EventQuery;
+        /// <summary>
+        /// A timeseries formula and functions metrics query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery? MetricQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The slo query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? SloQuery;
 
         [OutputConstructor]

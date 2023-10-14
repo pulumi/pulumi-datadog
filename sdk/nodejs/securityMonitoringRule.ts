@@ -104,7 +104,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string>;
     /**
-     * The name of the rule.
+     * Name of the case.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.SecurityMonitoringRuleOptions | undefined>;
     /**
-     * Queries for selecting logs which are part of the rule.
+     * Query for selecting logs to apply the filtering action.
      */
     public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface SecurityMonitoringRuleState {
      */
     message?: pulumi.Input<string>;
     /**
-     * The name of the rule.
+     * Name of the case.
      */
     name?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface SecurityMonitoringRuleState {
      */
     options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
-     * Queries for selecting logs which are part of the rule.
+     * Query for selecting logs to apply the filtering action.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**
@@ -255,7 +255,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     message: pulumi.Input<string>;
     /**
-     * The name of the rule.
+     * Name of the case.
      */
     name: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
-     * Queries for selecting logs which are part of the rule.
+     * Query for selecting logs to apply the filtering action.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**

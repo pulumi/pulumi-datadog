@@ -13,10 +13,10 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestBrowserStepParamsVariable
     {
-        public readonly string? Example;
         /// <summary>
-        /// Name of Datadog synthetics test.
+        /// Example of the extracted variable.
         /// </summary>
+        public readonly string? Example;
         public readonly string? Name;
 
         [OutputConstructor]

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetIframeDefinition {
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     private String url;
 
     private DashboardWidgetGroupDefinitionWidgetIframeDefinition() {}
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public String url() {

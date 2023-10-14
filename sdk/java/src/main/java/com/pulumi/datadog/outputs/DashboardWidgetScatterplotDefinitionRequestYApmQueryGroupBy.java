@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
+    /**
+     * @return The facet name.
+     * 
+     */
     private @Nullable String facet;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return A list of exactly one element describing the sort query to use.
+     * 
+     */
     private @Nullable DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery sortQuery;
 
     private DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy() {}
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<String> facet() {
         return Optional.ofNullable(this.facet);
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return A list of exactly one element describing the sort query to use.
+     * 
+     */
     public Optional<DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery> sortQuery() {
         return Optional.ofNullable(this.sortQuery);
     }

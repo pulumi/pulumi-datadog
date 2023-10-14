@@ -13,53 +13,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetServiceLevelObjectiveDefinition {
+    /**
+     * @return Additional filters applied to the SLO query.
+     * 
+     */
     private @Nullable String additionalQueryFilters;
+    /**
+     * @return The global time target of the widget.
+     * 
+     */
     private @Nullable String globalTimeTarget;
+    /**
+     * @return Whether to show the error budget or not.
+     * 
+     */
     private @Nullable Boolean showErrorBudget;
+    /**
+     * @return ID of an SLO to query.
+     * 
+     */
     private String sloId;
+    /**
+     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * 
+     */
     private List<String> timeWindows;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
+    /**
+     * @return The view mode for the widget. Valid values are `overall`, `component`, `both`.
+     * 
+     */
     private String viewMode;
+    /**
+     * @return The type of view to use when displaying the widget. Only `detail` is supported.
+     * 
+     */
     private String viewType;
 
     private DashboardWidgetServiceLevelObjectiveDefinition() {}
+    /**
+     * @return Additional filters applied to the SLO query.
+     * 
+     */
     public Optional<String> additionalQueryFilters() {
         return Optional.ofNullable(this.additionalQueryFilters);
     }
+    /**
+     * @return The global time target of the widget.
+     * 
+     */
     public Optional<String> globalTimeTarget() {
         return Optional.ofNullable(this.globalTimeTarget);
     }
+    /**
+     * @return Whether to show the error budget or not.
+     * 
+     */
     public Optional<Boolean> showErrorBudget() {
         return Optional.ofNullable(this.showErrorBudget);
     }
+    /**
+     * @return ID of an SLO to query.
+     * 
+     */
     public String sloId() {
         return this.sloId;
     }
+    /**
+     * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+     * 
+     */
     public List<String> timeWindows() {
         return this.timeWindows;
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return The view mode for the widget. Valid values are `overall`, `component`, `both`.
+     * 
+     */
     public String viewMode() {
         return this.viewMode;
     }
+    /**
+     * @return The type of view to use when displaying the widget. Only `detail` is supported.
+     * 
+     */
     public String viewType() {
         return this.viewType;
     }

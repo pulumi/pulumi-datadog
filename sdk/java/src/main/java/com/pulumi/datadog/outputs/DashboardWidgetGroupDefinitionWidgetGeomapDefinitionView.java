@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView {
+    /**
+     * @return The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * 
+     */
     private String focus;
 
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView() {}
+    /**
+     * @return The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * 
+     */
     public String focus() {
         return this.focus;
     }

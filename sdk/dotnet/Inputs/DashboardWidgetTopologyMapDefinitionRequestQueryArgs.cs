@@ -12,17 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTopologyMapDefinitionRequestQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
         [Input("filters", required: true)]
         private InputList<string>? _filters;
+
+        /// <summary>
+        /// Your environment and primary tag (or `*` if enabled for your account).
+        /// </summary>
         public InputList<string> Filters
         {
             get => _filters ?? (_filters = new InputList<string>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// APM service.
+        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 

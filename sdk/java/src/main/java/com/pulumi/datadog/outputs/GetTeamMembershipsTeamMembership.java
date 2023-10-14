@@ -9,34 +9,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTeamMembershipsTeamMembership {
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private String id;
     private String role;
-    /**
-     * @return The team&#39;s identifier.
-     * 
-     */
     private String teamId;
     private String userId;
 
     private GetTeamMembershipsTeamMembership() {}
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String role() {
         return this.role;
     }
-    /**
-     * @return The team&#39;s identifier.
-     * 
-     */
     public String teamId() {
         return this.teamId;
     }

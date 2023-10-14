@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput
     {
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

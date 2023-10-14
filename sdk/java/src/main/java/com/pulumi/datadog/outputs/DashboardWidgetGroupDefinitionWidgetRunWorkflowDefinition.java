@@ -14,41 +14,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink> customLinks;
+    /**
+     * @return Array of workflow inputs to map to dashboard template variables.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput> inputs;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     private @Nullable String liveSpan;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
+    /**
+     * @return Workflow ID
+     * 
+     */
     private String workflowId;
 
     private DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
+    /**
+     * @return Array of workflow inputs to map to dashboard template variables.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput> inputs() {
         return this.inputs == null ? List.of() : this.inputs;
     }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return Workflow ID
+     * 
+     */
     public String workflowId() {
         return this.workflowId;
     }

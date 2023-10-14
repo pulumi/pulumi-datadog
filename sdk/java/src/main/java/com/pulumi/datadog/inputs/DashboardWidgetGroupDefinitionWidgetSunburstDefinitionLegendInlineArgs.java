@@ -16,23 +16,47 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendI
 
     public static final DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs Empty = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs();
 
+    /**
+     * Whether to hide the percentages of the groups.
+     * 
+     */
     @Import(name="hidePercent")
     private @Nullable Output<Boolean> hidePercent;
 
+    /**
+     * @return Whether to hide the percentages of the groups.
+     * 
+     */
     public Optional<Output<Boolean>> hidePercent() {
         return Optional.ofNullable(this.hidePercent);
     }
 
+    /**
+     * Setting this to True hides values.
+     * 
+     */
     @Import(name="hideValue")
     private @Nullable Output<Boolean> hideValue;
 
+    /**
+     * @return Setting this to True hides values.
+     * 
+     */
     public Optional<Output<Boolean>> hideValue() {
         return Optional.ofNullable(this.hideValue);
     }
 
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -63,29 +87,65 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendI
             $ = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hidePercent Whether to hide the percentages of the groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hidePercent(@Nullable Output<Boolean> hidePercent) {
             $.hidePercent = hidePercent;
             return this;
         }
 
+        /**
+         * @param hidePercent Whether to hide the percentages of the groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hidePercent(Boolean hidePercent) {
             return hidePercent(Output.of(hidePercent));
         }
 
+        /**
+         * @param hideValue Setting this to True hides values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideValue(@Nullable Output<Boolean> hideValue) {
             $.hideValue = hideValue;
             return this;
         }
 
+        /**
+         * @param hideValue Setting this to True hides values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideValue(Boolean hideValue) {
             return hideValue(Output.of(hideValue));
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

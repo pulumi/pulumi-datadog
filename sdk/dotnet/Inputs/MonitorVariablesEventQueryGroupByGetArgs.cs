@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorVariablesEventQueryGroupByGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event facet.
+        /// </summary>
         [Input("facet", required: true)]
         public Input<string> Facet { get; set; } = null!;
 
+        /// <summary>
+        /// The number of groups to return.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.MonitorVariablesEventQueryGroupBySortGetArgs>? Sort { get; set; }
 

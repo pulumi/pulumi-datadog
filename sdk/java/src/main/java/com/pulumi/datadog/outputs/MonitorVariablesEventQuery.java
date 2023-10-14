@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesEventQuery {
+    /**
+     * @return The compute options.
+     * 
+     */
     private List<MonitorVariablesEventQueryCompute> computes;
+    /**
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return Group by options.
+     * 
+     */
     private @Nullable List<MonitorVariablesEventQueryGroupBy> groupBies;
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     private @Nullable List<String> indexes;
+    /**
+     * @return The name of query for use in formulas.
+     * 
+     */
     private String name;
+    /**
+     * @return The search options.
+     * 
+     */
     private MonitorVariablesEventQuerySearch search;
 
     private MonitorVariablesEventQuery() {}
+    /**
+     * @return The compute options.
+     * 
+     */
     public List<MonitorVariablesEventQueryCompute> computes() {
         return this.computes;
     }
+    /**
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return Group by options.
+     * 
+     */
     public List<MonitorVariablesEventQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
     }
+    /**
+     * @return The name of query for use in formulas.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The search options.
+     * 
+     */
     public MonitorVariablesEventQuerySearch search() {
         return this.search;
     }

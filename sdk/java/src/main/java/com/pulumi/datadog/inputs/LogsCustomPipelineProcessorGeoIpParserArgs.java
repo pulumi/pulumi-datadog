@@ -17,30 +17,62 @@ public final class LogsCustomPipelineProcessorGeoIpParserArgs extends com.pulumi
 
     public static final LogsCustomPipelineProcessorGeoIpParserArgs Empty = new LogsCustomPipelineProcessorGeoIpParserArgs();
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * List of source attributes or tags.
+     * 
+     */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
+    /**
+     * @return List of source attributes or tags.
+     * 
+     */
     public Output<List<String>> sources() {
         return this.sources;
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
@@ -72,42 +104,96 @@ public final class LogsCustomPipelineProcessorGeoIpParserArgs extends com.pulumi
             $ = new LogsCustomPipelineProcessorGeoIpParserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(Output<List<String>> sources) {
             $.sources = sources;
             return this;
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(List<String> sources) {
             return sources(Output.of(sources));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(String... sources) {
             return sources(List.of(sources));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

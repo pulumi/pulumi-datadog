@@ -17,16 +17,32 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs ex
 
     public static final OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs Empty = new OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs();
 
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     @Import(name="domains")
     private @Nullable Output<List<String>> domains;
 
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     public Optional<Output<List<String>>> domains() {
         return Optional.ofNullable(this.domains);
     }
 
+    /**
+     * Whether or not SAML is enabled for this organization.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether or not SAML is enabled for this organization.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -56,24 +72,54 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs ex
             $ = new OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domains List of domains where the SAML automated user creation is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(@Nullable Output<List<String>> domains) {
             $.domains = domains;
             return this;
         }
 
+        /**
+         * @param domains List of domains where the SAML automated user creation is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(List<String> domains) {
             return domains(Output.of(domains));
         }
 
+        /**
+         * @param domains List of domains where the SAML automated user creation is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(String... domains) {
             return domains(List.of(domains));
         }
 
+        /**
+         * @param enabled Whether or not SAML is enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether or not SAML is enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

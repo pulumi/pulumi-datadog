@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGeomapDefinitionRequestQuery
     {
+        /// <summary>
+        /// The APM Dependency Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        /// <summary>
+        /// The APM Resource Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery? EventQuery;
+        /// <summary>
+        /// A timeseries formula and functions metrics query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery? MetricQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The slo query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery? SloQuery;
 
         [OutputConstructor]

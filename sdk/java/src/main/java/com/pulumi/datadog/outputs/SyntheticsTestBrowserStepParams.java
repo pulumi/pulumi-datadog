@@ -16,81 +16,233 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStepParams {
+    /**
+     * @return Name of the attribute to use for an &#34;assert attribute&#34; step.
+     * 
+     */
     private @Nullable String attribute;
+    /**
+     * @return Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     * 
+     */
     private @Nullable String check;
+    /**
+     * @return Type of click to use for a &#34;click&#34; step.
+     * 
+     */
     private @Nullable String clickType;
+    /**
+     * @return Javascript code to use for the step.
+     * 
+     */
     private @Nullable String code;
+    /**
+     * @return Delay between each key stroke for a &#34;type test&#34; step.
+     * 
+     */
     private @Nullable Integer delay;
+    /**
+     * @return Element to use for the step, json encoded string.
+     * 
+     */
     private @Nullable String element;
+    /**
+     * @return Custom user selector to use for the step.
+     * 
+     */
     private @Nullable SyntheticsTestBrowserStepParamsElementUserLocator elementUserLocator;
+    /**
+     * @return Details of the email for an &#34;assert email&#34; step.
+     * 
+     */
     private @Nullable String email;
+    /**
+     * @return For an &#34;assert download&#34; step.
+     * 
+     */
     private @Nullable String file;
+    /**
+     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * 
+     */
     private @Nullable String files;
+    /**
+     * @return Modifier to use for a &#34;press key&#34; step.
+     * 
+     */
     private @Nullable List<String> modifiers;
+    /**
+     * @return ID of the tab to play the subtest.
+     * 
+     */
     private @Nullable String playingTabId;
+    /**
+     * @return Request for an API step.
+     * 
+     */
     private @Nullable String request;
+    /**
+     * @return ID of the Synthetics test to use as subtest.
+     * 
+     */
     private @Nullable String subtestPublicId;
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     private @Nullable String value;
+    /**
+     * @return Details of the variable to extract.
+     * 
+     */
     private @Nullable SyntheticsTestBrowserStepParamsVariable variable;
+    /**
+     * @return For &#34;file upload&#34; steps.
+     * 
+     */
     private @Nullable Boolean withClick;
+    /**
+     * @return X coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     private @Nullable Integer x;
+    /**
+     * @return Y coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     private @Nullable Integer y;
 
     private SyntheticsTestBrowserStepParams() {}
+    /**
+     * @return Name of the attribute to use for an &#34;assert attribute&#34; step.
+     * 
+     */
     public Optional<String> attribute() {
         return Optional.ofNullable(this.attribute);
     }
+    /**
+     * @return Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     * 
+     */
     public Optional<String> check() {
         return Optional.ofNullable(this.check);
     }
+    /**
+     * @return Type of click to use for a &#34;click&#34; step.
+     * 
+     */
     public Optional<String> clickType() {
         return Optional.ofNullable(this.clickType);
     }
+    /**
+     * @return Javascript code to use for the step.
+     * 
+     */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
     }
+    /**
+     * @return Delay between each key stroke for a &#34;type test&#34; step.
+     * 
+     */
     public Optional<Integer> delay() {
         return Optional.ofNullable(this.delay);
     }
+    /**
+     * @return Element to use for the step, json encoded string.
+     * 
+     */
     public Optional<String> element() {
         return Optional.ofNullable(this.element);
     }
+    /**
+     * @return Custom user selector to use for the step.
+     * 
+     */
     public Optional<SyntheticsTestBrowserStepParamsElementUserLocator> elementUserLocator() {
         return Optional.ofNullable(this.elementUserLocator);
     }
+    /**
+     * @return Details of the email for an &#34;assert email&#34; step.
+     * 
+     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
+    /**
+     * @return For an &#34;assert download&#34; step.
+     * 
+     */
     public Optional<String> file() {
         return Optional.ofNullable(this.file);
     }
+    /**
+     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * 
+     */
     public Optional<String> files() {
         return Optional.ofNullable(this.files);
     }
+    /**
+     * @return Modifier to use for a &#34;press key&#34; step.
+     * 
+     */
     public List<String> modifiers() {
         return this.modifiers == null ? List.of() : this.modifiers;
     }
+    /**
+     * @return ID of the tab to play the subtest.
+     * 
+     */
     public Optional<String> playingTabId() {
         return Optional.ofNullable(this.playingTabId);
     }
+    /**
+     * @return Request for an API step.
+     * 
+     */
     public Optional<String> request() {
         return Optional.ofNullable(this.request);
     }
+    /**
+     * @return ID of the Synthetics test to use as subtest.
+     * 
+     */
     public Optional<String> subtestPublicId() {
         return Optional.ofNullable(this.subtestPublicId);
     }
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
+    /**
+     * @return Details of the variable to extract.
+     * 
+     */
     public Optional<SyntheticsTestBrowserStepParamsVariable> variable() {
         return Optional.ofNullable(this.variable);
     }
+    /**
+     * @return For &#34;file upload&#34; steps.
+     * 
+     */
     public Optional<Boolean> withClick() {
         return Optional.ofNullable(this.withClick);
     }
+    /**
+     * @return X coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     public Optional<Integer> x() {
         return Optional.ofNullable(this.x);
     }
+    /**
+     * @return Y coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     public Optional<Integer> y() {
         return Optional.ofNullable(this.y);
     }

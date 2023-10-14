@@ -101,7 +101,7 @@ type Monitor struct {
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrOutput `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrOutput `pulumi:"monitorThresholds"`
-	// Name of Datadog monitor.
+	// The name of query for use in formulas.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
 	// nonzero value.
@@ -137,13 +137,7 @@ type Monitor struct {
 	OnMissingData pulumi.StringPtrOutput `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+	// The events search string.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -257,7 +251,7 @@ type monitorState struct {
 	MonitorThresholdWindows *MonitorMonitorThresholdWindows `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
-	// Name of Datadog monitor.
+	// The name of query for use in formulas.
 	Name *string `pulumi:"name"`
 	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
 	// nonzero value.
@@ -293,13 +287,7 @@ type monitorState struct {
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority *int `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+	// The events search string.
 	Query *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -372,7 +360,7 @@ type MonitorState struct {
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrInput
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
-	// Name of Datadog monitor.
+	// The name of query for use in formulas.
 	Name pulumi.StringPtrInput
 	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
 	// nonzero value.
@@ -408,13 +396,7 @@ type MonitorState struct {
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+	// The events search string.
 	Query pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -488,7 +470,7 @@ type monitorArgs struct {
 	MonitorThresholdWindows *MonitorMonitorThresholdWindows `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
-	// Name of Datadog monitor.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
 	// nonzero value.
@@ -524,13 +506,7 @@ type monitorArgs struct {
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority *int `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+	// The events search string.
 	Query string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -601,7 +577,7 @@ type MonitorArgs struct {
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrInput
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
-	// Name of Datadog monitor.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput
 	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
 	// nonzero value.
@@ -637,13 +613,7 @@ type MonitorArgs struct {
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+	// The events search string.
 	Query pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -862,7 +832,7 @@ func (o MonitorOutput) MonitorThresholds() MonitorMonitorThresholdsPtrOutput {
 	return o.ApplyT(func(v *Monitor) MonitorMonitorThresholdsPtrOutput { return v.MonitorThresholds }).(MonitorMonitorThresholdsPtrOutput)
 }
 
-// Name of Datadog monitor.
+// The name of query for use in formulas.
 func (o MonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -928,13 +898,7 @@ func (o MonitorOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+// The events search string.
 func (o MonitorOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }

@@ -12,20 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("sources", required: true)]
         private InputList<string>? _sources;
+
+        /// <summary>
+        /// List of source attributes or tags.
+        /// </summary>
         public InputList<string> Sources
         {
             get => _sources ?? (_sources = new InputList<string>());
             set => _sources = value;
         }
 
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

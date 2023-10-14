@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,13 +24,28 @@ class SpansMetricArgs:
         The set of arguments for constructing a SpansMetric resource.
         :param pulumi.Input[str] name: The name of the span-based metric. This field can't be updated after creation.
         """
-        pulumi.set(__self__, "name", name)
+        SpansMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            compute=compute,
+            filter=filter,
+            group_bies=group_bies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             compute: Optional[pulumi.Input['SpansMetricComputeArgs']] = None,
+             filter: Optional[pulumi.Input['SpansMetricFilterArgs']] = None,
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['SpansMetricGroupByArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if compute is not None:
-            pulumi.set(__self__, "compute", compute)
+            _setter("compute", compute)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
 
     @property
     @pulumi.getter
@@ -83,14 +98,29 @@ class _SpansMetricState:
         Input properties used for looking up and filtering SpansMetric resources.
         :param pulumi.Input[str] name: The name of the span-based metric. This field can't be updated after creation.
         """
+        _SpansMetricState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute=compute,
+            filter=filter,
+            group_bies=group_bies,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute: Optional[pulumi.Input['SpansMetricComputeArgs']] = None,
+             filter: Optional[pulumi.Input['SpansMetricFilterArgs']] = None,
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['SpansMetricGroupByArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute is not None:
-            pulumi.set(__self__, "compute", compute)
+            _setter("compute", compute)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -180,6 +210,10 @@ class SpansMetric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpansMetricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -198,7 +232,17 @@ class SpansMetric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpansMetricArgs.__new__(SpansMetricArgs)
 
+            if compute is not None and not isinstance(compute, SpansMetricComputeArgs):
+                compute = compute or {}
+                def _setter(key, value):
+                    compute[key] = value
+                SpansMetricComputeArgs._configure(_setter, **compute)
             __props__.__dict__["compute"] = compute
+            if filter is not None and not isinstance(filter, SpansMetricFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                SpansMetricFilterArgs._configure(_setter, **filter)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["group_bies"] = group_bies
             if name is None and not opts.urn:

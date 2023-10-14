@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,29 @@ class SensitiveDataScannerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
         :param pulumi.Input[str] description: Description of the Datadog scanning group.
         """
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product_lists", product_lists)
+        SensitiveDataScannerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            is_enabled=is_enabled,
+            name=name,
+            product_lists=product_lists,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: pulumi.Input['SensitiveDataScannerGroupFilterArgs'],
+             is_enabled: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             product_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter", filter)
+        _setter("is_enabled", is_enabled)
+        _setter("name", name)
+        _setter("product_lists", product_lists)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -113,16 +130,33 @@ class _SensitiveDataScannerGroupState:
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
         """
+        _SensitiveDataScannerGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            filter=filter,
+            is_enabled=is_enabled,
+            name=name,
+            product_lists=product_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_lists is not None:
-            pulumi.set(__self__, "product_lists", product_lists)
+            _setter("product_lists", product_lists)
 
     @property
     @pulumi.getter
@@ -270,6 +304,10 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SensitiveDataScannerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -290,6 +328,11 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             __props__ = SensitiveDataScannerGroupArgs.__new__(SensitiveDataScannerGroupArgs)
 
             __props__.__dict__["description"] = description
+            if filter is not None and not isinstance(filter, SensitiveDataScannerGroupFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                SensitiveDataScannerGroupFilterArgs._configure(_setter, **filter)
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter

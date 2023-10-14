@@ -14,38 +14,61 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLinkGetArgs>? _customLinks;
+
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLinkGetArgs> CustomLinks
         {
             get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLinkGetArgs>());
             set => _customLinks = value;
         }
 
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestGetArgs>? _requests;
+
+        /// <summary>
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestGetArgs> Requests
         {
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestGetArgs>());
             set => _requests = value;
         }
 
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleGetArgs>? Style { get; set; }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 
+        /// <summary>
+        /// The view of the world that the map should render.
+        /// </summary>
         [Input("view", required: true)]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionViewGetArgs> View { get; set; } = null!;
 

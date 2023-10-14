@@ -13,16 +13,32 @@ public final class SecurityMonitoringRuleQueryAgentRuleArgs extends com.pulumi.r
 
     public static final SecurityMonitoringRuleQueryAgentRuleArgs Empty = new SecurityMonitoringRuleQueryAgentRuleArgs();
 
+    /**
+     * **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     @Import(name="agentRuleId", required=true)
     private Output<String> agentRuleId;
 
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     public Output<String> agentRuleId() {
         return this.agentRuleId;
     }
 
+    /**
+     * **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     public Output<String> expression() {
         return this.expression;
     }
@@ -52,20 +68,44 @@ public final class SecurityMonitoringRuleQueryAgentRuleArgs extends com.pulumi.r
             $ = new SecurityMonitoringRuleQueryAgentRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param agentRuleId **Deprecated**. It won&#39;t be applied anymore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuleId(Output<String> agentRuleId) {
             $.agentRuleId = agentRuleId;
             return this;
         }
 
+        /**
+         * @param agentRuleId **Deprecated**. It won&#39;t be applied anymore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuleId(String agentRuleId) {
             return agentRuleId(Output.of(agentRuleId));
         }
 
+        /**
+         * @param expression **Deprecated**. It won&#39;t be applied anymore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression **Deprecated**. It won&#39;t be applied anymore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }

@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// A nested block describing the Y-Axis Controls. The structure of this block is described below.
+        /// </summary>
         [Input("yaxis")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs>? Yaxis { get; set; }
 

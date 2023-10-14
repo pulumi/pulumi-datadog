@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SecurityMonitoringRuleQueryAgentRule {
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     private String agentRuleId;
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     private String expression;
 
     private SecurityMonitoringRuleQueryAgentRule() {}
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     public String agentRuleId() {
         return this.agentRuleId;
     }
+    /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
+     */
     public String expression() {
         return this.expression;
     }

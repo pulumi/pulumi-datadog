@@ -13,39 +13,47 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepExtractedValue {
-    private @Nullable String field;
     /**
-     * @return Name of Datadog synthetics test.
+     * @return When type is `http_header`, name of the header to use to extract the value.
      * 
      */
+    private @Nullable String field;
     private String name;
     private SyntheticsTestApiStepExtractedValueParser parser;
+    /**
+     * @return Determines whether or not the extracted value will be obfuscated.
+     * 
+     */
     private @Nullable Boolean secure;
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     private String type;
 
     private SyntheticsTestApiStepExtractedValue() {}
+    /**
+     * @return When type is `http_header`, name of the header to use to extract the value.
+     * 
+     */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
-    /**
-     * @return Name of Datadog synthetics test.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public SyntheticsTestApiStepExtractedValueParser parser() {
         return this.parser;
     }
+    /**
+     * @return Determines whether or not the extracted value will be obfuscated.
+     * 
+     */
     public Optional<Boolean> secure() {
         return Optional.ofNullable(this.secure);
     }
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     public String type() {

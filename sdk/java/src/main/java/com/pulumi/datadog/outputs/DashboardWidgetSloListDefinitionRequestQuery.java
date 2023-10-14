@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequestQuery {
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return Widget query.
+     * 
+     */
     private String queryString;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort;
 
     private DashboardWidgetSloListDefinitionRequestQuery() {}
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return Widget query.
+     * 
+     */
     public String queryString() {
         return this.queryString;
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<DashboardWidgetSloListDefinitionRequestQuerySort> sort() {
         return Optional.ofNullable(this.sort);
     }

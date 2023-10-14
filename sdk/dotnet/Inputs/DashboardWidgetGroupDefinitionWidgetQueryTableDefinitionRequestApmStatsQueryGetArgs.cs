@@ -14,27 +14,49 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnGetArgs>? _columns;
+
+        /// <summary>
+        /// Column properties used by the front end for display.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnGetArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnGetArgs>());
             set => _columns = value;
         }
 
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The organization's host group name and value.
+        /// </summary>
         [Input("primaryTag", required: true)]
         public Input<string> PrimaryTag { get; set; } = null!;
 
+        /// <summary>
+        /// The resource name.
+        /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }
 
+        /// <summary>
+        /// The level of detail for the request. Valid values are `service`, `resource`, `span`.
+        /// </summary>
         [Input("rowType", required: true)]
         public Input<string> RowType { get; set; } = null!;
 
+        /// <summary>
+        /// APM service.
+        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 

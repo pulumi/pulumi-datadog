@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort
     {
+        /// <summary>
+        /// The facet path for the column.
+        /// </summary>
         public readonly string Column;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string Order;
 
         [OutputConstructor]

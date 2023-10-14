@@ -13,41 +13,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    /**
+     * @return The comparator to use. Valid values are `=`, `&gt;`, `&gt;=`, `&lt;`, `&lt;=`.
+     * 
+     */
     private String comparator;
+    /**
+     * @return The color palette to apply to the background, same values available as palette.
+     * 
+     */
     private @Nullable String customBgColor;
+    /**
+     * @return The color palette to apply to the foreground, same values available as palette.
+     * 
+     */
     private @Nullable String customFgColor;
+    /**
+     * @return Setting this to True hides values.
+     * 
+     */
     private @Nullable Boolean hideValue;
+    /**
+     * @return Displays an image as the background.
+     * 
+     */
     private @Nullable String imageUrl;
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     private @Nullable String metric;
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     private String palette;
+    /**
+     * @return Defines the displayed timeframe.
+     * 
+     */
     private @Nullable String timeframe;
+    /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
+     */
     private Double value;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat() {}
+    /**
+     * @return The comparator to use. Valid values are `=`, `&gt;`, `&gt;=`, `&lt;`, `&lt;=`.
+     * 
+     */
     public String comparator() {
         return this.comparator;
     }
+    /**
+     * @return The color palette to apply to the background, same values available as palette.
+     * 
+     */
     public Optional<String> customBgColor() {
         return Optional.ofNullable(this.customBgColor);
     }
+    /**
+     * @return The color palette to apply to the foreground, same values available as palette.
+     * 
+     */
     public Optional<String> customFgColor() {
         return Optional.ofNullable(this.customFgColor);
     }
+    /**
+     * @return Setting this to True hides values.
+     * 
+     */
     public Optional<Boolean> hideValue() {
         return Optional.ofNullable(this.hideValue);
     }
+    /**
+     * @return Displays an image as the background.
+     * 
+     */
     public Optional<String> imageUrl() {
         return Optional.ofNullable(this.imageUrl);
     }
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     public String palette() {
         return this.palette;
     }
+    /**
+     * @return Defines the displayed timeframe.
+     * 
+     */
     public Optional<String> timeframe() {
         return Optional.ofNullable(this.timeframe);
     }
+    /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
+     */
     public Double value() {
         return this.value;
     }

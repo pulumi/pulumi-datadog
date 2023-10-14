@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of results to return
+        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }
 

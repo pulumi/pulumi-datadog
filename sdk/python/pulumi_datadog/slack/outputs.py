@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,14 +26,29 @@ class ChannelDisplay(dict):
         :param bool snapshot: Show the alert event's snapshot image.
         :param bool tags: Show the scopes on which the monitor alerted.
         """
+        ChannelDisplay._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            notified=notified,
+            snapshot=snapshot,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[bool] = None,
+             notified: Optional[bool] = None,
+             snapshot: Optional[bool] = None,
+             tags: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if notified is not None:
-            pulumi.set(__self__, "notified", notified)
+            _setter("notified", notified)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter

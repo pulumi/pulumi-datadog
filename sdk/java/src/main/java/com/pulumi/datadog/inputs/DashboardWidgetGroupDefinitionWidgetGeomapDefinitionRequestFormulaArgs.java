@@ -19,44 +19,92 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
 
     public static final DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs Empty = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs();
 
+    /**
+     * An expression alias.
+     * 
+     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
     }
 
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs>> conditionalFormats;
 
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs>>> conditionalFormats() {
         return Optional.ofNullable(this.conditionalFormats);
     }
 
+    /**
+     * A string expression built from queries, formulas, and functions.
+     * 
+     */
     @Import(name="formulaExpression", required=true)
     private Output<String> formulaExpression;
 
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     public Output<String> formulaExpression() {
         return this.formulaExpression;
     }
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * Styling options for widget formulas.
+     * 
+     */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs> style;
 
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs>> style() {
         return Optional.ofNullable(this.style);
     }
@@ -90,60 +138,138 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
             $ = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
+        /**
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayMode(@Nullable Output<String> cellDisplayMode) {
             $.cellDisplayMode = cellDisplayMode;
             return this;
         }
 
+        /**
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs>> conditionalFormats) {
             $.conditionalFormats = conditionalFormats;
             return this;
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs> conditionalFormats) {
             return conditionalFormats(Output.of(conditionalFormats));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs... conditionalFormats) {
             return conditionalFormats(List.of(conditionalFormats));
         }
 
+        /**
+         * @param formulaExpression A string expression built from queries, formulas, and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulaExpression(Output<String> formulaExpression) {
             $.formulaExpression = formulaExpression;
             return this;
         }
 
+        /**
+         * @param formulaExpression A string expression built from queries, formulas, and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulaExpression(String formulaExpression) {
             return formulaExpression(Output.of(formulaExpression));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimitArgs limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs> style) {
             $.style = style;
             return this;
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyleArgs style) {
             return style(Output.of(style));
         }

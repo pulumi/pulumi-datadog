@@ -22,17 +22,9 @@ public final class ChildOrganizationApiKeyArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * Name for Child Organization after creation.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -71,23 +63,11 @@ public final class ChildOrganizationApiKeyArgs extends com.pulumi.resources.Reso
             return key(Output.of(key));
         }
 
-        /**
-         * @param name Name for Child Organization after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for Child Organization after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

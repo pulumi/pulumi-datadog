@@ -47,7 +47,7 @@ namespace Pulumi.Datadog
         public Output<bool?> IsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the group. Valid values are `ordered`.
         /// </summary>
         [Output("layoutType")]
         public Output<string> LayoutType { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// A list of tags to use in the widget.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -83,25 +83,25 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.DashboardTemplateVariablePreset>> TemplateVariablePresets { get; private set; } = null!;
 
         /// <summary>
-        /// The list of template variables for this dashboard.
+        /// The template variable names and assumed values under the given preset
         /// </summary>
         [Output("templateVariables")]
         public Output<ImmutableArray<Outputs.DashboardTemplateVariable>> TemplateVariables { get; private set; } = null!;
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// The list of widgets to display on the dashboard.
+        /// The list of widgets in this group.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.DashboardWidget>> Widgets { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the group. Valid values are `ordered`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// A list of tags to use in the widget.
         /// </summary>
         public InputList<string> Tags
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardTemplateVariableArgs>? _templateVariables;
 
         /// <summary>
-        /// The list of template variables for this dashboard.
+        /// The template variable names and assumed values under the given preset
         /// </summary>
         public InputList<Inputs.DashboardTemplateVariableArgs> TemplateVariables
         {
@@ -250,13 +250,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
         /// <summary>
-        /// The list of widgets to display on the dashboard.
+        /// The list of widgets in this group.
         /// </summary>
         public InputList<Inputs.DashboardWidgetArgs> Widgets
         {
@@ -319,7 +319,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the group. Valid values are `ordered`.
         /// </summary>
         [Input("layoutType")]
         public Input<string>? LayoutType { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// A list of tags to use in the widget.
         /// </summary>
         public InputList<string> Tags
         {
@@ -382,7 +382,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardTemplateVariableGetArgs>? _templateVariables;
 
         /// <summary>
-        /// The list of template variables for this dashboard.
+        /// The template variable names and assumed values under the given preset
         /// </summary>
         public InputList<Inputs.DashboardTemplateVariableGetArgs> TemplateVariables
         {
@@ -391,13 +391,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// The list of widgets to display on the dashboard.
+        /// The list of widgets in this group.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGetArgs> Widgets
         {

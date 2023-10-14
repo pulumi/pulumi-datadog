@@ -24,23 +24,47 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
 
     public static final DashboardWidgetChangeDefinitionRequestArgs Empty = new DashboardWidgetChangeDefinitionRequestArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     * 
+     */
     @Import(name="changeType")
     private @Nullable Output<String> changeType;
 
+    /**
+     * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     * 
+     */
     public Optional<Output<String>> changeType() {
         return Optional.ofNullable(this.changeType);
     }
 
+    /**
+     * Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * 
+     */
     @Import(name="compareTo")
     private @Nullable Output<String> compareTo;
 
+    /**
+     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * 
+     */
     public Optional<Output<String>> compareTo() {
         return Optional.ofNullable(this.compareTo);
     }
@@ -52,44 +76,92 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     * 
+     */
     @Import(name="increaseGood")
     private @Nullable Output<Boolean> increaseGood;
 
+    /**
+     * @return A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     * 
+     */
     public Optional<Output<Boolean>> increaseGood() {
         return Optional.ofNullable(this.increaseGood);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * What to order by. Valid values are `change`, `name`, `present`, `past`.
+     * 
+     */
     @Import(name="orderBy")
     private @Nullable Output<String> orderBy;
 
+    /**
+     * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
+     * 
+     */
     public Optional<Output<String>> orderBy() {
         return Optional.ofNullable(this.orderBy);
     }
 
+    /**
+     * Widget sorting method. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="orderDir")
     private @Nullable Output<String> orderDir;
 
+    /**
+     * @return Widget sorting method. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> orderDir() {
         return Optional.ofNullable(this.orderDir);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -101,23 +173,47 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
         return Optional.ofNullable(this.queries);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * If set to `true`, displays the current value.
+     * 
+     */
     @Import(name="showPresent")
     private @Nullable Output<Boolean> showPresent;
 
+    /**
+     * @return If set to `true`, displays the current value.
+     * 
+     */
     public Optional<Output<Boolean>> showPresent() {
         return Optional.ofNullable(this.showPresent);
     }
@@ -159,29 +255,65 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
             $ = new DashboardWidgetChangeDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetChangeDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param changeType Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder changeType(@Nullable Output<String> changeType) {
             $.changeType = changeType;
             return this;
         }
 
+        /**
+         * @param changeType Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder changeType(String changeType) {
             return changeType(Output.of(changeType));
         }
 
+        /**
+         * @param compareTo Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compareTo(@Nullable Output<String> compareTo) {
             $.compareTo = compareTo;
             return this;
         }
 
+        /**
+         * @param compareTo Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder compareTo(String compareTo) {
             return compareTo(Output.of(compareTo));
         }
@@ -199,56 +331,128 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param increaseGood A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+         * 
+         * @return builder
+         * 
+         */
         public Builder increaseGood(@Nullable Output<Boolean> increaseGood) {
             $.increaseGood = increaseGood;
             return this;
         }
 
+        /**
+         * @param increaseGood A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+         * 
+         * @return builder
+         * 
+         */
         public Builder increaseGood(Boolean increaseGood) {
             return increaseGood(Output.of(increaseGood));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetChangeDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param orderBy What to order by. Valid values are `change`, `name`, `present`, `past`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder orderBy(@Nullable Output<String> orderBy) {
             $.orderBy = orderBy;
             return this;
         }
 
+        /**
+         * @param orderBy What to order by. Valid values are `change`, `name`, `present`, `past`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder orderBy(String orderBy) {
             return orderBy(Output.of(orderBy));
         }
 
+        /**
+         * @param orderDir Widget sorting method. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder orderDir(@Nullable Output<String> orderDir) {
             $.orderDir = orderDir;
             return this;
         }
 
+        /**
+         * @param orderDir Widget sorting method. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder orderDir(String orderDir) {
             return orderDir(Output.of(orderDir));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetChangeDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -266,29 +470,65 @@ public final class DashboardWidgetChangeDefinitionRequestArgs extends com.pulumi
             return queries(List.of(queries));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetChangeDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetChangeDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetChangeDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 
+        /**
+         * @param showPresent If set to `true`, displays the current value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showPresent(@Nullable Output<Boolean> showPresent) {
             $.showPresent = showPresent;
             return this;
         }
 
+        /**
+         * @param showPresent If set to `true`, displays the current value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showPresent(Boolean showPresent) {
             return showPresent(Output.of(showPresent));
         }

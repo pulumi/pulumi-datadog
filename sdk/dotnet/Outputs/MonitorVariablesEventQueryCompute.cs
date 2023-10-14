@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorVariablesEventQueryCompute
     {
+        /// <summary>
+        /// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+        /// </summary>
         public readonly string Aggregation;
+        /// <summary>
+        /// A time interval in milliseconds.
+        /// </summary>
         public readonly int? Interval;
+        /// <summary>
+        /// The measurable attribute to compute.
+        /// </summary>
         public readonly string? Metric;
 
         [OutputConstructor]

@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn {
+    /**
+     * @return Widget column field.
+     * 
+     */
     private String field;
+    /**
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     private String width;
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn() {}
+    /**
+     * @return Widget column field.
+     * 
+     */
     public String field() {
         return this.field;
     }
+    /**
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     public String width() {
         return this.width;
     }

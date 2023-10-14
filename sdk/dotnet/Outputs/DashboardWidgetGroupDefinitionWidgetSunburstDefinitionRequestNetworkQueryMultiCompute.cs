@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         public readonly string Aggregation;
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         public readonly string? Facet;
+        /// <summary>
+        /// Define the time interval in seconds.
+        /// </summary>
         public readonly int? Interval;
 
         [OutputConstructor]

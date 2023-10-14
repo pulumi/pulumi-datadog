@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesEventQueryGroupBySort {
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     private @Nullable String metric;
+    /**
+     * @return Direction of sort. Valid values are `asc`, `desc`.
+     * 
+     */
     private @Nullable String order;
 
     private MonitorVariablesEventQueryGroupBySort() {}
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }
+    /**
+     * @return Direction of sort. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<String> order() {
         return Optional.ofNullable(this.order);
     }

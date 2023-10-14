@@ -13,9 +13,17 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
 
     public static final DashboardWidgetGeomapDefinitionViewArgs Empty = new DashboardWidgetGeomapDefinitionViewArgs();
 
+    /**
+     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * 
+     */
     @Import(name="focus", required=true)
     private Output<String> focus;
 
+    /**
+     * @return The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * 
+     */
     public Output<String> focus() {
         return this.focus;
     }
@@ -44,11 +52,23 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
             $ = new DashboardWidgetGeomapDefinitionViewArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param focus The two-letter ISO code of a country to focus the map on (or `WORLD`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder focus(Output<String> focus) {
             $.focus = focus;
             return this;
         }
 
+        /**
+         * @param focus The two-letter ISO code of a country to focus the map on (or `WORLD`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder focus(String focus) {
             return focus(Output.of(focus));
         }

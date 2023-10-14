@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs>? _customLinks;
+
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs> CustomLinks
         {
             get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs>());
@@ -22,24 +26,37 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("filters", required: true)]
         private InputList<string>? _filters;
+
+        /// <summary>
+        /// Your environment and primary tag (or `*` if enabled for your account).
+        /// </summary>
         public InputList<string> Filters
         {
             get => _filters ?? (_filters = new InputList<string>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// APM service.
+        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

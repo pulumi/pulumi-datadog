@@ -25,30 +25,62 @@ public final class LogsCustomPipelineProcessorGrokParserArgs extends com.pulumi.
         return this.grok;
     }
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     * 
+     */
     @Import(name="samples")
     private @Nullable Output<List<String>> samples;
 
+    /**
+     * @return List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     * 
+     */
     public Optional<Output<List<String>>> samples() {
         return Optional.ofNullable(this.samples);
     }
 
+    /**
+     * Name of the log attribute to parse.
+     * 
+     */
     @Import(name="source", required=true)
     private Output<String> source;
 
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public Output<String> source() {
         return this.source;
     }
@@ -90,42 +122,96 @@ public final class LogsCustomPipelineProcessorGrokParserArgs extends com.pulumi.
             return grok(Output.of(grok));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param samples List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samples(@Nullable Output<List<String>> samples) {
             $.samples = samples;
             return this;
         }
 
+        /**
+         * @param samples List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samples(List<String> samples) {
             return samples(Output.of(samples));
         }
 
+        /**
+         * @param samples List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samples(String... samples) {
             return samples(List.of(samples));
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

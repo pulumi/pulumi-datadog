@@ -9,19 +9,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceLevelObjectivesSlo {
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private String id;
     private String name;
     private String type;
 
     private GetServiceLevelObjectivesSlo() {}
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

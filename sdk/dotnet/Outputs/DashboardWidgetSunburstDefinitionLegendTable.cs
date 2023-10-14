@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetSunburstDefinitionLegendTable
     {
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

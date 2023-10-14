@@ -17,44 +17,92 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
 
     public static final LogsCustomPipelineProcessorLookupProcessorArgs Empty = new LogsCustomPipelineProcessorLookupProcessorArgs();
 
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     * 
+     */
     @Import(name="defaultLookup")
     private @Nullable Output<String> defaultLookup;
 
+    /**
+     * @return Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     * 
+     */
     public Optional<Output<String>> defaultLookup() {
         return Optional.ofNullable(this.defaultLookup);
     }
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * List of entries of the lookup table using `key,value` format.
+     * 
+     */
     @Import(name="lookupTables", required=true)
     private Output<List<String>> lookupTables;
 
+    /**
+     * @return List of entries of the lookup table using `key,value` format.
+     * 
+     */
     public Output<List<String>> lookupTables() {
         return this.lookupTables;
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of the log attribute to parse.
+     * 
+     */
     @Import(name="source", required=true)
     private Output<String> source;
 
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public Output<String> source() {
         return this.source;
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
@@ -88,60 +136,138 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
             $ = new LogsCustomPipelineProcessorLookupProcessorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultLookup Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultLookup(@Nullable Output<String> defaultLookup) {
             $.defaultLookup = defaultLookup;
             return this;
         }
 
+        /**
+         * @param defaultLookup Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultLookup(String defaultLookup) {
             return defaultLookup(Output.of(defaultLookup));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param lookupTables List of entries of the lookup table using `key,value` format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lookupTables(Output<List<String>> lookupTables) {
             $.lookupTables = lookupTables;
             return this;
         }
 
+        /**
+         * @param lookupTables List of entries of the lookup table using `key,value` format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lookupTables(List<String> lookupTables) {
             return lookupTables(Output.of(lookupTables));
         }
 
+        /**
+         * @param lookupTables List of entries of the lookup table using `key,value` format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lookupTables(String... lookupTables) {
             return lookupTables(List.of(lookupTables));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

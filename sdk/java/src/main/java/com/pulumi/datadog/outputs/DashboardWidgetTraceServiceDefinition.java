@@ -12,73 +12,185 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTraceServiceDefinition {
+    /**
+     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     private @Nullable String displayFormat;
+    /**
+     * @return APM Environment.
+     * 
+     */
     private String env;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     private @Nullable String liveSpan;
+    /**
+     * @return APM service.
+     * 
+     */
     private String service;
+    /**
+     * @return Whether to show the latency breakdown or not.
+     * 
+     */
     private @Nullable Boolean showBreakdown;
+    /**
+     * @return Whether to show the latency distribution or not.
+     * 
+     */
     private @Nullable Boolean showDistribution;
+    /**
+     * @return Whether to show the error metrics or not.
+     * 
+     */
     private @Nullable Boolean showErrors;
+    /**
+     * @return Whether to show the hits metrics or not
+     * 
+     */
     private @Nullable Boolean showHits;
+    /**
+     * @return Whether to show the latency metrics or not.
+     * 
+     */
     private @Nullable Boolean showLatency;
+    /**
+     * @return Whether to show the resource list or not.
+     * 
+     */
     private @Nullable Boolean showResourceList;
+    /**
+     * @return The size of the widget. Valid values are `small`, `medium`, `large`.
+     * 
+     */
     private @Nullable String sizeFormat;
+    /**
+     * @return APM span name
+     * 
+     */
     private String spanName;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetTraceServiceDefinition() {}
+    /**
+     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     public Optional<String> displayFormat() {
         return Optional.ofNullable(this.displayFormat);
     }
+    /**
+     * @return APM Environment.
+     * 
+     */
     public String env() {
         return this.env;
     }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
+    /**
+     * @return APM service.
+     * 
+     */
     public String service() {
         return this.service;
     }
+    /**
+     * @return Whether to show the latency breakdown or not.
+     * 
+     */
     public Optional<Boolean> showBreakdown() {
         return Optional.ofNullable(this.showBreakdown);
     }
+    /**
+     * @return Whether to show the latency distribution or not.
+     * 
+     */
     public Optional<Boolean> showDistribution() {
         return Optional.ofNullable(this.showDistribution);
     }
+    /**
+     * @return Whether to show the error metrics or not.
+     * 
+     */
     public Optional<Boolean> showErrors() {
         return Optional.ofNullable(this.showErrors);
     }
+    /**
+     * @return Whether to show the hits metrics or not
+     * 
+     */
     public Optional<Boolean> showHits() {
         return Optional.ofNullable(this.showHits);
     }
+    /**
+     * @return Whether to show the latency metrics or not.
+     * 
+     */
     public Optional<Boolean> showLatency() {
         return Optional.ofNullable(this.showLatency);
     }
+    /**
+     * @return Whether to show the resource list or not.
+     * 
+     */
     public Optional<Boolean> showResourceList() {
         return Optional.ofNullable(this.showResourceList);
     }
+    /**
+     * @return The size of the widget. Valid values are `small`, `medium`, `large`.
+     * 
+     */
     public Optional<String> sizeFormat() {
         return Optional.ofNullable(this.sizeFormat);
     }
+    /**
+     * @return APM span name
+     * 
+     */
     public String spanName() {
         return this.spanName;
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

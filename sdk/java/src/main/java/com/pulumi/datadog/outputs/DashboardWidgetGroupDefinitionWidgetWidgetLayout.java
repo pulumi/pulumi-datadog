@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
+    /**
+     * @return The height of the widget.
+     * 
+     */
     private Integer height;
+    /**
+     * @return Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * 
+     */
     private @Nullable Boolean isColumnBreak;
+    /**
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     private Integer width;
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private Integer x;
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private Integer y;
 
     private DashboardWidgetGroupDefinitionWidgetWidgetLayout() {}
+    /**
+     * @return The height of the widget.
+     * 
+     */
     public Integer height() {
         return this.height;
     }
+    /**
+     * @return Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * 
+     */
     public Optional<Boolean> isColumnBreak() {
         return Optional.ofNullable(this.isColumnBreak);
     }
+    /**
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     public Integer width() {
         return this.width;
     }
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public Integer x() {
         return this.x;
     }
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public Integer y() {
         return this.y;
     }

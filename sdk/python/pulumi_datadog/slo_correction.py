@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SloCorrectionArgs', 'SloCorrection']
@@ -33,19 +33,42 @@ class SloCorrectionArgs:
         :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "slo_id", slo_id)
-        pulumi.set(__self__, "start", start)
+        SloCorrectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            slo_id=slo_id,
+            start=start,
+            description=description,
+            duration=duration,
+            end=end,
+            rrule=rrule,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             slo_id: pulumi.Input[str],
+             start: pulumi.Input[int],
+             description: Optional[pulumi.Input[str]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             end: Optional[pulumi.Input[int]] = None,
+             rrule: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("slo_id", slo_id)
+        _setter("start", start)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if rrule is not None:
-            pulumi.set(__self__, "rrule", rrule)
+            _setter("rrule", rrule)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -166,22 +189,45 @@ class _SloCorrectionState:
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
+        _SloCorrectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            description=description,
+            duration=duration,
+            end=end,
+            rrule=rrule,
+            slo_id=slo_id,
+            start=start,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             end: Optional[pulumi.Input[int]] = None,
+             rrule: Optional[pulumi.Input[str]] = None,
+             slo_id: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[int]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if rrule is not None:
-            pulumi.set(__self__, "rrule", rrule)
+            _setter("rrule", rrule)
         if slo_id is not None:
-            pulumi.set(__self__, "slo_id", slo_id)
+            _setter("slo_id", slo_id)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -415,6 +461,10 @@ class SloCorrection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SloCorrectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

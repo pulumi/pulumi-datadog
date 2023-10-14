@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
+    /**
+     * @return The number of results to return
+     * 
+     */
     private @Nullable Integer count;
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     private @Nullable String order;
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit() {}
+    /**
+     * @return The number of results to return
+     * 
+     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<String> order() {
         return Optional.ofNullable(this.order);
     }

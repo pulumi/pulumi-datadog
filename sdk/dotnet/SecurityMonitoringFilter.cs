@@ -75,13 +75,13 @@ namespace Pulumi.Datadog
         public Output<bool> IsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the security filter.
+        /// Exclusion filter name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The query of the security filter.
+        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Datadog
         public Input<bool> IsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The name of the security filter.
+        /// Exclusion filter name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The query of the security filter.
+        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -207,13 +207,13 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// The name of the security filter.
+        /// Exclusion filter name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The query of the security filter.
+        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }

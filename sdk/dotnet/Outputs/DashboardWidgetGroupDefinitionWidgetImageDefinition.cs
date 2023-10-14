@@ -13,16 +13,37 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinition
     {
+        /// <summary>
+        /// Whether to display a background or not.
+        /// </summary>
         public readonly bool? HasBackground;
+        /// <summary>
+        /// Whether to display a border or not.
+        /// </summary>
         public readonly bool? HasBorder;
+        /// <summary>
+        /// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? HorizontalAlign;
+        /// <summary>
+        /// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+        /// </summary>
         public readonly string? Margin;
+        /// <summary>
+        /// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+        /// </summary>
         public readonly string? Sizing;
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// The URL in dark mode to use as a data source for the widget.
+        /// </summary>
         public readonly string? UrlDarkTheme;
+        /// <summary>
+        /// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+        /// </summary>
         public readonly string? VerticalAlign;
 
         [OutputConstructor]

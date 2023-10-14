@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DowntimeScheduleRecurringScheduleRecurrence {
+    /**
+     * @return The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+     * 
+     */
     private String duration;
+    /**
+     * @return The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+     * 
+     */
     private String rrule;
+    /**
+     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * 
+     */
     private @Nullable String start;
 
     private DowntimeScheduleRecurringScheduleRecurrence() {}
+    /**
+     * @return The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+     * 
+     */
     public String duration() {
         return this.duration;
     }
+    /**
+     * @return The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+     * 
+     */
     public String rrule() {
         return this.rrule;
     }
+    /**
+     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * 
+     */
     public Optional<String> start() {
         return Optional.ofNullable(this.start);
     }

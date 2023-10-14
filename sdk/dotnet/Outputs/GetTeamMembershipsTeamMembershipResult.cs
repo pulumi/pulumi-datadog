@@ -13,14 +13,8 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetTeamMembershipsTeamMembershipResult
     {
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly string Id;
         public readonly string Role;
-        /// <summary>
-        /// The team's identifier.
-        /// </summary>
         public readonly string TeamId;
         public readonly string UserId;
 

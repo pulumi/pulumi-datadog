@@ -15,33 +15,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
+    /**
+     * @return The compute options.
+     * 
+     */
     private List<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute> computes;
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy> groupBies;
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     private @Nullable List<String> indexes;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return The search options.
+     * 
+     */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch search;
+    /**
+     * @return Storage location (private beta).
+     * 
+     */
     private @Nullable String storage;
 
     private DashboardWidgetQueryValueDefinitionRequestQueryEventQuery() {}
+    /**
+     * @return The compute options.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute> computes() {
         return this.computes;
     }
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The search options.
+     * 
+     */
     public Optional<DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch> search() {
         return Optional.ofNullable(this.search);
     }
+    /**
+     * @return Storage location (private beta).
+     * 
+     */
     public Optional<String> storage() {
         return Optional.ofNullable(this.storage);
     }

@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetIpRangesResult',
     'AwaitableGetIpRangesResult',
     'get_ip_ranges',
+    'get_ip_ranges_output',
 ]
 
 @pulumi.output_type
@@ -296,3 +297,20 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         synthetics_ipv6s=pulumi.get(__ret__, 'synthetics_ipv6s'),
         webhooks_ipv4s=pulumi.get(__ret__, 'webhooks_ipv4s'),
         webhooks_ipv6s=pulumi.get(__ret__, 'webhooks_ipv6s'))
+
+
+@_utilities.lift_output_func(get_ip_ranges)
+def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
+    """
+    Use this data source to retrieve information about Datadog's IP addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_ip_ranges()
+    ```
+    """
+    ...

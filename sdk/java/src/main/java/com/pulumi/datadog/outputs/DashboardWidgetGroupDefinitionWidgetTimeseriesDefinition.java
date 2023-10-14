@@ -19,69 +19,173 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> customLinks;
+    /**
+     * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> events;
+    /**
+     * @return A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     * 
+     */
     private @Nullable List<String> legendColumns;
+    /**
+     * @return The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     * 
+     */
     private @Nullable String legendLayout;
+    /**
+     * @return The size of the legend displayed in the widget.
+     * 
+     */
     private @Nullable String legendSize;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     private @Nullable String liveSpan;
+    /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> markers;
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> requests;
+    /**
+     * @return A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis rightYaxis;
+    /**
+     * @return Whether or not to show the legend on this widget.
+     * 
+     */
     private @Nullable Boolean showLegend;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis yaxis;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
+    /**
+     * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> events() {
         return this.events == null ? List.of() : this.events;
     }
+    /**
+     * @return A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     * 
+     */
     public List<String> legendColumns() {
         return this.legendColumns == null ? List.of() : this.legendColumns;
     }
+    /**
+     * @return The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     * 
+     */
     public Optional<String> legendLayout() {
         return Optional.ofNullable(this.legendLayout);
     }
+    /**
+     * @return The size of the legend displayed in the widget.
+     * 
+     */
     public Optional<String> legendSize() {
         return Optional.ofNullable(this.legendSize);
     }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
+    /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> markers() {
         return this.markers == null ? List.of() : this.markers;
     }
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
+    /**
+     * @return A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis> rightYaxis() {
         return Optional.ofNullable(this.rightYaxis);
     }
+    /**
+     * @return Whether or not to show the legend on this widget.
+     * 
+     */
     public Optional<Boolean> showLegend() {
         return Optional.ofNullable(this.showLegend);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis> yaxis() {
         return Optional.ofNullable(this.yaxis);
     }

@@ -12,45 +12,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetImageDefinition {
+    /**
+     * @return Whether to display a background or not.
+     * 
+     */
     private @Nullable Boolean hasBackground;
+    /**
+     * @return Whether to display a border or not.
+     * 
+     */
     private @Nullable Boolean hasBorder;
+    /**
+     * @return The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String horizontalAlign;
+    /**
+     * @return The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     * 
+     */
     private @Nullable String margin;
+    /**
+     * @return The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     * 
+     */
     private @Nullable String sizing;
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     private String url;
+    /**
+     * @return The URL in dark mode to use as a data source for the widget.
+     * 
+     */
     private @Nullable String urlDarkTheme;
+    /**
+     * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     private @Nullable String verticalAlign;
 
     private DashboardWidgetImageDefinition() {}
+    /**
+     * @return Whether to display a background or not.
+     * 
+     */
     public Optional<Boolean> hasBackground() {
         return Optional.ofNullable(this.hasBackground);
     }
+    /**
+     * @return Whether to display a border or not.
+     * 
+     */
     public Optional<Boolean> hasBorder() {
         return Optional.ofNullable(this.hasBorder);
     }
+    /**
+     * @return The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> horizontalAlign() {
         return Optional.ofNullable(this.horizontalAlign);
     }
+    /**
+     * @return The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     * 
+     */
     public Optional<String> margin() {
         return Optional.ofNullable(this.margin);
     }
+    /**
+     * @return The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     * 
+     */
     public Optional<String> sizing() {
         return Optional.ofNullable(this.sizing);
     }
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public String url() {
         return this.url;
     }
+    /**
+     * @return The URL in dark mode to use as a data source for the widget.
+     * 
+     */
     public Optional<String> urlDarkTheme() {
         return Optional.ofNullable(this.urlDarkTheme);
     }
+    /**
+     * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     public Optional<String> verticalAlign() {
         return Optional.ofNullable(this.verticalAlign);
     }

@@ -17,23 +17,47 @@ public final class SyntheticsTestOptionsListRumSettingsArgs extends com.pulumi.r
 
     public static final SyntheticsTestOptionsListRumSettingsArgs Empty = new SyntheticsTestOptionsListRumSettingsArgs();
 
+    /**
+     * RUM application ID used to collect RUM data for the browser test.
+     * 
+     */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
+    /**
+     * @return RUM application ID used to collect RUM data for the browser test.
+     * 
+     */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
 
+    /**
+     * RUM application API key ID used to collect RUM data for the browser test.
+     * 
+     */
     @Import(name="clientTokenId")
     private @Nullable Output<Integer> clientTokenId;
 
+    /**
+     * @return RUM application API key ID used to collect RUM data for the browser test.
+     * 
+     */
     public Optional<Output<Integer>> clientTokenId() {
         return Optional.ofNullable(this.clientTokenId);
     }
 
+    /**
+     * Determines whether RUM data is collected during test runs.
+     * 
+     */
     @Import(name="isEnabled", required=true)
     private Output<Boolean> isEnabled;
 
+    /**
+     * @return Determines whether RUM data is collected during test runs.
+     * 
+     */
     public Output<Boolean> isEnabled() {
         return this.isEnabled;
     }
@@ -64,29 +88,65 @@ public final class SyntheticsTestOptionsListRumSettingsArgs extends com.pulumi.r
             $ = new SyntheticsTestOptionsListRumSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationId RUM application ID used to collect RUM data for the browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(@Nullable Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
+        /**
+         * @param applicationId RUM application ID used to collect RUM data for the browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
+        /**
+         * @param clientTokenId RUM application API key ID used to collect RUM data for the browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientTokenId(@Nullable Output<Integer> clientTokenId) {
             $.clientTokenId = clientTokenId;
             return this;
         }
 
+        /**
+         * @param clientTokenId RUM application API key ID used to collect RUM data for the browser test.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientTokenId(Integer clientTokenId) {
             return clientTokenId(Output.of(clientTokenId));
         }
 
+        /**
+         * @param isEnabled Determines whether RUM data is collected during test runs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Determines whether RUM data is collected during test runs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }

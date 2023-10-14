@@ -20,44 +20,92 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryArgs extends com.
 
     public static final DashboardWidgetTreemapDefinitionRequestQueryArgs Empty = new DashboardWidgetTreemapDefinitionRequestQueryArgs();
 
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmDependencyStatsQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery;
 
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
 
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     * 
+     */
     @Import(name="apmResourceStatsQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery;
 
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
 
+    /**
+     * A timeseries formula and functions events query.
+     * 
+     */
     @Import(name="eventQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs> eventQuery;
 
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs>> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
 
+    /**
+     * A timeseries formula and functions metrics query.
+     * 
+     */
     @Import(name="metricQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs> metricQuery;
 
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs>> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The slo query using formulas and functions.
+     * 
+     */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs> sloQuery;
 
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs>> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }
@@ -91,56 +139,128 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryArgs extends com.
             $ = new DashboardWidgetTreemapDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs> apmDependencyStatsQuery) {
             $.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmDependencyStatsQuery The APM Dependency Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmDependencyStatsQuery(DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs> apmResourceStatsQuery) {
             $.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
 
+        /**
+         * @param apmResourceStatsQuery The APM Resource Stats query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmResourceStatsQuery(DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs apmResourceStatsQuery) {
             return apmResourceStatsQuery(Output.of(apmResourceStatsQuery));
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs> eventQuery) {
             $.eventQuery = eventQuery;
             return this;
         }
 
+        /**
+         * @param eventQuery A timeseries formula and functions events query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventQuery(DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs eventQuery) {
             return eventQuery(Output.of(eventQuery));
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs> metricQuery) {
             $.metricQuery = metricQuery;
             return this;
         }
 
+        /**
+         * @param metricQuery A timeseries formula and functions metrics query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricQuery(DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs metricQuery) {
             return metricQuery(Output.of(metricQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(@Nullable Output<DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs> sloQuery) {
             $.sloQuery = sloQuery;
             return this;
         }
 
+        /**
+         * @param sloQuery The slo query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloQuery(DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
         }

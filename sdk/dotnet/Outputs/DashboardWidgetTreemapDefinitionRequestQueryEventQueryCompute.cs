@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         public readonly string Aggregation;
+        /// <summary>
+        /// Define the time interval in seconds.
+        /// </summary>
         public readonly int? Interval;
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         public readonly string? Metric;
 
         [OutputConstructor]

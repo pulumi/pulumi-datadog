@@ -15,23 +15,47 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs();
 
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<Output<String>> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
 
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public Optional<Output<String>> dataSource() {
         return Optional.ofNullable(this.dataSource);
     }
 
+    /**
+     * The name of the variable.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -70,29 +94,65 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(@Nullable Output<String> aggregator) {
             $.aggregator = aggregator;
             return this;
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(@Nullable Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

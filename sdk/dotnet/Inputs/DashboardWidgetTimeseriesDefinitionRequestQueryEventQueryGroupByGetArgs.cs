@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         [Input("facet", required: true)]
         public Input<string> Facet { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortGetArgs>? Sort { get; set; }
 

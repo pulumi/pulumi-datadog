@@ -15,24 +15,24 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
 
     public static final SyntheticsTestBrowserStepParamsVariableArgs Empty = new SyntheticsTestBrowserStepParamsVariableArgs();
 
+    /**
+     * Example of the extracted variable.
+     * 
+     */
     @Import(name="example")
     private @Nullable Output<String> example;
 
+    /**
+     * @return Example of the extracted variable.
+     * 
+     */
     public Optional<Output<String>> example() {
         return Optional.ofNullable(this.example);
     }
 
-    /**
-     * Name of Datadog synthetics test.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of Datadog synthetics test.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,32 +62,32 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
             $ = new SyntheticsTestBrowserStepParamsVariableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param example Example of the extracted variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder example(@Nullable Output<String> example) {
             $.example = example;
             return this;
         }
 
-        public Builder example(String example) {
-            return example(Output.of(example));
-        }
-
         /**
-         * @param name Name of Datadog synthetics test.
+         * @param example Example of the extracted variable.
          * 
          * @return builder
          * 
          */
+        public Builder example(String example) {
+            return example(Output.of(example));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of Datadog synthetics test.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

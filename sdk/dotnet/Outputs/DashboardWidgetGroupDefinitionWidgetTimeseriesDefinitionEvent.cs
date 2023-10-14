@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
     {
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string Q;
+        /// <summary>
+        /// The execution method for multi-value filters, options: `and` or `or`.
+        /// </summary>
         public readonly string? TagsExecution;
 
         [OutputConstructor]

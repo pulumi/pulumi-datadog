@@ -79,9 +79,6 @@ namespace Pulumi.Datadog
         [Input("filterKeyword")]
         public string? FilterKeyword { get; set; }
 
-        /// <summary>
-        /// The team's identifier.
-        /// </summary>
         [Input("teamId", required: true)]
         public string TeamId { get; set; } = null!;
 
@@ -99,9 +96,6 @@ namespace Pulumi.Datadog
         [Input("filterKeyword")]
         public Input<string>? FilterKeyword { get; set; }
 
-        /// <summary>
-        /// The team's identifier.
-        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 

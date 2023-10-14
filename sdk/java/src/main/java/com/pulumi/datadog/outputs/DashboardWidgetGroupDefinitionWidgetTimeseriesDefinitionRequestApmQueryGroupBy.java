@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
+    /**
+     * @return The facet name.
+     * 
+     */
     private @Nullable String facet;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return A list of exactly one element describing the sort query to use.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery sortQuery;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy() {}
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<String> facet() {
         return Optional.ofNullable(this.facet);
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return A list of exactly one element describing the sort query to use.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery> sortQuery() {
         return Optional.ofNullable(this.sortQuery);
     }

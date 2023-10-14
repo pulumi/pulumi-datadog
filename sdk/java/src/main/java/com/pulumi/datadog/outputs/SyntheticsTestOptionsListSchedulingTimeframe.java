@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class SyntheticsTestOptionsListSchedulingTimeframe {
+    /**
+     * @return Number representing the day of the week
+     * 
+     */
     private Integer day;
+    /**
+     * @return The hour of the day on which scheduling starts.
+     * 
+     */
     private String from;
+    /**
+     * @return The hour of the day on which scheduling ends.
+     * 
+     */
     private String to;
 
     private SyntheticsTestOptionsListSchedulingTimeframe() {}
+    /**
+     * @return Number representing the day of the week
+     * 
+     */
     public Integer day() {
         return this.day;
     }
+    /**
+     * @return The hour of the day on which scheduling starts.
+     * 
+     */
     public String from() {
         return this.from;
     }
+    /**
+     * @return The hour of the day on which scheduling ends.
+     * 
+     */
     public String to() {
         return this.to;
     }

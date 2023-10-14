@@ -15,7 +15,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetIntegrationLogsServicesAwsLogsService struct {
-	// The ID of this resource.
 	Id    string `pulumi:"id"`
 	Label string `pulumi:"label"`
 }
@@ -32,7 +31,6 @@ type GetIntegrationLogsServicesAwsLogsServiceInput interface {
 }
 
 type GetIntegrationLogsServicesAwsLogsServiceArgs struct {
-	// The ID of this resource.
 	Id    pulumi.StringInput `pulumi:"id"`
 	Label pulumi.StringInput `pulumi:"label"`
 }
@@ -106,7 +104,6 @@ func (o GetIntegrationLogsServicesAwsLogsServiceOutput) ToOutput(ctx context.Con
 	}
 }
 
-// The ID of this resource.
 func (o GetIntegrationLogsServicesAwsLogsServiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIntegrationLogsServicesAwsLogsService) string { return v.Id }).(pulumi.StringOutput)
 }

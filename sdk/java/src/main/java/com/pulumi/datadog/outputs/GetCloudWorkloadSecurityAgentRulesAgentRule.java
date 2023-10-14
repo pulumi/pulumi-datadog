@@ -13,10 +13,6 @@ public final class GetCloudWorkloadSecurityAgentRulesAgentRule {
     private String description;
     private Boolean enabled;
     private String expression;
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private String id;
     private String name;
 
@@ -30,10 +26,6 @@ public final class GetCloudWorkloadSecurityAgentRulesAgentRule {
     public String expression() {
         return this.expression;
     }
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink
     {
+        /// <summary>
+        /// The flag for toggling context menu link visibility.
+        /// </summary>
         public readonly bool? IsHidden;
+        /// <summary>
+        /// The label for the custom link URL.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The URL of the custom link.
+        /// </summary>
         public readonly string? Link;
+        /// <summary>
+        /// The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+        /// </summary>
         public readonly string? OverrideLabel;
 
         [OutputConstructor]

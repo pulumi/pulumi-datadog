@@ -16,57 +16,137 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink> customLinks;
+    /**
+     * @return The check group to use in the widget.
+     * 
+     */
     private @Nullable List<String> groups;
+    /**
+     * @return A Boolean indicating whether to show ungrouped nodes.
+     * 
+     */
     private @Nullable Boolean noGroupHosts;
+    /**
+     * @return A Boolean indicating whether to show nodes with no metrics.
+     * 
+     */
     private @Nullable Boolean noMetricHosts;
+    /**
+     * @return The type of node used. Valid values are `host`, `container`.
+     * 
+     */
     private @Nullable String nodeType;
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest request;
+    /**
+     * @return The list of tags to filter nodes by.
+     * 
+     */
     private @Nullable List<String> scopes;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle style;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetGroupDefinitionWidgetHostmapDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
+    /**
+     * @return The check group to use in the widget.
+     * 
+     */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
+    /**
+     * @return A Boolean indicating whether to show ungrouped nodes.
+     * 
+     */
     public Optional<Boolean> noGroupHosts() {
         return Optional.ofNullable(this.noGroupHosts);
     }
+    /**
+     * @return A Boolean indicating whether to show nodes with no metrics.
+     * 
+     */
     public Optional<Boolean> noMetricHosts() {
         return Optional.ofNullable(this.noMetricHosts);
     }
+    /**
+     * @return The type of node used. Valid values are `host`, `container`.
+     * 
+     */
     public Optional<String> nodeType() {
         return Optional.ofNullable(this.nodeType);
     }
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest> request() {
         return Optional.ofNullable(this.request);
     }
+    /**
+     * @return The list of tags to filter nodes by.
+     * 
+     */
     public List<String> scopes() {
         return this.scopes == null ? List.of() : this.scopes;
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle> style() {
         return Optional.ofNullable(this.style);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

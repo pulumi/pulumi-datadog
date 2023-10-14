@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
 
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         [Input("facet")]
         public Input<string>? Facet { get; set; }
 
+        /// <summary>
+        /// Define the time interval in seconds.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 

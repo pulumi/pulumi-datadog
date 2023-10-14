@@ -157,14 +157,14 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     @Import(name="timeframe")
     private @Nullable Output<String> timeframe;
 
     /**
-     * @return The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     public Optional<Output<String>> timeframe() {
@@ -482,7 +482,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 

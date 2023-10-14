@@ -14,18 +14,31 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("categories", required: true)]
         private InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryArgs>? _categories;
+
+        /// <summary>
+        /// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryArgs> Categories
         {
             get => _categories ?? (_categories = new InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryArgs>());
             set => _categories = value;
         }
 
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

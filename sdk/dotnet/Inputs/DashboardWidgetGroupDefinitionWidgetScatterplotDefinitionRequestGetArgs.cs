@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("scatterplotTables")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs>? _scatterplotTables;
+
+        /// <summary>
+        /// Scatterplot request containing formulas and functions.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs> ScatterplotTables
         {
             get => _scatterplotTables ?? (_scatterplotTables = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableGetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("xes")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs>? _xes;
+
+        /// <summary>
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs> Xes
         {
             get => _xes ?? (_xes = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("ys")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYGetArgs>? _ys;
+
+        /// <summary>
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYGetArgs> Ys
         {
             get => _ys ?? (_ys = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYGetArgs>());

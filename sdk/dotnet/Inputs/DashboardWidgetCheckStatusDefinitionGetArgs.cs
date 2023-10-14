@@ -12,23 +12,39 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetCheckStatusDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The check to use in the widget.
+        /// </summary>
         [Input("check", required: true)]
         public Input<string> Check { get; set; } = null!;
 
+        /// <summary>
+        /// The check group to use in the widget.
+        /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         [Input("groupBies")]
         private InputList<string>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<string> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<string>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// The kind of grouping to use. Valid values are `check`, `cluster`.
+        /// </summary>
         [Input("grouping", required: true)]
         public Input<string> Grouping { get; set; } = null!;
 
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
@@ -36,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+        /// A list of tags to use in the widget.
         /// </summary>
         public InputList<string> Tags
         {
@@ -45,14 +61,20 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

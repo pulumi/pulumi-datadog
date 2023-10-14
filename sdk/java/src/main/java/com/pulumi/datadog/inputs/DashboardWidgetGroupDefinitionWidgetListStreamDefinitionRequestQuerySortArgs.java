@@ -13,16 +13,32 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs Empty = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs();
 
+    /**
+     * The facet path for the column.
+     * 
+     */
     @Import(name="column", required=true)
     private Output<String> column;
 
+    /**
+     * @return The facet path for the column.
+     * 
+     */
     public Output<String> column() {
         return this.column;
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Output<String> order() {
         return this.order;
     }
@@ -52,20 +68,44 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param column The facet path for the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder column(Output<String> column) {
             $.column = column;
             return this;
         }
 
+        /**
+         * @param column The facet path for the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder column(String column) {
             return column(Output.of(column));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

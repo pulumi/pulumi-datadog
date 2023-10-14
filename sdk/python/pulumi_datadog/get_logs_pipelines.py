@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -86,9 +86,6 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
     ```
-
-
-    :param str is_read_only: Filter parameter for retrieved pipelines
     """
     __args__ = dict()
     __args__['isReadOnly'] = is_read_only
@@ -119,8 +116,5 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
     ```
-
-
-    :param str is_read_only: Filter parameter for retrieved pipelines
     """
     ...

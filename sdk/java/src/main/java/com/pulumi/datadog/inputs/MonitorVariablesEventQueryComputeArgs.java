@@ -16,23 +16,47 @@ public final class MonitorVariablesEventQueryComputeArgs extends com.pulumi.reso
 
     public static final MonitorVariablesEventQueryComputeArgs Empty = new MonitorVariablesEventQueryComputeArgs();
 
+    /**
+     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     public Output<String> aggregation() {
         return this.aggregation;
     }
 
+    /**
+     * A time interval in milliseconds.
+     * 
+     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
+    /**
+     * @return A time interval in milliseconds.
+     * 
+     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
+    /**
+     * The measurable attribute to compute.
+     * 
+     */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
@@ -63,29 +87,65 @@ public final class MonitorVariablesEventQueryComputeArgs extends com.pulumi.reso
             $ = new MonitorVariablesEventQueryComputeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(Output<String> aggregation) {
             $.aggregation = aggregation;
             return this;
         }
 
+        /**
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
         }
 
+        /**
+         * @param interval A time interval in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
+        /**
+         * @param interval A time interval in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
+        /**
+         * @param metric The measurable attribute to compute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
+        /**
+         * @param metric The measurable attribute to compute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }

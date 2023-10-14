@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountArgs', 'IntegrationAccount']
@@ -23,10 +23,23 @@ class IntegrationAccountArgs:
         :param pulumi.Input[str] name: The name of the Cloudflare account.
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "name", name)
+        IntegrationAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            name=name,
+            email=email,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: pulumi.Input[str],
+             name: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
+        _setter("name", name)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -77,12 +90,25 @@ class _IntegrationAccountState:
         :param pulumi.Input[str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         :param pulumi.Input[str] name: The name of the Cloudflare account.
         """
+        _IntegrationAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            email=email,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -194,6 +220,10 @@ class IntegrationAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

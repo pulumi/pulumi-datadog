@@ -17,9 +17,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> Apps;
         public readonly string AwsName;
         public readonly string HostName;
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly int Id;
         public readonly bool IsMuted;
         public readonly int LastReportedTime;

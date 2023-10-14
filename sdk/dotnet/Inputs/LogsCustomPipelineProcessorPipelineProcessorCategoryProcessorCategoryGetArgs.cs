@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("filter", required: true)]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterGetArgs> Filter { get; set; } = null!;
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

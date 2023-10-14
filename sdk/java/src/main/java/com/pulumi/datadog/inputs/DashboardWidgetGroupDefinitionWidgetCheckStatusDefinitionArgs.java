@@ -16,50 +16,90 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
 
     public static final DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs();
 
+    /**
+     * The check to use in the widget.
+     * 
+     */
     @Import(name="check", required=true)
     private Output<String> check;
 
+    /**
+     * @return The check to use in the widget.
+     * 
+     */
     public Output<String> check() {
         return this.check;
     }
 
+    /**
+     * The check group to use in the widget.
+     * 
+     */
     @Import(name="group")
     private @Nullable Output<String> group;
 
+    /**
+     * @return The check group to use in the widget.
+     * 
+     */
     public Optional<Output<String>> group() {
         return Optional.ofNullable(this.group);
     }
 
+    /**
+     * Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<String>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
+    /**
+     * The kind of grouping to use. Valid values are `check`, `cluster`.
+     * 
+     */
     @Import(name="grouping", required=true)
     private Output<String> grouping;
 
+    /**
+     * @return The kind of grouping to use. Valid values are `check`, `cluster`.
+     * 
+     */
     public Output<String> grouping() {
         return this.grouping;
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * A list of tags to use in the widget.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * @return A list of tags to use in the widget.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -67,30 +107,46 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -127,57 +183,123 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
             $ = new DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param check The check to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder check(Output<String> check) {
             $.check = check;
             return this;
         }
 
+        /**
+         * @param check The check to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder check(String check) {
             return check(Output.of(check));
         }
 
+        /**
+         * @param group The check group to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder group(@Nullable Output<String> group) {
             $.group = group;
             return this;
         }
 
+        /**
+         * @param group The check group to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(@Nullable Output<List<String>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(List<String> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(String... groupBies) {
             return groupBies(List.of(groupBies));
         }
 
+        /**
+         * @param grouping The kind of grouping to use. Valid values are `check`, `cluster`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grouping(Output<String> grouping) {
             $.grouping = grouping;
             return this;
         }
 
+        /**
+         * @param grouping The kind of grouping to use. Valid values are `check`, `cluster`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grouping(String grouping) {
             return grouping(Output.of(grouping));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -188,7 +310,7 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -198,7 +320,7 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -208,7 +330,7 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -219,7 +341,7 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -228,20 +350,44 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

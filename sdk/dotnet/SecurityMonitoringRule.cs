@@ -119,7 +119,7 @@ namespace Pulumi.Datadog
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule.
+        /// Name of the case.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.SecurityMonitoringRuleOptions?> Options { get; private set; } = null!;
 
         /// <summary>
-        /// Queries for selecting logs which are part of the rule.
+        /// Query for selecting logs to apply the filtering action.
         /// </summary>
         [Output("queries")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleQuery>> Queries { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Datadog
         public Input<string> Message { get; set; } = null!;
 
         /// <summary>
-        /// The name of the rule.
+        /// Name of the case.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleQueryArgs>? _queries;
 
         /// <summary>
-        /// Queries for selecting logs which are part of the rule.
+        /// Query for selecting logs to apply the filtering action.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleQueryArgs> Queries
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Datadog
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// The name of the rule.
+        /// Name of the case.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleQueryGetArgs>? _queries;
 
         /// <summary>
-        /// Queries for selecting logs which are part of the rule.
+        /// Query for selecting logs to apply the filtering action.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleQueryGetArgs> Queries
         {

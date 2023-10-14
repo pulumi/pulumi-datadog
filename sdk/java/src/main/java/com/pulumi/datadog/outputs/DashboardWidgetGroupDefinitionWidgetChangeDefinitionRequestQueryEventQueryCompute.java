@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    /**
+     * @return The aggregation method.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return Define the time interval in seconds.
+     * 
+     */
     private @Nullable Integer interval;
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     private @Nullable String metric;
 
     private DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute() {}
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return Define the time interval in seconds.
+     * 
+     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }

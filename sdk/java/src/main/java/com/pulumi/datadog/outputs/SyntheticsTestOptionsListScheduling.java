@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SyntheticsTestOptionsListScheduling {
+    /**
+     * @return Array containing objects describing the scheduling pattern to apply to each day.
+     * 
+     */
     private List<SyntheticsTestOptionsListSchedulingTimeframe> timeframes;
+    /**
+     * @return Timezone in which the timeframe is based.
+     * 
+     */
     private String timezone;
 
     private SyntheticsTestOptionsListScheduling() {}
+    /**
+     * @return Array containing objects describing the scheduling pattern to apply to each day.
+     * 
+     */
     public List<SyntheticsTestOptionsListSchedulingTimeframe> timeframes() {
         return this.timeframes;
     }
+    /**
+     * @return Timezone in which the timeframe is based.
+     * 
+     */
     public String timezone() {
         return this.timezone;
     }

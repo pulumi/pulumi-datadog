@@ -21,9 +21,17 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestA
         return this.query;
     }
 
+    /**
+     * The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     @Import(name="requestType", required=true)
     private Output<String> requestType;
 
+    /**
+     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     public Output<String> requestType() {
         return this.requestType;
     }
@@ -62,11 +70,23 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestA
             return query(Output.of(query));
         }
 
+        /**
+         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestType(Output<String> requestType) {
             $.requestType = requestType;
             return this;
         }
 
+        /**
+         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestType(String requestType) {
             return requestType(Output.of(requestType));
         }

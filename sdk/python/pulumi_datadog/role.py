@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,21 +21,34 @@ class RoleArgs:
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Role resource.
-        :param pulumi.Input[str] name: Name of the role.
+        :param pulumi.Input[str] name: Name of the permission.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
-        pulumi.set(__self__, "name", name)
+        RoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            permissions=permissions,
+            validate=validate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the role.
+        Name of the permission.
         """
         return pulumi.get(self, "name")
 
@@ -77,25 +90,40 @@ class _RoleState:
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Role resources.
-        :param pulumi.Input[str] name: Name of the role.
+        :param pulumi.Input[str] name: Name of the permission.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[int] user_count: Number of users that have this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
+        _RoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            permissions=permissions,
+            user_count=user_count,
+            validate=validate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
+             user_count: Optional[pulumi.Input[int]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if user_count is not None:
-            pulumi.set(__self__, "user_count", user_count)
+            _setter("user_count", user_count)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the role.
+        Name of the permission.
         """
         return pulumi.get(self, "name")
 
@@ -182,7 +210,7 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the role.
+        :param pulumi.Input[str] name: Name of the permission.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
@@ -233,6 +261,10 @@ class Role(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,7 +309,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the role.
+        :param pulumi.Input[str] name: Name of the permission.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[int] user_count: Number of users that have this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
@@ -296,7 +328,7 @@ class Role(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the role.
+        Name of the permission.
         """
         return pulumi.get(self, "name")
 

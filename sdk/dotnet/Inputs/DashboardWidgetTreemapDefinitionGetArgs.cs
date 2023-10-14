@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetTreemapDefinitionRequestGetArgs>? _requests;
+
+        /// <summary>
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTreemapDefinitionRequestGetArgs> Requests
         {
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetTreemapDefinitionRequestGetArgs>());
@@ -21,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

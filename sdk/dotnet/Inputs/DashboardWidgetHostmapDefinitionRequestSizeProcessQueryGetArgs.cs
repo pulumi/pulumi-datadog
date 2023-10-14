@@ -14,18 +14,31 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("filterBies")]
         private InputList<string>? _filterBies;
+
+        /// <summary>
+        /// A list of processes.
+        /// </summary>
         public InputList<string> FilterBies
         {
             get => _filterBies ?? (_filterBies = new InputList<string>());
             set => _filterBies = value;
         }
 
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
+        /// <summary>
+        /// Your chosen search term.
+        /// </summary>
         [Input("searchBy")]
         public Input<string>? SearchBy { get; set; }
 

@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTopologyMapDefinitionRequestQuery
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// Your environment and primary tag (or `*` if enabled for your account).
+        /// </summary>
         public readonly ImmutableArray<string> Filters;
+        /// <summary>
+        /// APM service.
+        /// </summary>
         public readonly string Service;
 
         [OutputConstructor]

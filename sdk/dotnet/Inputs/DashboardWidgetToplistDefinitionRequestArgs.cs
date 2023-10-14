@@ -12,14 +12,24 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetToplistDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs> ConditionalFormats
         {
             get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs>());
@@ -34,12 +44,21 @@ namespace Pulumi.Datadog.Inputs
             set => _formulas = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
@@ -51,12 +70,21 @@ namespace Pulumi.Datadog.Inputs
             set => _queries = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestStyleArgs>? Style { get; set; }
 

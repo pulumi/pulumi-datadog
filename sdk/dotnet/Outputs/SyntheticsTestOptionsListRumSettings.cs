@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptionsListRumSettings
     {
+        /// <summary>
+        /// RUM application ID used to collect RUM data for the browser test.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// RUM application API key ID used to collect RUM data for the browser test.
+        /// </summary>
         public readonly int? ClientTokenId;
+        /// <summary>
+        /// Determines whether RUM data is collected during test runs.
+        /// </summary>
         public readonly bool IsEnabled;
 
         [OutputConstructor]

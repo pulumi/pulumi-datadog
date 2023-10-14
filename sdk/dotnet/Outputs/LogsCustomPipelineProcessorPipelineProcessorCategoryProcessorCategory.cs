@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory
     {
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter Filter;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery
     {
+        /// <summary>
+        /// A list of processes.
+        /// </summary>
         public readonly ImmutableArray<string> FilterBies;
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         public readonly string Metric;
+        /// <summary>
+        /// Your chosen search term.
+        /// </summary>
         public readonly string? SearchBy;
 
         [OutputConstructor]

@@ -15,52 +15,92 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
 
     public static final DashboardWidgetAlertGraphDefinitionArgs Empty = new DashboardWidgetAlertGraphDefinitionArgs();
 
+    /**
+     * The ID of the monitor used by the widget.
+     * 
+     */
     @Import(name="alertId", required=true)
     private Output<String> alertId;
 
+    /**
+     * @return The ID of the monitor used by the widget.
+     * 
+     */
     public Output<String> alertId() {
         return this.alertId;
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
 
+    /**
+     * Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * 
+     */
     @Import(name="vizType", required=true)
     private Output<String> vizType;
 
+    /**
+     * @return Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * 
+     */
     public Output<String> vizType() {
         return this.vizType;
     }
@@ -94,26 +134,50 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
             $ = new DashboardWidgetAlertGraphDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alertId The ID of the monitor used by the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertId(Output<String> alertId) {
             $.alertId = alertId;
             return this;
         }
 
+        /**
+         * @param alertId The ID of the monitor used by the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertId(String alertId) {
             return alertId(Output.of(alertId));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -124,7 +188,7 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -133,29 +197,65 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }
 
+        /**
+         * @param vizType Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vizType(Output<String> vizType) {
             $.vizType = vizType;
             return this;
         }
 
+        /**
+         * @param vizType Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vizType(String vizType) {
             return vizType(Output.of(vizType));
         }

@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorCategoryProcessor
     {
+        /// <summary>
+        /// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorCategoryProcessorCategory> Categories;
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

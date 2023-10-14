@@ -14,12 +14,19 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("timeframes", required: true)]
         private InputList<Inputs.SyntheticsTestOptionsListSchedulingTimeframeGetArgs>? _timeframes;
+
+        /// <summary>
+        /// Array containing objects describing the scheduling pattern to apply to each day.
+        /// </summary>
         public InputList<Inputs.SyntheticsTestOptionsListSchedulingTimeframeGetArgs> Timeframes
         {
             get => _timeframes ?? (_timeframes = new InputList<Inputs.SyntheticsTestOptionsListSchedulingTimeframeGetArgs>());
             set => _timeframes = value;
         }
 
+        /// <summary>
+        /// Timezone in which the timeframe is based.
+        /// </summary>
         [Input("timezone", required: true)]
         public Input<string> Timezone { get; set; } = null!;
 

@@ -14,14 +14,14 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs exte
     public static final DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs();
 
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public Output<String> url() {
@@ -53,7 +53,7 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs exte
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs exte
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 

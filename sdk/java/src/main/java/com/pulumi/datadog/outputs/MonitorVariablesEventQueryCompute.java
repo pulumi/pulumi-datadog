@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesEventQueryCompute {
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return A time interval in milliseconds.
+     * 
+     */
     private @Nullable Integer interval;
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     private @Nullable String metric;
 
     private MonitorVariablesEventQueryCompute() {}
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return A time interval in milliseconds.
+     * 
+     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }

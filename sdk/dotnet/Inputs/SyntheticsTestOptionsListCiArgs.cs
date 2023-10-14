@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsListCiArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+        /// </summary>
         [Input("executionRule")]
         public Input<string>? ExecutionRule { get; set; }
 

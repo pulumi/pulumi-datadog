@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The facet path for the column.
+        /// </summary>
         [Input("column", required: true)]
         public Input<string> Column { get; set; } = null!;
 
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         [Input("order", required: true)]
         public Input<string> Order { get; set; } = null!;
 

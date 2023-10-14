@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationSettingsSettingsSamlStrictMode {
+    /**
+     * @return Whether or not SAML is enabled for this organization.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private OrganizationSettingsSettingsSamlStrictMode() {}
+    /**
+     * @return Whether or not SAML is enabled for this organization.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

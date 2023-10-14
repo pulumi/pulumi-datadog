@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy
     {
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         public readonly string? Facet;
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// A list of exactly one element describing the sort query to use.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]

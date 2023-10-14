@@ -12,24 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHeatmapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestStyleArgs>? Style { get; set; }
 

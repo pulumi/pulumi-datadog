@@ -15,9 +15,17 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
 
     public static final SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs Empty = new SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs();
 
+    /**
+     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * 
+     */
     @Import(name="baselineUserLocations")
     private @Nullable Output<Boolean> baselineUserLocations;
 
+    /**
+     * @return If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * 
+     */
     public Optional<Output<Boolean>> baselineUserLocations() {
         return Optional.ofNullable(this.baselineUserLocations);
     }
@@ -46,11 +54,23 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
             $ = new SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baselineUserLocations(@Nullable Output<Boolean> baselineUserLocations) {
             $.baselineUserLocations = baselineUserLocations;
             return this;
         }
 
+        /**
+         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baselineUserLocations(Boolean baselineUserLocations) {
             return baselineUserLocations(Output.of(baselineUserLocations));
         }

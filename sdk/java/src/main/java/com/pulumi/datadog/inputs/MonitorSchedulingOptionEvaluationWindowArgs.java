@@ -16,23 +16,47 @@ public final class MonitorSchedulingOptionEvaluationWindowArgs extends com.pulum
 
     public static final MonitorSchedulingOptionEvaluationWindowArgs Empty = new MonitorSchedulingOptionEvaluationWindowArgs();
 
+    /**
+     * The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     * 
+     */
     @Import(name="dayStarts")
     private @Nullable Output<String> dayStarts;
 
+    /**
+     * @return The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     * 
+     */
     public Optional<Output<String>> dayStarts() {
         return Optional.ofNullable(this.dayStarts);
     }
 
+    /**
+     * The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     * 
+     */
     @Import(name="hourStarts")
     private @Nullable Output<Integer> hourStarts;
 
+    /**
+     * @return The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     * 
+     */
     public Optional<Output<Integer>> hourStarts() {
         return Optional.ofNullable(this.hourStarts);
     }
 
+    /**
+     * The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     * 
+     */
     @Import(name="monthStarts")
     private @Nullable Output<Integer> monthStarts;
 
+    /**
+     * @return The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     * 
+     */
     public Optional<Output<Integer>> monthStarts() {
         return Optional.ofNullable(this.monthStarts);
     }
@@ -63,29 +87,65 @@ public final class MonitorSchedulingOptionEvaluationWindowArgs extends com.pulum
             $ = new MonitorSchedulingOptionEvaluationWindowArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dayStarts The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayStarts(@Nullable Output<String> dayStarts) {
             $.dayStarts = dayStarts;
             return this;
         }
 
+        /**
+         * @param dayStarts The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayStarts(String dayStarts) {
             return dayStarts(Output.of(dayStarts));
         }
 
+        /**
+         * @param hourStarts The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hourStarts(@Nullable Output<Integer> hourStarts) {
             $.hourStarts = hourStarts;
             return this;
         }
 
+        /**
+         * @param hourStarts The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hourStarts(Integer hourStarts) {
             return hourStarts(Output.of(hourStarts));
         }
 
+        /**
+         * @param monthStarts The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monthStarts(@Nullable Output<Integer> monthStarts) {
             $.monthStarts = monthStarts;
             return this;
         }
 
+        /**
+         * @param monthStarts The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monthStarts(Integer monthStarts) {
             return monthStarts(Output.of(monthStarts));
         }

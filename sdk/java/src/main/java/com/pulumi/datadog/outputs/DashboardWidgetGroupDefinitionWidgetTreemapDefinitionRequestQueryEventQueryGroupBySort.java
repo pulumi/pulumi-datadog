@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * @return The aggregation method.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     private @Nullable String metric;
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     private @Nullable String order;
 
     private DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort() {}
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<String> order() {
         return Optional.ofNullable(this.order);
     }

@@ -17,7 +17,13 @@ namespace Pulumi.Datadog.Outputs
         /// The name of the variable.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

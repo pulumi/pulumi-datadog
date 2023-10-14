@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorLookupProcessor
     {
+        /// <summary>
+        /// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+        /// </summary>
         public readonly string? DefaultLookup;
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// List of entries of the lookup table using `key,value` format.
+        /// </summary>
         public readonly ImmutableArray<string> LookupTables;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Name of the log attribute to parse.
+        /// </summary>
         public readonly string Source;
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

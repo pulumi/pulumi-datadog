@@ -12,57 +12,129 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetManageStatusDefinition {
+    /**
+     * @return Whether to colorize text or background. Valid values are `background`, `text`.
+     * 
+     */
     private @Nullable String colorPreference;
+    /**
+     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     private @Nullable String displayFormat;
+    /**
+     * @return A Boolean indicating whether to hide empty categories.
+     * 
+     */
     private @Nullable Boolean hideZeroCounts;
     private String query;
+    /**
+     * @return A Boolean indicating whether to show when monitors/groups last triggered.
+     * 
+     */
     private @Nullable Boolean showLastTriggered;
+    /**
+     * @return Whether to show the priorities column.
+     * 
+     */
     private @Nullable Boolean showPriority;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable String sort;
+    /**
+     * @return The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     * 
+     */
     private @Nullable String summaryType;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetManageStatusDefinition() {}
+    /**
+     * @return Whether to colorize text or background. Valid values are `background`, `text`.
+     * 
+     */
     public Optional<String> colorPreference() {
         return Optional.ofNullable(this.colorPreference);
     }
+    /**
+     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     public Optional<String> displayFormat() {
         return Optional.ofNullable(this.displayFormat);
     }
+    /**
+     * @return A Boolean indicating whether to hide empty categories.
+     * 
+     */
     public Optional<Boolean> hideZeroCounts() {
         return Optional.ofNullable(this.hideZeroCounts);
     }
     public String query() {
         return this.query;
     }
+    /**
+     * @return A Boolean indicating whether to show when monitors/groups last triggered.
+     * 
+     */
     public Optional<Boolean> showLastTriggered() {
         return Optional.ofNullable(this.showLastTriggered);
     }
+    /**
+     * @return Whether to show the priorities column.
+     * 
+     */
     public Optional<Boolean> showPriority() {
         return Optional.ofNullable(this.showPriority);
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<String> sort() {
         return Optional.ofNullable(this.sort);
     }
+    /**
+     * @return The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     * 
+     */
     public Optional<String> summaryType() {
         return Optional.ofNullable(this.summaryType);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

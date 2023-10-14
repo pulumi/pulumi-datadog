@@ -12,17 +12,33 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest {
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     private List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> columns;
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery query;
+    /**
+     * @return Widget response format. Valid values are `event_list`.
+     * 
+     */
     private String responseFormat;
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest() {}
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> columns() {
         return this.columns;
     }
     public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery query() {
         return this.query;
     }
+    /**
+     * @return Widget response format. Valid values are `event_list`.
+     * 
+     */
     public String responseFormat() {
         return this.responseFormat;
     }

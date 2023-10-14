@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['WebhookCustomVariableArgs', 'WebhookCustomVariable']
@@ -23,9 +23,22 @@ class WebhookCustomVariableArgs:
         :param pulumi.Input[str] name: The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
         :param pulumi.Input[str] value: The value of the custom variable.
         """
-        pulumi.set(__self__, "is_secret", is_secret)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebhookCustomVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_secret=is_secret,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_secret: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_secret", is_secret)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="isSecret")
@@ -76,12 +89,25 @@ class _WebhookCustomVariableState:
         :param pulumi.Input[str] name: The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
         :param pulumi.Input[str] value: The value of the custom variable.
         """
+        _WebhookCustomVariableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_secret=is_secret,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_secret: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if is_secret is not None:
-            pulumi.set(__self__, "is_secret", is_secret)
+            _setter("is_secret", is_secret)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isSecret")
@@ -193,6 +219,10 @@ class WebhookCustomVariable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookCustomVariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

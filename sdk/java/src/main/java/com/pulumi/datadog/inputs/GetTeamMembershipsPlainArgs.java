@@ -29,17 +29,9 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.filterKeyword);
     }
 
-    /**
-     * The team&#39;s identifier.
-     * 
-     */
     @Import(name="teamId", required=true)
     private String teamId;
 
-    /**
-     * @return The team&#39;s identifier.
-     * 
-     */
     public String teamId() {
         return this.teamId;
     }
@@ -80,12 +72,6 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
             return this;
         }
 
-        /**
-         * @param teamId The team&#39;s identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(String teamId) {
             $.teamId = teamId;
             return this;

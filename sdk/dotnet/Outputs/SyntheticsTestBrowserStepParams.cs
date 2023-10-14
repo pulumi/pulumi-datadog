@@ -13,24 +13,81 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestBrowserStepParams
     {
+        /// <summary>
+        /// Name of the attribute to use for an "assert attribute" step.
+        /// </summary>
         public readonly string? Attribute;
+        /// <summary>
+        /// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        /// </summary>
         public readonly string? Check;
+        /// <summary>
+        /// Type of click to use for a "click" step.
+        /// </summary>
         public readonly string? ClickType;
+        /// <summary>
+        /// Javascript code to use for the step.
+        /// </summary>
         public readonly string? Code;
+        /// <summary>
+        /// Delay between each key stroke for a "type test" step.
+        /// </summary>
         public readonly int? Delay;
+        /// <summary>
+        /// Element to use for the step, json encoded string.
+        /// </summary>
         public readonly string? Element;
+        /// <summary>
+        /// Custom user selector to use for the step.
+        /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParamsElementUserLocator? ElementUserLocator;
+        /// <summary>
+        /// Details of the email for an "assert email" step.
+        /// </summary>
         public readonly string? Email;
+        /// <summary>
+        /// For an "assert download" step.
+        /// </summary>
         public readonly string? File;
+        /// <summary>
+        /// Details of the files for an "upload files" step, json encoded string.
+        /// </summary>
         public readonly string? Files;
+        /// <summary>
+        /// Modifier to use for a "press key" step.
+        /// </summary>
         public readonly ImmutableArray<string> Modifiers;
+        /// <summary>
+        /// ID of the tab to play the subtest.
+        /// </summary>
         public readonly string? PlayingTabId;
+        /// <summary>
+        /// Request for an API step.
+        /// </summary>
         public readonly string? Request;
+        /// <summary>
+        /// ID of the Synthetics test to use as subtest.
+        /// </summary>
         public readonly string? SubtestPublicId;
+        /// <summary>
+        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// Details of the variable to extract.
+        /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParamsVariable? Variable;
+        /// <summary>
+        /// For "file upload" steps.
+        /// </summary>
         public readonly bool? WithClick;
+        /// <summary>
+        /// X coordinates for a "scroll step".
+        /// </summary>
         public readonly int? X;
+        /// <summary>
+        /// Y coordinates for a "scroll step".
+        /// </summary>
         public readonly int? Y;
 
         [OutputConstructor]

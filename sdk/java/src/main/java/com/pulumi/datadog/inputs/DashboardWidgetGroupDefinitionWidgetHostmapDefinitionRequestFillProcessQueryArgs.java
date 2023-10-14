@@ -17,30 +17,62 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestF
 
     public static final DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs();
 
+    /**
+     * A list of processes.
+     * 
+     */
     @Import(name="filterBies")
     private @Nullable Output<List<String>> filterBies;
 
+    /**
+     * @return A list of processes.
+     * 
+     */
     public Optional<Output<List<String>>> filterBies() {
         return Optional.ofNullable(this.filterBies);
     }
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * The metric from the request to correlate with this conditional format.
+     * 
+     */
     @Import(name="metric", required=true)
     private Output<String> metric;
 
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public Output<String> metric() {
         return this.metric;
     }
 
+    /**
+     * Your chosen search term.
+     * 
+     */
     @Import(name="searchBy")
     private @Nullable Output<String> searchBy;
 
+    /**
+     * @return Your chosen search term.
+     * 
+     */
     public Optional<Output<String>> searchBy() {
         return Optional.ofNullable(this.searchBy);
     }
@@ -72,42 +104,96 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestF
             $ = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filterBies A list of processes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterBies(@Nullable Output<List<String>> filterBies) {
             $.filterBies = filterBies;
             return this;
         }
 
+        /**
+         * @param filterBies A list of processes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterBies(List<String> filterBies) {
             return filterBies(Output.of(filterBies));
         }
 
+        /**
+         * @param filterBies A list of processes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterBies(String... filterBies) {
             return filterBies(List.of(filterBies));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param metric The metric from the request to correlate with this conditional format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
+        /**
+         * @param metric The metric from the request to correlate with this conditional format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }
 
+        /**
+         * @param searchBy Your chosen search term.
+         * 
+         * @return builder
+         * 
+         */
         public Builder searchBy(@Nullable Output<String> searchBy) {
             $.searchBy = searchBy;
             return this;
         }
 
+        /**
+         * @param searchBy Your chosen search term.
+         * 
+         * @return builder
+         * 
+         */
         public Builder searchBy(String searchBy) {
             return searchBy(Output.of(searchBy));
         }

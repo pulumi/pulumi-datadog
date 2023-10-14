@@ -17,44 +17,92 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs();
 
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
 
+    /**
+     * The size to use to display an event. Valid values are `s`, `l`.
+     * 
+     */
     @Import(name="eventSize")
     private @Nullable Output<String> eventSize;
 
+    /**
+     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * 
+     */
     public Optional<Output<String>> eventSize() {
         return Optional.ofNullable(this.eventSize);
     }
 
+    /**
+     * An array of index names to query in the stream.
+     * 
+     */
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public Optional<Output<List<String>>> indexes() {
         return Optional.ofNullable(this.indexes);
     }
 
+    /**
+     * Widget query.
+     * 
+     */
     @Import(name="queryString")
     private @Nullable Output<String> queryString;
 
+    /**
+     * @return Widget query.
+     * 
+     */
     public Optional<Output<String>> queryString() {
         return Optional.ofNullable(this.queryString);
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs>> sort() {
         return Optional.ofNullable(this.sort);
     }
 
+    /**
+     * Storage location (private beta).
+     * 
+     */
     @Import(name="storage")
     private @Nullable Output<String> storage;
 
+    /**
+     * @return Storage location (private beta).
+     * 
+     */
     public Optional<Output<String>> storage() {
         return Optional.ofNullable(this.storage);
     }
@@ -88,60 +136,138 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
+        /**
+         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventSize(@Nullable Output<String> eventSize) {
             $.eventSize = eventSize;
             return this;
         }
 
+        /**
+         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventSize(String eventSize) {
             return eventSize(Output.of(eventSize));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(@Nullable Output<List<String>> indexes) {
             $.indexes = indexes;
             return this;
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(List<String> indexes) {
             return indexes(Output.of(indexes));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(String... indexes) {
             return indexes(List.of(indexes));
         }
 
+        /**
+         * @param queryString Widget query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryString(@Nullable Output<String> queryString) {
             $.queryString = queryString;
             return this;
         }
 
+        /**
+         * @param queryString Widget query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortArgs sort) {
             return sort(Output.of(sort));
         }
 
+        /**
+         * @param storage Storage location (private beta).
+         * 
+         * @return builder
+         * 
+         */
         public Builder storage(@Nullable Output<String> storage) {
             $.storage = storage;
             return this;
         }
 
+        /**
+         * @param storage Storage location (private beta).
+         * 
+         * @return builder
+         * 
+         */
         public Builder storage(String storage) {
             return storage(Output.of(storage));
         }

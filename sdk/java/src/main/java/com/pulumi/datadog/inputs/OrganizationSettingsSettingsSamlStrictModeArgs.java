@@ -15,9 +15,17 @@ public final class OrganizationSettingsSettingsSamlStrictModeArgs extends com.pu
 
     public static final OrganizationSettingsSettingsSamlStrictModeArgs Empty = new OrganizationSettingsSettingsSamlStrictModeArgs();
 
+    /**
+     * Whether or not SAML is enabled for this organization.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether or not SAML is enabled for this organization.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class OrganizationSettingsSettingsSamlStrictModeArgs extends com.pu
             $ = new OrganizationSettingsSettingsSamlStrictModeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether or not SAML is enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether or not SAML is enabled for this organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

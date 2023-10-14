@@ -13,41 +13,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Override the target element if already set.
+     * 
+     */
     private @Nullable Boolean overrideOnConflict;
+    /**
+     * @return Remove or preserve the remapped source element.
+     * 
+     */
     private @Nullable Boolean preserveSource;
+    /**
+     * @return Defines where the sources are from (log `attribute` or `tag`).
+     * 
+     */
     private String sourceType;
+    /**
+     * @return List of source attributes or tags.
+     * 
+     */
     private List<String> sources;
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     private String target;
+    /**
+     * @return If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * 
+     */
     private @Nullable String targetFormat;
+    /**
+     * @return Defines if the target is a log `attribute` or `tag`.
+     * 
+     */
     private String targetType;
 
     private LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper() {}
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Override the target element if already set.
+     * 
+     */
     public Optional<Boolean> overrideOnConflict() {
         return Optional.ofNullable(this.overrideOnConflict);
     }
+    /**
+     * @return Remove or preserve the remapped source element.
+     * 
+     */
     public Optional<Boolean> preserveSource() {
         return Optional.ofNullable(this.preserveSource);
     }
+    /**
+     * @return Defines where the sources are from (log `attribute` or `tag`).
+     * 
+     */
     public String sourceType() {
         return this.sourceType;
     }
+    /**
+     * @return List of source attributes or tags.
+     * 
+     */
     public List<String> sources() {
         return this.sources;
     }
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public String target() {
         return this.target;
     }
+    /**
+     * @return If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * 
+     */
     public Optional<String> targetFormat() {
         return Optional.ofNullable(this.targetFormat);
     }
+    /**
+     * @return Defines if the target is a log `attribute` or `tag`.
+     * 
+     */
     public String targetType() {
         return this.targetType;
     }

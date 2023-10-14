@@ -14,57 +14,129 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     private @Nullable List<String> columns;
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     private @Nullable List<String> indexes;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     private @Nullable String liveSpan;
+    /**
+     * @return The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     * 
+     */
     private @Nullable String messageDisplay;
     private @Nullable String query;
+    /**
+     * @return If the date column should be displayed.
+     * 
+     */
     private @Nullable Boolean showDateColumn;
+    /**
+     * @return If the message column should be displayed.
+     * 
+     */
     private @Nullable Boolean showMessageColumn;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort sort;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetGroupDefinitionWidgetLogStreamDefinition() {}
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     public List<String> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public List<String> indexes() {
         return this.indexes == null ? List.of() : this.indexes;
     }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
+    /**
+     * @return The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     * 
+     */
     public Optional<String> messageDisplay() {
         return Optional.ofNullable(this.messageDisplay);
     }
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }
+    /**
+     * @return If the date column should be displayed.
+     * 
+     */
     public Optional<Boolean> showDateColumn() {
         return Optional.ofNullable(this.showDateColumn);
     }
+    /**
+     * @return If the message column should be displayed.
+     * 
+     */
     public Optional<Boolean> showMessageColumn() {
         return Optional.ofNullable(this.showMessageColumn);
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort> sort() {
         return Optional.ofNullable(this.sort);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

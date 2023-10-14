@@ -30,17 +30,9 @@ public final class GetTeamMembershipsArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.filterKeyword);
     }
 
-    /**
-     * The team&#39;s identifier.
-     * 
-     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
-    /**
-     * @return The team&#39;s identifier.
-     * 
-     */
     public Output<String> teamId() {
         return this.teamId;
     }
@@ -91,23 +83,11 @@ public final class GetTeamMembershipsArgs extends com.pulumi.resources.InvokeArg
             return filterKeyword(Output.of(filterKeyword));
         }
 
-        /**
-         * @param teamId The team&#39;s identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
-        /**
-         * @param teamId The team&#39;s identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

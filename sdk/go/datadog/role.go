@@ -65,7 +65,7 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
-	// Name of the role.
+	// Name of the permission.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayOutput `pulumi:"permissions"`
@@ -108,7 +108,7 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
-	// Name of the role.
+	// Name of the permission.
 	Name *string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
@@ -119,7 +119,7 @@ type roleState struct {
 }
 
 type RoleState struct {
-	// Name of the role.
+	// Name of the permission.
 	Name pulumi.StringPtrInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
@@ -134,7 +134,7 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
-	// Name of the role.
+	// Name of the permission.
 	Name string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
@@ -144,7 +144,7 @@ type roleArgs struct {
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
-	// Name of the role.
+	// Name of the permission.
 	Name pulumi.StringInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
@@ -263,7 +263,7 @@ func (o RoleOutput) ToOutput(ctx context.Context) pulumix.Output[*Role] {
 	}
 }
 
-// Name of the role.
+// Name of the permission.
 func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

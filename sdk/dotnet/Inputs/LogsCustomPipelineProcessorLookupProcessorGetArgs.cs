@@ -12,26 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorLookupProcessorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+        /// </summary>
         [Input("defaultLookup")]
         public Input<string>? DefaultLookup { get; set; }
 
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         [Input("lookupTables", required: true)]
         private InputList<string>? _lookupTables;
+
+        /// <summary>
+        /// List of entries of the lookup table using `key,value` format.
+        /// </summary>
         public InputList<string> LookupTables
         {
             get => _lookupTables ?? (_lookupTables = new InputList<string>());
             set => _lookupTables = value;
         }
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Name of the log attribute to parse.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

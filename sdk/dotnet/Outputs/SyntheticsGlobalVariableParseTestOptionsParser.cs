@@ -13,9 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsGlobalVariableParseTestOptionsParser
     {
+        /// <summary>
+        /// Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+        /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The value of the global variable.
+        /// Value for the parser to use, required for type `json_path` or `regex`.
         /// </summary>
         public readonly string? Value;
 

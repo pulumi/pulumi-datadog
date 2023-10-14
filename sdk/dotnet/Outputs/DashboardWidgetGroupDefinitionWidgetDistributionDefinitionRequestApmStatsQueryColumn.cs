@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn
     {
+        /// <summary>
+        /// An expression alias.
+        /// </summary>
         public readonly string? Alias;
+        /// <summary>
+        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// </summary>
         public readonly string? CellDisplayMode;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string? Order;
 
         [OutputConstructor]

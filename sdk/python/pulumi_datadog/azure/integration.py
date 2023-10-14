@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -33,19 +33,42 @@ class IntegrationArgs:
         :param pulumi.Input[bool] custom_metrics_enabled: Enable custom metrics for your organization.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "tenant_name", tenant_name)
+        IntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            tenant_name=tenant_name,
+            app_service_plan_filters=app_service_plan_filters,
+            automute=automute,
+            cspm_enabled=cspm_enabled,
+            custom_metrics_enabled=custom_metrics_enabled,
+            host_filters=host_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             tenant_name: pulumi.Input[str],
+             app_service_plan_filters: Optional[pulumi.Input[str]] = None,
+             automute: Optional[pulumi.Input[bool]] = None,
+             cspm_enabled: Optional[pulumi.Input[bool]] = None,
+             custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             host_filters: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("tenant_name", tenant_name)
         if app_service_plan_filters is not None:
-            pulumi.set(__self__, "app_service_plan_filters", app_service_plan_filters)
+            _setter("app_service_plan_filters", app_service_plan_filters)
         if automute is not None:
-            pulumi.set(__self__, "automute", automute)
+            _setter("automute", automute)
         if cspm_enabled is not None:
-            pulumi.set(__self__, "cspm_enabled", cspm_enabled)
+            _setter("cspm_enabled", cspm_enabled)
         if custom_metrics_enabled is not None:
-            pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
+            _setter("custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
-            pulumi.set(__self__, "host_filters", host_filters)
+            _setter("host_filters", host_filters)
 
     @property
     @pulumi.getter(name="clientId")
@@ -166,22 +189,45 @@ class _IntegrationState:
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
+        _IntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_plan_filters=app_service_plan_filters,
+            automute=automute,
+            client_id=client_id,
+            client_secret=client_secret,
+            cspm_enabled=cspm_enabled,
+            custom_metrics_enabled=custom_metrics_enabled,
+            host_filters=host_filters,
+            tenant_name=tenant_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_plan_filters: Optional[pulumi.Input[str]] = None,
+             automute: Optional[pulumi.Input[bool]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             cspm_enabled: Optional[pulumi.Input[bool]] = None,
+             custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             host_filters: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_plan_filters is not None:
-            pulumi.set(__self__, "app_service_plan_filters", app_service_plan_filters)
+            _setter("app_service_plan_filters", app_service_plan_filters)
         if automute is not None:
-            pulumi.set(__self__, "automute", automute)
+            _setter("automute", automute)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if cspm_enabled is not None:
-            pulumi.set(__self__, "cspm_enabled", cspm_enabled)
+            _setter("cspm_enabled", cspm_enabled)
         if custom_metrics_enabled is not None:
-            pulumi.set(__self__, "custom_metrics_enabled", custom_metrics_enabled)
+            _setter("custom_metrics_enabled", custom_metrics_enabled)
         if host_filters is not None:
-            pulumi.set(__self__, "host_filters", host_filters)
+            _setter("host_filters", host_filters)
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
 
     @property
     @pulumi.getter(name="appServicePlanFilters")
@@ -379,6 +425,10 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

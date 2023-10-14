@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,22 +41,51 @@ class CloudConfigurationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the rule, propagated to findings and signals. Defaults to empty list.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "severity", severity)
+        CloudConfigurationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            message=message,
+            name=name,
+            policy=policy,
+            resource_type=resource_type,
+            severity=severity,
+            filters=filters,
+            group_bies=group_bies,
+            notifications=notifications,
+            related_resource_types=related_resource_types,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             message: pulumi.Input[str],
+             name: pulumi.Input[str],
+             policy: pulumi.Input[str],
+             resource_type: pulumi.Input[str],
+             severity: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]] = None,
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             related_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("policy", policy)
+        _setter("resource_type", resource_type)
+        _setter("severity", severity)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if related_resource_types is not None:
-            pulumi.set(__self__, "related_resource_types", related_resource_types)
+            _setter("related_resource_types", related_resource_types)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -219,28 +248,57 @@ class _CloudConfigurationRuleState:
         :param pulumi.Input[str] severity: Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the rule, propagated to findings and signals. Defaults to empty list.
         """
+        _CloudConfigurationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            filters=filters,
+            group_bies=group_bies,
+            message=message,
+            name=name,
+            notifications=notifications,
+            policy=policy,
+            related_resource_types=related_resource_types,
+            resource_type=resource_type,
+            severity=severity,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]] = None,
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             related_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if related_resource_types is not None:
-            pulumi.set(__self__, "related_resource_types", related_resource_types)
+            _setter("related_resource_types", related_resource_types)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -532,6 +590,10 @@ class CloudConfigurationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudConfigurationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

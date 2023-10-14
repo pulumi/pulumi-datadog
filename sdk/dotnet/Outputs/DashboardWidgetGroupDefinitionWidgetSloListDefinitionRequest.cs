@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery Query;
+        /// <summary>
+        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// </summary>
         public readonly string RequestType;
 
         [OutputConstructor]

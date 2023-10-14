@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -23,11 +23,24 @@ class IntegrationArgs:
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
         """
-        pulumi.set(__self__, "subdomain", subdomain)
+        IntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subdomain=subdomain,
+            api_token=api_token,
+            schedules=schedules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subdomain: pulumi.Input[str],
+             api_token: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subdomain", subdomain)
         if api_token is not None:
-            pulumi.set(__self__, "api_token", api_token)
+            _setter("api_token", api_token)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
 
     @property
     @pulumi.getter
@@ -78,12 +91,25 @@ class _IntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
+        _IntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_token=api_token,
+            schedules=schedules,
+            subdomain=subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_token: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_token is not None:
-            pulumi.set(__self__, "api_token", api_token)
+            _setter("api_token", api_token)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if subdomain is not None:
-            pulumi.set(__self__, "subdomain", subdomain)
+            _setter("subdomain", subdomain)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -205,6 +231,10 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

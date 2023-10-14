@@ -166,7 +166,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Output("timeframe")]
         public Output<string> Timeframe { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }

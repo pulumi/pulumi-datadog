@@ -13,14 +13,41 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         public readonly string? Aggregator;
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// Whether to normalize the CPU percentages.
+        /// </summary>
         public readonly bool? IsNormalizedCpu;
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         public readonly string Metric;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly string? Sort;
+        /// <summary>
+        /// An array of tags to filter by.
+        /// </summary>
         public readonly ImmutableArray<string> TagFilters;
+        /// <summary>
+        /// The text to use as a filter.
+        /// </summary>
         public readonly string? TextFilter;
 
         [OutputConstructor]

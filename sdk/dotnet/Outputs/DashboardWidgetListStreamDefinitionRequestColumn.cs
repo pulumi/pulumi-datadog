@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetListStreamDefinitionRequestColumn
     {
+        /// <summary>
+        /// Widget column field.
+        /// </summary>
         public readonly string Field;
+        /// <summary>
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// </summary>
         public readonly string Width;
 
         [OutputConstructor]

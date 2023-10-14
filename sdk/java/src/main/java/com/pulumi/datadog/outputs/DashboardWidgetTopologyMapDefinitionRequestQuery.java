@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetTopologyMapDefinitionRequestQuery {
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     private List<String> filters;
+    /**
+     * @return APM service.
+     * 
+     */
     private String service;
 
     private DashboardWidgetTopologyMapDefinitionRequestQuery() {}
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     public List<String> filters() {
         return this.filters;
     }
+    /**
+     * @return APM service.
+     * 
+     */
     public String service() {
         return this.service;
     }

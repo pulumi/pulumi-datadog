@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepRequestDefinition {
+    /**
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * 
+     */
     private @Nullable Boolean allowInsecure;
     /**
      * @return The request body.
@@ -45,6 +49,10 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * 
      */
     private @Nullable Integer dnsServerPort;
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     private @Nullable Boolean followRedirects;
     /**
      * @return Host name to perform the test with.
@@ -108,6 +116,10 @@ public final class SyntheticsTestApiStepRequestDefinition {
     private @Nullable String url;
 
     private SyntheticsTestApiStepRequestDefinition() {}
+    /**
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * 
+     */
     public Optional<Boolean> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
     }
@@ -153,6 +165,10 @@ public final class SyntheticsTestApiStepRequestDefinition {
     public Optional<Integer> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
     }
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     public Optional<Boolean> followRedirects() {
         return Optional.ofNullable(this.followRedirects);
     }

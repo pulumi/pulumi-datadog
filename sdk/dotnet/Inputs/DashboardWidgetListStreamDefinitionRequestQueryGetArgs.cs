@@ -12,26 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetListStreamDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        /// <summary>
+        /// The size to use to display an event. Valid values are `s`, `l`.
+        /// </summary>
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
 
         [Input("indexes")]
         private InputList<string>? _indexes;
+
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public InputList<string> Indexes
         {
             get => _indexes ?? (_indexes = new InputList<string>());
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// Widget query.
+        /// </summary>
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetListStreamDefinitionRequestQuerySortGetArgs>? Sort { get; set; }
 
+        /// <summary>
+        /// Storage location (private beta).
+        /// </summary>
         [Input("storage")]
         public Input<string>? Storage { get; set; }
 

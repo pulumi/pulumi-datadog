@@ -85,9 +85,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetLogsPipelinesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter parameter for retrieved pipelines
-        /// </summary>
         [Input("isReadOnly")]
         public string? IsReadOnly { get; set; }
 
@@ -99,9 +96,6 @@ namespace Pulumi.Datadog
 
     public sealed class GetLogsPipelinesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter parameter for retrieved pipelines
-        /// </summary>
         [Input("isReadOnly")]
         public Input<string>? IsReadOnly { get; set; }
 

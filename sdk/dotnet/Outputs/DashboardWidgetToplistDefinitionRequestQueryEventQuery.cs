@@ -13,12 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetToplistDefinitionRequestQueryEventQuery
     {
+        /// <summary>
+        /// The compute options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute> Computes;
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy> GroupBies;
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public readonly ImmutableArray<string> Indexes;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The search options.
+        /// </summary>
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch? Search;
+        /// <summary>
+        /// Storage location (private beta).
+        /// </summary>
         public readonly string? Storage;
 
         [OutputConstructor]

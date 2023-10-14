@@ -12,17 +12,30 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryValueDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs> ConditionalFormats
         {
             get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs>());
@@ -37,12 +50,21 @@ namespace Pulumi.Datadog.Inputs
             set => _formulas = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
@@ -54,9 +76,15 @@ namespace Pulumi.Datadog.Inputs
             set => _queries = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 

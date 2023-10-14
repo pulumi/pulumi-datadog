@@ -10,19 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private String id;
     private String policyType;
     private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy;
 
     private GetMonitorConfigPoliciesMonitorConfigPolicy() {}
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

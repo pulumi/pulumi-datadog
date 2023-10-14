@@ -17,23 +17,47 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs Empty = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs();
 
+    /**
+     * The facet name.
+     * 
+     */
     @Import(name="facet")
     private @Nullable Output<String> facet;
 
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<Output<String>> facet() {
         return Optional.ofNullable(this.facet);
     }
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * A list of exactly one element describing the sort query to use.
+     * 
+     */
     @Import(name="sortQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs> sortQuery;
 
+    /**
+     * @return A list of exactly one element describing the sort query to use.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs>> sortQuery() {
         return Optional.ofNullable(this.sortQuery);
     }
@@ -64,29 +88,65 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(@Nullable Output<String> facet) {
             $.facet = facet;
             return this;
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(String facet) {
             return facet(Output.of(facet));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param sortQuery A list of exactly one element describing the sort query to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sortQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs> sortQuery) {
             $.sortQuery = sortQuery;
             return this;
         }
 
+        /**
+         * @param sortQuery A list of exactly one element describing the sort query to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sortQuery(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs sortQuery) {
             return sortQuery(Output.of(sortQuery));
         }

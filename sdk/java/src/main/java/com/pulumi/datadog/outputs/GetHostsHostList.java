@@ -18,10 +18,6 @@ public final class GetHostsHostList {
     private List<String> apps;
     private String awsName;
     private String hostName;
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private Integer id;
     private Boolean isMuted;
     private Integer lastReportedTime;
@@ -45,10 +41,6 @@ public final class GetHostsHostList {
     public String hostName() {
         return this.hostName;
     }
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public Integer id() {
         return this.id;
     }

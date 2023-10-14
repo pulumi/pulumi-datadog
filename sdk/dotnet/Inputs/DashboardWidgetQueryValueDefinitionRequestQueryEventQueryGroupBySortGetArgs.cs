@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation method.
+        /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
 
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }
 

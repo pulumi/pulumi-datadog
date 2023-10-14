@@ -15,16 +15,32 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
 
     public static final SyntheticsTestOptionsListRetryArgs Empty = new SyntheticsTestOptionsListRetryArgs();
 
+    /**
+     * Number of retries needed to consider a location as failed before sending a notification alert.
+     * 
+     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
+    /**
+     * @return Number of retries needed to consider a location as failed before sending a notification alert.
+     * 
+     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
+    /**
+     * Interval between a failed test and the next retry in milliseconds.
+     * 
+     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
+    /**
+     * @return Interval between a failed test and the next retry in milliseconds.
+     * 
+     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
@@ -54,20 +70,44 @@ public final class SyntheticsTestOptionsListRetryArgs extends com.pulumi.resourc
             $ = new SyntheticsTestOptionsListRetryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
+        /**
+         * @param count Number of retries needed to consider a location as failed before sending a notification alert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
+        /**
+         * @param interval Interval between a failed test and the next retry in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
+        /**
+         * @param interval Interval between a failed test and the next retry in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }

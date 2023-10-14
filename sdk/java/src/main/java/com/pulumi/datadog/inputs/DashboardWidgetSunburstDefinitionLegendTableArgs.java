@@ -13,9 +13,17 @@ public final class DashboardWidgetSunburstDefinitionLegendTableArgs extends com.
 
     public static final DashboardWidgetSunburstDefinitionLegendTableArgs Empty = new DashboardWidgetSunburstDefinitionLegendTableArgs();
 
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -44,11 +52,23 @@ public final class DashboardWidgetSunburstDefinitionLegendTableArgs extends com.
             $ = new DashboardWidgetSunburstDefinitionLegendTableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

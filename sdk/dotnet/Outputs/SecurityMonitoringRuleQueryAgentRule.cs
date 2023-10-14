@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringRuleQueryAgentRule
     {
+        /// <summary>
+        /// **Deprecated**. It won't be applied anymore.
+        /// </summary>
         public readonly string AgentRuleId;
+        /// <summary>
+        /// **Deprecated**. It won't be applied anymore.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

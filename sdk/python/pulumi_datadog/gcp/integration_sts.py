@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationStsArgs', 'IntegrationSts']
@@ -25,13 +25,28 @@ class IntegrationStsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
         """
-        pulumi.set(__self__, "client_email", client_email)
+        IntegrationStsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_email=client_email,
+            automute=automute,
+            host_filters=host_filters,
+            is_cspm_enabled=is_cspm_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_email: pulumi.Input[str],
+             automute: Optional[pulumi.Input[bool]] = None,
+             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_email", client_email)
         if automute is not None:
-            pulumi.set(__self__, "automute", automute)
+            _setter("automute", automute)
         if host_filters is not None:
-            pulumi.set(__self__, "host_filters", host_filters)
+            _setter("host_filters", host_filters)
         if is_cspm_enabled is not None:
-            pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+            _setter("is_cspm_enabled", is_cspm_enabled)
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -98,16 +113,33 @@ class _IntegrationStsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
         :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
         """
+        _IntegrationStsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automute=automute,
+            client_email=client_email,
+            delegate_account_email=delegate_account_email,
+            host_filters=host_filters,
+            is_cspm_enabled=is_cspm_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automute: Optional[pulumi.Input[bool]] = None,
+             client_email: Optional[pulumi.Input[str]] = None,
+             delegate_account_email: Optional[pulumi.Input[str]] = None,
+             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automute is not None:
-            pulumi.set(__self__, "automute", automute)
+            _setter("automute", automute)
         if client_email is not None:
-            pulumi.set(__self__, "client_email", client_email)
+            _setter("client_email", client_email)
         if delegate_account_email is not None:
-            pulumi.set(__self__, "delegate_account_email", delegate_account_email)
+            _setter("delegate_account_email", delegate_account_email)
         if host_filters is not None:
-            pulumi.set(__self__, "host_filters", host_filters)
+            _setter("host_filters", host_filters)
         if is_cspm_enabled is not None:
-            pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+            _setter("is_cspm_enabled", is_cspm_enabled)
 
     @property
     @pulumi.getter
@@ -221,6 +253,10 @@ class IntegrationSts(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationStsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

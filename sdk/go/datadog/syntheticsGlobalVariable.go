@@ -75,7 +75,7 @@ type SyntheticsGlobalVariable struct {
 	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -138,7 +138,7 @@ type syntheticsGlobalVariableState struct {
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value *string `pulumi:"value"`
 }
 
@@ -159,7 +159,7 @@ type SyntheticsGlobalVariableState struct {
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value pulumi.StringPtrInput
 }
 
@@ -184,7 +184,7 @@ type syntheticsGlobalVariableArgs struct {
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value string `pulumi:"value"`
 }
 
@@ -206,7 +206,7 @@ type SyntheticsGlobalVariableArgs struct {
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value pulumi.StringInput
 }
 
@@ -363,7 +363,7 @@ func (o SyntheticsGlobalVariableOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The value of the global variable.
+// Value for the parser to use, required for type `jsonPath` or `regex`.
 func (o SyntheticsGlobalVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

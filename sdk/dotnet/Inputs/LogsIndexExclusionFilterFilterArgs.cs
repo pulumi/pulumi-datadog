@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("query")]
         public Input<string>? Query { get; set; }
 
+        /// <summary>
+        /// The fraction of logs excluded by the exclusion filter, when active.
+        /// </summary>
         [Input("sampleRate")]
         public Input<double>? SampleRate { get; set; }
 

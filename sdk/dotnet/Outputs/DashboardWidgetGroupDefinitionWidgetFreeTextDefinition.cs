@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition
     {
+        /// <summary>
+        /// The color of the text in the widget.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         public readonly string? FontSize;
+        /// <summary>
+        /// The text to display in the widget.
+        /// </summary>
         public readonly string Text;
+        /// <summary>
+        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TextAlign;
 
         [OutputConstructor]

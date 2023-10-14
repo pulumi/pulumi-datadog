@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("content", required: true)]
         private Input<string>? _content;
+
+        /// <summary>
+        /// Content of the certificate.
+        /// </summary>
         public Input<string>? Content
         {
             get => _content;
@@ -24,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// File name for the certificate.
+        /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
 

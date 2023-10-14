@@ -32,6 +32,8 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
     }
 
     /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
      * @deprecated
      * Use `values` instead.
      * 
@@ -41,6 +43,8 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
     private @Nullable Output<String> value;
 
     /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
      * @deprecated
      * Use `values` instead.
      * 
@@ -50,9 +54,17 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
         return Optional.ofNullable(this.value);
     }
 
+    /**
+     * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * 
+     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
+    /**
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * 
+     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -105,6 +117,8 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
         }
 
         /**
+         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -118,6 +132,8 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
         }
 
         /**
+         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -129,15 +145,33 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
             return value(Output.of(value));
         }
 
+        /**
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

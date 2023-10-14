@@ -15,23 +15,47 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy
 
     public static final DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs Empty = new DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs();
 
+    /**
+     * The aggregation method.
+     * 
+     */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public Output<String> aggregation() {
         return this.aggregation;
     }
 
+    /**
+     * The metric from the request to correlate with this conditional format.
+     * 
+     */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
+    /**
+     * @return The metric from the request to correlate with this conditional format.
+     * 
+     */
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -62,29 +86,65 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy
             $ = new DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregation The aggregation method.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(Output<String> aggregation) {
             $.aggregation = aggregation;
             return this;
         }
 
+        /**
+         * @param aggregation The aggregation method.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
         }
 
+        /**
+         * @param metric The metric from the request to correlate with this conditional format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
+        /**
+         * @param metric The metric from the request to correlate with this conditional format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

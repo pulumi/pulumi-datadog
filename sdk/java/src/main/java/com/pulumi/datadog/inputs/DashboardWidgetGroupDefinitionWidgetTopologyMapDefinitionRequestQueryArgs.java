@@ -14,23 +14,47 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
 
     public static final DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs();
 
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
 
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     @Import(name="filters", required=true)
     private Output<List<String>> filters;
 
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     public Output<List<String>> filters() {
         return this.filters;
     }
 
+    /**
+     * APM service.
+     * 
+     */
     @Import(name="service", required=true)
     private Output<String> service;
 
+    /**
+     * @return APM service.
+     * 
+     */
     public Output<String> service() {
         return this.service;
     }
@@ -61,33 +85,75 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
             $ = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(Output<List<String>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<String> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(String... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(Output<String> service) {
             $.service = service;
             return this;
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(String service) {
             return service(Output.of(service));
         }

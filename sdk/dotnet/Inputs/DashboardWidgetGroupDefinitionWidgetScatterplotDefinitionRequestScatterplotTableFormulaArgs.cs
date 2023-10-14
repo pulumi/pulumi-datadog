@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An expression alias.
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+        /// </summary>
         [Input("dimension", required: true)]
         public Input<string> Dimension { get; set; } = null!;
 
+        /// <summary>
+        /// A string expression built from queries, formulas, and functions.
+        /// </summary>
         [Input("formulaExpression", required: true)]
         public Input<string> FormulaExpression { get; set; } = null!;
 

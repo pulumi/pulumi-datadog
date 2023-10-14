@@ -12,30 +12,57 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// The content of the note.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         [Input("fontSize")]
         public Input<string>? FontSize { get; set; }
 
+        /// <summary>
+        /// Whether to add padding or not.
+        /// </summary>
         [Input("hasPadding")]
         public Input<bool>? HasPadding { get; set; }
 
+        /// <summary>
+        /// Whether to show a tick or not.
+        /// </summary>
         [Input("showTick")]
         public Input<bool>? ShowTick { get; set; }
 
+        /// <summary>
+        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
+        /// <summary>
+        /// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+        /// </summary>
         [Input("tickEdge")]
         public Input<string>? TickEdge { get; set; }
 
+        /// <summary>
+        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%"` is centered alignment.
+        /// </summary>
         [Input("tickPos")]
         public Input<string>? TickPos { get; set; }
 
+        /// <summary>
+        /// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+        /// </summary>
         [Input("verticalAlign")]
         public Input<string>? VerticalAlign { get; set; }
 

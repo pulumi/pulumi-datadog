@@ -15,16 +15,32 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
 
     public static final SyntheticsTestApiStepRequestClientCertificateCertArgs Empty = new SyntheticsTestApiStepRequestClientCertificateCertArgs();
 
+    /**
+     * Content of the certificate.
+     * 
+     */
     @Import(name="content", required=true)
     private Output<String> content;
 
+    /**
+     * @return Content of the certificate.
+     * 
+     */
     public Output<String> content() {
         return this.content;
     }
 
+    /**
+     * File name for the certificate.
+     * 
+     */
     @Import(name="filename")
     private @Nullable Output<String> filename;
 
+    /**
+     * @return File name for the certificate.
+     * 
+     */
     public Optional<Output<String>> filename() {
         return Optional.ofNullable(this.filename);
     }
@@ -54,20 +70,44 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
             $ = new SyntheticsTestApiStepRequestClientCertificateCertArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param content Content of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder content(Output<String> content) {
             $.content = content;
             return this;
         }
 
+        /**
+         * @param content Content of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
 
+        /**
+         * @param filename File name for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filename(@Nullable Output<String> filename) {
             $.filename = filename;
             return this;
         }
 
+        /**
+         * @param filename File name for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filename(String filename) {
             return filename(Output.of(filename));
         }

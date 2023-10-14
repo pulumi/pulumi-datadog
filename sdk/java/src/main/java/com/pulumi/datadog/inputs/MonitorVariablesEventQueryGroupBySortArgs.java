@@ -15,23 +15,47 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
 
     public static final MonitorVariablesEventQueryGroupBySortArgs Empty = new MonitorVariablesEventQueryGroupBySortArgs();
 
+    /**
+     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
+    /**
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * 
+     */
     public Output<String> aggregation() {
         return this.aggregation;
     }
 
+    /**
+     * The measurable attribute to compute.
+     * 
+     */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
+    /**
+     * @return The measurable attribute to compute.
+     * 
+     */
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
 
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<String> order;
 
+    /**
+     * @return Direction of sort. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -62,29 +86,65 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
             $ = new MonitorVariablesEventQueryGroupBySortArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(Output<String> aggregation) {
             $.aggregation = aggregation;
             return this;
         }
 
+        /**
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
         }
 
+        /**
+         * @param metric The measurable attribute to compute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
+        /**
+         * @param metric The measurable attribute to compute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }
 
+        /**
+         * @param order Direction of sort. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Direction of sort. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

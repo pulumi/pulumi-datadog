@@ -16,66 +16,122 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
 
     public static final DashboardWidgetImageDefinitionArgs Empty = new DashboardWidgetImageDefinitionArgs();
 
+    /**
+     * Whether to display a background or not.
+     * 
+     */
     @Import(name="hasBackground")
     private @Nullable Output<Boolean> hasBackground;
 
+    /**
+     * @return Whether to display a background or not.
+     * 
+     */
     public Optional<Output<Boolean>> hasBackground() {
         return Optional.ofNullable(this.hasBackground);
     }
 
+    /**
+     * Whether to display a border or not.
+     * 
+     */
     @Import(name="hasBorder")
     private @Nullable Output<Boolean> hasBorder;
 
+    /**
+     * @return Whether to display a border or not.
+     * 
+     */
     public Optional<Output<Boolean>> hasBorder() {
         return Optional.ofNullable(this.hasBorder);
     }
 
+    /**
+     * The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="horizontalAlign")
     private @Nullable Output<String> horizontalAlign;
 
+    /**
+     * @return The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> horizontalAlign() {
         return Optional.ofNullable(this.horizontalAlign);
     }
 
+    /**
+     * The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     * 
+     */
     @Import(name="margin")
     private @Nullable Output<String> margin;
 
+    /**
+     * @return The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     * 
+     */
     public Optional<Output<String>> margin() {
         return Optional.ofNullable(this.margin);
     }
 
+    /**
+     * The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     * 
+     */
     @Import(name="sizing")
     private @Nullable Output<String> sizing;
 
+    /**
+     * @return The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     * 
+     */
     public Optional<Output<String>> sizing() {
         return Optional.ofNullable(this.sizing);
     }
 
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public Output<String> url() {
         return this.url;
     }
 
+    /**
+     * The URL in dark mode to use as a data source for the widget.
+     * 
+     */
     @Import(name="urlDarkTheme")
     private @Nullable Output<String> urlDarkTheme;
 
+    /**
+     * @return The URL in dark mode to use as a data source for the widget.
+     * 
+     */
     public Optional<Output<String>> urlDarkTheme() {
         return Optional.ofNullable(this.urlDarkTheme);
     }
 
+    /**
+     * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     @Import(name="verticalAlign")
     private @Nullable Output<String> verticalAlign;
 
+    /**
+     * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     public Optional<Output<String>> verticalAlign() {
         return Optional.ofNullable(this.verticalAlign);
     }
@@ -111,53 +167,113 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
             $ = new DashboardWidgetImageDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hasBackground Whether to display a background or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasBackground(@Nullable Output<Boolean> hasBackground) {
             $.hasBackground = hasBackground;
             return this;
         }
 
+        /**
+         * @param hasBackground Whether to display a background or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasBackground(Boolean hasBackground) {
             return hasBackground(Output.of(hasBackground));
         }
 
+        /**
+         * @param hasBorder Whether to display a border or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasBorder(@Nullable Output<Boolean> hasBorder) {
             $.hasBorder = hasBorder;
             return this;
         }
 
+        /**
+         * @param hasBorder Whether to display a border or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasBorder(Boolean hasBorder) {
             return hasBorder(Output.of(hasBorder));
         }
 
+        /**
+         * @param horizontalAlign The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder horizontalAlign(@Nullable Output<String> horizontalAlign) {
             $.horizontalAlign = horizontalAlign;
             return this;
         }
 
+        /**
+         * @param horizontalAlign The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder horizontalAlign(String horizontalAlign) {
             return horizontalAlign(Output.of(horizontalAlign));
         }
 
+        /**
+         * @param margin The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder margin(@Nullable Output<String> margin) {
             $.margin = margin;
             return this;
         }
 
+        /**
+         * @param margin The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder margin(String margin) {
             return margin(Output.of(margin));
         }
 
+        /**
+         * @param sizing The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizing(@Nullable Output<String> sizing) {
             $.sizing = sizing;
             return this;
         }
 
+        /**
+         * @param sizing The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizing(String sizing) {
             return sizing(Output.of(sizing));
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -168,7 +284,7 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -177,20 +293,44 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
             return url(Output.of(url));
         }
 
+        /**
+         * @param urlDarkTheme The URL in dark mode to use as a data source for the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlDarkTheme(@Nullable Output<String> urlDarkTheme) {
             $.urlDarkTheme = urlDarkTheme;
             return this;
         }
 
+        /**
+         * @param urlDarkTheme The URL in dark mode to use as a data source for the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlDarkTheme(String urlDarkTheme) {
             return urlDarkTheme(Output.of(urlDarkTheme));
         }
 
+        /**
+         * @param verticalAlign The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder verticalAlign(@Nullable Output<String> verticalAlign) {
             $.verticalAlign = verticalAlign;
             return this;
         }
 
+        /**
+         * @param verticalAlign The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder verticalAlign(String verticalAlign) {
             return verticalAlign(Output.of(verticalAlign));
         }

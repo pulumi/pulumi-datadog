@@ -13,15 +13,45 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         public readonly string Env;
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<string> GroupBies;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Name of operation on service.
+        /// </summary>
         public readonly string? OperationName;
+        /// <summary>
+        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// </summary>
         public readonly string? PrimaryTagName;
+        /// <summary>
+        /// Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+        /// </summary>
         public readonly string? PrimaryTagValue;
+        /// <summary>
+        /// APM resource.
+        /// </summary>
         public readonly string? ResourceName;
+        /// <summary>
+        /// APM service.
+        /// </summary>
         public readonly string Service;
+        /// <summary>
+        /// APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        /// </summary>
         public readonly string Stat;
 
         [OutputConstructor]

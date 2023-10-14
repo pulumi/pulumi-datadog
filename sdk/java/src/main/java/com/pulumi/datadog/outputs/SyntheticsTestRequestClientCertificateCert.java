@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestRequestClientCertificateCert {
+    /**
+     * @return Content of the certificate.
+     * 
+     */
     private String content;
+    /**
+     * @return File name for the certificate.
+     * 
+     */
     private @Nullable String filename;
 
     private SyntheticsTestRequestClientCertificateCert() {}
+    /**
+     * @return Content of the certificate.
+     * 
+     */
     public String content() {
         return this.content;
     }
+    /**
+     * @return File name for the certificate.
+     * 
+     */
     public Optional<String> filename() {
         return Optional.ofNullable(this.filename);
     }

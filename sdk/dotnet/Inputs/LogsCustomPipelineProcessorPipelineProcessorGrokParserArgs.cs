@@ -15,20 +15,33 @@ namespace Pulumi.Datadog.Inputs
         [Input("grok", required: true)]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokArgs> Grok { get; set; } = null!;
 
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("samples")]
         private InputList<string>? _samples;
+
+        /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
         public InputList<string> Samples
         {
             get => _samples ?? (_samples = new InputList<string>());
             set => _samples = value;
         }
 
+        /// <summary>
+        /// Name of the log attribute to parse.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

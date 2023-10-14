@@ -13,15 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition
     {
+        /// <summary>
+        /// The ID of the monitor used by the widget.
+        /// </summary>
         public readonly string AlertId;
+        /// <summary>
+        /// The precision to use when displaying the value. Use `*` for maximum precision.
+        /// </summary>
         public readonly int? Precision;
+        /// <summary>
+        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TextAlign;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
+        /// <summary>
+        /// The unit for the value displayed in the widget.
+        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

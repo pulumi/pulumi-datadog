@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("columns")]
         private InputList<string>? _columns;
+
+        /// <summary>
+        /// Column properties used by the front end for display.
+        /// </summary>
         public InputList<string> Columns
         {
             get => _columns ?? (_columns = new InputList<string>());
@@ -22,39 +26,64 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("indexes")]
         private InputList<string>? _indexes;
+
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public InputList<string> Indexes
         {
             get => _indexes ?? (_indexes = new InputList<string>());
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        /// <summary>
+        /// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+        /// </summary>
         [Input("messageDisplay")]
         public Input<string>? MessageDisplay { get; set; }
 
         [Input("query")]
         public Input<string>? Query { get; set; }
 
+        /// <summary>
+        /// If the date column should be displayed.
+        /// </summary>
         [Input("showDateColumn")]
         public Input<bool>? ShowDateColumn { get; set; }
 
+        /// <summary>
+        /// If the message column should be displayed.
+        /// </summary>
         [Input("showMessageColumn")]
         public Input<bool>? ShowMessageColumn { get; set; }
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortGetArgs>? Sort { get; set; }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

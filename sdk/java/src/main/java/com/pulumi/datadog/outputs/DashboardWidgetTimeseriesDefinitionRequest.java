@@ -24,61 +24,157 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * 
+     */
     private @Nullable String displayType;
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestLogQuery logQuery;
+    /**
+     * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestMetadata> metadatas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
+    /**
+     * @return A Boolean indicating whether the request uses the right or left Y-Axis.
+     * 
+     */
     private @Nullable Boolean onRightYaxis;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestStyle style;
 
     private DashboardWidgetTimeseriesDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
+    /**
+     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * 
+     */
     public Optional<String> displayType() {
         return Optional.ofNullable(this.displayType);
     }
     public List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetTimeseriesDefinitionRequestMetadata> metadatas() {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestNetworkQuery> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
+    /**
+     * @return A Boolean indicating whether the request uses the right or left Y-Axis.
+     * 
+     */
     public Optional<Boolean> onRightYaxis() {
         return Optional.ofNullable(this.onRightYaxis);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetTimeseriesDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestStyle> style() {
         return Optional.ofNullable(this.style);
     }

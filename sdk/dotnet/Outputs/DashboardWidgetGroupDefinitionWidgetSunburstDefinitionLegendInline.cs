@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline
     {
+        /// <summary>
+        /// Whether to hide the percentages of the groups.
+        /// </summary>
         public readonly bool? HidePercent;
+        /// <summary>
+        /// Setting this to True hides values.
+        /// </summary>
         public readonly bool? HideValue;
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("query", required: true)]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryGetArgs> Query { get; set; } = null!;
 
+        /// <summary>
+        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// </summary>
         [Input("requestType", required: true)]
         public Input<string> RequestType { get; set; } = null!;
 

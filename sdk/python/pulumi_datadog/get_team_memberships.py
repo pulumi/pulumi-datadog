@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -99,7 +99,6 @@ def get_team_memberships(filter_keyword: Optional[str] = None,
 
 
     :param str filter_keyword: Search query, can be user email or name.
-    :param str team_id: The team's identifier.
     """
     __args__ = dict()
     __args__['filterKeyword'] = filter_keyword
@@ -133,6 +132,5 @@ def get_team_memberships_output(filter_keyword: Optional[pulumi.Input[Optional[s
 
 
     :param str filter_keyword: Search query, can be user email or name.
-    :param str team_id: The team's identifier.
     """
     ...

@@ -12,12 +12,20 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
     private List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery> queries;
+    /**
+     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     private String requestType;
 
     private DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest() {}
     public List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery> queries() {
         return this.queries;
     }
+    /**
+     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     public String requestType() {
         return this.requestType;
     }

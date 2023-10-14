@@ -220,15 +220,31 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
     public Output<List<LogsCustomPipelineFilter>> filters() {
         return this.filters;
     }
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Output<Optional<Boolean>> isEnabled() {
         return Codegen.optional(this.isEnabled);
     }
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
