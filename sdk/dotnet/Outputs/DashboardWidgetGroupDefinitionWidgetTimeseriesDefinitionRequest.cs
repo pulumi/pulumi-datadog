@@ -13,19 +13,55 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery? AuditQuery;
+        /// <summary>
+        /// How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+        /// </summary>
         public readonly string? DisplayType;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
+        /// <summary>
+        /// A Boolean indicating whether the request uses the right or left Y-Axis.
+        /// </summary>
         public readonly bool? OnRightYaxis;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? Style;
 
         [OutputConstructor]

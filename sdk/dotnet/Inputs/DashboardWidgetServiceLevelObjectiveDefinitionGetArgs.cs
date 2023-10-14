@@ -12,20 +12,36 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetServiceLevelObjectiveDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional filters applied to the SLO query.
+        /// </summary>
         [Input("additionalQueryFilters")]
         public Input<string>? AdditionalQueryFilters { get; set; }
 
+        /// <summary>
+        /// The global time target of the widget.
+        /// </summary>
         [Input("globalTimeTarget")]
         public Input<string>? GlobalTimeTarget { get; set; }
 
+        /// <summary>
+        /// Whether to show the error budget or not.
+        /// </summary>
         [Input("showErrorBudget")]
         public Input<bool>? ShowErrorBudget { get; set; }
 
+        /// <summary>
+        /// ID of an SLO to query.
+        /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;
 
         [Input("timeWindows", required: true)]
         private InputList<string>? _timeWindows;
+
+        /// <summary>
+        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+        /// </summary>
         public InputList<string> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<string>());
@@ -33,20 +49,32 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 
+        /// <summary>
+        /// The view mode for the widget. Valid values are `overall`, `component`, `both`.
+        /// </summary>
         [Input("viewMode", required: true)]
         public Input<string> ViewMode { get; set; } = null!;
 
+        /// <summary>
+        /// The type of view to use when displaying the widget. Only `detail` is supported.
+        /// </summary>
         [Input("viewType", required: true)]
         public Input<string> ViewType { get; set; } = null!;
 

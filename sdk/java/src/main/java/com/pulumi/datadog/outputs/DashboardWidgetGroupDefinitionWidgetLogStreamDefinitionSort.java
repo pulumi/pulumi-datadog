@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
+    /**
+     * @return The facet path for the column.
+     * 
+     */
     private String column;
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     private String order;
 
     private DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort() {}
+    /**
+     * @return The facet path for the column.
+     * 
+     */
     public String column() {
         return this.column;
     }
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public String order() {
         return this.order;
     }

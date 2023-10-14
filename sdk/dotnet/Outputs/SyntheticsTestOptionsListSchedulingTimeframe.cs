@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptionsListSchedulingTimeframe
     {
+        /// <summary>
+        /// Number representing the day of the week
+        /// </summary>
         public readonly int Day;
+        /// <summary>
+        /// The hour of the day on which scheduling starts.
+        /// </summary>
         public readonly string From;
+        /// <summary>
+        /// The hour of the day on which scheduling ends.
+        /// </summary>
         public readonly string To;
 
         [OutputConstructor]

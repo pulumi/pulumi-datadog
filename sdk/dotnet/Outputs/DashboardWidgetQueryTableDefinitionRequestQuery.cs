@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryTableDefinitionRequestQuery
     {
+        /// <summary>
+        /// The APM Dependency Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        /// <summary>
+        /// The APM Resource Stats query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery? EventQuery;
+        /// <summary>
+        /// A timeseries formula and functions metrics query.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery? MetricQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The slo query using formulas and functions.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery? SloQuery;
 
         [OutputConstructor]

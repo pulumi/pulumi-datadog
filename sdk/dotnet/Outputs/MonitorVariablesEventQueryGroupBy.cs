@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorVariablesEventQueryGroupBy
     {
+        /// <summary>
+        /// The event facet.
+        /// </summary>
         public readonly string Facet;
+        /// <summary>
+        /// The number of groups to return.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly Outputs.MonitorVariablesEventQueryGroupBySort? Sort;
 
         [OutputConstructor]

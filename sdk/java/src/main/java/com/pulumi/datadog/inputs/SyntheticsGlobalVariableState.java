@@ -140,14 +140,14 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
     }
 
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the global variable.
+     * @return Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -375,7 +375,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value Value for the parser to use, required for type `json_path` or `regex`.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class SyntheticsGlobalVariableState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value Value for the parser to use, required for type `json_path` or `regex`.
          * 
          * @return builder
          * 

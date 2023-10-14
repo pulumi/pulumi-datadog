@@ -12,27 +12,48 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
         [Input("apmStatsQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryGetArgs>? ApmStatsQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyleGetArgs>? Style { get; set; }
 

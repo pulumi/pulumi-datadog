@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Match rules for your grok parser.
+        /// </summary>
         [Input("matchRules", required: true)]
         public Input<string> MatchRules { get; set; } = null!;
 
+        /// <summary>
+        /// Support rules for your grok parser.
+        /// </summary>
         [Input("supportRules", required: true)]
         public Input<string> SupportRules { get; set; } = null!;
 

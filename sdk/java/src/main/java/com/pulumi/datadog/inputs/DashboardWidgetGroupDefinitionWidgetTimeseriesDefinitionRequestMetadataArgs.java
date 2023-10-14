@@ -15,16 +15,32 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataArgs Empty = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataArgs();
 
+    /**
+     * The expression alias.
+     * 
+     */
     @Import(name="aliasName")
     private @Nullable Output<String> aliasName;
 
+    /**
+     * @return The expression alias.
+     * 
+     */
     public Optional<Output<String>> aliasName() {
         return Optional.ofNullable(this.aliasName);
     }
 
+    /**
+     * The expression name.
+     * 
+     */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
+    /**
+     * @return The expression name.
+     * 
+     */
     public Output<String> expression() {
         return this.expression;
     }
@@ -54,20 +70,44 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aliasName The expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aliasName(@Nullable Output<String> aliasName) {
             $.aliasName = aliasName;
             return this;
         }
 
+        /**
+         * @param aliasName The expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aliasName(String aliasName) {
             return aliasName(Output.of(aliasName));
         }
 
+        /**
+         * @param expression The expression name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression The expression name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }

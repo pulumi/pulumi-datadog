@@ -13,33 +13,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn> columns;
+    /**
+     * @return APM Environment.
+     * 
+     */
     private String env;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return The organization&#39;s host group name and value.
+     * 
+     */
     private String primaryTag;
+    /**
+     * @return The resource name.
+     * 
+     */
     private @Nullable String resource;
+    /**
+     * @return The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     * 
+     */
     private String rowType;
+    /**
+     * @return APM service.
+     * 
+     */
     private String service;
 
     private DashboardWidgetQueryTableDefinitionRequestApmStatsQuery() {}
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     public List<DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
+    /**
+     * @return APM Environment.
+     * 
+     */
     public String env() {
         return this.env;
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The organization&#39;s host group name and value.
+     * 
+     */
     public String primaryTag() {
         return this.primaryTag;
     }
+    /**
+     * @return The resource name.
+     * 
+     */
     public Optional<String> resource() {
         return Optional.ofNullable(this.resource);
     }
+    /**
+     * @return The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     * 
+     */
     public String rowType() {
         return this.rowType;
     }
+    /**
+     * @return APM service.
+     * 
+     */
     public String service() {
         return this.service;
     }

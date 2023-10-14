@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationResourceArgs', 'IntegrationResource']
@@ -27,14 +27,31 @@ class IntegrationResourceArgs:
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "resource_id", resource_id)
+        IntegrationResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            resource_id=resource_id,
+            enable_custom_metrics=enable_custom_metrics,
+            resource_type=resource_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_id", account_id)
+        _setter("resource_id", resource_id)
         if enable_custom_metrics is not None:
-            pulumi.set(__self__, "enable_custom_metrics", enable_custom_metrics)
+            _setter("enable_custom_metrics", enable_custom_metrics)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -113,16 +130,33 @@ class _IntegrationResourceState:
         :param pulumi.Input[str] resource_type: The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
+        _IntegrationResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            enable_custom_metrics=enable_custom_metrics,
+            resource_id=resource_id,
+            resource_type=resource_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if enable_custom_metrics is not None:
-            pulumi.set(__self__, "enable_custom_metrics", enable_custom_metrics)
+            _setter("enable_custom_metrics", enable_custom_metrics)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -286,6 +320,10 @@ class IntegrationResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

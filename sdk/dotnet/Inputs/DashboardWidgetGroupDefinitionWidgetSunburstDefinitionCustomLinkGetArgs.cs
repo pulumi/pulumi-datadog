@@ -12,15 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The flag for toggling context menu link visibility.
+        /// </summary>
         [Input("isHidden")]
         public Input<bool>? IsHidden { get; set; }
 
+        /// <summary>
+        /// The label for the custom link URL.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The URL of the custom link.
+        /// </summary>
         [Input("link")]
         public Input<string>? Link { get; set; }
 
+        /// <summary>
+        /// The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+        /// </summary>
         [Input("overrideLabel")]
         public Input<string>? OverrideLabel { get; set; }
 

@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
+    /**
+     * @return The aggregation method.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return The facet name.
+     * 
+     */
     private @Nullable String facet;
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     private String order;
 
     private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery() {}
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<String> facet() {
         return Optional.ofNullable(this.facet);
     }
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public String order() {
         return this.order;
     }

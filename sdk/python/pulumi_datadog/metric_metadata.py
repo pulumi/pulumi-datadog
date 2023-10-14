@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['MetricMetadataArgs', 'MetricMetadata']
@@ -31,19 +31,40 @@ class MetricMetadataArgs:
         :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
-        pulumi.set(__self__, "metric", metric)
+        MetricMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            description=description,
+            per_unit=per_unit,
+            short_name=short_name,
+            statsd_interval=statsd_interval,
+            type=type,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             per_unit: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             statsd_interval: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric", metric)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if per_unit is not None:
-            pulumi.set(__self__, "per_unit", per_unit)
+            _setter("per_unit", per_unit)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if statsd_interval is not None:
-            pulumi.set(__self__, "statsd_interval", statsd_interval)
+            _setter("statsd_interval", statsd_interval)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -150,20 +171,41 @@ class _MetricMetadataState:
         :param pulumi.Input[str] type: Metric type such as `gauge` or `rate`.
         :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
         """
+        _MetricMetadataState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metric=metric,
+            per_unit=per_unit,
+            short_name=short_name,
+            statsd_interval=statsd_interval,
+            type=type,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             metric: Optional[pulumi.Input[str]] = None,
+             per_unit: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             statsd_interval: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metric is not None:
-            pulumi.set(__self__, "metric", metric)
+            _setter("metric", metric)
         if per_unit is not None:
-            pulumi.set(__self__, "per_unit", per_unit)
+            _setter("per_unit", per_unit)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if statsd_interval is not None:
-            pulumi.set(__self__, "statsd_interval", statsd_interval)
+            _setter("statsd_interval", statsd_interval)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -337,6 +379,10 @@ class MetricMetadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricMetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

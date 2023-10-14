@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetIframeDefinition
     {
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         public readonly string Url;
 

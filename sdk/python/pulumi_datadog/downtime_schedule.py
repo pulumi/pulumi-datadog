@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,23 +34,48 @@ class DowntimeScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_end_states: States that will trigger a monitor notification when the `notify_end_types` action occurs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_end_types: Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
         """
-        pulumi.set(__self__, "scope", scope)
+        DowntimeScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            display_timezone=display_timezone,
+            message=message,
+            monitor_identifier=monitor_identifier,
+            mute_first_recovery_notification=mute_first_recovery_notification,
+            notify_end_states=notify_end_states,
+            notify_end_types=notify_end_types,
+            one_time_schedule=one_time_schedule,
+            recurring_schedule=recurring_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: pulumi.Input[str],
+             display_timezone: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             monitor_identifier: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']] = None,
+             mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
+             notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
+             recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scope", scope)
         if display_timezone is not None:
-            pulumi.set(__self__, "display_timezone", display_timezone)
+            _setter("display_timezone", display_timezone)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if monitor_identifier is not None:
-            pulumi.set(__self__, "monitor_identifier", monitor_identifier)
+            _setter("monitor_identifier", monitor_identifier)
         if mute_first_recovery_notification is not None:
-            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
+            _setter("mute_first_recovery_notification", mute_first_recovery_notification)
         if notify_end_states is not None:
-            pulumi.set(__self__, "notify_end_states", notify_end_states)
+            _setter("notify_end_states", notify_end_states)
         if notify_end_types is not None:
-            pulumi.set(__self__, "notify_end_types", notify_end_types)
+            _setter("notify_end_types", notify_end_types)
         if one_time_schedule is not None:
-            pulumi.set(__self__, "one_time_schedule", one_time_schedule)
+            _setter("one_time_schedule", one_time_schedule)
         if recurring_schedule is not None:
-            pulumi.set(__self__, "recurring_schedule", recurring_schedule)
+            _setter("recurring_schedule", recurring_schedule)
 
     @property
     @pulumi.getter
@@ -173,24 +198,49 @@ class _DowntimeScheduleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_end_types: Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
         :param pulumi.Input[str] scope: The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
         """
+        _DowntimeScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_timezone=display_timezone,
+            message=message,
+            monitor_identifier=monitor_identifier,
+            mute_first_recovery_notification=mute_first_recovery_notification,
+            notify_end_states=notify_end_states,
+            notify_end_types=notify_end_types,
+            one_time_schedule=one_time_schedule,
+            recurring_schedule=recurring_schedule,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_timezone: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             monitor_identifier: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']] = None,
+             mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
+             notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
+             recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_timezone is not None:
-            pulumi.set(__self__, "display_timezone", display_timezone)
+            _setter("display_timezone", display_timezone)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if monitor_identifier is not None:
-            pulumi.set(__self__, "monitor_identifier", monitor_identifier)
+            _setter("monitor_identifier", monitor_identifier)
         if mute_first_recovery_notification is not None:
-            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
+            _setter("mute_first_recovery_notification", mute_first_recovery_notification)
         if notify_end_states is not None:
-            pulumi.set(__self__, "notify_end_states", notify_end_states)
+            _setter("notify_end_states", notify_end_states)
         if notify_end_types is not None:
-            pulumi.set(__self__, "notify_end_types", notify_end_types)
+            _setter("notify_end_types", notify_end_types)
         if one_time_schedule is not None:
-            pulumi.set(__self__, "one_time_schedule", one_time_schedule)
+            _setter("one_time_schedule", one_time_schedule)
         if recurring_schedule is not None:
-            pulumi.set(__self__, "recurring_schedule", recurring_schedule)
+            _setter("recurring_schedule", recurring_schedule)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="displayTimezone")
@@ -350,6 +400,10 @@ class DowntimeSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DowntimeScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -375,11 +429,26 @@ class DowntimeSchedule(pulumi.CustomResource):
 
             __props__.__dict__["display_timezone"] = display_timezone
             __props__.__dict__["message"] = message
+            if monitor_identifier is not None and not isinstance(monitor_identifier, DowntimeScheduleMonitorIdentifierArgs):
+                monitor_identifier = monitor_identifier or {}
+                def _setter(key, value):
+                    monitor_identifier[key] = value
+                DowntimeScheduleMonitorIdentifierArgs._configure(_setter, **monitor_identifier)
             __props__.__dict__["monitor_identifier"] = monitor_identifier
             __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
             __props__.__dict__["notify_end_states"] = notify_end_states
             __props__.__dict__["notify_end_types"] = notify_end_types
+            if one_time_schedule is not None and not isinstance(one_time_schedule, DowntimeScheduleOneTimeScheduleArgs):
+                one_time_schedule = one_time_schedule or {}
+                def _setter(key, value):
+                    one_time_schedule[key] = value
+                DowntimeScheduleOneTimeScheduleArgs._configure(_setter, **one_time_schedule)
             __props__.__dict__["one_time_schedule"] = one_time_schedule
+            if recurring_schedule is not None and not isinstance(recurring_schedule, DowntimeScheduleRecurringScheduleArgs):
+                recurring_schedule = recurring_schedule or {}
+                def _setter(key, value):
+                    recurring_schedule[key] = value
+                DowntimeScheduleRecurringScheduleArgs._configure(_setter, **recurring_schedule)
             __props__.__dict__["recurring_schedule"] = recurring_schedule
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

@@ -23,108 +23,212 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
 
     public static final DashboardWidgetTimeseriesDefinitionArgs Empty = new DashboardWidgetTimeseriesDefinitionArgs();
 
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionCustomLinkArgs>> customLinks;
 
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
     }
 
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="events")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionEventArgs>> events;
 
+    /**
+     * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionEventArgs>>> events() {
         return Optional.ofNullable(this.events);
     }
 
+    /**
+     * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     * 
+     */
     @Import(name="legendColumns")
     private @Nullable Output<List<String>> legendColumns;
 
+    /**
+     * @return A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     * 
+     */
     public Optional<Output<List<String>>> legendColumns() {
         return Optional.ofNullable(this.legendColumns);
     }
 
+    /**
+     * The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     * 
+     */
     @Import(name="legendLayout")
     private @Nullable Output<String> legendLayout;
 
+    /**
+     * @return The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     * 
+     */
     public Optional<Output<String>> legendLayout() {
         return Optional.ofNullable(this.legendLayout);
     }
 
+    /**
+     * The size of the legend displayed in the widget.
+     * 
+     */
     @Import(name="legendSize")
     private @Nullable Output<String> legendSize;
 
+    /**
+     * @return The size of the legend displayed in the widget.
+     * 
+     */
     public Optional<Output<String>> legendSize() {
         return Optional.ofNullable(this.legendSize);
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * 
+     */
     @Import(name="markers")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionMarkerArgs>> markers;
 
+    /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionMarkerArgs>>> markers() {
         return Optional.ofNullable(this.markers);
     }
 
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestArgs>> requests;
 
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
     }
 
+    /**
+     * A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * 
+     */
     @Import(name="rightYaxis")
     private @Nullable Output<DashboardWidgetTimeseriesDefinitionRightYaxisArgs> rightYaxis;
 
+    /**
+     * @return A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetTimeseriesDefinitionRightYaxisArgs>> rightYaxis() {
         return Optional.ofNullable(this.rightYaxis);
     }
 
+    /**
+     * Whether or not to show the legend on this widget.
+     * 
+     */
     @Import(name="showLegend")
     private @Nullable Output<Boolean> showLegend;
 
+    /**
+     * @return Whether or not to show the legend on this widget.
+     * 
+     */
     public Optional<Output<Boolean>> showLegend() {
         return Optional.ofNullable(this.showLegend);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
 
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     @Import(name="yaxis")
     private @Nullable Output<DashboardWidgetTimeseriesDefinitionYaxisArgs> yaxis;
 
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetTimeseriesDefinitionYaxisArgs>> yaxis() {
         return Optional.ofNullable(this.yaxis);
     }
@@ -166,118 +270,268 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
             $ = new DashboardWidgetTimeseriesDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionCustomLinkArgs>> customLinks) {
             $.customLinks = customLinks;
             return this;
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(List<DashboardWidgetTimeseriesDefinitionCustomLinkArgs> customLinks) {
             return customLinks(Output.of(customLinks));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(DashboardWidgetTimeseriesDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
         }
 
+        /**
+         * @param events The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionEventArgs>> events) {
             $.events = events;
             return this;
         }
 
+        /**
+         * @param events The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(List<DashboardWidgetTimeseriesDefinitionEventArgs> events) {
             return events(Output.of(events));
         }
 
+        /**
+         * @param events The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(DashboardWidgetTimeseriesDefinitionEventArgs... events) {
             return events(List.of(events));
         }
 
+        /**
+         * @param legendColumns A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendColumns(@Nullable Output<List<String>> legendColumns) {
             $.legendColumns = legendColumns;
             return this;
         }
 
+        /**
+         * @param legendColumns A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendColumns(List<String> legendColumns) {
             return legendColumns(Output.of(legendColumns));
         }
 
+        /**
+         * @param legendColumns A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendColumns(String... legendColumns) {
             return legendColumns(List.of(legendColumns));
         }
 
+        /**
+         * @param legendLayout The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendLayout(@Nullable Output<String> legendLayout) {
             $.legendLayout = legendLayout;
             return this;
         }
 
+        /**
+         * @param legendLayout The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendLayout(String legendLayout) {
             return legendLayout(Output.of(legendLayout));
         }
 
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendSize(@Nullable Output<String> legendSize) {
             $.legendSize = legendSize;
             return this;
         }
 
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendSize(String legendSize) {
             return legendSize(Output.of(legendSize));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder markers(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionMarkerArgs>> markers) {
             $.markers = markers;
             return this;
         }
 
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder markers(List<DashboardWidgetTimeseriesDefinitionMarkerArgs> markers) {
             return markers(Output.of(markers));
         }
 
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tile_def` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder markers(DashboardWidgetTimeseriesDefinitionMarkerArgs... markers) {
             return markers(List.of(markers));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestArgs>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(List<DashboardWidgetTimeseriesDefinitionRequestArgs> requests) {
             return requests(Output.of(requests));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(DashboardWidgetTimeseriesDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
         }
 
+        /**
+         * @param rightYaxis A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rightYaxis(@Nullable Output<DashboardWidgetTimeseriesDefinitionRightYaxisArgs> rightYaxis) {
             $.rightYaxis = rightYaxis;
             return this;
         }
 
+        /**
+         * @param rightYaxis A nested block describing the right Y-Axis Controls. See the `on_right_yaxis` property for which request will use this axis. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rightYaxis(DashboardWidgetTimeseriesDefinitionRightYaxisArgs rightYaxis) {
             return rightYaxis(Output.of(rightYaxis));
         }
 
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLegend(@Nullable Output<Boolean> showLegend) {
             $.showLegend = showLegend;
             return this;
         }
 
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLegend(Boolean showLegend) {
             return showLegend(Output.of(showLegend));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -288,7 +542,7 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -297,29 +551,65 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }
 
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yaxis(@Nullable Output<DashboardWidgetTimeseriesDefinitionYaxisArgs> yaxis) {
             $.yaxis = yaxis;
             return this;
         }
 
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yaxis(DashboardWidgetTimeseriesDefinitionYaxisArgs yaxis) {
             return yaxis(Output.of(yaxis));
         }

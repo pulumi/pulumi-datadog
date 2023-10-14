@@ -11,33 +11,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
+    /**
+     * @return Additional filters applied to the SLO query.
+     * 
+     */
     private @Nullable String additionalQueryFilters;
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return Group mode to query measures. Valid values are `overall`, `components`.
+     * 
+     */
     private @Nullable String groupMode;
+    /**
+     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * 
+     */
     private String measure;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return ID of an SLO to query.
+     * 
+     */
     private String sloId;
+    /**
+     * @return type of the SLO to query. Valid values are `metric`.
+     * 
+     */
     private @Nullable String sloQueryType;
 
     private DashboardWidgetQueryTableDefinitionRequestQuerySloQuery() {}
+    /**
+     * @return Additional filters applied to the SLO query.
+     * 
+     */
     public Optional<String> additionalQueryFilters() {
         return Optional.ofNullable(this.additionalQueryFilters);
     }
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return Group mode to query measures. Valid values are `overall`, `components`.
+     * 
+     */
     public Optional<String> groupMode() {
         return Optional.ofNullable(this.groupMode);
     }
+    /**
+     * @return SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+     * 
+     */
     public String measure() {
         return this.measure;
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return ID of an SLO to query.
+     * 
+     */
     public String sloId() {
         return this.sloId;
     }
+    /**
+     * @return type of the SLO to query. Valid values are `metric`.
+     * 
+     */
     public Optional<String> sloQueryType() {
         return Optional.ofNullable(this.sloQueryType);
     }

@@ -15,23 +15,47 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
 
     public static final DowntimeScheduleRecurringScheduleRecurrenceArgs Empty = new DowntimeScheduleRecurringScheduleRecurrenceArgs();
 
+    /**
+     * The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+     * 
+     */
     @Import(name="duration", required=true)
     private Output<String> duration;
 
+    /**
+     * @return The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+     * 
+     */
     public Output<String> duration() {
         return this.duration;
     }
 
+    /**
+     * The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+     * 
+     */
     @Import(name="rrule", required=true)
     private Output<String> rrule;
 
+    /**
+     * @return The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+     * 
+     */
     public Output<String> rrule() {
         return this.rrule;
     }
 
+    /**
+     * ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * 
+     */
     @Import(name="start")
     private @Nullable Output<String> start;
 
+    /**
+     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * 
+     */
     public Optional<Output<String>> start() {
         return Optional.ofNullable(this.start);
     }
@@ -62,29 +86,65 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
             $ = new DowntimeScheduleRecurringScheduleRecurrenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param duration The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Output<String> duration) {
             $.duration = duration;
             return this;
         }
 
+        /**
+         * @param duration The length of the downtime. Must begin with an integer and end with one of &#39;m&#39;, &#39;h&#39;, d&#39;, or &#39;w&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(String duration) {
             return duration(Output.of(duration));
         }
 
+        /**
+         * @param rrule The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+         * 
+         * @return builder
+         * 
+         */
         public Builder rrule(Output<String> rrule) {
             $.rrule = rrule;
             return this;
         }
 
+        /**
+         * @param rrule The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+         * 
+         * @return builder
+         * 
+         */
         public Builder rrule(String rrule) {
             return rrule(Output.of(rrule));
         }
 
+        /**
+         * @param start ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder start(@Nullable Output<String> start) {
             $.start = start;
             return this;
         }
 
+        /**
+         * @param start ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder start(String start) {
             return start(Output.of(start));
         }

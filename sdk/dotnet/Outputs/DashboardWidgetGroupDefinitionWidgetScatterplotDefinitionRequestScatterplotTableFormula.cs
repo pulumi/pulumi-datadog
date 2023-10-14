@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula
     {
+        /// <summary>
+        /// An expression alias.
+        /// </summary>
         public readonly string? Alias;
+        /// <summary>
+        /// Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+        /// </summary>
         public readonly string Dimension;
+        /// <summary>
+        /// A string expression built from queries, formulas, and functions.
+        /// </summary>
         public readonly string FormulaExpression;
 
         [OutputConstructor]

@@ -13,14 +13,41 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat
     {
+        /// <summary>
+        /// The comparator to use. Valid values are `=`, `&gt;`, `&gt;=`, `&lt;`, `&lt;=`.
+        /// </summary>
         public readonly string Comparator;
+        /// <summary>
+        /// The color palette to apply to the background, same values available as palette.
+        /// </summary>
         public readonly string? CustomBgColor;
+        /// <summary>
+        /// The color palette to apply to the foreground, same values available as palette.
+        /// </summary>
         public readonly string? CustomFgColor;
+        /// <summary>
+        /// Setting this to True hides values.
+        /// </summary>
         public readonly bool? HideValue;
+        /// <summary>
+        /// Displays an image as the background.
+        /// </summary>
         public readonly string? ImageUrl;
+        /// <summary>
+        /// The metric from the request to correlate with this conditional format.
+        /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+        /// </summary>
         public readonly string Palette;
+        /// <summary>
+        /// Defines the displayed timeframe.
+        /// </summary>
         public readonly string? Timeframe;
+        /// <summary>
+        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

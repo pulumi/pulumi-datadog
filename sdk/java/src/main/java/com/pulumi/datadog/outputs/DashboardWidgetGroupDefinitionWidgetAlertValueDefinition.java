@@ -12,41 +12,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
+    /**
+     * @return The ID of the monitor used by the widget.
+     * 
+     */
     private String alertId;
+    /**
+     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     private @Nullable Integer precision;
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String textAlign;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
+    /**
+     * @return The unit for the value displayed in the widget.
+     * 
+     */
     private @Nullable String unit;
 
     private DashboardWidgetGroupDefinitionWidgetAlertValueDefinition() {}
+    /**
+     * @return The ID of the monitor used by the widget.
+     * 
+     */
     public String alertId() {
         return this.alertId;
     }
+    /**
+     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     public Optional<Integer> precision() {
         return Optional.ofNullable(this.precision);
     }
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
+    /**
+     * @return The unit for the value displayed in the widget.
+     * 
+     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

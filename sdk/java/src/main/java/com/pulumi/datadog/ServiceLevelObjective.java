@@ -243,14 +243,14 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return this.thresholds;
     }
     /**
-     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     @Export(name="timeframe", refs={String.class}, tree="[0]")
     private Output<String> timeframe;
 
     /**
-     * @return The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     public Output<String> timeframe() {

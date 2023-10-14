@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle
     {
+        /// <summary>
+        /// The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+        /// </summary>
         public readonly string? LineType;
+        /// <summary>
+        /// The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+        /// </summary>
         public readonly string? LineWidth;
+        /// <summary>
+        /// The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+        /// </summary>
         public readonly string? Palette;
 
         [OutputConstructor]

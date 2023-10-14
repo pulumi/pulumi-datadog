@@ -15,30 +15,62 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs Empty = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs();
 
+    /**
+     * An expression alias.
+     * 
+     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
     }
 
+    /**
+     * The name of the variable.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -70,38 +102,86 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
+        /**
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayMode(@Nullable Output<String> cellDisplayMode) {
             $.cellDisplayMode = cellDisplayMode;
             return this;
         }
 
+        /**
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

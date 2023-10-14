@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q", required: true)]
         public Input<string> Q { get; set; } = null!;
 
+        /// <summary>
+        /// The execution method for multi-value filters, options: `and` or `or`.
+        /// </summary>
         [Input("tagsExecution")]
         public Input<string>? TagsExecution { get; set; }
 

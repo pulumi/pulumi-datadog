@@ -15,23 +15,47 @@ public final class SyntheticsTestAssertionTargetxpathArgs extends com.pulumi.res
 
     public static final SyntheticsTestAssertionTargetxpathArgs Empty = new SyntheticsTestAssertionTargetxpathArgs();
 
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     public Output<String> operator() {
         return this.operator;
     }
 
+    /**
+     * Expected matching value.
+     * 
+     */
     @Import(name="targetvalue")
     private @Nullable Output<String> targetvalue;
 
+    /**
+     * @return Expected matching value.
+     * 
+     */
     public Optional<Output<String>> targetvalue() {
         return Optional.ofNullable(this.targetvalue);
     }
 
+    /**
+     * The xpath to assert.
+     * 
+     */
     @Import(name="xpath", required=true)
     private Output<String> xpath;
 
+    /**
+     * @return The xpath to assert.
+     * 
+     */
     public Output<String> xpath() {
         return this.xpath;
     }
@@ -62,29 +86,65 @@ public final class SyntheticsTestAssertionTargetxpathArgs extends com.pulumi.res
             $ = new SyntheticsTestAssertionTargetxpathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
+        /**
+         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
+        /**
+         * @param targetvalue Expected matching value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetvalue(@Nullable Output<String> targetvalue) {
             $.targetvalue = targetvalue;
             return this;
         }
 
+        /**
+         * @param targetvalue Expected matching value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetvalue(String targetvalue) {
             return targetvalue(Output.of(targetvalue));
         }
 
+        /**
+         * @param xpath The xpath to assert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xpath(Output<String> xpath) {
             $.xpath = xpath;
             return this;
         }
 
+        /**
+         * @param xpath The xpath to assert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xpath(String xpath) {
             return xpath(Output.of(xpath));
         }

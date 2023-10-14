@@ -38,9 +38,6 @@ export interface GetTeamMembershipsArgs {
      * Search query, can be user email or name.
      */
     filterKeyword?: string;
-    /**
-     * The team's identifier.
-     */
     teamId: string;
 }
 
@@ -92,8 +89,5 @@ export interface GetTeamMembershipsOutputArgs {
      * Search query, can be user email or name.
      */
     filterKeyword?: pulumi.Input<string>;
-    /**
-     * The team's identifier.
-     */
     teamId: pulumi.Input<string>;
 }

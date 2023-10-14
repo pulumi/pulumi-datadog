@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
+        /// <summary>
+        /// Widget query.
+        /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
 
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySortGetArgs>? Sort { get; set; }
 

@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return Name of the Reference Table for the source attribute and their associated target attribute values.
+     * 
+     */
     private String lookupEnrichmentTable;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     private String source;
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     private String target;
 
     private LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor() {}
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return Name of the Reference Table for the source attribute and their associated target attribute values.
+     * 
+     */
     public String lookupEnrichmentTable() {
         return this.lookupEnrichmentTable;
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public String source() {
         return this.source;
     }
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public String target() {
         return this.target;
     }

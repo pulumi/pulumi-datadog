@@ -16,29 +16,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryTableDefinitionRequestQuery {
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryEventQuery eventQuery;
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery metricQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery processQuery;
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetQueryTableDefinitionRequestQuery() {}
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryEventQuery> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetQueryTableDefinitionRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }

@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestOptionsListRumSettings {
+    /**
+     * @return RUM application ID used to collect RUM data for the browser test.
+     * 
+     */
     private @Nullable String applicationId;
+    /**
+     * @return RUM application API key ID used to collect RUM data for the browser test.
+     * 
+     */
     private @Nullable Integer clientTokenId;
+    /**
+     * @return Determines whether RUM data is collected during test runs.
+     * 
+     */
     private Boolean isEnabled;
 
     private SyntheticsTestOptionsListRumSettings() {}
+    /**
+     * @return RUM application ID used to collect RUM data for the browser test.
+     * 
+     */
     public Optional<String> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
+    /**
+     * @return RUM application API key ID used to collect RUM data for the browser test.
+     * 
+     */
     public Optional<Integer> clientTokenId() {
         return Optional.ofNullable(this.clientTokenId);
     }
+    /**
+     * @return Determines whether RUM data is collected during test runs.
+     * 
+     */
     public Boolean isEnabled() {
         return this.isEnabled;
     }

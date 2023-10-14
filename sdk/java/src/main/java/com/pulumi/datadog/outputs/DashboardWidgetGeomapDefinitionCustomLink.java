@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGeomapDefinitionCustomLink {
+    /**
+     * @return The flag for toggling context menu link visibility.
+     * 
+     */
     private @Nullable Boolean isHidden;
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     private @Nullable String label;
+    /**
+     * @return The URL of the custom link.
+     * 
+     */
     private @Nullable String link;
+    /**
+     * @return The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * 
+     */
     private @Nullable String overrideLabel;
 
     private DashboardWidgetGeomapDefinitionCustomLink() {}
+    /**
+     * @return The flag for toggling context menu link visibility.
+     * 
+     */
     public Optional<Boolean> isHidden() {
         return Optional.ofNullable(this.isHidden);
     }
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return The URL of the custom link.
+     * 
+     */
     public Optional<String> link() {
         return Optional.ofNullable(this.link);
     }
+    /**
+     * @return The label ID that refers to a context menu link item. When `override_label` is provided, the client request omits the label field.
+     * 
+     */
     public Optional<String> overrideLabel() {
         return Optional.ofNullable(this.overrideLabel);
     }

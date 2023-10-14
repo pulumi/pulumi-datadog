@@ -16,29 +16,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGeomapDefinitionRequestQuery {
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryEventQuery eventQuery;
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetGeomapDefinitionRequestQuery() {}
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryEventQuery> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryMetricQuery> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }

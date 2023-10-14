@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("columns", required: true)]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnGetArgs>? _columns;
+
+        /// <summary>
+        /// Column properties used by the front end for display.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnGetArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnGetArgs>());
@@ -23,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("query", required: true)]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryGetArgs> Query { get; set; } = null!;
 
+        /// <summary>
+        /// Widget response format. Valid values are `event_list`.
+        /// </summary>
         [Input("responseFormat", required: true)]
         public Input<string> ResponseFormat { get; set; } = null!;
 

@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestAssertionTargetxpath
     {
+        /// <summary>
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Expected matching value.
+        /// </summary>
         public readonly string? Targetvalue;
+        /// <summary>
+        /// The xpath to assert.
+        /// </summary>
         public readonly string Xpath;
 
         [OutputConstructor]

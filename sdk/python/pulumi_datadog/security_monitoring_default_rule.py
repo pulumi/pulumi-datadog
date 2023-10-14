@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,29 @@ class SecurityMonitoringDefaultRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
+        SecurityMonitoringDefaultRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cases=cases,
+            enabled=enabled,
+            filters=filters,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
+             options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cases is not None:
-            pulumi.set(__self__, "cases", cases)
+            _setter("cases", cases)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
 
     @property
     @pulumi.getter
@@ -101,16 +116,33 @@ class _SecurityMonitoringDefaultRuleState:
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         :param pulumi.Input[str] type: The rule type.
         """
+        _SecurityMonitoringDefaultRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cases=cases,
+            enabled=enabled,
+            filters=filters,
+            options=options,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
+             options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cases is not None:
-            pulumi.set(__self__, "cases", cases)
+            _setter("cases", cases)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -256,6 +288,10 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityMonitoringDefaultRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,6 +313,11 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
+            if options is not None and not isinstance(options, SecurityMonitoringDefaultRuleOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                SecurityMonitoringDefaultRuleOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
             __props__.__dict__["type"] = None
         super(SecurityMonitoringDefaultRule, __self__).__init__(

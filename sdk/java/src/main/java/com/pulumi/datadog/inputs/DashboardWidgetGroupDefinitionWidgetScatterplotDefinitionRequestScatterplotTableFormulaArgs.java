@@ -15,23 +15,47 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
 
     public static final DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs Empty = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs();
 
+    /**
+     * An expression alias.
+     * 
+     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
+    /**
+     * Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     * 
+     */
     @Import(name="dimension", required=true)
     private Output<String> dimension;
 
+    /**
+     * @return Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     * 
+     */
     public Output<String> dimension() {
         return this.dimension;
     }
 
+    /**
+     * A string expression built from queries, formulas, and functions.
+     * 
+     */
     @Import(name="formulaExpression", required=true)
     private Output<String> formulaExpression;
 
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     public Output<String> formulaExpression() {
         return this.formulaExpression;
     }
@@ -62,29 +86,65 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             $ = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
+        /**
+         * @param dimension Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(Output<String> dimension) {
             $.dimension = dimension;
             return this;
         }
 
+        /**
+         * @param dimension Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(String dimension) {
             return dimension(Output.of(dimension));
         }
 
+        /**
+         * @param formulaExpression A string expression built from queries, formulas, and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulaExpression(Output<String> formulaExpression) {
             $.formulaExpression = formulaExpression;
             return this;
         }
 
+        /**
+         * @param formulaExpression A string expression built from queries, formulas, and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulaExpression(String formulaExpression) {
             return formulaExpression(Output.of(formulaExpression));
         }

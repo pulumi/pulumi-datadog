@@ -17,24 +17,24 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
 
     public static final SyntheticsTestApiStepExtractedValueArgs Empty = new SyntheticsTestApiStepExtractedValueArgs();
 
+    /**
+     * When type is `http_header`, name of the header to use to extract the value.
+     * 
+     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
+    /**
+     * @return When type is `http_header`, name of the header to use to extract the value.
+     * 
+     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
-    /**
-     * Name of Datadog synthetics test.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of Datadog synthetics test.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -46,22 +46,30 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         return this.parser;
     }
 
+    /**
+     * Determines whether or not the extracted value will be obfuscated.
+     * 
+     */
     @Import(name="secure")
     private @Nullable Output<Boolean> secure;
 
+    /**
+     * @return Determines whether or not the extracted value will be obfuscated.
+     * 
+     */
     public Optional<Output<Boolean>> secure() {
         return Optional.ofNullable(this.secure);
     }
 
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     public Output<String> type() {
@@ -96,32 +104,32 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
             $ = new SyntheticsTestApiStepExtractedValueArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param field When type is `http_header`, name of the header to use to extract the value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
-        public Builder field(String field) {
-            return field(Output.of(field));
-        }
-
         /**
-         * @param name Name of Datadog synthetics test.
+         * @param field When type is `http_header`, name of the header to use to extract the value.
          * 
          * @return builder
          * 
          */
+        public Builder field(String field) {
+            return field(Output.of(field));
+        }
+
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of Datadog synthetics test.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -135,17 +143,29 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
             return parser(Output.of(parser));
         }
 
+        /**
+         * @param secure Determines whether or not the extracted value will be obfuscated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secure(@Nullable Output<Boolean> secure) {
             $.secure = secure;
             return this;
         }
 
+        /**
+         * @param secure Determines whether or not the extracted value will be obfuscated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secure(Boolean secure) {
             return secure(Output.of(secure));
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
          * 
          * @return builder
          * 
@@ -156,7 +176,7 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
          * 
          * @return builder
          * 

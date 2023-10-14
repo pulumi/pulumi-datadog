@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class LogsMetricArgs:
         :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
         :param pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]] group_bies: The rules for the group by.
         """
-        pulumi.set(__self__, "compute", compute)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "name", name)
+        LogsMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute=compute,
+            filter=filter,
+            name=name,
+            group_bies=group_bies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute: pulumi.Input['LogsMetricComputeArgs'],
+             filter: pulumi.Input['LogsMetricFilterArgs'],
+             name: pulumi.Input[str],
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute", compute)
+        _setter("filter", filter)
+        _setter("name", name)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
 
     @property
     @pulumi.getter
@@ -96,14 +111,29 @@ class _LogsMetricState:
         :param pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]] group_bies: The rules for the group by.
         :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
         """
+        _LogsMetricState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute=compute,
+            filter=filter,
+            group_bies=group_bies,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute: Optional[pulumi.Input['LogsMetricComputeArgs']] = None,
+             filter: Optional[pulumi.Input['LogsMetricFilterArgs']] = None,
+             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute is not None:
-            pulumi.set(__self__, "compute", compute)
+            _setter("compute", compute)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+            _setter("group_bies", group_bies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -259,6 +289,10 @@ class LogsMetric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogsMetricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -277,9 +311,19 @@ class LogsMetric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogsMetricArgs.__new__(LogsMetricArgs)
 
+            if compute is not None and not isinstance(compute, LogsMetricComputeArgs):
+                compute = compute or {}
+                def _setter(key, value):
+                    compute[key] = value
+                LogsMetricComputeArgs._configure(_setter, **compute)
             if compute is None and not opts.urn:
                 raise TypeError("Missing required property 'compute'")
             __props__.__dict__["compute"] = compute
+            if filter is not None and not isinstance(filter, LogsMetricFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                LogsMetricFilterArgs._configure(_setter, **filter)
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter

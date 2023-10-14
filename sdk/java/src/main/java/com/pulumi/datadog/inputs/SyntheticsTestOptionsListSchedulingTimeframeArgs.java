@@ -14,23 +14,47 @@ public final class SyntheticsTestOptionsListSchedulingTimeframeArgs extends com.
 
     public static final SyntheticsTestOptionsListSchedulingTimeframeArgs Empty = new SyntheticsTestOptionsListSchedulingTimeframeArgs();
 
+    /**
+     * Number representing the day of the week
+     * 
+     */
     @Import(name="day", required=true)
     private Output<Integer> day;
 
+    /**
+     * @return Number representing the day of the week
+     * 
+     */
     public Output<Integer> day() {
         return this.day;
     }
 
+    /**
+     * The hour of the day on which scheduling starts.
+     * 
+     */
     @Import(name="from", required=true)
     private Output<String> from;
 
+    /**
+     * @return The hour of the day on which scheduling starts.
+     * 
+     */
     public Output<String> from() {
         return this.from;
     }
 
+    /**
+     * The hour of the day on which scheduling ends.
+     * 
+     */
     @Import(name="to", required=true)
     private Output<String> to;
 
+    /**
+     * @return The hour of the day on which scheduling ends.
+     * 
+     */
     public Output<String> to() {
         return this.to;
     }
@@ -61,29 +85,65 @@ public final class SyntheticsTestOptionsListSchedulingTimeframeArgs extends com.
             $ = new SyntheticsTestOptionsListSchedulingTimeframeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param day Number representing the day of the week
+         * 
+         * @return builder
+         * 
+         */
         public Builder day(Output<Integer> day) {
             $.day = day;
             return this;
         }
 
+        /**
+         * @param day Number representing the day of the week
+         * 
+         * @return builder
+         * 
+         */
         public Builder day(Integer day) {
             return day(Output.of(day));
         }
 
+        /**
+         * @param from The hour of the day on which scheduling starts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder from(Output<String> from) {
             $.from = from;
             return this;
         }
 
+        /**
+         * @param from The hour of the day on which scheduling starts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
+        /**
+         * @param to The hour of the day on which scheduling ends.
+         * 
+         * @return builder
+         * 
+         */
         public Builder to(Output<String> to) {
             $.to = to;
             return this;
         }
 
+        /**
+         * @param to The hour of the day on which scheduling ends.
+         * 
+         * @return builder
+         * 
+         */
         public Builder to(String to) {
             return to(Output.of(to));
         }

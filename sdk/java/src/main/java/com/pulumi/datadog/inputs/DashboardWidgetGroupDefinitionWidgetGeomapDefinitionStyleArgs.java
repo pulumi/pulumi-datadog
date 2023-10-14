@@ -14,16 +14,32 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs
 
     public static final DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs Empty = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs();
 
+    /**
+     * The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     @Import(name="palette", required=true)
     private Output<String> palette;
 
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     public Output<String> palette() {
         return this.palette;
     }
 
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     * 
+     */
     @Import(name="paletteFlip", required=true)
     private Output<Boolean> paletteFlip;
 
+    /**
+     * @return A Boolean indicating whether to flip the palette tones.
+     * 
+     */
     public Output<Boolean> paletteFlip() {
         return this.paletteFlip;
     }
@@ -53,20 +69,44 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs
             $ = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(Output<String> palette) {
             $.palette = palette;
             return this;
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(String palette) {
             return palette(Output.of(palette));
         }
 
+        /**
+         * @param paletteFlip A Boolean indicating whether to flip the palette tones.
+         * 
+         * @return builder
+         * 
+         */
         public Builder paletteFlip(Output<Boolean> paletteFlip) {
             $.paletteFlip = paletteFlip;
             return this;
         }
 
+        /**
+         * @param paletteFlip A Boolean indicating whether to flip the palette tones.
+         * 
+         * @return builder
+         * 
+         */
         public Builder paletteFlip(Boolean paletteFlip) {
             return paletteFlip(Output.of(paletteFlip));
         }

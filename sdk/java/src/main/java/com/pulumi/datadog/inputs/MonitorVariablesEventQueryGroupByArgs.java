@@ -17,23 +17,47 @@ public final class MonitorVariablesEventQueryGroupByArgs extends com.pulumi.reso
 
     public static final MonitorVariablesEventQueryGroupByArgs Empty = new MonitorVariablesEventQueryGroupByArgs();
 
+    /**
+     * The event facet.
+     * 
+     */
     @Import(name="facet", required=true)
     private Output<String> facet;
 
+    /**
+     * @return The event facet.
+     * 
+     */
     public Output<String> facet() {
         return this.facet;
     }
 
+    /**
+     * The number of groups to return.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The number of groups to return.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<MonitorVariablesEventQueryGroupBySortArgs> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<MonitorVariablesEventQueryGroupBySortArgs>> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -64,29 +88,65 @@ public final class MonitorVariablesEventQueryGroupByArgs extends com.pulumi.reso
             $ = new MonitorVariablesEventQueryGroupByArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param facet The event facet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(Output<String> facet) {
             $.facet = facet;
             return this;
         }
 
+        /**
+         * @param facet The event facet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(String facet) {
             return facet(Output.of(facet));
         }
 
+        /**
+         * @param limit The number of groups to return.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The number of groups to return.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<MonitorVariablesEventQueryGroupBySortArgs> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(MonitorVariablesEventQueryGroupBySortArgs sort) {
             return sort(Output.of(sort));
         }

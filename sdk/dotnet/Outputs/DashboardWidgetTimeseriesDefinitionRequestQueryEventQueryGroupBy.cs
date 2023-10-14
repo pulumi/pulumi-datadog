@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy
     {
+        /// <summary>
+        /// The facet name.
+        /// </summary>
         public readonly string Facet;
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort? Sort;
 
         [OutputConstructor]

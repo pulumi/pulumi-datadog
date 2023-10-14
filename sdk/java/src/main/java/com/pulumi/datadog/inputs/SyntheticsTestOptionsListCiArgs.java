@@ -15,9 +15,17 @@ public final class SyntheticsTestOptionsListCiArgs extends com.pulumi.resources.
 
     public static final SyntheticsTestOptionsListCiArgs Empty = new SyntheticsTestOptionsListCiArgs();
 
+    /**
+     * Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * 
+     */
     @Import(name="executionRule")
     private @Nullable Output<String> executionRule;
 
+    /**
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * 
+     */
     public Optional<Output<String>> executionRule() {
         return Optional.ofNullable(this.executionRule);
     }
@@ -46,11 +54,23 @@ public final class SyntheticsTestOptionsListCiArgs extends com.pulumi.resources.
             $ = new SyntheticsTestOptionsListCiArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRule(@Nullable Output<String> executionRule) {
             $.executionRule = executionRule;
             return this;
         }
 
+        /**
+         * @param executionRule Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRule(String executionRule) {
             return executionRule(Output.of(executionRule));
         }

@@ -15,23 +15,47 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
 
     public static final DashboardWidgetTimeseriesDefinitionRequestStyleArgs Empty = new DashboardWidgetTimeseriesDefinitionRequestStyleArgs();
 
+    /**
+     * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     * 
+     */
     @Import(name="lineType")
     private @Nullable Output<String> lineType;
 
+    /**
+     * @return The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     * 
+     */
     public Optional<Output<String>> lineType() {
         return Optional.ofNullable(this.lineType);
     }
 
+    /**
+     * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     * 
+     */
     @Import(name="lineWidth")
     private @Nullable Output<String> lineWidth;
 
+    /**
+     * @return The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     * 
+     */
     public Optional<Output<String>> lineWidth() {
         return Optional.ofNullable(this.lineWidth);
     }
 
+    /**
+     * The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     public Optional<Output<String>> palette() {
         return Optional.ofNullable(this.palette);
     }
@@ -62,29 +86,65 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
             $ = new DashboardWidgetTimeseriesDefinitionRequestStyleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param lineType The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lineType(@Nullable Output<String> lineType) {
             $.lineType = lineType;
             return this;
         }
 
+        /**
+         * @param lineType The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lineType(String lineType) {
             return lineType(Output.of(lineType));
         }
 
+        /**
+         * @param lineWidth The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lineWidth(@Nullable Output<String> lineWidth) {
             $.lineWidth = lineWidth;
             return this;
         }
 
+        /**
+         * @param lineWidth The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lineWidth(String lineWidth) {
             return lineWidth(Output.of(lineWidth));
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(@Nullable Output<String> palette) {
             $.palette = palette;
             return this;
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(String palette) {
             return palette(Output.of(palette));
         }

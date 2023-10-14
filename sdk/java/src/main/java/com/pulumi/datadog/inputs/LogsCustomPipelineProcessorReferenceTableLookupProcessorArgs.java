@@ -16,37 +16,77 @@ public final class LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs 
 
     public static final LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs Empty = new LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs();
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Name of the Reference Table for the source attribute and their associated target attribute values.
+     * 
+     */
     @Import(name="lookupEnrichmentTable", required=true)
     private Output<String> lookupEnrichmentTable;
 
+    /**
+     * @return Name of the Reference Table for the source attribute and their associated target attribute values.
+     * 
+     */
     public Output<String> lookupEnrichmentTable() {
         return this.lookupEnrichmentTable;
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of the log attribute to parse.
+     * 
+     */
     @Import(name="source", required=true)
     private Output<String> source;
 
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public Output<String> source() {
         return this.source;
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
@@ -79,47 +119,107 @@ public final class LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs 
             $ = new LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param lookupEnrichmentTable Name of the Reference Table for the source attribute and their associated target attribute values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lookupEnrichmentTable(Output<String> lookupEnrichmentTable) {
             $.lookupEnrichmentTable = lookupEnrichmentTable;
             return this;
         }
 
+        /**
+         * @param lookupEnrichmentTable Name of the Reference Table for the source attribute and their associated target attribute values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lookupEnrichmentTable(String lookupEnrichmentTable) {
             return lookupEnrichmentTable(Output.of(lookupEnrichmentTable));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
+        /**
+         * @param source Name of the log attribute to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

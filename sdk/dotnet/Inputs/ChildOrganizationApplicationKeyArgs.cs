@@ -24,9 +24,6 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
-        /// <summary>
-        /// Name for Child Organization after creation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

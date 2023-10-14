@@ -21,49 +21,121 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     private @Nullable String aggregator;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery securityQuery;
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest() {}
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats() {
         return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
     }
     public List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

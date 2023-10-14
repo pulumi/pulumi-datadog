@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinitionRequestMetadata
     {
+        /// <summary>
+        /// The expression alias.
+        /// </summary>
         public readonly string? AliasName;
+        /// <summary>
+        /// The expression name.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

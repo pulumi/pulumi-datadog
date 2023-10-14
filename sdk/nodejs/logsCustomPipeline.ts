@@ -46,7 +46,13 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
     }
 
     public readonly filters!: pulumi.Output<outputs.LogsCustomPipelineFilter[]>;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Your pipeline name.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly processors!: pulumi.Output<outputs.LogsCustomPipelineProcessor[] | undefined>;
 
@@ -90,7 +96,13 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
  */
 export interface LogsCustomPipelineState {
     filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Your pipeline name.
+     */
     name?: pulumi.Input<string>;
     processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }
@@ -100,7 +112,13 @@ export interface LogsCustomPipelineState {
  */
 export interface LogsCustomPipelineArgs {
     filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Your pipeline name.
+     */
     name: pulumi.Input<string>;
     processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }

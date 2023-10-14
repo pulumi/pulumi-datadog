@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsListMonitorOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
+        /// </summary>
         [Input("renotifyInterval")]
         public Input<int>? RenotifyInterval { get; set; }
 

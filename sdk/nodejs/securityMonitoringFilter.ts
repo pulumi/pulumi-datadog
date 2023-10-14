@@ -81,11 +81,11 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
      */
     public readonly isEnabled!: pulumi.Output<boolean>;
     /**
-     * The name of the security filter.
+     * Exclusion filter name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The query of the security filter.
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
      */
     public readonly query!: pulumi.Output<string>;
     /**
@@ -152,11 +152,11 @@ export interface SecurityMonitoringFilterState {
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the security filter.
+     * Exclusion filter name.
      */
     name?: pulumi.Input<string>;
     /**
-     * The query of the security filter.
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
      */
     query?: pulumi.Input<string>;
     /**
@@ -182,11 +182,11 @@ export interface SecurityMonitoringFilterArgs {
      */
     isEnabled: pulumi.Input<boolean>;
     /**
-     * The name of the security filter.
+     * Exclusion filter name.
      */
     name: pulumi.Input<string>;
     /**
-     * The query of the security filter.
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
      */
     query: pulumi.Input<string>;
 }

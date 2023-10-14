@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetIframeDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the dashboard.
+        /// The URL to use as a data source for the widget.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;

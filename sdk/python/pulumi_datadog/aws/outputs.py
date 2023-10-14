@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,18 +18,23 @@ class GetIntegrationLogsServicesAwsLogsServiceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  label: str):
-        """
-        :param str id: The ID of this resource.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "label", label)
+        GetIntegrationLogsServicesAwsLogsServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             label: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("label", label)
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of this resource.
-        """
         return pulumi.get(self, "id")
 
     @property

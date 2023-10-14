@@ -13,16 +13,43 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery? AuditQuery;
+        /// <summary>
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle? Style;
 
         [OutputConstructor]

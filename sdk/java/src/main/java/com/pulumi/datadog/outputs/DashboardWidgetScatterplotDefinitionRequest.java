@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequest {
+    /**
+     * @return Scatterplot request containing formulas and functions.
+     * 
+     */
     private @Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables;
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private @Nullable List<DashboardWidgetScatterplotDefinitionRequestX> xes;
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private @Nullable List<DashboardWidgetScatterplotDefinitionRequestY> ys;
 
     private DashboardWidgetScatterplotDefinitionRequest() {}
+    /**
+     * @return Scatterplot request containing formulas and functions.
+     * 
+     */
     public List<DashboardWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables() {
         return this.scatterplotTables == null ? List.of() : this.scatterplotTables;
     }
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public List<DashboardWidgetScatterplotDefinitionRequestX> xes() {
         return this.xes == null ? List.of() : this.xes;
     }
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public List<DashboardWidgetScatterplotDefinitionRequestY> ys() {
         return this.ys == null ? List.of() : this.ys;
     }

@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetSensitiveDataScannerGroupOrderResult',
     'AwaitableGetSensitiveDataScannerGroupOrderResult',
     'get_sensitive_data_scanner_group_order',
+    'get_sensitive_data_scanner_group_order_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,21 @@ def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] 
     return AwaitableGetSensitiveDataScannerGroupOrderResult(
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_sensitive_data_scanner_group_order)
+def get_sensitive_data_scanner_group_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveDataScannerGroupOrderResult]:
+    """
+    Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_sensitive_data_scanner_group_order()
+    foobar = datadog.SensitiveDataScannerGroupOrder("foobar", group_ids=foo.group_ids)
+    ```
+    """
+    ...

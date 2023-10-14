@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackground
     {
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A nested block describing the Y-Axis Controls. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis? Yaxis;
 
         [OutputConstructor]

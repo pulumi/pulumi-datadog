@@ -11,21 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStepParamsVariable {
-    private @Nullable String example;
     /**
-     * @return Name of Datadog synthetics test.
+     * @return Example of the extracted variable.
      * 
      */
+    private @Nullable String example;
     private @Nullable String name;
 
     private SyntheticsTestBrowserStepParamsVariable() {}
+    /**
+     * @return Example of the extracted variable.
+     * 
+     */
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
-    /**
-     * @return Name of Datadog synthetics test.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

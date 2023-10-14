@@ -14,14 +14,14 @@ public final class DashboardWidgetIframeDefinitionArgs extends com.pulumi.resour
     public static final DashboardWidgetIframeDefinitionArgs Empty = new DashboardWidgetIframeDefinitionArgs();
 
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public Output<String> url() {
@@ -53,7 +53,7 @@ public final class DashboardWidgetIframeDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class DashboardWidgetIframeDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 

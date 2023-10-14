@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the role.
+     * Name of the permission.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the role.
+     * @return Name of the permission.
      * 
      */
     public Output<String> name() {

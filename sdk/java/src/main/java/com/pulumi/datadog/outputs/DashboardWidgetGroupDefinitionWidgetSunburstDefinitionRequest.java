@@ -22,49 +22,121 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery auditQuery;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery networkQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
     public List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle> style() {
         return Optional.ofNullable(this.style);
     }

@@ -12,57 +12,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
+    /**
+     * @return The check to use in the widget.
+     * 
+     */
     private String check;
+    /**
+     * @return The check group to use in the widget.
+     * 
+     */
     private @Nullable String group;
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<String> groupBies;
+    /**
+     * @return The kind of grouping to use. Valid values are `check`, `cluster`.
+     * 
+     */
     private String grouping;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     private @Nullable String liveSpan;
     /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * @return A list of tags to use in the widget.
      * 
      */
     private @Nullable List<String> tags;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition() {}
+    /**
+     * @return The check to use in the widget.
+     * 
+     */
     public String check() {
         return this.check;
     }
+    /**
+     * @return The check group to use in the widget.
+     * 
+     */
     public Optional<String> group() {
         return Optional.ofNullable(this.group);
     }
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public List<String> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
+    /**
+     * @return The kind of grouping to use. Valid values are `check`, `cluster`.
+     * 
+     */
     public String grouping() {
         return this.grouping;
     }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * @return A list of tags to use in the widget.
      * 
      */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

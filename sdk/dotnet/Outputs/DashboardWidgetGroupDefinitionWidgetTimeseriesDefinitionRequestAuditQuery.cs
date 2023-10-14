@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery
     {
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery? ComputeQuery;
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy> GroupBies;
+        /// <summary>
+        /// The name of the index to query.
+        /// </summary>
         public readonly string Index;
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute> MultiComputes;
+        /// <summary>
+        /// The search query to use.
+        /// </summary>
         public readonly string? SearchQuery;
 
         [OutputConstructor]

@@ -16,37 +16,77 @@ public final class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProc
 
     public static final LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs Empty = new LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs();
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * 
+     */
     @Import(name="isReplaceMissing")
     private @Nullable Output<Boolean> isReplaceMissing;
 
+    /**
+     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * 
+     */
     public Optional<Output<Boolean>> isReplaceMissing() {
         return Optional.ofNullable(this.isReplaceMissing);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
 
+    /**
+     * The formula with one or more attributes and raw text.
+     * 
+     */
     @Import(name="template", required=true)
     private Output<String> template;
 
+    /**
+     * @return The formula with one or more attributes and raw text.
+     * 
+     */
     public Output<String> template() {
         return this.template;
     }
@@ -79,47 +119,107 @@ public final class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProc
             $ = new LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param isReplaceMissing If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isReplaceMissing(@Nullable Output<Boolean> isReplaceMissing) {
             $.isReplaceMissing = isReplaceMissing;
             return this;
         }
 
+        /**
+         * @param isReplaceMissing If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isReplaceMissing(Boolean isReplaceMissing) {
             return isReplaceMissing(Output.of(isReplaceMissing));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
+        /**
+         * @param template The formula with one or more attributes and raw text.
+         * 
+         * @return builder
+         * 
+         */
         public Builder template(Output<String> template) {
             $.template = template;
             return this;
         }
 
+        /**
+         * @param template The formula with one or more attributes and raw text.
+         * 
+         * @return builder
+         * 
+         */
         public Builder template(String template) {
             return template(Output.of(template));
         }

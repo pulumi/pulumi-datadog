@@ -13,18 +13,45 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetServiceLevelObjectiveDefinition
     {
+        /// <summary>
+        /// Additional filters applied to the SLO query.
+        /// </summary>
         public readonly string? AdditionalQueryFilters;
+        /// <summary>
+        /// The global time target of the widget.
+        /// </summary>
         public readonly string? GlobalTimeTarget;
+        /// <summary>
+        /// Whether to show the error budget or not.
+        /// </summary>
         public readonly bool? ShowErrorBudget;
+        /// <summary>
+        /// ID of an SLO to query.
+        /// </summary>
         public readonly string SloId;
+        /// <summary>
+        /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `week_to_date`, `previous_week`, `month_to_date`, `previous_month`, `global_time`.
+        /// </summary>
         public readonly ImmutableArray<string> TimeWindows;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
+        /// <summary>
+        /// The view mode for the widget. Valid values are `overall`, `component`, `both`.
+        /// </summary>
         public readonly string ViewMode;
+        /// <summary>
+        /// The type of view to use when displaying the widget. Only `detail` is supported.
+        /// </summary>
         public readonly string ViewType;
 
         [OutputConstructor]

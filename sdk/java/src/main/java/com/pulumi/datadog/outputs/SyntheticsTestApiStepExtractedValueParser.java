@@ -12,20 +12,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepExtractedValueParser {
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     private String type;
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     private @Nullable String value;
 
     private SyntheticsTestApiStepExtractedValueParser() {}
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

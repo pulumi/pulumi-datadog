@@ -14,9 +14,12 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepExtractedValueParser
     {
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

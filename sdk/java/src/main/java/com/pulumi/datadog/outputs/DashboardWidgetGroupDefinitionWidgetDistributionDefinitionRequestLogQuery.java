@@ -15,25 +15,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery computeQuery;
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies;
+    /**
+     * @return The name of the index to query.
+     * 
+     */
     private String index;
+    /**
+     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute> multiComputes;
+    /**
+     * @return The search query to use.
+     * 
+     */
     private @Nullable String searchQuery;
 
     private DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery() {}
+    /**
+     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
+    /**
+     * @return The name of the index to query.
+     * 
+     */
     public String index() {
         return this.index;
     }
+    /**
+     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute> multiComputes() {
         return this.multiComputes == null ? List.of() : this.multiComputes;
     }
+    /**
+     * @return The search query to use.
+     * 
+     */
     public Optional<String> searchQuery() {
         return Optional.ofNullable(this.searchQuery);
     }

@@ -13,19 +13,49 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHostmapDefinition
     {
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionCustomLink> CustomLinks;
+        /// <summary>
+        /// The check group to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// A Boolean indicating whether to show ungrouped nodes.
+        /// </summary>
         public readonly bool? NoGroupHosts;
+        /// <summary>
+        /// A Boolean indicating whether to show nodes with no metrics.
+        /// </summary>
         public readonly bool? NoMetricHosts;
+        /// <summary>
+        /// The type of node used. Valid values are `host`, `container`.
+        /// </summary>
         public readonly string? NodeType;
+        /// <summary>
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequest? Request;
+        /// <summary>
+        /// The list of tags to filter nodes by.
+        /// </summary>
         public readonly ImmutableArray<string> Scopes;
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionStyle? Style;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
 
         [OutputConstructor]

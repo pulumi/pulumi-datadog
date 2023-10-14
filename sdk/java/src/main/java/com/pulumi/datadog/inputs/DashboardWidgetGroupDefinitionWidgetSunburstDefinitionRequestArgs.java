@@ -26,16 +26,32 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
     public static final DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="auditQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryArgs> auditQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -47,30 +63,62 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="networkQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryArgs> networkQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryArgs>> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -82,23 +130,47 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         return Optional.ofNullable(this.queries);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Styling options for widget formulas.
+     * 
+     */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs> style;
 
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs>> style() {
         return Optional.ofNullable(this.style);
     }
@@ -137,20 +209,44 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             $ = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param auditQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryArgs> auditQuery) {
             $.auditQuery = auditQuery;
             return this;
         }
 
+        /**
+         * @param auditQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
         }
@@ -168,38 +264,86 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param networkQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryArgs> networkQuery) {
             $.networkQuery = networkQuery;
             return this;
         }
 
+        /**
+         * @param networkQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryArgs networkQuery) {
             return networkQuery(Output.of(networkQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -217,29 +361,65 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             return queries(List.of(queries));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs> style) {
             $.style = style;
             return this;
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleArgs style) {
             return style(Output.of(style));
         }

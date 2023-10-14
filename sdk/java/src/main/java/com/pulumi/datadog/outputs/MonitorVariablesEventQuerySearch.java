@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class MonitorVariablesEventQuerySearch {
+    /**
+     * @return The events search string.
+     * 
+     */
     private String query;
 
     private MonitorVariablesEventQuerySearch() {}
+    /**
+     * @return The events search string.
+     * 
+     */
     public String query() {
         return this.query;
     }

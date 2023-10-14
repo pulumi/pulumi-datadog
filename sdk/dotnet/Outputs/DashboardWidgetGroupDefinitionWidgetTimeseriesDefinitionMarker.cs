@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker
     {
+        /// <summary>
+        /// How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+        /// </summary>
         public readonly string? DisplayType;
+        /// <summary>
+        /// The label for the custom link URL.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

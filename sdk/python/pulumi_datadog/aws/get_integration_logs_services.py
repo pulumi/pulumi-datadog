@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetIntegrationLogsServicesResult',
     'AwaitableGetIntegrationLogsServicesResult',
     'get_integration_logs_services',
+    'get_integration_logs_services_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,11 @@ def get_integration_logs_services(opts: Optional[pulumi.InvokeOptions] = None) -
     return AwaitableGetIntegrationLogsServicesResult(
         aws_logs_services=pulumi.get(__ret__, 'aws_logs_services'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_integration_logs_services)
+def get_integration_logs_services_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationLogsServicesResult]:
+    """
+    Use this data source to retrieve all AWS log ready services.
+    """
+    ...

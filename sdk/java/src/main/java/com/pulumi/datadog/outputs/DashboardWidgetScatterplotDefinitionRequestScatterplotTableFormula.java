@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    /**
+     * @return An expression alias.
+     * 
+     */
     private @Nullable String alias;
+    /**
+     * @return Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     * 
+     */
     private String dimension;
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     private String formulaExpression;
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula() {}
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<String> alias() {
         return Optional.ofNullable(this.alias);
     }
+    /**
+     * @return Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     * 
+     */
     public String dimension() {
         return this.dimension;
     }
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     public String formulaExpression() {
         return this.formulaExpression;
     }

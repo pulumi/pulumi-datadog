@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionEvent {
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private String q;
+    /**
+     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * 
+     */
     private @Nullable String tagsExecution;
 
     private DashboardWidgetTimeseriesDefinitionEvent() {}
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public String q() {
         return this.q;
     }
+    /**
+     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * 
+     */
     public Optional<String> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
     }

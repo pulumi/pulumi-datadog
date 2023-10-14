@@ -19,37 +19,77 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryArgs();
 
+    /**
+     * `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     @Import(name="computeQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs> computeQuery;
 
+    /**
+     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs>> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
 
+    /**
+     * Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="groupBies")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>> groupBies;
 
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
+    /**
+     * The name of the index to query.
+     * 
+     */
     @Import(name="index", required=true)
     private Output<String> index;
 
+    /**
+     * @return The name of the index to query.
+     * 
+     */
     public Output<String> index() {
         return this.index;
     }
 
+    /**
+     * `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="multiComputes")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs>> multiComputes;
 
+    /**
+     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs>>> multiComputes() {
         return Optional.ofNullable(this.multiComputes);
     }
 
+    /**
+     * The search query to use.
+     * 
+     */
     @Import(name="searchQuery")
     private @Nullable Output<String> searchQuery;
 
+    /**
+     * @return The search query to use.
+     * 
+     */
     public Optional<Output<String>> searchQuery() {
         return Optional.ofNullable(this.searchQuery);
     }
@@ -82,55 +122,127 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param computeQuery `compute_query` or `multi_compute` is required. The map keys are listed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs> computeQuery) {
             $.computeQuery = computeQuery;
             return this;
         }
 
+        /**
+         * @param computeQuery `compute_query` or `multi_compute` is required. The map keys are listed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeQuery(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs computeQuery) {
             return computeQuery(Output.of(computeQuery));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 
+        /**
+         * @param index The name of the index to query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder index(Output<String> index) {
             $.index = index;
             return this;
         }
 
+        /**
+         * @param index The name of the index to query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder index(String index) {
             return index(Output.of(index));
         }
 
+        /**
+         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiComputes(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs>> multiComputes) {
             $.multiComputes = multiComputes;
             return this;
         }
 
+        /**
+         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiComputes(List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs> multiComputes) {
             return multiComputes(Output.of(multiComputes));
         }
 
+        /**
+         * @param multiComputes `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiComputes(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs... multiComputes) {
             return multiComputes(List.of(multiComputes));
         }
 
+        /**
+         * @param searchQuery The search query to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder searchQuery(@Nullable Output<String> searchQuery) {
             $.searchQuery = searchQuery;
             return this;
         }
 
+        /**
+         * @param searchQuery The search query to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder searchQuery(String searchQuery) {
             return searchQuery(Output.of(searchQuery));
         }

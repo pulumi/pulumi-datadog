@@ -15,8 +15,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DashboardWidgetToplistDefinitionRequestApmQueryGroupBy struct {
-	Facet     *string                                                          `pulumi:"facet"`
-	Limit     *int                                                             `pulumi:"limit"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery `pulumi:"sortQuery"`
 }
 
@@ -32,8 +35,11 @@ type DashboardWidgetToplistDefinitionRequestApmQueryGroupByInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs struct {
-	Facet     pulumi.StringPtrInput                                                   `pulumi:"facet"`
-	Limit     pulumi.IntPtrInput                                                      `pulumi:"limit"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
 }
 
@@ -106,14 +112,17 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) ToOutput(c
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// A list of exactly one element describing the sort query to use.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBy) *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
 		return v.SortQuery
@@ -147,9 +156,12 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupByArrayOutput) Index
 }
 
 type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Order       string  `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput values.
@@ -164,9 +176,12 @@ type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput interf
 }
 
 type DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Order       pulumi.StringInput    `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
@@ -264,14 +279,17 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) T
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
 }
@@ -306,6 +324,7 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
 	}).(DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -315,6 +334,7 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -324,6 +344,7 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -334,9 +355,12 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput values.
@@ -351,9 +375,12 @@ type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs) ElementType() reflect.Type {
@@ -425,14 +452,17 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) ToOut
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -464,11 +494,16 @@ func (o DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput) 
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQuery struct {
-	ComputeQuery  *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery  `pulumi:"computeQuery"`
-	GroupBies     []DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy      `pulumi:"groupBies"`
-	Index         string                                                          `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes []DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute `pulumi:"multiComputes"`
-	SearchQuery   *string                                                         `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
 }
 
 // DashboardWidgetToplistDefinitionRequestAuditQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestAuditQueryArgs and DashboardWidgetToplistDefinitionRequestAuditQueryOutput values.
@@ -483,11 +518,16 @@ type DashboardWidgetToplistDefinitionRequestAuditQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryArgs struct {
-	ComputeQuery  DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrInput   `pulumi:"computeQuery"`
-	GroupBies     DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayInput      `pulumi:"groupBies"`
-	Index         pulumi.StringInput                                                      `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	SearchQuery   pulumi.StringPtrInput                                                   `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestAuditQueryArgs) ElementType() reflect.Type {
@@ -585,28 +625,33 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) ToOutput(ctx co
 	}
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQuery) *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
 		return v.ComputeQuery
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) GroupBies() DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQuery) []DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQuery) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQuery) []DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
 		return v.MultiComputes
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
 }
@@ -641,6 +686,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) Elem() Dashb
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQuery) *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
 		if v == nil {
@@ -650,6 +696,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) ComputeQuery
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) GroupBies() DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQuery) []DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
 		if v == nil {
@@ -659,6 +706,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) GroupBies() 
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQuery) *string {
 		if v == nil {
@@ -668,6 +716,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) Index() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQuery) []DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
 		if v == nil {
@@ -677,6 +726,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) MultiCompute
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQuery) *string {
 		if v == nil {
@@ -687,9 +737,12 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryPtrOutput) SearchQuery(
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs and DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput values.
@@ -704,9 +757,12 @@ type DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryInput interfac
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs) ElementType() reflect.Type {
@@ -804,14 +860,17 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput) ToO
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -846,6 +905,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) 
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) *string {
 		if v == nil {
@@ -855,6 +915,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) *string {
 		if v == nil {
@@ -864,6 +925,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery) *int {
 		if v == nil {
@@ -874,8 +936,11 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryPtrOutput) 
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy struct {
-	Facet     *string                                                            `pulumi:"facet"`
-	Limit     *int                                                               `pulumi:"limit"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery *DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery `pulumi:"sortQuery"`
 }
 
@@ -891,8 +956,11 @@ type DashboardWidgetToplistDefinitionRequestAuditQueryGroupByInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs struct {
-	Facet     pulumi.StringPtrInput                                                     `pulumi:"facet"`
-	Limit     pulumi.IntPtrInput                                                        `pulumi:"limit"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
 }
 
@@ -965,14 +1033,17 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupByOutput) ToOutput
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// A list of exactly one element describing the sort query to use.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy) *DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
 		return v.SortQuery
@@ -1006,9 +1077,12 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArrayOutput) Ind
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Order       string  `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput values.
@@ -1023,9 +1097,12 @@ type DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryInput inte
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Order       pulumi.StringInput    `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs) ElementType() reflect.Type {
@@ -1123,14 +1200,17 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput)
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
 }
@@ -1165,6 +1245,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutp
 	}).(DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -1174,6 +1255,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -1183,6 +1265,7 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -1193,9 +1276,12 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryPtrOutp
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeOutput values.
@@ -1210,9 +1296,12 @@ type DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeInput interfac
 }
 
 type DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs) ElementType() reflect.Type {
@@ -1284,14 +1373,17 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeOutput) ToO
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -1323,15 +1415,24 @@ func (o DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArrayOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestConditionalFormat struct {
-	Comparator    string  `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor *string `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor *string `pulumi:"customFgColor"`
-	HideValue     *bool   `pulumi:"hideValue"`
-	ImageUrl      *string `pulumi:"imageUrl"`
-	Metric        *string `pulumi:"metric"`
-	Palette       string  `pulumi:"palette"`
-	Timeframe     *string `pulumi:"timeframe"`
-	Value         float64 `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue *bool `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette string `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe *string `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value float64 `pulumi:"value"`
 }
 
 // DashboardWidgetToplistDefinitionRequestConditionalFormatInput is an input type that accepts DashboardWidgetToplistDefinitionRequestConditionalFormatArgs and DashboardWidgetToplistDefinitionRequestConditionalFormatOutput values.
@@ -1346,15 +1447,24 @@ type DashboardWidgetToplistDefinitionRequestConditionalFormatInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestConditionalFormatArgs struct {
-	Comparator    pulumi.StringInput    `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	HideValue     pulumi.BoolPtrInput   `pulumi:"hideValue"`
-	ImageUrl      pulumi.StringPtrInput `pulumi:"imageUrl"`
-	Metric        pulumi.StringPtrInput `pulumi:"metric"`
-	Palette       pulumi.StringInput    `pulumi:"palette"`
-	Timeframe     pulumi.StringPtrInput `pulumi:"timeframe"`
-	Value         pulumi.Float64Input   `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringInput `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestConditionalFormatArgs) ElementType() reflect.Type {
@@ -1426,38 +1536,47 @@ func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) ToOutput
 	}
 }
 
+// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) Comparator() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
 }
 
+// The color palette to apply to the background, same values available as palette.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *string { return v.CustomBgColor }).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply to the foreground, same values available as palette.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *string { return v.CustomFgColor }).(pulumi.StringPtrOutput)
 }
 
+// Setting this to True hides values.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
 }
 
+// Displays an image as the background.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) Palette() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
 }
 
+// Defines the displayed timeframe.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
 }
 
+// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
 func (o DashboardWidgetToplistDefinitionRequestConditionalFormatOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -1489,12 +1608,18 @@ func (o DashboardWidgetToplistDefinitionRequestConditionalFormatArrayOutput) Ind
 }
 
 type DashboardWidgetToplistDefinitionRequestFormula struct {
-	Alias              *string                                                           `pulumi:"alias"`
-	CellDisplayMode    *string                                                           `pulumi:"cellDisplayMode"`
+	// An expression alias.
+	Alias *string `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`.
+	CellDisplayMode *string `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 	ConditionalFormats []DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
-	FormulaExpression  string                                                            `pulumi:"formulaExpression"`
-	Limit              *DashboardWidgetToplistDefinitionRequestFormulaLimit              `pulumi:"limit"`
-	Style              *DashboardWidgetToplistDefinitionRequestFormulaStyle              `pulumi:"style"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression string `pulumi:"formulaExpression"`
+	// The maximum number of items in the group.
+	Limit *DashboardWidgetToplistDefinitionRequestFormulaLimit `pulumi:"limit"`
+	// Styling options for widget formulas.
+	Style *DashboardWidgetToplistDefinitionRequestFormulaStyle `pulumi:"style"`
 }
 
 // DashboardWidgetToplistDefinitionRequestFormulaInput is an input type that accepts DashboardWidgetToplistDefinitionRequestFormulaArgs and DashboardWidgetToplistDefinitionRequestFormulaOutput values.
@@ -1509,12 +1634,18 @@ type DashboardWidgetToplistDefinitionRequestFormulaInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaArgs struct {
-	Alias              pulumi.StringPtrInput                                                     `pulumi:"alias"`
-	CellDisplayMode    pulumi.StringPtrInput                                                     `pulumi:"cellDisplayMode"`
+	// An expression alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`.
+	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 	ConditionalFormats DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	FormulaExpression  pulumi.StringInput                                                        `pulumi:"formulaExpression"`
-	Limit              DashboardWidgetToplistDefinitionRequestFormulaLimitPtrInput               `pulumi:"limit"`
-	Style              DashboardWidgetToplistDefinitionRequestFormulaStylePtrInput               `pulumi:"style"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+	// The maximum number of items in the group.
+	Limit DashboardWidgetToplistDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
+	// Styling options for widget formulas.
+	Style DashboardWidgetToplistDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestFormulaArgs) ElementType() reflect.Type {
@@ -1586,30 +1717,36 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) ToOutput(ctx conte
 	}
 }
 
+// An expression alias.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
+// A list of display modes for each table cell. Valid values are `number`, `bar`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) *string { return v.CellDisplayMode }).(pulumi.StringPtrOutput)
 }
 
+// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) ConditionalFormats() DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) []DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat {
 		return v.ConditionalFormats
 	}).(DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArrayOutput)
 }
 
+// A string expression built from queries, formulas, and functions.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) Limit() DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) *DashboardWidgetToplistDefinitionRequestFormulaLimit {
 		return v.Limit
 	}).(DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput)
 }
 
+// Styling options for widget formulas.
 func (o DashboardWidgetToplistDefinitionRequestFormulaOutput) Style() DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormula) *DashboardWidgetToplistDefinitionRequestFormulaStyle {
 		return v.Style
@@ -1643,15 +1780,24 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaArrayOutput) Index(i pulum
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat struct {
-	Comparator    string  `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor *string `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor *string `pulumi:"customFgColor"`
-	HideValue     *bool   `pulumi:"hideValue"`
-	ImageUrl      *string `pulumi:"imageUrl"`
-	Metric        *string `pulumi:"metric"`
-	Palette       string  `pulumi:"palette"`
-	Timeframe     *string `pulumi:"timeframe"`
-	Value         float64 `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue *bool `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette string `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe *string `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value float64 `pulumi:"value"`
 }
 
 // DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatInput is an input type that accepts DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs and DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput values.
@@ -1666,15 +1812,24 @@ type DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatInput interf
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs struct {
-	Comparator    pulumi.StringInput    `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	HideValue     pulumi.BoolPtrInput   `pulumi:"hideValue"`
-	ImageUrl      pulumi.StringPtrInput `pulumi:"imageUrl"`
-	Metric        pulumi.StringPtrInput `pulumi:"metric"`
-	Palette       pulumi.StringInput    `pulumi:"palette"`
-	Timeframe     pulumi.StringPtrInput `pulumi:"timeframe"`
-	Value         pulumi.Float64Input   `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringInput `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
@@ -1746,42 +1901,51 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) T
 	}
 }
 
+// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
 }
 
+// The color palette to apply to the background, same values available as palette.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *string {
 		return v.CustomBgColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply to the foreground, same values available as palette.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *string {
 		return v.CustomFgColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Setting this to True hides values.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
 }
 
+// Displays an image as the background.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
 }
 
+// Defines the displayed timeframe.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
 }
 
+// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
 func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -1813,7 +1977,9 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArrayOutp
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaLimit struct {
-	Count *int    `pulumi:"count"`
+	// The number of results to return
+	Count *int `pulumi:"count"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order *string `pulumi:"order"`
 }
 
@@ -1829,7 +1995,9 @@ type DashboardWidgetToplistDefinitionRequestFormulaLimitInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaLimitArgs struct {
-	Count pulumi.IntPtrInput    `pulumi:"count"`
+	// The number of results to return
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -1928,10 +2096,12 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaLimitOutput) ToOutput(ctx 
 	}
 }
 
+// The number of results to return
 func (o DashboardWidgetToplistDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -1966,6 +2136,7 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Elem() Das
 	}).(DashboardWidgetToplistDefinitionRequestFormulaLimitOutput)
 }
 
+// The number of results to return
 func (o DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestFormulaLimit) *int {
 		if v == nil {
@@ -1975,6 +2146,7 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestFormulaLimit) *string {
 		if v == nil {
@@ -1985,8 +2157,10 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Order() pu
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaStyle struct {
-	Palette      *string `pulumi:"palette"`
-	PaletteIndex *int    `pulumi:"paletteIndex"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette *string `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex *int `pulumi:"paletteIndex"`
 }
 
 // DashboardWidgetToplistDefinitionRequestFormulaStyleInput is an input type that accepts DashboardWidgetToplistDefinitionRequestFormulaStyleArgs and DashboardWidgetToplistDefinitionRequestFormulaStyleOutput values.
@@ -2001,8 +2175,10 @@ type DashboardWidgetToplistDefinitionRequestFormulaStyleInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestFormulaStyleArgs struct {
-	Palette      pulumi.StringPtrInput `pulumi:"palette"`
-	PaletteIndex pulumi.IntPtrInput    `pulumi:"paletteIndex"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
@@ -2100,10 +2276,12 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaStyleOutput) ToOutput(ctx 
 	}
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
 
+// Index specifying which color to use within the palette.
 func (o DashboardWidgetToplistDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
 }
@@ -2138,6 +2316,7 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput) Elem() Das
 	}).(DashboardWidgetToplistDefinitionRequestFormulaStyleOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestFormulaStyle) *string {
 		if v == nil {
@@ -2147,6 +2326,7 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput) Palette() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Index specifying which color to use within the palette.
 func (o DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestFormulaStyle) *int {
 		if v == nil {
@@ -2157,11 +2337,16 @@ func (o DashboardWidgetToplistDefinitionRequestFormulaStylePtrOutput) PaletteInd
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQuery struct {
-	ComputeQuery  *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery  `pulumi:"computeQuery"`
-	GroupBies     []DashboardWidgetToplistDefinitionRequestLogQueryGroupBy      `pulumi:"groupBies"`
-	Index         string                                                        `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetToplistDefinitionRequestLogQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes []DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute `pulumi:"multiComputes"`
-	SearchQuery   *string                                                       `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
 }
 
 // DashboardWidgetToplistDefinitionRequestLogQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestLogQueryArgs and DashboardWidgetToplistDefinitionRequestLogQueryOutput values.
@@ -2176,11 +2361,16 @@ type DashboardWidgetToplistDefinitionRequestLogQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryArgs struct {
-	ComputeQuery  DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput   `pulumi:"computeQuery"`
-	GroupBies     DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayInput      `pulumi:"groupBies"`
-	Index         pulumi.StringInput                                                    `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	SearchQuery   pulumi.StringPtrInput                                                 `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestLogQueryArgs) ElementType() reflect.Type {
@@ -2278,28 +2468,33 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) ToOutput(ctx cont
 	}
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQuery) *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
 		return v.ComputeQuery
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) GroupBies() DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQuery) []DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQuery) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQuery) []DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute {
 		return v.MultiComputes
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
 }
@@ -2334,6 +2529,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) Elem() Dashboa
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQuery) *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
 		if v == nil {
@@ -2343,6 +2539,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) ComputeQuery()
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) GroupBies() DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQuery) []DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
 		if v == nil {
@@ -2352,6 +2549,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) GroupBies() Da
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQuery) *string {
 		if v == nil {
@@ -2361,6 +2559,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) Index() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQuery) []DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute {
 		if v == nil {
@@ -2370,6 +2569,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) MultiComputes(
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQuery) *string {
 		if v == nil {
@@ -2380,9 +2580,12 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryPtrOutput) SearchQuery() 
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs and DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput values.
@@ -2397,9 +2600,12 @@ type DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ElementType() reflect.Type {
@@ -2497,14 +2703,17 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ToOut
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -2539,6 +2748,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) El
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) *string {
 		if v == nil {
@@ -2548,6 +2758,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Ag
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) *string {
 		if v == nil {
@@ -2557,6 +2768,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Fa
 	}).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery) *int {
 		if v == nil {
@@ -2567,8 +2779,11 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) In
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryGroupBy struct {
-	Facet     *string                                                          `pulumi:"facet"`
-	Limit     *int                                                             `pulumi:"limit"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery *DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
 }
 
@@ -2584,8 +2799,11 @@ type DashboardWidgetToplistDefinitionRequestLogQueryGroupByInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs struct {
-	Facet     pulumi.StringPtrInput                                                   `pulumi:"facet"`
-	Limit     pulumi.IntPtrInput                                                      `pulumi:"limit"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
 }
 
@@ -2658,14 +2876,17 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupByOutput) ToOutput(c
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// A list of exactly one element describing the sort query to use.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBy) *DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
 		return v.SortQuery
@@ -2699,9 +2920,12 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput) Index
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Order       string  `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput values.
@@ -2716,9 +2940,12 @@ type DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryInput interf
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Order       pulumi.StringInput    `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
@@ -2816,14 +3043,17 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput) T
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
 }
@@ -2858,6 +3088,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput
 	}).(DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -2867,6 +3098,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -2876,6 +3108,7 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -2886,9 +3119,12 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeOutput values.
@@ -2903,9 +3139,12 @@ type DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs) ElementType() reflect.Type {
@@ -2977,14 +3216,17 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeOutput) ToOut
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -3016,10 +3258,14 @@ func (o DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput) 
 }
 
 type DashboardWidgetToplistDefinitionRequestProcessQuery struct {
+	// A list of processes.
 	FilterBies []string `pulumi:"filterBies"`
-	Limit      *int     `pulumi:"limit"`
-	Metric     string   `pulumi:"metric"`
-	SearchBy   *string  `pulumi:"searchBy"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric string `pulumi:"metric"`
+	// Your chosen search term.
+	SearchBy *string `pulumi:"searchBy"`
 }
 
 // DashboardWidgetToplistDefinitionRequestProcessQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestProcessQueryArgs and DashboardWidgetToplistDefinitionRequestProcessQueryOutput values.
@@ -3034,10 +3280,14 @@ type DashboardWidgetToplistDefinitionRequestProcessQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestProcessQueryArgs struct {
+	// A list of processes.
 	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
-	Limit      pulumi.IntPtrInput      `pulumi:"limit"`
-	Metric     pulumi.StringInput      `pulumi:"metric"`
-	SearchBy   pulumi.StringPtrInput   `pulumi:"searchBy"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// Your chosen search term.
+	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestProcessQueryArgs) ElementType() reflect.Type {
@@ -3135,18 +3385,22 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryOutput) ToOutput(ctx 
 	}
 }
 
+// A list of processes.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryOutput) FilterBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
 
+// Your chosen search term.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryOutput) SearchBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestProcessQuery) *string { return v.SearchBy }).(pulumi.StringPtrOutput)
 }
@@ -3181,6 +3435,7 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) Elem() Das
 	}).(DashboardWidgetToplistDefinitionRequestProcessQueryOutput)
 }
 
+// A list of processes.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) FilterBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestProcessQuery) []string {
 		if v == nil {
@@ -3190,6 +3445,7 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) FilterBies
 	}).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestProcessQuery) *int {
 		if v == nil {
@@ -3199,6 +3455,7 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) Limit() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestProcessQuery) *string {
 		if v == nil {
@@ -3208,6 +3465,7 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) Metric() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Your chosen search term.
 func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) SearchBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestProcessQuery) *string {
 		if v == nil {
@@ -3218,12 +3476,18 @@ func (o DashboardWidgetToplistDefinitionRequestProcessQueryPtrOutput) SearchBy()
 }
 
 type DashboardWidgetToplistDefinitionRequestQuery struct {
+	// The APM Dependency Stats query using formulas and functions.
 	ApmDependencyStatsQuery *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
-	ApmResourceStatsQuery   *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery   `pulumi:"apmResourceStatsQuery"`
-	EventQuery              *DashboardWidgetToplistDefinitionRequestQueryEventQuery              `pulumi:"eventQuery"`
-	MetricQuery             *DashboardWidgetToplistDefinitionRequestQueryMetricQuery             `pulumi:"metricQuery"`
-	ProcessQuery            *DashboardWidgetToplistDefinitionRequestQueryProcessQuery            `pulumi:"processQuery"`
-	SloQuery                *DashboardWidgetToplistDefinitionRequestQuerySloQuery                `pulumi:"sloQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery *DashboardWidgetToplistDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery *DashboardWidgetToplistDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
+	// The process query to use in the widget. The structure of this block is described below.
+	ProcessQuery *DashboardWidgetToplistDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
+	// The slo query using formulas and functions.
+	SloQuery *DashboardWidgetToplistDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryArgs and DashboardWidgetToplistDefinitionRequestQueryOutput values.
@@ -3238,12 +3502,18 @@ type DashboardWidgetToplistDefinitionRequestQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryArgs struct {
+	// The APM Dependency Stats query using formulas and functions.
 	ApmDependencyStatsQuery DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
-	ApmResourceStatsQuery   DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrInput   `pulumi:"apmResourceStatsQuery"`
-	EventQuery              DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrInput              `pulumi:"eventQuery"`
-	MetricQuery             DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput             `pulumi:"metricQuery"`
-	ProcessQuery            DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput            `pulumi:"processQuery"`
-	SloQuery                DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrInput                `pulumi:"sloQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
+	// The process query to use in the widget. The structure of this block is described below.
+	ProcessQuery DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
+	// The slo query using formulas and functions.
+	SloQuery DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryArgs) ElementType() reflect.Type {
@@ -3315,36 +3585,42 @@ func (o DashboardWidgetToplistDefinitionRequestQueryOutput) ToOutput(ctx context
 	}
 }
 
+// The APM Dependency Stats query using formulas and functions.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) ApmDependencyStatsQuery() DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
 		return v.ApmDependencyStatsQuery
 	}).(DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
 }
 
+// The APM Resource Stats query using formulas and functions.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) ApmResourceStatsQuery() DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
 		return v.ApmResourceStatsQuery
 	}).(DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
 }
 
+// A timeseries formula and functions events query.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) EventQuery() DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQueryEventQuery {
 		return v.EventQuery
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput)
 }
 
+// A timeseries formula and functions metrics query.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) MetricQuery() DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
 		return v.MetricQuery
 	}).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
+// The process query to use in the widget. The structure of this block is described below.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) ProcessQuery() DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
 		return v.ProcessQuery
 	}).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
 }
 
+// The slo query using formulas and functions.
 func (o DashboardWidgetToplistDefinitionRequestQueryOutput) SloQuery() DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuery) *DashboardWidgetToplistDefinitionRequestQuerySloQuery {
 		return v.SloQuery
@@ -3378,16 +3654,26 @@ func (o DashboardWidgetToplistDefinitionRequestQueryArrayOutput) Index(i pulumi.
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery struct {
-	DataSource      string  `pulumi:"dataSource"`
-	Env             string  `pulumi:"env"`
-	IsUpstream      *bool   `pulumi:"isUpstream"`
-	Name            string  `pulumi:"name"`
-	OperationName   string  `pulumi:"operationName"`
-	PrimaryTagName  *string `pulumi:"primaryTagName"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM Environment.
+	Env string `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream *bool `pulumi:"isUpstream"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	ResourceName    string  `pulumi:"resourceName"`
-	Service         string  `pulumi:"service"`
-	Stat            string  `pulumi:"stat"`
+	// APM resource.
+	ResourceName string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs and DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput values.
@@ -3402,16 +3688,26 @@ type DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryInput in
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs struct {
-	DataSource      pulumi.StringInput    `pulumi:"dataSource"`
-	Env             pulumi.StringInput    `pulumi:"env"`
-	IsUpstream      pulumi.BoolPtrInput   `pulumi:"isUpstream"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-	OperationName   pulumi.StringInput    `pulumi:"operationName"`
-	PrimaryTagName  pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM Environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	ResourceName    pulumi.StringInput    `pulumi:"resourceName"`
-	Service         pulumi.StringInput    `pulumi:"service"`
-	Stat            pulumi.StringInput    `pulumi:"stat"`
+	// APM resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs) ElementType() reflect.Type {
@@ -3509,52 +3805,62 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutpu
 	}
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.DataSource
 	}).(pulumi.StringOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
+// Determines whether stats for upstream or downstream dependencies should be queried.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.OperationName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		return v.PrimaryTagName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		return v.PrimaryTagValue
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.ResourceName
 	}).(pulumi.StringOutput)
 }
 
+// APM service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -3589,6 +3895,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3598,6 +3905,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3607,6 +3915,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether stats for upstream or downstream dependencies should be queried.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *bool {
 		if v == nil {
@@ -3616,6 +3925,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3625,6 +3935,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3634,6 +3945,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3643,6 +3955,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3652,6 +3965,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3661,6 +3975,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3670,6 +3985,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3680,16 +3996,26 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery struct {
-	DataSource      string   `pulumi:"dataSource"`
-	Env             string   `pulumi:"env"`
-	GroupBies       []string `pulumi:"groupBies"`
-	Name            string   `pulumi:"name"`
-	OperationName   *string  `pulumi:"operationName"`
-	PrimaryTagName  *string  `pulumi:"primaryTagName"`
-	PrimaryTagValue *string  `pulumi:"primaryTagValue"`
-	ResourceName    *string  `pulumi:"resourceName"`
-	Service         string   `pulumi:"service"`
-	Stat            string   `pulumi:"stat"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM Environment.
+	Env string `pulumi:"env"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []string `pulumi:"groupBies"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName *string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName *string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs and DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput values.
@@ -3704,16 +4030,26 @@ type DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryInput inte
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs struct {
-	DataSource      pulumi.StringInput      `pulumi:"dataSource"`
-	Env             pulumi.StringInput      `pulumi:"env"`
-	GroupBies       pulumi.StringArrayInput `pulumi:"groupBies"`
-	Name            pulumi.StringInput      `pulumi:"name"`
-	OperationName   pulumi.StringPtrInput   `pulumi:"operationName"`
-	PrimaryTagName  pulumi.StringPtrInput   `pulumi:"primaryTagName"`
-	PrimaryTagValue pulumi.StringPtrInput   `pulumi:"primaryTagValue"`
-	ResourceName    pulumi.StringPtrInput   `pulumi:"resourceName"`
-	Service         pulumi.StringInput      `pulumi:"service"`
-	Stat            pulumi.StringInput      `pulumi:"stat"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM Environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs) ElementType() reflect.Type {
@@ -3811,50 +4147,60 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 	}
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.OperationName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.PrimaryTagName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.PrimaryTagValue
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.ResourceName
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -3889,6 +4235,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3898,6 +4245,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3907,6 +4255,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) []string {
 		if v == nil {
@@ -3916,6 +4265,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3925,6 +4275,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3934,6 +4285,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3943,6 +4295,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3952,6 +4305,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3961,6 +4315,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3970,6 +4325,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3980,13 +4336,20 @@ func (o DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQuery struct {
-	Computes   []DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	DataSource string                                                          `pulumi:"dataSource"`
-	GroupBies  []DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
-	Indexes    []string                                                        `pulumi:"indexes"`
-	Name       string                                                          `pulumi:"name"`
-	Search     *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch   `pulumi:"search"`
-	Storage    *string                                                         `pulumi:"storage"`
+	// The compute options.
+	Computes []DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes []string `pulumi:"indexes"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// The search options.
+	Search *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
+	// Storage location (private beta).
+	Storage *string `pulumi:"storage"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryEventQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput values.
@@ -4001,13 +4364,20 @@ type DashboardWidgetToplistDefinitionRequestQueryEventQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs struct {
-	Computes   DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	DataSource pulumi.StringInput                                                      `pulumi:"dataSource"`
-	GroupBies  DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	Indexes    pulumi.StringArrayInput                                                 `pulumi:"indexes"`
-	Name       pulumi.StringInput                                                      `pulumi:"name"`
-	Search     DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput    `pulumi:"search"`
-	Storage    pulumi.StringPtrInput                                                   `pulumi:"storage"`
+	// The compute options.
+	Computes DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The search options.
+	Search DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
+	// Storage location (private beta).
+	Storage pulumi.StringPtrInput `pulumi:"storage"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
@@ -4105,36 +4475,43 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) ToOutput(c
 	}
 }
 
+// The compute options.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) Computes() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) []DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
 		return v.Computes
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) GroupBies() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) []DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput)
 }
 
+// An array of index names to query in the stream.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The search options.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) Search() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
 		return v.Search
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// Storage location (private beta).
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
 }
@@ -4169,6 +4546,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Elem() 
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryOutput)
 }
 
+// The compute options.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Computes() DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) []DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
 		if v == nil {
@@ -4178,6 +4556,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Compute
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -4187,6 +4566,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSou
 	}).(pulumi.StringPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) GroupBies() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) []DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
 		if v == nil {
@@ -4196,6 +4576,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) GroupBi
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput)
 }
 
+// An array of index names to query in the stream.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) []string {
 		if v == nil {
@@ -4205,6 +4586,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Indexes
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -4214,6 +4596,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Name() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The search options.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Search() DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) *DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
 		if v == nil {
@@ -4223,6 +4606,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Search(
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// Storage location (private beta).
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -4233,9 +4617,12 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Storage
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Interval    *int    `pulumi:"interval"`
-	Metric      *string `pulumi:"metric"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput values.
@@ -4250,9 +4637,12 @@ type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeInput interfac
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
@@ -4324,14 +4714,17 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToO
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
@@ -4363,9 +4756,12 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy struct {
-	Facet string                                                             `pulumi:"facet"`
-	Limit *int                                                               `pulumi:"limit"`
-	Sort  *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+	// The facet name.
+	Facet string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput values.
@@ -4380,9 +4776,12 @@ type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByInput interfac
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs struct {
-	Facet pulumi.StringInput                                                        `pulumi:"facet"`
-	Limit pulumi.IntPtrInput                                                        `pulumi:"limit"`
-	Sort  DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+	// The facet name.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
@@ -4454,14 +4853,17 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToO
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Sort() DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
 		return v.Sort
@@ -4495,9 +4897,12 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Metric      *string `pulumi:"metric"`
-	Order       *string `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs and DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput values.
@@ -4512,9 +4917,12 @@ type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput inte
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
-	Order       pulumi.StringPtrInput `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
@@ -4612,14 +5020,17 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -4654,6 +5065,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4663,6 +5075,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4672,6 +5085,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4839,10 +5253,13 @@ func (o DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Q
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryMetricQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource *string `pulumi:"dataSource"`
-	Name       string  `pulumi:"name"`
-	Query      string  `pulumi:"query"`
+	// The name of the variable.
+	Name  string `pulumi:"name"`
+	Query string `pulumi:"query"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs and DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput values.
@@ -4857,10 +5274,13 @@ type DashboardWidgetToplistDefinitionRequestQueryMetricQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	Name       pulumi.StringInput    `pulumi:"name"`
-	Query      pulumi.StringInput    `pulumi:"query"`
+	// The name of the variable.
+	Name  pulumi.StringInput `pulumi:"name"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs) ElementType() reflect.Type {
@@ -4958,14 +5378,17 @@ func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToOutput(
 	}
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5004,6 +5427,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Elem()
 	}).(DashboardWidgetToplistDefinitionRequestQueryMetricQueryOutput)
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -5013,6 +5437,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggreg
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -5022,6 +5447,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -5041,15 +5467,24 @@ func (o DashboardWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Query(
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryProcessQuery struct {
-	Aggregator      *string  `pulumi:"aggregator"`
-	DataSource      string   `pulumi:"dataSource"`
-	IsNormalizedCpu *bool    `pulumi:"isNormalizedCpu"`
-	Limit           *int     `pulumi:"limit"`
-	Metric          string   `pulumi:"metric"`
-	Name            string   `pulumi:"name"`
-	Sort            *string  `pulumi:"sort"`
-	TagFilters      []string `pulumi:"tagFilters"`
-	TextFilter      *string  `pulumi:"textFilter"`
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric string `pulumi:"metric"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// The options for sorting group by results.
+	Sort *string `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters []string `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter *string `pulumi:"textFilter"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs and DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput values.
@@ -5064,15 +5499,24 @@ type DashboardWidgetToplistDefinitionRequestQueryProcessQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs struct {
-	Aggregator      pulumi.StringPtrInput   `pulumi:"aggregator"`
-	DataSource      pulumi.StringInput      `pulumi:"dataSource"`
-	IsNormalizedCpu pulumi.BoolPtrInput     `pulumi:"isNormalizedCpu"`
-	Limit           pulumi.IntPtrInput      `pulumi:"limit"`
-	Metric          pulumi.StringInput      `pulumi:"metric"`
-	Name            pulumi.StringInput      `pulumi:"name"`
-	Sort            pulumi.StringPtrInput   `pulumi:"sort"`
-	TagFilters      pulumi.StringArrayInput `pulumi:"tagFilters"`
-	TextFilter      pulumi.StringPtrInput   `pulumi:"textFilter"`
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The options for sorting group by results.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs) ElementType() reflect.Type {
@@ -5170,38 +5614,47 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToOutput
 	}
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Whether to normalize the CPU percentages.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
 }
 
+// An array of tags to filter by.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
 }
 
+// The text to use as a filter.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
 }
@@ -5236,6 +5689,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Elem(
 	}).(DashboardWidgetToplistDefinitionRequestQueryProcessQueryOutput)
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5245,6 +5699,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggre
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5254,6 +5709,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) DataS
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to normalize the CPU percentages.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *bool {
 		if v == nil {
@@ -5263,6 +5719,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) IsNor
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *int {
 		if v == nil {
@@ -5272,6 +5729,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit
 	}).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5281,6 +5739,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5290,6 +5749,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5299,6 +5759,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Sort(
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of tags to filter by.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) []string {
 		if v == nil {
@@ -5308,6 +5769,7 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TagFi
 	}).(pulumi.StringArrayOutput)
 }
 
+// The text to use as a filter.
 func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5318,13 +5780,20 @@ func (o DashboardWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextF
 }
 
 type DashboardWidgetToplistDefinitionRequestQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
-	DataSource             string  `pulumi:"dataSource"`
-	GroupMode              *string `pulumi:"groupMode"`
-	Measure                string  `pulumi:"measure"`
-	Name                   *string `pulumi:"name"`
-	SloId                  string  `pulumi:"sloId"`
-	SloQueryType           *string `pulumi:"sloQueryType"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of the variable.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`.
+	SloQueryType *string `pulumi:"sloQueryType"`
 }
 
 // DashboardWidgetToplistDefinitionRequestQuerySloQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs and DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput values.
@@ -5339,13 +5808,20 @@ type DashboardWidgetToplistDefinitionRequestQuerySloQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
-	DataSource             pulumi.StringInput    `pulumi:"dataSource"`
-	GroupMode              pulumi.StringPtrInput `pulumi:"groupMode"`
-	Measure                pulumi.StringInput    `pulumi:"measure"`
-	Name                   pulumi.StringPtrInput `pulumi:"name"`
-	SloId                  pulumi.StringInput    `pulumi:"sloId"`
-	SloQueryType           pulumi.StringPtrInput `pulumi:"sloQueryType"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of the variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
@@ -5443,30 +5919,37 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) ToOutput(ctx
 	}
 }
 
+// Additional filters applied to the SLO query.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Group mode to query measures. Valid values are `overall`, `components`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.GroupMode }).(pulumi.StringPtrOutput)
 }
 
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) Measure() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// ID of an SLO to query.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) SloId() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
 }
 
+// type of the SLO to query. Valid values are `metric`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
 }
@@ -5501,6 +5984,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Elem() Da
 	}).(DashboardWidgetToplistDefinitionRequestQuerySloQueryOutput)
 }
 
+// Additional filters applied to the SLO query.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5510,6 +5994,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Additiona
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5519,6 +6004,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) DataSourc
 	}).(pulumi.StringPtrOutput)
 }
 
+// Group mode to query measures. Valid values are `overall`, `components`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5528,6 +6014,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) GroupMode
 	}).(pulumi.StringPtrOutput)
 }
 
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5537,6 +6024,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Measure()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5546,6 +6034,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Name() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// ID of an SLO to query.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5555,6 +6044,7 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// type of the SLO to query. Valid values are `metric`.
 func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5565,11 +6055,16 @@ func (o DashboardWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloQueryT
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQuery struct {
-	ComputeQuery  *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery  `pulumi:"computeQuery"`
-	GroupBies     []DashboardWidgetToplistDefinitionRequestRumQueryGroupBy      `pulumi:"groupBies"`
-	Index         string                                                        `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetToplistDefinitionRequestRumQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes []DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute `pulumi:"multiComputes"`
-	SearchQuery   *string                                                       `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
 }
 
 // DashboardWidgetToplistDefinitionRequestRumQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestRumQueryArgs and DashboardWidgetToplistDefinitionRequestRumQueryOutput values.
@@ -5584,11 +6079,16 @@ type DashboardWidgetToplistDefinitionRequestRumQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryArgs struct {
-	ComputeQuery  DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput   `pulumi:"computeQuery"`
-	GroupBies     DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayInput      `pulumi:"groupBies"`
-	Index         pulumi.StringInput                                                    `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	SearchQuery   pulumi.StringPtrInput                                                 `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestRumQueryArgs) ElementType() reflect.Type {
@@ -5686,28 +6186,33 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) ToOutput(ctx cont
 	}
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQuery) *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
 		return v.ComputeQuery
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) GroupBies() DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQuery) []DashboardWidgetToplistDefinitionRequestRumQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQuery) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQuery) []DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute {
 		return v.MultiComputes
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
 }
@@ -5742,6 +6247,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) Elem() Dashboa
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQuery) *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
 		if v == nil {
@@ -5751,6 +6257,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) ComputeQuery()
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) GroupBies() DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQuery) []DashboardWidgetToplistDefinitionRequestRumQueryGroupBy {
 		if v == nil {
@@ -5760,6 +6267,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) GroupBies() Da
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQuery) *string {
 		if v == nil {
@@ -5769,6 +6277,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) Index() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQuery) []DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute {
 		if v == nil {
@@ -5778,6 +6287,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) MultiComputes(
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQuery) *string {
 		if v == nil {
@@ -5788,9 +6298,12 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryPtrOutput) SearchQuery() 
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs and DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput values.
@@ -5805,9 +6318,12 @@ type DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ElementType() reflect.Type {
@@ -5905,14 +6421,17 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ToOut
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -5947,6 +6466,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) El
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) *string {
 		if v == nil {
@@ -5956,6 +6476,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Ag
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) *string {
 		if v == nil {
@@ -5965,6 +6486,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Fa
 	}).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery) *int {
 		if v == nil {
@@ -5975,8 +6497,11 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) In
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryGroupBy struct {
-	Facet     *string                                                          `pulumi:"facet"`
-	Limit     *int                                                             `pulumi:"limit"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery *DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery `pulumi:"sortQuery"`
 }
 
@@ -5992,8 +6517,11 @@ type DashboardWidgetToplistDefinitionRequestRumQueryGroupByInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs struct {
-	Facet     pulumi.StringPtrInput                                                   `pulumi:"facet"`
-	Limit     pulumi.IntPtrInput                                                      `pulumi:"limit"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
 }
 
@@ -6066,14 +6594,17 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupByOutput) ToOutput(c
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// A list of exactly one element describing the sort query to use.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBy) *DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
 		return v.SortQuery
@@ -6107,9 +6638,12 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput) Index
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Order       string  `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput values.
@@ -6124,9 +6658,12 @@ type DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput interf
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Order       pulumi.StringInput    `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ElementType() reflect.Type {
@@ -6224,14 +6761,17 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) T
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
 }
@@ -6266,6 +6806,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
 	}).(DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -6275,6 +6816,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -6284,6 +6826,7 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -6294,9 +6837,12 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeOutput values.
@@ -6311,9 +6857,12 @@ type DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs) ElementType() reflect.Type {
@@ -6385,14 +6934,17 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) ToOut
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -6424,11 +6976,16 @@ func (o DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput) 
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQuery struct {
-	ComputeQuery  *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery  `pulumi:"computeQuery"`
-	GroupBies     []DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy      `pulumi:"groupBies"`
-	Index         string                                                             `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes []DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute `pulumi:"multiComputes"`
-	SearchQuery   *string                                                            `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
 }
 
 // DashboardWidgetToplistDefinitionRequestSecurityQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestSecurityQueryArgs and DashboardWidgetToplistDefinitionRequestSecurityQueryOutput values.
@@ -6443,11 +7000,16 @@ type DashboardWidgetToplistDefinitionRequestSecurityQueryInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryArgs struct {
-	ComputeQuery  DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput   `pulumi:"computeQuery"`
-	GroupBies     DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput      `pulumi:"groupBies"`
-	Index         pulumi.StringInput                                                         `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 	MultiComputes DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	SearchQuery   pulumi.StringPtrInput                                                      `pulumi:"searchQuery"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestSecurityQueryArgs) ElementType() reflect.Type {
@@ -6545,28 +7107,33 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) ToOutput(ctx
 	}
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQuery) *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
 		return v.ComputeQuery
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) GroupBies() DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQuery) []DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQuery) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQuery) []DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
 		return v.MultiComputes
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
 }
@@ -6601,6 +7168,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) Elem() Da
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ComputeQuery() DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQuery) *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
 		if v == nil {
@@ -6610,6 +7178,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ComputeQu
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) GroupBies() DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQuery) []DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy {
 		if v == nil {
@@ -6619,6 +7188,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) GroupBies
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput)
 }
 
+// The name of the index to query.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQuery) *string {
 		if v == nil {
@@ -6628,6 +7198,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) Index() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) MultiComputes() DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQuery) []DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
 		if v == nil {
@@ -6637,6 +7208,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) MultiComp
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput)
 }
 
+// The search query to use.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQuery) *string {
 		if v == nil {
@@ -6647,9 +7219,12 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryPtrOutput) SearchQue
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs and DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput values.
@@ -6664,9 +7239,12 @@ type DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput inter
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ElementType() reflect.Type {
@@ -6764,14 +7342,17 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) 
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -6806,6 +7387,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutpu
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string {
 		if v == nil {
@@ -6815,6 +7397,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string {
 		if v == nil {
@@ -6824,6 +7407,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *int {
 		if v == nil {
@@ -6834,8 +7418,11 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutpu
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy struct {
-	Facet     *string                                                               `pulumi:"facet"`
-	Limit     *int                                                                  `pulumi:"limit"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery *DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery `pulumi:"sortQuery"`
 }
 
@@ -6851,8 +7438,11 @@ type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByInput interface 
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs struct {
-	Facet     pulumi.StringPtrInput                                                        `pulumi:"facet"`
-	Limit     pulumi.IntPtrInput                                                           `pulumi:"limit"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
 	SortQuery DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
 }
 
@@ -6925,14 +7515,17 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) ToOut
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// A list of exactly one element describing the sort query to use.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) SortQuery() DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy) *DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
 		return v.SortQuery
@@ -6966,9 +7559,12 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput) 
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Order       string  `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
 }
 
 // DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput is an input type that accepts DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs and DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput values.
@@ -6983,9 +7579,12 @@ type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput i
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Order       pulumi.StringInput    `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ElementType() reflect.Type {
@@ -7083,16 +7682,19 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutp
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) string {
 		return v.Aggregation
 	}).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
 }
@@ -7127,6 +7729,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrO
 	}).(DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -7136,6 +7739,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -7145,6 +7749,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
 		if v == nil {
@@ -7155,9 +7760,12 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrO
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Facet       *string `pulumi:"facet"`
-	Interval    *int    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
 }
 
 // DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput is an input type that accepts DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs and DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput values.
@@ -7172,9 +7780,12 @@ type DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput inter
 }
 
 type DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Facet       pulumi.StringPtrInput `pulumi:"facet"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
 func (DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs) ElementType() reflect.Type {
@@ -7246,14 +7857,17 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) 
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The facet name.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -7285,6 +7899,7 @@ func (o DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOut
 }
 
 type DashboardWidgetToplistDefinitionRequestStyle struct {
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 	Palette *string `pulumi:"palette"`
 }
 
@@ -7300,6 +7915,7 @@ type DashboardWidgetToplistDefinitionRequestStyleInput interface {
 }
 
 type DashboardWidgetToplistDefinitionRequestStyleArgs struct {
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 	Palette pulumi.StringPtrInput `pulumi:"palette"`
 }
 
@@ -7398,6 +8014,7 @@ func (o DashboardWidgetToplistDefinitionRequestStyleOutput) ToOutput(ctx context
 	}
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetToplistDefinitionRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
@@ -7432,6 +8049,7 @@ func (o DashboardWidgetToplistDefinitionRequestStylePtrOutput) Elem() DashboardW
 	}).(DashboardWidgetToplistDefinitionRequestStyleOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetToplistDefinitionRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetToplistDefinitionRequestStyle) *string {
 		if v == nil {
@@ -7442,12 +8060,16 @@ func (o DashboardWidgetToplistDefinitionRequestStylePtrOutput) Palette() pulumi.
 }
 
 type DashboardWidgetTopologyMapDefinition struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks []DashboardWidgetTopologyMapDefinitionCustomLink `pulumi:"customLinks"`
-	Requests    []DashboardWidgetTopologyMapDefinitionRequest    `pulumi:"requests"`
-	// The title of the dashboard.
-	Title      *string `pulumi:"title"`
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	Requests []DashboardWidgetTopologyMapDefinitionRequest `pulumi:"requests"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 	TitleAlign *string `pulumi:"titleAlign"`
-	TitleSize  *string `pulumi:"titleSize"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
 }
 
 // DashboardWidgetTopologyMapDefinitionInput is an input type that accepts DashboardWidgetTopologyMapDefinitionArgs and DashboardWidgetTopologyMapDefinitionOutput values.
@@ -7462,12 +8084,16 @@ type DashboardWidgetTopologyMapDefinitionInput interface {
 }
 
 type DashboardWidgetTopologyMapDefinitionArgs struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks DashboardWidgetTopologyMapDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
-	Requests    DashboardWidgetTopologyMapDefinitionRequestArrayInput    `pulumi:"requests"`
-	// The title of the dashboard.
-	Title      pulumi.StringPtrInput `pulumi:"title"`
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	Requests DashboardWidgetTopologyMapDefinitionRequestArrayInput `pulumi:"requests"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	TitleSize  pulumi.StringPtrInput `pulumi:"titleSize"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
 }
 
 func (DashboardWidgetTopologyMapDefinitionArgs) ElementType() reflect.Type {
@@ -7565,27 +8191,31 @@ func (o DashboardWidgetTopologyMapDefinitionOutput) ToOutput(ctx context.Context
 	}
 }
 
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 func (o DashboardWidgetTopologyMapDefinitionOutput) CustomLinks() DashboardWidgetTopologyMapDefinitionCustomLinkArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinition) []DashboardWidgetTopologyMapDefinitionCustomLink {
 		return v.CustomLinks
 	}).(DashboardWidgetTopologyMapDefinitionCustomLinkArrayOutput)
 }
 
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 func (o DashboardWidgetTopologyMapDefinitionOutput) Requests() DashboardWidgetTopologyMapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinition) []DashboardWidgetTopologyMapDefinitionRequest {
 		return v.Requests
 	}).(DashboardWidgetTopologyMapDefinitionRequestArrayOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTopologyMapDefinitionOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 func (o DashboardWidgetTopologyMapDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
 }
 
+// The size of the widget's title (defaults to 16).
 func (o DashboardWidgetTopologyMapDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
 }
@@ -7620,6 +8250,7 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) Elem() DashboardWidgetTop
 	}).(DashboardWidgetTopologyMapDefinitionOutput)
 }
 
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 func (o DashboardWidgetTopologyMapDefinitionPtrOutput) CustomLinks() DashboardWidgetTopologyMapDefinitionCustomLinkArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTopologyMapDefinition) []DashboardWidgetTopologyMapDefinitionCustomLink {
 		if v == nil {
@@ -7629,6 +8260,7 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) CustomLinks() DashboardWi
 	}).(DashboardWidgetTopologyMapDefinitionCustomLinkArrayOutput)
 }
 
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 func (o DashboardWidgetTopologyMapDefinitionPtrOutput) Requests() DashboardWidgetTopologyMapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTopologyMapDefinition) []DashboardWidgetTopologyMapDefinitionRequest {
 		if v == nil {
@@ -7638,7 +8270,7 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) Requests() DashboardWidge
 	}).(DashboardWidgetTopologyMapDefinitionRequestArrayOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTopologyMapDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTopologyMapDefinition) *string {
 		if v == nil {
@@ -7648,6 +8280,7 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) Title() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 func (o DashboardWidgetTopologyMapDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTopologyMapDefinition) *string {
 		if v == nil {
@@ -7657,6 +8290,7 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) TitleAlign() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the widget's title (defaults to 16).
 func (o DashboardWidgetTopologyMapDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTopologyMapDefinition) *string {
 		if v == nil {
@@ -7667,9 +8301,13 @@ func (o DashboardWidgetTopologyMapDefinitionPtrOutput) TitleSize() pulumi.String
 }
 
 type DashboardWidgetTopologyMapDefinitionCustomLink struct {
-	IsHidden      *bool   `pulumi:"isHidden"`
-	Label         *string `pulumi:"label"`
-	Link          *string `pulumi:"link"`
+	// The flag for toggling context menu link visibility.
+	IsHidden *bool `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label *string `pulumi:"label"`
+	// The URL of the custom link.
+	Link *string `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
 	OverrideLabel *string `pulumi:"overrideLabel"`
 }
 
@@ -7685,9 +8323,13 @@ type DashboardWidgetTopologyMapDefinitionCustomLinkInput interface {
 }
 
 type DashboardWidgetTopologyMapDefinitionCustomLinkArgs struct {
-	IsHidden      pulumi.BoolPtrInput   `pulumi:"isHidden"`
-	Label         pulumi.StringPtrInput `pulumi:"label"`
-	Link          pulumi.StringPtrInput `pulumi:"link"`
+	// The flag for toggling context menu link visibility.
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The URL of the custom link.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
 	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
 }
 
@@ -7760,18 +8402,22 @@ func (o DashboardWidgetTopologyMapDefinitionCustomLinkOutput) ToOutput(ctx conte
 	}
 }
 
+// The flag for toggling context menu link visibility.
 func (o DashboardWidgetTopologyMapDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
 }
 
+// The label for the custom link URL.
 func (o DashboardWidgetTopologyMapDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the custom link.
 func (o DashboardWidgetTopologyMapDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
+// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
 func (o DashboardWidgetTopologyMapDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
 }
@@ -7803,8 +8449,9 @@ func (o DashboardWidgetTopologyMapDefinitionCustomLinkArrayOutput) Index(i pulum
 }
 
 type DashboardWidgetTopologyMapDefinitionRequest struct {
-	Queries     []DashboardWidgetTopologyMapDefinitionRequestQuery `pulumi:"queries"`
-	RequestType string                                             `pulumi:"requestType"`
+	Queries []DashboardWidgetTopologyMapDefinitionRequestQuery `pulumi:"queries"`
+	// The request type for the SLO List request. Valid values are `sloList`.
+	RequestType string `pulumi:"requestType"`
 }
 
 // DashboardWidgetTopologyMapDefinitionRequestInput is an input type that accepts DashboardWidgetTopologyMapDefinitionRequestArgs and DashboardWidgetTopologyMapDefinitionRequestOutput values.
@@ -7819,8 +8466,9 @@ type DashboardWidgetTopologyMapDefinitionRequestInput interface {
 }
 
 type DashboardWidgetTopologyMapDefinitionRequestArgs struct {
-	Queries     DashboardWidgetTopologyMapDefinitionRequestQueryArrayInput `pulumi:"queries"`
-	RequestType pulumi.StringInput                                         `pulumi:"requestType"`
+	Queries DashboardWidgetTopologyMapDefinitionRequestQueryArrayInput `pulumi:"queries"`
+	// The request type for the SLO List request. Valid values are `sloList`.
+	RequestType pulumi.StringInput `pulumi:"requestType"`
 }
 
 func (DashboardWidgetTopologyMapDefinitionRequestArgs) ElementType() reflect.Type {
@@ -7898,6 +8546,7 @@ func (o DashboardWidgetTopologyMapDefinitionRequestOutput) Queries() DashboardWi
 	}).(DashboardWidgetTopologyMapDefinitionRequestQueryArrayOutput)
 }
 
+// The request type for the SLO List request. Valid values are `sloList`.
 func (o DashboardWidgetTopologyMapDefinitionRequestOutput) RequestType() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
 }
@@ -7929,9 +8578,12 @@ func (o DashboardWidgetTopologyMapDefinitionRequestArrayOutput) Index(i pulumi.I
 }
 
 type DashboardWidgetTopologyMapDefinitionRequestQuery struct {
-	DataSource string   `pulumi:"dataSource"`
-	Filters    []string `pulumi:"filters"`
-	Service    string   `pulumi:"service"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Your environment and primary tag (or `*` if enabled for your account).
+	Filters []string `pulumi:"filters"`
+	// APM service.
+	Service string `pulumi:"service"`
 }
 
 // DashboardWidgetTopologyMapDefinitionRequestQueryInput is an input type that accepts DashboardWidgetTopologyMapDefinitionRequestQueryArgs and DashboardWidgetTopologyMapDefinitionRequestQueryOutput values.
@@ -7946,9 +8598,12 @@ type DashboardWidgetTopologyMapDefinitionRequestQueryInput interface {
 }
 
 type DashboardWidgetTopologyMapDefinitionRequestQueryArgs struct {
-	DataSource pulumi.StringInput      `pulumi:"dataSource"`
-	Filters    pulumi.StringArrayInput `pulumi:"filters"`
-	Service    pulumi.StringInput      `pulumi:"service"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Your environment and primary tag (or `*` if enabled for your account).
+	Filters pulumi.StringArrayInput `pulumi:"filters"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (DashboardWidgetTopologyMapDefinitionRequestQueryArgs) ElementType() reflect.Type {
@@ -8020,14 +8675,17 @@ func (o DashboardWidgetTopologyMapDefinitionRequestQueryOutput) ToOutput(ctx con
 	}
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTopologyMapDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Your environment and primary tag (or `*` if enabled for your account).
 func (o DashboardWidgetTopologyMapDefinitionRequestQueryOutput) Filters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionRequestQuery) []string { return v.Filters }).(pulumi.StringArrayOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTopologyMapDefinitionRequestQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTopologyMapDefinitionRequestQuery) string { return v.Service }).(pulumi.StringOutput)
 }
@@ -8059,22 +8717,36 @@ func (o DashboardWidgetTopologyMapDefinitionRequestQueryArrayOutput) Index(i pul
 }
 
 type DashboardWidgetTraceServiceDefinition struct {
-	DisplayFormat    *string `pulumi:"displayFormat"`
-	Env              string  `pulumi:"env"`
-	LiveSpan         *string `pulumi:"liveSpan"`
-	Service          string  `pulumi:"service"`
-	ShowBreakdown    *bool   `pulumi:"showBreakdown"`
-	ShowDistribution *bool   `pulumi:"showDistribution"`
-	ShowErrors       *bool   `pulumi:"showErrors"`
-	ShowHits         *bool   `pulumi:"showHits"`
-	ShowLatency      *bool   `pulumi:"showLatency"`
-	ShowResourceList *bool   `pulumi:"showResourceList"`
-	SizeFormat       *string `pulumi:"sizeFormat"`
-	SpanName         string  `pulumi:"spanName"`
-	// The title of the dashboard.
-	Title      *string `pulumi:"title"`
+	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+	DisplayFormat *string `pulumi:"displayFormat"`
+	// APM Environment.
+	Env string `pulumi:"env"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// Whether to show the latency breakdown or not.
+	ShowBreakdown *bool `pulumi:"showBreakdown"`
+	// Whether to show the latency distribution or not.
+	ShowDistribution *bool `pulumi:"showDistribution"`
+	// Whether to show the error metrics or not.
+	ShowErrors *bool `pulumi:"showErrors"`
+	// Whether to show the hits metrics or not
+	ShowHits *bool `pulumi:"showHits"`
+	// Whether to show the latency metrics or not.
+	ShowLatency *bool `pulumi:"showLatency"`
+	// Whether to show the resource list or not.
+	ShowResourceList *bool `pulumi:"showResourceList"`
+	// The size of the widget. Valid values are `small`, `medium`, `large`.
+	SizeFormat *string `pulumi:"sizeFormat"`
+	// APM span name
+	SpanName string `pulumi:"spanName"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 	TitleAlign *string `pulumi:"titleAlign"`
-	TitleSize  *string `pulumi:"titleSize"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
 }
 
 // DashboardWidgetTraceServiceDefinitionInput is an input type that accepts DashboardWidgetTraceServiceDefinitionArgs and DashboardWidgetTraceServiceDefinitionOutput values.
@@ -8089,22 +8761,36 @@ type DashboardWidgetTraceServiceDefinitionInput interface {
 }
 
 type DashboardWidgetTraceServiceDefinitionArgs struct {
-	DisplayFormat    pulumi.StringPtrInput `pulumi:"displayFormat"`
-	Env              pulumi.StringInput    `pulumi:"env"`
-	LiveSpan         pulumi.StringPtrInput `pulumi:"liveSpan"`
-	Service          pulumi.StringInput    `pulumi:"service"`
-	ShowBreakdown    pulumi.BoolPtrInput   `pulumi:"showBreakdown"`
-	ShowDistribution pulumi.BoolPtrInput   `pulumi:"showDistribution"`
-	ShowErrors       pulumi.BoolPtrInput   `pulumi:"showErrors"`
-	ShowHits         pulumi.BoolPtrInput   `pulumi:"showHits"`
-	ShowLatency      pulumi.BoolPtrInput   `pulumi:"showLatency"`
-	ShowResourceList pulumi.BoolPtrInput   `pulumi:"showResourceList"`
-	SizeFormat       pulumi.StringPtrInput `pulumi:"sizeFormat"`
-	SpanName         pulumi.StringInput    `pulumi:"spanName"`
-	// The title of the dashboard.
-	Title      pulumi.StringPtrInput `pulumi:"title"`
+	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+	DisplayFormat pulumi.StringPtrInput `pulumi:"displayFormat"`
+	// APM Environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// Whether to show the latency breakdown or not.
+	ShowBreakdown pulumi.BoolPtrInput `pulumi:"showBreakdown"`
+	// Whether to show the latency distribution or not.
+	ShowDistribution pulumi.BoolPtrInput `pulumi:"showDistribution"`
+	// Whether to show the error metrics or not.
+	ShowErrors pulumi.BoolPtrInput `pulumi:"showErrors"`
+	// Whether to show the hits metrics or not
+	ShowHits pulumi.BoolPtrInput `pulumi:"showHits"`
+	// Whether to show the latency metrics or not.
+	ShowLatency pulumi.BoolPtrInput `pulumi:"showLatency"`
+	// Whether to show the resource list or not.
+	ShowResourceList pulumi.BoolPtrInput `pulumi:"showResourceList"`
+	// The size of the widget. Valid values are `small`, `medium`, `large`.
+	SizeFormat pulumi.StringPtrInput `pulumi:"sizeFormat"`
+	// APM span name
+	SpanName pulumi.StringInput `pulumi:"spanName"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	TitleSize  pulumi.StringPtrInput `pulumi:"titleSize"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
 }
 
 func (DashboardWidgetTraceServiceDefinitionArgs) ElementType() reflect.Type {
@@ -8202,63 +8888,77 @@ func (o DashboardWidgetTraceServiceDefinitionOutput) ToOutput(ctx context.Contex
 	}
 }
 
+// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
 func (o DashboardWidgetTraceServiceDefinitionOutput) DisplayFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.DisplayFormat }).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTraceServiceDefinitionOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) string { return v.Env }).(pulumi.StringOutput)
 }
 
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
 func (o DashboardWidgetTraceServiceDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTraceServiceDefinitionOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) string { return v.Service }).(pulumi.StringOutput)
 }
 
+// Whether to show the latency breakdown or not.
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowBreakdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowBreakdown }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the latency distribution or not.
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowDistribution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowDistribution }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the error metrics or not.
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowErrors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowErrors }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the hits metrics or not
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowHits() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowHits }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the latency metrics or not.
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowLatency() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowLatency }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the resource list or not.
 func (o DashboardWidgetTraceServiceDefinitionOutput) ShowResourceList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *bool { return v.ShowResourceList }).(pulumi.BoolPtrOutput)
 }
 
+// The size of the widget. Valid values are `small`, `medium`, `large`.
 func (o DashboardWidgetTraceServiceDefinitionOutput) SizeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.SizeFormat }).(pulumi.StringPtrOutput)
 }
 
+// APM span name
 func (o DashboardWidgetTraceServiceDefinitionOutput) SpanName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) string { return v.SpanName }).(pulumi.StringOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTraceServiceDefinitionOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 func (o DashboardWidgetTraceServiceDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
 }
 
+// The size of the widget's title (defaults to 16).
 func (o DashboardWidgetTraceServiceDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTraceServiceDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
 }
@@ -8293,6 +8993,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Elem() DashboardWidgetTr
 	}).(DashboardWidgetTraceServiceDefinitionOutput)
 }
 
+// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) DisplayFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8302,6 +9003,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) DisplayFormat() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Env() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8311,6 +9013,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Env() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8320,6 +9023,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) LiveSpan() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8329,6 +9033,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Service() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to show the latency breakdown or not.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowBreakdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8338,6 +9043,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowBreakdown() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the latency distribution or not.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowDistribution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8347,6 +9053,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowDistribution() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the error metrics or not.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowErrors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8356,6 +9063,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowErrors() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the hits metrics or not
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowHits() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8365,6 +9073,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowHits() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the latency metrics or not.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowLatency() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8374,6 +9083,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowLatency() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to show the resource list or not.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowResourceList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *bool {
 		if v == nil {
@@ -8383,6 +9093,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) ShowResourceList() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The size of the widget. Valid values are `small`, `medium`, `large`.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) SizeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8392,6 +9103,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) SizeFormat() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM span name
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) SpanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8401,7 +9113,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) SpanName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8411,6 +9123,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) Title() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8420,6 +9133,7 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) TitleAlign() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the widget's title (defaults to 16).
 func (o DashboardWidgetTraceServiceDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8430,8 +9144,9 @@ func (o DashboardWidgetTraceServiceDefinitionPtrOutput) TitleSize() pulumi.Strin
 }
 
 type DashboardWidgetTreemapDefinition struct {
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 	Requests []DashboardWidgetTreemapDefinitionRequest `pulumi:"requests"`
-	// The title of the dashboard.
+	// The title of the widget.
 	Title *string `pulumi:"title"`
 }
 
@@ -8447,8 +9162,9 @@ type DashboardWidgetTreemapDefinitionInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionArgs struct {
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 	Requests DashboardWidgetTreemapDefinitionRequestArrayInput `pulumi:"requests"`
-	// The title of the dashboard.
+	// The title of the widget.
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
@@ -8547,11 +9263,12 @@ func (o DashboardWidgetTreemapDefinitionOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 func (o DashboardWidgetTreemapDefinitionOutput) Requests() DashboardWidgetTreemapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinition) []DashboardWidgetTreemapDefinitionRequest { return v.Requests }).(DashboardWidgetTreemapDefinitionRequestArrayOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTreemapDefinitionOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -8586,6 +9303,7 @@ func (o DashboardWidgetTreemapDefinitionPtrOutput) Elem() DashboardWidgetTreemap
 	}).(DashboardWidgetTreemapDefinitionOutput)
 }
 
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
 func (o DashboardWidgetTreemapDefinitionPtrOutput) Requests() DashboardWidgetTreemapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinition) []DashboardWidgetTreemapDefinitionRequest {
 		if v == nil {
@@ -8595,7 +9313,7 @@ func (o DashboardWidgetTreemapDefinitionPtrOutput) Requests() DashboardWidgetTre
 	}).(DashboardWidgetTreemapDefinitionRequestArrayOutput)
 }
 
-// The title of the dashboard.
+// The title of the widget.
 func (o DashboardWidgetTreemapDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinition) *string {
 		if v == nil {
@@ -8734,12 +9452,18 @@ func (o DashboardWidgetTreemapDefinitionRequestArrayOutput) Index(i pulumi.IntIn
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormula struct {
-	Alias              *string                                                           `pulumi:"alias"`
-	CellDisplayMode    *string                                                           `pulumi:"cellDisplayMode"`
+	// An expression alias.
+	Alias *string `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`.
+	CellDisplayMode *string `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 	ConditionalFormats []DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
-	FormulaExpression  string                                                            `pulumi:"formulaExpression"`
-	Limit              *DashboardWidgetTreemapDefinitionRequestFormulaLimit              `pulumi:"limit"`
-	Style              *DashboardWidgetTreemapDefinitionRequestFormulaStyle              `pulumi:"style"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression string `pulumi:"formulaExpression"`
+	// The maximum number of items in the group.
+	Limit *DashboardWidgetTreemapDefinitionRequestFormulaLimit `pulumi:"limit"`
+	// Styling options for widget formulas.
+	Style *DashboardWidgetTreemapDefinitionRequestFormulaStyle `pulumi:"style"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestFormulaInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestFormulaArgs and DashboardWidgetTreemapDefinitionRequestFormulaOutput values.
@@ -8754,12 +9478,18 @@ type DashboardWidgetTreemapDefinitionRequestFormulaInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaArgs struct {
-	Alias              pulumi.StringPtrInput                                                     `pulumi:"alias"`
-	CellDisplayMode    pulumi.StringPtrInput                                                     `pulumi:"cellDisplayMode"`
+	// An expression alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`.
+	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 	ConditionalFormats DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	FormulaExpression  pulumi.StringInput                                                        `pulumi:"formulaExpression"`
-	Limit              DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrInput               `pulumi:"limit"`
-	Style              DashboardWidgetTreemapDefinitionRequestFormulaStylePtrInput               `pulumi:"style"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+	// The maximum number of items in the group.
+	Limit DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
+	// Styling options for widget formulas.
+	Style DashboardWidgetTreemapDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestFormulaArgs) ElementType() reflect.Type {
@@ -8831,30 +9561,36 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) ToOutput(ctx conte
 	}
 }
 
+// An expression alias.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
+// A list of display modes for each table cell. Valid values are `number`, `bar`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) *string { return v.CellDisplayMode }).(pulumi.StringPtrOutput)
 }
 
+// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) ConditionalFormats() DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) []DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat {
 		return v.ConditionalFormats
 	}).(DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput)
 }
 
+// A string expression built from queries, formulas, and functions.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) Limit() DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) *DashboardWidgetTreemapDefinitionRequestFormulaLimit {
 		return v.Limit
 	}).(DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput)
 }
 
+// Styling options for widget formulas.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaOutput) Style() DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormula) *DashboardWidgetTreemapDefinitionRequestFormulaStyle {
 		return v.Style
@@ -8888,15 +9624,24 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaArrayOutput) Index(i pulum
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat struct {
-	Comparator    string  `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor *string `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor *string `pulumi:"customFgColor"`
-	HideValue     *bool   `pulumi:"hideValue"`
-	ImageUrl      *string `pulumi:"imageUrl"`
-	Metric        *string `pulumi:"metric"`
-	Palette       string  `pulumi:"palette"`
-	Timeframe     *string `pulumi:"timeframe"`
-	Value         float64 `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue *bool `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette string `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe *string `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value float64 `pulumi:"value"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs and DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput values.
@@ -8911,15 +9656,24 @@ type DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatInput interf
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs struct {
-	Comparator    pulumi.StringInput    `pulumi:"comparator"`
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
 	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
 	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	HideValue     pulumi.BoolPtrInput   `pulumi:"hideValue"`
-	ImageUrl      pulumi.StringPtrInput `pulumi:"imageUrl"`
-	Metric        pulumi.StringPtrInput `pulumi:"metric"`
-	Palette       pulumi.StringInput    `pulumi:"palette"`
-	Timeframe     pulumi.StringPtrInput `pulumi:"timeframe"`
-	Value         pulumi.Float64Input   `pulumi:"value"`
+	// Setting this to True hides values.
+	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringInput `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
+	// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
@@ -8991,42 +9745,51 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) T
 	}
 }
 
+// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
 }
 
+// The color palette to apply to the background, same values available as palette.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string {
 		return v.CustomBgColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply to the foreground, same values available as palette.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string {
 		return v.CustomFgColor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Setting this to True hides values.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
 }
 
+// Displays an image as the background.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
 }
 
+// Defines the displayed timeframe.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
 }
 
+// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -9058,7 +9821,9 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutp
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaLimit struct {
-	Count *int    `pulumi:"count"`
+	// The number of results to return
+	Count *int `pulumi:"count"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order *string `pulumi:"order"`
 }
 
@@ -9074,7 +9839,9 @@ type DashboardWidgetTreemapDefinitionRequestFormulaLimitInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs struct {
-	Count pulumi.IntPtrInput    `pulumi:"count"`
+	// The number of results to return
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -9173,10 +9940,12 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitOutput) ToOutput(ctx 
 	}
 }
 
+// The number of results to return
 func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -9211,6 +9980,7 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Elem() Das
 	}).(DashboardWidgetTreemapDefinitionRequestFormulaLimitOutput)
 }
 
+// The number of results to return
 func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestFormulaLimit) *int {
 		if v == nil {
@@ -9220,6 +9990,7 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestFormulaLimit) *string {
 		if v == nil {
@@ -9230,8 +10001,10 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Order() pu
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaStyle struct {
-	Palette      *string `pulumi:"palette"`
-	PaletteIndex *int    `pulumi:"paletteIndex"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette *string `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex *int `pulumi:"paletteIndex"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestFormulaStyleInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs and DashboardWidgetTreemapDefinitionRequestFormulaStyleOutput values.
@@ -9246,8 +10019,10 @@ type DashboardWidgetTreemapDefinitionRequestFormulaStyleInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs struct {
-	Palette      pulumi.StringPtrInput `pulumi:"palette"`
-	PaletteIndex pulumi.IntPtrInput    `pulumi:"paletteIndex"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
@@ -9345,10 +10120,12 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaStyleOutput) ToOutput(ctx 
 	}
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
 
+// Index specifying which color to use within the palette.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
 }
@@ -9383,6 +10160,7 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Elem() Das
 	}).(DashboardWidgetTreemapDefinitionRequestFormulaStyleOutput)
 }
 
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestFormulaStyle) *string {
 		if v == nil {
@@ -9392,6 +10170,7 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Palette() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Index specifying which color to use within the palette.
 func (o DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestFormulaStyle) *int {
 		if v == nil {
@@ -9402,12 +10181,18 @@ func (o DashboardWidgetTreemapDefinitionRequestFormulaStylePtrOutput) PaletteInd
 }
 
 type DashboardWidgetTreemapDefinitionRequestQuery struct {
+	// The APM Dependency Stats query using formulas and functions.
 	ApmDependencyStatsQuery *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
-	ApmResourceStatsQuery   *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery   `pulumi:"apmResourceStatsQuery"`
-	EventQuery              *DashboardWidgetTreemapDefinitionRequestQueryEventQuery              `pulumi:"eventQuery"`
-	MetricQuery             *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery             `pulumi:"metricQuery"`
-	ProcessQuery            *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery            `pulumi:"processQuery"`
-	SloQuery                *DashboardWidgetTreemapDefinitionRequestQuerySloQuery                `pulumi:"sloQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery *DashboardWidgetTreemapDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
+	// The process query to use in the widget. The structure of this block is described below.
+	ProcessQuery *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
+	// The slo query using formulas and functions.
+	SloQuery *DashboardWidgetTreemapDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryOutput values.
@@ -9422,12 +10207,18 @@ type DashboardWidgetTreemapDefinitionRequestQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryArgs struct {
+	// The APM Dependency Stats query using formulas and functions.
 	ApmDependencyStatsQuery DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
-	ApmResourceStatsQuery   DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput   `pulumi:"apmResourceStatsQuery"`
-	EventQuery              DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrInput              `pulumi:"eventQuery"`
-	MetricQuery             DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput             `pulumi:"metricQuery"`
-	ProcessQuery            DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput            `pulumi:"processQuery"`
-	SloQuery                DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrInput                `pulumi:"sloQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
+	// The process query to use in the widget. The structure of this block is described below.
+	ProcessQuery DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
+	// The slo query using formulas and functions.
+	SloQuery DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryArgs) ElementType() reflect.Type {
@@ -9499,36 +10290,42 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) ToOutput(ctx context
 	}
 }
 
+// The APM Dependency Stats query using formulas and functions.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) ApmDependencyStatsQuery() DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
 		return v.ApmDependencyStatsQuery
 	}).(DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
 }
 
+// The APM Resource Stats query using formulas and functions.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) ApmResourceStatsQuery() DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
 		return v.ApmResourceStatsQuery
 	}).(DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
 }
 
+// A timeseries formula and functions events query.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) EventQuery() DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
 		return v.EventQuery
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput)
 }
 
+// A timeseries formula and functions metrics query.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) MetricQuery() DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
 		return v.MetricQuery
 	}).(DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
+// The process query to use in the widget. The structure of this block is described below.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) ProcessQuery() DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
 		return v.ProcessQuery
 	}).(DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput)
 }
 
+// The slo query using formulas and functions.
 func (o DashboardWidgetTreemapDefinitionRequestQueryOutput) SloQuery() DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuery) *DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
 		return v.SloQuery
@@ -9562,16 +10359,26 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryArrayOutput) Index(i pulumi.
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery struct {
-	DataSource      string  `pulumi:"dataSource"`
-	Env             string  `pulumi:"env"`
-	IsUpstream      *bool   `pulumi:"isUpstream"`
-	Name            string  `pulumi:"name"`
-	OperationName   string  `pulumi:"operationName"`
-	PrimaryTagName  *string `pulumi:"primaryTagName"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM Environment.
+	Env string `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream *bool `pulumi:"isUpstream"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	ResourceName    string  `pulumi:"resourceName"`
-	Service         string  `pulumi:"service"`
-	Stat            string  `pulumi:"stat"`
+	// APM resource.
+	ResourceName string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput values.
@@ -9586,16 +10393,26 @@ type DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput in
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs struct {
-	DataSource      pulumi.StringInput    `pulumi:"dataSource"`
-	Env             pulumi.StringInput    `pulumi:"env"`
-	IsUpstream      pulumi.BoolPtrInput   `pulumi:"isUpstream"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-	OperationName   pulumi.StringInput    `pulumi:"operationName"`
-	PrimaryTagName  pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM Environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	ResourceName    pulumi.StringInput    `pulumi:"resourceName"`
-	Service         pulumi.StringInput    `pulumi:"service"`
-	Stat            pulumi.StringInput    `pulumi:"stat"`
+	// APM resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ElementType() reflect.Type {
@@ -9693,52 +10510,62 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutpu
 	}
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.DataSource
 	}).(pulumi.StringOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
+// Determines whether stats for upstream or downstream dependencies should be queried.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.OperationName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		return v.PrimaryTagName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		return v.PrimaryTagValue
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
 		return v.ResourceName
 	}).(pulumi.StringOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -9773,6 +10600,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9782,6 +10610,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9791,6 +10620,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether stats for upstream or downstream dependencies should be queried.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *bool {
 		if v == nil {
@@ -9800,6 +10630,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9809,6 +10640,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9818,6 +10650,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9827,6 +10660,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9836,6 +10670,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9845,6 +10680,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9854,6 +10690,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9864,16 +10701,26 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery struct {
-	DataSource      string   `pulumi:"dataSource"`
-	Env             string   `pulumi:"env"`
-	GroupBies       []string `pulumi:"groupBies"`
-	Name            string   `pulumi:"name"`
-	OperationName   *string  `pulumi:"operationName"`
-	PrimaryTagName  *string  `pulumi:"primaryTagName"`
-	PrimaryTagValue *string  `pulumi:"primaryTagValue"`
-	ResourceName    *string  `pulumi:"resourceName"`
-	Service         string   `pulumi:"service"`
-	Stat            string   `pulumi:"stat"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM Environment.
+	Env string `pulumi:"env"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []string `pulumi:"groupBies"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName *string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName *string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput values.
@@ -9888,16 +10735,26 @@ type DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput inte
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs struct {
-	DataSource      pulumi.StringInput      `pulumi:"dataSource"`
-	Env             pulumi.StringInput      `pulumi:"env"`
-	GroupBies       pulumi.StringArrayInput `pulumi:"groupBies"`
-	Name            pulumi.StringInput      `pulumi:"name"`
-	OperationName   pulumi.StringPtrInput   `pulumi:"operationName"`
-	PrimaryTagName  pulumi.StringPtrInput   `pulumi:"primaryTagName"`
-	PrimaryTagValue pulumi.StringPtrInput   `pulumi:"primaryTagValue"`
-	ResourceName    pulumi.StringPtrInput   `pulumi:"resourceName"`
-	Service         pulumi.StringInput      `pulumi:"service"`
-	Stat            pulumi.StringInput      `pulumi:"stat"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM Environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ElementType() reflect.Type {
@@ -9995,50 +10852,60 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 	}
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.OperationName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.PrimaryTagName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.PrimaryTagValue
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		return v.ResourceName
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -10073,6 +10940,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10082,6 +10950,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM Environment.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10091,6 +10960,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string {
 		if v == nil {
@@ -10100,6 +10970,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10109,6 +10980,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of operation on service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10118,6 +10990,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10127,6 +11000,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10136,6 +11010,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM resource.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10145,6 +11020,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM service.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10154,6 +11030,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -10164,13 +11041,20 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQuery struct {
-	Computes   []DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	DataSource string                                                          `pulumi:"dataSource"`
-	GroupBies  []DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
-	Indexes    []string                                                        `pulumi:"indexes"`
-	Name       string                                                          `pulumi:"name"`
-	Search     *DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch   `pulumi:"search"`
-	Storage    *string                                                         `pulumi:"storage"`
+	// The compute options.
+	Computes []DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes []string `pulumi:"indexes"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// The search options.
+	Search *DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
+	// Storage location (private beta).
+	Storage *string `pulumi:"storage"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryEventQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput values.
@@ -10185,13 +11069,20 @@ type DashboardWidgetTreemapDefinitionRequestQueryEventQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs struct {
-	Computes   DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	DataSource pulumi.StringInput                                                      `pulumi:"dataSource"`
-	GroupBies  DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	Indexes    pulumi.StringArrayInput                                                 `pulumi:"indexes"`
-	Name       pulumi.StringInput                                                      `pulumi:"name"`
-	Search     DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput    `pulumi:"search"`
-	Storage    pulumi.StringPtrInput                                                   `pulumi:"storage"`
+	// The compute options.
+	Computes DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The search options.
+	Search DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
+	// Storage location (private beta).
+	Storage pulumi.StringPtrInput `pulumi:"storage"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
@@ -10289,36 +11180,43 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) ToOutput(c
 	}
 }
 
+// The compute options.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) Computes() DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
 		return v.Computes
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) GroupBies() DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
 		return v.GroupBies
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput)
 }
 
+// An array of index names to query in the stream.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The search options.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) Search() DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
 		return v.Search
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// Storage location (private beta).
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
 }
@@ -10353,6 +11251,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Elem() 
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryOutput)
 }
 
+// The compute options.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Computes() DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
 		if v == nil {
@@ -10362,6 +11261,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Compute
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10371,6 +11271,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSou
 	}).(pulumi.StringPtrOutput)
 }
 
+// Multiple `groupBy` blocks are allowed using the structure below.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) GroupBies() DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
 		if v == nil {
@@ -10380,6 +11281,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) GroupBi
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput)
 }
 
+// An array of index names to query in the stream.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) []string {
 		if v == nil {
@@ -10389,6 +11291,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Indexes
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10398,6 +11301,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Name() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The search options.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Search() DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
 		if v == nil {
@@ -10407,6 +11311,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Search(
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// Storage location (private beta).
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10417,9 +11322,12 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Storage
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Interval    *int    `pulumi:"interval"`
-	Metric      *string `pulumi:"metric"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs and DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput values.
@@ -10434,9 +11342,12 @@ type DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeInput interfac
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
@@ -10508,14 +11419,17 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) ToO
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// Define the time interval in seconds.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
@@ -10547,9 +11461,12 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy struct {
-	Facet string                                                             `pulumi:"facet"`
-	Limit *int                                                               `pulumi:"limit"`
-	Sort  *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+	// The facet name.
+	Facet string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs and DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput values.
@@ -10564,9 +11481,12 @@ type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput interfac
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs struct {
-	Facet pulumi.StringInput                                                        `pulumi:"facet"`
-	Limit pulumi.IntPtrInput                                                        `pulumi:"limit"`
-	Sort  DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+	// The facet name.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
@@ -10638,14 +11558,17 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) ToO
 	}
 }
 
+// The facet name.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Sort() DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
 		return v.Sort
@@ -10679,9 +11602,12 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Metric      *string `pulumi:"metric"`
-	Order       *string `pulumi:"order"`
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs and DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput values.
@@ -10696,9 +11622,12 @@ type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput inte
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
-	Order       pulumi.StringPtrInput `pulumi:"order"`
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
@@ -10796,14 +11725,17 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
 	}
 }
 
+// The aggregation method.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -10838,6 +11770,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
 }
 
+// The aggregation method.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -10847,6 +11780,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -10856,6 +11790,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -11023,10 +11958,13 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) Q
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryMetricQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource *string `pulumi:"dataSource"`
-	Name       string  `pulumi:"name"`
-	Query      string  `pulumi:"query"`
+	// The name of the variable.
+	Name  string `pulumi:"name"`
+	Query string `pulumi:"query"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryMetricQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput values.
@@ -11041,10 +11979,13 @@ type DashboardWidgetTreemapDefinitionRequestQueryMetricQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	Name       pulumi.StringInput    `pulumi:"name"`
-	Query      pulumi.StringInput    `pulumi:"query"`
+	// The name of the variable.
+	Name  pulumi.StringInput `pulumi:"name"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ElementType() reflect.Type {
@@ -11142,14 +12083,17 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToOutput(
 	}
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11188,6 +12132,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Elem()
 	}).(DashboardWidgetTreemapDefinitionRequestQueryMetricQueryOutput)
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -11197,6 +12142,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Aggreg
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -11206,6 +12152,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) DataSo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -11225,15 +12172,24 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Query(
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryProcessQuery struct {
-	Aggregator      *string  `pulumi:"aggregator"`
-	DataSource      string   `pulumi:"dataSource"`
-	IsNormalizedCpu *bool    `pulumi:"isNormalizedCpu"`
-	Limit           *int     `pulumi:"limit"`
-	Metric          string   `pulumi:"metric"`
-	Name            string   `pulumi:"name"`
-	Sort            *string  `pulumi:"sort"`
-	TagFilters      []string `pulumi:"tagFilters"`
-	TextFilter      *string  `pulumi:"textFilter"`
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric string `pulumi:"metric"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// The options for sorting group by results.
+	Sort *string `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters []string `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter *string `pulumi:"textFilter"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQueryProcessQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs and DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput values.
@@ -11248,15 +12204,24 @@ type DashboardWidgetTreemapDefinitionRequestQueryProcessQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs struct {
-	Aggregator      pulumi.StringPtrInput   `pulumi:"aggregator"`
-	DataSource      pulumi.StringInput      `pulumi:"dataSource"`
-	IsNormalizedCpu pulumi.BoolPtrInput     `pulumi:"isNormalizedCpu"`
-	Limit           pulumi.IntPtrInput      `pulumi:"limit"`
-	Metric          pulumi.StringInput      `pulumi:"metric"`
-	Name            pulumi.StringInput      `pulumi:"name"`
-	Sort            pulumi.StringPtrInput   `pulumi:"sort"`
-	TagFilters      pulumi.StringArrayInput `pulumi:"tagFilters"`
-	TextFilter      pulumi.StringPtrInput   `pulumi:"textFilter"`
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The options for sorting group by results.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ElementType() reflect.Type {
@@ -11354,38 +12319,47 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToOutput
 	}
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Whether to normalize the CPU percentages.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
 }
 
+// An array of tags to filter by.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
 }
 
+// The text to use as a filter.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
 }
@@ -11420,6 +12394,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Elem(
 	}).(DashboardWidgetTreemapDefinitionRequestQueryProcessQueryOutput)
 }
 
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11429,6 +12404,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Aggre
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11438,6 +12414,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) DataS
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to normalize the CPU percentages.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *bool {
 		if v == nil {
@@ -11447,6 +12424,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) IsNor
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of items in the group.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *int {
 		if v == nil {
@@ -11456,6 +12434,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Limit
 	}).(pulumi.IntPtrOutput)
 }
 
+// The metric from the request to correlate with this conditional format.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11465,6 +12444,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Metri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11474,6 +12454,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The options for sorting group by results.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11483,6 +12464,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Sort(
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of tags to filter by.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) []string {
 		if v == nil {
@@ -11492,6 +12474,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TagFi
 	}).(pulumi.StringArrayOutput)
 }
 
+// The text to use as a filter.
 func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11502,13 +12485,20 @@ func (o DashboardWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TextF
 }
 
 type DashboardWidgetTreemapDefinitionRequestQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
-	DataSource             string  `pulumi:"dataSource"`
-	GroupMode              *string `pulumi:"groupMode"`
-	Measure                string  `pulumi:"measure"`
-	Name                   *string `pulumi:"name"`
-	SloId                  string  `pulumi:"sloId"`
-	SloQueryType           *string `pulumi:"sloQueryType"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of the variable.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`.
+	SloQueryType *string `pulumi:"sloQueryType"`
 }
 
 // DashboardWidgetTreemapDefinitionRequestQuerySloQueryInput is an input type that accepts DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs and DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput values.
@@ -11523,13 +12513,20 @@ type DashboardWidgetTreemapDefinitionRequestQuerySloQueryInput interface {
 }
 
 type DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
-	DataSource             pulumi.StringInput    `pulumi:"dataSource"`
-	GroupMode              pulumi.StringPtrInput `pulumi:"groupMode"`
-	Measure                pulumi.StringInput    `pulumi:"measure"`
-	Name                   pulumi.StringPtrInput `pulumi:"name"`
-	SloId                  pulumi.StringInput    `pulumi:"sloId"`
-	SloQueryType           pulumi.StringPtrInput `pulumi:"sloQueryType"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of the variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
 }
 
 func (DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
@@ -11627,30 +12624,37 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToOutput(ctx
 	}
 }
 
+// Additional filters applied to the SLO query.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Group mode to query measures. Valid values are `overall`, `components`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.GroupMode }).(pulumi.StringPtrOutput)
 }
 
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) Measure() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// ID of an SLO to query.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloId() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
 }
 
+// type of the SLO to query. Valid values are `metric`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
 }
@@ -11685,6 +12689,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Elem() Da
 	}).(DashboardWidgetTreemapDefinitionRequestQuerySloQueryOutput)
 }
 
+// Additional filters applied to the SLO query.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11694,6 +12699,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Additiona
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11703,6 +12709,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) DataSourc
 	}).(pulumi.StringPtrOutput)
 }
 
+// Group mode to query measures. Valid values are `overall`, `components`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11712,6 +12719,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) GroupMode
 	}).(pulumi.StringPtrOutput)
 }
 
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11721,6 +12729,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Measure()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11730,6 +12739,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Name() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// ID of an SLO to query.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11739,6 +12749,7 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// type of the SLO to query. Valid values are `metric`.
 func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11749,11 +12760,16 @@ func (o DashboardWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloQueryT
 }
 
 type DashboardWidgetWidgetLayout struct {
-	Height        int   `pulumi:"height"`
+	// The height of the widget.
+	Height int `pulumi:"height"`
+	// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
 	IsColumnBreak *bool `pulumi:"isColumnBreak"`
-	Width         int   `pulumi:"width"`
-	X             int   `pulumi:"x"`
-	Y             int   `pulumi:"y"`
+	// Widget column width. Valid values are `auto`, `compact`, `full`.
+	Width int `pulumi:"width"`
+	// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+	X int `pulumi:"x"`
+	// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+	Y int `pulumi:"y"`
 }
 
 // DashboardWidgetWidgetLayoutInput is an input type that accepts DashboardWidgetWidgetLayoutArgs and DashboardWidgetWidgetLayoutOutput values.
@@ -11768,11 +12784,16 @@ type DashboardWidgetWidgetLayoutInput interface {
 }
 
 type DashboardWidgetWidgetLayoutArgs struct {
-	Height        pulumi.IntInput     `pulumi:"height"`
+	// The height of the widget.
+	Height pulumi.IntInput `pulumi:"height"`
+	// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
 	IsColumnBreak pulumi.BoolPtrInput `pulumi:"isColumnBreak"`
-	Width         pulumi.IntInput     `pulumi:"width"`
-	X             pulumi.IntInput     `pulumi:"x"`
-	Y             pulumi.IntInput     `pulumi:"y"`
+	// Widget column width. Valid values are `auto`, `compact`, `full`.
+	Width pulumi.IntInput `pulumi:"width"`
+	// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+	X pulumi.IntInput `pulumi:"x"`
+	// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+	Y pulumi.IntInput `pulumi:"y"`
 }
 
 func (DashboardWidgetWidgetLayoutArgs) ElementType() reflect.Type {
@@ -11870,22 +12891,27 @@ func (o DashboardWidgetWidgetLayoutOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// The height of the widget.
 func (o DashboardWidgetWidgetLayoutOutput) Height() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidgetWidgetLayout) int { return v.Height }).(pulumi.IntOutput)
 }
 
+// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
 func (o DashboardWidgetWidgetLayoutOutput) IsColumnBreak() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetWidgetLayout) *bool { return v.IsColumnBreak }).(pulumi.BoolPtrOutput)
 }
 
+// Widget column width. Valid values are `auto`, `compact`, `full`.
 func (o DashboardWidgetWidgetLayoutOutput) Width() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidgetWidgetLayout) int { return v.Width }).(pulumi.IntOutput)
 }
 
+// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
 func (o DashboardWidgetWidgetLayoutOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidgetWidgetLayout) int { return v.X }).(pulumi.IntOutput)
 }
 
+// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
 func (o DashboardWidgetWidgetLayoutOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidgetWidgetLayout) int { return v.Y }).(pulumi.IntOutput)
 }
@@ -11920,6 +12946,7 @@ func (o DashboardWidgetWidgetLayoutPtrOutput) Elem() DashboardWidgetWidgetLayout
 	}).(DashboardWidgetWidgetLayoutOutput)
 }
 
+// The height of the widget.
 func (o DashboardWidgetWidgetLayoutPtrOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetWidgetLayout) *int {
 		if v == nil {
@@ -11929,6 +12956,7 @@ func (o DashboardWidgetWidgetLayoutPtrOutput) Height() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
 func (o DashboardWidgetWidgetLayoutPtrOutput) IsColumnBreak() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetWidgetLayout) *bool {
 		if v == nil {
@@ -11938,6 +12966,7 @@ func (o DashboardWidgetWidgetLayoutPtrOutput) IsColumnBreak() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Widget column width. Valid values are `auto`, `compact`, `full`.
 func (o DashboardWidgetWidgetLayoutPtrOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetWidgetLayout) *int {
 		if v == nil {
@@ -11947,6 +12976,7 @@ func (o DashboardWidgetWidgetLayoutPtrOutput) Width() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
 func (o DashboardWidgetWidgetLayoutPtrOutput) X() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetWidgetLayout) *int {
 		if v == nil {
@@ -11956,6 +12986,7 @@ func (o DashboardWidgetWidgetLayoutPtrOutput) X() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
 func (o DashboardWidgetWidgetLayoutPtrOutput) Y() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DashboardWidgetWidgetLayout) *int {
 		if v == nil {
@@ -12760,9 +13791,12 @@ func (o DowntimeScheduleRecurringSchedulePtrOutput) Timezone() pulumi.StringPtrO
 }
 
 type DowntimeScheduleRecurringScheduleRecurrence struct {
-	Duration string  `pulumi:"duration"`
-	Rrule    string  `pulumi:"rrule"`
-	Start    *string `pulumi:"start"`
+	// The length of the downtime. Must begin with an integer and end with one of 'm', 'h', d', or 'w'.
+	Duration string `pulumi:"duration"`
+	// The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+	Rrule string `pulumi:"rrule"`
+	// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+	Start *string `pulumi:"start"`
 }
 
 // DowntimeScheduleRecurringScheduleRecurrenceInput is an input type that accepts DowntimeScheduleRecurringScheduleRecurrenceArgs and DowntimeScheduleRecurringScheduleRecurrenceOutput values.
@@ -12777,9 +13811,12 @@ type DowntimeScheduleRecurringScheduleRecurrenceInput interface {
 }
 
 type DowntimeScheduleRecurringScheduleRecurrenceArgs struct {
-	Duration pulumi.StringInput    `pulumi:"duration"`
-	Rrule    pulumi.StringInput    `pulumi:"rrule"`
-	Start    pulumi.StringPtrInput `pulumi:"start"`
+	// The length of the downtime. Must begin with an integer and end with one of 'm', 'h', d', or 'w'.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+	Rrule pulumi.StringInput `pulumi:"rrule"`
+	// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (DowntimeScheduleRecurringScheduleRecurrenceArgs) ElementType() reflect.Type {
@@ -12851,14 +13888,17 @@ func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) ToOutput(ctx context.
 	}
 }
 
+// The length of the downtime. Must begin with an integer and end with one of 'm', 'h', d', or 'w'.
 func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) string { return v.Duration }).(pulumi.StringOutput)
 }
 
+// The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
 func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Rrule() pulumi.StringOutput {
 	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) string { return v.Rrule }).(pulumi.StringOutput)
 }
 
+// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
 func (o DowntimeScheduleRecurringScheduleRecurrenceOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DowntimeScheduleRecurringScheduleRecurrence) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -14086,11 +15126,16 @@ func (o LogsCustomPipelineProcessorArrayOutput) Index(i pulumi.IntInput) LogsCus
 }
 
 type LogsCustomPipelineProcessorArithmeticProcessor struct {
-	Expression       string  `pulumi:"expression"`
-	IsEnabled        *bool   `pulumi:"isEnabled"`
-	IsReplaceMissing *bool   `pulumi:"isReplaceMissing"`
-	Name             *string `pulumi:"name"`
-	Target           string  `pulumi:"target"`
+	// Arithmetic operation between one or more log attributes.
+	Expression string `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorArithmeticProcessorOutput values.
@@ -14105,11 +15150,16 @@ type LogsCustomPipelineProcessorArithmeticProcessorInput interface {
 }
 
 type LogsCustomPipelineProcessorArithmeticProcessorArgs struct {
-	Expression       pulumi.StringInput    `pulumi:"expression"`
-	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	IsReplaceMissing pulumi.BoolPtrInput   `pulumi:"isReplaceMissing"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	Target           pulumi.StringInput    `pulumi:"target"`
+	// Arithmetic operation between one or more log attributes.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
@@ -14207,22 +15257,27 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToOutput(ctx conte
 	}
 }
 
+// Arithmetic operation between one or more log attributes.
 func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsReplaceMissing }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -14257,6 +15312,7 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Elem() LogsCust
 	}).(LogsCustomPipelineProcessorArithmeticProcessorOutput)
 }
 
+// Arithmetic operation between one or more log attributes.
 func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -14266,6 +15322,7 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Expression() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
 		if v == nil {
@@ -14275,6 +15332,7 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
 		if v == nil {
@@ -14284,6 +15342,7 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsReplaceMissin
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -14293,6 +15352,7 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Name() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -14303,15 +15363,24 @@ func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Target() pulumi
 }
 
 type LogsCustomPipelineProcessorAttributeRemapper struct {
-	IsEnabled          *bool    `pulumi:"isEnabled"`
-	Name               *string  `pulumi:"name"`
-	OverrideOnConflict *bool    `pulumi:"overrideOnConflict"`
-	PreserveSource     *bool    `pulumi:"preserveSource"`
-	SourceType         string   `pulumi:"sourceType"`
-	Sources            []string `pulumi:"sources"`
-	Target             string   `pulumi:"target"`
-	TargetFormat       *string  `pulumi:"targetFormat"`
-	TargetType         string   `pulumi:"targetType"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict *bool `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element.
+	PreserveSource *bool `pulumi:"preserveSource"`
+	// Defines where the sources are from (log `attribute` or `tag`).
+	SourceType string `pulumi:"sourceType"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
+	// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+	TargetFormat *string `pulumi:"targetFormat"`
+	// Defines if the target is a log `attribute` or `tag`.
+	TargetType string `pulumi:"targetType"`
 }
 
 // LogsCustomPipelineProcessorAttributeRemapperInput is an input type that accepts LogsCustomPipelineProcessorAttributeRemapperArgs and LogsCustomPipelineProcessorAttributeRemapperOutput values.
@@ -14326,15 +15395,24 @@ type LogsCustomPipelineProcessorAttributeRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorAttributeRemapperArgs struct {
-	IsEnabled          pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name               pulumi.StringPtrInput   `pulumi:"name"`
-	OverrideOnConflict pulumi.BoolPtrInput     `pulumi:"overrideOnConflict"`
-	PreserveSource     pulumi.BoolPtrInput     `pulumi:"preserveSource"`
-	SourceType         pulumi.StringInput      `pulumi:"sourceType"`
-	Sources            pulumi.StringArrayInput `pulumi:"sources"`
-	Target             pulumi.StringInput      `pulumi:"target"`
-	TargetFormat       pulumi.StringPtrInput   `pulumi:"targetFormat"`
-	TargetType         pulumi.StringInput      `pulumi:"targetType"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict pulumi.BoolPtrInput `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element.
+	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
+	// Defines where the sources are from (log `attribute` or `tag`).
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
+	// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+	TargetFormat pulumi.StringPtrInput `pulumi:"targetFormat"`
+	// Defines if the target is a log `attribute` or `tag`.
+	TargetType pulumi.StringInput `pulumi:"targetType"`
 }
 
 func (LogsCustomPipelineProcessorAttributeRemapperArgs) ElementType() reflect.Type {
@@ -14432,38 +15510,47 @@ func (o LogsCustomPipelineProcessorAttributeRemapperOutput) ToOutput(ctx context
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Override the target element if already set.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) *bool { return v.OverrideOnConflict }).(pulumi.BoolPtrOutput)
 }
 
+// Remove or preserve the remapped source element.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) PreserveSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) *bool { return v.PreserveSource }).(pulumi.BoolPtrOutput)
 }
 
+// Defines where the sources are from (log `attribute` or `tag`).
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) string { return v.SourceType }).(pulumi.StringOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) TargetFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) *string { return v.TargetFormat }).(pulumi.StringPtrOutput)
 }
 
+// Defines if the target is a log `attribute` or `tag`.
 func (o LogsCustomPipelineProcessorAttributeRemapperOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorAttributeRemapper) string { return v.TargetType }).(pulumi.StringOutput)
 }
@@ -14498,6 +15585,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Elem() LogsCustom
 	}).(LogsCustomPipelineProcessorAttributeRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -14507,6 +15595,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) IsEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -14516,6 +15605,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Override the target element if already set.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -14525,6 +15615,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) OverrideOnConflic
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Remove or preserve the remapped source element.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -14534,6 +15625,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) PreserveSource() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines where the sources are from (log `attribute` or `tag`).
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -14543,6 +15635,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) SourceType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) []string {
 		if v == nil {
@@ -14552,6 +15645,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Sources() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -14561,6 +15655,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) Target() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) TargetFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -14570,6 +15665,7 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) TargetFormat() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines if the target is a log `attribute` or `tag`.
 func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -14580,10 +15676,14 @@ func (o LogsCustomPipelineProcessorAttributeRemapperPtrOutput) TargetType() pulu
 }
 
 type LogsCustomPipelineProcessorCategoryProcessor struct {
+	// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 	Categories []LogsCustomPipelineProcessorCategoryProcessorCategory `pulumi:"categories"`
-	IsEnabled  *bool                                                  `pulumi:"isEnabled"`
-	Name       *string                                                `pulumi:"name"`
-	Target     string                                                 `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorCategoryProcessorInput is an input type that accepts LogsCustomPipelineProcessorCategoryProcessorArgs and LogsCustomPipelineProcessorCategoryProcessorOutput values.
@@ -14598,10 +15698,14 @@ type LogsCustomPipelineProcessorCategoryProcessorInput interface {
 }
 
 type LogsCustomPipelineProcessorCategoryProcessorArgs struct {
+	// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 	Categories LogsCustomPipelineProcessorCategoryProcessorCategoryArrayInput `pulumi:"categories"`
-	IsEnabled  pulumi.BoolPtrInput                                            `pulumi:"isEnabled"`
-	Name       pulumi.StringPtrInput                                          `pulumi:"name"`
-	Target     pulumi.StringInput                                             `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorCategoryProcessorArgs) ElementType() reflect.Type {
@@ -14699,20 +15803,24 @@ func (o LogsCustomPipelineProcessorCategoryProcessorOutput) ToOutput(ctx context
 	}
 }
 
+// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 func (o LogsCustomPipelineProcessorCategoryProcessorOutput) Categories() LogsCustomPipelineProcessorCategoryProcessorCategoryArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorCategoryProcessor) []LogsCustomPipelineProcessorCategoryProcessorCategory {
 		return v.Categories
 	}).(LogsCustomPipelineProcessorCategoryProcessorCategoryArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorCategoryProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorCategoryProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorCategoryProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorCategoryProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorCategoryProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorCategoryProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -14747,6 +15855,7 @@ func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Elem() LogsCustom
 	}).(LogsCustomPipelineProcessorCategoryProcessorOutput)
 }
 
+// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Categories() LogsCustomPipelineProcessorCategoryProcessorCategoryArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorCategoryProcessor) []LogsCustomPipelineProcessorCategoryProcessorCategory {
 		if v == nil {
@@ -14756,6 +15865,7 @@ func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Categories() Logs
 	}).(LogsCustomPipelineProcessorCategoryProcessorCategoryArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorCategoryProcessor) *bool {
 		if v == nil {
@@ -14765,6 +15875,7 @@ func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) IsEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorCategoryProcessor) *string {
 		if v == nil {
@@ -14774,6 +15885,7 @@ func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorCategoryProcessor) *string {
 		if v == nil {
@@ -14785,7 +15897,8 @@ func (o LogsCustomPipelineProcessorCategoryProcessorPtrOutput) Target() pulumi.S
 
 type LogsCustomPipelineProcessorCategoryProcessorCategory struct {
 	Filter LogsCustomPipelineProcessorCategoryProcessorCategoryFilter `pulumi:"filter"`
-	Name   string                                                     `pulumi:"name"`
+	// Your pipeline name.
+	Name string `pulumi:"name"`
 }
 
 // LogsCustomPipelineProcessorCategoryProcessorCategoryInput is an input type that accepts LogsCustomPipelineProcessorCategoryProcessorCategoryArgs and LogsCustomPipelineProcessorCategoryProcessorCategoryOutput values.
@@ -14801,7 +15914,8 @@ type LogsCustomPipelineProcessorCategoryProcessorCategoryInput interface {
 
 type LogsCustomPipelineProcessorCategoryProcessorCategoryArgs struct {
 	Filter LogsCustomPipelineProcessorCategoryProcessorCategoryFilterInput `pulumi:"filter"`
-	Name   pulumi.StringInput                                              `pulumi:"name"`
+	// Your pipeline name.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LogsCustomPipelineProcessorCategoryProcessorCategoryArgs) ElementType() reflect.Type {
@@ -14879,6 +15993,7 @@ func (o LogsCustomPipelineProcessorCategoryProcessorCategoryOutput) Filter() Log
 	}).(LogsCustomPipelineProcessorCategoryProcessorCategoryFilterOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorCategoryProcessorCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorCategoryProcessorCategory) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14974,9 +16089,12 @@ func (o LogsCustomPipelineProcessorCategoryProcessorCategoryFilterOutput) Query(
 }
 
 type LogsCustomPipelineProcessorDateRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorDateRemapperInput is an input type that accepts LogsCustomPipelineProcessorDateRemapperArgs and LogsCustomPipelineProcessorDateRemapperOutput values.
@@ -14991,9 +16109,12 @@ type LogsCustomPipelineProcessorDateRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorDateRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorDateRemapperArgs) ElementType() reflect.Type {
@@ -15091,14 +16212,17 @@ func (o LogsCustomPipelineProcessorDateRemapperOutput) ToOutput(ctx context.Cont
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorDateRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorDateRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorDateRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorDateRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorDateRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorDateRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -15133,6 +16257,7 @@ func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) Elem() LogsCustomPipel
 	}).(LogsCustomPipelineProcessorDateRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorDateRemapper) *bool {
 		if v == nil {
@@ -15142,6 +16267,7 @@ func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) IsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorDateRemapper) *string {
 		if v == nil {
@@ -15151,6 +16277,7 @@ func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorDateRemapper) []string {
 		if v == nil {
@@ -15161,10 +16288,14 @@ func (o LogsCustomPipelineProcessorDateRemapperPtrOutput) Sources() pulumi.Strin
 }
 
 type LogsCustomPipelineProcessorGeoIpParser struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
-	Target    string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorGeoIpParserInput is an input type that accepts LogsCustomPipelineProcessorGeoIpParserArgs and LogsCustomPipelineProcessorGeoIpParserOutput values.
@@ -15179,10 +16310,14 @@ type LogsCustomPipelineProcessorGeoIpParserInput interface {
 }
 
 type LogsCustomPipelineProcessorGeoIpParserArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
-	Target    pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorGeoIpParserArgs) ElementType() reflect.Type {
@@ -15280,18 +16415,22 @@ func (o LogsCustomPipelineProcessorGeoIpParserOutput) ToOutput(ctx context.Conte
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorGeoIpParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGeoIpParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorGeoIpParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGeoIpParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorGeoIpParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGeoIpParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorGeoIpParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGeoIpParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -15326,6 +16465,7 @@ func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Elem() LogsCustomPipeli
 	}).(LogsCustomPipelineProcessorGeoIpParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGeoIpParser) *bool {
 		if v == nil {
@@ -15335,6 +16475,7 @@ func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) IsEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGeoIpParser) *string {
 		if v == nil {
@@ -15344,6 +16485,7 @@ func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGeoIpParser) []string {
 		if v == nil {
@@ -15353,6 +16495,7 @@ func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Sources() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGeoIpParser) *string {
 		if v == nil {
@@ -15363,11 +16506,15 @@ func (o LogsCustomPipelineProcessorGeoIpParserPtrOutput) Target() pulumi.StringP
 }
 
 type LogsCustomPipelineProcessorGrokParser struct {
-	Grok      LogsCustomPipelineProcessorGrokParserGrok `pulumi:"grok"`
-	IsEnabled *bool                                     `pulumi:"isEnabled"`
-	Name      *string                                   `pulumi:"name"`
-	Samples   []string                                  `pulumi:"samples"`
-	Source    string                                    `pulumi:"source"`
+	Grok LogsCustomPipelineProcessorGrokParserGrok `pulumi:"grok"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+	Samples []string `pulumi:"samples"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
 }
 
 // LogsCustomPipelineProcessorGrokParserInput is an input type that accepts LogsCustomPipelineProcessorGrokParserArgs and LogsCustomPipelineProcessorGrokParserOutput values.
@@ -15382,11 +16529,15 @@ type LogsCustomPipelineProcessorGrokParserInput interface {
 }
 
 type LogsCustomPipelineProcessorGrokParserArgs struct {
-	Grok      LogsCustomPipelineProcessorGrokParserGrokInput `pulumi:"grok"`
-	IsEnabled pulumi.BoolPtrInput                            `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput                          `pulumi:"name"`
-	Samples   pulumi.StringArrayInput                        `pulumi:"samples"`
-	Source    pulumi.StringInput                             `pulumi:"source"`
+	Grok LogsCustomPipelineProcessorGrokParserGrokInput `pulumi:"grok"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+	Samples pulumi.StringArrayInput `pulumi:"samples"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
 }
 
 func (LogsCustomPipelineProcessorGrokParserArgs) ElementType() reflect.Type {
@@ -15488,18 +16639,22 @@ func (o LogsCustomPipelineProcessorGrokParserOutput) Grok() LogsCustomPipelinePr
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParser) LogsCustomPipelineProcessorGrokParserGrok { return v.Grok }).(LogsCustomPipelineProcessorGrokParserGrokOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorGrokParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorGrokParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
 func (o LogsCustomPipelineProcessorGrokParserOutput) Samples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParser) []string { return v.Samples }).(pulumi.StringArrayOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorGrokParserOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParser) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -15543,6 +16698,7 @@ func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Grok() LogsCustomPipelin
 	}).(LogsCustomPipelineProcessorGrokParserGrokPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorGrokParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParser) *bool {
 		if v == nil {
@@ -15552,6 +16708,7 @@ func (o LogsCustomPipelineProcessorGrokParserPtrOutput) IsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParser) *string {
 		if v == nil {
@@ -15561,6 +16718,7 @@ func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Name() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
 func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Samples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParser) []string {
 		if v == nil {
@@ -15570,6 +16728,7 @@ func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Samples() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParser) *string {
 		if v == nil {
@@ -15580,7 +16739,9 @@ func (o LogsCustomPipelineProcessorGrokParserPtrOutput) Source() pulumi.StringPt
 }
 
 type LogsCustomPipelineProcessorGrokParserGrok struct {
-	MatchRules   string `pulumi:"matchRules"`
+	// Match rules for your grok parser.
+	MatchRules string `pulumi:"matchRules"`
+	// Support rules for your grok parser.
 	SupportRules string `pulumi:"supportRules"`
 }
 
@@ -15596,7 +16757,9 @@ type LogsCustomPipelineProcessorGrokParserGrokInput interface {
 }
 
 type LogsCustomPipelineProcessorGrokParserGrokArgs struct {
-	MatchRules   pulumi.StringInput `pulumi:"matchRules"`
+	// Match rules for your grok parser.
+	MatchRules pulumi.StringInput `pulumi:"matchRules"`
+	// Support rules for your grok parser.
 	SupportRules pulumi.StringInput `pulumi:"supportRules"`
 }
 
@@ -15695,10 +16858,12 @@ func (o LogsCustomPipelineProcessorGrokParserGrokOutput) ToOutput(ctx context.Co
 	}
 }
 
+// Match rules for your grok parser.
 func (o LogsCustomPipelineProcessorGrokParserGrokOutput) MatchRules() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParserGrok) string { return v.MatchRules }).(pulumi.StringOutput)
 }
 
+// Support rules for your grok parser.
 func (o LogsCustomPipelineProcessorGrokParserGrokOutput) SupportRules() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorGrokParserGrok) string { return v.SupportRules }).(pulumi.StringOutput)
 }
@@ -15733,6 +16898,7 @@ func (o LogsCustomPipelineProcessorGrokParserGrokPtrOutput) Elem() LogsCustomPip
 	}).(LogsCustomPipelineProcessorGrokParserGrokOutput)
 }
 
+// Match rules for your grok parser.
 func (o LogsCustomPipelineProcessorGrokParserGrokPtrOutput) MatchRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParserGrok) *string {
 		if v == nil {
@@ -15742,6 +16908,7 @@ func (o LogsCustomPipelineProcessorGrokParserGrokPtrOutput) MatchRules() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Support rules for your grok parser.
 func (o LogsCustomPipelineProcessorGrokParserGrokPtrOutput) SupportRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorGrokParserGrok) *string {
 		if v == nil {
@@ -15752,12 +16919,18 @@ func (o LogsCustomPipelineProcessorGrokParserGrokPtrOutput) SupportRules() pulum
 }
 
 type LogsCustomPipelineProcessorLookupProcessor struct {
-	DefaultLookup *string  `pulumi:"defaultLookup"`
-	IsEnabled     *bool    `pulumi:"isEnabled"`
-	LookupTables  []string `pulumi:"lookupTables"`
-	Name          *string  `pulumi:"name"`
-	Source        string   `pulumi:"source"`
-	Target        string   `pulumi:"target"`
+	// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+	DefaultLookup *string `pulumi:"defaultLookup"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// List of entries of the lookup table using `key,value` format.
+	LookupTables []string `pulumi:"lookupTables"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorLookupProcessorArgs and LogsCustomPipelineProcessorLookupProcessorOutput values.
@@ -15772,12 +16945,18 @@ type LogsCustomPipelineProcessorLookupProcessorInput interface {
 }
 
 type LogsCustomPipelineProcessorLookupProcessorArgs struct {
-	DefaultLookup pulumi.StringPtrInput   `pulumi:"defaultLookup"`
-	IsEnabled     pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	LookupTables  pulumi.StringArrayInput `pulumi:"lookupTables"`
-	Name          pulumi.StringPtrInput   `pulumi:"name"`
-	Source        pulumi.StringInput      `pulumi:"source"`
-	Target        pulumi.StringInput      `pulumi:"target"`
+	// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+	DefaultLookup pulumi.StringPtrInput `pulumi:"defaultLookup"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// List of entries of the lookup table using `key,value` format.
+	LookupTables pulumi.StringArrayInput `pulumi:"lookupTables"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorLookupProcessorArgs) ElementType() reflect.Type {
@@ -15875,26 +17054,32 @@ func (o LogsCustomPipelineProcessorLookupProcessorOutput) ToOutput(ctx context.C
 	}
 }
 
+// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) DefaultLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) *string { return v.DefaultLookup }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// List of entries of the lookup table using `key,value` format.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) LookupTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) []string { return v.LookupTables }).(pulumi.StringArrayOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorLookupProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorLookupProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -15929,6 +17114,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Elem() LogsCustomPi
 	}).(LogsCustomPipelineProcessorLookupProcessorOutput)
 }
 
+// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) DefaultLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -15938,6 +17124,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) DefaultLookup() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) *bool {
 		if v == nil {
@@ -15947,6 +17134,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) IsEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of entries of the lookup table using `key,value` format.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) LookupTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) []string {
 		if v == nil {
@@ -15956,6 +17144,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) LookupTables() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -15965,6 +17154,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -15974,6 +17164,7 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Source() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -15984,9 +17175,12 @@ func (o LogsCustomPipelineProcessorLookupProcessorPtrOutput) Target() pulumi.Str
 }
 
 type LogsCustomPipelineProcessorMessageRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorMessageRemapperInput is an input type that accepts LogsCustomPipelineProcessorMessageRemapperArgs and LogsCustomPipelineProcessorMessageRemapperOutput values.
@@ -16001,9 +17195,12 @@ type LogsCustomPipelineProcessorMessageRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorMessageRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorMessageRemapperArgs) ElementType() reflect.Type {
@@ -16101,14 +17298,17 @@ func (o LogsCustomPipelineProcessorMessageRemapperOutput) ToOutput(ctx context.C
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorMessageRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorMessageRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorMessageRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorMessageRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorMessageRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorMessageRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -16143,6 +17343,7 @@ func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) Elem() LogsCustomPi
 	}).(LogsCustomPipelineProcessorMessageRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorMessageRemapper) *bool {
 		if v == nil {
@@ -16152,6 +17353,7 @@ func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) IsEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorMessageRemapper) *string {
 		if v == nil {
@@ -16161,6 +17363,7 @@ func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorMessageRemapper) []string {
 		if v == nil {
@@ -16171,8 +17374,10 @@ func (o LogsCustomPipelineProcessorMessageRemapperPtrOutput) Sources() pulumi.St
 }
 
 type LogsCustomPipelineProcessorPipeline struct {
-	Filters    []LogsCustomPipelineProcessorPipelineFilter    `pulumi:"filters"`
-	IsEnabled  *bool                                          `pulumi:"isEnabled"`
+	Filters []LogsCustomPipelineProcessorPipelineFilter `pulumi:"filters"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
 	Name       string                                         `pulumi:"name"`
 	Processors []LogsCustomPipelineProcessorPipelineProcessor `pulumi:"processors"`
 }
@@ -16189,8 +17394,10 @@ type LogsCustomPipelineProcessorPipelineInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineArgs struct {
-	Filters    LogsCustomPipelineProcessorPipelineFilterArrayInput    `pulumi:"filters"`
-	IsEnabled  pulumi.BoolPtrInput                                    `pulumi:"isEnabled"`
+	Filters LogsCustomPipelineProcessorPipelineFilterArrayInput `pulumi:"filters"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
 	Name       pulumi.StringInput                                     `pulumi:"name"`
 	Processors LogsCustomPipelineProcessorPipelineProcessorArrayInput `pulumi:"processors"`
 }
@@ -16296,10 +17503,12 @@ func (o LogsCustomPipelineProcessorPipelineOutput) Filters() LogsCustomPipelineP
 	}).(LogsCustomPipelineProcessorPipelineFilterArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipeline) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipeline) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16349,6 +17558,7 @@ func (o LogsCustomPipelineProcessorPipelinePtrOutput) Filters() LogsCustomPipeli
 	}).(LogsCustomPipelineProcessorPipelineFilterArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelinePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipeline) *bool {
 		if v == nil {
@@ -16358,6 +17568,7 @@ func (o LogsCustomPipelineProcessorPipelinePtrOutput) IsEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelinePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipeline) *string {
 		if v == nil {
@@ -16775,11 +17986,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArrayOutput) Index(i pulumi.
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor struct {
-	Expression       string  `pulumi:"expression"`
-	IsEnabled        *bool   `pulumi:"isEnabled"`
-	IsReplaceMissing *bool   `pulumi:"isReplaceMissing"`
-	Name             *string `pulumi:"name"`
-	Target           string  `pulumi:"target"`
+	// Arithmetic operation between one or more log attributes.
+	Expression string `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput values.
@@ -16794,11 +18010,16 @@ type LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorInput interf
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs struct {
-	Expression       pulumi.StringInput    `pulumi:"expression"`
-	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	IsReplaceMissing pulumi.BoolPtrInput   `pulumi:"isReplaceMissing"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	Target           pulumi.StringInput    `pulumi:"target"`
+	// Arithmetic operation between one or more log attributes.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
@@ -16896,24 +18117,29 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) T
 	}
 }
 
+// Arithmetic operation between one or more log attributes.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *bool {
 		return v.IsReplaceMissing
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -16948,6 +18174,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 	}).(LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorOutput)
 }
 
+// Arithmetic operation between one or more log attributes.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -16957,6 +18184,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *bool {
 		if v == nil {
@@ -16966,6 +18194,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *bool {
 		if v == nil {
@@ -16975,6 +18204,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -16984,6 +18214,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor) *string {
 		if v == nil {
@@ -16994,15 +18225,24 @@ func (o LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorPtrOutput
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper struct {
-	IsEnabled          *bool    `pulumi:"isEnabled"`
-	Name               *string  `pulumi:"name"`
-	OverrideOnConflict *bool    `pulumi:"overrideOnConflict"`
-	PreserveSource     *bool    `pulumi:"preserveSource"`
-	SourceType         string   `pulumi:"sourceType"`
-	Sources            []string `pulumi:"sources"`
-	Target             string   `pulumi:"target"`
-	TargetFormat       *string  `pulumi:"targetFormat"`
-	TargetType         string   `pulumi:"targetType"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict *bool `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element.
+	PreserveSource *bool `pulumi:"preserveSource"`
+	// Defines where the sources are from (log `attribute` or `tag`).
+	SourceType string `pulumi:"sourceType"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
+	// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+	TargetFormat *string `pulumi:"targetFormat"`
+	// Defines if the target is a log `attribute` or `tag`.
+	TargetType string `pulumi:"targetType"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput values.
@@ -17017,15 +18257,24 @@ type LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperInput interfac
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs struct {
-	IsEnabled          pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name               pulumi.StringPtrInput   `pulumi:"name"`
-	OverrideOnConflict pulumi.BoolPtrInput     `pulumi:"overrideOnConflict"`
-	PreserveSource     pulumi.BoolPtrInput     `pulumi:"preserveSource"`
-	SourceType         pulumi.StringInput      `pulumi:"sourceType"`
-	Sources            pulumi.StringArrayInput `pulumi:"sources"`
-	Target             pulumi.StringInput      `pulumi:"target"`
-	TargetFormat       pulumi.StringPtrInput   `pulumi:"targetFormat"`
-	TargetType         pulumi.StringInput      `pulumi:"targetType"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict pulumi.BoolPtrInput `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element.
+	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
+	// Defines where the sources are from (log `attribute` or `tag`).
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
+	// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+	TargetFormat pulumi.StringPtrInput `pulumi:"targetFormat"`
+	// Defines if the target is a log `attribute` or `tag`.
+	TargetType pulumi.StringInput `pulumi:"targetType"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs) ElementType() reflect.Type {
@@ -17123,40 +18372,49 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) ToO
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Override the target element if already set.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool {
 		return v.OverrideOnConflict
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Remove or preserve the remapped source element.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) PreserveSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool { return v.PreserveSource }).(pulumi.BoolPtrOutput)
 }
 
+// Defines where the sources are from (log `attribute` or `tag`).
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) string { return v.SourceType }).(pulumi.StringOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) TargetFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string { return v.TargetFormat }).(pulumi.StringPtrOutput)
 }
 
+// Defines if the target is a log `attribute` or `tag`.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) string { return v.TargetType }).(pulumi.StringOutput)
 }
@@ -17191,6 +18449,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -17200,6 +18459,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -17209,6 +18469,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Override the target element if already set.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -17218,6 +18479,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Remove or preserve the remapped source element.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *bool {
 		if v == nil {
@@ -17227,6 +18489,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines where the sources are from (log `attribute` or `tag`).
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -17236,6 +18499,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) []string {
 		if v == nil {
@@ -17245,6 +18509,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -17254,6 +18519,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) TargetFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -17263,6 +18529,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines if the target is a log `attribute` or `tag`.
 func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper) *string {
 		if v == nil {
@@ -17273,10 +18540,14 @@ func (o LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperPtrOutput) 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor struct {
+	// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 	Categories []LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory `pulumi:"categories"`
-	IsEnabled  *bool                                                                   `pulumi:"isEnabled"`
-	Name       *string                                                                 `pulumi:"name"`
-	Target     string                                                                  `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput values.
@@ -17291,10 +18562,14 @@ type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorInput interfac
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs struct {
+	// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 	Categories LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArrayInput `pulumi:"categories"`
-	IsEnabled  pulumi.BoolPtrInput                                                             `pulumi:"isEnabled"`
-	Name       pulumi.StringPtrInput                                                           `pulumi:"name"`
-	Target     pulumi.StringInput                                                              `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs) ElementType() reflect.Type {
@@ -17392,20 +18667,24 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput) ToO
 	}
 }
 
+// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput) Categories() LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) []LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory {
 		return v.Categories
 	}).(LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -17440,6 +18719,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) 
 	}).(LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorOutput)
 }
 
+// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) Categories() LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) []LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory {
 		if v == nil {
@@ -17449,6 +18729,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) 
 	}).(LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArrayOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) *bool {
 		if v == nil {
@@ -17458,6 +18739,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) *string {
 		if v == nil {
@@ -17467,6 +18749,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor) *string {
 		if v == nil {
@@ -17478,7 +18761,8 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorPtrOutput) 
 
 type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory struct {
 	Filter LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter `pulumi:"filter"`
-	Name   string                                                                      `pulumi:"name"`
+	// Your pipeline name.
+	Name string `pulumi:"name"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArgs and LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryOutput values.
@@ -17494,7 +18778,8 @@ type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryInput 
 
 type LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArgs struct {
 	Filter LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterInput `pulumi:"filter"`
-	Name   pulumi.StringInput                                                               `pulumi:"name"`
+	// Your pipeline name.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryArgs) ElementType() reflect.Type {
@@ -17572,6 +18857,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryOut
 	}).(LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17669,9 +18955,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFil
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorDateRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorDateRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput values.
@@ -17686,9 +18975,12 @@ type LogsCustomPipelineProcessorPipelineProcessorDateRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs) ElementType() reflect.Type {
@@ -17786,14 +19078,17 @@ func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput) ToOutput
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorDateRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorDateRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorDateRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -17828,6 +19123,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) Elem(
 	}).(LogsCustomPipelineProcessorPipelineProcessorDateRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorDateRemapper) *bool {
 		if v == nil {
@@ -17837,6 +19133,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) IsEna
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorDateRemapper) *string {
 		if v == nil {
@@ -17846,6 +19143,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorDateRemapper) []string {
 		if v == nil {
@@ -17856,10 +19154,14 @@ func (o LogsCustomPipelineProcessorPipelineProcessorDateRemapperPtrOutput) Sourc
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGeoIpParser struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
-	Target    string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorGeoIpParserInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs and LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput values.
@@ -17874,10 +19176,14 @@ type LogsCustomPipelineProcessorPipelineProcessorGeoIpParserInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
-	Target    pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs) ElementType() reflect.Type {
@@ -17975,18 +19281,22 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput) ToOutput(
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -18021,6 +19331,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Elem()
 	}).(LogsCustomPipelineProcessorPipelineProcessorGeoIpParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) *bool {
 		if v == nil {
@@ -18030,6 +19341,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) IsEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) *string {
 		if v == nil {
@@ -18039,6 +19351,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) []string {
 		if v == nil {
@@ -18048,6 +19361,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Source
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGeoIpParser) *string {
 		if v == nil {
@@ -18058,11 +19372,15 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGeoIpParserPtrOutput) Target
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGrokParser struct {
-	Grok      LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok `pulumi:"grok"`
-	IsEnabled *bool                                                      `pulumi:"isEnabled"`
-	Name      *string                                                    `pulumi:"name"`
-	Samples   []string                                                   `pulumi:"samples"`
-	Source    string                                                     `pulumi:"source"`
+	Grok LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok `pulumi:"grok"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+	Samples []string `pulumi:"samples"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorGrokParserInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs and LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput values.
@@ -18077,11 +19395,15 @@ type LogsCustomPipelineProcessorPipelineProcessorGrokParserInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs struct {
-	Grok      LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokInput `pulumi:"grok"`
-	IsEnabled pulumi.BoolPtrInput                                             `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput                                           `pulumi:"name"`
-	Samples   pulumi.StringArrayInput                                         `pulumi:"samples"`
-	Source    pulumi.StringInput                                              `pulumi:"source"`
+	Grok LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokInput `pulumi:"grok"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+	Samples pulumi.StringArrayInput `pulumi:"samples"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs) ElementType() reflect.Type {
@@ -18185,18 +19507,22 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput) Grok() Log
 	}).(LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput) Samples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParser) []string { return v.Samples }).(pulumi.StringArrayOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParser) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -18240,6 +19566,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Grok() 
 	}).(LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParser) *bool {
 		if v == nil {
@@ -18249,6 +19576,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) IsEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParser) *string {
 		if v == nil {
@@ -18258,6 +19586,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Name() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Samples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParser) []string {
 		if v == nil {
@@ -18267,6 +19596,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Samples
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParser) *string {
 		if v == nil {
@@ -18277,7 +19607,9 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserPtrOutput) Source(
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok struct {
-	MatchRules   string `pulumi:"matchRules"`
+	// Match rules for your grok parser.
+	MatchRules string `pulumi:"matchRules"`
+	// Support rules for your grok parser.
 	SupportRules string `pulumi:"supportRules"`
 }
 
@@ -18293,7 +19625,9 @@ type LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokArgs struct {
-	MatchRules   pulumi.StringInput `pulumi:"matchRules"`
+	// Match rules for your grok parser.
+	MatchRules pulumi.StringInput `pulumi:"matchRules"`
+	// Support rules for your grok parser.
 	SupportRules pulumi.StringInput `pulumi:"supportRules"`
 }
 
@@ -18392,10 +19726,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokOutput) ToOutp
 	}
 }
 
+// Match rules for your grok parser.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokOutput) MatchRules() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok) string { return v.MatchRules }).(pulumi.StringOutput)
 }
 
+// Support rules for your grok parser.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokOutput) SupportRules() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok) string { return v.SupportRules }).(pulumi.StringOutput)
 }
@@ -18430,6 +19766,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput) Ele
 	}).(LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokOutput)
 }
 
+// Match rules for your grok parser.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput) MatchRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok) *string {
 		if v == nil {
@@ -18439,6 +19776,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput) Mat
 	}).(pulumi.StringPtrOutput)
 }
 
+// Support rules for your grok parser.
 func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput) SupportRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok) *string {
 		if v == nil {
@@ -18449,12 +19787,18 @@ func (o LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokPtrOutput) Sup
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorLookupProcessor struct {
-	DefaultLookup *string  `pulumi:"defaultLookup"`
-	IsEnabled     *bool    `pulumi:"isEnabled"`
-	LookupTables  []string `pulumi:"lookupTables"`
-	Name          *string  `pulumi:"name"`
-	Source        string   `pulumi:"source"`
-	Target        string   `pulumi:"target"`
+	// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+	DefaultLookup *string `pulumi:"defaultLookup"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// List of entries of the lookup table using `key,value` format.
+	LookupTables []string `pulumi:"lookupTables"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput values.
@@ -18469,12 +19813,18 @@ type LogsCustomPipelineProcessorPipelineProcessorLookupProcessorInput interface 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs struct {
-	DefaultLookup pulumi.StringPtrInput   `pulumi:"defaultLookup"`
-	IsEnabled     pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	LookupTables  pulumi.StringArrayInput `pulumi:"lookupTables"`
-	Name          pulumi.StringPtrInput   `pulumi:"name"`
-	Source        pulumi.StringInput      `pulumi:"source"`
-	Target        pulumi.StringInput      `pulumi:"target"`
+	// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+	DefaultLookup pulumi.StringPtrInput `pulumi:"defaultLookup"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// List of entries of the lookup table using `key,value` format.
+	LookupTables pulumi.StringArrayInput `pulumi:"lookupTables"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs) ElementType() reflect.Type {
@@ -18572,26 +19922,32 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) ToOut
 	}
 }
 
+// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) DefaultLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string { return v.DefaultLookup }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// List of entries of the lookup table using `key,value` format.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) LookupTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) []string { return v.LookupTables }).(pulumi.StringArrayOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -18626,6 +19982,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) El
 	}).(LogsCustomPipelineProcessorPipelineProcessorLookupProcessorOutput)
 }
 
+// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) DefaultLookup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -18635,6 +19992,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) De
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *bool {
 		if v == nil {
@@ -18644,6 +20002,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of entries of the lookup table using `key,value` format.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) LookupTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) []string {
 		if v == nil {
@@ -18653,6 +20012,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Lo
 	}).(pulumi.StringArrayOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -18662,6 +20022,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Na
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -18671,6 +20032,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) So
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorLookupProcessor) *string {
 		if v == nil {
@@ -18681,9 +20043,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorLookupProcessorPtrOutput) Ta
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorMessageRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorMessageRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput values.
@@ -18698,9 +20063,12 @@ type LogsCustomPipelineProcessorPipelineProcessorMessageRemapperInput interface 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs) ElementType() reflect.Type {
@@ -18798,14 +20166,17 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput) ToOut
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -18840,6 +20211,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) El
 	}).(LogsCustomPipelineProcessorPipelineProcessorMessageRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) *bool {
 		if v == nil {
@@ -18849,6 +20221,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) *string {
 		if v == nil {
@@ -18858,6 +20231,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) Na
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorMessageRemapper) []string {
 		if v == nil {
@@ -18868,11 +20242,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorMessageRemapperPtrOutput) So
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor struct {
-	IsEnabled             *bool   `pulumi:"isEnabled"`
-	LookupEnrichmentTable string  `pulumi:"lookupEnrichmentTable"`
-	Name                  *string `pulumi:"name"`
-	Source                string  `pulumi:"source"`
-	Target                string  `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Name of the Reference Table for the source attribute and their associated target attribute values.
+	LookupEnrichmentTable string `pulumi:"lookupEnrichmentTable"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput values.
@@ -18887,11 +20266,16 @@ type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorIn
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs struct {
-	IsEnabled             pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	LookupEnrichmentTable pulumi.StringInput    `pulumi:"lookupEnrichmentTable"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
-	Source                pulumi.StringInput    `pulumi:"source"`
-	Target                pulumi.StringInput    `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Name of the Reference Table for the source attribute and their associated target attribute values.
+	LookupEnrichmentTable pulumi.StringInput `pulumi:"lookupEnrichmentTable"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs) ElementType() reflect.Type {
@@ -18989,30 +20373,35 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *bool {
 		return v.IsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Name of the Reference Table for the source attribute and their associated target attribute values.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) LookupEnrichmentTable() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
 		return v.LookupEnrichmentTable
 	}).(pulumi.StringOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
 		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
 		return v.Source
 	}).(pulumi.StringOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) string {
 		return v.Target
@@ -19049,6 +20438,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}).(LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *bool {
 		if v == nil {
@@ -19058,6 +20448,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Name of the Reference Table for the source attribute and their associated target attribute values.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) LookupEnrichmentTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -19067,6 +20458,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}).(pulumi.StringPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -19076,6 +20468,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -19085,6 +20478,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -19095,9 +20489,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcesso
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorServiceRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorServiceRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput values.
@@ -19112,9 +20509,12 @@ type LogsCustomPipelineProcessorPipelineProcessorServiceRemapperInput interface 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs) ElementType() reflect.Type {
@@ -19212,14 +20612,17 @@ func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput) ToOut
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -19254,6 +20657,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) El
 	}).(LogsCustomPipelineProcessorPipelineProcessorServiceRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) *bool {
 		if v == nil {
@@ -19263,6 +20667,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) *string {
 		if v == nil {
@@ -19272,6 +20677,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) Na
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorServiceRemapper) []string {
 		if v == nil {
@@ -19282,9 +20688,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorServiceRemapperPtrOutput) So
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorStatusRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorStatusRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput values.
@@ -19299,9 +20708,12 @@ type LogsCustomPipelineProcessorPipelineProcessorStatusRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs) ElementType() reflect.Type {
@@ -19399,14 +20811,17 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput) ToOutp
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -19441,6 +20856,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) Ele
 	}).(LogsCustomPipelineProcessorPipelineProcessorStatusRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) *bool {
 		if v == nil {
@@ -19450,6 +20866,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) IsE
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) *string {
 		if v == nil {
@@ -19459,6 +20876,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) Nam
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStatusRemapper) []string {
 		if v == nil {
@@ -19469,11 +20887,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStatusRemapperPtrOutput) Sou
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor struct {
-	IsEnabled        *bool   `pulumi:"isEnabled"`
-	IsReplaceMissing *bool   `pulumi:"isReplaceMissing"`
-	Name             *string `pulumi:"name"`
-	Target           string  `pulumi:"target"`
-	Template         string  `pulumi:"template"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
+	// The formula with one or more attributes and raw text.
+	Template string `pulumi:"template"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs and LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput values.
@@ -19488,11 +20911,16 @@ type LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorInput int
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs struct {
-	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	IsReplaceMissing pulumi.BoolPtrInput   `pulumi:"isReplaceMissing"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	Target           pulumi.StringInput    `pulumi:"target"`
-	Template         pulumi.StringInput    `pulumi:"template"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
+	// The formula with one or more attributes and raw text.
+	Template pulumi.StringInput `pulumi:"template"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs) ElementType() reflect.Type {
@@ -19590,24 +21018,29 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *bool {
 		return v.IsReplaceMissing
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// The formula with one or more attributes and raw text.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) string { return v.Template }).(pulumi.StringOutput)
 }
@@ -19642,6 +21075,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 	}).(LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *bool {
 		if v == nil {
@@ -19651,6 +21085,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *bool {
 		if v == nil {
@@ -19660,6 +21095,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -19669,6 +21105,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -19678,6 +21115,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The formula with one or more attributes and raw text.
 func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -19688,9 +21126,12 @@ func (o LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorPtrOut
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs and LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput values.
@@ -19705,9 +21146,12 @@ type LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperInput interface 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs) ElementType() reflect.Type {
@@ -19805,14 +21249,17 @@ func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput) ToOut
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -19847,6 +21294,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) El
 	}).(LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) *bool {
 		if v == nil {
@@ -19856,6 +21304,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) *string {
 		if v == nil {
@@ -19865,6 +21314,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) Na
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper) []string {
 		if v == nil {
@@ -19875,11 +21325,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperPtrOutput) So
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorUrlParser struct {
-	IsEnabled              *bool    `pulumi:"isEnabled"`
-	Name                   *string  `pulumi:"name"`
-	NormalizeEndingSlashes *bool    `pulumi:"normalizeEndingSlashes"`
-	Sources                []string `pulumi:"sources"`
-	Target                 string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Normalize the ending slashes or not.
+	NormalizeEndingSlashes *bool `pulumi:"normalizeEndingSlashes"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorUrlParserInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs and LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput values.
@@ -19894,11 +21349,16 @@ type LogsCustomPipelineProcessorPipelineProcessorUrlParserInput interface {
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs struct {
-	IsEnabled              pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name                   pulumi.StringPtrInput   `pulumi:"name"`
-	NormalizeEndingSlashes pulumi.BoolPtrInput     `pulumi:"normalizeEndingSlashes"`
-	Sources                pulumi.StringArrayInput `pulumi:"sources"`
-	Target                 pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Normalize the ending slashes or not.
+	NormalizeEndingSlashes pulumi.BoolPtrInput `pulumi:"normalizeEndingSlashes"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs) ElementType() reflect.Type {
@@ -19996,22 +21456,27 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) ToOutput(ct
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUrlParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUrlParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Normalize the ending slashes or not.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) NormalizeEndingSlashes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUrlParser) *bool { return v.NormalizeEndingSlashes }).(pulumi.BoolPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUrlParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUrlParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -20046,6 +21511,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Elem() L
 	}).(LogsCustomPipelineProcessorPipelineProcessorUrlParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUrlParser) *bool {
 		if v == nil {
@@ -20055,6 +21521,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) IsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUrlParser) *string {
 		if v == nil {
@@ -20064,6 +21531,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Name() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Normalize the ending slashes or not.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) NormalizeEndingSlashes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUrlParser) *bool {
 		if v == nil {
@@ -20073,6 +21541,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Normaliz
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUrlParser) []string {
 		if v == nil {
@@ -20082,6 +21551,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Sources(
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUrlParser) *string {
 		if v == nil {
@@ -20092,11 +21562,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUrlParserPtrOutput) Target()
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorUserAgentParser struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	IsEncoded *bool    `pulumi:"isEncoded"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
-	Target    string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If the source attribute is URL encoded or not.
+	IsEncoded *bool `pulumi:"isEncoded"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorPipelineProcessorUserAgentParserInput is an input type that accepts LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs and LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput values.
@@ -20111,11 +21586,16 @@ type LogsCustomPipelineProcessorPipelineProcessorUserAgentParserInput interface 
 }
 
 type LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	IsEncoded pulumi.BoolPtrInput     `pulumi:"isEncoded"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
-	Target    pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If the source attribute is URL encoded or not.
+	IsEncoded pulumi.BoolPtrInput `pulumi:"isEncoded"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs) ElementType() reflect.Type {
@@ -20213,22 +21693,27 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) ToOut
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If the source attribute is URL encoded or not.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) IsEncoded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *bool { return v.IsEncoded }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -20263,6 +21748,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) El
 	}).(LogsCustomPipelineProcessorPipelineProcessorUserAgentParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *bool {
 		if v == nil {
@@ -20272,6 +21758,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If the source attribute is URL encoded or not.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) IsEncoded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *bool {
 		if v == nil {
@@ -20281,6 +21768,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Is
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *string {
 		if v == nil {
@@ -20290,6 +21778,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Na
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) []string {
 		if v == nil {
@@ -20299,6 +21788,7 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) So
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorPipelineProcessorUserAgentParser) *string {
 		if v == nil {
@@ -20309,11 +21799,16 @@ func (o LogsCustomPipelineProcessorPipelineProcessorUserAgentParserPtrOutput) Ta
 }
 
 type LogsCustomPipelineProcessorReferenceTableLookupProcessor struct {
-	IsEnabled             *bool   `pulumi:"isEnabled"`
-	LookupEnrichmentTable string  `pulumi:"lookupEnrichmentTable"`
-	Name                  *string `pulumi:"name"`
-	Source                string  `pulumi:"source"`
-	Target                string  `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Name of the Reference Table for the source attribute and their associated target attribute values.
+	LookupEnrichmentTable string `pulumi:"lookupEnrichmentTable"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source string `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorReferenceTableLookupProcessorInput is an input type that accepts LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs and LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput values.
@@ -20328,11 +21823,16 @@ type LogsCustomPipelineProcessorReferenceTableLookupProcessorInput interface {
 }
 
 type LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs struct {
-	IsEnabled             pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	LookupEnrichmentTable pulumi.StringInput    `pulumi:"lookupEnrichmentTable"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
-	Source                pulumi.StringInput    `pulumi:"source"`
-	Target                pulumi.StringInput    `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Name of the Reference Table for the source attribute and their associated target attribute values.
+	LookupEnrichmentTable pulumi.StringInput `pulumi:"lookupEnrichmentTable"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the log attribute to parse.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorReferenceTableLookupProcessorArgs) ElementType() reflect.Type {
@@ -20430,24 +21930,29 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) ToOutput
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the Reference Table for the source attribute and their associated target attribute values.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) LookupEnrichmentTable() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string {
 		return v.LookupEnrichmentTable
 	}).(pulumi.StringOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorReferenceTableLookupProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -20482,6 +21987,7 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Elem(
 	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *bool {
 		if v == nil {
@@ -20491,6 +21997,7 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) IsEna
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Name of the Reference Table for the source attribute and their associated target attribute values.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) LookupEnrichmentTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -20500,6 +22007,7 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Looku
 	}).(pulumi.StringPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -20509,6 +22017,7 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the log attribute to parse.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -20518,6 +22027,7 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Sourc
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorReferenceTableLookupProcessor) *string {
 		if v == nil {
@@ -20528,9 +22038,12 @@ func (o LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput) Targe
 }
 
 type LogsCustomPipelineProcessorServiceRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorServiceRemapperInput is an input type that accepts LogsCustomPipelineProcessorServiceRemapperArgs and LogsCustomPipelineProcessorServiceRemapperOutput values.
@@ -20545,9 +22058,12 @@ type LogsCustomPipelineProcessorServiceRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorServiceRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorServiceRemapperArgs) ElementType() reflect.Type {
@@ -20645,14 +22161,17 @@ func (o LogsCustomPipelineProcessorServiceRemapperOutput) ToOutput(ctx context.C
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorServiceRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorServiceRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorServiceRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorServiceRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorServiceRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorServiceRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -20687,6 +22206,7 @@ func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) Elem() LogsCustomPi
 	}).(LogsCustomPipelineProcessorServiceRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorServiceRemapper) *bool {
 		if v == nil {
@@ -20696,6 +22216,7 @@ func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) IsEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorServiceRemapper) *string {
 		if v == nil {
@@ -20705,6 +22226,7 @@ func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorServiceRemapper) []string {
 		if v == nil {
@@ -20715,9 +22237,12 @@ func (o LogsCustomPipelineProcessorServiceRemapperPtrOutput) Sources() pulumi.St
 }
 
 type LogsCustomPipelineProcessorStatusRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorStatusRemapperInput is an input type that accepts LogsCustomPipelineProcessorStatusRemapperArgs and LogsCustomPipelineProcessorStatusRemapperOutput values.
@@ -20732,9 +22257,12 @@ type LogsCustomPipelineProcessorStatusRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorStatusRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorStatusRemapperArgs) ElementType() reflect.Type {
@@ -20832,14 +22360,17 @@ func (o LogsCustomPipelineProcessorStatusRemapperOutput) ToOutput(ctx context.Co
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorStatusRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStatusRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorStatusRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStatusRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorStatusRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStatusRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -20874,6 +22405,7 @@ func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) Elem() LogsCustomPip
 	}).(LogsCustomPipelineProcessorStatusRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStatusRemapper) *bool {
 		if v == nil {
@@ -20883,6 +22415,7 @@ func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) IsEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStatusRemapper) *string {
 		if v == nil {
@@ -20892,6 +22425,7 @@ func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) Name() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStatusRemapper) []string {
 		if v == nil {
@@ -20902,11 +22436,16 @@ func (o LogsCustomPipelineProcessorStatusRemapperPtrOutput) Sources() pulumi.Str
 }
 
 type LogsCustomPipelineProcessorStringBuilderProcessor struct {
-	IsEnabled        *bool   `pulumi:"isEnabled"`
-	IsReplaceMissing *bool   `pulumi:"isReplaceMissing"`
-	Name             *string `pulumi:"name"`
-	Target           string  `pulumi:"target"`
-	Template         string  `pulumi:"template"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
+	// The formula with one or more attributes and raw text.
+	Template string `pulumi:"template"`
 }
 
 // LogsCustomPipelineProcessorStringBuilderProcessorInput is an input type that accepts LogsCustomPipelineProcessorStringBuilderProcessorArgs and LogsCustomPipelineProcessorStringBuilderProcessorOutput values.
@@ -20921,11 +22460,16 @@ type LogsCustomPipelineProcessorStringBuilderProcessorInput interface {
 }
 
 type LogsCustomPipelineProcessorStringBuilderProcessorArgs struct {
-	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
-	IsReplaceMissing pulumi.BoolPtrInput   `pulumi:"isReplaceMissing"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	Target           pulumi.StringInput    `pulumi:"target"`
-	Template         pulumi.StringInput    `pulumi:"template"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
+	// The formula with one or more attributes and raw text.
+	Template pulumi.StringInput `pulumi:"template"`
 }
 
 func (LogsCustomPipelineProcessorStringBuilderProcessorArgs) ElementType() reflect.Type {
@@ -21023,22 +22567,27 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) ToOutput(ctx co
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStringBuilderProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStringBuilderProcessor) *bool { return v.IsReplaceMissing }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStringBuilderProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStringBuilderProcessor) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// The formula with one or more attributes and raw text.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorStringBuilderProcessor) string { return v.Template }).(pulumi.StringOutput)
 }
@@ -21073,6 +22622,7 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Elem() LogsC
 	}).(LogsCustomPipelineProcessorStringBuilderProcessorOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStringBuilderProcessor) *bool {
 		if v == nil {
@@ -21082,6 +22632,7 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) IsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStringBuilderProcessor) *bool {
 		if v == nil {
@@ -21091,6 +22642,7 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) IsReplaceMis
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -21100,6 +22652,7 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Name() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -21109,6 +22662,7 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Target() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The formula with one or more attributes and raw text.
 func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorStringBuilderProcessor) *string {
 		if v == nil {
@@ -21119,9 +22673,12 @@ func (o LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput) Template() p
 }
 
 type LogsCustomPipelineProcessorTraceIdRemapper struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
 }
 
 // LogsCustomPipelineProcessorTraceIdRemapperInput is an input type that accepts LogsCustomPipelineProcessorTraceIdRemapperArgs and LogsCustomPipelineProcessorTraceIdRemapperOutput values.
@@ -21136,9 +22693,12 @@ type LogsCustomPipelineProcessorTraceIdRemapperInput interface {
 }
 
 type LogsCustomPipelineProcessorTraceIdRemapperArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
 func (LogsCustomPipelineProcessorTraceIdRemapperArgs) ElementType() reflect.Type {
@@ -21236,14 +22796,17 @@ func (o LogsCustomPipelineProcessorTraceIdRemapperOutput) ToOutput(ctx context.C
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorTraceIdRemapperOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorTraceIdRemapper) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorTraceIdRemapperOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorTraceIdRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorTraceIdRemapperOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorTraceIdRemapper) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -21278,6 +22841,7 @@ func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) Elem() LogsCustomPi
 	}).(LogsCustomPipelineProcessorTraceIdRemapperOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorTraceIdRemapper) *bool {
 		if v == nil {
@@ -21287,6 +22851,7 @@ func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) IsEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorTraceIdRemapper) *string {
 		if v == nil {
@@ -21296,6 +22861,7 @@ func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorTraceIdRemapper) []string {
 		if v == nil {
@@ -21306,11 +22872,16 @@ func (o LogsCustomPipelineProcessorTraceIdRemapperPtrOutput) Sources() pulumi.St
 }
 
 type LogsCustomPipelineProcessorUrlParser struct {
-	IsEnabled              *bool    `pulumi:"isEnabled"`
-	Name                   *string  `pulumi:"name"`
-	NormalizeEndingSlashes *bool    `pulumi:"normalizeEndingSlashes"`
-	Sources                []string `pulumi:"sources"`
-	Target                 string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Normalize the ending slashes or not.
+	NormalizeEndingSlashes *bool `pulumi:"normalizeEndingSlashes"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorUrlParserInput is an input type that accepts LogsCustomPipelineProcessorUrlParserArgs and LogsCustomPipelineProcessorUrlParserOutput values.
@@ -21325,11 +22896,16 @@ type LogsCustomPipelineProcessorUrlParserInput interface {
 }
 
 type LogsCustomPipelineProcessorUrlParserArgs struct {
-	IsEnabled              pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	Name                   pulumi.StringPtrInput   `pulumi:"name"`
-	NormalizeEndingSlashes pulumi.BoolPtrInput     `pulumi:"normalizeEndingSlashes"`
-	Sources                pulumi.StringArrayInput `pulumi:"sources"`
-	Target                 pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Normalize the ending slashes or not.
+	NormalizeEndingSlashes pulumi.BoolPtrInput `pulumi:"normalizeEndingSlashes"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorUrlParserArgs) ElementType() reflect.Type {
@@ -21427,22 +23003,27 @@ func (o LogsCustomPipelineProcessorUrlParserOutput) ToOutput(ctx context.Context
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorUrlParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUrlParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorUrlParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUrlParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Normalize the ending slashes or not.
 func (o LogsCustomPipelineProcessorUrlParserOutput) NormalizeEndingSlashes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUrlParser) *bool { return v.NormalizeEndingSlashes }).(pulumi.BoolPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorUrlParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUrlParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorUrlParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUrlParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -21477,6 +23058,7 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Elem() LogsCustomPipeline
 	}).(LogsCustomPipelineProcessorUrlParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorUrlParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUrlParser) *bool {
 		if v == nil {
@@ -21486,6 +23068,7 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) IsEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUrlParser) *string {
 		if v == nil {
@@ -21495,6 +23078,7 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Normalize the ending slashes or not.
 func (o LogsCustomPipelineProcessorUrlParserPtrOutput) NormalizeEndingSlashes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUrlParser) *bool {
 		if v == nil {
@@ -21504,6 +23088,7 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) NormalizeEndingSlashes() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUrlParser) []string {
 		if v == nil {
@@ -21513,6 +23098,7 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Sources() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUrlParser) *string {
 		if v == nil {
@@ -21523,11 +23109,16 @@ func (o LogsCustomPipelineProcessorUrlParserPtrOutput) Target() pulumi.StringPtr
 }
 
 type LogsCustomPipelineProcessorUserAgentParser struct {
-	IsEnabled *bool    `pulumi:"isEnabled"`
-	IsEncoded *bool    `pulumi:"isEncoded"`
-	Name      *string  `pulumi:"name"`
-	Sources   []string `pulumi:"sources"`
-	Target    string   `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If the source attribute is URL encoded or not.
+	IsEncoded *bool `pulumi:"isEncoded"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources []string `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
 }
 
 // LogsCustomPipelineProcessorUserAgentParserInput is an input type that accepts LogsCustomPipelineProcessorUserAgentParserArgs and LogsCustomPipelineProcessorUserAgentParserOutput values.
@@ -21542,11 +23133,16 @@ type LogsCustomPipelineProcessorUserAgentParserInput interface {
 }
 
 type LogsCustomPipelineProcessorUserAgentParserArgs struct {
-	IsEnabled pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-	IsEncoded pulumi.BoolPtrInput     `pulumi:"isEncoded"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	Sources   pulumi.StringArrayInput `pulumi:"sources"`
-	Target    pulumi.StringInput      `pulumi:"target"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If the source attribute is URL encoded or not.
+	IsEncoded pulumi.BoolPtrInput `pulumi:"isEncoded"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of source attributes or tags.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 func (LogsCustomPipelineProcessorUserAgentParserArgs) ElementType() reflect.Type {
@@ -21644,22 +23240,27 @@ func (o LogsCustomPipelineProcessorUserAgentParserOutput) ToOutput(ctx context.C
 	}
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorUserAgentParserOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUserAgentParser) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If the source attribute is URL encoded or not.
 func (o LogsCustomPipelineProcessorUserAgentParserOutput) IsEncoded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUserAgentParser) *bool { return v.IsEncoded }).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorUserAgentParserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUserAgentParser) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorUserAgentParserOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUserAgentParser) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorUserAgentParserOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LogsCustomPipelineProcessorUserAgentParser) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -21694,6 +23295,7 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Elem() LogsCustomPi
 	}).(LogsCustomPipelineProcessorUserAgentParserOutput)
 }
 
+// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUserAgentParser) *bool {
 		if v == nil {
@@ -21703,6 +23305,7 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) IsEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If the source attribute is URL encoded or not.
 func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) IsEncoded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUserAgentParser) *bool {
 		if v == nil {
@@ -21712,6 +23315,7 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) IsEncoded() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Your pipeline name.
 func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUserAgentParser) *string {
 		if v == nil {
@@ -21721,6 +23325,7 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of source attributes or tags.
 func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUserAgentParser) []string {
 		if v == nil {
@@ -21730,6 +23335,7 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Sources() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of the attribute that contains the result of the arithmetic operation.
 func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipelineProcessorUserAgentParser) *string {
 		if v == nil {
@@ -21740,7 +23346,6 @@ func (o LogsCustomPipelineProcessorUserAgentParserPtrOutput) Target() pulumi.Str
 }
 
 type LogsIndexExclusionFilter struct {
-	// Logs filter
 	Filters []LogsIndexExclusionFilterFilter `pulumi:"filters"`
 	// A boolean stating if the exclusion is active or not.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -21760,7 +23365,6 @@ type LogsIndexExclusionFilterInput interface {
 }
 
 type LogsIndexExclusionFilterArgs struct {
-	// Logs filter
 	Filters LogsIndexExclusionFilterFilterArrayInput `pulumi:"filters"`
 	// A boolean stating if the exclusion is active or not.
 	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
@@ -21837,7 +23441,6 @@ func (o LogsIndexExclusionFilterOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// Logs filter
 func (o LogsIndexExclusionFilterOutput) Filters() LogsIndexExclusionFilterFilterArrayOutput {
 	return o.ApplyT(func(v LogsIndexExclusionFilter) []LogsIndexExclusionFilterFilter { return v.Filters }).(LogsIndexExclusionFilterFilterArrayOutput)
 }
@@ -21880,7 +23483,8 @@ func (o LogsIndexExclusionFilterArrayOutput) Index(i pulumi.IntInput) LogsIndexE
 
 type LogsIndexExclusionFilterFilter struct {
 	// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-	Query      *string  `pulumi:"query"`
+	Query *string `pulumi:"query"`
+	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate *float64 `pulumi:"sampleRate"`
 }
 
@@ -21897,7 +23501,8 @@ type LogsIndexExclusionFilterFilterInput interface {
 
 type LogsIndexExclusionFilterFilterArgs struct {
 	// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
-	Query      pulumi.StringPtrInput  `pulumi:"query"`
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
 
@@ -21975,6 +23580,7 @@ func (o LogsIndexExclusionFilterFilterOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogsIndexExclusionFilterFilter) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
+// The fraction of logs excluded by the exclusion filter, when active.
 func (o LogsIndexExclusionFilterFilterOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LogsIndexExclusionFilterFilter) *float64 { return v.SampleRate }).(pulumi.Float64PtrOutput)
 }
@@ -23503,9 +25109,12 @@ func (o MonitorSchedulingOptionArrayOutput) Index(i pulumi.IntInput) MonitorSche
 }
 
 type MonitorSchedulingOptionEvaluationWindow struct {
-	DayStarts   *string `pulumi:"dayStarts"`
-	HourStarts  *int    `pulumi:"hourStarts"`
-	MonthStarts *int    `pulumi:"monthStarts"`
+	// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+	DayStarts *string `pulumi:"dayStarts"`
+	// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+	HourStarts *int `pulumi:"hourStarts"`
+	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+	MonthStarts *int `pulumi:"monthStarts"`
 }
 
 // MonitorSchedulingOptionEvaluationWindowInput is an input type that accepts MonitorSchedulingOptionEvaluationWindowArgs and MonitorSchedulingOptionEvaluationWindowOutput values.
@@ -23520,9 +25129,12 @@ type MonitorSchedulingOptionEvaluationWindowInput interface {
 }
 
 type MonitorSchedulingOptionEvaluationWindowArgs struct {
-	DayStarts   pulumi.StringPtrInput `pulumi:"dayStarts"`
-	HourStarts  pulumi.IntPtrInput    `pulumi:"hourStarts"`
-	MonthStarts pulumi.IntPtrInput    `pulumi:"monthStarts"`
+	// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+	DayStarts pulumi.StringPtrInput `pulumi:"dayStarts"`
+	// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+	HourStarts pulumi.IntPtrInput `pulumi:"hourStarts"`
+	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+	MonthStarts pulumi.IntPtrInput `pulumi:"monthStarts"`
 }
 
 func (MonitorSchedulingOptionEvaluationWindowArgs) ElementType() reflect.Type {
@@ -23594,14 +25206,17 @@ func (o MonitorSchedulingOptionEvaluationWindowOutput) ToOutput(ctx context.Cont
 	}
 }
 
+// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
 func (o MonitorSchedulingOptionEvaluationWindowOutput) DayStarts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorSchedulingOptionEvaluationWindow) *string { return v.DayStarts }).(pulumi.StringPtrOutput)
 }
 
+// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
 func (o MonitorSchedulingOptionEvaluationWindowOutput) HourStarts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorSchedulingOptionEvaluationWindow) *int { return v.HourStarts }).(pulumi.IntPtrOutput)
 }
 
+// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
 func (o MonitorSchedulingOptionEvaluationWindowOutput) MonthStarts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorSchedulingOptionEvaluationWindow) *int { return v.MonthStarts }).(pulumi.IntPtrOutput)
 }
@@ -23794,12 +25409,18 @@ func (o MonitorVariablesPtrOutput) EventQueries() MonitorVariablesEventQueryArra
 }
 
 type MonitorVariablesEventQuery struct {
-	Computes   []MonitorVariablesEventQueryCompute `pulumi:"computes"`
-	DataSource string                              `pulumi:"dataSource"`
-	GroupBies  []MonitorVariablesEventQueryGroupBy `pulumi:"groupBies"`
-	Indexes    []string                            `pulumi:"indexes"`
-	Name       string                              `pulumi:"name"`
-	Search     MonitorVariablesEventQuerySearch    `pulumi:"search"`
+	// The compute options.
+	Computes []MonitorVariablesEventQueryCompute `pulumi:"computes"`
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
+	DataSource string `pulumi:"dataSource"`
+	// Group by options.
+	GroupBies []MonitorVariablesEventQueryGroupBy `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes []string `pulumi:"indexes"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// The search options.
+	Search MonitorVariablesEventQuerySearch `pulumi:"search"`
 }
 
 // MonitorVariablesEventQueryInput is an input type that accepts MonitorVariablesEventQueryArgs and MonitorVariablesEventQueryOutput values.
@@ -23814,12 +25435,18 @@ type MonitorVariablesEventQueryInput interface {
 }
 
 type MonitorVariablesEventQueryArgs struct {
-	Computes   MonitorVariablesEventQueryComputeArrayInput `pulumi:"computes"`
-	DataSource pulumi.StringInput                          `pulumi:"dataSource"`
-	GroupBies  MonitorVariablesEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	Indexes    pulumi.StringArrayInput                     `pulumi:"indexes"`
-	Name       pulumi.StringInput                          `pulumi:"name"`
-	Search     MonitorVariablesEventQuerySearchInput       `pulumi:"search"`
+	// The compute options.
+	Computes MonitorVariablesEventQueryComputeArrayInput `pulumi:"computes"`
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group by options.
+	GroupBies MonitorVariablesEventQueryGroupByArrayInput `pulumi:"groupBies"`
+	// An array of index names to query in the stream.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The search options.
+	Search MonitorVariablesEventQuerySearchInput `pulumi:"search"`
 }
 
 func (MonitorVariablesEventQueryArgs) ElementType() reflect.Type {
@@ -23891,26 +25518,32 @@ func (o MonitorVariablesEventQueryOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// The compute options.
 func (o MonitorVariablesEventQueryOutput) Computes() MonitorVariablesEventQueryComputeArrayOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) []MonitorVariablesEventQueryCompute { return v.Computes }).(MonitorVariablesEventQueryComputeArrayOutput)
 }
 
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
 func (o MonitorVariablesEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Group by options.
 func (o MonitorVariablesEventQueryOutput) GroupBies() MonitorVariablesEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) []MonitorVariablesEventQueryGroupBy { return v.GroupBies }).(MonitorVariablesEventQueryGroupByArrayOutput)
 }
 
+// An array of index names to query in the stream.
 func (o MonitorVariablesEventQueryOutput) Indexes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
 }
 
+// The name of query for use in formulas.
 func (o MonitorVariablesEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The search options.
 func (o MonitorVariablesEventQueryOutput) Search() MonitorVariablesEventQuerySearchOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) MonitorVariablesEventQuerySearch { return v.Search }).(MonitorVariablesEventQuerySearchOutput)
 }
@@ -23942,9 +25575,12 @@ func (o MonitorVariablesEventQueryArrayOutput) Index(i pulumi.IntInput) MonitorV
 }
 
 type MonitorVariablesEventQueryCompute struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Interval    *int    `pulumi:"interval"`
-	Metric      *string `pulumi:"metric"`
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval *int `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric *string `pulumi:"metric"`
 }
 
 // MonitorVariablesEventQueryComputeInput is an input type that accepts MonitorVariablesEventQueryComputeArgs and MonitorVariablesEventQueryComputeOutput values.
@@ -23959,9 +25595,12 @@ type MonitorVariablesEventQueryComputeInput interface {
 }
 
 type MonitorVariablesEventQueryComputeArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Interval    pulumi.IntPtrInput    `pulumi:"interval"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
 }
 
 func (MonitorVariablesEventQueryComputeArgs) ElementType() reflect.Type {
@@ -24033,14 +25672,17 @@ func (o MonitorVariablesEventQueryComputeOutput) ToOutput(ctx context.Context) p
 	}
 }
 
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o MonitorVariablesEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// A time interval in milliseconds.
 func (o MonitorVariablesEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The measurable attribute to compute.
 func (o MonitorVariablesEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
@@ -24072,9 +25714,12 @@ func (o MonitorVariablesEventQueryComputeArrayOutput) Index(i pulumi.IntInput) M
 }
 
 type MonitorVariablesEventQueryGroupBy struct {
-	Facet string                                 `pulumi:"facet"`
-	Limit *int                                   `pulumi:"limit"`
-	Sort  *MonitorVariablesEventQueryGroupBySort `pulumi:"sort"`
+	// The event facet.
+	Facet string `pulumi:"facet"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *MonitorVariablesEventQueryGroupBySort `pulumi:"sort"`
 }
 
 // MonitorVariablesEventQueryGroupByInput is an input type that accepts MonitorVariablesEventQueryGroupByArgs and MonitorVariablesEventQueryGroupByOutput values.
@@ -24089,9 +25734,12 @@ type MonitorVariablesEventQueryGroupByInput interface {
 }
 
 type MonitorVariablesEventQueryGroupByArgs struct {
-	Facet pulumi.StringInput                            `pulumi:"facet"`
-	Limit pulumi.IntPtrInput                            `pulumi:"limit"`
-	Sort  MonitorVariablesEventQueryGroupBySortPtrInput `pulumi:"sort"`
+	// The event facet.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort MonitorVariablesEventQueryGroupBySortPtrInput `pulumi:"sort"`
 }
 
 func (MonitorVariablesEventQueryGroupByArgs) ElementType() reflect.Type {
@@ -24163,14 +25811,17 @@ func (o MonitorVariablesEventQueryGroupByOutput) ToOutput(ctx context.Context) p
 	}
 }
 
+// The event facet.
 func (o MonitorVariablesEventQueryGroupByOutput) Facet() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
 }
 
+// The number of groups to return.
 func (o MonitorVariablesEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// The options for sorting group by results.
 func (o MonitorVariablesEventQueryGroupByOutput) Sort() MonitorVariablesEventQueryGroupBySortPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBy) *MonitorVariablesEventQueryGroupBySort { return v.Sort }).(MonitorVariablesEventQueryGroupBySortPtrOutput)
 }
@@ -24202,9 +25853,12 @@ func (o MonitorVariablesEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) M
 }
 
 type MonitorVariablesEventQueryGroupBySort struct {
-	Aggregation string  `pulumi:"aggregation"`
-	Metric      *string `pulumi:"metric"`
-	Order       *string `pulumi:"order"`
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The measurable attribute to compute.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
 }
 
 // MonitorVariablesEventQueryGroupBySortInput is an input type that accepts MonitorVariablesEventQueryGroupBySortArgs and MonitorVariablesEventQueryGroupBySortOutput values.
@@ -24219,9 +25873,12 @@ type MonitorVariablesEventQueryGroupBySortInput interface {
 }
 
 type MonitorVariablesEventQueryGroupBySortArgs struct {
-	Aggregation pulumi.StringInput    `pulumi:"aggregation"`
-	Metric      pulumi.StringPtrInput `pulumi:"metric"`
-	Order       pulumi.StringPtrInput `pulumi:"order"`
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The measurable attribute to compute.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
 func (MonitorVariablesEventQueryGroupBySortArgs) ElementType() reflect.Type {
@@ -24319,14 +25976,17 @@ func (o MonitorVariablesEventQueryGroupBySortOutput) ToOutput(ctx context.Contex
 	}
 }
 
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o MonitorVariablesEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The measurable attribute to compute.
 func (o MonitorVariablesEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o MonitorVariablesEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -24361,6 +26021,7 @@ func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Elem() MonitorVariablesE
 	}).(MonitorVariablesEventQueryGroupBySortOutput)
 }
 
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesEventQueryGroupBySort) *string {
 		if v == nil {
@@ -24370,6 +26031,7 @@ func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Aggregation() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The measurable attribute to compute.
 func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesEventQueryGroupBySort) *string {
 		if v == nil {
@@ -24379,6 +26041,7 @@ func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesEventQueryGroupBySort) *string {
 		if v == nil {
@@ -24389,6 +26052,7 @@ func (o MonitorVariablesEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtr
 }
 
 type MonitorVariablesEventQuerySearch struct {
+	// The events search string.
 	Query string `pulumi:"query"`
 }
 
@@ -24404,6 +26068,7 @@ type MonitorVariablesEventQuerySearchInput interface {
 }
 
 type MonitorVariablesEventQuerySearchArgs struct {
+	// The events search string.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -24445,6 +26110,7 @@ func (o MonitorVariablesEventQuerySearchOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
+// The events search string.
 func (o MonitorVariablesEventQuerySearchOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -24788,6 +26454,7 @@ func (o OrganizationSettingsSettingsPtrOutput) SamlStrictMode() OrganizationSett
 }
 
 type OrganizationSettingsSettingsSaml struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -24803,6 +26470,7 @@ type OrganizationSettingsSettingsSamlInput interface {
 }
 
 type OrganizationSettingsSettingsSamlArgs struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -24901,6 +26569,7 @@ func (o OrganizationSettingsSettingsSamlOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationSettingsSettingsSaml) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -24935,6 +26604,7 @@ func (o OrganizationSettingsSettingsSamlPtrOutput) Elem() OrganizationSettingsSe
 	}).(OrganizationSettingsSettingsSamlOutput)
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationSettingsSettingsSaml) *bool {
 		if v == nil {
@@ -24945,8 +26615,10 @@ func (o OrganizationSettingsSettingsSamlPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 type OrganizationSettingsSettingsSamlAutocreateUsersDomains struct {
+	// List of domains where the SAML automated user creation is enabled.
 	Domains []string `pulumi:"domains"`
-	Enabled *bool    `pulumi:"enabled"`
+	// Whether or not SAML is enabled for this organization.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput is an input type that accepts OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs and OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput values.
@@ -24961,8 +26633,10 @@ type OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput interface {
 }
 
 type OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs struct {
+	// List of domains where the SAML automated user creation is enabled.
 	Domains pulumi.StringArrayInput `pulumi:"domains"`
-	Enabled pulumi.BoolPtrInput     `pulumi:"enabled"`
+	// Whether or not SAML is enabled for this organization.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ElementType() reflect.Type {
@@ -25060,10 +26734,12 @@ func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOutput(c
 	}
 }
 
+// List of domains where the SAML automated user creation is enabled.
 func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -25098,6 +26774,7 @@ func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Elem() 
 	}).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput)
 }
 
+// List of domains where the SAML automated user creation is enabled.
 func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string {
 		if v == nil {
@@ -25107,6 +26784,7 @@ func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Domains
 	}).(pulumi.StringArrayOutput)
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool {
 		if v == nil {
@@ -25117,6 +26795,7 @@ func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Enabled
 }
 
 type OrganizationSettingsSettingsSamlIdpInitiatedLogin struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -25132,6 +26811,7 @@ type OrganizationSettingsSettingsSamlIdpInitiatedLoginInput interface {
 }
 
 type OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -25230,6 +26910,7 @@ func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOutput(ctx co
 	}
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -25264,6 +26945,7 @@ func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Elem() Organ
 	}).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput)
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool {
 		if v == nil {
@@ -25274,6 +26956,7 @@ func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Enabled() pu
 }
 
 type OrganizationSettingsSettingsSamlStrictMode struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -25289,6 +26972,7 @@ type OrganizationSettingsSettingsSamlStrictModeInput interface {
 }
 
 type OrganizationSettingsSettingsSamlStrictModeArgs struct {
+	// Whether or not SAML is enabled for this organization.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -25387,6 +27071,7 @@ func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOutput(ctx context.C
 	}
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlStrictModeOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationSettingsSettingsSamlStrictMode) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -25421,6 +27106,7 @@ func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Elem() Organization
 	}).(OrganizationSettingsSettingsSamlStrictModeOutput)
 }
 
+// Whether or not SAML is enabled for this organization.
 func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlStrictMode) *bool {
 		if v == nil {
@@ -26799,6 +28485,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) NewValueOptions() SecurityMonito
 }
 
 type SecurityMonitoringRuleOptionsImpossibleTravelOptions struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 	BaselineUserLocations *bool `pulumi:"baselineUserLocations"`
 }
 
@@ -26814,6 +28501,7 @@ type SecurityMonitoringRuleOptionsImpossibleTravelOptionsInput interface {
 }
 
 type SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 	BaselineUserLocations pulumi.BoolPtrInput `pulumi:"baselineUserLocations"`
 }
 
@@ -26912,6 +28600,7 @@ func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) ToOutput(ctx
 	}
 }
 
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsImpossibleTravelOptions) *bool { return v.BaselineUserLocations }).(pulumi.BoolPtrOutput)
 }
@@ -26946,6 +28635,7 @@ func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) Elem() Se
 	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsOutput)
 }
 
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsImpossibleTravelOptions) *bool {
 		if v == nil {
@@ -26956,10 +28646,14 @@ func (o SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput) BaselineU
 }
 
 type SecurityMonitoringRuleOptionsNewValueOptions struct {
-	ForgetAfter       int     `pulumi:"forgetAfter"`
-	LearningDuration  *int    `pulumi:"learningDuration"`
-	LearningMethod    *string `pulumi:"learningMethod"`
-	LearningThreshold *int    `pulumi:"learningThreshold"`
+	// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+	ForgetAfter int `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+	LearningDuration *int `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
+	LearningMethod *string `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
+	LearningThreshold *int `pulumi:"learningThreshold"`
 }
 
 // SecurityMonitoringRuleOptionsNewValueOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsNewValueOptionsArgs and SecurityMonitoringRuleOptionsNewValueOptionsOutput values.
@@ -26974,10 +28668,14 @@ type SecurityMonitoringRuleOptionsNewValueOptionsInput interface {
 }
 
 type SecurityMonitoringRuleOptionsNewValueOptionsArgs struct {
-	ForgetAfter       pulumi.IntInput       `pulumi:"forgetAfter"`
-	LearningDuration  pulumi.IntPtrInput    `pulumi:"learningDuration"`
-	LearningMethod    pulumi.StringPtrInput `pulumi:"learningMethod"`
-	LearningThreshold pulumi.IntPtrInput    `pulumi:"learningThreshold"`
+	// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+	ForgetAfter pulumi.IntInput `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+	LearningDuration pulumi.IntPtrInput `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
+	LearningMethod pulumi.StringPtrInput `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
+	LearningThreshold pulumi.IntPtrInput `pulumi:"learningThreshold"`
 }
 
 func (SecurityMonitoringRuleOptionsNewValueOptionsArgs) ElementType() reflect.Type {
@@ -27075,18 +28773,22 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ToOutput(ctx context
 	}
 }
 
+// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) ForgetAfter() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) int { return v.ForgetAfter }).(pulumi.IntOutput)
 }
 
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *int { return v.LearningDuration }).(pulumi.IntPtrOutput)
 }
 
+// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *string { return v.LearningMethod }).(pulumi.StringPtrOutput)
 }
 
+// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsOutput) LearningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsNewValueOptions) *int { return v.LearningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -27121,6 +28823,7 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) Elem() SecurityMo
 	}).(SecurityMonitoringRuleOptionsNewValueOptionsOutput)
 }
 
+// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ForgetAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -27130,6 +28833,7 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) ForgetAfter() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -27139,6 +28843,7 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningDuration(
 	}).(pulumi.IntPtrOutput)
 }
 
+// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *string {
 		if v == nil {
@@ -27148,6 +28853,7 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningMethod() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
 func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -27354,8 +29060,10 @@ func (o SecurityMonitoringRuleQueryArrayOutput) Index(i pulumi.IntInput) Securit
 }
 
 type SecurityMonitoringRuleQueryAgentRule struct {
+	// **Deprecated**. It won't be applied anymore.
 	AgentRuleId string `pulumi:"agentRuleId"`
-	Expression  string `pulumi:"expression"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression string `pulumi:"expression"`
 }
 
 // SecurityMonitoringRuleQueryAgentRuleInput is an input type that accepts SecurityMonitoringRuleQueryAgentRuleArgs and SecurityMonitoringRuleQueryAgentRuleOutput values.
@@ -27370,8 +29078,10 @@ type SecurityMonitoringRuleQueryAgentRuleInput interface {
 }
 
 type SecurityMonitoringRuleQueryAgentRuleArgs struct {
+	// **Deprecated**. It won't be applied anymore.
 	AgentRuleId pulumi.StringInput `pulumi:"agentRuleId"`
-	Expression  pulumi.StringInput `pulumi:"expression"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
 func (SecurityMonitoringRuleQueryAgentRuleArgs) ElementType() reflect.Type {
@@ -27443,10 +29153,12 @@ func (o SecurityMonitoringRuleQueryAgentRuleOutput) ToOutput(ctx context.Context
 	}
 }
 
+// **Deprecated**. It won't be applied anymore.
 func (o SecurityMonitoringRuleQueryAgentRuleOutput) AgentRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleQueryAgentRule) string { return v.AgentRuleId }).(pulumi.StringOutput)
 }
 
+// **Deprecated**. It won't be applied anymore.
 func (o SecurityMonitoringRuleQueryAgentRuleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleQueryAgentRule) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -28994,7 +30706,9 @@ func (o SyntheticsGlobalVariableOptionsPtrOutput) TotpParameters() SyntheticsGlo
 }
 
 type SyntheticsGlobalVariableOptionsTotpParameters struct {
-	Digits          int `pulumi:"digits"`
+	// Number of digits for the OTP.
+	Digits int `pulumi:"digits"`
+	// Interval for which to refresh the token (in seconds).
 	RefreshInterval int `pulumi:"refreshInterval"`
 }
 
@@ -29010,7 +30724,9 @@ type SyntheticsGlobalVariableOptionsTotpParametersInput interface {
 }
 
 type SyntheticsGlobalVariableOptionsTotpParametersArgs struct {
-	Digits          pulumi.IntInput `pulumi:"digits"`
+	// Number of digits for the OTP.
+	Digits pulumi.IntInput `pulumi:"digits"`
+	// Interval for which to refresh the token (in seconds).
 	RefreshInterval pulumi.IntInput `pulumi:"refreshInterval"`
 }
 
@@ -29109,10 +30825,12 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToOutput(ctx contex
 	}
 }
 
+// Number of digits for the OTP.
 func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) Digits() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.Digits }).(pulumi.IntOutput)
 }
 
+// Interval for which to refresh the token (in seconds).
 func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) RefreshInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.RefreshInterval }).(pulumi.IntOutput)
 }
@@ -29147,6 +30865,7 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Elem() Synthetic
 	}).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
 }
 
+// Number of digits for the OTP.
 func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
 		if v == nil {
@@ -29156,6 +30875,7 @@ func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Interval for which to refresh the token (in seconds).
 func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) RefreshInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
 		if v == nil {
@@ -29382,8 +31102,9 @@ func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Type() pulumi.StringP
 }
 
 type SyntheticsGlobalVariableParseTestOptionsParser struct {
+	// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 	Type string `pulumi:"type"`
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value *string `pulumi:"value"`
 }
 
@@ -29399,8 +31120,9 @@ type SyntheticsGlobalVariableParseTestOptionsParserInput interface {
 }
 
 type SyntheticsGlobalVariableParseTestOptionsParserArgs struct {
+	// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the global variable.
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -29499,11 +31221,12 @@ func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) ToOutput(ctx conte
 	}
 }
 
+// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptionsParser) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of the global variable.
+// Value for the parser to use, required for type `jsonPath` or `regex`.
 func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptionsParser) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -29538,6 +31261,7 @@ func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Elem() Syntheti
 	}).(SyntheticsGlobalVariableParseTestOptionsParserOutput)
 }
 
+// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptionsParser) *string {
 		if v == nil {
@@ -29547,7 +31271,7 @@ func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the global variable.
+// Value for the parser to use, required for type `jsonPath` or `regex`.
 func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptionsParser) *string {
 		if v == nil {
@@ -30117,8 +31841,11 @@ func (o SyntheticsTestApiStepAssertionArrayOutput) Index(i pulumi.IntInput) Synt
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpath struct {
-	Jsonpath    string  `pulumi:"jsonpath"`
-	Operator    string  `pulumi:"operator"`
+	// The JSON path to assert.
+	Jsonpath string `pulumi:"jsonpath"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
 }
 
@@ -30134,8 +31861,11 @@ type SyntheticsTestApiStepAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpathArgs struct {
-	Jsonpath    pulumi.StringInput    `pulumi:"jsonpath"`
-	Operator    pulumi.StringInput    `pulumi:"operator"`
+	// The JSON path to assert.
+	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
 }
 
@@ -30234,14 +31964,17 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToOutput(ctx context
 	}
 }
 
+// The JSON path to assert.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
 }
@@ -30276,6 +32009,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elem() Synthetics
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathOutput)
 }
 
+// The JSON path to assert.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -30285,6 +32019,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -30294,6 +32029,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Operator() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -30304,9 +32040,12 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Targetvalue() pul
 }
 
 type SyntheticsTestApiStepAssertionTargetxpath struct {
-	Operator    string  `pulumi:"operator"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
-	Xpath       string  `pulumi:"xpath"`
+	// The xpath to assert.
+	Xpath string `pulumi:"xpath"`
 }
 
 // SyntheticsTestApiStepAssertionTargetxpathInput is an input type that accepts SyntheticsTestApiStepAssertionTargetxpathArgs and SyntheticsTestApiStepAssertionTargetxpathOutput values.
@@ -30321,9 +32060,12 @@ type SyntheticsTestApiStepAssertionTargetxpathInput interface {
 }
 
 type SyntheticsTestApiStepAssertionTargetxpathArgs struct {
-	Operator    pulumi.StringInput    `pulumi:"operator"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
-	Xpath       pulumi.StringInput    `pulumi:"xpath"`
+	// The xpath to assert.
+	Xpath pulumi.StringInput `pulumi:"xpath"`
 }
 
 func (SyntheticsTestApiStepAssertionTargetxpathArgs) ElementType() reflect.Type {
@@ -30421,14 +32163,17 @@ func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToOutput(ctx context.Co
 	}
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
 }
 
+// The xpath to assert.
 func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Xpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) string { return v.Xpath }).(pulumi.StringOutput)
 }
@@ -30463,6 +32208,7 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Elem() SyntheticsTes
 	}).(SyntheticsTestApiStepAssertionTargetxpathOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
 		if v == nil {
@@ -30472,6 +32218,7 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Operator() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
 		if v == nil {
@@ -30481,6 +32228,7 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Targetvalue() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The xpath to assert.
 func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Xpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
 		if v == nil {
@@ -30491,12 +32239,13 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Xpath() pulumi.Strin
 }
 
 type SyntheticsTestApiStepExtractedValue struct {
-	Field *string `pulumi:"field"`
-	// Name of Datadog synthetics test.
+	// When type is `httpHeader`, name of the header to use to extract the value.
+	Field  *string                                   `pulumi:"field"`
 	Name   string                                    `pulumi:"name"`
 	Parser SyntheticsTestApiStepExtractedValueParser `pulumi:"parser"`
-	Secure *bool                                     `pulumi:"secure"`
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Determines whether or not the extracted value will be obfuscated.
+	Secure *bool `pulumi:"secure"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 	Type string `pulumi:"type"`
 }
 
@@ -30512,12 +32261,13 @@ type SyntheticsTestApiStepExtractedValueInput interface {
 }
 
 type SyntheticsTestApiStepExtractedValueArgs struct {
-	Field pulumi.StringPtrInput `pulumi:"field"`
-	// Name of Datadog synthetics test.
+	// When type is `httpHeader`, name of the header to use to extract the value.
+	Field  pulumi.StringPtrInput                          `pulumi:"field"`
 	Name   pulumi.StringInput                             `pulumi:"name"`
 	Parser SyntheticsTestApiStepExtractedValueParserInput `pulumi:"parser"`
-	Secure pulumi.BoolPtrInput                            `pulumi:"secure"`
-	// Synthetics test type. Valid values are `api`, `browser`.
+	// Determines whether or not the extracted value will be obfuscated.
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30590,11 +32340,11 @@ func (o SyntheticsTestApiStepExtractedValueOutput) ToOutput(ctx context.Context)
 	}
 }
 
+// When type is `httpHeader`, name of the header to use to extract the value.
 func (o SyntheticsTestApiStepExtractedValueOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// Name of Datadog synthetics test.
 func (o SyntheticsTestApiStepExtractedValueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30603,11 +32353,12 @@ func (o SyntheticsTestApiStepExtractedValueOutput) Parser() SyntheticsTestApiSte
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) SyntheticsTestApiStepExtractedValueParser { return v.Parser }).(SyntheticsTestApiStepExtractedValueParserOutput)
 }
 
+// Determines whether or not the extracted value will be obfuscated.
 func (o SyntheticsTestApiStepExtractedValueOutput) Secure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
-// Synthetics test type. Valid values are `api`, `browser`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 func (o SyntheticsTestApiStepExtractedValueOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -30639,8 +32390,9 @@ func (o SyntheticsTestApiStepExtractedValueArrayOutput) Index(i pulumi.IntInput)
 }
 
 type SyntheticsTestApiStepExtractedValueParser struct {
-	// Synthetics test type. Valid values are `api`, `browser`.
-	Type  string  `pulumi:"type"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type string `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
 	Value *string `pulumi:"value"`
 }
 
@@ -30656,8 +32408,9 @@ type SyntheticsTestApiStepExtractedValueParserInput interface {
 }
 
 type SyntheticsTestApiStepExtractedValueParserArgs struct {
-	// Synthetics test type. Valid values are `api`, `browser`.
-	Type  pulumi.StringInput    `pulumi:"type"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -30699,11 +32452,12 @@ func (o SyntheticsTestApiStepExtractedValueParserOutput) ToOutput(ctx context.Co
 	}
 }
 
-// Synthetics test type. Valid values are `api`, `browser`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 func (o SyntheticsTestApiStepExtractedValueParserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValueParser) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestApiStepExtractedValueParserOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValueParser) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -31350,7 +33104,9 @@ func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Key() Synthetics
 }
 
 type SyntheticsTestApiStepRequestClientCertificateCert struct {
-	Content  string  `pulumi:"content"`
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -31366,7 +33122,9 @@ type SyntheticsTestApiStepRequestClientCertificateCertInput interface {
 }
 
 type SyntheticsTestApiStepRequestClientCertificateCertArgs struct {
-	Content  pulumi.StringInput    `pulumi:"content"`
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -31465,10 +33223,12 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToOutput(ctx co
 	}
 }
 
+// Content of the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -31503,6 +33263,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Elem() Synth
 	}).(SyntheticsTestApiStepRequestClientCertificateCertOutput)
 }
 
+// Content of the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) *string {
 		if v == nil {
@@ -31512,6 +33273,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Content() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) *string {
 		if v == nil {
@@ -31522,7 +33284,9 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() p
 }
 
 type SyntheticsTestApiStepRequestClientCertificateKey struct {
-	Content  string  `pulumi:"content"`
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -31538,7 +33302,9 @@ type SyntheticsTestApiStepRequestClientCertificateKeyInput interface {
 }
 
 type SyntheticsTestApiStepRequestClientCertificateKeyArgs struct {
-	Content  pulumi.StringInput    `pulumi:"content"`
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -31637,10 +33403,12 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToOutput(ctx con
 	}
 }
 
+// Content of the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -31675,6 +33443,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Elem() Synthe
 	}).(SyntheticsTestApiStepRequestClientCertificateKeyOutput)
 }
 
+// Content of the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) *string {
 		if v == nil {
@@ -31684,6 +33453,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Content() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) *string {
 		if v == nil {
@@ -31694,6 +33464,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pu
 }
 
 type SyntheticsTestApiStepRequestDefinition struct {
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// The request body.
 	Body *string `pulumi:"body"`
@@ -31706,7 +33477,8 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer *string `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort   *int  `pulumi:"dnsServerPort"`
+	DnsServerPort *int `pulumi:"dnsServerPort"`
+	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
@@ -31746,6 +33518,7 @@ type SyntheticsTestApiStepRequestDefinitionInput interface {
 }
 
 type SyntheticsTestApiStepRequestDefinitionArgs struct {
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// The request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
@@ -31758,7 +33531,8 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	// DNS server to use for DNS tests (`subtype = "dns"`).
 	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
 	// DNS server port to use for DNS tests.
-	DnsServerPort   pulumi.IntPtrInput  `pulumi:"dnsServerPort"`
+	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
+	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
@@ -31881,6 +33655,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) ToOutput(ctx context.Conte
 	}
 }
 
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
 }
@@ -31915,6 +33690,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServerPort() pulumi.Int
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.DnsServerPort }).(pulumi.IntPtrOutput)
 }
 
+// Determines whether or not the API HTTP test should follow redirects.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
@@ -32009,6 +33785,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Elem() SyntheticsTestAp
 	}).(SyntheticsTestApiStepRequestDefinitionOutput)
 }
 
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
 		if v == nil {
@@ -32078,6 +33855,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServerPort() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Determines whether or not the API HTTP test should follow redirects.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
 		if v == nil {
@@ -32388,7 +34166,9 @@ func (o SyntheticsTestApiStepRequestProxyPtrOutput) Url() pulumi.StringPtrOutput
 }
 
 type SyntheticsTestApiStepRetry struct {
-	Count    *int `pulumi:"count"`
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -32404,7 +34184,9 @@ type SyntheticsTestApiStepRetryInput interface {
 }
 
 type SyntheticsTestApiStepRetryArgs struct {
-	Count    pulumi.IntPtrInput `pulumi:"count"`
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -32503,10 +34285,12 @@ func (o SyntheticsTestApiStepRetryOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// Number of retries needed to consider a location as failed before sending a notification alert.
 func (o SyntheticsTestApiStepRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Interval between a failed test and the next retry in milliseconds.
 func (o SyntheticsTestApiStepRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -32541,6 +34325,7 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Elem() SyntheticsTestApiStepRetryOu
 	}).(SyntheticsTestApiStepRetryOutput)
 }
 
+// Number of retries needed to consider a location as failed before sending a notification alert.
 func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
 		if v == nil {
@@ -32550,6 +34335,7 @@ func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Interval between a failed test and the next retry in milliseconds.
 func (o SyntheticsTestApiStepRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
 		if v == nil {
@@ -32726,8 +34512,11 @@ func (o SyntheticsTestAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsT
 }
 
 type SyntheticsTestAssertionTargetjsonpath struct {
-	Jsonpath    string  `pulumi:"jsonpath"`
-	Operator    string  `pulumi:"operator"`
+	// The JSON path to assert.
+	Jsonpath string `pulumi:"jsonpath"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
 }
 
@@ -32743,8 +34532,11 @@ type SyntheticsTestAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestAssertionTargetjsonpathArgs struct {
-	Jsonpath    pulumi.StringInput    `pulumi:"jsonpath"`
-	Operator    pulumi.StringInput    `pulumi:"operator"`
+	// The JSON path to assert.
+	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
 }
 
@@ -32843,14 +34635,17 @@ func (o SyntheticsTestAssertionTargetjsonpathOutput) ToOutput(ctx context.Contex
 	}
 }
 
+// The JSON path to assert.
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
 }
@@ -32885,6 +34680,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elem() SyntheticsTestAss
 	}).(SyntheticsTestAssertionTargetjsonpathOutput)
 }
 
+// The JSON path to assert.
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -32894,6 +34690,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -32903,6 +34700,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Operator() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -32913,9 +34711,12 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.Str
 }
 
 type SyntheticsTestAssertionTargetxpath struct {
-	Operator    string  `pulumi:"operator"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
-	Xpath       string  `pulumi:"xpath"`
+	// The xpath to assert.
+	Xpath string `pulumi:"xpath"`
 }
 
 // SyntheticsTestAssertionTargetxpathInput is an input type that accepts SyntheticsTestAssertionTargetxpathArgs and SyntheticsTestAssertionTargetxpathOutput values.
@@ -32930,9 +34731,12 @@ type SyntheticsTestAssertionTargetxpathInput interface {
 }
 
 type SyntheticsTestAssertionTargetxpathArgs struct {
-	Operator    pulumi.StringInput    `pulumi:"operator"`
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
-	Xpath       pulumi.StringInput    `pulumi:"xpath"`
+	// The xpath to assert.
+	Xpath pulumi.StringInput `pulumi:"xpath"`
 }
 
 func (SyntheticsTestAssertionTargetxpathArgs) ElementType() reflect.Type {
@@ -33030,14 +34834,17 @@ func (o SyntheticsTestAssertionTargetxpathOutput) ToOutput(ctx context.Context) 
 	}
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestAssertionTargetxpathOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
 }
 
+// The xpath to assert.
 func (o SyntheticsTestAssertionTargetxpathOutput) Xpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) string { return v.Xpath }).(pulumi.StringOutput)
 }
@@ -33072,6 +34879,7 @@ func (o SyntheticsTestAssertionTargetxpathPtrOutput) Elem() SyntheticsTestAssert
 	}).(SyntheticsTestAssertionTargetxpathOutput)
 }
 
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
 func (o SyntheticsTestAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
 		if v == nil {
@@ -33081,6 +34889,7 @@ func (o SyntheticsTestAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Expected matching value.
 func (o SyntheticsTestAssertionTargetxpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
 		if v == nil {
@@ -33090,6 +34899,7 @@ func (o SyntheticsTestAssertionTargetxpathPtrOutput) Targetvalue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The xpath to assert.
 func (o SyntheticsTestAssertionTargetxpathPtrOutput) Xpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
 		if v == nil {
@@ -33284,25 +35094,44 @@ func (o SyntheticsTestBrowserStepArrayOutput) Index(i pulumi.IntInput) Synthetic
 }
 
 type SyntheticsTestBrowserStepParams struct {
-	Attribute          *string                                            `pulumi:"attribute"`
-	Check              *string                                            `pulumi:"check"`
-	ClickType          *string                                            `pulumi:"clickType"`
-	Code               *string                                            `pulumi:"code"`
-	Delay              *int                                               `pulumi:"delay"`
-	Element            *string                                            `pulumi:"element"`
+	// Name of the attribute to use for an "assert attribute" step.
+	Attribute *string `pulumi:"attribute"`
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check *string `pulumi:"check"`
+	// Type of click to use for a "click" step.
+	ClickType *string `pulumi:"clickType"`
+	// Javascript code to use for the step.
+	Code *string `pulumi:"code"`
+	// Delay between each key stroke for a "type test" step.
+	Delay *int `pulumi:"delay"`
+	// Element to use for the step, json encoded string.
+	Element *string `pulumi:"element"`
+	// Custom user selector to use for the step.
 	ElementUserLocator *SyntheticsTestBrowserStepParamsElementUserLocator `pulumi:"elementUserLocator"`
-	Email              *string                                            `pulumi:"email"`
-	File               *string                                            `pulumi:"file"`
-	Files              *string                                            `pulumi:"files"`
-	Modifiers          []string                                           `pulumi:"modifiers"`
-	PlayingTabId       *string                                            `pulumi:"playingTabId"`
-	Request            *string                                            `pulumi:"request"`
-	SubtestPublicId    *string                                            `pulumi:"subtestPublicId"`
-	Value              *string                                            `pulumi:"value"`
-	Variable           *SyntheticsTestBrowserStepParamsVariable           `pulumi:"variable"`
-	WithClick          *bool                                              `pulumi:"withClick"`
-	X                  *int                                               `pulumi:"x"`
-	Y                  *int                                               `pulumi:"y"`
+	// Details of the email for an "assert email" step.
+	Email *string `pulumi:"email"`
+	// For an "assert download" step.
+	File *string `pulumi:"file"`
+	// Details of the files for an "upload files" step, json encoded string.
+	Files *string `pulumi:"files"`
+	// Modifier to use for a "press key" step.
+	Modifiers []string `pulumi:"modifiers"`
+	// ID of the tab to play the subtest.
+	PlayingTabId *string `pulumi:"playingTabId"`
+	// Request for an API step.
+	Request *string `pulumi:"request"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId *string `pulumi:"subtestPublicId"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value *string `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable *SyntheticsTestBrowserStepParamsVariable `pulumi:"variable"`
+	// For "file upload" steps.
+	WithClick *bool `pulumi:"withClick"`
+	// X coordinates for a "scroll step".
+	X *int `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y *int `pulumi:"y"`
 }
 
 // SyntheticsTestBrowserStepParamsInput is an input type that accepts SyntheticsTestBrowserStepParamsArgs and SyntheticsTestBrowserStepParamsOutput values.
@@ -33317,25 +35146,44 @@ type SyntheticsTestBrowserStepParamsInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsArgs struct {
-	Attribute          pulumi.StringPtrInput                                     `pulumi:"attribute"`
-	Check              pulumi.StringPtrInput                                     `pulumi:"check"`
-	ClickType          pulumi.StringPtrInput                                     `pulumi:"clickType"`
-	Code               pulumi.StringPtrInput                                     `pulumi:"code"`
-	Delay              pulumi.IntPtrInput                                        `pulumi:"delay"`
-	Element            pulumi.StringPtrInput                                     `pulumi:"element"`
+	// Name of the attribute to use for an "assert attribute" step.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check pulumi.StringPtrInput `pulumi:"check"`
+	// Type of click to use for a "click" step.
+	ClickType pulumi.StringPtrInput `pulumi:"clickType"`
+	// Javascript code to use for the step.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Delay between each key stroke for a "type test" step.
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
+	// Element to use for the step, json encoded string.
+	Element pulumi.StringPtrInput `pulumi:"element"`
+	// Custom user selector to use for the step.
 	ElementUserLocator SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput `pulumi:"elementUserLocator"`
-	Email              pulumi.StringPtrInput                                     `pulumi:"email"`
-	File               pulumi.StringPtrInput                                     `pulumi:"file"`
-	Files              pulumi.StringPtrInput                                     `pulumi:"files"`
-	Modifiers          pulumi.StringArrayInput                                   `pulumi:"modifiers"`
-	PlayingTabId       pulumi.StringPtrInput                                     `pulumi:"playingTabId"`
-	Request            pulumi.StringPtrInput                                     `pulumi:"request"`
-	SubtestPublicId    pulumi.StringPtrInput                                     `pulumi:"subtestPublicId"`
-	Value              pulumi.StringPtrInput                                     `pulumi:"value"`
-	Variable           SyntheticsTestBrowserStepParamsVariablePtrInput           `pulumi:"variable"`
-	WithClick          pulumi.BoolPtrInput                                       `pulumi:"withClick"`
-	X                  pulumi.IntPtrInput                                        `pulumi:"x"`
-	Y                  pulumi.IntPtrInput                                        `pulumi:"y"`
+	// Details of the email for an "assert email" step.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// For an "assert download" step.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// Details of the files for an "upload files" step, json encoded string.
+	Files pulumi.StringPtrInput `pulumi:"files"`
+	// Modifier to use for a "press key" step.
+	Modifiers pulumi.StringArrayInput `pulumi:"modifiers"`
+	// ID of the tab to play the subtest.
+	PlayingTabId pulumi.StringPtrInput `pulumi:"playingTabId"`
+	// Request for an API step.
+	Request pulumi.StringPtrInput `pulumi:"request"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable SyntheticsTestBrowserStepParamsVariablePtrInput `pulumi:"variable"`
+	// For "file upload" steps.
+	WithClick pulumi.BoolPtrInput `pulumi:"withClick"`
+	// X coordinates for a "scroll step".
+	X pulumi.IntPtrInput `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y pulumi.IntPtrInput `pulumi:"y"`
 }
 
 func (SyntheticsTestBrowserStepParamsArgs) ElementType() reflect.Type {
@@ -33376,87 +35224,107 @@ func (o SyntheticsTestBrowserStepParamsOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
+// Name of the attribute to use for an "assert attribute" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
+// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
 func (o SyntheticsTestBrowserStepParamsOutput) Check() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Check }).(pulumi.StringPtrOutput)
 }
 
+// Type of click to use for a "click" step.
 func (o SyntheticsTestBrowserStepParamsOutput) ClickType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.ClickType }).(pulumi.StringPtrOutput)
 }
 
+// Javascript code to use for the step.
 func (o SyntheticsTestBrowserStepParamsOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
+// Delay between each key stroke for a "type test" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Delay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
 }
 
+// Element to use for the step, json encoded string.
 func (o SyntheticsTestBrowserStepParamsOutput) Element() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Element }).(pulumi.StringPtrOutput)
 }
 
+// Custom user selector to use for the step.
 func (o SyntheticsTestBrowserStepParamsOutput) ElementUserLocator() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *SyntheticsTestBrowserStepParamsElementUserLocator {
 		return v.ElementUserLocator
 	}).(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput)
 }
 
+// Details of the email for an "assert email" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// For an "assert download" step.
 func (o SyntheticsTestBrowserStepParamsOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.File }).(pulumi.StringPtrOutput)
 }
 
+// Details of the files for an "upload files" step, json encoded string.
 func (o SyntheticsTestBrowserStepParamsOutput) Files() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Files }).(pulumi.StringPtrOutput)
 }
 
+// Modifier to use for a "press key" step.
 func (o SyntheticsTestBrowserStepParamsOutput) Modifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) []string { return v.Modifiers }).(pulumi.StringArrayOutput)
 }
 
+// ID of the tab to play the subtest.
 func (o SyntheticsTestBrowserStepParamsOutput) PlayingTabId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.PlayingTabId }).(pulumi.StringPtrOutput)
 }
 
+// Request for an API step.
 func (o SyntheticsTestBrowserStepParamsOutput) Request() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Request }).(pulumi.StringPtrOutput)
 }
 
+// ID of the Synthetics test to use as subtest.
 func (o SyntheticsTestBrowserStepParamsOutput) SubtestPublicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.SubtestPublicId }).(pulumi.StringPtrOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+// Details of the variable to extract.
 func (o SyntheticsTestBrowserStepParamsOutput) Variable() SyntheticsTestBrowserStepParamsVariablePtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *SyntheticsTestBrowserStepParamsVariable { return v.Variable }).(SyntheticsTestBrowserStepParamsVariablePtrOutput)
 }
 
+// For "file upload" steps.
 func (o SyntheticsTestBrowserStepParamsOutput) WithClick() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *bool { return v.WithClick }).(pulumi.BoolPtrOutput)
 }
 
+// X coordinates for a "scroll step".
 func (o SyntheticsTestBrowserStepParamsOutput) X() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.X }).(pulumi.IntPtrOutput)
 }
 
+// Y coordinates for a "scroll step".
 func (o SyntheticsTestBrowserStepParamsOutput) Y() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Y }).(pulumi.IntPtrOutput)
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocator struct {
-	FailTestOnCannotLocate *bool                                                  `pulumi:"failTestOnCannotLocate"`
-	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValue `pulumi:"value"`
+	FailTestOnCannotLocate *bool `pulumi:"failTestOnCannotLocate"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value SyntheticsTestBrowserStepParamsElementUserLocatorValue `pulumi:"value"`
 }
 
 // SyntheticsTestBrowserStepParamsElementUserLocatorInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorArgs and SyntheticsTestBrowserStepParamsElementUserLocatorOutput values.
@@ -33471,8 +35339,9 @@ type SyntheticsTestBrowserStepParamsElementUserLocatorInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorArgs struct {
-	FailTestOnCannotLocate pulumi.BoolPtrInput                                         `pulumi:"failTestOnCannotLocate"`
-	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValueInput `pulumi:"value"`
+	FailTestOnCannotLocate pulumi.BoolPtrInput `pulumi:"failTestOnCannotLocate"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value SyntheticsTestBrowserStepParamsElementUserLocatorValueInput `pulumi:"value"`
 }
 
 func (SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ElementType() reflect.Type {
@@ -33574,6 +35443,7 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) FailTestOnCanno
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) *bool { return v.FailTestOnCannotLocate }).(pulumi.BoolPtrOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) SyntheticsTestBrowserStepParamsElementUserLocatorValue {
 		return v.Value
@@ -33619,6 +35489,7 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) FailTestOnCa
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocator) *SyntheticsTestBrowserStepParamsElementUserLocatorValue {
 		if v == nil {
@@ -33629,9 +35500,10 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Value() Synt
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorValue struct {
-	// Synthetics test type. Valid values are `api`, `browser`.
-	Type  *string `pulumi:"type"`
-	Value string  `pulumi:"value"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type *string `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value string `pulumi:"value"`
 }
 
 // SyntheticsTestBrowserStepParamsElementUserLocatorValueInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs and SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput values.
@@ -33646,9 +35518,10 @@ type SyntheticsTestBrowserStepParamsElementUserLocatorValueInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs struct {
-	// Synthetics test type. Valid values are `api`, `browser`.
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ElementType() reflect.Type {
@@ -33746,11 +35619,12 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToOutput(c
 	}
 }
 
-// Synthetics test type. Valid values are `api`, `browser`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -33785,7 +35659,7 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Elem() 
 	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput)
 }
 
-// Synthetics test type. Valid values are `api`, `browser`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
 		if v == nil {
@@ -33795,6 +35669,7 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Type() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
 		if v == nil {
@@ -33805,9 +35680,9 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value()
 }
 
 type SyntheticsTestBrowserStepParamsVariable struct {
+	// Example of the extracted variable.
 	Example *string `pulumi:"example"`
-	// Name of Datadog synthetics test.
-	Name *string `pulumi:"name"`
+	Name    *string `pulumi:"name"`
 }
 
 // SyntheticsTestBrowserStepParamsVariableInput is an input type that accepts SyntheticsTestBrowserStepParamsVariableArgs and SyntheticsTestBrowserStepParamsVariableOutput values.
@@ -33822,9 +35697,9 @@ type SyntheticsTestBrowserStepParamsVariableInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsVariableArgs struct {
+	// Example of the extracted variable.
 	Example pulumi.StringPtrInput `pulumi:"example"`
-	// Name of Datadog synthetics test.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (SyntheticsTestBrowserStepParamsVariableArgs) ElementType() reflect.Type {
@@ -33922,11 +35797,11 @@ func (o SyntheticsTestBrowserStepParamsVariableOutput) ToOutput(ctx context.Cont
 	}
 }
 
+// Example of the extracted variable.
 func (o SyntheticsTestBrowserStepParamsVariableOutput) Example() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
 }
 
-// Name of Datadog synthetics test.
 func (o SyntheticsTestBrowserStepParamsVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -33961,6 +35836,7 @@ func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Elem() SyntheticsTestB
 	}).(SyntheticsTestBrowserStepParamsVariableOutput)
 }
 
+// Example of the extracted variable.
 func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Example() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *string {
 		if v == nil {
@@ -33970,7 +35846,6 @@ func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Example() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of Datadog synthetics test.
 func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *string {
 		if v == nil {
@@ -34836,6 +36711,7 @@ func (o SyntheticsTestOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
 }
 
 type SyntheticsTestOptionsListCi struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
 	ExecutionRule *string `pulumi:"executionRule"`
 }
 
@@ -34851,6 +36727,7 @@ type SyntheticsTestOptionsListCiInput interface {
 }
 
 type SyntheticsTestOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
 	ExecutionRule pulumi.StringPtrInput `pulumi:"executionRule"`
 }
 
@@ -34949,6 +36826,7 @@ func (o SyntheticsTestOptionsListCiOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
 func (o SyntheticsTestOptionsListCiOutput) ExecutionRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListCi) *string { return v.ExecutionRule }).(pulumi.StringPtrOutput)
 }
@@ -34983,6 +36861,7 @@ func (o SyntheticsTestOptionsListCiPtrOutput) Elem() SyntheticsTestOptionsListCi
 	}).(SyntheticsTestOptionsListCiOutput)
 }
 
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
 func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListCi) *string {
 		if v == nil {
@@ -34993,6 +36872,7 @@ func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOu
 }
 
 type SyntheticsTestOptionsListMonitorOptions struct {
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 }
 
@@ -35008,6 +36888,7 @@ type SyntheticsTestOptionsListMonitorOptionsInput interface {
 }
 
 type SyntheticsTestOptionsListMonitorOptionsArgs struct {
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
 	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
 }
 
@@ -35106,6 +36987,7 @@ func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToOutput(ctx context.Cont
 	}
 }
 
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
 func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
 }
@@ -35140,6 +37022,7 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) Elem() SyntheticsTestO
 	}).(SyntheticsTestOptionsListMonitorOptionsOutput)
 }
 
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
 func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *int {
 		if v == nil {
@@ -35150,7 +37033,9 @@ func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pul
 }
 
 type SyntheticsTestOptionsListRetry struct {
-	Count    *int `pulumi:"count"`
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -35166,7 +37051,9 @@ type SyntheticsTestOptionsListRetryInput interface {
 }
 
 type SyntheticsTestOptionsListRetryArgs struct {
-	Count    pulumi.IntPtrInput `pulumi:"count"`
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -35265,10 +37152,12 @@ func (o SyntheticsTestOptionsListRetryOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
+// Number of retries needed to consider a location as failed before sending a notification alert.
 func (o SyntheticsTestOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Interval between a failed test and the next retry in milliseconds.
 func (o SyntheticsTestOptionsListRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -35303,6 +37192,7 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Elem() SyntheticsTestOptionsLis
 	}).(SyntheticsTestOptionsListRetryOutput)
 }
 
+// Number of retries needed to consider a location as failed before sending a notification alert.
 func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
 		if v == nil {
@@ -35312,6 +37202,7 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Interval between a failed test and the next retry in milliseconds.
 func (o SyntheticsTestOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
 		if v == nil {
@@ -35322,9 +37213,12 @@ func (o SyntheticsTestOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput 
 }
 
 type SyntheticsTestOptionsListRumSettings struct {
+	// RUM application ID used to collect RUM data for the browser test.
 	ApplicationId *string `pulumi:"applicationId"`
-	ClientTokenId *int    `pulumi:"clientTokenId"`
-	IsEnabled     bool    `pulumi:"isEnabled"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId *int `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled bool `pulumi:"isEnabled"`
 }
 
 // SyntheticsTestOptionsListRumSettingsInput is an input type that accepts SyntheticsTestOptionsListRumSettingsArgs and SyntheticsTestOptionsListRumSettingsOutput values.
@@ -35339,9 +37233,12 @@ type SyntheticsTestOptionsListRumSettingsInput interface {
 }
 
 type SyntheticsTestOptionsListRumSettingsArgs struct {
+	// RUM application ID used to collect RUM data for the browser test.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	ClientTokenId pulumi.IntPtrInput    `pulumi:"clientTokenId"`
-	IsEnabled     pulumi.BoolInput      `pulumi:"isEnabled"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId pulumi.IntPtrInput `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 }
 
 func (SyntheticsTestOptionsListRumSettingsArgs) ElementType() reflect.Type {
@@ -35439,14 +37336,17 @@ func (o SyntheticsTestOptionsListRumSettingsOutput) ToOutput(ctx context.Context
 	}
 }
 
+// RUM application ID used to collect RUM data for the browser test.
 func (o SyntheticsTestOptionsListRumSettingsOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// RUM application API key ID used to collect RUM data for the browser test.
 func (o SyntheticsTestOptionsListRumSettingsOutput) ClientTokenId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) *int { return v.ClientTokenId }).(pulumi.IntPtrOutput)
 }
 
+// Determines whether RUM data is collected during test runs.
 func (o SyntheticsTestOptionsListRumSettingsOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
@@ -35481,6 +37381,7 @@ func (o SyntheticsTestOptionsListRumSettingsPtrOutput) Elem() SyntheticsTestOpti
 	}).(SyntheticsTestOptionsListRumSettingsOutput)
 }
 
+// RUM application ID used to collect RUM data for the browser test.
 func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *string {
 		if v == nil {
@@ -35490,6 +37391,7 @@ func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ApplicationId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// RUM application API key ID used to collect RUM data for the browser test.
 func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ClientTokenId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *int {
 		if v == nil {
@@ -35499,6 +37401,7 @@ func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ClientTokenId() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Determines whether RUM data is collected during test runs.
 func (o SyntheticsTestOptionsListRumSettingsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *bool {
 		if v == nil {
@@ -35509,8 +37412,10 @@ func (o SyntheticsTestOptionsListRumSettingsPtrOutput) IsEnabled() pulumi.BoolPt
 }
 
 type SyntheticsTestOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
 	Timeframes []SyntheticsTestOptionsListSchedulingTimeframe `pulumi:"timeframes"`
-	Timezone   string                                         `pulumi:"timezone"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
 }
 
 // SyntheticsTestOptionsListSchedulingInput is an input type that accepts SyntheticsTestOptionsListSchedulingArgs and SyntheticsTestOptionsListSchedulingOutput values.
@@ -35525,8 +37430,10 @@ type SyntheticsTestOptionsListSchedulingInput interface {
 }
 
 type SyntheticsTestOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
 	Timeframes SyntheticsTestOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
-	Timezone   pulumi.StringInput                                     `pulumi:"timezone"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
 
 func (SyntheticsTestOptionsListSchedulingArgs) ElementType() reflect.Type {
@@ -35624,12 +37531,14 @@ func (o SyntheticsTestOptionsListSchedulingOutput) ToOutput(ctx context.Context)
 	}
 }
 
+// Array containing objects describing the scheduling pattern to apply to each day.
 func (o SyntheticsTestOptionsListSchedulingOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
 		return v.Timeframes
 	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
 }
 
+// Timezone in which the timeframe is based.
 func (o SyntheticsTestOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
 }
@@ -35664,6 +37573,7 @@ func (o SyntheticsTestOptionsListSchedulingPtrOutput) Elem() SyntheticsTestOptio
 	}).(SyntheticsTestOptionsListSchedulingOutput)
 }
 
+// Array containing objects describing the scheduling pattern to apply to each day.
 func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
 		if v == nil {
@@ -35673,6 +37583,7 @@ func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTes
 	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
 }
 
+// Timezone in which the timeframe is based.
 func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) *string {
 		if v == nil {
@@ -35683,9 +37594,12 @@ func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPt
 }
 
 type SyntheticsTestOptionsListSchedulingTimeframe struct {
-	Day  int    `pulumi:"day"`
+	// Number representing the day of the week
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
 	From string `pulumi:"from"`
-	To   string `pulumi:"to"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
 }
 
 // SyntheticsTestOptionsListSchedulingTimeframeInput is an input type that accepts SyntheticsTestOptionsListSchedulingTimeframeArgs and SyntheticsTestOptionsListSchedulingTimeframeOutput values.
@@ -35700,9 +37614,12 @@ type SyntheticsTestOptionsListSchedulingTimeframeInput interface {
 }
 
 type SyntheticsTestOptionsListSchedulingTimeframeArgs struct {
-	Day  pulumi.IntInput    `pulumi:"day"`
+	// Number representing the day of the week
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
 	From pulumi.StringInput `pulumi:"from"`
-	To   pulumi.StringInput `pulumi:"to"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
 }
 
 func (SyntheticsTestOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
@@ -35774,14 +37691,17 @@ func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) ToOutput(ctx context
 	}
 }
 
+// Number representing the day of the week
 func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
 }
 
+// The hour of the day on which scheduling starts.
 func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The hour of the day on which scheduling ends.
 func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
 }
@@ -36452,7 +38372,9 @@ func (o SyntheticsTestRequestClientCertificatePtrOutput) Key() SyntheticsTestReq
 }
 
 type SyntheticsTestRequestClientCertificateCert struct {
-	Content  string  `pulumi:"content"`
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -36468,7 +38390,9 @@ type SyntheticsTestRequestClientCertificateCertInput interface {
 }
 
 type SyntheticsTestRequestClientCertificateCertArgs struct {
-	Content  pulumi.StringInput    `pulumi:"content"`
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -36567,10 +38491,12 @@ func (o SyntheticsTestRequestClientCertificateCertOutput) ToOutput(ctx context.C
 	}
 }
 
+// Content of the certificate.
 func (o SyntheticsTestRequestClientCertificateCertOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -36605,6 +38531,7 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Elem() SyntheticsTe
 	}).(SyntheticsTestRequestClientCertificateCertOutput)
 }
 
+// Content of the certificate.
 func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) *string {
 		if v == nil {
@@ -36614,6 +38541,7 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Content() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) *string {
 		if v == nil {
@@ -36624,7 +38552,9 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.S
 }
 
 type SyntheticsTestRequestClientCertificateKey struct {
-	Content  string  `pulumi:"content"`
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -36640,7 +38570,9 @@ type SyntheticsTestRequestClientCertificateKeyInput interface {
 }
 
 type SyntheticsTestRequestClientCertificateKeyArgs struct {
-	Content  pulumi.StringInput    `pulumi:"content"`
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -36739,10 +38671,12 @@ func (o SyntheticsTestRequestClientCertificateKeyOutput) ToOutput(ctx context.Co
 	}
 }
 
+// Content of the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -36777,6 +38711,7 @@ func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Elem() SyntheticsTes
 	}).(SyntheticsTestRequestClientCertificateKeyOutput)
 }
 
+// Content of the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) *string {
 		if v == nil {
@@ -36786,6 +38721,7 @@ func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Content() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) *string {
 		if v == nil {
@@ -37463,9 +39399,8 @@ type GetCloudWorkloadSecurityAgentRulesAgentRule struct {
 	Description string `pulumi:"description"`
 	Enabled     bool   `pulumi:"enabled"`
 	Expression  string `pulumi:"expression"`
-	// The ID of this resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
 }
 
 // GetCloudWorkloadSecurityAgentRulesAgentRuleInput is an input type that accepts GetCloudWorkloadSecurityAgentRulesAgentRuleArgs and GetCloudWorkloadSecurityAgentRulesAgentRuleOutput values.
@@ -37483,9 +39418,8 @@ type GetCloudWorkloadSecurityAgentRulesAgentRuleArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
 	Expression  pulumi.StringInput `pulumi:"expression"`
-	// The ID of this resource.
-	Id   pulumi.StringInput `pulumi:"id"`
-	Name pulumi.StringInput `pulumi:"name"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	Name        pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetCloudWorkloadSecurityAgentRulesAgentRuleArgs) ElementType() reflect.Type {
@@ -37569,7 +39503,6 @@ func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Expression() pulumi.S
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// The ID of this resource.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -37605,11 +39538,10 @@ func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) Index(i pulumi.I
 }
 
 type GetHostsHostList struct {
-	Aliases  []string `pulumi:"aliases"`
-	Apps     []string `pulumi:"apps"`
-	AwsName  string   `pulumi:"awsName"`
-	HostName string   `pulumi:"hostName"`
-	// The ID of this resource.
+	Aliases          []string                `pulumi:"aliases"`
+	Apps             []string                `pulumi:"apps"`
+	AwsName          string                  `pulumi:"awsName"`
+	HostName         string                  `pulumi:"hostName"`
 	Id               int                     `pulumi:"id"`
 	IsMuted          bool                    `pulumi:"isMuted"`
 	LastReportedTime int                     `pulumi:"lastReportedTime"`
@@ -37633,11 +39565,10 @@ type GetHostsHostListInput interface {
 }
 
 type GetHostsHostListArgs struct {
-	Aliases  pulumi.StringArrayInput `pulumi:"aliases"`
-	Apps     pulumi.StringArrayInput `pulumi:"apps"`
-	AwsName  pulumi.StringInput      `pulumi:"awsName"`
-	HostName pulumi.StringInput      `pulumi:"hostName"`
-	// The ID of this resource.
+	Aliases          pulumi.StringArrayInput      `pulumi:"aliases"`
+	Apps             pulumi.StringArrayInput      `pulumi:"apps"`
+	AwsName          pulumi.StringInput           `pulumi:"awsName"`
+	HostName         pulumi.StringInput           `pulumi:"hostName"`
 	Id               pulumi.IntInput              `pulumi:"id"`
 	IsMuted          pulumi.BoolInput             `pulumi:"isMuted"`
 	LastReportedTime pulumi.IntInput              `pulumi:"lastReportedTime"`
@@ -37734,7 +39665,6 @@ func (o GetHostsHostListOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHostsHostList) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of this resource.
 func (o GetHostsHostListOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetHostsHostList) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -38496,14 +40426,12 @@ func (o GetLogsIndexesLogsIndexFilterArrayOutput) Index(i pulumi.IntInput) GetLo
 }
 
 type GetLogsPipelinesLogsPipeline struct {
-	Filters []GetLogsPipelinesLogsPipelineFilter `pulumi:"filters"`
-	// The ID of this resource.
-	Id        string `pulumi:"id"`
-	IsEnabled bool   `pulumi:"isEnabled"`
-	// Filter parameter for retrieved pipelines
-	IsReadOnly bool   `pulumi:"isReadOnly"`
-	Name       string `pulumi:"name"`
-	Type       string `pulumi:"type"`
+	Filters    []GetLogsPipelinesLogsPipelineFilter `pulumi:"filters"`
+	Id         string                               `pulumi:"id"`
+	IsEnabled  bool                                 `pulumi:"isEnabled"`
+	IsReadOnly bool                                 `pulumi:"isReadOnly"`
+	Name       string                               `pulumi:"name"`
+	Type       string                               `pulumi:"type"`
 }
 
 // GetLogsPipelinesLogsPipelineInput is an input type that accepts GetLogsPipelinesLogsPipelineArgs and GetLogsPipelinesLogsPipelineOutput values.
@@ -38518,14 +40446,12 @@ type GetLogsPipelinesLogsPipelineInput interface {
 }
 
 type GetLogsPipelinesLogsPipelineArgs struct {
-	Filters GetLogsPipelinesLogsPipelineFilterArrayInput `pulumi:"filters"`
-	// The ID of this resource.
-	Id        pulumi.StringInput `pulumi:"id"`
-	IsEnabled pulumi.BoolInput   `pulumi:"isEnabled"`
-	// Filter parameter for retrieved pipelines
-	IsReadOnly pulumi.BoolInput   `pulumi:"isReadOnly"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	Type       pulumi.StringInput `pulumi:"type"`
+	Filters    GetLogsPipelinesLogsPipelineFilterArrayInput `pulumi:"filters"`
+	Id         pulumi.StringInput                           `pulumi:"id"`
+	IsEnabled  pulumi.BoolInput                             `pulumi:"isEnabled"`
+	IsReadOnly pulumi.BoolInput                             `pulumi:"isReadOnly"`
+	Name       pulumi.StringInput                           `pulumi:"name"`
+	Type       pulumi.StringInput                           `pulumi:"type"`
 }
 
 func (GetLogsPipelinesLogsPipelineArgs) ElementType() reflect.Type {
@@ -38601,7 +40527,6 @@ func (o GetLogsPipelinesLogsPipelineOutput) Filters() GetLogsPipelinesLogsPipeli
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) []GetLogsPipelinesLogsPipelineFilter { return v.Filters }).(GetLogsPipelinesLogsPipelineFilterArrayOutput)
 }
 
-// The ID of this resource.
 func (o GetLogsPipelinesLogsPipelineOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -38610,7 +40535,6 @@ func (o GetLogsPipelinesLogsPipelineOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// Filter parameter for retrieved pipelines
 func (o GetLogsPipelinesLogsPipelineOutput) IsReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) bool { return v.IsReadOnly }).(pulumi.BoolOutput)
 }
@@ -38768,7 +40692,6 @@ func (o GetLogsPipelinesLogsPipelineFilterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicy struct {
-	// The ID of this resource.
 	Id         string                                               `pulumi:"id"`
 	PolicyType string                                               `pulumi:"policyType"`
 	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
@@ -38786,7 +40709,6 @@ type GetMonitorConfigPoliciesMonitorConfigPolicyInput interface {
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicyArgs struct {
-	// The ID of this resource.
 	Id         pulumi.StringInput                                        `pulumi:"id"`
 	PolicyType pulumi.StringInput                                        `pulumi:"policyType"`
 	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput `pulumi:"tagPolicy"`
@@ -38861,7 +40783,6 @@ func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) ToOutput(ctx context.
 	}
 }
 
-// The ID of this resource.
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -39498,7 +41419,6 @@ func (o GetMonitorSchedulingOptionEvaluationWindowArrayOutput) Index(i pulumi.In
 }
 
 type GetMonitorsMonitor struct {
-	// The ID of this resource.
 	Id   int    `pulumi:"id"`
 	Name string `pulumi:"name"`
 	Type string `pulumi:"type"`
@@ -39516,7 +41436,6 @@ type GetMonitorsMonitorInput interface {
 }
 
 type GetMonitorsMonitorArgs struct {
-	// The ID of this resource.
 	Id   pulumi.IntInput    `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 	Type pulumi.StringInput `pulumi:"type"`
@@ -39591,7 +41510,6 @@ func (o GetMonitorsMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[G
 	}
 }
 
-// The ID of this resource.
 func (o GetMonitorsMonitorOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetMonitorsMonitor) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -39631,7 +41549,6 @@ func (o GetMonitorsMonitorArrayOutput) Index(i pulumi.IntInput) GetMonitorsMonit
 }
 
 type GetRolesRole struct {
-	// The ID of this resource.
 	Id        string `pulumi:"id"`
 	Name      string `pulumi:"name"`
 	UserCount int    `pulumi:"userCount"`
@@ -39649,7 +41566,6 @@ type GetRolesRoleInput interface {
 }
 
 type GetRolesRoleArgs struct {
-	// The ID of this resource.
 	Id        pulumi.StringInput `pulumi:"id"`
 	Name      pulumi.StringInput `pulumi:"name"`
 	UserCount pulumi.IntInput    `pulumi:"userCount"`
@@ -39724,7 +41640,6 @@ func (o GetRolesRoleOutput) ToOutput(ctx context.Context) pulumix.Output[GetRole
 	}
 }
 
-// The ID of this resource.
 func (o GetRolesRoleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -41654,7 +43569,6 @@ func (o GetServiceLevelObjectiveQueryArrayOutput) Index(i pulumi.IntInput) GetSe
 }
 
 type GetServiceLevelObjectivesSlo struct {
-	// The ID of this resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	Type string `pulumi:"type"`
@@ -41672,7 +43586,6 @@ type GetServiceLevelObjectivesSloInput interface {
 }
 
 type GetServiceLevelObjectivesSloArgs struct {
-	// The ID of this resource.
 	Id   pulumi.StringInput `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 	Type pulumi.StringInput `pulumi:"type"`
@@ -41747,7 +43660,6 @@ func (o GetServiceLevelObjectivesSloOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// The ID of this resource.
 func (o GetServiceLevelObjectivesSloOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesSlo) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -41787,10 +43699,8 @@ func (o GetServiceLevelObjectivesSloArrayOutput) Index(i pulumi.IntInput) GetSer
 }
 
 type GetTeamMembershipsTeamMembership struct {
-	// The ID of this resource.
-	Id   string `pulumi:"id"`
-	Role string `pulumi:"role"`
-	// The team's identifier.
+	Id     string `pulumi:"id"`
+	Role   string `pulumi:"role"`
 	TeamId string `pulumi:"teamId"`
 	UserId string `pulumi:"userId"`
 }
@@ -41807,10 +43717,8 @@ type GetTeamMembershipsTeamMembershipInput interface {
 }
 
 type GetTeamMembershipsTeamMembershipArgs struct {
-	// The ID of this resource.
-	Id   pulumi.StringInput `pulumi:"id"`
-	Role pulumi.StringInput `pulumi:"role"`
-	// The team's identifier.
+	Id     pulumi.StringInput `pulumi:"id"`
+	Role   pulumi.StringInput `pulumi:"role"`
 	TeamId pulumi.StringInput `pulumi:"teamId"`
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
@@ -41884,7 +43792,6 @@ func (o GetTeamMembershipsTeamMembershipOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// The ID of this resource.
 func (o GetTeamMembershipsTeamMembershipOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamMembershipsTeamMembership) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -41893,7 +43800,6 @@ func (o GetTeamMembershipsTeamMembershipOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamMembershipsTeamMembership) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// The team's identifier.
 func (o GetTeamMembershipsTeamMembershipOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTeamMembershipsTeamMembership) string { return v.TeamId }).(pulumi.StringOutput)
 }

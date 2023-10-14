@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LogsPipelineOrderArgs', 'LogsPipelineOrder']
@@ -21,8 +21,19 @@ class LogsPipelineOrderArgs:
         :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "pipelines", pipelines)
+        LogsPipelineOrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            pipelines=pipelines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             pipelines: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("pipelines", pipelines)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _LogsPipelineOrderState:
         :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
+        _LogsPipelineOrderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            pipelines=pipelines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
+            _setter("pipelines", pipelines)
 
     @property
     @pulumi.getter
@@ -168,6 +190,10 @@ class LogsPipelineOrder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogsPipelineOrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

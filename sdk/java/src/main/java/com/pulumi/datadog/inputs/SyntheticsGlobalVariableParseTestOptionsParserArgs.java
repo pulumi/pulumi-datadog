@@ -15,22 +15,30 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
 
     public static final SyntheticsGlobalVariableParseTestOptionsParserArgs Empty = new SyntheticsGlobalVariableParseTestOptionsParserArgs();
 
+    /**
+     * Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the global variable.
+     * @return Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -62,17 +70,29 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
             $ = new SyntheticsGlobalVariableParseTestOptionsParserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value Value for the parser to use, required for type `json_path` or `regex`.
          * 
          * @return builder
          * 
@@ -83,7 +103,7 @@ public final class SyntheticsGlobalVariableParseTestOptionsParserArgs extends co
         }
 
         /**
-         * @param value The value of the global variable.
+         * @param value Value for the parser to use, required for type `json_path` or `regex`.
          * 
          * @return builder
          * 

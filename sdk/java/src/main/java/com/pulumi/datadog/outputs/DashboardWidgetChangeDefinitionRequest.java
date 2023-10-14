@@ -20,61 +20,157 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetChangeDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetChangeDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     * 
+     */
     private @Nullable String changeType;
+    /**
+     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * 
+     */
     private @Nullable String compareTo;
     private @Nullable List<DashboardWidgetChangeDefinitionRequestFormula> formulas;
+    /**
+     * @return A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     * 
+     */
     private @Nullable Boolean increaseGood;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetChangeDefinitionRequestLogQuery logQuery;
+    /**
+     * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
+     * 
+     */
     private @Nullable String orderBy;
+    /**
+     * @return Widget sorting method. Valid values are `asc`, `desc`.
+     * 
+     */
     private @Nullable String orderDir;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetChangeDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetChangeDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetChangeDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetChangeDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return If set to `true`, displays the current value.
+     * 
+     */
     private @Nullable Boolean showPresent;
 
     private DashboardWidgetChangeDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetChangeDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     * 
+     */
     public Optional<String> changeType() {
         return Optional.ofNullable(this.changeType);
     }
+    /**
+     * @return Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+     * 
+     */
     public Optional<String> compareTo() {
         return Optional.ofNullable(this.compareTo);
     }
     public List<DashboardWidgetChangeDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     * 
+     */
     public Optional<Boolean> increaseGood() {
         return Optional.ofNullable(this.increaseGood);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetChangeDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
+     * 
+     */
     public Optional<String> orderBy() {
         return Optional.ofNullable(this.orderBy);
     }
+    /**
+     * @return Widget sorting method. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<String> orderDir() {
         return Optional.ofNullable(this.orderDir);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetChangeDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetChangeDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetChangeDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetChangeDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return If set to `true`, displays the current value.
+     * 
+     */
     public Optional<Boolean> showPresent() {
         return Optional.ofNullable(this.showPresent);
     }

@@ -12,23 +12,32 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// The image URL to display as a banner for the group.
+        /// </summary>
         [Input("bannerImg")]
         public Input<string>? BannerImg { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
+        /// The layout type of the group. Valid values are `ordered`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to show the title or not.
+        /// </summary>
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
@@ -37,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// The list of widgets to display on the dashboard.
+        /// The list of widgets in this group.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs> Widgets
         {

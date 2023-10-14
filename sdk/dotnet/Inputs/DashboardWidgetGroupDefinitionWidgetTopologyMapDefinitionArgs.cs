@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("customLinks")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs>? _customLinks;
+
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs> CustomLinks
         {
             get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs>? _requests;
+
+        /// <summary>
+        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs> Requests
         {
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs>());
@@ -29,14 +37,20 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

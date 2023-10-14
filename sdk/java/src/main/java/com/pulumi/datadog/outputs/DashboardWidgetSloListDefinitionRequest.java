@@ -11,12 +11,20 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequest {
     private DashboardWidgetSloListDefinitionRequestQuery query;
+    /**
+     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     private String requestType;
 
     private DashboardWidgetSloListDefinitionRequest() {}
     public DashboardWidgetSloListDefinitionRequestQuery query() {
         return this.query;
     }
+    /**
+     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * 
+     */
     public String requestType() {
         return this.requestType;
     }

@@ -97,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the global variable.
+        /// Value for the parser to use, required for type `json_path` or `regex`.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable.
+        /// Value for the parser to use, required for type `json_path` or `regex`.
         /// </summary>
         public Input<string>? Value
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable.
+        /// Value for the parser to use, required for type `json_path` or `regex`.
         /// </summary>
         public Input<string>? Value
         {

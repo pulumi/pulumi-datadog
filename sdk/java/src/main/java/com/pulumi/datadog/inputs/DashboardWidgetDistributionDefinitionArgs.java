@@ -18,59 +18,107 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
 
     public static final DashboardWidgetDistributionDefinitionArgs Empty = new DashboardWidgetDistributionDefinitionArgs();
 
+    /**
+     * The size of the legend displayed in the widget.
+     * 
+     */
     @Import(name="legendSize")
     private @Nullable Output<String> legendSize;
 
+    /**
+     * @return The size of the legend displayed in the widget.
+     * 
+     */
     public Optional<Output<String>> legendSize() {
         return Optional.ofNullable(this.legendSize);
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetDistributionDefinitionRequestArgs>> requests;
 
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetDistributionDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
     }
 
+    /**
+     * Whether or not to show the legend on this widget.
+     * 
+     */
     @Import(name="showLegend")
     private @Nullable Output<Boolean> showLegend;
 
+    /**
+     * @return Whether or not to show the legend on this widget.
+     * 
+     */
     public Optional<Output<Boolean>> showLegend() {
         return Optional.ofNullable(this.showLegend);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -105,48 +153,102 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
             $ = new DashboardWidgetDistributionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendSize(@Nullable Output<String> legendSize) {
             $.legendSize = legendSize;
             return this;
         }
 
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendSize(String legendSize) {
             return legendSize(Output.of(legendSize));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<List<DashboardWidgetDistributionDefinitionRequestArgs>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(List<DashboardWidgetDistributionDefinitionRequestArgs> requests) {
             return requests(Output.of(requests));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(DashboardWidgetDistributionDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
         }
 
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLegend(@Nullable Output<Boolean> showLegend) {
             $.showLegend = showLegend;
             return this;
         }
 
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLegend(Boolean showLegend) {
             return showLegend(Output.of(showLegend));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -157,7 +259,7 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -166,20 +268,44 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

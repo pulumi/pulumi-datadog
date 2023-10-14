@@ -31,9 +31,17 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.query);
     }
 
+    /**
+     * The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     @Import(name="sampleRate")
     private @Nullable Output<Double> sampleRate;
 
+    /**
+     * @return The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     public Optional<Output<Double>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
@@ -84,11 +92,23 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
             return query(Output.of(query));
         }
 
+        /**
+         * @param sampleRate The fraction of logs excluded by the exclusion filter, when active.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(@Nullable Output<Double> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
+        /**
+         * @param sampleRate The fraction of logs excluded by the exclusion filter, when active.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(Double sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }

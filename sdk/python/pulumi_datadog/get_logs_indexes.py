@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetLogsIndexesResult',
     'AwaitableGetLogsIndexesResult',
     'get_logs_indexes',
+    'get_logs_indexes_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_logs_indexes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetLogsIndexesResult(
         id=pulumi.get(__ret__, 'id'),
         logs_indexes=pulumi.get(__ret__, 'logs_indexes'))
+
+
+@_utilities.lift_output_func(get_logs_indexes)
+def get_logs_indexes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesResult]:
+    """
+    Use this data source to list several existing logs indexes for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_logs_indexes()
+    ```
+    """
+    ...

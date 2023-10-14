@@ -20,14 +20,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     public static final RoleState Empty = new RoleState();
 
     /**
-     * Name of the role.
+     * Name of the permission.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the role.
+     * @return Name of the permission.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,7 +107,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the role.
+         * @param name Name of the permission.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the role.
+         * @param name Name of the permission.
          * 
          * @return builder
          * 

@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityMonitoringRuleOptionsNewValueOptions {
+    /**
+     * @return The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * 
+     */
     private Integer forgetAfter;
+    /**
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * 
+     */
     private @Nullable Integer learningDuration;
+    /**
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * 
+     */
     private @Nullable String learningMethod;
+    /**
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * 
+     */
     private @Nullable Integer learningThreshold;
 
     private SecurityMonitoringRuleOptionsNewValueOptions() {}
+    /**
+     * @return The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * 
+     */
     public Integer forgetAfter() {
         return this.forgetAfter;
     }
+    /**
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * 
+     */
     public Optional<Integer> learningDuration() {
         return Optional.ofNullable(this.learningDuration);
     }
+    /**
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * 
+     */
     public Optional<String> learningMethod() {
         return Optional.ofNullable(this.learningMethod);
     }
+    /**
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * 
+     */
     public Optional<Integer> learningThreshold() {
         return Optional.ofNullable(this.learningThreshold);
     }

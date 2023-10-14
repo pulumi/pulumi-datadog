@@ -17,52 +17,92 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs 
 
     public static final DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs();
 
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs>> customLinks;
 
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
     }
 
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     @Import(name="filters", required=true)
     private Output<List<String>> filters;
 
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     public Output<List<String>> filters() {
         return this.filters;
     }
 
+    /**
+     * APM service.
+     * 
+     */
     @Import(name="service", required=true)
     private Output<String> service;
 
+    /**
+     * @return APM service.
+     * 
+     */
     public Output<String> service() {
         return this.service;
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -96,43 +136,91 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs 
             $ = new DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs>> customLinks) {
             $.customLinks = customLinks;
             return this;
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs> customLinks) {
             return customLinks(Output.of(customLinks));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(Output<List<String>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<String> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Your environment and primary tag (or `*` if enabled for your account).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(String... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(Output<String> service) {
             $.service = service;
             return this;
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(String service) {
             return service(Output.of(service));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -143,7 +231,7 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs 
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -152,20 +240,44 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs 
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

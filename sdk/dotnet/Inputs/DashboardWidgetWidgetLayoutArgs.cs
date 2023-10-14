@@ -12,18 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetWidgetLayoutArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The height of the widget.
+        /// </summary>
         [Input("height", required: true)]
         public Input<int> Height { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+        /// </summary>
         [Input("isColumnBreak")]
         public Input<bool>? IsColumnBreak { get; set; }
 
+        /// <summary>
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// </summary>
         [Input("width", required: true)]
         public Input<int> Width { get; set; } = null!;
 
+        /// <summary>
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         [Input("x", required: true)]
         public Input<int> X { get; set; } = null!;
 
+        /// <summary>
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         [Input("y", required: true)]
         public Input<int> Y { get; set; } = null!;
 

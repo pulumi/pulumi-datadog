@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetSunburstDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
@@ -26,15 +32,27 @@ namespace Pulumi.Datadog.Inputs
             set => _formulas = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("networkQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs>? NetworkQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
@@ -46,12 +64,21 @@ namespace Pulumi.Datadog.Inputs
             set => _queries = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestStyleArgs>? Style { get; set; }
 

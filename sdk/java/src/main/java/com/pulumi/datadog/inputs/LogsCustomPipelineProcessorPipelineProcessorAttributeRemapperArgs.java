@@ -17,65 +17,137 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
 
     public static final LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs Empty = new LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs();
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Override the target element if already set.
+     * 
+     */
     @Import(name="overrideOnConflict")
     private @Nullable Output<Boolean> overrideOnConflict;
 
+    /**
+     * @return Override the target element if already set.
+     * 
+     */
     public Optional<Output<Boolean>> overrideOnConflict() {
         return Optional.ofNullable(this.overrideOnConflict);
     }
 
+    /**
+     * Remove or preserve the remapped source element.
+     * 
+     */
     @Import(name="preserveSource")
     private @Nullable Output<Boolean> preserveSource;
 
+    /**
+     * @return Remove or preserve the remapped source element.
+     * 
+     */
     public Optional<Output<Boolean>> preserveSource() {
         return Optional.ofNullable(this.preserveSource);
     }
 
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`).
+     * 
+     */
     @Import(name="sourceType", required=true)
     private Output<String> sourceType;
 
+    /**
+     * @return Defines where the sources are from (log `attribute` or `tag`).
+     * 
+     */
     public Output<String> sourceType() {
         return this.sourceType;
     }
 
+    /**
+     * List of source attributes or tags.
+     * 
+     */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
+    /**
+     * @return List of source attributes or tags.
+     * 
+     */
     public Output<List<String>> sources() {
         return this.sources;
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
 
+    /**
+     * If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * 
+     */
     @Import(name="targetFormat")
     private @Nullable Output<String> targetFormat;
 
+    /**
+     * @return If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+     * 
+     */
     public Optional<Output<String>> targetFormat() {
         return Optional.ofNullable(this.targetFormat);
     }
 
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     * 
+     */
     @Import(name="targetType", required=true)
     private Output<String> targetType;
 
+    /**
+     * @return Defines if the target is a log `attribute` or `tag`.
+     * 
+     */
     public Output<String> targetType() {
         return this.targetType;
     }
@@ -112,87 +184,201 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
             $ = new LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param overrideOnConflict Override the target element if already set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideOnConflict(@Nullable Output<Boolean> overrideOnConflict) {
             $.overrideOnConflict = overrideOnConflict;
             return this;
         }
 
+        /**
+         * @param overrideOnConflict Override the target element if already set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideOnConflict(Boolean overrideOnConflict) {
             return overrideOnConflict(Output.of(overrideOnConflict));
         }
 
+        /**
+         * @param preserveSource Remove or preserve the remapped source element.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preserveSource(@Nullable Output<Boolean> preserveSource) {
             $.preserveSource = preserveSource;
             return this;
         }
 
+        /**
+         * @param preserveSource Remove or preserve the remapped source element.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preserveSource(Boolean preserveSource) {
             return preserveSource(Output.of(preserveSource));
         }
 
+        /**
+         * @param sourceType Defines where the sources are from (log `attribute` or `tag`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceType(Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
 
+        /**
+         * @param sourceType Defines where the sources are from (log `attribute` or `tag`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceType(String sourceType) {
             return sourceType(Output.of(sourceType));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(Output<List<String>> sources) {
             $.sources = sources;
             return this;
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(List<String> sources) {
             return sources(Output.of(sources));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(String... sources) {
             return sources(List.of(sources));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
+        /**
+         * @param targetFormat If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetFormat(@Nullable Output<String> targetFormat) {
             $.targetFormat = targetFormat;
             return this;
         }
 
+        /**
+         * @param targetFormat If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetFormat(String targetFormat) {
             return targetFormat(Output.of(targetFormat));
         }
 
+        /**
+         * @param targetType Defines if the target is a log `attribute` or `tag`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetType(Output<String> targetType) {
             $.targetType = targetType;
             return this;
         }
 
+        /**
+         * @param targetType Defines if the target is a log `attribute` or `tag`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetType(String targetType) {
             return targetType(Output.of(targetType));
         }

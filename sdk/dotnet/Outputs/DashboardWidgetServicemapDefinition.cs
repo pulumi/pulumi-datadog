@@ -13,14 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetServicemapDefinition
     {
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetServicemapDefinitionCustomLink> CustomLinks;
+        /// <summary>
+        /// Your environment and primary tag (or `*` if enabled for your account).
+        /// </summary>
         public readonly ImmutableArray<string> Filters;
+        /// <summary>
+        /// APM service.
+        /// </summary>
         public readonly string Service;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
 
         [OutputConstructor]

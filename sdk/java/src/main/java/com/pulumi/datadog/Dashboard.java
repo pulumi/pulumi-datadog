@@ -601,14 +601,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isReadOnly);
     }
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the group. Valid values are `ordered`.
      * 
      */
     @Export(name="layoutType", refs={String.class}, tree="[0]")
     private Output<String> layoutType;
 
     /**
-     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     public Output<String> layoutType() {
@@ -657,14 +657,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restrictedRoles);
     }
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * A list of tags to use in the widget.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * @return A list of tags to use in the widget.
      * 
      */
     public Output<Optional<List<String>>> tags() {
@@ -685,56 +685,56 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.templateVariablePresets);
     }
     /**
-     * The list of template variables for this dashboard.
+     * The template variable names and assumed values under the given preset
      * 
      */
     @Export(name="templateVariables", refs={List.class,DashboardTemplateVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardTemplateVariable>> templateVariables;
 
     /**
-     * @return The list of template variables for this dashboard.
+     * @return The template variable names and assumed values under the given preset
      * 
      */
     public Output<Optional<List<DashboardTemplateVariable>>> templateVariables() {
         return Codegen.optional(this.templateVariables);
     }
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public Output<String> url() {
         return this.url;
     }
     /**
-     * The list of widgets to display on the dashboard.
+     * The list of widgets in this group.
      * 
      */
     @Export(name="widgets", refs={List.class,DashboardWidget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardWidget>> widgets;
 
     /**
-     * @return The list of widgets to display on the dashboard.
+     * @return The list of widgets in this group.
      * 
      */
     public Output<Optional<List<DashboardWidget>>> widgets() {

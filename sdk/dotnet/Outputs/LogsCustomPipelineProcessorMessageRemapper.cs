@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorMessageRemapper
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// List of source attributes or tags.
+        /// </summary>
         public readonly ImmutableArray<string> Sources;
 
         [OutputConstructor]

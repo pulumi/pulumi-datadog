@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SensitiveDataScannerGroupOrderArgs', 'SensitiveDataScannerGroupOrder']
@@ -19,7 +19,16 @@ class SensitiveDataScannerGroupOrderArgs:
         The set of arguments for constructing a SensitiveDataScannerGroupOrder resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
+        SensitiveDataScannerGroupOrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ids", group_ids)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -42,8 +51,17 @@ class _SensitiveDataScannerGroupOrderState:
         Input properties used for looking up and filtering SensitiveDataScannerGroupOrder resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
         """
+        _SensitiveDataScannerGroupOrderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -129,6 +147,10 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SensitiveDataScannerGroupOrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

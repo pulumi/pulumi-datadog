@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesEventQueryGroupBy {
+    /**
+     * @return The event facet.
+     * 
+     */
     private String facet;
+    /**
+     * @return The number of groups to return.
+     * 
+     */
     private @Nullable Integer limit;
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     private @Nullable MonitorVariablesEventQueryGroupBySort sort;
 
     private MonitorVariablesEventQueryGroupBy() {}
+    /**
+     * @return The event facet.
+     * 
+     */
     public String facet() {
         return this.facet;
     }
+    /**
+     * @return The number of groups to return.
+     * 
+     */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<MonitorVariablesEventQueryGroupBySort> sort() {
         return Optional.ofNullable(this.sort);
     }

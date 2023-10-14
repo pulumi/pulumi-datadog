@@ -18,51 +18,75 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
 
     public static final DashboardWidgetGroupDefinitionArgs Empty = new DashboardWidgetGroupDefinitionArgs();
 
+    /**
+     * The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     @Import(name="backgroundColor")
     private @Nullable Output<String> backgroundColor;
 
+    /**
+     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     public Optional<Output<String>> backgroundColor() {
         return Optional.ofNullable(this.backgroundColor);
     }
 
+    /**
+     * The image URL to display as a banner for the group.
+     * 
+     */
     @Import(name="bannerImg")
     private @Nullable Output<String> bannerImg;
 
+    /**
+     * @return The image URL to display as a banner for the group.
+     * 
+     */
     public Optional<Output<String>> bannerImg() {
         return Optional.ofNullable(this.bannerImg);
     }
 
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the group. Valid values are `ordered`.
      * 
      */
     @Import(name="layoutType", required=true)
     private Output<String> layoutType;
 
     /**
-     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     public Output<String> layoutType() {
         return this.layoutType;
     }
 
+    /**
+     * Whether to show the title or not.
+     * 
+     */
     @Import(name="showTitle")
     private @Nullable Output<Boolean> showTitle;
 
+    /**
+     * @return Whether to show the title or not.
+     * 
+     */
     public Optional<Output<Boolean>> showTitle() {
         return Optional.ofNullable(this.showTitle);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
@@ -70,14 +94,14 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The list of widgets to display on the dashboard.
+     * The list of widgets in this group.
      * 
      */
     @Import(name="widgets")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetArgs>> widgets;
 
     /**
-     * @return The list of widgets to display on the dashboard.
+     * @return The list of widgets in this group.
      * 
      */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetArgs>>> widgets() {
@@ -113,26 +137,50 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
             $ = new DashboardWidgetGroupDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * 
+         * @return builder
+         * 
+         */
         public Builder backgroundColor(@Nullable Output<String> backgroundColor) {
             $.backgroundColor = backgroundColor;
             return this;
         }
 
+        /**
+         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * 
+         * @return builder
+         * 
+         */
         public Builder backgroundColor(String backgroundColor) {
             return backgroundColor(Output.of(backgroundColor));
         }
 
+        /**
+         * @param bannerImg The image URL to display as a banner for the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bannerImg(@Nullable Output<String> bannerImg) {
             $.bannerImg = bannerImg;
             return this;
         }
 
+        /**
+         * @param bannerImg The image URL to display as a banner for the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bannerImg(String bannerImg) {
             return bannerImg(Output.of(bannerImg));
         }
 
         /**
-         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * @param layoutType The layout type of the group. Valid values are `ordered`.
          * 
          * @return builder
          * 
@@ -143,7 +191,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * @param layoutType The layout type of the group. Valid values are `ordered`.
          * 
          * @return builder
          * 
@@ -152,17 +200,29 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
             return layoutType(Output.of(layoutType));
         }
 
+        /**
+         * @param showTitle Whether to show the title or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showTitle(@Nullable Output<Boolean> showTitle) {
             $.showTitle = showTitle;
             return this;
         }
 
+        /**
+         * @param showTitle Whether to show the title or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showTitle(Boolean showTitle) {
             return showTitle(Output.of(showTitle));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -173,7 +233,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -183,7 +243,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 
@@ -194,7 +254,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 
@@ -204,7 +264,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 

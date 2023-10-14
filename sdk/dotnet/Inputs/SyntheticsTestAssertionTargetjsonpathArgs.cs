@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestAssertionTargetjsonpathArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The JSON path to assert.
+        /// </summary>
         [Input("jsonpath", required: true)]
         public Input<string> Jsonpath { get; set; } = null!;
 
+        /// <summary>
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Expected matching value.
+        /// </summary>
         [Input("targetvalue")]
         public Input<string>? Targetvalue { get; set; }
 

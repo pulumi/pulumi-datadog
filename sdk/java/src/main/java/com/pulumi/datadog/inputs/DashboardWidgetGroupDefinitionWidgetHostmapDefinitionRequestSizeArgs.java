@@ -20,44 +20,92 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestS
 
     public static final DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeArgs Empty = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -91,56 +139,128 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestS
             $ = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

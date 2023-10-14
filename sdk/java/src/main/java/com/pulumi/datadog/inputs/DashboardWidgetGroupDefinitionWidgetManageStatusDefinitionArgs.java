@@ -16,23 +16,47 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
 
     public static final DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs();
 
+    /**
+     * Whether to colorize text or background. Valid values are `background`, `text`.
+     * 
+     */
     @Import(name="colorPreference")
     private @Nullable Output<String> colorPreference;
 
+    /**
+     * @return Whether to colorize text or background. Valid values are `background`, `text`.
+     * 
+     */
     public Optional<Output<String>> colorPreference() {
         return Optional.ofNullable(this.colorPreference);
     }
 
+    /**
+     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     @Import(name="displayFormat")
     private @Nullable Output<String> displayFormat;
 
+    /**
+     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * 
+     */
     public Optional<Output<String>> displayFormat() {
         return Optional.ofNullable(this.displayFormat);
     }
 
+    /**
+     * A Boolean indicating whether to hide empty categories.
+     * 
+     */
     @Import(name="hideZeroCounts")
     private @Nullable Output<Boolean> hideZeroCounts;
 
+    /**
+     * @return A Boolean indicating whether to hide empty categories.
+     * 
+     */
     public Optional<Output<Boolean>> hideZeroCounts() {
         return Optional.ofNullable(this.hideZeroCounts);
     }
@@ -44,59 +68,107 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
         return this.query;
     }
 
+    /**
+     * A Boolean indicating whether to show when monitors/groups last triggered.
+     * 
+     */
     @Import(name="showLastTriggered")
     private @Nullable Output<Boolean> showLastTriggered;
 
+    /**
+     * @return A Boolean indicating whether to show when monitors/groups last triggered.
+     * 
+     */
     public Optional<Output<Boolean>> showLastTriggered() {
         return Optional.ofNullable(this.showLastTriggered);
     }
 
+    /**
+     * Whether to show the priorities column.
+     * 
+     */
     @Import(name="showPriority")
     private @Nullable Output<Boolean> showPriority;
 
+    /**
+     * @return Whether to show the priorities column.
+     * 
+     */
     public Optional<Output<Boolean>> showPriority() {
         return Optional.ofNullable(this.showPriority);
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<String> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<String>> sort() {
         return Optional.ofNullable(this.sort);
     }
 
+    /**
+     * The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     * 
+     */
     @Import(name="summaryType")
     private @Nullable Output<String> summaryType;
 
+    /**
+     * @return The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     * 
+     */
     public Optional<Output<String>> summaryType() {
         return Optional.ofNullable(this.summaryType);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -135,29 +207,65 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
             $ = new DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param colorPreference Whether to colorize text or background. Valid values are `background`, `text`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorPreference(@Nullable Output<String> colorPreference) {
             $.colorPreference = colorPreference;
             return this;
         }
 
+        /**
+         * @param colorPreference Whether to colorize text or background. Valid values are `background`, `text`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorPreference(String colorPreference) {
             return colorPreference(Output.of(colorPreference));
         }
 
+        /**
+         * @param displayFormat The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayFormat(@Nullable Output<String> displayFormat) {
             $.displayFormat = displayFormat;
             return this;
         }
 
+        /**
+         * @param displayFormat The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayFormat(String displayFormat) {
             return displayFormat(Output.of(displayFormat));
         }
 
+        /**
+         * @param hideZeroCounts A Boolean indicating whether to hide empty categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideZeroCounts(@Nullable Output<Boolean> hideZeroCounts) {
             $.hideZeroCounts = hideZeroCounts;
             return this;
         }
 
+        /**
+         * @param hideZeroCounts A Boolean indicating whether to hide empty categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideZeroCounts(Boolean hideZeroCounts) {
             return hideZeroCounts(Output.of(hideZeroCounts));
         }
@@ -171,44 +279,92 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
             return query(Output.of(query));
         }
 
+        /**
+         * @param showLastTriggered A Boolean indicating whether to show when monitors/groups last triggered.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLastTriggered(@Nullable Output<Boolean> showLastTriggered) {
             $.showLastTriggered = showLastTriggered;
             return this;
         }
 
+        /**
+         * @param showLastTriggered A Boolean indicating whether to show when monitors/groups last triggered.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showLastTriggered(Boolean showLastTriggered) {
             return showLastTriggered(Output.of(showLastTriggered));
         }
 
+        /**
+         * @param showPriority Whether to show the priorities column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showPriority(@Nullable Output<Boolean> showPriority) {
             $.showPriority = showPriority;
             return this;
         }
 
+        /**
+         * @param showPriority Whether to show the priorities column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showPriority(Boolean showPriority) {
             return showPriority(Output.of(showPriority));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<String> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(String sort) {
             return sort(Output.of(sort));
         }
 
+        /**
+         * @param summaryType The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summaryType(@Nullable Output<String> summaryType) {
             $.summaryType = summaryType;
             return this;
         }
 
+        /**
+         * @param summaryType The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summaryType(String summaryType) {
             return summaryType(Output.of(summaryType));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -219,7 +375,7 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -228,20 +384,44 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArg
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

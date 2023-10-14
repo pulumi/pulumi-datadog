@@ -16,72 +16,152 @@ public final class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQu
 
     public static final DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs Empty = new DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs();
 
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
 
+    /**
+     * APM Environment.
+     * 
+     */
     @Import(name="env", required=true)
     private Output<String> env;
 
+    /**
+     * @return APM Environment.
+     * 
+     */
     public Output<String> env() {
         return this.env;
     }
 
+    /**
+     * Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<String>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
+    /**
+     * The name of the variable.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Name of operation on service.
+     * 
+     */
     @Import(name="operationName")
     private @Nullable Output<String> operationName;
 
+    /**
+     * @return Name of operation on service.
+     * 
+     */
     public Optional<Output<String>> operationName() {
         return Optional.ofNullable(this.operationName);
     }
 
+    /**
+     * The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * 
+     */
     @Import(name="primaryTagName")
     private @Nullable Output<String> primaryTagName;
 
+    /**
+     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * 
+     */
     public Optional<Output<String>> primaryTagName() {
         return Optional.ofNullable(this.primaryTagName);
     }
 
+    /**
+     * Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * 
+     */
     @Import(name="primaryTagValue")
     private @Nullable Output<String> primaryTagValue;
 
+    /**
+     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * 
+     */
     public Optional<Output<String>> primaryTagValue() {
         return Optional.ofNullable(this.primaryTagValue);
     }
 
+    /**
+     * APM resource.
+     * 
+     */
     @Import(name="resourceName")
     private @Nullable Output<String> resourceName;
 
+    /**
+     * @return APM resource.
+     * 
+     */
     public Optional<Output<String>> resourceName() {
         return Optional.ofNullable(this.resourceName);
     }
 
+    /**
+     * APM service.
+     * 
+     */
     @Import(name="service", required=true)
     private Output<String> service;
 
+    /**
+     * @return APM service.
+     * 
+     */
     public Output<String> service() {
         return this.service;
     }
 
+    /**
+     * APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * 
+     */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
+    /**
+     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * 
+     */
     public Output<String> stat() {
         return this.stat;
     }
@@ -119,96 +199,222 @@ public final class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQu
             $ = new DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
+        /**
+         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
+        /**
+         * @param env APM Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder env(Output<String> env) {
             $.env = env;
             return this;
         }
 
+        /**
+         * @param env APM Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder env(String env) {
             return env(Output.of(env));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(@Nullable Output<List<String>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(List<String> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
+        /**
+         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupBies(String... groupBies) {
             return groupBies(List.of(groupBies));
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param operationName Name of operation on service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operationName(@Nullable Output<String> operationName) {
             $.operationName = operationName;
             return this;
         }
 
+        /**
+         * @param operationName Name of operation on service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operationName(String operationName) {
             return operationName(Output.of(operationName));
         }
 
+        /**
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryTagName(@Nullable Output<String> primaryTagName) {
             $.primaryTagName = primaryTagName;
             return this;
         }
 
+        /**
+         * @param primaryTagName The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryTagName(String primaryTagName) {
             return primaryTagName(Output.of(primaryTagName));
         }
 
+        /**
+         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryTagValue(@Nullable Output<String> primaryTagValue) {
             $.primaryTagValue = primaryTagValue;
             return this;
         }
 
+        /**
+         * @param primaryTagValue Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryTagValue(String primaryTagValue) {
             return primaryTagValue(Output.of(primaryTagValue));
         }
 
+        /**
+         * @param resourceName APM resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceName(@Nullable Output<String> resourceName) {
             $.resourceName = resourceName;
             return this;
         }
 
+        /**
+         * @param resourceName APM resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceName(String resourceName) {
             return resourceName(Output.of(resourceName));
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(Output<String> service) {
             $.service = service;
             return this;
         }
 
+        /**
+         * @param service APM service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(String service) {
             return service(Output.of(service));
         }
 
+        /**
+         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stat(Output<String> stat) {
             $.stat = stat;
             return this;
         }
 
+        /**
+         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stat(String stat) {
             return stat(Output.of(stat));
         }

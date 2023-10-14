@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Aws.Outputs
     [OutputType]
     public sealed class GetIntegrationLogsServicesAwsLogsServiceResult
     {
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly string Id;
         public readonly string Label;
 

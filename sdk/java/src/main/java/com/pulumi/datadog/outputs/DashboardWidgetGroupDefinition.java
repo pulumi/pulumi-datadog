@@ -14,51 +14,75 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinition {
+    /**
+     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     private @Nullable String backgroundColor;
+    /**
+     * @return The image URL to display as a banner for the group.
+     * 
+     */
     private @Nullable String bannerImg;
     /**
-     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     private String layoutType;
+    /**
+     * @return Whether to show the title or not.
+     * 
+     */
     private @Nullable Boolean showTitle;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
     /**
-     * @return The list of widgets to display on the dashboard.
+     * @return The list of widgets in this group.
      * 
      */
     private @Nullable List<DashboardWidgetGroupDefinitionWidget> widgets;
 
     private DashboardWidgetGroupDefinition() {}
+    /**
+     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     public Optional<String> backgroundColor() {
         return Optional.ofNullable(this.backgroundColor);
     }
+    /**
+     * @return The image URL to display as a banner for the group.
+     * 
+     */
     public Optional<String> bannerImg() {
         return Optional.ofNullable(this.bannerImg);
     }
     /**
-     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     public String layoutType() {
         return this.layoutType;
     }
+    /**
+     * @return Whether to show the title or not.
+     * 
+     */
     public Optional<Boolean> showTitle() {
         return Optional.ofNullable(this.showTitle);
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
     /**
-     * @return The list of widgets to display on the dashboard.
+     * @return The list of widgets in this group.
      * 
      */
     public List<DashboardWidgetGroupDefinitionWidget> widgets() {

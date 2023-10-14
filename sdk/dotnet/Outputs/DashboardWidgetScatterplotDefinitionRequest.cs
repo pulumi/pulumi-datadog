@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequest
     {
+        /// <summary>
+        /// Scatterplot request containing formulas and functions.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTable> ScatterplotTables;
+        /// <summary>
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestX> Xes;
+        /// <summary>
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestY> Ys;
 
         [OutputConstructor]

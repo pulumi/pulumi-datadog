@@ -20,51 +20,107 @@ public final class DashboardWidgetScatterplotDefinitionRequestYArgs extends com.
 
     public static final DashboardWidgetScatterplotDefinitionRequestYArgs Empty = new DashboardWidgetScatterplotDefinitionRequestYArgs();
 
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<Output<String>> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -99,65 +155,149 @@ public final class DashboardWidgetScatterplotDefinitionRequestYArgs extends com.
             $ = new DashboardWidgetScatterplotDefinitionRequestYArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(@Nullable Output<String> aggregator) {
             $.aggregator = aggregator;
             return this;
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetSunburstDefinitionRequestFormulaLimit
     {
+        /// <summary>
+        /// The number of results to return
+        /// </summary>
         public readonly int? Count;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string? Order;
 
         [OutputConstructor]

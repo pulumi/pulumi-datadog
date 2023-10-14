@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsGlobalVariableOptionsTotpParameters
     {
+        /// <summary>
+        /// Number of digits for the OTP.
+        /// </summary>
         public readonly int Digits;
+        /// <summary>
+        /// Interval for which to refresh the token (in seconds).
+        /// </summary>
         public readonly int RefreshInterval;
 
         [OutputConstructor]

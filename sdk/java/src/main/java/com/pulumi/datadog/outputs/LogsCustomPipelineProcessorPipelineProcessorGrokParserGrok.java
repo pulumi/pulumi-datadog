@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
+    /**
+     * @return Match rules for your grok parser.
+     * 
+     */
     private String matchRules;
+    /**
+     * @return Support rules for your grok parser.
+     * 
+     */
     private String supportRules;
 
     private LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok() {}
+    /**
+     * @return Match rules for your grok parser.
+     * 
+     */
     public String matchRules() {
         return this.matchRules;
     }
+    /**
+     * @return Support rules for your grok parser.
+     * 
+     */
     public String supportRules() {
         return this.supportRules;
     }

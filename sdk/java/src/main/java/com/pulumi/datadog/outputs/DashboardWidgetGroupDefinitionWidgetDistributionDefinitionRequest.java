@@ -18,37 +18,93 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery apmQuery;
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery> apmStatsQuery() {
         return Optional.ofNullable(this.apmStatsQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle> style() {
         return Optional.ofNullable(this.style);
     }

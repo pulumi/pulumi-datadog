@@ -13,19 +13,46 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetManageStatusDefinition
     {
+        /// <summary>
+        /// Whether to colorize text or background. Valid values are `background`, `text`.
+        /// </summary>
         public readonly string? ColorPreference;
+        /// <summary>
+        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// </summary>
         public readonly string? DisplayFormat;
+        /// <summary>
+        /// A Boolean indicating whether to hide empty categories.
+        /// </summary>
         public readonly bool? HideZeroCounts;
         public readonly string Query;
+        /// <summary>
+        /// A Boolean indicating whether to show when monitors/groups last triggered.
+        /// </summary>
         public readonly bool? ShowLastTriggered;
+        /// <summary>
+        /// Whether to show the priorities column.
+        /// </summary>
         public readonly bool? ShowPriority;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly string? Sort;
+        /// <summary>
+        /// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+        /// </summary>
         public readonly string? SummaryType;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
 
         [OutputConstructor]

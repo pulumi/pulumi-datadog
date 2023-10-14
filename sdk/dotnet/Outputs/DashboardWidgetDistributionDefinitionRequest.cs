@@ -13,13 +13,34 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetDistributionDefinitionRequest
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? ApmStatsQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// Styling options for widget formulas.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestStyle? Style;
 
         [OutputConstructor]

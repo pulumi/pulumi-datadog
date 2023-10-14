@@ -92,7 +92,7 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
     /**
-     * The name of the index.
+     * The name of the exclusion filter.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface LogsIndexState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the index.
+     * The name of the exclusion filter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface LogsIndexArgs {
      */
     filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the index.
+     * The name of the exclusion filter.
      */
     name: pulumi.Input<string>;
     /**

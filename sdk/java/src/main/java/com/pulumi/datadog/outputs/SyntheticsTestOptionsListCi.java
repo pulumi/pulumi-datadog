@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestOptionsListCi {
+    /**
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * 
+     */
     private @Nullable String executionRule;
 
     private SyntheticsTestOptionsListCi() {}
+    /**
+     * @return Execution rule for a Synthetics test. Valid values are `blocking`, `non_blocking`, `skipped`.
+     * 
+     */
     public Optional<String> executionRule() {
         return Optional.ofNullable(this.executionRule);
     }

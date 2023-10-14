@@ -18,9 +18,17 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
 
     public static final SyntheticsTestApiStepRequestDefinitionArgs Empty = new SyntheticsTestApiStepRequestDefinitionArgs();
 
+    /**
+     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * 
+     */
     @Import(name="allowInsecure")
     private @Nullable Output<Boolean> allowInsecure;
 
+    /**
+     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * 
+     */
     public Optional<Output<Boolean>> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
     }
@@ -115,9 +123,17 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         return Optional.ofNullable(this.dnsServerPort);
     }
 
+    /**
+     * Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     @Import(name="followRedirects")
     private @Nullable Output<Boolean> followRedirects;
 
+    /**
+     * @return Determines whether or not the API HTTP test should follow redirects.
+     * 
+     */
     public Optional<Output<Boolean>> followRedirects() {
         return Optional.ofNullable(this.followRedirects);
     }
@@ -345,11 +361,23 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
             $ = new SyntheticsTestApiStepRequestDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInsecure(@Nullable Output<Boolean> allowInsecure) {
             $.allowInsecure = allowInsecure;
             return this;
         }
 
+        /**
+         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInsecure(Boolean allowInsecure) {
             return allowInsecure(Output.of(allowInsecure));
         }
@@ -490,11 +518,23 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
             return dnsServerPort(Output.of(dnsServerPort));
         }
 
+        /**
+         * @param followRedirects Determines whether or not the API HTTP test should follow redirects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder followRedirects(@Nullable Output<Boolean> followRedirects) {
             $.followRedirects = followRedirects;
             return this;
         }
 
+        /**
+         * @param followRedirects Determines whether or not the API HTTP test should follow redirects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder followRedirects(Boolean followRedirects) {
             return followRedirects(Output.of(followRedirects));
         }

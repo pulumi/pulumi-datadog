@@ -11,19 +11,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsGlobalVariableParseTestOptionsParser {
+    /**
+     * @return Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * 
+     */
     private String type;
     /**
-     * @return The value of the global variable.
+     * @return Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     private @Nullable String value;
 
     private SyntheticsGlobalVariableParseTestOptionsParser() {}
+    /**
+     * @return Type of parser to extract the value. Valid values are `raw`, `json_path`, `regex`, `x_path`.
+     * 
+     */
     public String type() {
         return this.type;
     }
     /**
-     * @return The value of the global variable.
+     * @return Value for the parser to use, required for type `json_path` or `regex`.
      * 
      */
     public Optional<String> value() {

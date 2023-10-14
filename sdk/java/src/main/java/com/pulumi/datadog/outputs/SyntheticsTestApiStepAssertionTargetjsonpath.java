@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestApiStepAssertionTargetjsonpath {
+    /**
+     * @return The JSON path to assert.
+     * 
+     */
     private String jsonpath;
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     private String operator;
+    /**
+     * @return Expected matching value.
+     * 
+     */
     private @Nullable String targetvalue;
 
     private SyntheticsTestApiStepAssertionTargetjsonpath() {}
+    /**
+     * @return The JSON path to assert.
+     * 
+     */
     public String jsonpath() {
         return this.jsonpath;
     }
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     public String operator() {
         return this.operator;
     }
+    /**
+     * @return Expected matching value.
+     * 
+     */
     public Optional<String> targetvalue() {
         return Optional.ofNullable(this.targetvalue);
     }

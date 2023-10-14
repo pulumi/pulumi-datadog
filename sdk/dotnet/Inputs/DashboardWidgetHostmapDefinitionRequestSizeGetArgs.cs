@@ -12,21 +12,39 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHostmapDefinitionRequestSizeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGetArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGetArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeProcessQueryGetArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGetArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGetArgs>? SecurityQuery { get; set; }
 

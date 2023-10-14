@@ -12,51 +12,93 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        /// <summary>
+        /// APM service.
+        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to show the latency breakdown or not.
+        /// </summary>
         [Input("showBreakdown")]
         public Input<bool>? ShowBreakdown { get; set; }
 
+        /// <summary>
+        /// Whether to show the latency distribution or not.
+        /// </summary>
         [Input("showDistribution")]
         public Input<bool>? ShowDistribution { get; set; }
 
+        /// <summary>
+        /// Whether to show the error metrics or not.
+        /// </summary>
         [Input("showErrors")]
         public Input<bool>? ShowErrors { get; set; }
 
+        /// <summary>
+        /// Whether to show the hits metrics or not
+        /// </summary>
         [Input("showHits")]
         public Input<bool>? ShowHits { get; set; }
 
+        /// <summary>
+        /// Whether to show the latency metrics or not.
+        /// </summary>
         [Input("showLatency")]
         public Input<bool>? ShowLatency { get; set; }
 
+        /// <summary>
+        /// Whether to show the resource list or not.
+        /// </summary>
         [Input("showResourceList")]
         public Input<bool>? ShowResourceList { get; set; }
 
+        /// <summary>
+        /// The size of the widget. Valid values are `small`, `medium`, `large`.
+        /// </summary>
         [Input("sizeFormat")]
         public Input<string>? SizeFormat { get; set; }
 
+        /// <summary>
+        /// APM span name
+        /// </summary>
         [Input("spanName", required: true)]
         public Input<string> SpanName { get; set; } = null!;
 
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
 

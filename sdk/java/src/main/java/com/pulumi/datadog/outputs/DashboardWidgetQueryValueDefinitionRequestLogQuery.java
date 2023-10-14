@@ -15,25 +15,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery computeQuery;
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy> groupBies;
+    /**
+     * @return The name of the index to query.
+     * 
+     */
     private String index;
+    /**
+     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute> multiComputes;
+    /**
+     * @return The search query to use.
+     * 
+     */
     private @Nullable String searchQuery;
 
     private DashboardWidgetQueryValueDefinitionRequestLogQuery() {}
+    /**
+     * @return `compute_query` or `multi_compute` is required. The map keys are listed below.
+     * 
+     */
     public Optional<DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery> computeQuery() {
         return Optional.ofNullable(this.computeQuery);
     }
+    /**
+     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
+    /**
+     * @return The name of the index to query.
+     * 
+     */
     public String index() {
         return this.index;
     }
+    /**
+     * @return `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute> multiComputes() {
         return this.multiComputes == null ? List.of() : this.multiComputes;
     }
+    /**
+     * @return The search query to use.
+     * 
+     */
     public Optional<String> searchQuery() {
         return Optional.ofNullable(this.searchQuery);
     }

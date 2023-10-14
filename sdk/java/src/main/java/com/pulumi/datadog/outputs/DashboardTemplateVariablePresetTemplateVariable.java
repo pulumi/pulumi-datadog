@@ -18,12 +18,18 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
      */
     private @Nullable String name;
     /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
      * @deprecated
      * Use `values` instead.
      * 
      */
     @Deprecated /* Use `values` instead. */
     private @Nullable String value;
+    /**
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * 
+     */
     private @Nullable List<String> values;
 
     private DashboardTemplateVariablePresetTemplateVariable() {}
@@ -35,6 +41,8 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
         return Optional.ofNullable(this.name);
     }
     /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
      * @deprecated
      * Use `values` instead.
      * 
@@ -43,6 +51,10 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
+    /**
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * 
+     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

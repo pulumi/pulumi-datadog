@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    /**
+     * @return Scatterplot request containing formulas and functions.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables;
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX> xes;
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY> ys;
 
     private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest() {}
+    /**
+     * @return Scatterplot request containing formulas and functions.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables() {
         return this.scatterplotTables == null ? List.of() : this.scatterplotTables;
     }
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX> xes() {
         return this.xes == null ? List.of() : this.xes;
     }
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY> ys() {
         return this.ys == null ? List.of() : this.ys;
     }

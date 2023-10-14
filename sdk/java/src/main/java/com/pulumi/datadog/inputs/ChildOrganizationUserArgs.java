@@ -29,17 +29,9 @@ public final class ChildOrganizationUserArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * Name for Child Organization after creation.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -88,23 +80,11 @@ public final class ChildOrganizationUserArgs extends com.pulumi.resources.Resour
             return email(Output.of(email));
         }
 
-        /**
-         * @param name Name for Child Organization after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for Child Organization after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

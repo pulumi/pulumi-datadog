@@ -21,73 +21,137 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs ex
 
     public static final DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs();
 
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs>> customLinks;
 
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
     }
 
+    /**
+     * Whether or not to show the total value in the widget.
+     * 
+     */
     @Import(name="hideTotal")
     private @Nullable Output<Boolean> hideTotal;
 
+    /**
+     * @return Whether or not to show the total value in the widget.
+     * 
+     */
     public Optional<Output<Boolean>> hideTotal() {
         return Optional.ofNullable(this.hideTotal);
     }
 
+    /**
+     * Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     * 
+     */
     @Import(name="legendInline")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs> legendInline;
 
+    /**
+     * @return Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs>> legendInline() {
         return Optional.ofNullable(this.legendInline);
     }
 
+    /**
+     * Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     * 
+     */
     @Import(name="legendTable")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs> legendTable;
 
+    /**
+     * @return Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs>> legendTable() {
         return Optional.ofNullable(this.legendTable);
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs>> requests;
 
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -124,70 +188,154 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs ex
             $ = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs>> customLinks) {
             $.customLinks = customLinks;
             return this;
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs> customLinks) {
             return customLinks(Output.of(customLinks));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
         }
 
+        /**
+         * @param hideTotal Whether or not to show the total value in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideTotal(@Nullable Output<Boolean> hideTotal) {
             $.hideTotal = hideTotal;
             return this;
         }
 
+        /**
+         * @param hideTotal Whether or not to show the total value in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hideTotal(Boolean hideTotal) {
             return hideTotal(Output.of(hideTotal));
         }
 
+        /**
+         * @param legendInline Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendInline(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs> legendInline) {
             $.legendInline = legendInline;
             return this;
         }
 
+        /**
+         * @param legendInline Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendInline(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInlineArgs legendInline) {
             return legendInline(Output.of(legendInline));
         }
 
+        /**
+         * @param legendTable Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendTable(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs> legendTable) {
             $.legendTable = legendTable;
             return this;
         }
 
+        /**
+         * @param legendTable Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder legendTable(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs legendTable) {
             return legendTable(Output.of(legendTable));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs> requests) {
             return requests(Output.of(requests));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -198,7 +346,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs ex
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -207,20 +355,44 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs ex
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

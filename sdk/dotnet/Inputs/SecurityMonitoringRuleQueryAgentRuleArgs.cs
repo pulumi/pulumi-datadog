@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleQueryAgentRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// **Deprecated**. It won't be applied anymore.
+        /// </summary>
         [Input("agentRuleId", required: true)]
         public Input<string> AgentRuleId { get; set; } = null!;
 
+        /// <summary>
+        /// **Deprecated**. It won't be applied anymore.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         /// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
         /// </summary>
         public readonly string? Query;
+        /// <summary>
+        /// The fraction of logs excluded by the exclusion filter, when active.
+        /// </summary>
         public readonly double? SampleRate;
 
         [OutputConstructor]

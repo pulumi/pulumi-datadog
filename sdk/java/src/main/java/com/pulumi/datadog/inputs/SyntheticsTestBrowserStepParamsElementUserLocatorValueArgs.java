@@ -16,23 +16,31 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
     public static final SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs Empty = new SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs();
 
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -63,7 +71,7 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
          * 
          * @return builder
          * 
@@ -74,7 +82,7 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
         }
 
         /**
-         * @param type Synthetics test type. Valid values are `api`, `browser`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
          * 
          * @return builder
          * 
@@ -83,11 +91,23 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs ex
             return type(Output.of(type));
         }
 
+        /**
+         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

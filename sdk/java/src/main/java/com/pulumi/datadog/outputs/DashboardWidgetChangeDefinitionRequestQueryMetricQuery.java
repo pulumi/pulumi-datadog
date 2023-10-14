@@ -11,18 +11,42 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     private @Nullable String aggregator;
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private @Nullable String dataSource;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
     private String query;
 
     private DashboardWidgetChangeDefinitionRequestQueryMetricQuery() {}
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public Optional<String> dataSource() {
         return Optional.ofNullable(this.dataSource);
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }

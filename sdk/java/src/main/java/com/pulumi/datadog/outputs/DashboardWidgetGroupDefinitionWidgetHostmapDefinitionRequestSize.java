@@ -16,29 +16,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery logQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery securityQuery;
 
     private DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

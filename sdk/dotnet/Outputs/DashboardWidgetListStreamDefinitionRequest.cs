@@ -13,8 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetListStreamDefinitionRequest
     {
+        /// <summary>
+        /// Column properties used by the front end for display.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestColumn> Columns;
         public readonly Outputs.DashboardWidgetListStreamDefinitionRequestQuery Query;
+        /// <summary>
+        /// Widget response format. Valid values are `event_list`.
+        /// </summary>
         public readonly string ResponseFormat;
 
         [OutputConstructor]

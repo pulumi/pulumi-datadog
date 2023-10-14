@@ -12,28 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetSunburstDefinitionRequestRumQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// </summary>
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupByGetArgs>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupByGetArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupByGetArgs>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// The name of the index to query.
+        /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
         [Input("multiComputes")]
         private InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeGetArgs>? _multiComputes;
+
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeGetArgs> MultiComputes
         {
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeGetArgs>());
             set => _multiComputes = value;
         }
 
+        /// <summary>
+        /// The search query to use.
+        /// </summary>
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }
 

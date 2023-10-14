@@ -22,49 +22,121 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSunburstDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestAuditQuery auditQuery;
     private @Nullable List<DashboardWidgetSunburstDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestNetworkQuery networkQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetSunburstDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestStyle style;
 
     private DashboardWidgetSunburstDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
     public List<DashboardWidgetSunburstDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestNetworkQuery> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetSunburstDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestStyle> style() {
         return Optional.ofNullable(this.style);
     }

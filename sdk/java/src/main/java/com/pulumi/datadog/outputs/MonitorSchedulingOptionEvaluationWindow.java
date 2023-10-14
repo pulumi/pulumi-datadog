@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorSchedulingOptionEvaluationWindow {
+    /**
+     * @return The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     * 
+     */
     private @Nullable String dayStarts;
+    /**
+     * @return The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     * 
+     */
     private @Nullable Integer hourStarts;
+    /**
+     * @return The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     * 
+     */
     private @Nullable Integer monthStarts;
 
     private MonitorSchedulingOptionEvaluationWindow() {}
+    /**
+     * @return The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     * 
+     */
     public Optional<String> dayStarts() {
         return Optional.ofNullable(this.dayStarts);
     }
+    /**
+     * @return The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     * 
+     */
     public Optional<Integer> hourStarts() {
         return Optional.ofNullable(this.hourStarts);
     }
+    /**
+     * @return The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     * 
+     */
     public Optional<Integer> monthStarts() {
         return Optional.ofNullable(this.monthStarts);
     }

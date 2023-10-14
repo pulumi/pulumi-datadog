@@ -71,9 +71,9 @@ type SecurityMonitoringFilter struct {
 	FilteredDataType pulumi.StringPtrOutput `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
-	// The name of the security filter.
+	// Exclusion filter name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The query of the security filter.
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The version of the security filter.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -124,9 +124,9 @@ type securityMonitoringFilterState struct {
 	FilteredDataType *string `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// The name of the security filter.
+	// Exclusion filter name.
 	Name *string `pulumi:"name"`
-	// The query of the security filter.
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query *string `pulumi:"query"`
 	// The version of the security filter.
 	Version *int `pulumi:"version"`
@@ -139,9 +139,9 @@ type SecurityMonitoringFilterState struct {
 	FilteredDataType pulumi.StringPtrInput
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolPtrInput
-	// The name of the security filter.
+	// Exclusion filter name.
 	Name pulumi.StringPtrInput
-	// The query of the security filter.
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query pulumi.StringPtrInput
 	// The version of the security filter.
 	Version pulumi.IntPtrInput
@@ -158,9 +158,9 @@ type securityMonitoringFilterArgs struct {
 	FilteredDataType *string `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled bool `pulumi:"isEnabled"`
-	// The name of the security filter.
+	// Exclusion filter name.
 	Name string `pulumi:"name"`
-	// The query of the security filter.
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query string `pulumi:"query"`
 }
 
@@ -172,9 +172,9 @@ type SecurityMonitoringFilterArgs struct {
 	FilteredDataType pulumi.StringPtrInput
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolInput
-	// The name of the security filter.
+	// Exclusion filter name.
 	Name pulumi.StringInput
-	// The query of the security filter.
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query pulumi.StringInput
 }
 
@@ -306,12 +306,12 @@ func (o SecurityMonitoringFilterOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the security filter.
+// Exclusion filter name.
 func (o SecurityMonitoringFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The query of the security filter.
+// Exclusion filter query. Logs that match this query are excluded from the security filter.
 func (o SecurityMonitoringFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }

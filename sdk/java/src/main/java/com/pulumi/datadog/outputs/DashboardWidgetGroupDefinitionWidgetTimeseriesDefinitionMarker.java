@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
+    /**
+     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * 
+     */
     private @Nullable String displayType;
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     private @Nullable String label;
+    /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
+     */
     private String value;
 
     private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker() {}
+    /**
+     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * 
+     */
     public Optional<String> displayType() {
         return Optional.ofNullable(this.displayType);
     }
+    /**
+     * @return The label for the custom link URL.
+     * 
+     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * 
+     */
     public String value() {
         return this.value;
     }

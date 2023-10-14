@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetSecurityMonitoringFiltersResult',
     'AwaitableGetSecurityMonitoringFiltersResult',
     'get_security_monitoring_filters',
+    'get_security_monitoring_filters_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,20 @@ def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None)
         filters=pulumi.get(__ret__, 'filters'),
         filters_ids=pulumi.get(__ret__, 'filters_ids'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_security_monitoring_filters)
+def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringFiltersResult]:
+    """
+    Use this data source to retrieve information about existing security monitoring filters for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_security_monitoring_filters()
+    ```
+    """
+    ...

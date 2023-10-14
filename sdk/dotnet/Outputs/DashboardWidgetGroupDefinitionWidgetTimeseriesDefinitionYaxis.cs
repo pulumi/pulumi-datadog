@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis
     {
+        /// <summary>
+        /// Always include zero or fit the axis to the data range.
+        /// </summary>
         public readonly bool? IncludeZero;
+        /// <summary>
+        /// The label for the custom link URL.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// Specify the maximum value to show on the Y-axis.
+        /// </summary>
         public readonly string? Max;
+        /// <summary>
+        /// Specify the minimum value to show on the Y-axis.
+        /// </summary>
         public readonly string? Min;
+        /// <summary>
+        /// Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+        /// </summary>
         public readonly string? Scale;
 
         [OutputConstructor]

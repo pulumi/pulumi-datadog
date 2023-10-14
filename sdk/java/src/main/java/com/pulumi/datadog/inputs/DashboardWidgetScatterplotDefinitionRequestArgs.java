@@ -18,23 +18,47 @@ public final class DashboardWidgetScatterplotDefinitionRequestArgs extends com.p
 
     public static final DashboardWidgetScatterplotDefinitionRequestArgs Empty = new DashboardWidgetScatterplotDefinitionRequestArgs();
 
+    /**
+     * Scatterplot request containing formulas and functions.
+     * 
+     */
     @Import(name="scatterplotTables")
     private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs>> scatterplotTables;
 
+    /**
+     * @return Scatterplot request containing formulas and functions.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs>>> scatterplotTables() {
         return Optional.ofNullable(this.scatterplotTables);
     }
 
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     @Import(name="xes")
     private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXArgs>> xes;
 
+    /**
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestXArgs>>> xes() {
         return Optional.ofNullable(this.xes);
     }
 
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     @Import(name="ys")
     private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestYArgs>> ys;
 
+    /**
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestYArgs>>> ys() {
         return Optional.ofNullable(this.ys);
     }
@@ -65,41 +89,95 @@ public final class DashboardWidgetScatterplotDefinitionRequestArgs extends com.p
             $ = new DashboardWidgetScatterplotDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param scatterplotTables Scatterplot request containing formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scatterplotTables(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs>> scatterplotTables) {
             $.scatterplotTables = scatterplotTables;
             return this;
         }
 
+        /**
+         * @param scatterplotTables Scatterplot request containing formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scatterplotTables(List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs> scatterplotTables) {
             return scatterplotTables(Output.of(scatterplotTables));
         }
 
+        /**
+         * @param scatterplotTables Scatterplot request containing formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scatterplotTables(DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs... scatterplotTables) {
             return scatterplotTables(List.of(scatterplotTables));
         }
 
+        /**
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder xes(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXArgs>> xes) {
             $.xes = xes;
             return this;
         }
 
+        /**
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder xes(List<DashboardWidgetScatterplotDefinitionRequestXArgs> xes) {
             return xes(Output.of(xes));
         }
 
+        /**
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder xes(DashboardWidgetScatterplotDefinitionRequestXArgs... xes) {
             return xes(List.of(xes));
         }
 
+        /**
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder ys(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestYArgs>> ys) {
             $.ys = ys;
             return this;
         }
 
+        /**
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder ys(List<DashboardWidgetScatterplotDefinitionRequestYArgs> ys) {
             return ys(Output.of(ys));
         }
 
+        /**
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder ys(DashboardWidgetScatterplotDefinitionRequestYArgs... ys) {
             return ys(List.of(ys));
         }

@@ -12,41 +12,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetNoteDefinition {
+    /**
+     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     private @Nullable String backgroundColor;
+    /**
+     * @return The content of the note.
+     * 
+     */
     private String content;
+    /**
+     * @return The size of the text in the widget.
+     * 
+     */
     private @Nullable String fontSize;
+    /**
+     * @return Whether to add padding or not.
+     * 
+     */
     private @Nullable Boolean hasPadding;
+    /**
+     * @return Whether to show a tick or not.
+     * 
+     */
     private @Nullable Boolean showTick;
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String textAlign;
+    /**
+     * @return When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+     * 
+     */
     private @Nullable String tickEdge;
+    /**
+     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * 
+     */
     private @Nullable String tickPos;
+    /**
+     * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     private @Nullable String verticalAlign;
 
     private DashboardWidgetGroupDefinitionWidgetNoteDefinition() {}
+    /**
+     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * 
+     */
     public Optional<String> backgroundColor() {
         return Optional.ofNullable(this.backgroundColor);
     }
+    /**
+     * @return The content of the note.
+     * 
+     */
     public String content() {
         return this.content;
     }
+    /**
+     * @return The size of the text in the widget.
+     * 
+     */
     public Optional<String> fontSize() {
         return Optional.ofNullable(this.fontSize);
     }
+    /**
+     * @return Whether to add padding or not.
+     * 
+     */
     public Optional<Boolean> hasPadding() {
         return Optional.ofNullable(this.hasPadding);
     }
+    /**
+     * @return Whether to show a tick or not.
+     * 
+     */
     public Optional<Boolean> showTick() {
         return Optional.ofNullable(this.showTick);
     }
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
+    /**
+     * @return When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+     * 
+     */
     public Optional<String> tickEdge() {
         return Optional.ofNullable(this.tickEdge);
     }
+    /**
+     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * 
+     */
     public Optional<String> tickPos() {
         return Optional.ofNullable(this.tickPos);
     }
+    /**
+     * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     * 
+     */
     public Optional<String> verticalAlign() {
         return Optional.ofNullable(this.verticalAlign);
     }

@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor {
+    /**
+     * @return Arithmetic operation between one or more log attributes.
+     * 
+     */
     private String expression;
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * 
+     */
     private @Nullable Boolean isReplaceMissing;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     private String target;
 
     private LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor() {}
+    /**
+     * @return Arithmetic operation between one or more log attributes.
+     * 
+     */
     public String expression() {
         return this.expression;
     }
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * 
+     */
     public Optional<Boolean> isReplaceMissing() {
         return Optional.ofNullable(this.isReplaceMissing);
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public String target() {
         return this.target;
     }

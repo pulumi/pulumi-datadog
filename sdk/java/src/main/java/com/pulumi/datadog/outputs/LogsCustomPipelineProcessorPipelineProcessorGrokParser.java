@@ -15,24 +15,56 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorGrokParser {
     private LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok grok;
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     * 
+     */
     private @Nullable List<String> samples;
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     private String source;
 
     private LogsCustomPipelineProcessorPipelineProcessorGrokParser() {}
     public LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok grok() {
         return this.grok;
     }
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     * 
+     */
     public List<String> samples() {
         return this.samples == null ? List.of() : this.samples;
     }
+    /**
+     * @return Name of the log attribute to parse.
+     * 
+     */
     public String source() {
         return this.source;
     }

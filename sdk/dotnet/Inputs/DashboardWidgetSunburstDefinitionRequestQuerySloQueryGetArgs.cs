@@ -12,24 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetSunburstDefinitionRequestQuerySloQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional filters applied to the SLO query.
+        /// </summary>
         [Input("additionalQueryFilters")]
         public Input<string>? AdditionalQueryFilters { get; set; }
 
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        /// <summary>
+        /// Group mode to query measures. Valid values are `overall`, `components`.
+        /// </summary>
         [Input("groupMode")]
         public Input<string>? GroupMode { get; set; }
 
+        /// <summary>
+        /// SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        /// </summary>
         [Input("measure", required: true)]
         public Input<string> Measure { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of an SLO to query.
+        /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;
 
+        /// <summary>
+        /// type of the SLO to query. Valid values are `metric`.
+        /// </summary>
         [Input("sloQueryType")]
         public Input<string>? SloQueryType { get; set; }
 

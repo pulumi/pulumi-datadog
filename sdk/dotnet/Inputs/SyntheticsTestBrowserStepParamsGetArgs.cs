@@ -12,65 +12,123 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestBrowserStepParamsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the attribute to use for an "assert attribute" step.
+        /// </summary>
         [Input("attribute")]
         public Input<string>? Attribute { get; set; }
 
+        /// <summary>
+        /// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+        /// </summary>
         [Input("check")]
         public Input<string>? Check { get; set; }
 
+        /// <summary>
+        /// Type of click to use for a "click" step.
+        /// </summary>
         [Input("clickType")]
         public Input<string>? ClickType { get; set; }
 
+        /// <summary>
+        /// Javascript code to use for the step.
+        /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }
 
+        /// <summary>
+        /// Delay between each key stroke for a "type test" step.
+        /// </summary>
         [Input("delay")]
         public Input<int>? Delay { get; set; }
 
+        /// <summary>
+        /// Element to use for the step, json encoded string.
+        /// </summary>
         [Input("element")]
         public Input<string>? Element { get; set; }
 
+        /// <summary>
+        /// Custom user selector to use for the step.
+        /// </summary>
         [Input("elementUserLocator")]
         public Input<Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs>? ElementUserLocator { get; set; }
 
+        /// <summary>
+        /// Details of the email for an "assert email" step.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// For an "assert download" step.
+        /// </summary>
         [Input("file")]
         public Input<string>? File { get; set; }
 
+        /// <summary>
+        /// Details of the files for an "upload files" step, json encoded string.
+        /// </summary>
         [Input("files")]
         public Input<string>? Files { get; set; }
 
         [Input("modifiers")]
         private InputList<string>? _modifiers;
+
+        /// <summary>
+        /// Modifier to use for a "press key" step.
+        /// </summary>
         public InputList<string> Modifiers
         {
             get => _modifiers ?? (_modifiers = new InputList<string>());
             set => _modifiers = value;
         }
 
+        /// <summary>
+        /// ID of the tab to play the subtest.
+        /// </summary>
         [Input("playingTabId")]
         public Input<string>? PlayingTabId { get; set; }
 
+        /// <summary>
+        /// Request for an API step.
+        /// </summary>
         [Input("request")]
         public Input<string>? Request { get; set; }
 
+        /// <summary>
+        /// ID of the Synthetics test to use as subtest.
+        /// </summary>
         [Input("subtestPublicId")]
         public Input<string>? SubtestPublicId { get; set; }
 
+        /// <summary>
+        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
+        /// <summary>
+        /// Details of the variable to extract.
+        /// </summary>
         [Input("variable")]
         public Input<Inputs.SyntheticsTestBrowserStepParamsVariableGetArgs>? Variable { get; set; }
 
+        /// <summary>
+        /// For "file upload" steps.
+        /// </summary>
         [Input("withClick")]
         public Input<bool>? WithClick { get; set; }
 
+        /// <summary>
+        /// X coordinates for a "scroll step".
+        /// </summary>
         [Input("x")]
         public Input<int>? X { get; set; }
 
+        /// <summary>
+        /// Y coordinates for a "scroll step".
+        /// </summary>
         [Input("y")]
         public Input<int>? Y { get; set; }
 

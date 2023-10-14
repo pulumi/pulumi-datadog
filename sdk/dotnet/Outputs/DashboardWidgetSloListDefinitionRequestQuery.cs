@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetSloListDefinitionRequestQuery
     {
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// Widget query.
+        /// </summary>
         public readonly string QueryString;
+        /// <summary>
+        /// The options for sorting group by results.
+        /// </summary>
         public readonly Outputs.DashboardWidgetSloListDefinitionRequestQuerySort? Sort;
 
         [OutputConstructor]

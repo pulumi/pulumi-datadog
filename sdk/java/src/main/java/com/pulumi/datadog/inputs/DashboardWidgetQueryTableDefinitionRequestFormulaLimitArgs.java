@@ -16,16 +16,32 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs ex
 
     public static final DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs Empty = new DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs();
 
+    /**
+     * The number of results to return
+     * 
+     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
+    /**
+     * @return The number of results to return
+     * 
+     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -55,20 +71,44 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs ex
             $ = new DashboardWidgetQueryTableDefinitionRequestFormulaLimitArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param count The number of results to return
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
+        /**
+         * @param count The number of results to return
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

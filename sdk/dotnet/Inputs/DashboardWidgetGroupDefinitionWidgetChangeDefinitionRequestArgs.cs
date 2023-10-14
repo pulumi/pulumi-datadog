@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+        /// </summary>
         [Input("changeType")]
         public Input<string>? ChangeType { get; set; }
 
+        /// <summary>
+        /// Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
+        /// </summary>
         [Input("compareTo")]
         public Input<string>? CompareTo { get; set; }
 
@@ -29,21 +38,39 @@ namespace Pulumi.Datadog.Inputs
             set => _formulas = value;
         }
 
+        /// <summary>
+        /// A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+        /// </summary>
         [Input("increaseGood")]
         public Input<bool>? IncreaseGood { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// What to order by. Valid values are `change`, `name`, `present`, `past`.
+        /// </summary>
         [Input("orderBy")]
         public Input<string>? OrderBy { get; set; }
 
+        /// <summary>
+        /// Widget sorting method. Valid values are `asc`, `desc`.
+        /// </summary>
         [Input("orderDir")]
         public Input<string>? OrderDir { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
@@ -55,12 +82,21 @@ namespace Pulumi.Datadog.Inputs
             set => _queries = value;
         }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// If set to `true`, displays the current value.
+        /// </summary>
         [Input("showPresent")]
         public Input<bool>? ShowPresent { get; set; }
 

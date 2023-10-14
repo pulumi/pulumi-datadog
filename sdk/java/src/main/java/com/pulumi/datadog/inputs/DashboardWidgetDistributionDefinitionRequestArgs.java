@@ -22,9 +22,17 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
 
     public static final DashboardWidgetDistributionDefinitionRequestArgs Empty = new DashboardWidgetDistributionDefinitionRequestArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -36,44 +44,92 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
         return Optional.ofNullable(this.apmStatsQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Styling options for widget formulas.
+     * 
+     */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetDistributionDefinitionRequestStyleArgs> style;
 
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<Output<DashboardWidgetDistributionDefinitionRequestStyleArgs>> style() {
         return Optional.ofNullable(this.style);
     }
@@ -109,11 +165,23 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
             $ = new DashboardWidgetDistributionDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetDistributionDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
@@ -127,56 +195,128 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
             return apmStatsQuery(Output.of(apmStatsQuery));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetDistributionDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetDistributionDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetDistributionDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(@Nullable Output<DashboardWidgetDistributionDefinitionRequestStyleArgs> style) {
             $.style = style;
             return this;
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(DashboardWidgetDistributionDefinitionRequestStyleArgs style) {
             return style(Output.of(style));
         }

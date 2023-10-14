@@ -77,14 +77,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the group. Valid values are `ordered`.
      * 
      */
     @Import(name="layoutType", required=true)
     private Output<String> layoutType;
 
     /**
-     * @return The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     public Output<String> layoutType() {
@@ -137,14 +137,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * A list of tags to use in the widget.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+     * @return A list of tags to use in the widget.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -167,14 +167,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of template variables for this dashboard.
+     * The template variable names and assumed values under the given preset
      * 
      */
     @Import(name="templateVariables")
     private @Nullable Output<List<DashboardTemplateVariableArgs>> templateVariables;
 
     /**
-     * @return The list of template variables for this dashboard.
+     * @return The template variable names and assumed values under the given preset
      * 
      */
     public Optional<Output<List<DashboardTemplateVariableArgs>>> templateVariables() {
@@ -182,14 +182,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Output<String> title() {
@@ -197,14 +197,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the dashboard.
+     * @return The URL to use as a data source for the widget.
      * 
      */
     public Optional<Output<String>> url() {
@@ -212,14 +212,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of widgets to display on the dashboard.
+     * The list of widgets in this group.
      * 
      */
     @Import(name="widgets")
     private @Nullable Output<List<DashboardWidgetArgs>> widgets;
 
     /**
-     * @return The list of widgets to display on the dashboard.
+     * @return The list of widgets in this group.
      * 
      */
     public Optional<Output<List<DashboardWidgetArgs>>> widgets() {
@@ -347,7 +347,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * @param layoutType The layout type of the group. Valid values are `ordered`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layoutType The layout type of the dashboard. Valid values are `ordered`, `free`.
+         * @param layoutType The layout type of the group. Valid values are `ordered`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
+         * @param tags A list of tags to use in the widget.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateVariables The list of template variables for this dashboard.
+         * @param templateVariables The template variable names and assumed values under the given preset
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateVariables The list of template variables for this dashboard.
+         * @param templateVariables The template variable names and assumed values under the given preset
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateVariables The list of template variables for this dashboard.
+         * @param templateVariables The template variable names and assumed values under the given preset
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the dashboard.
+         * @param url The URL to use as a data source for the widget.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgets The list of widgets to display on the dashboard.
+         * @param widgets The list of widgets in this group.
          * 
          * @return builder
          * 

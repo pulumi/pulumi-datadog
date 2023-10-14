@@ -13,12 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery
     {
+        /// <summary>
+        /// Additional filters applied to the SLO query.
+        /// </summary>
         public readonly string? AdditionalQueryFilters;
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// Group mode to query measures. Valid values are `overall`, `components`.
+        /// </summary>
         public readonly string? GroupMode;
+        /// <summary>
+        /// SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
+        /// </summary>
         public readonly string Measure;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// ID of an SLO to query.
+        /// </summary>
         public readonly string SloId;
+        /// <summary>
+        /// type of the SLO to query. Valid values are `metric`.
+        /// </summary>
         public readonly string? SloQueryType;
 
         [OutputConstructor]

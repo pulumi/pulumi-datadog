@@ -16,16 +16,32 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimes
 
     public static final DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs Empty = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs();
 
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     @Import(name="yaxis")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs> yaxis;
 
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs>> yaxis() {
         return Optional.ofNullable(this.yaxis);
     }
@@ -55,20 +71,44 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimes
             $ = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yaxis(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs> yaxis) {
             $.yaxis = yaxis;
             return this;
         }
 
+        /**
+         * @param yaxis A nested block describing the Y-Axis Controls. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yaxis(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs yaxis) {
             return yaxis(Output.of(yaxis));
         }

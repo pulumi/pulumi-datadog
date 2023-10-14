@@ -100,7 +100,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the index.
+        /// The name of the exclusion filter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the index.
+        /// The name of the exclusion filter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the index.
+        /// The name of the exclusion filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

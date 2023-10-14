@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleOptionsImpossibleTravelOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+        /// </summary>
         [Input("baselineUserLocations")]
         public Input<bool>? BaselineUserLocations { get; set; }
 

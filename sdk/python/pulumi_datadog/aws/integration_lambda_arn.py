@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationLambdaArnArgs', 'IntegrationLambdaArn']
@@ -21,8 +21,19 @@ class IntegrationLambdaArnArgs:
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        IntegrationLambdaArnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            lambda_arn=lambda_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             lambda_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_id", account_id)
+        _setter("lambda_arn", lambda_arn)
 
     @property
     @pulumi.getter(name="accountId")
@@ -59,10 +70,21 @@ class _IntegrationLambdaArnState:
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
+        _IntegrationLambdaArnState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            lambda_arn=lambda_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if lambda_arn is not None:
-            pulumi.set(__self__, "lambda_arn", lambda_arn)
+            _setter("lambda_arn", lambda_arn)
 
     @property
     @pulumi.getter(name="accountId")
@@ -168,6 +190,10 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationLambdaArnArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

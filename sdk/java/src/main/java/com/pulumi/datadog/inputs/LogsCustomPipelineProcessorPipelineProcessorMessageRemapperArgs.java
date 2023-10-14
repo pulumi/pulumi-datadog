@@ -17,23 +17,47 @@ public final class LogsCustomPipelineProcessorPipelineProcessorMessageRemapperAr
 
     public static final LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs Empty = new LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs();
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * List of source attributes or tags.
+     * 
+     */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
+    /**
+     * @return List of source attributes or tags.
+     * 
+     */
     public Output<List<String>> sources() {
         return this.sources;
     }
@@ -64,33 +88,75 @@ public final class LogsCustomPipelineProcessorPipelineProcessorMessageRemapperAr
             $ = new LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(Output<List<String>> sources) {
             $.sources = sources;
             return this;
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(List<String> sources) {
             return sources(Output.of(sources));
         }
 
+        /**
+         * @param sources List of source attributes or tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sources(String... sources) {
             return sources(List.of(sources));
         }

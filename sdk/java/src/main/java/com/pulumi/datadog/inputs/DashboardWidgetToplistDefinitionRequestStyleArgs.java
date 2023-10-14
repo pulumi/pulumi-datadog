@@ -15,9 +15,17 @@ public final class DashboardWidgetToplistDefinitionRequestStyleArgs extends com.
 
     public static final DashboardWidgetToplistDefinitionRequestStyleArgs Empty = new DashboardWidgetToplistDefinitionRequestStyleArgs();
 
+    /**
+     * The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     public Optional<Output<String>> palette() {
         return Optional.ofNullable(this.palette);
     }
@@ -46,11 +54,23 @@ public final class DashboardWidgetToplistDefinitionRequestStyleArgs extends com.
             $ = new DashboardWidgetToplistDefinitionRequestStyleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(@Nullable Output<String> palette) {
             $.palette = palette;
             return this;
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(String palette) {
             return palette(Output.of(palette));
         }

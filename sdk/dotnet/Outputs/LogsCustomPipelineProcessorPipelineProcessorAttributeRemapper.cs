@@ -13,14 +13,41 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Override the target element if already set.
+        /// </summary>
         public readonly bool? OverrideOnConflict;
+        /// <summary>
+        /// Remove or preserve the remapped source element.
+        /// </summary>
         public readonly bool? PreserveSource;
+        /// <summary>
+        /// Defines where the sources are from (log `attribute` or `tag`).
+        /// </summary>
         public readonly string SourceType;
+        /// <summary>
+        /// List of source attributes or tags.
+        /// </summary>
         public readonly ImmutableArray<string> Sources;
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         public readonly string Target;
+        /// <summary>
+        /// If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+        /// </summary>
         public readonly string? TargetFormat;
+        /// <summary>
+        /// Defines if the target is a log `attribute` or `tag`.
+        /// </summary>
         public readonly string TargetType;
 
         [OutputConstructor]

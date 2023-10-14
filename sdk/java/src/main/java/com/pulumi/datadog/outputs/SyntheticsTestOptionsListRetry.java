@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestOptionsListRetry {
+    /**
+     * @return Number of retries needed to consider a location as failed before sending a notification alert.
+     * 
+     */
     private @Nullable Integer count;
+    /**
+     * @return Interval between a failed test and the next retry in milliseconds.
+     * 
+     */
     private @Nullable Integer interval;
 
     private SyntheticsTestOptionsListRetry() {}
+    /**
+     * @return Number of retries needed to consider a location as failed before sending a notification alert.
+     * 
+     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
+    /**
+     * @return Interval between a failed test and the next retry in milliseconds.
+     * 
+     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }

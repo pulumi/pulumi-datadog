@@ -13,15 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStepExtractedValue
     {
-        public readonly string? Field;
         /// <summary>
-        /// Name of Datadog synthetics test.
+        /// When type is `http_header`, name of the header to use to extract the value.
         /// </summary>
+        public readonly string? Field;
         public readonly string Name;
         public readonly Outputs.SyntheticsTestApiStepExtractedValueParser Parser;
+        /// <summary>
+        /// Determines whether or not the extracted value will be obfuscated.
+        /// </summary>
         public readonly bool? Secure;
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         /// </summary>
         public readonly string Type;
 

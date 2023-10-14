@@ -13,20 +13,56 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         public readonly string? Aggregator;
+        /// <summary>
+        /// An expression alias.
+        /// </summary>
         public readonly string? Alias;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
+        /// <summary>
+        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// </summary>
         public readonly ImmutableArray<string> CellDisplayModes;
+        /// <summary>
+        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// The maximum number of items in the group.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// </summary>
         public readonly string? Order;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         public readonly string? Q;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
 
         [OutputConstructor]

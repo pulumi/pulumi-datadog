@@ -67,7 +67,7 @@ export class Role extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the role.
+     * Name of the permission.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class Role extends pulumi.CustomResource {
  */
 export interface RoleState {
     /**
-     * Name of the role.
+     * Name of the permission.
      */
     name?: pulumi.Input<string>;
     /**
@@ -142,7 +142,7 @@ export interface RoleState {
  */
 export interface RoleArgs {
     /**
-     * Name of the role.
+     * Name of the permission.
      */
     name: pulumi.Input<string>;
     /**

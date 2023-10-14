@@ -14,10 +14,6 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.LogsIndexExclusionFilterFilterGetArgs>? _filters;
-
-        /// <summary>
-        /// Logs filter
-        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsIndexExclusionFilterFilterGetArgs>());

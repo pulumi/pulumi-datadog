@@ -12,21 +12,39 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The APM Dependency Stats query using formulas and functions.
+        /// </summary>
         [Input("apmDependencyStatsQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
 
+        /// <summary>
+        /// The APM Resource Stats query using formulas and functions.
+        /// </summary>
         [Input("apmResourceStatsQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
 
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         [Input("eventQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGetArgs>? EventQuery { get; set; }
 
+        /// <summary>
+        /// A timeseries formula and functions metrics query.
+        /// </summary>
         [Input("metricQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQueryGetArgs>? MetricQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The slo query using formulas and functions.
+        /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQueryGetArgs>? SloQuery { get; set; }
 

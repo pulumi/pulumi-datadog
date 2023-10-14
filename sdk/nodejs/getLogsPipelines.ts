@@ -36,9 +36,6 @@ export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesArgs {
-    /**
-     * Filter parameter for retrieved pipelines
-     */
     isReadOnly?: string;
 }
 
@@ -84,8 +81,5 @@ export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?:
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesOutputArgs {
-    /**
-     * Filter parameter for retrieved pipelines
-     */
     isReadOnly?: pulumi.Input<string>;
 }

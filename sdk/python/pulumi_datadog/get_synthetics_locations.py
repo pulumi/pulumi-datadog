@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetSyntheticsLocationsResult',
     'AwaitableGetSyntheticsLocationsResult',
     'get_synthetics_locations',
+    'get_synthetics_locations_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,11 @@ def get_synthetics_locations(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     return AwaitableGetSyntheticsLocationsResult(
         id=pulumi.get(__ret__, 'id'),
         locations=pulumi.get(__ret__, 'locations'))
+
+
+@_utilities.lift_output_func(get_synthetics_locations)
+def get_synthetics_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyntheticsLocationsResult]:
+    """
+    Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
+    """
+    ...

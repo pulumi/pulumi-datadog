@@ -13,14 +13,41 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetNoteDefinition
     {
+        /// <summary>
+        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// The content of the note.
+        /// </summary>
         public readonly string Content;
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         public readonly string? FontSize;
+        /// <summary>
+        /// Whether to add padding or not.
+        /// </summary>
         public readonly bool? HasPadding;
+        /// <summary>
+        /// Whether to show a tick or not.
+        /// </summary>
         public readonly bool? ShowTick;
+        /// <summary>
+        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TextAlign;
+        /// <summary>
+        /// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+        /// </summary>
         public readonly string? TickEdge;
+        /// <summary>
+        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%"` is centered alignment.
+        /// </summary>
         public readonly string? TickPos;
+        /// <summary>
+        /// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+        /// </summary>
         public readonly string? VerticalAlign;
 
         [OutputConstructor]

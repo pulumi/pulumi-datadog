@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// </summary>
         public readonly bool? IsReplaceMissing;
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         public readonly string Target;
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
         public readonly string Template;
 
         [OutputConstructor]

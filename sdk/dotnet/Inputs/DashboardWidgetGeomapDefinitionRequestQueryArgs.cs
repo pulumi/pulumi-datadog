@@ -12,21 +12,39 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGeomapDefinitionRequestQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The APM Dependency Stats query using formulas and functions.
+        /// </summary>
         [Input("apmDependencyStatsQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
 
+        /// <summary>
+        /// The APM Resource Stats query using formulas and functions.
+        /// </summary>
         [Input("apmResourceStatsQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQueryArgs>? ApmResourceStatsQuery { get; set; }
 
+        /// <summary>
+        /// A timeseries formula and functions events query.
+        /// </summary>
         [Input("eventQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs>? EventQuery { get; set; }
 
+        /// <summary>
+        /// A timeseries formula and functions metrics query.
+        /// </summary>
         [Input("metricQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs>? MetricQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The slo query using formulas and functions.
+        /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }
 

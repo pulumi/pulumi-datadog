@@ -12,45 +12,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     private String dataSource;
+    /**
+     * @return APM Environment.
+     * 
+     */
     private String env;
+    /**
+     * @return Determines whether stats for upstream or downstream dependencies should be queried.
+     * 
+     */
     private @Nullable Boolean isUpstream;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return Name of operation on service.
+     * 
+     */
     private String operationName;
+    /**
+     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * 
+     */
     private @Nullable String primaryTagName;
+    /**
+     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * 
+     */
     private @Nullable String primaryTagValue;
+    /**
+     * @return APM resource.
+     * 
+     */
     private String resourceName;
+    /**
+     * @return APM service.
+     * 
+     */
     private String service;
+    /**
+     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * 
+     */
     private String stat;
 
     private DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery() {}
+    /**
+     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * 
+     */
     public String dataSource() {
         return this.dataSource;
     }
+    /**
+     * @return APM Environment.
+     * 
+     */
     public String env() {
         return this.env;
     }
+    /**
+     * @return Determines whether stats for upstream or downstream dependencies should be queried.
+     * 
+     */
     public Optional<Boolean> isUpstream() {
         return Optional.ofNullable(this.isUpstream);
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Name of operation on service.
+     * 
+     */
     public String operationName() {
         return this.operationName;
     }
+    /**
+     * @return The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     * 
+     */
     public Optional<String> primaryTagName() {
         return Optional.ofNullable(this.primaryTagName);
     }
+    /**
+     * @return Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+     * 
+     */
     public Optional<String> primaryTagValue() {
         return Optional.ofNullable(this.primaryTagValue);
     }
+    /**
+     * @return APM resource.
+     * 
+     */
     public String resourceName() {
         return this.resourceName;
     }
+    /**
+     * @return APM service.
+     * 
+     */
     public String service() {
         return this.service;
     }
+    /**
+     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * 
+     */
     public String stat() {
         return this.stat;
     }

@@ -15,23 +15,47 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSe
 
     public static final DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs();
 
+    /**
+     * The aggregation method.
+     * 
+     */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public Output<String> aggregation() {
         return this.aggregation;
     }
 
+    /**
+     * The facet name.
+     * 
+     */
     @Import(name="facet")
     private @Nullable Output<String> facet;
 
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<Output<String>> facet() {
         return Optional.ofNullable(this.facet);
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Output<String> order() {
         return this.order;
     }
@@ -62,29 +86,65 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSe
             $ = new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregation The aggregation method.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(Output<String> aggregation) {
             $.aggregation = aggregation;
             return this;
         }
 
+        /**
+         * @param aggregation The aggregation method.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregation(String aggregation) {
             return aggregation(Output.of(aggregation));
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(@Nullable Output<String> facet) {
             $.facet = facet;
             return this;
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(String facet) {
             return facet(Output.of(facet));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }

@@ -13,37 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetServicemapDefinition {
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetServicemapDefinitionCustomLink> customLinks;
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     private List<String> filters;
+    /**
+     * @return APM service.
+     * 
+     */
     private String service;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     private @Nullable String titleSize;
 
     private DashboardWidgetServicemapDefinition() {}
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetServicemapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
+    /**
+     * @return Your environment and primary tag (or `*` if enabled for your account).
+     * 
+     */
     public List<String> filters() {
         return this.filters;
     }
+    /**
+     * @return APM service.
+     * 
+     */
     public String service() {
         return this.service;
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }

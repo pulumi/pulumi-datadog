@@ -13,19 +13,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTreemapDefinition {
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     private @Nullable List<DashboardWidgetTreemapDefinitionRequest> requests;
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
 
     private DashboardWidgetTreemapDefinition() {}
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public List<DashboardWidgetTreemapDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {

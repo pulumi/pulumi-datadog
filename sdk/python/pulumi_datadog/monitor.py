@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,14 +52,8 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[str] name: Name of Datadog monitor.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        :param pulumi.Input[str] name: The name of query for use in formulas.
+        :param pulumi.Input[str] query: The events search string.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
                cannot be changed after a monitor is created.
@@ -124,74 +118,147 @@ class MonitorArgs:
                minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "type", type)
+        MonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            name=name,
+            query=query,
+            type=type,
+            enable_logs_sample=enable_logs_sample,
+            escalation_message=escalation_message,
+            evaluation_delay=evaluation_delay,
+            force_delete=force_delete,
+            group_retention_duration=group_retention_duration,
+            groupby_simple_monitor=groupby_simple_monitor,
+            include_tags=include_tags,
+            locked=locked,
+            monitor_threshold_windows=monitor_threshold_windows,
+            monitor_thresholds=monitor_thresholds,
+            new_group_delay=new_group_delay,
+            new_host_delay=new_host_delay,
+            no_data_timeframe=no_data_timeframe,
+            notification_preset_name=notification_preset_name,
+            notify_audit=notify_audit,
+            notify_bies=notify_bies,
+            notify_no_data=notify_no_data,
+            on_missing_data=on_missing_data,
+            priority=priority,
+            renotify_interval=renotify_interval,
+            renotify_occurrences=renotify_occurrences,
+            renotify_statuses=renotify_statuses,
+            require_full_window=require_full_window,
+            restricted_roles=restricted_roles,
+            scheduling_options=scheduling_options,
+            tags=tags,
+            timeout_h=timeout_h,
+            validate=validate,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: pulumi.Input[str],
+             name: pulumi.Input[str],
+             query: pulumi.Input[str],
+             type: pulumi.Input[str],
+             enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+             escalation_message: Optional[pulumi.Input[str]] = None,
+             evaluation_delay: Optional[pulumi.Input[int]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             group_retention_duration: Optional[pulumi.Input[str]] = None,
+             groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
+             include_tags: Optional[pulumi.Input[bool]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
+             monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
+             new_group_delay: Optional[pulumi.Input[int]] = None,
+             new_host_delay: Optional[pulumi.Input[int]] = None,
+             no_data_timeframe: Optional[pulumi.Input[int]] = None,
+             notification_preset_name: Optional[pulumi.Input[str]] = None,
+             notify_audit: Optional[pulumi.Input[bool]] = None,
+             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_no_data: Optional[pulumi.Input[bool]] = None,
+             on_missing_data: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             renotify_interval: Optional[pulumi.Input[int]] = None,
+             renotify_occurrences: Optional[pulumi.Input[int]] = None,
+             renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_full_window: Optional[pulumi.Input[bool]] = None,
+             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeout_h: Optional[pulumi.Input[int]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("name", name)
+        _setter("query", query)
+        _setter("type", type)
         if enable_logs_sample is not None:
-            pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+            _setter("enable_logs_sample", enable_logs_sample)
         if escalation_message is not None:
-            pulumi.set(__self__, "escalation_message", escalation_message)
+            _setter("escalation_message", escalation_message)
         if evaluation_delay is not None:
-            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+            _setter("evaluation_delay", evaluation_delay)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if group_retention_duration is not None:
-            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
+            _setter("group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
-            pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+            _setter("groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
-            pulumi.set(__self__, "include_tags", include_tags)
+            _setter("include_tags", include_tags)
         if locked is not None:
             warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
             pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if monitor_threshold_windows is not None:
-            pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
+            _setter("monitor_threshold_windows", monitor_threshold_windows)
         if monitor_thresholds is not None:
-            pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
+            _setter("monitor_thresholds", monitor_thresholds)
         if new_group_delay is not None:
-            pulumi.set(__self__, "new_group_delay", new_group_delay)
+            _setter("new_group_delay", new_group_delay)
         if new_host_delay is not None:
             warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
             pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
-            pulumi.set(__self__, "new_host_delay", new_host_delay)
+            _setter("new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
-            pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+            _setter("no_data_timeframe", no_data_timeframe)
         if notification_preset_name is not None:
-            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
+            _setter("notification_preset_name", notification_preset_name)
         if notify_audit is not None:
-            pulumi.set(__self__, "notify_audit", notify_audit)
+            _setter("notify_audit", notify_audit)
         if notify_bies is not None:
-            pulumi.set(__self__, "notify_bies", notify_bies)
+            _setter("notify_bies", notify_bies)
         if notify_no_data is not None:
-            pulumi.set(__self__, "notify_no_data", notify_no_data)
+            _setter("notify_no_data", notify_no_data)
         if on_missing_data is not None:
-            pulumi.set(__self__, "on_missing_data", on_missing_data)
+            _setter("on_missing_data", on_missing_data)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if renotify_interval is not None:
-            pulumi.set(__self__, "renotify_interval", renotify_interval)
+            _setter("renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
-            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+            _setter("renotify_occurrences", renotify_occurrences)
         if renotify_statuses is not None:
-            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
+            _setter("renotify_statuses", renotify_statuses)
         if require_full_window is not None:
-            pulumi.set(__self__, "require_full_window", require_full_window)
+            _setter("require_full_window", require_full_window)
         if restricted_roles is not None:
-            pulumi.set(__self__, "restricted_roles", restricted_roles)
+            _setter("restricted_roles", restricted_roles)
         if scheduling_options is not None:
-            pulumi.set(__self__, "scheduling_options", scheduling_options)
+            _setter("scheduling_options", scheduling_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_h is not None:
-            pulumi.set(__self__, "timeout_h", timeout_h)
+            _setter("timeout_h", timeout_h)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -209,7 +276,7 @@ class MonitorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of Datadog monitor.
+        The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
 
@@ -221,13 +288,7 @@ class MonitorArgs:
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
         """
-        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        The events search string.
         """
         return pulumi.get(self, "query")
 
@@ -695,7 +756,7 @@ class _MonitorState:
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: Name of Datadog monitor.
+        :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -719,13 +780,7 @@ class _MonitorState:
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        :param pulumi.Input[str] query: The events search string.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -747,80 +802,155 @@ class _MonitorState:
                cannot be changed after a monitor is created.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
+        _MonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_logs_sample=enable_logs_sample,
+            enable_samples=enable_samples,
+            escalation_message=escalation_message,
+            evaluation_delay=evaluation_delay,
+            force_delete=force_delete,
+            group_retention_duration=group_retention_duration,
+            groupby_simple_monitor=groupby_simple_monitor,
+            include_tags=include_tags,
+            locked=locked,
+            message=message,
+            monitor_threshold_windows=monitor_threshold_windows,
+            monitor_thresholds=monitor_thresholds,
+            name=name,
+            new_group_delay=new_group_delay,
+            new_host_delay=new_host_delay,
+            no_data_timeframe=no_data_timeframe,
+            notification_preset_name=notification_preset_name,
+            notify_audit=notify_audit,
+            notify_bies=notify_bies,
+            notify_no_data=notify_no_data,
+            on_missing_data=on_missing_data,
+            priority=priority,
+            query=query,
+            renotify_interval=renotify_interval,
+            renotify_occurrences=renotify_occurrences,
+            renotify_statuses=renotify_statuses,
+            require_full_window=require_full_window,
+            restricted_roles=restricted_roles,
+            scheduling_options=scheduling_options,
+            tags=tags,
+            timeout_h=timeout_h,
+            type=type,
+            validate=validate,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+             enable_samples: Optional[pulumi.Input[bool]] = None,
+             escalation_message: Optional[pulumi.Input[str]] = None,
+             evaluation_delay: Optional[pulumi.Input[int]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             group_retention_duration: Optional[pulumi.Input[str]] = None,
+             groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
+             include_tags: Optional[pulumi.Input[bool]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
+             monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             new_group_delay: Optional[pulumi.Input[int]] = None,
+             new_host_delay: Optional[pulumi.Input[int]] = None,
+             no_data_timeframe: Optional[pulumi.Input[int]] = None,
+             notification_preset_name: Optional[pulumi.Input[str]] = None,
+             notify_audit: Optional[pulumi.Input[bool]] = None,
+             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_no_data: Optional[pulumi.Input[bool]] = None,
+             on_missing_data: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             renotify_interval: Optional[pulumi.Input[int]] = None,
+             renotify_occurrences: Optional[pulumi.Input[int]] = None,
+             renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_full_window: Optional[pulumi.Input[bool]] = None,
+             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeout_h: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_logs_sample is not None:
-            pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+            _setter("enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
-            pulumi.set(__self__, "enable_samples", enable_samples)
+            _setter("enable_samples", enable_samples)
         if escalation_message is not None:
-            pulumi.set(__self__, "escalation_message", escalation_message)
+            _setter("escalation_message", escalation_message)
         if evaluation_delay is not None:
-            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+            _setter("evaluation_delay", evaluation_delay)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if group_retention_duration is not None:
-            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
+            _setter("group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
-            pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+            _setter("groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
-            pulumi.set(__self__, "include_tags", include_tags)
+            _setter("include_tags", include_tags)
         if locked is not None:
             warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
             pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if monitor_threshold_windows is not None:
-            pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
+            _setter("monitor_threshold_windows", monitor_threshold_windows)
         if monitor_thresholds is not None:
-            pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
+            _setter("monitor_thresholds", monitor_thresholds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if new_group_delay is not None:
-            pulumi.set(__self__, "new_group_delay", new_group_delay)
+            _setter("new_group_delay", new_group_delay)
         if new_host_delay is not None:
             warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
             pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
-            pulumi.set(__self__, "new_host_delay", new_host_delay)
+            _setter("new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
-            pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+            _setter("no_data_timeframe", no_data_timeframe)
         if notification_preset_name is not None:
-            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
+            _setter("notification_preset_name", notification_preset_name)
         if notify_audit is not None:
-            pulumi.set(__self__, "notify_audit", notify_audit)
+            _setter("notify_audit", notify_audit)
         if notify_bies is not None:
-            pulumi.set(__self__, "notify_bies", notify_bies)
+            _setter("notify_bies", notify_bies)
         if notify_no_data is not None:
-            pulumi.set(__self__, "notify_no_data", notify_no_data)
+            _setter("notify_no_data", notify_no_data)
         if on_missing_data is not None:
-            pulumi.set(__self__, "on_missing_data", on_missing_data)
+            _setter("on_missing_data", on_missing_data)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if renotify_interval is not None:
-            pulumi.set(__self__, "renotify_interval", renotify_interval)
+            _setter("renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
-            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+            _setter("renotify_occurrences", renotify_occurrences)
         if renotify_statuses is not None:
-            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
+            _setter("renotify_statuses", renotify_statuses)
         if require_full_window is not None:
-            pulumi.set(__self__, "require_full_window", require_full_window)
+            _setter("require_full_window", require_full_window)
         if restricted_roles is not None:
-            pulumi.set(__self__, "restricted_roles", restricted_roles)
+            _setter("restricted_roles", restricted_roles)
         if scheduling_options is not None:
-            pulumi.set(__self__, "scheduling_options", scheduling_options)
+            _setter("scheduling_options", scheduling_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_h is not None:
-            pulumi.set(__self__, "timeout_h", timeout_h)
+            _setter("timeout_h", timeout_h)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="enableLogsSample")
@@ -984,7 +1114,7 @@ class _MonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Datadog monitor.
+        The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
 
@@ -1121,13 +1251,7 @@ class _MonitorState:
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        The events search string.
         """
         return pulumi.get(self, "query")
 
@@ -1369,7 +1493,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: Name of Datadog monitor.
+        :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -1393,13 +1517,7 @@ class Monitor(pulumi.CustomResource):
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        :param pulumi.Input[str] query: The events search string.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1469,6 +1587,10 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1523,22 +1645,26 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["group_retention_duration"] = group_retention_duration
             __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
             __props__.__dict__["include_tags"] = include_tags
-            if locked is not None and not opts.urn:
-                warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-                pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
             __props__.__dict__["locked"] = locked
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
+            if monitor_threshold_windows is not None and not isinstance(monitor_threshold_windows, MonitorMonitorThresholdWindowsArgs):
+                monitor_threshold_windows = monitor_threshold_windows or {}
+                def _setter(key, value):
+                    monitor_threshold_windows[key] = value
+                MonitorMonitorThresholdWindowsArgs._configure(_setter, **monitor_threshold_windows)
             __props__.__dict__["monitor_threshold_windows"] = monitor_threshold_windows
+            if monitor_thresholds is not None and not isinstance(monitor_thresholds, MonitorMonitorThresholdsArgs):
+                monitor_thresholds = monitor_thresholds or {}
+                def _setter(key, value):
+                    monitor_thresholds[key] = value
+                MonitorMonitorThresholdsArgs._configure(_setter, **monitor_thresholds)
             __props__.__dict__["monitor_thresholds"] = monitor_thresholds
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["new_group_delay"] = new_group_delay
-            if new_host_delay is not None and not opts.urn:
-                warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
-                pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
             __props__.__dict__["new_host_delay"] = new_host_delay
             __props__.__dict__["no_data_timeframe"] = no_data_timeframe
             __props__.__dict__["notification_preset_name"] = notification_preset_name
@@ -1562,6 +1688,11 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
+            if variables is not None and not isinstance(variables, MonitorVariablesArgs):
+                variables = variables or {}
+                def _setter(key, value):
+                    variables[key] = value
+                MonitorVariablesArgs._configure(_setter, **variables)
             __props__.__dict__["variables"] = variables
             __props__.__dict__["enable_samples"] = None
         super(Monitor, __self__).__init__(
@@ -1638,7 +1769,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: Name of Datadog monitor.
+        :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -1662,13 +1793,7 @@ class Monitor(pulumi.CustomResource):
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        :param pulumi.Input[str] query: The events search string.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1844,7 +1969,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of Datadog monitor.
+        The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
 
@@ -1941,13 +2066,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
         """
-        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        The events search string.
         """
         return pulumi.get(self, "query")
 

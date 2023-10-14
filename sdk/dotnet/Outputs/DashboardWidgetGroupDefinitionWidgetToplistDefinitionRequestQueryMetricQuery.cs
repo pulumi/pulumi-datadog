@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         public readonly string? Aggregator;
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         public readonly string? DataSource;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
         public readonly string Query;
 

@@ -17,33 +17,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery apmQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery processQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery rumQuery;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest() {}
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle> style() {
         return Optional.ofNullable(this.style);
     }

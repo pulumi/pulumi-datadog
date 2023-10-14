@@ -12,28 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// </summary>
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// The name of the index to query.
+        /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
         [Input("multiComputes")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiComputeGetArgs>? _multiComputes;
+
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiComputeGetArgs> MultiComputes
         {
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiComputeGetArgs>());
             set => _multiComputes = value;
         }
 
+        /// <summary>
+        /// The search query to use.
+        /// </summary>
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }
 

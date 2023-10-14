@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor {
+    /**
+     * @return List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     * 
+     */
     private List<LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory> categories;
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     private @Nullable Boolean isEnabled;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     private String target;
 
     private LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor() {}
+    /**
+     * @return List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     * 
+     */
     public List<LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory> categories() {
         return this.categories;
     }
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public String target() {
         return this.target;
     }

@@ -16,59 +16,107 @@ public final class DashboardWidgetAlertValueDefinitionArgs extends com.pulumi.re
 
     public static final DashboardWidgetAlertValueDefinitionArgs Empty = new DashboardWidgetAlertValueDefinitionArgs();
 
+    /**
+     * The ID of the monitor used by the widget.
+     * 
+     */
     @Import(name="alertId", required=true)
     private Output<String> alertId;
 
+    /**
+     * @return The ID of the monitor used by the widget.
+     * 
+     */
     public Output<String> alertId() {
         return this.alertId;
     }
 
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     @Import(name="precision")
     private @Nullable Output<Integer> precision;
 
+    /**
+     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     public Optional<Output<Integer>> precision() {
         return Optional.ofNullable(this.precision);
     }
 
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="textAlign")
     private @Nullable Output<String> textAlign;
 
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
 
+    /**
+     * The unit for the value displayed in the widget.
+     * 
+     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
+    /**
+     * @return The unit for the value displayed in the widget.
+     * 
+     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -103,35 +151,71 @@ public final class DashboardWidgetAlertValueDefinitionArgs extends com.pulumi.re
             $ = new DashboardWidgetAlertValueDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alertId The ID of the monitor used by the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertId(Output<String> alertId) {
             $.alertId = alertId;
             return this;
         }
 
+        /**
+         * @param alertId The ID of the monitor used by the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertId(String alertId) {
             return alertId(Output.of(alertId));
         }
 
+        /**
+         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * 
+         * @return builder
+         * 
+         */
         public Builder precision(@Nullable Output<Integer> precision) {
             $.precision = precision;
             return this;
         }
 
+        /**
+         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * 
+         * @return builder
+         * 
+         */
         public Builder precision(Integer precision) {
             return precision(Output.of(precision));
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(@Nullable Output<String> textAlign) {
             $.textAlign = textAlign;
             return this;
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(String textAlign) {
             return textAlign(Output.of(textAlign));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -142,7 +226,7 @@ public final class DashboardWidgetAlertValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -151,29 +235,65 @@ public final class DashboardWidgetAlertValueDefinitionArgs extends com.pulumi.re
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }
 
+        /**
+         * @param unit The unit for the value displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
+        /**
+         * @param unit The unit for the value displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

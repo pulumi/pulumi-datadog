@@ -12,24 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetScatterplotDefinitionRequestYArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The metric query to use for this widget.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs>? RumQuery { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget.
+        /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs>? SecurityQuery { get; set; }
 

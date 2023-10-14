@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetFreeTextDefinition {
+    /**
+     * @return The color of the text in the widget.
+     * 
+     */
     private @Nullable String color;
+    /**
+     * @return The size of the text in the widget.
+     * 
+     */
     private @Nullable String fontSize;
+    /**
+     * @return The text to display in the widget.
+     * 
+     */
     private String text;
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     private @Nullable String textAlign;
 
     private DashboardWidgetFreeTextDefinition() {}
+    /**
+     * @return The color of the text in the widget.
+     * 
+     */
     public Optional<String> color() {
         return Optional.ofNullable(this.color);
     }
+    /**
+     * @return The size of the text in the widget.
+     * 
+     */
     public Optional<String> fontSize() {
         return Optional.ofNullable(this.fontSize);
     }
+    /**
+     * @return The text to display in the widget.
+     * 
+     */
     public String text() {
         return this.text;
     }
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }

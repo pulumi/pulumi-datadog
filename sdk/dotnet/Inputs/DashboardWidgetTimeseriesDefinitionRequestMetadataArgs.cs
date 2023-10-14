@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionRequestMetadataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The expression alias.
+        /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
 
+        /// <summary>
+        /// The expression name.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

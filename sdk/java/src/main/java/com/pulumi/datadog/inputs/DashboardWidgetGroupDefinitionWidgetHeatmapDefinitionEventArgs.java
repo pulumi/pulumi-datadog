@@ -15,16 +15,32 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArg
 
     public static final DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArgs Empty = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArgs();
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q", required=true)
     private Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Output<String> q() {
         return this.q;
     }
 
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     * 
+     */
     @Import(name="tagsExecution")
     private @Nullable Output<String> tagsExecution;
 
+    /**
+     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * 
+     */
     public Optional<Output<String>> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
     }
@@ -54,20 +70,44 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArg
             $ = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param tagsExecution The execution method for multi-value filters, options: `and` or `or`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsExecution(@Nullable Output<String> tagsExecution) {
             $.tagsExecution = tagsExecution;
             return this;
         }
 
+        /**
+         * @param tagsExecution The execution method for multi-value filters, options: `and` or `or`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsExecution(String tagsExecution) {
             return tagsExecution(Output.of(tagsExecution));
         }

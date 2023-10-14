@@ -15,30 +15,62 @@ public final class DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs ex
 
     public static final DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs();
 
+    /**
+     * The color of the text in the widget.
+     * 
+     */
     @Import(name="color")
     private @Nullable Output<String> color;
 
+    /**
+     * @return The color of the text in the widget.
+     * 
+     */
     public Optional<Output<String>> color() {
         return Optional.ofNullable(this.color);
     }
 
+    /**
+     * The size of the text in the widget.
+     * 
+     */
     @Import(name="fontSize")
     private @Nullable Output<String> fontSize;
 
+    /**
+     * @return The size of the text in the widget.
+     * 
+     */
     public Optional<Output<String>> fontSize() {
         return Optional.ofNullable(this.fontSize);
     }
 
+    /**
+     * The text to display in the widget.
+     * 
+     */
     @Import(name="text", required=true)
     private Output<String> text;
 
+    /**
+     * @return The text to display in the widget.
+     * 
+     */
     public Output<String> text() {
         return this.text;
     }
 
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="textAlign")
     private @Nullable Output<String> textAlign;
 
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
@@ -70,38 +102,86 @@ public final class DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs ex
             $ = new DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param color The color of the text in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder color(@Nullable Output<String> color) {
             $.color = color;
             return this;
         }
 
+        /**
+         * @param color The color of the text in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder color(String color) {
             return color(Output.of(color));
         }
 
+        /**
+         * @param fontSize The size of the text in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fontSize(@Nullable Output<String> fontSize) {
             $.fontSize = fontSize;
             return this;
         }
 
+        /**
+         * @param fontSize The size of the text in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fontSize(String fontSize) {
             return fontSize(Output.of(fontSize));
         }
 
+        /**
+         * @param text The text to display in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(Output<String> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text The text to display in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(String text) {
             return text(Output.of(text));
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(@Nullable Output<String> textAlign) {
             $.textAlign = textAlign;
             return this;
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(String textAlign) {
             return textAlign(Output.of(textAlign));
         }

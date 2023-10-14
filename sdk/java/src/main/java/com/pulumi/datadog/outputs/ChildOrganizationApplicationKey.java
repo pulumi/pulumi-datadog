@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChildOrganizationApplicationKey {
     private @Nullable String hash;
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     private @Nullable String name;
     private @Nullable String owner;
 
@@ -23,10 +19,6 @@ public final class ChildOrganizationApplicationKey {
     public Optional<String> hash() {
         return Optional.ofNullable(this.hash);
     }
-    /**
-     * @return Name for Child Organization after creation.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

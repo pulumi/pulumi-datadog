@@ -14,17 +14,28 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("computes", required: true)]
         private InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs>? _computes;
+
+        /// <summary>
+        /// The compute options.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs> Computes
         {
             get => _computes ?? (_computes = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs>());
             set => _computes = value;
         }
 
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs>());
@@ -33,18 +44,31 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("indexes")]
         private InputList<string>? _indexes;
+
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public InputList<string> Indexes
         {
             get => _indexes ?? (_indexes = new InputList<string>());
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The search options.
+        /// </summary>
         [Input("search")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs>? Search { get; set; }
 
+        /// <summary>
+        /// Storage location (private beta).
+        /// </summary>
         [Input("storage")]
         public Input<string>? Storage { get; set; }
 

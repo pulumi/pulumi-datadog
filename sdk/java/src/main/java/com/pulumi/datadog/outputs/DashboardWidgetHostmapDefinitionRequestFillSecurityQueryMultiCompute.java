@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute {
+    /**
+     * @return The aggregation method.
+     * 
+     */
     private String aggregation;
+    /**
+     * @return The facet name.
+     * 
+     */
     private @Nullable String facet;
+    /**
+     * @return Define the time interval in seconds.
+     * 
+     */
     private @Nullable Integer interval;
 
     private DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute() {}
+    /**
+     * @return The aggregation method.
+     * 
+     */
     public String aggregation() {
         return this.aggregation;
     }
+    /**
+     * @return The facet name.
+     * 
+     */
     public Optional<String> facet() {
         return Optional.ofNullable(this.facet);
     }
+    /**
+     * @return Define the time interval in seconds.
+     * 
+     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }

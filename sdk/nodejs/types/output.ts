@@ -7,17 +7,11 @@ import * as outputs from "../types/output";
 
 export interface ChildOrganizationApiKey {
     key: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
 }
 
 export interface ChildOrganizationApplicationKey {
     hash: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
     owner: string;
 }
@@ -55,9 +49,6 @@ export interface ChildOrganizationSettingSamlStrictMode {
 export interface ChildOrganizationUser {
     accessRole: string;
     email: string;
-    /**
-     * Name for Child Organization after creation.
-     */
     name: string;
 }
 
@@ -125,9 +116,14 @@ export interface DashboardTemplateVariablePresetTemplateVariable {
      */
     name?: string;
     /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     *
      * @deprecated Use `values` instead.
      */
     value?: string;
+    /**
+     * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     */
     values?: string[];
 }
 
@@ -267,228 +263,621 @@ export interface DashboardWidget {
 }
 
 export interface DashboardWidgetAlertGraphDefinition {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     */
     vizType: string;
 }
 
 export interface DashboardWidgetAlertValueDefinition {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId: string;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
     precision?: number;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     unit?: string;
 }
 
 export interface DashboardWidgetChangeDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetChangeDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQuery;
+    /**
+     * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     */
     changeType?: string;
+    /**
+     * Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
+     */
     compareTo?: string;
     formulas?: outputs.DashboardWidgetChangeDefinitionRequestFormula[];
+    /**
+     * A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     */
     increaseGood?: boolean;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQuery;
+    /**
+     * What to order by. Valid values are `change`, `name`, `present`, `past`.
+     */
     orderBy?: string;
+    /**
+     * Widget sorting method. Valid values are `asc`, `desc`.
+     */
     orderDir?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetChangeDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetChangeDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery;
+    /**
+     * If set to `true`, displays the current value.
+     */
     showPresent?: boolean;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetChangeDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetChangeDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -497,480 +886,1266 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: string;
+    /**
+     * The check group to use in the widget.
+     */
     group?: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The kind of grouping to use. Valid values are `check`, `cluster`.
+     */
     grouping: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     * A list of tags to use in the widget.
      */
     tags?: string[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetDistributionDefinition {
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetDistributionDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn[];
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The organization's host group name and value.
+     */
     primaryTag: string;
+    /**
+     * The resource name.
+     */
     resource?: string;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
     rowType: string;
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetEventStreamDefinition {
+    /**
+     * The size to use to display an event. Valid values are `s`, `l`.
+     */
     eventSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     query: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetEventTimelineDefinition {
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     query: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * The text to display in the widget.
+     */
     text: string;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
 }
 
 export interface DashboardWidgetGeomapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGeomapDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGeomapDefinitionRequest[];
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGeomapDefinitionStyle;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The view of the world that the map should render.
+     */
     view: outputs.DashboardWidgetGeomapDefinitionView;
 }
 
 export interface DashboardWidgetGeomapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequest {
     formulas?: outputs.DashboardWidgetGeomapDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGeomapDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -979,89 +2154,215 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip: boolean;
 }
 
 export interface DashboardWidgetGeomapDefinitionView {
+    /**
+     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     */
     focus: string;
 }
 
 export interface DashboardWidgetGroupDefinition {
+    /**
+     * The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     */
     backgroundColor?: string;
+    /**
+     * The image URL to display as a banner for the group.
+     */
     bannerImg?: string;
     /**
-     * The layout type of the dashboard. Valid values are `ordered`, `free`.
+     * The layout type of the group. Valid values are `ordered`.
      */
     layoutType: string;
+    /**
+     * Whether to show the title or not.
+     */
     showTitle?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
     /**
-     * The list of widgets to display on the dashboard.
+     * The list of widgets in this group.
      */
     widgets?: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
@@ -1198,228 +2499,621 @@ export interface DashboardWidgetGroupDefinitionWidget {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     */
     vizType: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId: string;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
     precision?: number;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     unit?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery;
+    /**
+     * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     */
     changeType?: string;
+    /**
+     * Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
+     */
     compareTo?: string;
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula[];
+    /**
+     * A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     */
     increaseGood?: boolean;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery;
+    /**
+     * What to order by. Valid values are `change`, `name`, `present`, `past`.
+     */
     orderBy?: string;
+    /**
+     * Widget sorting method. Valid values are `asc`, `desc`.
+     */
     orderDir?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery;
+    /**
+     * If set to `true`, displays the current value.
+     */
     showPresent?: boolean;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -1428,480 +3122,1266 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: string;
+    /**
+     * The check group to use in the widget.
+     */
     group?: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The kind of grouping to use. Valid values are `check`, `cluster`.
+     */
     grouping: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
+     * A list of tags to use in the widget.
      */
     tags?: string[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn[];
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The organization's host group name and value.
+     */
     primaryTag: string;
+    /**
+     * The resource name.
+     */
     resource?: string;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
     rowType: string;
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
+    /**
+     * The size to use to display an event. Valid values are `s`, `l`.
+     */
     eventSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     query: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     query: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * The text to display in the widget.
+     */
     text: string;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest[];
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The view of the world that the map should render.
+     */
     view: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -1910,920 +4390,2441 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip: boolean;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView {
+    /**
+     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     */
     focus: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink[];
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
     events?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent[];
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
     q: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink[];
+    /**
+     * The check group to use in the widget.
+     */
     groups?: string[];
+    /**
+     * A Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: boolean;
+    /**
+     * A Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: boolean;
+    /**
+     * The type of node used. Valid values are `host`, `container`.
+     */
     nodeType?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: string[];
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest {
+    /**
+     * The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     fills?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill[];
+    /**
+     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     sizes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize[];
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
+    /**
+     * The max value to use to color the map.
+     */
     fillMax?: string;
+    /**
+     * The min value to use to color the map.
+     */
     fillMin?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: boolean;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      */
     url: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
+    /**
+     * Whether to display a background or not.
+     */
     hasBackground?: boolean;
+    /**
+     * Whether to display a border or not.
+     */
     hasBorder?: boolean;
+    /**
+     * The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     */
     horizontalAlign?: string;
+    /**
+     * The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     */
     margin?: string;
+    /**
+     * The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     */
     sizing?: string;
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      */
     url: string;
+    /**
+     * The URL in dark mode to use as a data source for the widget.
+     */
     urlDarkTheme?: string;
+    /**
+     * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     */
     verticalAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn[];
     query: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery;
+    /**
+     * Widget response format. Valid values are `eventList`.
+     */
     responseFormat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn {
+    /**
+     * Widget column field.
+     */
     field: string;
+    /**
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     */
     width: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * The size to use to display an event. Valid values are `s`, `l`.
+     */
     eventSize?: string;
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * Widget query.
+     */
     queryString?: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: string[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     */
     messageDisplay?: string;
     query?: string;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: boolean;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: boolean;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. Valid values are `background`, `text`.
+     */
     colorPreference?: string;
+    /**
+     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     */
     displayFormat?: string;
+    /**
+     * A Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: boolean;
     query: string;
+    /**
+     * A Boolean indicating whether to show when monitors/groups last triggered.
+     */
     showLastTriggered?: boolean;
+    /**
+     * Whether to show the priorities column.
+     */
     showPriority?: boolean;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     */
     summaryType?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
+    /**
+     * The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     */
     backgroundColor?: string;
+    /**
+     * The content of the note.
+     */
     content: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * Whether to add padding or not.
+     */
     hasPadding?: boolean;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: boolean;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
+    /**
+     * When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+     */
     tickEdge?: string;
+    /**
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
+     */
     tickPos?: string;
+    /**
+     * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     */
     verticalAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink[];
+    /**
+     * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
+     */
     hasSearchBar?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayModes?: string[];
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn[];
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The organization's host group name and value.
+     */
     primaryTag: string;
+    /**
+     * The resource name.
+     */
     resource?: string;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
     rowType: string;
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -2832,342 +6833,945 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
+    /**
+     * A Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: boolean;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink[];
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
     precision?: number;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
+    /**
+     * Set a timeseries on the widget background.
+     */
     timeseriesBackground?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -3176,161 +7780,422 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink[];
+    /**
+     * Array of workflow inputs to map to dashboard template variables.
+     */
     inputs?: outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * Workflow ID
+     */
     workflowId: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput {
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     */
     colorByGroups?: string[];
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
     xaxis?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    /**
+     * Scatterplot request containing formulas and functions.
+     */
     scatterplotTables?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable[];
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     xes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX[];
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     ys?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY[];
 }
 
@@ -3340,71 +8205,206 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     */
     dimension: string;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -3413,673 +8413,1789 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The global time target of the widget.
+     */
     globalTimeTarget?: string;
+    /**
+     * Whether to show the error budget or not.
+     */
     showErrorBudget?: boolean;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
+     */
     timeWindows: string[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The view mode for the widget. Valid values are `overall`, `component`, `both`.
+     */
     viewMode: string;
+    /**
+     * The type of view to use when displaying the widget. Only `detail` is supported.
+     */
     viewType: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink[];
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     */
     filters: string[];
+    /**
+     * APM service.
+     */
     service: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
     query: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery;
+    /**
+     * The request type for the SLO List request. Valid values are `sloList`.
+     */
     requestType: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery {
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * Widget query.
+     */
     queryString: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink[];
+    /**
+     * Whether or not to show the total value in the widget.
+     */
     hideTotal?: boolean;
+    /**
+     * Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     */
     legendInline?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline;
+    /**
+     * Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     */
     legendTable?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline {
+    /**
+     * Whether to hide the percentages of the groups.
+     */
     hidePercent?: boolean;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery;
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery;
+    /**
+     * The query to use for this widget.
+     */
     networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -4088,388 +10204,1057 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink[];
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
+    /**
+     * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     */
     legendColumns?: string[];
+    /**
+     * The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     */
     legendLayout?: string;
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
+     */
     markers?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker[];
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
+    /**
+     * A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
+     */
     rightYaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis;
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
     q: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
     displayType?: string;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery;
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
     displayType?: string;
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
+    /**
+     * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     */
     metadatas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata[];
+    /**
+     * The query to use for this widget.
+     */
     networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery;
+    /**
+     * A Boolean indicating whether the request uses the right or left Y-Axis.
+     */
     onRightYaxis?: boolean;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata {
+    /**
+     * The expression alias.
+     */
     aliasName?: string;
+    /**
+     * The expression name.
+     */
     expression: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -4478,359 +11263,986 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     */
     lineType?: string;
+    /**
+     * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     */
     lineWidth?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -4839,156 +12251,399 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink[];
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
     queries: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery[];
+    /**
+     * The request type for the SLO List request. Valid values are `sloList`.
+     */
     requestType: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     */
     filters: string[];
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     */
     displayFormat?: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * Whether to show the latency breakdown or not.
+     */
     showBreakdown?: boolean;
+    /**
+     * Whether to show the latency distribution or not.
+     */
     showDistribution?: boolean;
+    /**
+     * Whether to show the error metrics or not.
+     */
     showErrors?: boolean;
+    /**
+     * Whether to show the hits metrics or not
+     */
     showHits?: boolean;
+    /**
+     * Whether to show the latency metrics or not.
+     */
     showLatency?: boolean;
+    /**
+     * Whether to show the resource list or not.
+     */
     showResourceList?: boolean;
+    /**
+     * The size of the widget. Valid values are `small`, `medium`, `large`.
+     */
     sizeFormat?: string;
+    /**
+     * APM span name
+     */
     spanName: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
 }
@@ -4999,96 +12654,279 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -5097,887 +12935,2363 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: number;
+    /**
+     * Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     */
     isColumnBreak?: boolean;
+    /**
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     */
     width: number;
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     x: number;
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     y: number;
 }
 
 export interface DashboardWidgetHeatmapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetHeatmapDefinitionCustomLink[];
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
     events?: outputs.DashboardWidgetHeatmapDefinitionEvent[];
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetHeatmapDefinitionYaxis;
 }
 
 export interface DashboardWidgetHeatmapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
     q: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetHeatmapDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetHostmapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetHostmapDefinitionCustomLink[];
+    /**
+     * The check group to use in the widget.
+     */
     groups?: string[];
+    /**
+     * A Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: boolean;
+    /**
+     * A Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: boolean;
+    /**
+     * The type of node used. Valid values are `host`, `container`.
+     */
     nodeType?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request?: outputs.DashboardWidgetHostmapDefinitionRequest;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: string[];
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetHostmapDefinitionStyle;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequest {
+    /**
+     * The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     fills?: outputs.DashboardWidgetHostmapDefinitionRequestFill[];
+    /**
+     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     sizes?: outputs.DashboardWidgetHostmapDefinitionRequestSize[];
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFill {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSize {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionStyle {
+    /**
+     * The max value to use to color the map.
+     */
     fillMax?: string;
+    /**
+     * The min value to use to color the map.
+     */
     fillMin?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: boolean;
 }
 
 export interface DashboardWidgetIframeDefinition {
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      */
     url: string;
 }
 
 export interface DashboardWidgetImageDefinition {
+    /**
+     * Whether to display a background or not.
+     */
     hasBackground?: boolean;
+    /**
+     * Whether to display a border or not.
+     */
     hasBorder?: boolean;
+    /**
+     * The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
+     */
     horizontalAlign?: string;
+    /**
+     * The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
+     */
     margin?: string;
+    /**
+     * The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
+     */
     sizing?: string;
     /**
-     * The URL of the dashboard.
+     * The URL to use as a data source for the widget.
      */
     url: string;
+    /**
+     * The URL in dark mode to use as a data source for the widget.
+     */
     urlDarkTheme?: string;
+    /**
+     * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     */
     verticalAlign?: string;
 }
 
 export interface DashboardWidgetListStreamDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests: outputs.DashboardWidgetListStreamDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequest {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns: outputs.DashboardWidgetListStreamDefinitionRequestColumn[];
     query: outputs.DashboardWidgetListStreamDefinitionRequestQuery;
+    /**
+     * Widget response format. Valid values are `eventList`.
+     */
     responseFormat: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestColumn {
+    /**
+     * Widget column field.
+     */
     field: string;
+    /**
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     */
     width: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * The size to use to display an event. Valid values are `s`, `l`.
+     */
     eventSize?: string;
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * Widget query.
+     */
     queryString?: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetListStreamDefinitionRequestQuerySort;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: string[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     */
     messageDisplay?: string;
     query?: string;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: boolean;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: boolean;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetLogStreamDefinitionSort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. Valid values are `background`, `text`.
+     */
     colorPreference?: string;
+    /**
+     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     */
     displayFormat?: string;
+    /**
+     * A Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: boolean;
     query: string;
+    /**
+     * A Boolean indicating whether to show when monitors/groups last triggered.
+     */
     showLastTriggered?: boolean;
+    /**
+     * Whether to show the priorities column.
+     */
     showPriority?: boolean;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * The summary type to use. Valid values are `monitors`, `groups`, `combined`.
+     */
     summaryType?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetNoteDefinition {
+    /**
+     * The background color of the group title, options: `vividBlue`, `vividPurple`, `vividPink`, `vividOrange`, `vividYellow`, `vividGreen`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     */
     backgroundColor?: string;
+    /**
+     * The content of the note.
+     */
     content: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * Whether to add padding or not.
+     */
     hasPadding?: boolean;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: boolean;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
+    /**
+     * When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
+     */
     tickEdge?: string;
+    /**
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
+     */
     tickPos?: string;
+    /**
+     * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
+     */
     verticalAlign?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetQueryTableDefinitionCustomLink[];
+    /**
+     * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
+     */
     hasSearchBar?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayModes?: string[];
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetQueryTableDefinitionRequestFormula[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetQueryTableDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
     columns?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn[];
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The organization's host group name and value.
+     */
     primaryTag: string;
+    /**
+     * The resource name.
+     */
     resource?: string;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
     rowType: string;
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -5986,342 +15300,945 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
+    /**
+     * A Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: boolean;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetQueryValueDefinitionCustomLink[];
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
     precision?: number;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
     textAlign?: string;
+    /**
+     * Set a timeseries on the widget background.
+     */
     timeseriesBackground?: outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetQueryValueDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetQueryValueDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -6330,161 +16247,422 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionTimeseriesBackground {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis;
 }
 
 export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetRunWorkflowDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetRunWorkflowDefinitionCustomLink[];
+    /**
+     * Array of workflow inputs to map to dashboard template variables.
+     */
     inputs?: outputs.DashboardWidgetRunWorkflowDefinitionInput[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * Workflow ID
+     */
     workflowId: string;
 }
 
 export interface DashboardWidgetRunWorkflowDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetRunWorkflowDefinitionInput {
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: string;
 }
 
 export interface DashboardWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     */
     colorByGroups?: string[];
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
     xaxis?: outputs.DashboardWidgetScatterplotDefinitionXaxis;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetScatterplotDefinitionYaxis;
 }
 
 export interface DashboardWidgetScatterplotDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
+    /**
+     * Scatterplot request containing formulas and functions.
+     */
     scatterplotTables?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTable[];
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     xes?: outputs.DashboardWidgetScatterplotDefinitionRequestX[];
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     ys?: outputs.DashboardWidgetScatterplotDefinitionRequestY[];
 }
 
@@ -6494,71 +16672,206 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     */
     dimension: string;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -6567,673 +16880,1789 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The global time target of the widget.
+     */
     globalTimeTarget?: string;
+    /**
+     * Whether to show the error budget or not.
+     */
     showErrorBudget?: boolean;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
+     */
     timeWindows: string[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * The view mode for the widget. Valid values are `overall`, `component`, `both`.
+     */
     viewMode: string;
+    /**
+     * The type of view to use when displaying the widget. Only `detail` is supported.
+     */
     viewType: string;
 }
 
 export interface DashboardWidgetServicemapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetServicemapDefinitionCustomLink[];
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     */
     filters: string[];
+    /**
+     * APM service.
+     */
     service: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetServicemapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetSloListDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     request: outputs.DashboardWidgetSloListDefinitionRequest;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetSloListDefinitionRequest {
     query: outputs.DashboardWidgetSloListDefinitionRequestQuery;
+    /**
+     * The request type for the SLO List request. Valid values are `sloList`.
+     */
     requestType: string;
 }
 
 export interface DashboardWidgetSloListDefinitionRequestQuery {
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * Widget query.
+     */
     queryString: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetSloListDefinitionRequestQuerySort;
 }
 
 export interface DashboardWidgetSloListDefinitionRequestQuerySort {
+    /**
+     * The facet path for the column.
+     */
     column: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetSunburstDefinitionCustomLink[];
+    /**
+     * Whether or not to show the total value in the widget.
+     */
     hideTotal?: boolean;
+    /**
+     * Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     */
     legendInline?: outputs.DashboardWidgetSunburstDefinitionLegendInline;
+    /**
+     * Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     */
     legendTable?: outputs.DashboardWidgetSunburstDefinitionLegendTable;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetSunburstDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionLegendInline {
+    /**
+     * Whether to hide the percentages of the groups.
+     */
     hidePercent?: boolean;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionLegendTable {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
     type: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery;
     formulas?: outputs.DashboardWidgetSunburstDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQuery;
+    /**
+     * The query to use for this widget.
+     */
     networkQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetSunburstDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetSunburstDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetSunburstDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetSunburstDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -7242,388 +18671,1057 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetTimeseriesDefinitionCustomLink[];
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
+    /**
+     * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     */
     legendColumns?: string[];
+    /**
+     * The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     */
     legendLayout?: string;
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
+     */
     markers?: outputs.DashboardWidgetTimeseriesDefinitionMarker[];
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
+    /**
+     * A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
+     */
     rightYaxis?: outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
+    /**
+     * Whether or not to show the legend on this widget.
+     */
     showLegend?: boolean;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
     yaxis?: outputs.DashboardWidgetTimeseriesDefinitionYaxis;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
     q: string;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
     tagsExecution?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
     displayType?: string;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery;
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
     displayType?: string;
     formulas?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
+    /**
+     * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     */
     metadatas?: outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata[];
+    /**
+     * The query to use for this widget.
+     */
     networkQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
+    /**
+     * A Boolean indicating whether the request uses the right or left Y-Axis.
+     */
     onRightYaxis?: boolean;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetTimeseriesDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
+    /**
+     * The expression alias.
+     */
     aliasName?: string;
+    /**
+     * The expression name.
+     */
     expression: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -7632,359 +19730,986 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     */
     lineType?: string;
+    /**
+     * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     */
     lineWidth?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRightYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
     min?: string;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetToplistDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetToplistDefinitionCustomLink[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
     apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
+    /**
+     * The query to use for this widget.
+     */
     auditQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetToplistDefinitionRequestFormula[];
+    /**
+     * The query to use for this widget.
+     */
     logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
+    /**
+     * The metric query to use for this widget.
+     */
     q?: string;
     queries?: outputs.DashboardWidgetToplistDefinitionRequestQuery[];
+    /**
+     * The query to use for this widget.
+     */
     rumQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQuery;
+    /**
+     * The query to use for this widget.
+     */
     securityQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetToplistDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
     filterBies?: string[];
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * Your chosen search term.
+     */
     searchBy?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetToplistDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -7993,156 +20718,399 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
     computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy[];
+    /**
+     * The name of the index to query.
+     */
     index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
     searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
     sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The facet name.
+     */
     facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetTopologyMapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
     customLinks?: outputs.DashboardWidgetTopologyMapDefinitionCustomLink[];
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetTopologyMapDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetTopologyMapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
     isHidden?: boolean;
+    /**
+     * The label for the custom link URL.
+     */
     label?: string;
+    /**
+     * The URL of the custom link.
+     */
     link?: string;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
     overrideLabel?: string;
 }
 
 export interface DashboardWidgetTopologyMapDefinitionRequest {
     queries: outputs.DashboardWidgetTopologyMapDefinitionRequestQuery[];
+    /**
+     * The request type for the SLO List request. Valid values are `sloList`.
+     */
     requestType: string;
 }
 
 export interface DashboardWidgetTopologyMapDefinitionRequestQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Your environment and primary tag (or `*` if enabled for your account).
+     */
     filters: string[];
+    /**
+     * APM service.
+     */
     service: string;
 }
 
 export interface DashboardWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     */
     displayFormat?: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
     liveSpan?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * Whether to show the latency breakdown or not.
+     */
     showBreakdown?: boolean;
+    /**
+     * Whether to show the latency distribution or not.
+     */
     showDistribution?: boolean;
+    /**
+     * Whether to show the error metrics or not.
+     */
     showErrors?: boolean;
+    /**
+     * Whether to show the hits metrics or not
+     */
     showHits?: boolean;
+    /**
+     * Whether to show the latency metrics or not.
+     */
     showLatency?: boolean;
+    /**
+     * Whether to show the resource list or not.
+     */
     showResourceList?: boolean;
+    /**
+     * The size of the widget. Valid values are `small`, `medium`, `large`.
+     */
     sizeFormat?: string;
+    /**
+     * APM span name
+     */
     spanName: string;
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
     titleSize?: string;
 }
 
 export interface DashboardWidgetTreemapDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
     requests?: outputs.DashboardWidgetTreemapDefinitionRequest[];
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      */
     title?: string;
 }
@@ -8153,96 +21121,279 @@ export interface DashboardWidgetTreemapDefinitionRequest {
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
     alias?: string;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
     cellDisplayMode?: string;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
     conditionalFormats?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat[];
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
     formulaExpression: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaLimit;
+    /**
+     * Styling options for widget formulas.
+     */
     style?: outputs.DashboardWidgetTreemapDefinitionRequestFormulaStyle;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
     comparator: string;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
+    /**
+     * Setting this to True hides values.
+     */
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     */
     imageUrl?: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette: string;
+    /**
+     * Defines the displayed timeframe.
+     */
     timeframe?: string;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
     value: number;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return
+     */
     count?: number;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
     palette?: string;
+    /**
+     * Index specifying which color to use within the palette.
+     */
     paletteIndex?: number;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
     apmDependencyStatsQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
     apmResourceStatsQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery;
+    /**
+     * A timeseries formula and functions events query.
+     */
     eventQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuery;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
     metricQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryMetricQuery;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery;
+    /**
+     * The slo query using formulas and functions.
+     */
     sloQuery?: outputs.DashboardWidgetTreemapDefinitionRequestQuerySloQuery;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
     isUpstream?: boolean;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * APM Environment.
+     */
     env: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * Name of operation on service.
+     */
     operationName?: string;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
     primaryTagName?: string;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
     primaryTagValue?: string;
+    /**
+     * APM resource.
+     */
     resourceName?: string;
+    /**
+     * APM service.
+     */
     service: string;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
     stat: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
     groupBies?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+    /**
+     * Storage location (private beta).
+     */
     storage?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * Define the time interval in seconds.
+     */
     interval?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
     facet: string;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
     aggregation: string;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric?: string;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
@@ -8251,39 +21402,111 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
     query: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
     aggregator?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
     isNormalizedCpu?: boolean;
+    /**
+     * The maximum number of items in the group.
+     */
     limit?: number;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
     metric: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: string;
+    /**
+     * An array of tags to filter by.
+     */
     tagFilters?: string[];
+    /**
+     * The text to use as a filter.
+     */
     textFilter?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
     additionalQueryFilters?: string;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
     dataSource: string;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`.
+     */
     groupMode?: string;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
     measure: string;
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * ID of an SLO to query.
+     */
     sloId: string;
+    /**
+     * type of the SLO to query. Valid values are `metric`.
+     */
     sloQueryType?: string;
 }
 
 export interface DashboardWidgetWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: number;
+    /**
+     * Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     */
     isColumnBreak?: boolean;
+    /**
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     */
     width: number;
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     x: number;
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
     y: number;
 }
 
@@ -8345,8 +21568,17 @@ export interface DowntimeScheduleRecurringSchedule {
 }
 
 export interface DowntimeScheduleRecurringScheduleRecurrence {
+    /**
+     * The length of the downtime. Must begin with an integer and end with one of 'm', 'h', d', or 'w'.
+     */
     duration: string;
+    /**
+     * The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api).
+     */
     rrule: string;
+    /**
+     * ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     */
     start: string;
 }
 
@@ -8354,9 +21586,6 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     description: string;
     enabled: boolean;
     expression: string;
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
 }
@@ -8366,9 +21595,6 @@ export interface GetHostsHostList {
     apps: string[];
     awsName: string;
     hostName: string;
-    /**
-     * The ID of this resource.
-     */
     id: number;
     isMuted: boolean;
     lastReportedTime: number;
@@ -8423,14 +21649,8 @@ export interface GetLogsIndexesLogsIndexFilter {
 
 export interface GetLogsPipelinesLogsPipeline {
     filters: outputs.GetLogsPipelinesLogsPipelineFilter[];
-    /**
-     * The ID of this resource.
-     */
     id: string;
     isEnabled: boolean;
-    /**
-     * Filter parameter for retrieved pipelines
-     */
     isReadOnly: boolean;
     name: string;
     type: string;
@@ -8441,9 +21661,6 @@ export interface GetLogsPipelinesLogsPipelineFilter {
 }
 
 export interface GetMonitorConfigPoliciesMonitorConfigPolicy {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     policyType: string;
     tagPolicy: outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
@@ -8480,18 +21697,12 @@ export interface GetMonitorSchedulingOptionEvaluationWindow {
 }
 
 export interface GetMonitorsMonitor {
-    /**
-     * The ID of this resource.
-     */
     id: number;
     name: string;
     type: string;
 }
 
 export interface GetRolesRole {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
     userCount: number;
@@ -8595,23 +21806,14 @@ export interface GetServiceLevelObjectiveQuery {
 }
 
 export interface GetServiceLevelObjectivesSlo {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     name: string;
     type: string;
 }
 
 export interface GetTeamMembershipsTeamMembership {
-    /**
-     * The ID of this resource.
-     */
     id: string;
     role: string;
-    /**
-     * The team's identifier.
-     */
     teamId: string;
     userId: string;
 }
@@ -8757,34 +21959,91 @@ export interface LogsCustomPipelineProcessor {
 }
 
 export interface LogsCustomPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
     expression: string;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
     isReplaceMissing?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorAttributeRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Override the target element if already set.
+     */
     overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
     preserveSource?: boolean;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`).
+     */
     sourceType: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
     targetFormat?: string;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
     targetType: string;
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
     categories: outputs.LogsCustomPipelineProcessorCategoryProcessorCategory[];
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
     filter: outputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilter;
+    /**
+     * Your pipeline name.
+     */
     name: string;
 }
 
@@ -8796,49 +22055,121 @@ export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
 }
 
 export interface LogsCustomPipelineProcessorDateRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorGeoIpParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorGrokParser {
     grok: outputs.LogsCustomPipelineProcessorGrokParserGrok;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
     samples?: string[];
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
 }
 
 export interface LogsCustomPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
     matchRules: string;
+    /**
+     * Support rules for your grok parser.
+     */
     supportRules: string;
 }
 
 export interface LogsCustomPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
     defaultLookup?: string;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * List of entries of the lookup table using `key,value` format.
+     */
     lookupTables: string[];
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorMessageRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipeline {
     filters: outputs.LogsCustomPipelineProcessorPipelineFilter[];
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name: string;
     processors?: outputs.LogsCustomPipelineProcessorPipelineProcessor[];
 }
@@ -8914,34 +22245,91 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
     expression: string;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
     isReplaceMissing?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Override the target element if already set.
+     */
     overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
     preserveSource?: boolean;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`).
+     */
     sourceType: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
+    /**
+     * If the `targetType` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `targetType` is `tag`, this parameter may not be specified.
+     */
     targetFormat?: string;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
     targetType: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
     categories: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory[];
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory {
     filter: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter;
+    /**
+     * Your pipeline name.
+     */
     name: string;
 }
 
@@ -8953,150 +22341,387 @@ export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCa
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
     grok: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
     samples?: string[];
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
     matchRules: string;
+    /**
+     * Support rules for your grok parser.
+     */
     supportRules: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
     defaultLookup?: string;
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * List of entries of the lookup table using `key,value` format.
+     */
     lookupTables: string[];
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Name of the Reference Table for the source attribute and their associated target attribute values.
+     */
     lookupEnrichmentTable: string;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
     isReplaceMissing?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
     template: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorUrlParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Normalize the ending slashes or not.
+     */
     normalizeEndingSlashes?: boolean;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
     isEncoded?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Name of the Reference Table for the source attribute and their associated target attribute values.
+     */
     lookupEnrichmentTable: string;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the log attribute to parse.
+     */
     source: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorServiceRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorStatusRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorStringBuilderProcessor {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
     isReplaceMissing?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
     template: string;
 }
 
 export interface LogsCustomPipelineProcessorTraceIdRemapper {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
 }
 
 export interface LogsCustomPipelineProcessorUrlParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * Normalize the ending slashes or not.
+     */
     normalizeEndingSlashes?: boolean;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsCustomPipelineProcessorUserAgentParser {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     isEnabled?: boolean;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
     isEncoded?: boolean;
+    /**
+     * Your pipeline name.
+     */
     name?: string;
+    /**
+     * List of source attributes or tags.
+     */
     sources: string[];
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     */
     target: string;
 }
 
 export interface LogsIndexExclusionFilter {
-    /**
-     * Logs filter
-     */
     filters?: outputs.LogsIndexExclusionFilterFilter[];
     /**
      * A boolean stating if the exclusion is active or not.
@@ -9113,6 +22738,9 @@ export interface LogsIndexExclusionFilterFilter {
      * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
      */
     query?: string;
+    /**
+     * The fraction of logs excluded by the exclusion filter, when active.
+     */
     sampleRate?: number;
 }
 
@@ -9228,8 +22856,17 @@ export interface MonitorSchedulingOption {
 }
 
 export interface MonitorSchedulingOptionEvaluationWindow {
+    /**
+     * The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     */
     dayStarts?: string;
+    /**
+     * The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     */
     hourStarts?: number;
+    /**
+     * The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     */
     monthStarts?: number;
 }
 
@@ -9241,33 +22878,81 @@ export interface MonitorVariables {
 }
 
 export interface MonitorVariablesEventQuery {
+    /**
+     * The compute options.
+     */
     computes: outputs.MonitorVariablesEventQueryCompute[];
+    /**
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
+     */
     dataSource: string;
+    /**
+     * Group by options.
+     */
     groupBies?: outputs.MonitorVariablesEventQueryGroupBy[];
+    /**
+     * An array of index names to query in the stream.
+     */
     indexes?: string[];
+    /**
+     * The name of query for use in formulas.
+     */
     name: string;
+    /**
+     * The search options.
+     */
     search: outputs.MonitorVariablesEventQuerySearch;
 }
 
 export interface MonitorVariablesEventQueryCompute {
+    /**
+     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
     aggregation: string;
+    /**
+     * A time interval in milliseconds.
+     */
     interval?: number;
+    /**
+     * The measurable attribute to compute.
+     */
     metric?: string;
 }
 
 export interface MonitorVariablesEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
     facet: string;
+    /**
+     * The number of groups to return.
+     */
     limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
     sort?: outputs.MonitorVariablesEventQueryGroupBySort;
 }
 
 export interface MonitorVariablesEventQueryGroupBySort {
+    /**
+     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
     aggregation: string;
+    /**
+     * The measurable attribute to compute.
+     */
     metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
     order?: string;
 }
 
 export interface MonitorVariablesEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -9315,19 +23000,34 @@ export interface OrganizationSettingsSettings {
 }
 
 export interface OrganizationSettingsSettingsSaml {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled?: boolean;
 }
 
 export interface OrganizationSettingsSettingsSamlAutocreateUsersDomains {
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     domains?: string[];
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled?: boolean;
 }
 
 export interface OrganizationSettingsSettingsSamlIdpInitiatedLogin {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled?: boolean;
 }
 
 export interface OrganizationSettingsSettingsSamlStrictMode {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled?: boolean;
 }
 
@@ -9455,13 +23155,28 @@ export interface SecurityMonitoringRuleOptions {
 }
 
 export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
+    /**
+     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     */
     baselineUserLocations?: boolean;
 }
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
+    /**
+     * The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     */
     forgetAfter: number;
+    /**
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     */
     learningDuration?: number;
+    /**
+     * The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
+     */
     learningMethod?: string;
+    /**
+     * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
+     */
     learningThreshold?: number;
 }
 
@@ -9505,7 +23220,13 @@ export interface SecurityMonitoringRuleQuery {
 }
 
 export interface SecurityMonitoringRuleQueryAgentRule {
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
     agentRuleId: string;
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
     expression: string;
 }
 
@@ -9633,7 +23354,13 @@ export interface SyntheticsGlobalVariableOptions {
 }
 
 export interface SyntheticsGlobalVariableOptionsTotpParameters {
+    /**
+     * Number of digits for the OTP.
+     */
     digits: number;
+    /**
+     * Interval for which to refresh the token (in seconds).
+     */
     refreshInterval: number;
 }
 
@@ -9654,9 +23381,12 @@ export interface SyntheticsGlobalVariableParseTestOptions {
 }
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
+    /**
+     * Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+     */
     type: string;
     /**
-     * The value of the global variable.
+     * Value for the parser to use, required for type `jsonPath` or `regex`.
      */
     value?: string;
 }
@@ -9748,36 +23478,60 @@ export interface SyntheticsTestApiStepAssertion {
 }
 
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
+    /**
+     * The JSON path to assert.
+     */
     jsonpath: string;
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * Expected matching value.
+     */
     targetvalue?: string;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * Expected matching value.
+     */
     targetvalue?: string;
+    /**
+     * The xpath to assert.
+     */
     xpath: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValue {
-    field?: string;
     /**
-     * Name of Datadog synthetics test.
+     * When type is `httpHeader`, name of the header to use to extract the value.
      */
+    field?: string;
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
+    /**
+     * Determines whether or not the extracted value will be obfuscated.
+     */
     secure?: boolean;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type: string;
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     */
     value?: string;
 }
 
@@ -9858,16 +23612,31 @@ export interface SyntheticsTestApiStepRequestClientCertificate {
 }
 
 export interface SyntheticsTestApiStepRequestClientCertificateCert {
+    /**
+     * Content of the certificate.
+     */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
 export interface SyntheticsTestApiStepRequestClientCertificateKey {
+    /**
+     * Content of the certificate.
+     */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
 export interface SyntheticsTestApiStepRequestDefinition {
+    /**
+     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     */
     allowInsecure?: boolean;
     /**
      * The request body.
@@ -9893,6 +23662,9 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: number;
+    /**
+     * Determines whether or not the API HTTP test should follow redirects.
+     */
     followRedirects?: boolean;
     /**
      * Host name to perform the test with.
@@ -9956,7 +23728,13 @@ export interface SyntheticsTestApiStepRequestProxy {
 }
 
 export interface SyntheticsTestApiStepRetry {
+    /**
+     * Number of retries needed to consider a location as failed before sending a notification alert.
+     */
     count?: number;
+    /**
+     * Interval between a failed test and the next retry in milliseconds.
+     */
     interval?: number;
 }
 
@@ -9988,14 +23766,32 @@ export interface SyntheticsTestAssertion {
 }
 
 export interface SyntheticsTestAssertionTargetjsonpath {
+    /**
+     * The JSON path to assert.
+     */
     jsonpath: string;
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * Expected matching value.
+     */
     targetvalue?: string;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     */
     operator: string;
+    /**
+     * Expected matching value.
+     */
     targetvalue?: string;
+    /**
+     * The xpath to assert.
+     */
     xpath: string;
 }
 
@@ -10035,45 +23831,108 @@ export interface SyntheticsTestBrowserStep {
 }
 
 export interface SyntheticsTestBrowserStepParams {
+    /**
+     * Name of the attribute to use for an "assert attribute" step.
+     */
     attribute?: string;
+    /**
+     * Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     */
     check?: string;
+    /**
+     * Type of click to use for a "click" step.
+     */
     clickType?: string;
+    /**
+     * Javascript code to use for the step.
+     */
     code?: string;
+    /**
+     * Delay between each key stroke for a "type test" step.
+     */
     delay?: number;
+    /**
+     * Element to use for the step, json encoded string.
+     */
     element?: string;
+    /**
+     * Custom user selector to use for the step.
+     */
     elementUserLocator?: outputs.SyntheticsTestBrowserStepParamsElementUserLocator;
+    /**
+     * Details of the email for an "assert email" step.
+     */
     email?: string;
+    /**
+     * For an "assert download" step.
+     */
     file?: string;
+    /**
+     * Details of the files for an "upload files" step, json encoded string.
+     */
     files?: string;
+    /**
+     * Modifier to use for a "press key" step.
+     */
     modifiers?: string[];
+    /**
+     * ID of the tab to play the subtest.
+     */
     playingTabId?: string;
+    /**
+     * Request for an API step.
+     */
     request?: string;
+    /**
+     * ID of the Synthetics test to use as subtest.
+     */
     subtestPublicId?: string;
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     */
     value?: string;
+    /**
+     * Details of the variable to extract.
+     */
     variable?: outputs.SyntheticsTestBrowserStepParamsVariable;
+    /**
+     * For "file upload" steps.
+     */
     withClick?: boolean;
+    /**
+     * X coordinates for a "scroll step".
+     */
     x?: number;
+    /**
+     * Y coordinates for a "scroll step".
+     */
     y?: number;
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocator {
     failTestOnCannotLocate?: boolean;
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     */
     value: outputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue;
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
     /**
-     * Synthetics test type. Valid values are `api`, `browser`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
     type?: string;
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     */
     value: string;
 }
 
 export interface SyntheticsTestBrowserStepParamsVariable {
-    example?: string;
     /**
-     * Name of Datadog synthetics test.
+     * Example of the extracted variable.
      */
+    example?: string;
     name?: string;
 }
 
@@ -10204,32 +24063,68 @@ export interface SyntheticsTestOptionsList {
 }
 
 export interface SyntheticsTestOptionsListCi {
+    /**
+     * Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+     */
     executionRule?: string;
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
+    /**
+     * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
+     */
     renotifyInterval?: number;
 }
 
 export interface SyntheticsTestOptionsListRetry {
+    /**
+     * Number of retries needed to consider a location as failed before sending a notification alert.
+     */
     count?: number;
+    /**
+     * Interval between a failed test and the next retry in milliseconds.
+     */
     interval?: number;
 }
 
 export interface SyntheticsTestOptionsListRumSettings {
+    /**
+     * RUM application ID used to collect RUM data for the browser test.
+     */
     applicationId?: string;
+    /**
+     * RUM application API key ID used to collect RUM data for the browser test.
+     */
     clientTokenId?: number;
+    /**
+     * Determines whether RUM data is collected during test runs.
+     */
     isEnabled: boolean;
 }
 
 export interface SyntheticsTestOptionsListScheduling {
+    /**
+     * Array containing objects describing the scheduling pattern to apply to each day.
+     */
     timeframes: outputs.SyntheticsTestOptionsListSchedulingTimeframe[];
+    /**
+     * Timezone in which the timeframe is based.
+     */
     timezone: string;
 }
 
 export interface SyntheticsTestOptionsListSchedulingTimeframe {
+    /**
+     * Number representing the day of the week
+     */
     day: number;
+    /**
+     * The hour of the day on which scheduling starts.
+     */
     from: string;
+    /**
+     * The hour of the day on which scheduling ends.
+     */
     to: string;
 }
 
@@ -10310,12 +24205,24 @@ export interface SyntheticsTestRequestClientCertificate {
 }
 
 export interface SyntheticsTestRequestClientCertificateCert {
+    /**
+     * Content of the certificate.
+     */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
 export interface SyntheticsTestRequestClientCertificateKey {
+    /**
+     * Content of the certificate.
+     */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
@@ -10407,9 +24314,6 @@ export interface SyntheticsTestRequestProxy {
 
 export namespace aws {
     export interface GetIntegrationLogsServicesAwsLogsService {
-        /**
-         * The ID of this resource.
-         */
         id: string;
         label: string;
     }

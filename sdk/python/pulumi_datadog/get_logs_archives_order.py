@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetLogsArchivesOrderResult',
     'AwaitableGetLogsArchivesOrderResult',
     'get_logs_archives_order',
+    'get_logs_archives_order_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,11 @@ def get_logs_archives_order(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     return AwaitableGetLogsArchivesOrderResult(
         archive_ids=pulumi.get(__ret__, 'archive_ids'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_logs_archives_order)
+def get_logs_archives_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsArchivesOrderResult]:
+    """
+    Get the current order of your logs archives.
+    """
+    ...

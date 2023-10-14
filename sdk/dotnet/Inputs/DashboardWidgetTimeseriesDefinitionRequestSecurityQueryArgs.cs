@@ -12,28 +12,45 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. The map keys are listed below.
+        /// </summary>
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// The name of the index to query.
+        /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
         [Input("multiComputes")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs>? _multiComputes;
+
+        /// <summary>
+        /// `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs> MultiComputes
         {
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs>());
             set => _multiComputes = value;
         }
 
+        /// <summary>
+        /// The search query to use.
+        /// </summary>
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }
 

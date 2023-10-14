@@ -18,30 +18,62 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
 
     public static final DashboardWidgetLogStreamDefinitionArgs Empty = new DashboardWidgetLogStreamDefinitionArgs();
 
+    /**
+     * Column properties used by the front end for display.
+     * 
+     */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
+    /**
+     * @return Column properties used by the front end for display.
+     * 
+     */
     public Optional<Output<List<String>>> columns() {
         return Optional.ofNullable(this.columns);
     }
 
+    /**
+     * An array of index names to query in the stream.
+     * 
+     */
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
+    /**
+     * @return An array of index names to query in the stream.
+     * 
+     */
     public Optional<Output<List<String>>> indexes() {
         return Optional.ofNullable(this.indexes);
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     * 
+     */
     @Import(name="messageDisplay")
     private @Nullable Output<String> messageDisplay;
 
+    /**
+     * @return The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+     * 
+     */
     public Optional<Output<String>> messageDisplay() {
         return Optional.ofNullable(this.messageDisplay);
     }
@@ -53,52 +85,92 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         return Optional.ofNullable(this.query);
     }
 
+    /**
+     * If the date column should be displayed.
+     * 
+     */
     @Import(name="showDateColumn")
     private @Nullable Output<Boolean> showDateColumn;
 
+    /**
+     * @return If the date column should be displayed.
+     * 
+     */
     public Optional<Output<Boolean>> showDateColumn() {
         return Optional.ofNullable(this.showDateColumn);
     }
 
+    /**
+     * If the message column should be displayed.
+     * 
+     */
     @Import(name="showMessageColumn")
     private @Nullable Output<Boolean> showMessageColumn;
 
+    /**
+     * @return If the message column should be displayed.
+     * 
+     */
     public Optional<Output<Boolean>> showMessageColumn() {
         return Optional.ofNullable(this.showMessageColumn);
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetLogStreamDefinitionSortArgs> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<DashboardWidgetLogStreamDefinitionSortArgs>> sort() {
         return Optional.ofNullable(this.sort);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -137,46 +209,106 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
             $ = new DashboardWidgetLogStreamDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(@Nullable Output<List<String>> columns) {
             $.columns = columns;
             return this;
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(List<String> columns) {
             return columns(Output.of(columns));
         }
 
+        /**
+         * @param columns Column properties used by the front end for display.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(@Nullable Output<List<String>> indexes) {
             $.indexes = indexes;
             return this;
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(List<String> indexes) {
             return indexes(Output.of(indexes));
         }
 
+        /**
+         * @param indexes An array of index names to query in the stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexes(String... indexes) {
             return indexes(List.of(indexes));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param messageDisplay The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageDisplay(@Nullable Output<String> messageDisplay) {
             $.messageDisplay = messageDisplay;
             return this;
         }
 
+        /**
+         * @param messageDisplay The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageDisplay(String messageDisplay) {
             return messageDisplay(Output.of(messageDisplay));
         }
@@ -190,35 +322,71 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
             return query(Output.of(query));
         }
 
+        /**
+         * @param showDateColumn If the date column should be displayed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showDateColumn(@Nullable Output<Boolean> showDateColumn) {
             $.showDateColumn = showDateColumn;
             return this;
         }
 
+        /**
+         * @param showDateColumn If the date column should be displayed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showDateColumn(Boolean showDateColumn) {
             return showDateColumn(Output.of(showDateColumn));
         }
 
+        /**
+         * @param showMessageColumn If the message column should be displayed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showMessageColumn(@Nullable Output<Boolean> showMessageColumn) {
             $.showMessageColumn = showMessageColumn;
             return this;
         }
 
+        /**
+         * @param showMessageColumn If the message column should be displayed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showMessageColumn(Boolean showMessageColumn) {
             return showMessageColumn(Output.of(showMessageColumn));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<DashboardWidgetLogStreamDefinitionSortArgs> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(DashboardWidgetLogStreamDefinitionSortArgs sort) {
             return sort(Output.of(sort));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -229,7 +397,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -238,20 +406,44 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

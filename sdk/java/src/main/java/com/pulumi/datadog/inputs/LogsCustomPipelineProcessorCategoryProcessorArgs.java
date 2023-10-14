@@ -18,30 +18,62 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
 
     public static final LogsCustomPipelineProcessorCategoryProcessorArgs Empty = new LogsCustomPipelineProcessorCategoryProcessorArgs();
 
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     * 
+     */
     @Import(name="categories", required=true)
     private Output<List<LogsCustomPipelineProcessorCategoryProcessorCategoryArgs>> categories;
 
+    /**
+     * @return List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     * 
+     */
     public Output<List<LogsCustomPipelineProcessorCategoryProcessorCategoryArgs>> categories() {
         return this.categories;
     }
 
+    /**
+     * Boolean value to enable your pipeline.
+     * 
+     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
+    /**
+     * @return Boolean value to enable your pipeline.
+     * 
+     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     @Import(name="target", required=true)
     private Output<String> target;
 
+    /**
+     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
@@ -73,42 +105,96 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
             $ = new LogsCustomPipelineProcessorCategoryProcessorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param categories List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+         * 
+         * @return builder
+         * 
+         */
         public Builder categories(Output<List<LogsCustomPipelineProcessorCategoryProcessorCategoryArgs>> categories) {
             $.categories = categories;
             return this;
         }
 
+        /**
+         * @param categories List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+         * 
+         * @return builder
+         * 
+         */
         public Builder categories(List<LogsCustomPipelineProcessorCategoryProcessorCategoryArgs> categories) {
             return categories(Output.of(categories));
         }
 
+        /**
+         * @param categories List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+         * 
+         * @return builder
+         * 
+         */
         public Builder categories(LogsCustomPipelineProcessorCategoryProcessorCategoryArgs... categories) {
             return categories(List.of(categories));
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
+        /**
+         * @param isEnabled Boolean value to enable your pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
+        /**
+         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

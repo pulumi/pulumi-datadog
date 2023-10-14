@@ -18,17 +18,9 @@ public final class LogsIndexExclusionFilterArgs extends com.pulumi.resources.Res
 
     public static final LogsIndexExclusionFilterArgs Empty = new LogsIndexExclusionFilterArgs();
 
-    /**
-     * Logs filter
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<LogsIndexExclusionFilterFilterArgs>> filters;
 
-    /**
-     * @return Logs filter
-     * 
-     */
     public Optional<Output<List<LogsIndexExclusionFilterFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -89,33 +81,15 @@ public final class LogsIndexExclusionFilterArgs extends com.pulumi.resources.Res
             $ = new LogsIndexExclusionFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Logs filter
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<LogsIndexExclusionFilterFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Logs filter
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<LogsIndexExclusionFilterFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Logs filter
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(LogsIndexExclusionFilterFilterArgs... filters) {
             return filters(List.of(filters));
         }

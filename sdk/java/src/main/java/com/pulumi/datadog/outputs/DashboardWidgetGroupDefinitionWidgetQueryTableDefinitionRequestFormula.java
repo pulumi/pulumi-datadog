@@ -15,29 +15,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula {
+    /**
+     * @return An expression alias.
+     * 
+     */
     private @Nullable String alias;
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     private @Nullable String cellDisplayMode;
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats;
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     private String formulaExpression;
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit limit;
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle style;
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula() {}
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<String> alias() {
         return Optional.ofNullable(this.alias);
     }
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     public Optional<String> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
     }
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     public List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats() {
         return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
     }
+    /**
+     * @return A string expression built from queries, formulas, and functions.
+     * 
+     */
     public String formulaExpression() {
         return this.formulaExpression;
     }
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaStyle> style() {
         return Optional.ofNullable(this.style);
     }

@@ -54,8 +54,7 @@ func GetTeamMemberships(ctx *pulumi.Context, args *GetTeamMembershipsArgs, opts 
 type GetTeamMembershipsArgs struct {
 	// Search query, can be user email or name.
 	FilterKeyword *string `pulumi:"filterKeyword"`
-	// The team's identifier.
-	TeamId string `pulumi:"teamId"`
+	TeamId        string  `pulumi:"teamId"`
 }
 
 // A collection of values returned by getTeamMemberships.
@@ -87,8 +86,7 @@ func GetTeamMembershipsOutput(ctx *pulumi.Context, args GetTeamMembershipsOutput
 type GetTeamMembershipsOutputArgs struct {
 	// Search query, can be user email or name.
 	FilterKeyword pulumi.StringPtrInput `pulumi:"filterKeyword"`
-	// The team's identifier.
-	TeamId pulumi.StringInput `pulumi:"teamId"`
+	TeamId        pulumi.StringInput    `pulumi:"teamId"`
 }
 
 func (GetTeamMembershipsOutputArgs) ElementType() reflect.Type {

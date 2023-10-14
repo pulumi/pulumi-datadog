@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStepRequestDefinition
     {
+        /// <summary>
+        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
         /// The request body.
@@ -38,6 +41,9 @@ namespace Pulumi.Datadog.Outputs
         /// DNS server port to use for DNS tests.
         /// </summary>
         public readonly int? DnsServerPort;
+        /// <summary>
+        /// Determines whether or not the API HTTP test should follow redirects.
+        /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
         /// Host name to perform the test with.

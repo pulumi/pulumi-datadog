@@ -20,135 +20,287 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
 
     public static final SyntheticsTestBrowserStepParamsArgs Empty = new SyntheticsTestBrowserStepParamsArgs();
 
+    /**
+     * Name of the attribute to use for an &#34;assert attribute&#34; step.
+     * 
+     */
     @Import(name="attribute")
     private @Nullable Output<String> attribute;
 
+    /**
+     * @return Name of the attribute to use for an &#34;assert attribute&#34; step.
+     * 
+     */
     public Optional<Output<String>> attribute() {
         return Optional.ofNullable(this.attribute);
     }
 
+    /**
+     * Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     * 
+     */
     @Import(name="check")
     private @Nullable Output<String> check;
 
+    /**
+     * @return Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+     * 
+     */
     public Optional<Output<String>> check() {
         return Optional.ofNullable(this.check);
     }
 
+    /**
+     * Type of click to use for a &#34;click&#34; step.
+     * 
+     */
     @Import(name="clickType")
     private @Nullable Output<String> clickType;
 
+    /**
+     * @return Type of click to use for a &#34;click&#34; step.
+     * 
+     */
     public Optional<Output<String>> clickType() {
         return Optional.ofNullable(this.clickType);
     }
 
+    /**
+     * Javascript code to use for the step.
+     * 
+     */
     @Import(name="code")
     private @Nullable Output<String> code;
 
+    /**
+     * @return Javascript code to use for the step.
+     * 
+     */
     public Optional<Output<String>> code() {
         return Optional.ofNullable(this.code);
     }
 
+    /**
+     * Delay between each key stroke for a &#34;type test&#34; step.
+     * 
+     */
     @Import(name="delay")
     private @Nullable Output<Integer> delay;
 
+    /**
+     * @return Delay between each key stroke for a &#34;type test&#34; step.
+     * 
+     */
     public Optional<Output<Integer>> delay() {
         return Optional.ofNullable(this.delay);
     }
 
+    /**
+     * Element to use for the step, json encoded string.
+     * 
+     */
     @Import(name="element")
     private @Nullable Output<String> element;
 
+    /**
+     * @return Element to use for the step, json encoded string.
+     * 
+     */
     public Optional<Output<String>> element() {
         return Optional.ofNullable(this.element);
     }
 
+    /**
+     * Custom user selector to use for the step.
+     * 
+     */
     @Import(name="elementUserLocator")
     private @Nullable Output<SyntheticsTestBrowserStepParamsElementUserLocatorArgs> elementUserLocator;
 
+    /**
+     * @return Custom user selector to use for the step.
+     * 
+     */
     public Optional<Output<SyntheticsTestBrowserStepParamsElementUserLocatorArgs>> elementUserLocator() {
         return Optional.ofNullable(this.elementUserLocator);
     }
 
+    /**
+     * Details of the email for an &#34;assert email&#34; step.
+     * 
+     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
+    /**
+     * @return Details of the email for an &#34;assert email&#34; step.
+     * 
+     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
+    /**
+     * For an &#34;assert download&#34; step.
+     * 
+     */
     @Import(name="file")
     private @Nullable Output<String> file;
 
+    /**
+     * @return For an &#34;assert download&#34; step.
+     * 
+     */
     public Optional<Output<String>> file() {
         return Optional.ofNullable(this.file);
     }
 
+    /**
+     * Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * 
+     */
     @Import(name="files")
     private @Nullable Output<String> files;
 
+    /**
+     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * 
+     */
     public Optional<Output<String>> files() {
         return Optional.ofNullable(this.files);
     }
 
+    /**
+     * Modifier to use for a &#34;press key&#34; step.
+     * 
+     */
     @Import(name="modifiers")
     private @Nullable Output<List<String>> modifiers;
 
+    /**
+     * @return Modifier to use for a &#34;press key&#34; step.
+     * 
+     */
     public Optional<Output<List<String>>> modifiers() {
         return Optional.ofNullable(this.modifiers);
     }
 
+    /**
+     * ID of the tab to play the subtest.
+     * 
+     */
     @Import(name="playingTabId")
     private @Nullable Output<String> playingTabId;
 
+    /**
+     * @return ID of the tab to play the subtest.
+     * 
+     */
     public Optional<Output<String>> playingTabId() {
         return Optional.ofNullable(this.playingTabId);
     }
 
+    /**
+     * Request for an API step.
+     * 
+     */
     @Import(name="request")
     private @Nullable Output<String> request;
 
+    /**
+     * @return Request for an API step.
+     * 
+     */
     public Optional<Output<String>> request() {
         return Optional.ofNullable(this.request);
     }
 
+    /**
+     * ID of the Synthetics test to use as subtest.
+     * 
+     */
     @Import(name="subtestPublicId")
     private @Nullable Output<String> subtestPublicId;
 
+    /**
+     * @return ID of the Synthetics test to use as subtest.
+     * 
+     */
     public Optional<Output<String>> subtestPublicId() {
         return Optional.ofNullable(this.subtestPublicId);
     }
 
+    /**
+     * Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
 
+    /**
+     * Details of the variable to extract.
+     * 
+     */
     @Import(name="variable")
     private @Nullable Output<SyntheticsTestBrowserStepParamsVariableArgs> variable;
 
+    /**
+     * @return Details of the variable to extract.
+     * 
+     */
     public Optional<Output<SyntheticsTestBrowserStepParamsVariableArgs>> variable() {
         return Optional.ofNullable(this.variable);
     }
 
+    /**
+     * For &#34;file upload&#34; steps.
+     * 
+     */
     @Import(name="withClick")
     private @Nullable Output<Boolean> withClick;
 
+    /**
+     * @return For &#34;file upload&#34; steps.
+     * 
+     */
     public Optional<Output<Boolean>> withClick() {
         return Optional.ofNullable(this.withClick);
     }
 
+    /**
+     * X coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     @Import(name="x")
     private @Nullable Output<Integer> x;
 
+    /**
+     * @return X coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     public Optional<Output<Integer>> x() {
         return Optional.ofNullable(this.x);
     }
 
+    /**
+     * Y coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     @Import(name="y")
     private @Nullable Output<Integer> y;
 
+    /**
+     * @return Y coordinates for a &#34;scroll step&#34;.
+     * 
+     */
     public Optional<Output<Integer>> y() {
         return Optional.ofNullable(this.y);
     }
@@ -195,177 +347,411 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
             $ = new SyntheticsTestBrowserStepParamsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attribute Name of the attribute to use for an &#34;assert attribute&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attribute(@Nullable Output<String> attribute) {
             $.attribute = attribute;
             return this;
         }
 
+        /**
+         * @param attribute Name of the attribute to use for an &#34;assert attribute&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attribute(String attribute) {
             return attribute(Output.of(attribute));
         }
 
+        /**
+         * @param check Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder check(@Nullable Output<String> check) {
             $.check = check;
             return this;
         }
 
+        /**
+         * @param check Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder check(String check) {
             return check(Output.of(check));
         }
 
+        /**
+         * @param clickType Type of click to use for a &#34;click&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clickType(@Nullable Output<String> clickType) {
             $.clickType = clickType;
             return this;
         }
 
+        /**
+         * @param clickType Type of click to use for a &#34;click&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clickType(String clickType) {
             return clickType(Output.of(clickType));
         }
 
+        /**
+         * @param code Javascript code to use for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder code(@Nullable Output<String> code) {
             $.code = code;
             return this;
         }
 
+        /**
+         * @param code Javascript code to use for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder code(String code) {
             return code(Output.of(code));
         }
 
+        /**
+         * @param delay Delay between each key stroke for a &#34;type test&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder delay(@Nullable Output<Integer> delay) {
             $.delay = delay;
             return this;
         }
 
+        /**
+         * @param delay Delay between each key stroke for a &#34;type test&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder delay(Integer delay) {
             return delay(Output.of(delay));
         }
 
+        /**
+         * @param element Element to use for the step, json encoded string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder element(@Nullable Output<String> element) {
             $.element = element;
             return this;
         }
 
+        /**
+         * @param element Element to use for the step, json encoded string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder element(String element) {
             return element(Output.of(element));
         }
 
+        /**
+         * @param elementUserLocator Custom user selector to use for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder elementUserLocator(@Nullable Output<SyntheticsTestBrowserStepParamsElementUserLocatorArgs> elementUserLocator) {
             $.elementUserLocator = elementUserLocator;
             return this;
         }
 
+        /**
+         * @param elementUserLocator Custom user selector to use for the step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder elementUserLocator(SyntheticsTestBrowserStepParamsElementUserLocatorArgs elementUserLocator) {
             return elementUserLocator(Output.of(elementUserLocator));
         }
 
+        /**
+         * @param email Details of the email for an &#34;assert email&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email Details of the email for an &#34;assert email&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
+        /**
+         * @param file For an &#34;assert download&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder file(@Nullable Output<String> file) {
             $.file = file;
             return this;
         }
 
+        /**
+         * @param file For an &#34;assert download&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder file(String file) {
             return file(Output.of(file));
         }
 
+        /**
+         * @param files Details of the files for an &#34;upload files&#34; step, json encoded string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder files(@Nullable Output<String> files) {
             $.files = files;
             return this;
         }
 
+        /**
+         * @param files Details of the files for an &#34;upload files&#34; step, json encoded string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder files(String files) {
             return files(Output.of(files));
         }
 
+        /**
+         * @param modifiers Modifier to use for a &#34;press key&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modifiers(@Nullable Output<List<String>> modifiers) {
             $.modifiers = modifiers;
             return this;
         }
 
+        /**
+         * @param modifiers Modifier to use for a &#34;press key&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modifiers(List<String> modifiers) {
             return modifiers(Output.of(modifiers));
         }
 
+        /**
+         * @param modifiers Modifier to use for a &#34;press key&#34; step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modifiers(String... modifiers) {
             return modifiers(List.of(modifiers));
         }
 
+        /**
+         * @param playingTabId ID of the tab to play the subtest.
+         * 
+         * @return builder
+         * 
+         */
         public Builder playingTabId(@Nullable Output<String> playingTabId) {
             $.playingTabId = playingTabId;
             return this;
         }
 
+        /**
+         * @param playingTabId ID of the tab to play the subtest.
+         * 
+         * @return builder
+         * 
+         */
         public Builder playingTabId(String playingTabId) {
             return playingTabId(Output.of(playingTabId));
         }
 
+        /**
+         * @param request Request for an API step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder request(@Nullable Output<String> request) {
             $.request = request;
             return this;
         }
 
+        /**
+         * @param request Request for an API step.
+         * 
+         * @return builder
+         * 
+         */
         public Builder request(String request) {
             return request(Output.of(request));
         }
 
+        /**
+         * @param subtestPublicId ID of the Synthetics test to use as subtest.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subtestPublicId(@Nullable Output<String> subtestPublicId) {
             $.subtestPublicId = subtestPublicId;
             return this;
         }
 
+        /**
+         * @param subtestPublicId ID of the Synthetics test to use as subtest.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subtestPublicId(String subtestPublicId) {
             return subtestPublicId(Output.of(subtestPublicId));
         }
 
+        /**
+         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }
 
+        /**
+         * @param variable Details of the variable to extract.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variable(@Nullable Output<SyntheticsTestBrowserStepParamsVariableArgs> variable) {
             $.variable = variable;
             return this;
         }
 
+        /**
+         * @param variable Details of the variable to extract.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variable(SyntheticsTestBrowserStepParamsVariableArgs variable) {
             return variable(Output.of(variable));
         }
 
+        /**
+         * @param withClick For &#34;file upload&#34; steps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withClick(@Nullable Output<Boolean> withClick) {
             $.withClick = withClick;
             return this;
         }
 
+        /**
+         * @param withClick For &#34;file upload&#34; steps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withClick(Boolean withClick) {
             return withClick(Output.of(withClick));
         }
 
+        /**
+         * @param x X coordinates for a &#34;scroll step&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder x(@Nullable Output<Integer> x) {
             $.x = x;
             return this;
         }
 
+        /**
+         * @param x X coordinates for a &#34;scroll step&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder x(Integer x) {
             return x(Output.of(x));
         }
 
+        /**
+         * @param y Y coordinates for a &#34;scroll step&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder y(@Nullable Output<Integer> y) {
             $.y = y;
             return this;
         }
 
+        /**
+         * @param y Y coordinates for a &#34;scroll step&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder y(Integer y) {
             return y(Output.of(y));
         }

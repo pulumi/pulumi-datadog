@@ -15,16 +15,32 @@ public final class SyntheticsTestOptionsListSchedulingArgs extends com.pulumi.re
 
     public static final SyntheticsTestOptionsListSchedulingArgs Empty = new SyntheticsTestOptionsListSchedulingArgs();
 
+    /**
+     * Array containing objects describing the scheduling pattern to apply to each day.
+     * 
+     */
     @Import(name="timeframes", required=true)
     private Output<List<SyntheticsTestOptionsListSchedulingTimeframeArgs>> timeframes;
 
+    /**
+     * @return Array containing objects describing the scheduling pattern to apply to each day.
+     * 
+     */
     public Output<List<SyntheticsTestOptionsListSchedulingTimeframeArgs>> timeframes() {
         return this.timeframes;
     }
 
+    /**
+     * Timezone in which the timeframe is based.
+     * 
+     */
     @Import(name="timezone", required=true)
     private Output<String> timezone;
 
+    /**
+     * @return Timezone in which the timeframe is based.
+     * 
+     */
     public Output<String> timezone() {
         return this.timezone;
     }
@@ -54,24 +70,54 @@ public final class SyntheticsTestOptionsListSchedulingArgs extends com.pulumi.re
             $ = new SyntheticsTestOptionsListSchedulingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param timeframes Array containing objects describing the scheduling pattern to apply to each day.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeframes(Output<List<SyntheticsTestOptionsListSchedulingTimeframeArgs>> timeframes) {
             $.timeframes = timeframes;
             return this;
         }
 
+        /**
+         * @param timeframes Array containing objects describing the scheduling pattern to apply to each day.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeframes(List<SyntheticsTestOptionsListSchedulingTimeframeArgs> timeframes) {
             return timeframes(Output.of(timeframes));
         }
 
+        /**
+         * @param timeframes Array containing objects describing the scheduling pattern to apply to each day.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeframes(SyntheticsTestOptionsListSchedulingTimeframeArgs... timeframes) {
             return timeframes(List.of(timeframes));
         }
 
+        /**
+         * @param timezone Timezone in which the timeframe is based.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(Output<String> timezone) {
             $.timezone = timezone;
             return this;
         }
 
+        /**
+         * @param timezone Timezone in which the timeframe is based.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
         }

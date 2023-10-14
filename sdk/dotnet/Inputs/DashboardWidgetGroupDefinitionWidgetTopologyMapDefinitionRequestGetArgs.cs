@@ -20,6 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _queries = value;
         }
 
+        /// <summary>
+        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// </summary>
         [Input("requestType", required: true)]
         public Input<string> RequestType { get; set; } = null!;
 

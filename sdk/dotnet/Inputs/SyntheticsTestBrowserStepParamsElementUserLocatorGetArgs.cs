@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("failTestOnCannotLocate")]
         public Input<bool>? FailTestOnCannotLocate { get; set; }
 
+        /// <summary>
+        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueGetArgs> Value { get; set; } = null!;
 

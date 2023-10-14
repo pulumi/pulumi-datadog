@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,20 @@ class IpAllowlistArgs:
         :param pulumi.Input[bool] enabled: Whether the IP Allowlist is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        IpAllowlistArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            entries=entries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if entries is not None:
-            pulumi.set(__self__, "entries", entries)
+            _setter("entries", entries)
 
     @property
     @pulumi.getter
@@ -62,10 +73,21 @@ class _IpAllowlistState:
         :param pulumi.Input[bool] enabled: Whether the IP Allowlist is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
+        _IpAllowlistState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            entries=entries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entries is not None:
-            pulumi.set(__self__, "entries", entries)
+            _setter("entries", entries)
 
     @property
     @pulumi.getter
@@ -127,6 +149,10 @@ class IpAllowlist(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpAllowlistArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

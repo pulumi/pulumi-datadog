@@ -26,23 +26,47 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
 
     public static final DashboardWidgetQueryTableDefinitionRequestArgs Empty = new DashboardWidgetQueryTableDefinitionRequestArgs();
 
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
+    /**
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * 
+     */
     public Optional<Output<String>> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
 
+    /**
+     * An expression alias.
+     * 
+     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -54,16 +78,32 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.apmStatsQuery);
     }
 
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     @Import(name="cellDisplayModes")
     private @Nullable Output<List<String>> cellDisplayModes;
 
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     public Optional<Output<List<String>>> cellDisplayModes() {
         return Optional.ofNullable(this.cellDisplayModes);
     }
 
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs>> conditionalFormats;
 
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs>>> conditionalFormats() {
         return Optional.ofNullable(this.conditionalFormats);
     }
@@ -75,37 +115,77 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<String> order;
 
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<Output<String>> order() {
         return Optional.ofNullable(this.order);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -117,16 +197,32 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.queries);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -169,29 +265,65 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
             $ = new DashboardWidgetQueryTableDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(@Nullable Output<String> aggregator) {
             $.aggregator = aggregator;
             return this;
         }
 
+        /**
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
+        /**
+         * @param alias An expression alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetQueryTableDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
@@ -205,28 +337,64 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
             return apmStatsQuery(Output.of(apmStatsQuery));
         }
 
+        /**
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayModes(@Nullable Output<List<String>> cellDisplayModes) {
             $.cellDisplayModes = cellDisplayModes;
             return this;
         }
 
+        /**
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayModes(List<String> cellDisplayModes) {
             return cellDisplayModes(Output.of(cellDisplayModes));
         }
 
+        /**
+         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cellDisplayModes(String... cellDisplayModes) {
             return cellDisplayModes(List.of(cellDisplayModes));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(@Nullable Output<List<DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs>> conditionalFormats) {
             $.conditionalFormats = conditionalFormats;
             return this;
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(List<DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs> conditionalFormats) {
             return conditionalFormats(Output.of(conditionalFormats));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs... conditionalFormats) {
             return conditionalFormats(List.of(conditionalFormats));
         }
@@ -244,47 +412,107 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetQueryTableDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<String> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(String order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -302,20 +530,44 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
             return queries(List.of(queries));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetQueryTableDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

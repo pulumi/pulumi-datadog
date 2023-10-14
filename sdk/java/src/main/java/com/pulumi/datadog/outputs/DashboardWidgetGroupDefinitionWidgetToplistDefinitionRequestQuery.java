@@ -16,29 +16,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery eventQuery;
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery metricQuery;
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
 
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery() {}
+    /**
+     * @return The APM Dependency Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
     }
+    /**
+     * @return The APM Resource Stats query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
+    /**
+     * @return A timeseries formula and functions events query.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
+    /**
+     * @return A timeseries formula and functions metrics query.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
+    /**
+     * @return The slo query using formulas and functions.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
     }

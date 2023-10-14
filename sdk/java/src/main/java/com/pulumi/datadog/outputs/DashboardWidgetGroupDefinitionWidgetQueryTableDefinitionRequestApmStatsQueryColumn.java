@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
+    /**
+     * @return An expression alias.
+     * 
+     */
     private @Nullable String alias;
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     private @Nullable String cellDisplayMode;
+    /**
+     * @return The name of the variable.
+     * 
+     */
     private String name;
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     private @Nullable String order;
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn() {}
+    /**
+     * @return An expression alias.
+     * 
+     */
     public Optional<String> alias() {
         return Optional.ofNullable(this.alias);
     }
+    /**
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * 
+     */
     public Optional<String> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
     }
+    /**
+     * @return The name of the variable.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * 
+     */
     public Optional<String> order() {
         return Optional.ofNullable(this.order);
     }

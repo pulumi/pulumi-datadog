@@ -16,16 +16,32 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs exten
 
     public static final DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs Empty = new DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs();
 
+    /**
+     * The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     @Import(name="palette")
     private @Nullable Output<String> palette;
 
+    /**
+     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * 
+     */
     public Optional<Output<String>> palette() {
         return Optional.ofNullable(this.palette);
     }
 
+    /**
+     * Index specifying which color to use within the palette.
+     * 
+     */
     @Import(name="paletteIndex")
     private @Nullable Output<Integer> paletteIndex;
 
+    /**
+     * @return Index specifying which color to use within the palette.
+     * 
+     */
     public Optional<Output<Integer>> paletteIndex() {
         return Optional.ofNullable(this.paletteIndex);
     }
@@ -55,20 +71,44 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs exten
             $ = new DashboardWidgetTreemapDefinitionRequestFormulaStyleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(@Nullable Output<String> palette) {
             $.palette = palette;
             return this;
         }
 
+        /**
+         * @param palette The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder palette(String palette) {
             return palette(Output.of(palette));
         }
 
+        /**
+         * @param paletteIndex Index specifying which color to use within the palette.
+         * 
+         * @return builder
+         * 
+         */
         public Builder paletteIndex(@Nullable Output<Integer> paletteIndex) {
             $.paletteIndex = paletteIndex;
             return this;
         }
 
+        /**
+         * @param paletteIndex Index specifying which color to use within the palette.
+         * 
+         * @return builder
+         * 
+         */
         public Builder paletteIndex(Integer paletteIndex) {
             return paletteIndex(Output.of(paletteIndex));
         }

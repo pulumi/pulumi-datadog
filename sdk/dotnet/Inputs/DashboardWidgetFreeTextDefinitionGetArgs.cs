@@ -12,15 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetFreeTextDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color of the text in the widget.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         [Input("fontSize")]
         public Input<string>? FontSize { get; set; }
 
+        /// <summary>
+        /// The text to display in the widget.
+        /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;
 
+        /// <summary>
+        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 

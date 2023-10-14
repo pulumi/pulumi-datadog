@@ -14,6 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// </summary>
         public readonly string RequestType;
 
         [OutputConstructor]

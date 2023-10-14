@@ -12,23 +12,26 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepExtractedValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When type is `http_header`, name of the header to use to extract the value.
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
-        /// <summary>
-        /// Name of Datadog synthetics test.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parser", required: true)]
         public Input<Inputs.SyntheticsTestApiStepExtractedValueParserArgs> Parser { get; set; } = null!;
 
+        /// <summary>
+        /// Determines whether or not the extracted value will be obfuscated.
+        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `api`, `browser`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

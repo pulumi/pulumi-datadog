@@ -26,23 +26,47 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
 
     public static final DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs();
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryArgs> apmQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="auditQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryArgs> auditQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
 
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatArgs>> conditionalFormats;
 
+    /**
+     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatArgs>>> conditionalFormats() {
         return Optional.ofNullable(this.conditionalFormats);
     }
@@ -54,23 +78,47 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryArgs> logQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQueryArgs> processQuery;
 
+    /**
+     * @return The process query to use in the widget. The structure of this block is described below.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
+    /**
+     * The metric query to use for this widget.
+     * 
+     */
     @Import(name="q")
     private @Nullable Output<String> q;
 
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -82,23 +130,47 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
         return Optional.ofNullable(this.queries);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryArgs> rumQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
+    /**
+     * The query to use for this widget.
+     * 
+     */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryArgs> securityQuery;
 
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
+    /**
+     * Styling options for widget formulas.
+     * 
+     */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs> style;
 
+    /**
+     * @return Styling options for widget formulas.
+     * 
+     */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs>> style() {
         return Optional.ofNullable(this.style);
     }
@@ -137,33 +209,75 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
             $ = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
+        /**
+         * @param apmQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apmQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
+        /**
+         * @param auditQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryArgs> auditQuery) {
             $.auditQuery = auditQuery;
             return this;
         }
 
+        /**
+         * @param auditQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder auditQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatArgs>> conditionalFormats) {
             $.conditionalFormats = conditionalFormats;
             return this;
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatArgs> conditionalFormats) {
             return conditionalFormats(Output.of(conditionalFormats));
         }
 
+        /**
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditionalFormats(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatArgs... conditionalFormats) {
             return conditionalFormats(List.of(conditionalFormats));
         }
@@ -181,29 +295,65 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
+        /**
+         * @param logQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
+        /**
+         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder processQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
+        /**
+         * @param q The metric query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -221,29 +371,65 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
             return queries(List.of(queries));
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
+        /**
+         * @param rumQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rumQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
+        /**
+         * @param securityQuery The query to use for this widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs> style) {
             $.style = style;
             return this;
         }
 
+        /**
+         * @param style Styling options for widget formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder style(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleArgs style) {
             return style(Output.of(style));
         }

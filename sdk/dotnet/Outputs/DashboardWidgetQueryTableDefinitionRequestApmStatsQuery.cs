@@ -13,12 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery
     {
+        /// <summary>
+        /// Column properties used by the front end for display.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn> Columns;
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         public readonly string Env;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The organization's host group name and value.
+        /// </summary>
         public readonly string PrimaryTag;
+        /// <summary>
+        /// The resource name.
+        /// </summary>
         public readonly string? Resource;
+        /// <summary>
+        /// The level of detail for the request. Valid values are `service`, `resource`, `span`.
+        /// </summary>
         public readonly string RowType;
+        /// <summary>
+        /// APM service.
+        /// </summary>
         public readonly string Service;
 
         [OutputConstructor]

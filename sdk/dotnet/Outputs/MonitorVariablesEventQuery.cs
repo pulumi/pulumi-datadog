@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorVariablesEventQuery
     {
+        /// <summary>
+        /// The compute options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQueryCompute> Computes;
+        /// <summary>
+        /// The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+        /// </summary>
         public readonly string DataSource;
+        /// <summary>
+        /// Group by options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQueryGroupBy> GroupBies;
+        /// <summary>
+        /// An array of index names to query in the stream.
+        /// </summary>
         public readonly ImmutableArray<string> Indexes;
+        /// <summary>
+        /// The name of query for use in formulas.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The search options.
+        /// </summary>
         public readonly Outputs.MonitorVariablesEventQuerySearch Search;
 
         [OutputConstructor]

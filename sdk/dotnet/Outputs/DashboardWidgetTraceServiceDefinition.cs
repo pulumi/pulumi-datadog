@@ -13,23 +13,65 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTraceServiceDefinition
     {
+        /// <summary>
+        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// </summary>
         public readonly string? DisplayFormat;
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         public readonly string Env;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         public readonly string? LiveSpan;
+        /// <summary>
+        /// APM service.
+        /// </summary>
         public readonly string Service;
+        /// <summary>
+        /// Whether to show the latency breakdown or not.
+        /// </summary>
         public readonly bool? ShowBreakdown;
+        /// <summary>
+        /// Whether to show the latency distribution or not.
+        /// </summary>
         public readonly bool? ShowDistribution;
+        /// <summary>
+        /// Whether to show the error metrics or not.
+        /// </summary>
         public readonly bool? ShowErrors;
+        /// <summary>
+        /// Whether to show the hits metrics or not
+        /// </summary>
         public readonly bool? ShowHits;
+        /// <summary>
+        /// Whether to show the latency metrics or not.
+        /// </summary>
         public readonly bool? ShowLatency;
+        /// <summary>
+        /// Whether to show the resource list or not.
+        /// </summary>
         public readonly bool? ShowResourceList;
+        /// <summary>
+        /// The size of the widget. Valid values are `small`, `medium`, `large`.
+        /// </summary>
         public readonly string? SizeFormat;
+        /// <summary>
+        /// APM span name
+        /// </summary>
         public readonly string SpanName;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
 
         [OutputConstructor]

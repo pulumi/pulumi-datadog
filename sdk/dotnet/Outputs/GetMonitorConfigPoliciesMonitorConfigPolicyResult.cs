@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorConfigPoliciesMonitorConfigPolicyResult
     {
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly string Id;
         public readonly string PolicyType;
         public readonly Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult TagPolicy;

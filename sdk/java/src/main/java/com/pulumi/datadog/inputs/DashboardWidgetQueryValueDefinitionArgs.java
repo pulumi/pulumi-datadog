@@ -21,87 +21,167 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
 
     public static final DashboardWidgetQueryValueDefinitionArgs Empty = new DashboardWidgetQueryValueDefinitionArgs();
 
+    /**
+     * A Boolean indicating whether to automatically scale the tile.
+     * 
+     */
     @Import(name="autoscale")
     private @Nullable Output<Boolean> autoscale;
 
+    /**
+     * @return A Boolean indicating whether to automatically scale the tile.
+     * 
+     */
     public Optional<Output<Boolean>> autoscale() {
         return Optional.ofNullable(this.autoscale);
     }
 
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetQueryValueDefinitionCustomLinkArgs>> customLinks;
 
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetQueryValueDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
     }
 
+    /**
+     * The unit for the value displayed in the widget.
+     * 
+     */
     @Import(name="customUnit")
     private @Nullable Output<String> customUnit;
 
+    /**
+     * @return The unit for the value displayed in the widget.
+     * 
+     */
     public Optional<Output<String>> customUnit() {
         return Optional.ofNullable(this.customUnit);
     }
 
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     @Import(name="liveSpan")
     private @Nullable Output<String> liveSpan;
 
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * 
+     */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     @Import(name="precision")
     private @Nullable Output<Integer> precision;
 
+    /**
+     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * 
+     */
     public Optional<Output<Integer>> precision() {
         return Optional.ofNullable(this.precision);
     }
 
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetQueryValueDefinitionRequestArgs>> requests;
 
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetQueryValueDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
     }
 
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="textAlign")
     private @Nullable Output<String> textAlign;
 
+    /**
+     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
 
+    /**
+     * Set a timeseries on the widget background.
+     * 
+     */
     @Import(name="timeseriesBackground")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs> timeseriesBackground;
 
+    /**
+     * @return Set a timeseries on the widget background.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs>> timeseriesBackground() {
         return Optional.ofNullable(this.timeseriesBackground);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -140,88 +220,196 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
             $ = new DashboardWidgetQueryValueDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoscale A Boolean indicating whether to automatically scale the tile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscale(@Nullable Output<Boolean> autoscale) {
             $.autoscale = autoscale;
             return this;
         }
 
+        /**
+         * @param autoscale A Boolean indicating whether to automatically scale the tile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscale(Boolean autoscale) {
             return autoscale(Output.of(autoscale));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(@Nullable Output<List<DashboardWidgetQueryValueDefinitionCustomLinkArgs>> customLinks) {
             $.customLinks = customLinks;
             return this;
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(List<DashboardWidgetQueryValueDefinitionCustomLinkArgs> customLinks) {
             return customLinks(Output.of(customLinks));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(DashboardWidgetQueryValueDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
         }
 
+        /**
+         * @param customUnit The unit for the value displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customUnit(@Nullable Output<String> customUnit) {
             $.customUnit = customUnit;
             return this;
         }
 
+        /**
+         * @param customUnit The unit for the value displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customUnit(String customUnit) {
             return customUnit(Output.of(customUnit));
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(@Nullable Output<String> liveSpan) {
             $.liveSpan = liveSpan;
             return this;
         }
 
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * 
+         * @return builder
+         * 
+         */
         public Builder precision(@Nullable Output<Integer> precision) {
             $.precision = precision;
             return this;
         }
 
+        /**
+         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * 
+         * @return builder
+         * 
+         */
         public Builder precision(Integer precision) {
             return precision(Output.of(precision));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<List<DashboardWidgetQueryValueDefinitionRequestArgs>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(List<DashboardWidgetQueryValueDefinitionRequestArgs> requests) {
             return requests(Output.of(requests));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(DashboardWidgetQueryValueDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(@Nullable Output<String> textAlign) {
             $.textAlign = textAlign;
             return this;
         }
 
+        /**
+         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textAlign(String textAlign) {
             return textAlign(Output.of(textAlign));
         }
 
+        /**
+         * @param timeseriesBackground Set a timeseries on the widget background.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeseriesBackground(@Nullable Output<DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs> timeseriesBackground) {
             $.timeseriesBackground = timeseriesBackground;
             return this;
         }
 
+        /**
+         * @param timeseriesBackground Set a timeseries on the widget background.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeseriesBackground(DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs timeseriesBackground) {
             return timeseriesBackground(Output.of(timeseriesBackground));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -232,7 +420,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -241,20 +429,44 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

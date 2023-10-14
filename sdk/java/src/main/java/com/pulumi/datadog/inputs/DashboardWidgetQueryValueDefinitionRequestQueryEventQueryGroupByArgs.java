@@ -17,23 +17,47 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGrou
 
     public static final DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs Empty = new DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs();
 
+    /**
+     * The facet name.
+     * 
+     */
     @Import(name="facet", required=true)
     private Output<String> facet;
 
+    /**
+     * @return The facet name.
+     * 
+     */
     public Output<String> facet() {
         return this.facet;
     }
 
+    /**
+     * The maximum number of items in the group.
+     * 
+     */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
+    /**
+     * @return The maximum number of items in the group.
+     * 
+     */
     public Optional<Output<Integer>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
+    /**
+     * The options for sorting group by results.
+     * 
+     */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs> sort;
 
+    /**
+     * @return The options for sorting group by results.
+     * 
+     */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs>> sort() {
         return Optional.ofNullable(this.sort);
     }
@@ -64,29 +88,65 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGrou
             $ = new DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(Output<String> facet) {
             $.facet = facet;
             return this;
         }
 
+        /**
+         * @param facet The facet name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facet(String facet) {
             return facet(Output.of(facet));
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
+        /**
+         * @param limit The maximum number of items in the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(@Nullable Output<DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs> sort) {
             $.sort = sort;
             return this;
         }
 
+        /**
+         * @param sort The options for sorting group by results.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sort(DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs sort) {
             return sort(Output.of(sort));
         }

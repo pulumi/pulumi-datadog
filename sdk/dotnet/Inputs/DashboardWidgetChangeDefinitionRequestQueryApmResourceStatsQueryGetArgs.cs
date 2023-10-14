@@ -12,38 +12,69 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        /// <summary>
+        /// APM Environment.
+        /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<string>? _groupBies;
+
+        /// <summary>
+        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// </summary>
         public InputList<string> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<string>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Name of operation on service.
+        /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
 
+        /// <summary>
+        /// The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+        /// </summary>
         [Input("primaryTagName")]
         public Input<string>? PrimaryTagName { get; set; }
 
+        /// <summary>
+        /// Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
+        /// </summary>
         [Input("primaryTagValue")]
         public Input<string>? PrimaryTagValue { get; set; }
 
+        /// <summary>
+        /// APM resource.
+        /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
+        /// <summary>
+        /// APM service.
+        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
+        /// <summary>
+        /// APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;
 

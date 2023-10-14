@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetWidgetLayout
     {
+        /// <summary>
+        /// The height of the widget.
+        /// </summary>
         public readonly int Height;
+        /// <summary>
+        /// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+        /// </summary>
         public readonly bool? IsColumnBreak;
+        /// <summary>
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// </summary>
         public readonly int Width;
+        /// <summary>
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public readonly int X;
+        /// <summary>
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// </summary>
         public readonly int Y;
 
         [OutputConstructor]

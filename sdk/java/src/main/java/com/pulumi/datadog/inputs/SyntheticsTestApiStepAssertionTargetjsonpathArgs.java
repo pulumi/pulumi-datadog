@@ -15,23 +15,47 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpathArgs extends com.
 
     public static final SyntheticsTestApiStepAssertionTargetjsonpathArgs Empty = new SyntheticsTestApiStepAssertionTargetjsonpathArgs();
 
+    /**
+     * The JSON path to assert.
+     * 
+     */
     @Import(name="jsonpath", required=true)
     private Output<String> jsonpath;
 
+    /**
+     * @return The JSON path to assert.
+     * 
+     */
     public Output<String> jsonpath() {
         return this.jsonpath;
     }
 
+    /**
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
+    /**
+     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * 
+     */
     public Output<String> operator() {
         return this.operator;
     }
 
+    /**
+     * Expected matching value.
+     * 
+     */
     @Import(name="targetvalue")
     private @Nullable Output<String> targetvalue;
 
+    /**
+     * @return Expected matching value.
+     * 
+     */
     public Optional<Output<String>> targetvalue() {
         return Optional.ofNullable(this.targetvalue);
     }
@@ -62,29 +86,65 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpathArgs extends com.
             $ = new SyntheticsTestApiStepAssertionTargetjsonpathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param jsonpath The JSON path to assert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jsonpath(Output<String> jsonpath) {
             $.jsonpath = jsonpath;
             return this;
         }
 
+        /**
+         * @param jsonpath The JSON path to assert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jsonpath(String jsonpath) {
             return jsonpath(Output.of(jsonpath));
         }
 
+        /**
+         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
+        /**
+         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
+        /**
+         * @param targetvalue Expected matching value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetvalue(@Nullable Output<String> targetvalue) {
             $.targetvalue = targetvalue;
             return this;
         }
 
+        /**
+         * @param targetvalue Expected matching value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetvalue(String targetvalue) {
             return targetvalue(Output.of(targetvalue));
         }

@@ -21,9 +21,17 @@ public final class LogsCustomPipelineProcessorCategoryProcessorCategoryArgs exte
         return this.filter;
     }
 
+    /**
+     * Your pipeline name.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,11 +70,23 @@ public final class LogsCustomPipelineProcessorCategoryProcessorCategoryArgs exte
             return filter(Output.of(filter));
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Your pipeline name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

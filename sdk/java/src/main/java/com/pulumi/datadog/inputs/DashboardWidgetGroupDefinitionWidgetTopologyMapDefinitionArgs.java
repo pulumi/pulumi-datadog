@@ -18,45 +18,77 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs
 
     public static final DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs();
 
+    /**
+     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs>> customLinks;
 
+    /**
+     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
     }
 
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs>> requests;
 
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
     }
 
     /**
-     * The title of the dashboard.
+     * The title of the widget.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the dashboard.
+     * @return The title of the widget.
      * 
      */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
     public Optional<Output<String>> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
 
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
     public Optional<Output<String>> titleSize() {
         return Optional.ofNullable(this.titleSize);
     }
@@ -89,34 +121,70 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs
             $ = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs>> customLinks) {
             $.customLinks = customLinks;
             return this;
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs> customLinks) {
             return customLinks(Output.of(customLinks));
         }
 
+        /**
+         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customLinks(DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs> requests) {
             return requests(Output.of(requests));
         }
 
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -127,7 +195,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs
         }
 
         /**
-         * @param title The title of the dashboard.
+         * @param title The title of the widget.
          * 
          * @return builder
          * 
@@ -136,20 +204,44 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(@Nullable Output<String> titleAlign) {
             $.titleAlign = titleAlign;
             return this;
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleAlign(String titleAlign) {
             return titleAlign(Output.of(titleAlign));
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(@Nullable Output<String> titleSize) {
             $.titleSize = titleSize;
             return this;
         }
 
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
         }

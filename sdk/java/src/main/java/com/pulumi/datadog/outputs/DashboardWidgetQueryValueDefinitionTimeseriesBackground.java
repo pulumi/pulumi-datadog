@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionTimeseriesBackground {
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     private String type;
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     private @Nullable DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis yaxis;
 
     private DashboardWidgetQueryValueDefinitionTimeseriesBackground() {}
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * 
+     */
     public Optional<DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis> yaxis() {
         return Optional.ofNullable(this.yaxis);
     }

@@ -151,7 +151,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
-     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     public readonly timeframe!: pulumi.Output<string>;
     /**
@@ -264,7 +264,7 @@ export interface ServiceLevelObjectiveState {
      */
     thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,65 +43,116 @@ class SyntheticsTestArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep api tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        SyntheticsTestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            name=name,
+            status=status,
+            type=type,
+            api_steps=api_steps,
+            assertions=assertions,
+            browser_steps=browser_steps,
+            browser_variables=browser_variables,
+            config_variables=config_variables,
+            device_ids=device_ids,
+            message=message,
+            options_list=options_list,
+            request_basicauth=request_basicauth,
+            request_client_certificate=request_client_certificate,
+            request_definition=request_definition,
+            request_headers=request_headers,
+            request_metadata=request_metadata,
+            request_proxy=request_proxy,
+            request_query=request_query,
+            set_cookie=set_cookie,
+            subtype=subtype,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             status: pulumi.Input[str],
+             type: pulumi.Input[str],
+             api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
+             assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
+             browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
+             browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+             config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
+             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
+             request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
+             request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
+             request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
+             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
+             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             set_cookie: Optional[pulumi.Input[str]] = None,
+             subtype: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("locations", locations)
+        _setter("name", name)
+        _setter("status", status)
+        _setter("type", type)
         if api_steps is not None:
-            pulumi.set(__self__, "api_steps", api_steps)
+            _setter("api_steps", api_steps)
         if assertions is not None:
-            pulumi.set(__self__, "assertions", assertions)
+            _setter("assertions", assertions)
         if browser_steps is not None:
-            pulumi.set(__self__, "browser_steps", browser_steps)
+            _setter("browser_steps", browser_steps)
         if browser_variables is not None:
-            pulumi.set(__self__, "browser_variables", browser_variables)
+            _setter("browser_variables", browser_variables)
         if config_variables is not None:
-            pulumi.set(__self__, "config_variables", config_variables)
+            _setter("config_variables", config_variables)
         if device_ids is not None:
-            pulumi.set(__self__, "device_ids", device_ids)
+            _setter("device_ids", device_ids)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if options_list is not None:
-            pulumi.set(__self__, "options_list", options_list)
+            _setter("options_list", options_list)
         if request_basicauth is not None:
-            pulumi.set(__self__, "request_basicauth", request_basicauth)
+            _setter("request_basicauth", request_basicauth)
         if request_client_certificate is not None:
-            pulumi.set(__self__, "request_client_certificate", request_client_certificate)
+            _setter("request_client_certificate", request_client_certificate)
         if request_definition is not None:
-            pulumi.set(__self__, "request_definition", request_definition)
+            _setter("request_definition", request_definition)
         if request_headers is not None:
-            pulumi.set(__self__, "request_headers", request_headers)
+            _setter("request_headers", request_headers)
         if request_metadata is not None:
-            pulumi.set(__self__, "request_metadata", request_metadata)
+            _setter("request_metadata", request_metadata)
         if request_proxy is not None:
-            pulumi.set(__self__, "request_proxy", request_proxy)
+            _setter("request_proxy", request_proxy)
         if request_query is not None:
-            pulumi.set(__self__, "request_query", request_query)
+            _setter("request_query", request_query)
         if set_cookie is not None:
-            pulumi.set(__self__, "set_cookie", set_cookie)
+            _setter("set_cookie", set_cookie)
         if subtype is not None:
-            pulumi.set(__self__, "subtype", subtype)
+            _setter("subtype", subtype)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -143,7 +194,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         return pulumi.get(self, "type")
 
@@ -227,7 +278,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        For UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 
@@ -272,7 +323,7 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="requestDefinition")
     def request_definition(self) -> Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]:
         """
-        Required if `type = "api"`. The synthetics test request.
+        The request for the api step.
         """
         return pulumi.get(self, "request_definition")
 
@@ -344,7 +395,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -400,68 +451,121 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
+        _SyntheticsTestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_steps=api_steps,
+            assertions=assertions,
+            browser_steps=browser_steps,
+            browser_variables=browser_variables,
+            config_variables=config_variables,
+            device_ids=device_ids,
+            locations=locations,
+            message=message,
+            monitor_id=monitor_id,
+            name=name,
+            options_list=options_list,
+            request_basicauth=request_basicauth,
+            request_client_certificate=request_client_certificate,
+            request_definition=request_definition,
+            request_headers=request_headers,
+            request_metadata=request_metadata,
+            request_proxy=request_proxy,
+            request_query=request_query,
+            set_cookie=set_cookie,
+            status=status,
+            subtype=subtype,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
+             assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
+             browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
+             browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+             config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
+             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             monitor_id: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
+             request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
+             request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
+             request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
+             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
+             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             set_cookie: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subtype: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_steps is not None:
-            pulumi.set(__self__, "api_steps", api_steps)
+            _setter("api_steps", api_steps)
         if assertions is not None:
-            pulumi.set(__self__, "assertions", assertions)
+            _setter("assertions", assertions)
         if browser_steps is not None:
-            pulumi.set(__self__, "browser_steps", browser_steps)
+            _setter("browser_steps", browser_steps)
         if browser_variables is not None:
-            pulumi.set(__self__, "browser_variables", browser_variables)
+            _setter("browser_variables", browser_variables)
         if config_variables is not None:
-            pulumi.set(__self__, "config_variables", config_variables)
+            _setter("config_variables", config_variables)
         if device_ids is not None:
-            pulumi.set(__self__, "device_ids", device_ids)
+            _setter("device_ids", device_ids)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if monitor_id is not None:
-            pulumi.set(__self__, "monitor_id", monitor_id)
+            _setter("monitor_id", monitor_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if options_list is not None:
-            pulumi.set(__self__, "options_list", options_list)
+            _setter("options_list", options_list)
         if request_basicauth is not None:
-            pulumi.set(__self__, "request_basicauth", request_basicauth)
+            _setter("request_basicauth", request_basicauth)
         if request_client_certificate is not None:
-            pulumi.set(__self__, "request_client_certificate", request_client_certificate)
+            _setter("request_client_certificate", request_client_certificate)
         if request_definition is not None:
-            pulumi.set(__self__, "request_definition", request_definition)
+            _setter("request_definition", request_definition)
         if request_headers is not None:
-            pulumi.set(__self__, "request_headers", request_headers)
+            _setter("request_headers", request_headers)
         if request_metadata is not None:
-            pulumi.set(__self__, "request_metadata", request_metadata)
+            _setter("request_metadata", request_metadata)
         if request_proxy is not None:
-            pulumi.set(__self__, "request_proxy", request_proxy)
+            _setter("request_proxy", request_proxy)
         if request_query is not None:
-            pulumi.set(__self__, "request_query", request_query)
+            _setter("request_query", request_query)
         if set_cookie is not None:
-            pulumi.set(__self__, "set_cookie", set_cookie)
+            _setter("set_cookie", set_cookie)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subtype is not None:
-            pulumi.set(__self__, "subtype", subtype)
+            _setter("subtype", subtype)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="apiSteps")
@@ -551,7 +655,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        For UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 
@@ -620,7 +724,7 @@ class _SyntheticsTestState:
     @pulumi.getter(name="requestDefinition")
     def request_definition(self) -> Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]:
         """
-        Required if `type = "api"`. The synthetics test request.
+        The request for the api step.
         """
         return pulumi.get(self, "request_definition")
 
@@ -704,7 +808,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -728,7 +832,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         return pulumi.get(self, "type")
 
@@ -1065,20 +1169,20 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         ...
     @overload
@@ -1387,6 +1491,10 @@ class SyntheticsTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyntheticsTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1436,12 +1544,37 @@ class SyntheticsTest(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if options_list is not None and not isinstance(options_list, SyntheticsTestOptionsListArgs):
+                options_list = options_list or {}
+                def _setter(key, value):
+                    options_list[key] = value
+                SyntheticsTestOptionsListArgs._configure(_setter, **options_list)
             __props__.__dict__["options_list"] = options_list
+            if request_basicauth is not None and not isinstance(request_basicauth, SyntheticsTestRequestBasicauthArgs):
+                request_basicauth = request_basicauth or {}
+                def _setter(key, value):
+                    request_basicauth[key] = value
+                SyntheticsTestRequestBasicauthArgs._configure(_setter, **request_basicauth)
             __props__.__dict__["request_basicauth"] = request_basicauth
+            if request_client_certificate is not None and not isinstance(request_client_certificate, SyntheticsTestRequestClientCertificateArgs):
+                request_client_certificate = request_client_certificate or {}
+                def _setter(key, value):
+                    request_client_certificate[key] = value
+                SyntheticsTestRequestClientCertificateArgs._configure(_setter, **request_client_certificate)
             __props__.__dict__["request_client_certificate"] = request_client_certificate
+            if request_definition is not None and not isinstance(request_definition, SyntheticsTestRequestDefinitionArgs):
+                request_definition = request_definition or {}
+                def _setter(key, value):
+                    request_definition[key] = value
+                SyntheticsTestRequestDefinitionArgs._configure(_setter, **request_definition)
             __props__.__dict__["request_definition"] = request_definition
             __props__.__dict__["request_headers"] = request_headers
             __props__.__dict__["request_metadata"] = request_metadata
+            if request_proxy is not None and not isinstance(request_proxy, SyntheticsTestRequestProxyArgs):
+                request_proxy = request_proxy or {}
+                def _setter(key, value):
+                    request_proxy[key] = value
+                SyntheticsTestRequestProxyArgs._configure(_setter, **request_proxy)
             __props__.__dict__["request_proxy"] = request_proxy
             __props__.__dict__["request_query"] = request_query
             __props__.__dict__["set_cookie"] = set_cookie
@@ -1501,21 +1634,21 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        :param pulumi.Input[str] message: For UDP and websocket tests, message to send with the request.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[str] type: Synthetics test type. Valid values are `api`, `browser`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1606,7 +1739,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
         """
-        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
+        For UDP and websocket tests, message to send with the request.
         """
         return pulumi.get(self, "message")
 
@@ -1651,7 +1784,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="requestDefinition")
     def request_definition(self) -> pulumi.Output[Optional['outputs.SyntheticsTestRequestDefinition']]:
         """
-        Required if `type = "api"`. The synthetics test request.
+        The request for the api step.
         """
         return pulumi.get(self, "request_definition")
 
@@ -1707,7 +1840,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -1723,7 +1856,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
         return pulumi.get(self, "type")
 

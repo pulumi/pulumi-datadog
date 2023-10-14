@@ -13,16 +13,32 @@ public final class LogsCustomPipelineProcessorGrokParserGrokArgs extends com.pul
 
     public static final LogsCustomPipelineProcessorGrokParserGrokArgs Empty = new LogsCustomPipelineProcessorGrokParserGrokArgs();
 
+    /**
+     * Match rules for your grok parser.
+     * 
+     */
     @Import(name="matchRules", required=true)
     private Output<String> matchRules;
 
+    /**
+     * @return Match rules for your grok parser.
+     * 
+     */
     public Output<String> matchRules() {
         return this.matchRules;
     }
 
+    /**
+     * Support rules for your grok parser.
+     * 
+     */
     @Import(name="supportRules", required=true)
     private Output<String> supportRules;
 
+    /**
+     * @return Support rules for your grok parser.
+     * 
+     */
     public Output<String> supportRules() {
         return this.supportRules;
     }
@@ -52,20 +68,44 @@ public final class LogsCustomPipelineProcessorGrokParserGrokArgs extends com.pul
             $ = new LogsCustomPipelineProcessorGrokParserGrokArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param matchRules Match rules for your grok parser.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchRules(Output<String> matchRules) {
             $.matchRules = matchRules;
             return this;
         }
 
+        /**
+         * @param matchRules Match rules for your grok parser.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchRules(String matchRules) {
             return matchRules(Output.of(matchRules));
         }
 
+        /**
+         * @param supportRules Support rules for your grok parser.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportRules(Output<String> supportRules) {
             $.supportRules = supportRules;
             return this;
         }
 
+        /**
+         * @param supportRules Support rules for your grok parser.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportRules(String supportRules) {
             return supportRules(Output.of(supportRules));
         }

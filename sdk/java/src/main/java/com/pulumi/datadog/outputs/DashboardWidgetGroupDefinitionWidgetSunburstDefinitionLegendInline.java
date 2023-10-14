@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline {
+    /**
+     * @return Whether to hide the percentages of the groups.
+     * 
+     */
     private @Nullable Boolean hidePercent;
+    /**
+     * @return Setting this to True hides values.
+     * 
+     */
     private @Nullable Boolean hideValue;
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     private String type;
 
     private DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline() {}
+    /**
+     * @return Whether to hide the percentages of the groups.
+     * 
+     */
     public Optional<Boolean> hidePercent() {
         return Optional.ofNullable(this.hidePercent);
     }
+    /**
+     * @return Setting this to True hides values.
+     * 
+     */
     public Optional<Boolean> hideValue() {
         return Optional.ofNullable(this.hideValue);
     }
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsListSchedulingTimeframeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number representing the day of the week
+        /// </summary>
         [Input("day", required: true)]
         public Input<int> Day { get; set; } = null!;
 
+        /// <summary>
+        /// The hour of the day on which scheduling starts.
+        /// </summary>
         [Input("from", required: true)]
         public Input<string> From { get; set; } = null!;
 
+        /// <summary>
+        /// The hour of the day on which scheduling ends.
+        /// </summary>
         [Input("to", required: true)]
         public Input<string> To { get; set; } = null!;
 

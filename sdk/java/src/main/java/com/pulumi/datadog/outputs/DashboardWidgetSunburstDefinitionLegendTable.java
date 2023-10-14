@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetSunburstDefinitionLegendTable {
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     private String type;
 
     private DashboardWidgetSunburstDefinitionLegendTable() {}
+    /**
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * 
+     */
     public String type() {
         return this.type;
     }

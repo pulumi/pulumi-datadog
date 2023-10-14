@@ -13,16 +13,32 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
     public static final DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs Empty = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs();
 
+    /**
+     * Widget column field.
+     * 
+     */
     @Import(name="field", required=true)
     private Output<String> field;
 
+    /**
+     * @return Widget column field.
+     * 
+     */
     public Output<String> field() {
         return this.field;
     }
 
+    /**
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     @Import(name="width", required=true)
     private Output<String> width;
 
+    /**
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * 
+     */
     public Output<String> width() {
         return this.width;
     }
@@ -52,20 +68,44 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             $ = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param field Widget column field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder field(Output<String> field) {
             $.field = field;
             return this;
         }
 
+        /**
+         * @param field Widget column field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
+        /**
+         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder width(Output<String> width) {
             $.width = width;
             return this;
         }
 
+        /**
+         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder width(String width) {
             return width(Output.of(width));
         }

@@ -12,18 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// Name of the Reference Table for the source attribute and their associated target attribute values.
+        /// </summary>
         [Input("lookupEnrichmentTable", required: true)]
         public Input<string> LookupEnrichmentTable { get; set; } = null!;
 
+        /// <summary>
+        /// Your pipeline name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Name of the log attribute to parse.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

@@ -11,12 +11,20 @@ import java.util.Objects;
 @CustomType
 public final class LogsCustomPipelineProcessorCategoryProcessorCategory {
     private LogsCustomPipelineProcessorCategoryProcessorCategoryFilter filter;
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     private String name;
 
     private LogsCustomPipelineProcessorCategoryProcessorCategory() {}
     public LogsCustomPipelineProcessorCategoryProcessorCategoryFilter filter() {
         return this.filter;
     }
+    /**
+     * @return Your pipeline name.
+     * 
+     */
     public String name() {
         return this.name;
     }

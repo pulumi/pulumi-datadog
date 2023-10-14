@@ -16,30 +16,62 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
 
     public static final SecurityMonitoringRuleOptionsNewValueOptionsArgs Empty = new SecurityMonitoringRuleOptionsNewValueOptionsArgs();
 
+    /**
+     * The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * 
+     */
     @Import(name="forgetAfter", required=true)
     private Output<Integer> forgetAfter;
 
+    /**
+     * @return The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * 
+     */
     public Output<Integer> forgetAfter() {
         return this.forgetAfter;
     }
 
+    /**
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * 
+     */
     @Import(name="learningDuration")
     private @Nullable Output<Integer> learningDuration;
 
+    /**
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * 
+     */
     public Optional<Output<Integer>> learningDuration() {
         return Optional.ofNullable(this.learningDuration);
     }
 
+    /**
+     * The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * 
+     */
     @Import(name="learningMethod")
     private @Nullable Output<String> learningMethod;
 
+    /**
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * 
+     */
     public Optional<Output<String>> learningMethod() {
         return Optional.ofNullable(this.learningMethod);
     }
 
+    /**
+     * A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * 
+     */
     @Import(name="learningThreshold")
     private @Nullable Output<Integer> learningThreshold;
 
+    /**
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * 
+     */
     public Optional<Output<Integer>> learningThreshold() {
         return Optional.ofNullable(this.learningThreshold);
     }
@@ -71,38 +103,86 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
             $ = new SecurityMonitoringRuleOptionsNewValueOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param forgetAfter The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forgetAfter(Output<Integer> forgetAfter) {
             $.forgetAfter = forgetAfter;
             return this;
         }
 
+        /**
+         * @param forgetAfter The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forgetAfter(Integer forgetAfter) {
             return forgetAfter(Output.of(forgetAfter));
         }
 
+        /**
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningDuration(@Nullable Output<Integer> learningDuration) {
             $.learningDuration = learningDuration;
             return this;
         }
 
+        /**
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningDuration(Integer learningDuration) {
             return learningDuration(Output.of(learningDuration));
         }
 
+        /**
+         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningMethod(@Nullable Output<String> learningMethod) {
             $.learningMethod = learningMethod;
             return this;
         }
 
+        /**
+         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningMethod(String learningMethod) {
             return learningMethod(Output.of(learningMethod));
         }
 
+        /**
+         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningThreshold(@Nullable Output<Integer> learningThreshold) {
             $.learningThreshold = learningThreshold;
             return this;
         }
 
+        /**
+         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder learningThreshold(Integer learningThreshold) {
             return learningThreshold(Output.of(learningThreshold));
         }

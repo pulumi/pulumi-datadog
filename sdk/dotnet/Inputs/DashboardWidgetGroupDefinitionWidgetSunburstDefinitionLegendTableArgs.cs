@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

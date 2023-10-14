@@ -13,15 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetRunWorkflowDefinition
     {
+        /// <summary>
+        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetRunWorkflowDefinitionCustomLink> CustomLinks;
+        /// <summary>
+        /// Array of workflow inputs to map to dashboard template variables.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetRunWorkflowDefinitionInput> Inputs;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+        /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// The title of the dashboard.
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// </summary>
         public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
         public readonly string? TitleSize;
+        /// <summary>
+        /// Workflow ID
+        /// </summary>
         public readonly string WorkflowId;
 
         [OutputConstructor]

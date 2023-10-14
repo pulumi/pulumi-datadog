@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class SyntheticsPrivateLocationArgs:
         :param pulumi.Input['SyntheticsPrivateLocationMetadataArgs'] metadata: The private location metadata
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
-        pulumi.set(__self__, "name", name)
+        SyntheticsPrivateLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            metadata=metadata,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -100,16 +115,33 @@ class _SyntheticsPrivateLocationState:
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
+        _SyntheticsPrivateLocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            description=description,
+            metadata=metadata,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -257,6 +289,10 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyntheticsPrivateLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,6 +312,11 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             __props__ = SyntheticsPrivateLocationArgs.__new__(SyntheticsPrivateLocationArgs)
 
             __props__.__dict__["description"] = description
+            if metadata is not None and not isinstance(metadata, SyntheticsPrivateLocationMetadataArgs):
+                metadata = metadata or {}
+                def _setter(key, value):
+                    metadata[key] = value
+                SyntheticsPrivateLocationMetadataArgs._configure(_setter, **metadata)
             __props__.__dict__["metadata"] = metadata
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

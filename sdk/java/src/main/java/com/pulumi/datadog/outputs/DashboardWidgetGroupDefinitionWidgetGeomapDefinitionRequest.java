@@ -17,24 +17,48 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery logQuery;
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     private @Nullable String q;
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery> queries;
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     private @Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery rumQuery;
 
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest() {}
     public List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
+    /**
+     * @return The metric query to use for this widget.
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     public List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return The query to use for this widget.
+     * 
+     */
     public Optional<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
