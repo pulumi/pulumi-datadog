@@ -4,8 +4,12 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about Datadog's IP addresses.
@@ -83,4 +87,135 @@ type GetIpRangesResult struct {
 	WebhooksIpv4s []string `pulumi:"webhooksIpv4s"`
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
 	WebhooksIpv6s []string `pulumi:"webhooksIpv6s"`
+}
+
+func GetIpRangesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetIpRangesResult, error) {
+		r, err := GetIpRanges(ctx, opts...)
+		var s GetIpRangesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetIpRangesResultOutput)
+}
+
+// A collection of values returned by getIpRanges.
+type GetIpRangesResultOutput struct{ *pulumi.OutputState }
+
+func (GetIpRangesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpRangesResult)(nil)).Elem()
+}
+
+func (o GetIpRangesResultOutput) ToGetIpRangesResultOutput() GetIpRangesResultOutput {
+	return o
+}
+
+func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx context.Context) GetIpRangesResultOutput {
+	return o
+}
+
+func (o GetIpRangesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpRangesResult] {
+	return pulumix.Output[GetIpRangesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
+func (o GetIpRangesResultOutput) AgentsIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.AgentsIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
+func (o GetIpRangesResultOutput) AgentsIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.AgentsIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
+func (o GetIpRangesResultOutput) ApiIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApiIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
+func (o GetIpRangesResultOutput) ApiIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApiIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
+func (o GetIpRangesResultOutput) ApmIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApmIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
+func (o GetIpRangesResultOutput) ApmIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApmIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// The ID of this resource.
+func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
+func (o GetIpRangesResultOutput) LogsIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.LogsIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
+func (o GetIpRangesResultOutput) LogsIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.LogsIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+func (o GetIpRangesResultOutput) OrchestratorIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.OrchestratorIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Orchestrator endpoint.
+func (o GetIpRangesResultOutput) OrchestratorIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.OrchestratorIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
+func (o GetIpRangesResultOutput) ProcessIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ProcessIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
+func (o GetIpRangesResultOutput) ProcessIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ProcessIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
+func (o GetIpRangesResultOutput) SyntheticsIpv4ByLocation() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIpRangesResult) map[string]string { return v.SyntheticsIpv4ByLocation }).(pulumi.StringMapOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+func (o GetIpRangesResultOutput) SyntheticsIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.SyntheticsIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
+func (o GetIpRangesResultOutput) SyntheticsIpv6ByLocation() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIpRangesResult) map[string]string { return v.SyntheticsIpv6ByLocation }).(pulumi.StringMapOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+func (o GetIpRangesResultOutput) SyntheticsIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.SyntheticsIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+func (o GetIpRangesResultOutput) WebhooksIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.WebhooksIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+func (o GetIpRangesResultOutput) WebhooksIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.WebhooksIpv6s }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIpRangesResultOutput{})
 }

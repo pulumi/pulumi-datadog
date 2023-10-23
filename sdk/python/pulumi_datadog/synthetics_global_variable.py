@@ -52,8 +52,8 @@ class SyntheticsGlobalVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
              parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,19 @@ class SyntheticsGlobalVariableArgs:
              restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if parse_test_id is None and 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if parse_test_options is None and 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         _setter("name", name)
         _setter("value", value)
         if description is not None:
@@ -236,7 +248,15 @@ class _SyntheticsGlobalVariableState:
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if parse_test_id is None and 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if parse_test_options is None and 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

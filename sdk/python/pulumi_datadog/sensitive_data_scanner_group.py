@@ -40,12 +40,26 @@ class SensitiveDataScannerGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input['SensitiveDataScannerGroupFilterArgs'],
-             is_enabled: pulumi.Input[bool],
-             name: pulumi.Input[str],
-             product_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product_lists is None and 'productLists' in kwargs:
+            product_lists = kwargs['productLists']
+        if product_lists is None:
+            raise TypeError("Missing 'product_lists' argument")
+
         _setter("filter", filter)
         _setter("is_enabled", is_enabled)
         _setter("name", name)
@@ -146,7 +160,13 @@ class _SensitiveDataScannerGroupState:
              is_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if product_lists is None and 'productLists' in kwargs:
+            product_lists = kwargs['productLists']
+
         if description is not None:
             _setter("description", description)
         if filter is not None:

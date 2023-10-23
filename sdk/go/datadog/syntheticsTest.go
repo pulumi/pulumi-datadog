@@ -117,7 +117,7 @@ import (
 //					Method: pulumi.String("GET"),
 //					Url:    pulumi.String("https://www.example.org"),
 //				},
-//				RequestHeaders: pulumi.AnyMap{
+//				RequestHeaders: pulumi.Map{
 //					"Content-Type": pulumi.Any("application/json"),
 //				},
 //				Status:  pulumi.String("live"),
@@ -159,7 +159,7 @@ import (
 //					Method: pulumi.String("GET"),
 //					Url:    pulumi.String("https://www.example.org"),
 //				},
-//				RequestHeaders: pulumi.AnyMap{
+//				RequestHeaders: pulumi.Map{
 //					"Authentication": pulumi.Any("Token: 1234566789"),
 //					"Content-Type":   pulumi.Any("application/json"),
 //				},
@@ -294,7 +294,7 @@ import (
 //							Method: pulumi.String("GET"),
 //							Url:    pulumi.String("https://example.org"),
 //						},
-//						RequestHeaders: pulumi.AnyMap{
+//						RequestHeaders: pulumi.Map{
 //							"Authentication": pulumi.Any("Token: 1234566789"),
 //							"Content-Type":   pulumi.Any("application/json"),
 //						},

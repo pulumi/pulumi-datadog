@@ -29,9 +29,13 @@ class MonitorJsonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor: pulumi.Input[str],
+             monitor: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if monitor is None:
+            raise TypeError("Missing 'monitor' argument")
+
         _setter("monitor", monitor)
         if url is not None:
             _setter("url", url)
@@ -81,7 +85,9 @@ class _MonitorJsonState:
              _setter: Callable[[Any, Any], None],
              monitor: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if monitor is not None:
             _setter("monitor", monitor)
         if url is not None:

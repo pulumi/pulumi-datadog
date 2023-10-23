@@ -41,7 +41,9 @@ class SecurityMonitoringDefaultRuleArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
              options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:
@@ -132,7 +134,9 @@ class _SecurityMonitoringDefaultRuleState:
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
              options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:

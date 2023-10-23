@@ -32,10 +32,18 @@ class IntegrationAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             name: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("api_key", api_key)
         _setter("name", name)
         if email is not None:
@@ -102,7 +110,11 @@ class _IntegrationAccountState:
              api_key: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if email is not None:

@@ -33,10 +33,16 @@ class DashboardJsonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dashboard: pulumi.Input[str],
+             dashboard: Optional[pulumi.Input[str]] = None,
              dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dashboard is None:
+            raise TypeError("Missing 'dashboard' argument")
+        if dashboard_lists is None and 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+
         _setter("dashboard", dashboard)
         if dashboard_lists is not None:
             _setter("dashboard_lists", dashboard_lists)
@@ -110,7 +116,13 @@ class _DashboardJsonState:
              dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dashboard_lists is None and 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+        if dashboard_lists_removeds is None and 'dashboardListsRemoveds' in kwargs:
+            dashboard_lists_removeds = kwargs['dashboardListsRemoveds']
+
         if dashboard is not None:
             _setter("dashboard", dashboard)
         if dashboard_lists is not None:

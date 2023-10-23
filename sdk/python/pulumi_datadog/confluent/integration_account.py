@@ -32,10 +32,20 @@ class IntegrationAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             api_secret: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_secret: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if api_secret is None and 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+        if api_secret is None:
+            raise TypeError("Missing 'api_secret' argument")
+
         _setter("api_key", api_key)
         _setter("api_secret", api_secret)
         if tags is not None:
@@ -102,7 +112,13 @@ class _IntegrationAccountState:
              api_key: Optional[pulumi.Input[str]] = None,
              api_secret: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_secret is None and 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if api_secret is not None:

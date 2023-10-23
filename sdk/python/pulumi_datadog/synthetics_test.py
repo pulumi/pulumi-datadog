@@ -90,10 +90,10 @@ class SyntheticsTestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             status: pulumi.Input[str],
-             type: pulumi.Input[str],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
              assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
              browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
@@ -112,7 +112,45 @@ class SyntheticsTestArgs:
              set_cookie: Optional[pulumi.Input[str]] = None,
              subtype: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if api_steps is None and 'apiSteps' in kwargs:
+            api_steps = kwargs['apiSteps']
+        if browser_steps is None and 'browserSteps' in kwargs:
+            browser_steps = kwargs['browserSteps']
+        if browser_variables is None and 'browserVariables' in kwargs:
+            browser_variables = kwargs['browserVariables']
+        if config_variables is None and 'configVariables' in kwargs:
+            config_variables = kwargs['configVariables']
+        if device_ids is None and 'deviceIds' in kwargs:
+            device_ids = kwargs['deviceIds']
+        if options_list is None and 'optionsList' in kwargs:
+            options_list = kwargs['optionsList']
+        if request_basicauth is None and 'requestBasicauth' in kwargs:
+            request_basicauth = kwargs['requestBasicauth']
+        if request_client_certificate is None and 'requestClientCertificate' in kwargs:
+            request_client_certificate = kwargs['requestClientCertificate']
+        if request_definition is None and 'requestDefinition' in kwargs:
+            request_definition = kwargs['requestDefinition']
+        if request_headers is None and 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if request_metadata is None and 'requestMetadata' in kwargs:
+            request_metadata = kwargs['requestMetadata']
+        if request_proxy is None and 'requestProxy' in kwargs:
+            request_proxy = kwargs['requestProxy']
+        if request_query is None and 'requestQuery' in kwargs:
+            request_query = kwargs['requestQuery']
+        if set_cookie is None and 'setCookie' in kwargs:
+            set_cookie = kwargs['setCookie']
+
         _setter("locations", locations)
         _setter("name", name)
         _setter("status", status)
@@ -519,7 +557,39 @@ class _SyntheticsTestState:
              subtype: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_steps is None and 'apiSteps' in kwargs:
+            api_steps = kwargs['apiSteps']
+        if browser_steps is None and 'browserSteps' in kwargs:
+            browser_steps = kwargs['browserSteps']
+        if browser_variables is None and 'browserVariables' in kwargs:
+            browser_variables = kwargs['browserVariables']
+        if config_variables is None and 'configVariables' in kwargs:
+            config_variables = kwargs['configVariables']
+        if device_ids is None and 'deviceIds' in kwargs:
+            device_ids = kwargs['deviceIds']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if options_list is None and 'optionsList' in kwargs:
+            options_list = kwargs['optionsList']
+        if request_basicauth is None and 'requestBasicauth' in kwargs:
+            request_basicauth = kwargs['requestBasicauth']
+        if request_client_certificate is None and 'requestClientCertificate' in kwargs:
+            request_client_certificate = kwargs['requestClientCertificate']
+        if request_definition is None and 'requestDefinition' in kwargs:
+            request_definition = kwargs['requestDefinition']
+        if request_headers is None and 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if request_metadata is None and 'requestMetadata' in kwargs:
+            request_metadata = kwargs['requestMetadata']
+        if request_proxy is None and 'requestProxy' in kwargs:
+            request_proxy = kwargs['requestProxy']
+        if request_query is None and 'requestQuery' in kwargs:
+            request_query = kwargs['requestQuery']
+        if set_cookie is None and 'setCookie' in kwargs:
+            set_cookie = kwargs['setCookie']
+
         if api_steps is not None:
             _setter("api_steps", api_steps)
         if assertions is not None:

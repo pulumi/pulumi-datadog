@@ -40,12 +40,26 @@ class SecurityMonitoringFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_enabled: pulumi.Input[bool],
-             name: pulumi.Input[str],
-             query: pulumi.Input[str],
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
              exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
              filtered_data_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if exclusion_filters is None and 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if filtered_data_type is None and 'filteredDataType' in kwargs:
+            filtered_data_type = kwargs['filteredDataType']
+
         _setter("is_enabled", is_enabled)
         _setter("name", name)
         _setter("query", query)
@@ -151,7 +165,15 @@ class _SecurityMonitoringFilterState:
              name: Optional[pulumi.Input[str]] = None,
              query: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if exclusion_filters is None and 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if filtered_data_type is None and 'filteredDataType' in kwargs:
+            filtered_data_type = kwargs['filteredDataType']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if exclusion_filters is not None:
             _setter("exclusion_filters", exclusion_filters)
         if filtered_data_type is not None:

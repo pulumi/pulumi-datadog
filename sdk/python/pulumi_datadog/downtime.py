@@ -58,7 +58,7 @@ class DowntimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              end: Optional[pulumi.Input[int]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,21 @@ class DowntimeArgs:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_tags is None and 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("scopes", scopes)
         if end is not None:
             _setter("end", end)
@@ -293,7 +307,21 @@ class _DowntimeState:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if active_child_id is None and 'activeChildId' in kwargs:
+            active_child_id = kwargs['activeChildId']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_tags is None and 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         if active is not None:
             _setter("active", active)
         if active_child_id is not None:

@@ -35,11 +35,21 @@ class IntegrationStsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_email: pulumi.Input[str],
+             client_email: Optional[pulumi.Input[str]] = None,
              automute: Optional[pulumi.Input[bool]] = None,
              host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if client_email is None:
+            raise TypeError("Missing 'client_email' argument")
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if is_cspm_enabled is None and 'isCspmEnabled' in kwargs:
+            is_cspm_enabled = kwargs['isCspmEnabled']
+
         _setter("client_email", client_email)
         if automute is not None:
             _setter("automute", automute)
@@ -129,7 +139,17 @@ class _IntegrationStsState:
              delegate_account_email: Optional[pulumi.Input[str]] = None,
              host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if delegate_account_email is None and 'delegateAccountEmail' in kwargs:
+            delegate_account_email = kwargs['delegateAccountEmail']
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if is_cspm_enabled is None and 'isCspmEnabled' in kwargs:
+            is_cspm_enabled = kwargs['isCspmEnabled']
+
         if automute is not None:
             _setter("automute", automute)
         if client_email is not None:

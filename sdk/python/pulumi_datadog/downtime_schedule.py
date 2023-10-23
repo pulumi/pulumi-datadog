@@ -49,7 +49,7 @@ class DowntimeScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input[str],
+             scope: Optional[pulumi.Input[str]] = None,
              display_timezone: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
              monitor_identifier: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']] = None,
@@ -58,7 +58,25 @@ class DowntimeScheduleArgs:
              notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
              recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if display_timezone is None and 'displayTimezone' in kwargs:
+            display_timezone = kwargs['displayTimezone']
+        if monitor_identifier is None and 'monitorIdentifier' in kwargs:
+            monitor_identifier = kwargs['monitorIdentifier']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if notify_end_states is None and 'notifyEndStates' in kwargs:
+            notify_end_states = kwargs['notifyEndStates']
+        if notify_end_types is None and 'notifyEndTypes' in kwargs:
+            notify_end_types = kwargs['notifyEndTypes']
+        if one_time_schedule is None and 'oneTimeSchedule' in kwargs:
+            one_time_schedule = kwargs['oneTimeSchedule']
+        if recurring_schedule is None and 'recurringSchedule' in kwargs:
+            recurring_schedule = kwargs['recurringSchedule']
+
         _setter("scope", scope)
         if display_timezone is not None:
             _setter("display_timezone", display_timezone)
@@ -222,7 +240,23 @@ class _DowntimeScheduleState:
              one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
              recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_timezone is None and 'displayTimezone' in kwargs:
+            display_timezone = kwargs['displayTimezone']
+        if monitor_identifier is None and 'monitorIdentifier' in kwargs:
+            monitor_identifier = kwargs['monitorIdentifier']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if notify_end_states is None and 'notifyEndStates' in kwargs:
+            notify_end_states = kwargs['notifyEndStates']
+        if notify_end_types is None and 'notifyEndTypes' in kwargs:
+            notify_end_types = kwargs['notifyEndTypes']
+        if one_time_schedule is None and 'oneTimeSchedule' in kwargs:
+            one_time_schedule = kwargs['oneTimeSchedule']
+        if recurring_schedule is None and 'recurringSchedule' in kwargs:
+            recurring_schedule = kwargs['recurringSchedule']
+
         if display_timezone is not None:
             _setter("display_timezone", display_timezone)
         if message is not None:

@@ -40,12 +40,26 @@ class MetricTagConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             metric_type: pulumi.Input[str],
-             tags: pulumi.Input[Sequence[pulumi.Input[str]]],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
              include_percentiles: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_type is None and 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+        if metric_type is None:
+            raise TypeError("Missing 'metric_type' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+        if include_percentiles is None and 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+
         _setter("metric_name", metric_name)
         _setter("metric_type", metric_type)
         _setter("tags", tags)
@@ -147,7 +161,15 @@ class _MetricTagConfigurationState:
              metric_name: Optional[pulumi.Input[str]] = None,
              metric_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_percentiles is None and 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_type is None and 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+
         if aggregations is not None:
             _setter("aggregations", aggregations)
         if include_percentiles is not None:

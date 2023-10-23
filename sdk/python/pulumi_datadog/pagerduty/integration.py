@@ -32,10 +32,16 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subdomain: pulumi.Input[str],
+             subdomain: Optional[pulumi.Input[str]] = None,
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subdomain is None:
+            raise TypeError("Missing 'subdomain' argument")
+        if api_token is None and 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         _setter("subdomain", subdomain)
         if api_token is not None:
             _setter("api_token", api_token)
@@ -103,7 +109,11 @@ class _IntegrationState:
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subdomain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_token is None and 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         if api_token is not None:
             _setter("api_token", api_token)
         if schedules is not None:

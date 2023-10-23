@@ -65,8 +65,8 @@ class DashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             layout_type: pulumi.Input[str],
-             title: pulumi.Input[str],
+             layout_type: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              is_read_only: Optional[pulumi.Input[bool]] = None,
@@ -78,7 +78,29 @@ class DashboardArgs:
              template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
              url: Optional[pulumi.Input[str]] = None,
              widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if layout_type is None and 'layoutType' in kwargs:
+            layout_type = kwargs['layoutType']
+        if layout_type is None:
+            raise TypeError("Missing 'layout_type' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if dashboard_lists is None and 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+        if is_read_only is None and 'isReadOnly' in kwargs:
+            is_read_only = kwargs['isReadOnly']
+        if notify_lists is None and 'notifyLists' in kwargs:
+            notify_lists = kwargs['notifyLists']
+        if reflow_type is None and 'reflowType' in kwargs:
+            reflow_type = kwargs['reflowType']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if template_variable_presets is None and 'templateVariablePresets' in kwargs:
+            template_variable_presets = kwargs['templateVariablePresets']
+        if template_variables is None and 'templateVariables' in kwargs:
+            template_variables = kwargs['templateVariables']
+
         _setter("layout_type", layout_type)
         _setter("title", title)
         if dashboard_lists is not None:
@@ -337,7 +359,27 @@ class _DashboardState:
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dashboard_lists is None and 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+        if dashboard_lists_removeds is None and 'dashboardListsRemoveds' in kwargs:
+            dashboard_lists_removeds = kwargs['dashboardListsRemoveds']
+        if is_read_only is None and 'isReadOnly' in kwargs:
+            is_read_only = kwargs['isReadOnly']
+        if layout_type is None and 'layoutType' in kwargs:
+            layout_type = kwargs['layoutType']
+        if notify_lists is None and 'notifyLists' in kwargs:
+            notify_lists = kwargs['notifyLists']
+        if reflow_type is None and 'reflowType' in kwargs:
+            reflow_type = kwargs['reflowType']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if template_variable_presets is None and 'templateVariablePresets' in kwargs:
+            template_variable_presets = kwargs['templateVariablePresets']
+        if template_variables is None and 'templateVariables' in kwargs:
+            template_variables = kwargs['templateVariables']
+
         if dashboard_lists is not None:
             _setter("dashboard_lists", dashboard_lists)
         if dashboard_lists_removeds is not None:

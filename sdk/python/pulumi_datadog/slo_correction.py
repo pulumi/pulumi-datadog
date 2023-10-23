@@ -47,15 +47,25 @@ class SloCorrectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             slo_id: pulumi.Input[str],
-             start: pulumi.Input[int],
+             category: Optional[pulumi.Input[str]] = None,
+             slo_id: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              duration: Optional[pulumi.Input[int]] = None,
              end: Optional[pulumi.Input[int]] = None,
              rrule: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if slo_id is None and 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+        if slo_id is None:
+            raise TypeError("Missing 'slo_id' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+
         _setter("category", category)
         _setter("slo_id", slo_id)
         _setter("start", start)
@@ -211,7 +221,11 @@ class _SloCorrectionState:
              slo_id: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[int]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if slo_id is None and 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+
         if category is not None:
             _setter("category", category)
         if description is not None:

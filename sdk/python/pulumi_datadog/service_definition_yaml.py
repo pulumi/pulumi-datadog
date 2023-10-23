@@ -26,8 +26,14 @@ class ServiceDefinitionYamlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             service_definition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service_definition is None and 'serviceDefinition' in kwargs:
+            service_definition = kwargs['serviceDefinition']
+        if service_definition is None:
+            raise TypeError("Missing 'service_definition' argument")
+
         _setter("service_definition", service_definition)
 
     @property
@@ -59,7 +65,11 @@ class _ServiceDefinitionYamlState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service_definition is None and 'serviceDefinition' in kwargs:
+            service_definition = kwargs['serviceDefinition']
+
         if service_definition is not None:
             _setter("service_definition", service_definition)
 

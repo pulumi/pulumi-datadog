@@ -4,8 +4,12 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the current order of your logs archives.
@@ -25,4 +29,50 @@ type GetLogsArchivesOrderResult struct {
 	ArchiveIds []string `pulumi:"archiveIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetLogsArchivesOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsArchivesOrderResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsArchivesOrderResult, error) {
+		r, err := GetLogsArchivesOrder(ctx, opts...)
+		var s GetLogsArchivesOrderResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetLogsArchivesOrderResultOutput)
+}
+
+// A collection of values returned by getLogsArchivesOrder.
+type GetLogsArchivesOrderResultOutput struct{ *pulumi.OutputState }
+
+func (GetLogsArchivesOrderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsArchivesOrderResult)(nil)).Elem()
+}
+
+func (o GetLogsArchivesOrderResultOutput) ToGetLogsArchivesOrderResultOutput() GetLogsArchivesOrderResultOutput {
+	return o
+}
+
+func (o GetLogsArchivesOrderResultOutput) ToGetLogsArchivesOrderResultOutputWithContext(ctx context.Context) GetLogsArchivesOrderResultOutput {
+	return o
+}
+
+func (o GetLogsArchivesOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsArchivesOrderResult] {
+	return pulumix.Output[GetLogsArchivesOrderResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs.
+func (o GetLogsArchivesOrderResultOutput) ArchiveIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLogsArchivesOrderResult) []string { return v.ArchiveIds }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLogsArchivesOrderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsArchivesOrderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLogsArchivesOrderResultOutput{})
 }

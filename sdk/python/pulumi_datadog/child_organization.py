@@ -28,8 +28,12 @@ class ChildOrganizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -85,7 +89,15 @@ class _ChildOrganizationState:
              public_id: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_keys is None and 'apiKeys' in kwargs:
+            api_keys = kwargs['apiKeys']
+        if application_keys is None and 'applicationKeys' in kwargs:
+            application_keys = kwargs['applicationKeys']
+        if public_id is None and 'publicId' in kwargs:
+            public_id = kwargs['publicId']
+
         if api_keys is not None:
             _setter("api_keys", api_keys)
         if application_keys is not None:

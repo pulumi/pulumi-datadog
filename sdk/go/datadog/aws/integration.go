@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
 //				AccountId: pulumi.String("1234567890"),
-//				AccountSpecificNamespaceRules: pulumi.AnyMap{
+//				AccountSpecificNamespaceRules: pulumi.Map{
 //					"auto_scaling": pulumi.Any(false),
 //					"opsworks":     pulumi.Any(false),
 //				},

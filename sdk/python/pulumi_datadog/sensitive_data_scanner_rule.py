@@ -55,7 +55,7 @@ class SensitiveDataScannerRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -65,7 +65,21 @@ class SensitiveDataScannerRuleArgs:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if standard_pattern_id is None and 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if text_replacement is None and 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         _setter("group_id", group_id)
         if description is not None:
             _setter("description", description)
@@ -259,7 +273,19 @@ class _SensitiveDataScannerRuleState:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if standard_pattern_id is None and 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if text_replacement is None and 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         if description is not None:
             _setter("description", description)
         if excluded_namespaces is not None:

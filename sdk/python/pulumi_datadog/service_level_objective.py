@@ -64,9 +64,9 @@ class ServiceLevelObjectiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             thresholds: pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              force_delete: Optional[pulumi.Input[bool]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -77,7 +77,23 @@ class ServiceLevelObjectiveArgs:
              timeframe: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if thresholds is None:
+            raise TypeError("Missing 'thresholds' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if monitor_ids is None and 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if target_threshold is None and 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if warning_threshold is None and 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         _setter("name", name)
         _setter("thresholds", thresholds)
         _setter("type", type)
@@ -323,7 +339,17 @@ class _ServiceLevelObjectiveState:
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if monitor_ids is None and 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if target_threshold is None and 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if warning_threshold is None and 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         if description is not None:
             _setter("description", description)
         if force_delete is not None:

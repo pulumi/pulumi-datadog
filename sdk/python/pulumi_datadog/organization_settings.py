@@ -33,7 +33,9 @@ class OrganizationSettingsArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if settings is not None:
@@ -92,7 +94,11 @@ class _OrganizationSettingsState:
              name: Optional[pulumi.Input[str]] = None,
              public_id: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_id is None and 'publicId' in kwargs:
+            public_id = kwargs['publicId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

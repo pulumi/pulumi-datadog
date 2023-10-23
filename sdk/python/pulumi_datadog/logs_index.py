@@ -43,13 +43,27 @@ class LogsIndexArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filters: pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]],
-             name: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              daily_limit: Optional[pulumi.Input[int]] = None,
              disable_daily_limit: Optional[pulumi.Input[bool]] = None,
              exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if daily_limit is None and 'dailyLimit' in kwargs:
+            daily_limit = kwargs['dailyLimit']
+        if disable_daily_limit is None and 'disableDailyLimit' in kwargs:
+            disable_daily_limit = kwargs['disableDailyLimit']
+        if exclusion_filters is None and 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         _setter("filters", filters)
         _setter("name", name)
         if daily_limit is not None:
@@ -170,7 +184,17 @@ class _LogsIndexState:
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if daily_limit is None and 'dailyLimit' in kwargs:
+            daily_limit = kwargs['dailyLimit']
+        if disable_daily_limit is None and 'disableDailyLimit' in kwargs:
+            disable_daily_limit = kwargs['disableDailyLimit']
+        if exclusion_filters is None and 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         if daily_limit is not None:
             _setter("daily_limit", daily_limit)
         if disable_daily_limit is not None:

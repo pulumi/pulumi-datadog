@@ -34,10 +34,22 @@ class ChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             channel_name: pulumi.Input[str],
-             display: pulumi.Input['ChannelDisplayArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_name: Optional[pulumi.Input[str]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_name is None:
+            raise TypeError("Missing 'channel_name' argument")
+        if display is None:
+            raise TypeError("Missing 'display' argument")
+
         _setter("account_name", account_name)
         _setter("channel_name", channel_name)
         _setter("display", display)
@@ -103,7 +115,13 @@ class _ChannelState:
              account_name: Optional[pulumi.Input[str]] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if channel_name is not None:

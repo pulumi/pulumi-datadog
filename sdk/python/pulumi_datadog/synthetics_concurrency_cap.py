@@ -26,8 +26,14 @@ class SyntheticsConcurrencyCapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             on_demand_concurrency_cap: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             on_demand_concurrency_cap: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if on_demand_concurrency_cap is None and 'onDemandConcurrencyCap' in kwargs:
+            on_demand_concurrency_cap = kwargs['onDemandConcurrencyCap']
+        if on_demand_concurrency_cap is None:
+            raise TypeError("Missing 'on_demand_concurrency_cap' argument")
+
         _setter("on_demand_concurrency_cap", on_demand_concurrency_cap)
 
     @property
@@ -59,7 +65,11 @@ class _SyntheticsConcurrencyCapState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              on_demand_concurrency_cap: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if on_demand_concurrency_cap is None and 'onDemandConcurrencyCap' in kwargs:
+            on_demand_concurrency_cap = kwargs['onDemandConcurrencyCap']
+
         if on_demand_concurrency_cap is not None:
             _setter("on_demand_concurrency_cap", on_demand_concurrency_cap)
 

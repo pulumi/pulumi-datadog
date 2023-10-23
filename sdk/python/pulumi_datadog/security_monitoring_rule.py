@@ -58,9 +58,9 @@ class SecurityMonitoringRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cases: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]],
-             message: pulumi.Input[str],
-             name: pulumi.Input[str],
+             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
              has_extended_title: Optional[pulumi.Input[bool]] = None,
@@ -69,7 +69,19 @@ class SecurityMonitoringRuleArgs:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cases is None:
+            raise TypeError("Missing 'cases' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if signal_queries is None and 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         _setter("cases", cases)
         _setter("message", message)
         _setter("name", name)
@@ -279,7 +291,13 @@ class _SecurityMonitoringRuleState:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if signal_queries is None and 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:

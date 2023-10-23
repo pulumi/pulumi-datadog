@@ -38,12 +38,18 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              disabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              send_user_invitation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if send_user_invitation is None and 'sendUserInvitation' in kwargs:
+            send_user_invitation = kwargs['sendUserInvitation']
+
         _setter("email", email)
         if disabled is not None:
             _setter("disabled", disabled)
@@ -155,7 +161,13 @@ class _UserState:
              send_user_invitation: Optional[pulumi.Input[bool]] = None,
              user_invitation_id: Optional[pulumi.Input[str]] = None,
              verified: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if send_user_invitation is None and 'sendUserInvitation' in kwargs:
+            send_user_invitation = kwargs['sendUserInvitation']
+        if user_invitation_id is None and 'userInvitationId' in kwargs:
+            user_invitation_id = kwargs['userInvitationId']
+
         if disabled is not None:
             _setter("disabled", disabled)
         if email is not None:

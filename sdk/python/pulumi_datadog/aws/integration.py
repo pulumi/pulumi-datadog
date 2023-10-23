@@ -67,7 +67,31 @@ class IntegrationArgs:
              resource_collection_enabled: Optional[pulumi.Input[str]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              secret_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_specific_namespace_rules is None and 'accountSpecificNamespaceRules' in kwargs:
+            account_specific_namespace_rules = kwargs['accountSpecificNamespaceRules']
+        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
+            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
+        if excluded_regions is None and 'excludedRegions' in kwargs:
+            excluded_regions = kwargs['excludedRegions']
+        if filter_tags is None and 'filterTags' in kwargs:
+            filter_tags = kwargs['filterTags']
+        if host_tags is None and 'hostTags' in kwargs:
+            host_tags = kwargs['hostTags']
+        if metrics_collection_enabled is None and 'metricsCollectionEnabled' in kwargs:
+            metrics_collection_enabled = kwargs['metricsCollectionEnabled']
+        if resource_collection_enabled is None and 'resourceCollectionEnabled' in kwargs:
+            resource_collection_enabled = kwargs['resourceCollectionEnabled']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+
         if access_key_id is not None:
             _setter("access_key_id", access_key_id)
         if account_id is not None:
@@ -285,7 +309,33 @@ class _IntegrationState:
              resource_collection_enabled: Optional[pulumi.Input[str]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              secret_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_specific_namespace_rules is None and 'accountSpecificNamespaceRules' in kwargs:
+            account_specific_namespace_rules = kwargs['accountSpecificNamespaceRules']
+        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
+            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
+        if excluded_regions is None and 'excludedRegions' in kwargs:
+            excluded_regions = kwargs['excludedRegions']
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if filter_tags is None and 'filterTags' in kwargs:
+            filter_tags = kwargs['filterTags']
+        if host_tags is None and 'hostTags' in kwargs:
+            host_tags = kwargs['hostTags']
+        if metrics_collection_enabled is None and 'metricsCollectionEnabled' in kwargs:
+            metrics_collection_enabled = kwargs['metricsCollectionEnabled']
+        if resource_collection_enabled is None and 'resourceCollectionEnabled' in kwargs:
+            resource_collection_enabled = kwargs['resourceCollectionEnabled']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+
         if access_key_id is not None:
             _setter("access_key_id", access_key_id)
         if account_id is not None:

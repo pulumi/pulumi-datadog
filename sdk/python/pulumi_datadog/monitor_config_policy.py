@@ -31,9 +31,17 @@ class MonitorConfigPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_type: pulumi.Input[str],
+             policy_type: Optional[pulumi.Input[str]] = None,
              tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
         _setter("policy_type", policy_type)
         if tag_policy is not None:
             _setter("tag_policy", tag_policy)
@@ -83,7 +91,13 @@ class _MonitorConfigPolicyState:
              _setter: Callable[[Any, Any], None],
              policy_type: Optional[pulumi.Input[str]] = None,
              tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
         if policy_type is not None:
             _setter("policy_type", policy_type)
         if tag_policy is not None:

@@ -29,9 +29,19 @@ class ServiceObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_key: pulumi.Input[str],
-             service_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             service_key: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service_key is None and 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if service_key is None:
+            raise TypeError("Missing 'service_key' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+
         _setter("service_key", service_key)
         _setter("service_name", service_name)
 
@@ -80,7 +90,13 @@ class _ServiceObjectState:
              _setter: Callable[[Any, Any], None],
              service_key: Optional[pulumi.Input[str]] = None,
              service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service_key is None and 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if service_key is not None:
             _setter("service_key", service_key)
         if service_name is not None:
