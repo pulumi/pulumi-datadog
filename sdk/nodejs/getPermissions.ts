@@ -30,7 +30,7 @@ export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOp
  */
 export interface GetPermissionsArgs {
     /**
-     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      */
     includeRestricted?: boolean;
 }
@@ -44,7 +44,7 @@ export interface GetPermissionsResult {
      */
     readonly id: string;
     /**
-     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      */
     readonly includeRestricted?: boolean;
     /**
@@ -73,7 +73,7 @@ export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pul
  */
 export interface GetPermissionsOutputArgs {
     /**
-     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      */
     includeRestricted?: pulumi.Input<boolean>;
 }

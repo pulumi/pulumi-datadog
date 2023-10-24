@@ -29,6 +29,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServicemapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinition;
@@ -173,6 +174,11 @@ public final class DashboardWidget {
      * 
      */
     private @Nullable DashboardWidgetSloListDefinition sloListDefinition;
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    private @Nullable DashboardWidgetSplitGraphDefinition splitGraphDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
@@ -393,6 +399,13 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.sloListDefinition);
     }
     /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<DashboardWidgetSplitGraphDefinition> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
+    }
+    /**
      * @return The definition for a Sunburst widget.
      * 
      */
@@ -477,6 +490,7 @@ public final class DashboardWidget {
         private @Nullable DashboardWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetServicemapDefinition servicemapDefinition;
         private @Nullable DashboardWidgetSloListDefinition sloListDefinition;
+        private @Nullable DashboardWidgetSplitGraphDefinition splitGraphDefinition;
         private @Nullable DashboardWidgetSunburstDefinition sunburstDefinition;
         private @Nullable DashboardWidgetTimeseriesDefinition timeseriesDefinition;
         private @Nullable DashboardWidgetToplistDefinition toplistDefinition;
@@ -513,6 +527,7 @@ public final class DashboardWidget {
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
     	      this.sloListDefinition = defaults.sloListDefinition;
+    	      this.splitGraphDefinition = defaults.splitGraphDefinition;
     	      this.sunburstDefinition = defaults.sunburstDefinition;
     	      this.timeseriesDefinition = defaults.timeseriesDefinition;
     	      this.toplistDefinition = defaults.toplistDefinition;
@@ -653,6 +668,11 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder splitGraphDefinition(@Nullable DashboardWidgetSplitGraphDefinition splitGraphDefinition) {
+            this.splitGraphDefinition = splitGraphDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sunburstDefinition(@Nullable DashboardWidgetSunburstDefinition sunburstDefinition) {
             this.sunburstDefinition = sunburstDefinition;
             return this;
@@ -715,6 +735,7 @@ public final class DashboardWidget {
             o.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             o.servicemapDefinition = servicemapDefinition;
             o.sloListDefinition = sloListDefinition;
+            o.splitGraphDefinition = splitGraphDefinition;
             o.sunburstDefinition = sunburstDefinition;
             o.timeseriesDefinition = timeseriesDefinition;
             o.toplistDefinition = toplistDefinition;

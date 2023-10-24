@@ -77,7 +77,17 @@ class ServiceLevelObjectiveArgs:
              timeframe: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         _setter("name", name)
         _setter("thresholds", thresholds)
         _setter("type", type)
@@ -323,7 +333,17 @@ class _ServiceLevelObjectiveState:
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         if description is not None:
             _setter("description", description)
         if force_delete is not None:

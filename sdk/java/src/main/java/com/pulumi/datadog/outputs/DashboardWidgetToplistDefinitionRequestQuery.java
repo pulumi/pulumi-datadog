@@ -42,7 +42,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetToplistDefinitionRequestQuerySloQuery> sloQuery() {

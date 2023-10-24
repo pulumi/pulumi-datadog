@@ -22,10 +22,10 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] email: Email address for user.
-        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] name: Name for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
-        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         UserArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -43,7 +43,11 @@ class UserArgs:
              name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              send_user_invitation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendUserInvitation' in kwargs:
+            send_user_invitation = kwargs['sendUserInvitation']
+
         _setter("email", email)
         if disabled is not None:
             _setter("disabled", disabled)
@@ -70,7 +74,7 @@ class UserArgs:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user is disabled.
+        Whether the user is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -106,7 +110,7 @@ class UserArgs:
     @pulumi.getter(name="sendUserInvitation")
     def send_user_invitation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether an invitation email should be sent when the user is created.
+        Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         return pulumi.get(self, "send_user_invitation")
 
@@ -127,11 +131,11 @@ class _UserState:
                  verified: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
         :param pulumi.Input[str] name: Name for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
-        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
         :param pulumi.Input[bool] verified: Returns `true` if the user is verified.
         """
@@ -155,7 +159,13 @@ class _UserState:
              send_user_invitation: Optional[pulumi.Input[bool]] = None,
              user_invitation_id: Optional[pulumi.Input[str]] = None,
              verified: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendUserInvitation' in kwargs:
+            send_user_invitation = kwargs['sendUserInvitation']
+        if 'userInvitationId' in kwargs:
+            user_invitation_id = kwargs['userInvitationId']
+
         if disabled is not None:
             _setter("disabled", disabled)
         if email is not None:
@@ -175,7 +185,7 @@ class _UserState:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user is disabled.
+        Whether the user is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -223,7 +233,7 @@ class _UserState:
     @pulumi.getter(name="sendUserInvitation")
     def send_user_invitation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether an invitation email should be sent when the user is created.
+        Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         return pulumi.get(self, "send_user_invitation")
 
@@ -291,11 +301,11 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
         :param pulumi.Input[str] name: Name for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
-        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         ...
     @overload
@@ -391,11 +401,11 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for user.
         :param pulumi.Input[str] name: Name for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
-        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created. Defaults to `true`.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
         :param pulumi.Input[bool] verified: Returns `true` if the user is verified.
         """
@@ -416,7 +426,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the user is disabled.
+        Whether the user is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -448,7 +458,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="sendUserInvitation")
     def send_user_invitation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether an invitation email should be sent when the user is created.
+        Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         return pulumi.get(self, "send_user_invitation")
 

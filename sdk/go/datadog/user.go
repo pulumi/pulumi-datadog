@@ -60,7 +60,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Whether the user is disabled.
+	// Whether the user is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// Email address for user.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -68,7 +68,7 @@ type User struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
-	// Whether an invitation email should be sent when the user is created.
+	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrOutput `pulumi:"sendUserInvitation"`
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId pulumi.StringOutput `pulumi:"userInvitationId"`
@@ -109,7 +109,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Whether the user is disabled.
+	// Whether the user is disabled. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email *string `pulumi:"email"`
@@ -117,7 +117,7 @@ type userState struct {
 	Name *string `pulumi:"name"`
 	// A list a role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
-	// Whether an invitation email should be sent when the user is created.
+	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation *bool `pulumi:"sendUserInvitation"`
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId *string `pulumi:"userInvitationId"`
@@ -126,7 +126,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// Whether the user is disabled.
+	// Whether the user is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringPtrInput
@@ -134,7 +134,7 @@ type UserState struct {
 	Name pulumi.StringPtrInput
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
-	// Whether an invitation email should be sent when the user is created.
+	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrInput
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Whether the user is disabled.
+	// Whether the user is disabled. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email string `pulumi:"email"`
@@ -155,13 +155,13 @@ type userArgs struct {
 	Name *string `pulumi:"name"`
 	// A list a role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
-	// Whether an invitation email should be sent when the user is created.
+	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation *bool `pulumi:"sendUserInvitation"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Whether the user is disabled.
+	// Whether the user is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringInput
@@ -169,7 +169,7 @@ type UserArgs struct {
 	Name pulumi.StringPtrInput
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
-	// Whether an invitation email should be sent when the user is created.
+	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrInput
 }
 
@@ -284,7 +284,7 @@ func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
 	}
 }
 
-// Whether the user is disabled.
+// Whether the user is disabled. Defaults to `false`.
 func (o UserOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
@@ -304,7 +304,7 @@ func (o UserOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Whether an invitation email should be sent when the user is created.
+// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 func (o UserOutput) SendUserInvitation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SendUserInvitation }).(pulumi.BoolPtrOutput)
 }

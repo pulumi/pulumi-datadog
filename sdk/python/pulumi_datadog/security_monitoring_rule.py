@@ -32,14 +32,14 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: Name of the case.
-        :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
-        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         SecurityMonitoringRuleArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -69,7 +69,13 @@ class SecurityMonitoringRuleArgs:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         _setter("cases", cases)
         _setter("message", message)
         _setter("name", name)
@@ -130,7 +136,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the rule is enabled.
+        Whether the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -154,7 +160,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter(name="hasExtendedTitle")
     def has_extended_title(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the notifications include the triggering group-by values in their title.
+        Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         """
         return pulumi.get(self, "has_extended_title")
 
@@ -214,7 +220,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         return pulumi.get(self, "type")
 
@@ -240,16 +246,16 @@ class _SecurityMonitoringRuleState:
         """
         Input properties used for looking up and filtering SecurityMonitoringRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
-        :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
-        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: Name of the case.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         _SecurityMonitoringRuleState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -279,7 +285,13 @@ class _SecurityMonitoringRuleState:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:
@@ -319,7 +331,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the rule is enabled.
+        Whether the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -343,7 +355,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter(name="hasExtendedTitle")
     def has_extended_title(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the notifications include the triggering group-by values in their title.
+        Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         """
         return pulumi.get(self, "has_extended_title")
 
@@ -427,7 +439,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         return pulumi.get(self, "type")
 
@@ -504,16 +516,16 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]] cases: Cases for generating signals.
-        :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
-        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: Name of the case.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         ...
     @overload
@@ -659,16 +671,16 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]] cases: Cases for generating signals.
-        :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
-        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: Name of the case.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
-        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -699,7 +711,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the rule is enabled.
+        Whether the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -715,7 +727,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter(name="hasExtendedTitle")
     def has_extended_title(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the notifications include the triggering group-by values in their title.
+        Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         """
         return pulumi.get(self, "has_extended_title")
 
@@ -771,7 +783,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         return pulumi.get(self, "type")
 

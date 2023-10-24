@@ -67,7 +67,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly appServicePlanFilters!: pulumi.Output<string | undefined>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     public readonly automute!: pulumi.Output<boolean | undefined>;
     /**
@@ -79,11 +79,11 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     public readonly cspmEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     public readonly customMetricsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface IntegrationState {
      */
     appServicePlanFilters?: pulumi.Input<string>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -164,11 +164,11 @@ export interface IntegrationState {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     cspmEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     customMetricsEnabled?: pulumi.Input<boolean>;
     /**
@@ -190,7 +190,7 @@ export interface IntegrationArgs {
      */
     appServicePlanFilters?: pulumi.Input<string>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -202,11 +202,11 @@ export interface IntegrationArgs {
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     cspmEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     customMetricsEnabled?: pulumi.Input<boolean>;
     /**

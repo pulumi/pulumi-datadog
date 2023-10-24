@@ -52,6 +52,14 @@ export interface GetIpRangesResult {
      */
     readonly apmIpv6s: string[];
     /**
+     * An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     */
+    readonly globalIpv4s: string[];
+    /**
+     * An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     */
+    readonly globalIpv6s: string[];
+    /**
      * The ID of this resource.
      */
     readonly id: string;

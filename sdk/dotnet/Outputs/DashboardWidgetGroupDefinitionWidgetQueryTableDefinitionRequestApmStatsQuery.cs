@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn> Columns;
         /// <summary>
-        /// APM Environment.
+        /// APM environment.
         /// </summary>
         public readonly string Env;
         /// <summary>

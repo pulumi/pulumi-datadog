@@ -37,7 +37,9 @@ class RoleArgs:
              name: pulumi.Input[str],
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if permissions is not None:
             _setter("permissions", permissions)
@@ -109,7 +111,11 @@ class _RoleState:
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
              user_count: Optional[pulumi.Input[int]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userCount' in kwargs:
+            user_count = kwargs['userCount']
+
         if name is not None:
             _setter("name", name)
         if permissions is not None:

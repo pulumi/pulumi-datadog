@@ -381,6 +381,72 @@ import javax.annotation.Nullable;
  *             .type(&#34;browser&#34;)
  *             .build());
  * 
+ *         var grpc = new SyntheticsTest(&#34;grpc&#34;, SyntheticsTestArgs.builder()        
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;lessThan&#34;)
+ *                     .target(&#34;2000&#34;)
+ *                     .type(&#34;responseTime&#34;)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .target(1)
+ *                     .type(&#34;grpcHealthcheckStatus&#34;)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .target(&#34;proto target&#34;)
+ *                     .type(&#34;grpcProto&#34;)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .property(&#34;property&#34;)
+ *                     .target(&#34;123&#34;)
+ *                     .type(&#34;grpcMetadata&#34;)
+ *                     .build())
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .message(&#34;Notify @datadog.user&#34;)
+ *             .name(&#34;GRPC API test&#34;)
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(60)
+ *                 .build())
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host(&#34;google.com&#34;)
+ *                 .method(&#34;GET&#34;)
+ *                 .port(50050)
+ *                 .protoJsonDescriptor(&#34;&#34;&#34;
+ * syntax = &#34;proto3&#34;;
+ * option java_multiple_files = true;
+ * option java_package = &#34;io.grpc.examples.helloworld&#34;;
+ * option java_outer_classname = &#34;HelloWorldProto&#34;;
+ * option objc_class_prefix = &#34;HLW&#34;;
+ * package helloworld;
+ * // The greeting service definition.
+ * service Greeter {
+ * 	// Sends a greeting
+ * 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * // The request message containing the user&#39;s name.
+ * message HelloRequest {
+ * 	string name = 1;
+ * }
+ * // The response message containing the greetings
+ * message HelloReply {
+ * 	string message = 1;
+ * }
+ * 
+ *                 &#34;&#34;&#34;)
+ *                 .service(&#34;Hello&#34;)
+ *                 .build())
+ *             .requestMetadata(Map.of(&#34;header&#34;, &#34;value&#34;))
+ *             .status(&#34;paused&#34;)
+ *             .subtype(&#34;grpc&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;baz&#34;)
+ *             .type(&#34;api&#34;)
+ *             .build());
+ * 
  *     }
  * }
  * ```
@@ -669,14 +735,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Output<Optional<String>> subtype() {

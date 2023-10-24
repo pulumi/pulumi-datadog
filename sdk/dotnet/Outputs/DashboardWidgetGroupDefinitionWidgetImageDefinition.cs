@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinition
     {
         /// <summary>
-        /// Whether to display a background or not.
+        /// Whether to display a background or not. Defaults to `true`.
         /// </summary>
         public readonly bool? HasBackground;
         /// <summary>
-        /// Whether to display a border or not.
+        /// Whether to display a border or not. Defaults to `true`.
         /// </summary>
         public readonly bool? HasBorder;
         /// <summary>

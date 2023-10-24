@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * Whether the user is disabled.
+     * Whether the user is disabled. Defaults to `false`.
      * 
      */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
-     * @return Whether the user is disabled.
+     * @return Whether the user is disabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> disabled() {
@@ -122,14 +122,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.roles);
     }
     /**
-     * Whether an invitation email should be sent when the user is created.
+     * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      * 
      */
     @Export(name="sendUserInvitation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendUserInvitation;
 
     /**
-     * @return Whether an invitation email should be sent when the user is created.
+     * @return Whether an invitation email should be sent when the user is created. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> sendUserInvitation() {

@@ -69,7 +69,15 @@ class CloudConfigurationRuleArgs:
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              related_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+        if 'relatedResourceTypes' in kwargs:
+            related_resource_types = kwargs['relatedResourceTypes']
+
         _setter("enabled", enabled)
         _setter("message", message)
         _setter("name", name)
@@ -276,7 +284,15 @@ class _CloudConfigurationRuleState:
              resource_type: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+        if 'relatedResourceTypes' in kwargs:
+            related_resource_types = kwargs['relatedResourceTypes']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if filters is not None:

@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string LayoutType;
         /// <summary>
-        /// Whether to show the title or not.
+        /// Whether to show the title or not. Defaults to `true`.
         /// </summary>
         public readonly bool? ShowTitle;
         /// <summary>

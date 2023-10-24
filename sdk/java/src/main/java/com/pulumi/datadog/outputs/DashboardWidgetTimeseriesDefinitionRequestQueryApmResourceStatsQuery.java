@@ -18,7 +18,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceSta
      */
     private String dataSource;
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     private String env;
@@ -72,7 +72,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceSta
         return this.dataSource;
     }
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public String env() {

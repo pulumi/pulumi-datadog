@@ -388,6 +388,86 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = datadog.NewSyntheticsTest(ctx, "grpc", &datadog.SyntheticsTestArgs{
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("2000"),
+//						Type:     pulumi.String("responseTime"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("1"),
+//						Type:     pulumi.String("grpcHealthcheckStatus"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("proto target"),
+//						Type:     pulumi.String("grpcProto"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Operator: pulumi.String("is"),
+//						Property: pulumi.String("property"),
+//						Target:   pulumi.String("123"),
+//						Type:     pulumi.String("grpcMetadata"),
+//					},
+//				},
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Message: pulumi.String("Notify @datadog.user"),
+//				Name:    pulumi.String("GRPC API test"),
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(60),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Host:   pulumi.String("google.com"),
+//					Method: pulumi.String("GET"),
+//					Port:   pulumi.Int(50050),
+//					ProtoJsonDescriptor: pulumi.String(`syntax = "proto3";
+//
+// option java_multiple_files = true;
+// option java_package = "io.grpc.examples.helloworld";
+// option java_outer_classname = "HelloWorldProto";
+// option objc_class_prefix = "HLW";
+// package helloworld;
+// // The greeting service definition.
+//
+//	service Greeter {
+//		// Sends a greeting
+//		rpc SayHello (HelloRequest) returns (HelloReply) {}
+//	}
+//
+// // The request message containing the user's name.
+//
+//	message HelloRequest {
+//		string name = 1;
+//	}
+//
+// // The response message containing the greetings
+//
+//	message HelloReply {
+//		string message = 1;
+//	}
+//
+// `),
+//
+//					Service: pulumi.String("Hello"),
+//				},
+//				RequestMetadata: pulumi.AnyMap{
+//					"header": pulumi.Any("value"),
+//				},
+//				Status:  pulumi.String("paused"),
+//				Subtype: pulumi.String("grpc"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//				Type: pulumi.String("api"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -445,7 +525,7 @@ type SyntheticsTest struct {
 	SetCookie pulumi.StringPtrOutput `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -534,7 +614,7 @@ type syntheticsTestState struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status *string `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
@@ -582,7 +662,7 @@ type SyntheticsTestState struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringPtrInput
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
@@ -632,7 +712,7 @@ type syntheticsTestArgs struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status string `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
@@ -679,7 +759,7 @@ type SyntheticsTestArgs struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringInput
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
@@ -899,7 +979,7 @@ func (o SyntheticsTestOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
 func (o SyntheticsTestOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }

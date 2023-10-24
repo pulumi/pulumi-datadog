@@ -43,7 +43,13 @@ class WebhookArgs:
              custom_headers: Optional[pulumi.Input[str]] = None,
              encode_as: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'encodeAs' in kwargs:
+            encode_as = kwargs['encodeAs']
+
         _setter("name", name)
         _setter("url", url)
         if custom_headers is not None:
@@ -146,7 +152,13 @@ class _WebhookState:
              name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'encodeAs' in kwargs:
+            encode_as = kwargs['encodeAs']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if encode_as is not None:

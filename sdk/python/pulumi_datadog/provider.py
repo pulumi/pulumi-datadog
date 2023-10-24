@@ -64,7 +64,25 @@ class ProviderArgs:
              http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
              http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
              validate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiUrl' in kwargs:
+            api_url = kwargs['apiUrl']
+        if 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if 'httpClientRetryBackoffBase' in kwargs:
+            http_client_retry_backoff_base = kwargs['httpClientRetryBackoffBase']
+        if 'httpClientRetryBackoffMultiplier' in kwargs:
+            http_client_retry_backoff_multiplier = kwargs['httpClientRetryBackoffMultiplier']
+        if 'httpClientRetryEnabled' in kwargs:
+            http_client_retry_enabled = kwargs['httpClientRetryEnabled']
+        if 'httpClientRetryMaxRetries' in kwargs:
+            http_client_retry_max_retries = kwargs['httpClientRetryMaxRetries']
+        if 'httpClientRetryTimeout' in kwargs:
+            http_client_retry_timeout = kwargs['httpClientRetryTimeout']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if api_url is not None:

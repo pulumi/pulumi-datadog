@@ -51,7 +51,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
@@ -61,7 +61,7 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// Email of the user.
 	Email string `pulumi:"email"`
-	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter string `pulumi:"filter"`
@@ -86,7 +86,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Filter all users by the given string.
 	Filter pulumi.StringInput `pulumi:"filter"`
@@ -122,7 +122,7 @@ func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
 func (o LookupUserResultOutput) ExactMatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }

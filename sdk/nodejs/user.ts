@@ -58,7 +58,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the user is disabled.
+     * Whether the user is disabled. Defaults to `false`.
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -74,7 +74,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<string[] | undefined>;
     /**
-     * Whether an invitation email should be sent when the user is created.
+     * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
     public readonly sendUserInvitation!: pulumi.Output<boolean | undefined>;
     /**
@@ -129,7 +129,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * Whether the user is disabled.
+     * Whether the user is disabled. Defaults to `false`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -145,7 +145,7 @@ export interface UserState {
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether an invitation email should be sent when the user is created.
+     * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
     sendUserInvitation?: pulumi.Input<boolean>;
     /**
@@ -163,7 +163,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * Whether the user is disabled.
+     * Whether the user is disabled. Defaults to `false`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -179,7 +179,7 @@ export interface UserArgs {
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether an invitation email should be sent when the user is created.
+     * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
     sendUserInvitation?: pulumi.Input<boolean>;
 }

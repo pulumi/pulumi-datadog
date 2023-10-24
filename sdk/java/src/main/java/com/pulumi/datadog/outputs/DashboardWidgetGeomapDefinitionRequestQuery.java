@@ -42,7 +42,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGeomapDefinitionRequestQuerySloQuery> sloQuery() {

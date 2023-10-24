@@ -59,7 +59,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
         SyntheticsTestArgs._configure(
@@ -112,7 +112,37 @@ class SyntheticsTestArgs:
              set_cookie: Optional[pulumi.Input[str]] = None,
              subtype: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiSteps' in kwargs:
+            api_steps = kwargs['apiSteps']
+        if 'browserSteps' in kwargs:
+            browser_steps = kwargs['browserSteps']
+        if 'browserVariables' in kwargs:
+            browser_variables = kwargs['browserVariables']
+        if 'configVariables' in kwargs:
+            config_variables = kwargs['configVariables']
+        if 'deviceIds' in kwargs:
+            device_ids = kwargs['deviceIds']
+        if 'optionsList' in kwargs:
+            options_list = kwargs['optionsList']
+        if 'requestBasicauth' in kwargs:
+            request_basicauth = kwargs['requestBasicauth']
+        if 'requestClientCertificate' in kwargs:
+            request_client_certificate = kwargs['requestClientCertificate']
+        if 'requestDefinition' in kwargs:
+            request_definition = kwargs['requestDefinition']
+        if 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if 'requestMetadata' in kwargs:
+            request_metadata = kwargs['requestMetadata']
+        if 'requestProxy' in kwargs:
+            request_proxy = kwargs['requestProxy']
+        if 'requestQuery' in kwargs:
+            request_query = kwargs['requestQuery']
+        if 'setCookie' in kwargs:
+            set_cookie = kwargs['setCookie']
+
         _setter("locations", locations)
         _setter("name", name)
         _setter("status", status)
@@ -395,7 +425,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 
@@ -463,7 +493,7 @@ class _SyntheticsTestState:
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
@@ -519,7 +549,39 @@ class _SyntheticsTestState:
              subtype: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiSteps' in kwargs:
+            api_steps = kwargs['apiSteps']
+        if 'browserSteps' in kwargs:
+            browser_steps = kwargs['browserSteps']
+        if 'browserVariables' in kwargs:
+            browser_variables = kwargs['browserVariables']
+        if 'configVariables' in kwargs:
+            config_variables = kwargs['configVariables']
+        if 'deviceIds' in kwargs:
+            device_ids = kwargs['deviceIds']
+        if 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if 'optionsList' in kwargs:
+            options_list = kwargs['optionsList']
+        if 'requestBasicauth' in kwargs:
+            request_basicauth = kwargs['requestBasicauth']
+        if 'requestClientCertificate' in kwargs:
+            request_client_certificate = kwargs['requestClientCertificate']
+        if 'requestDefinition' in kwargs:
+            request_definition = kwargs['requestDefinition']
+        if 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if 'requestMetadata' in kwargs:
+            request_metadata = kwargs['requestMetadata']
+        if 'requestProxy' in kwargs:
+            request_proxy = kwargs['requestProxy']
+        if 'requestQuery' in kwargs:
+            request_query = kwargs['requestQuery']
+        if 'setCookie' in kwargs:
+            set_cookie = kwargs['setCookie']
+
         if api_steps is not None:
             _setter("api_steps", api_steps)
         if assertions is not None:
@@ -808,7 +870,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 
@@ -1150,6 +1212,75 @@ class SyntheticsTest(pulumi.CustomResource):
             status="paused",
             tags=[],
             type="browser")
+        # Example Usage (GRPC API test)
+        # Create a new Datadog GRPC API test starting on google.org:50050
+        grpc = datadog.SyntheticsTest("grpc",
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="lessThan",
+                    target="2000",
+                    type="responseTime",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    target="1",
+                    type="grpcHealthcheckStatus",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    target="proto target",
+                    type="grpcProto",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    property="property",
+                    target="123",
+                    type="grpcMetadata",
+                ),
+            ],
+            locations=["aws:eu-central-1"],
+            message="Notify @datadog.user",
+            name="GRPC API test",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=60,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="google.com",
+                method="GET",
+                port=50050,
+                proto_json_descriptor=\"\"\"syntax = "proto3";
+        option java_multiple_files = true;
+        option java_package = "io.grpc.examples.helloworld";
+        option java_outer_classname = "HelloWorldProto";
+        option objc_class_prefix = "HLW";
+        package helloworld;
+        // The greeting service definition.
+        service Greeter {
+        	// Sends a greeting
+        	rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+        // The request message containing the user's name.
+        message HelloRequest {
+        	string name = 1;
+        }
+        // The response message containing the greetings
+        message HelloReply {
+        	string message = 1;
+        }
+
+        \"\"\",
+                service="Hello",
+            ),
+            request_metadata={
+                "header": "value",
+            },
+            status="paused",
+            subtype="grpc",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            type="api")
         ```
 
         ## Import
@@ -1180,7 +1311,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
@@ -1471,6 +1602,75 @@ class SyntheticsTest(pulumi.CustomResource):
             status="paused",
             tags=[],
             type="browser")
+        # Example Usage (GRPC API test)
+        # Create a new Datadog GRPC API test starting on google.org:50050
+        grpc = datadog.SyntheticsTest("grpc",
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="lessThan",
+                    target="2000",
+                    type="responseTime",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    target="1",
+                    type="grpcHealthcheckStatus",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    target="proto target",
+                    type="grpcProto",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    property="property",
+                    target="123",
+                    type="grpcMetadata",
+                ),
+            ],
+            locations=["aws:eu-central-1"],
+            message="Notify @datadog.user",
+            name="GRPC API test",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=60,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="google.com",
+                method="GET",
+                port=50050,
+                proto_json_descriptor=\"\"\"syntax = "proto3";
+        option java_multiple_files = true;
+        option java_package = "io.grpc.examples.helloworld";
+        option java_outer_classname = "HelloWorldProto";
+        option objc_class_prefix = "HLW";
+        package helloworld;
+        // The greeting service definition.
+        service Greeter {
+        	// Sends a greeting
+        	rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+        // The request message containing the user's name.
+        message HelloRequest {
+        	string name = 1;
+        }
+        // The response message containing the greetings
+        message HelloReply {
+        	string message = 1;
+        }
+
+        \"\"\",
+                service="Hello",
+            ),
+            request_metadata={
+                "header": "value",
+            },
+            status="paused",
+            subtype="grpc",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            type="api")
         ```
 
         ## Import
@@ -1646,7 +1846,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
@@ -1840,7 +2040,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 

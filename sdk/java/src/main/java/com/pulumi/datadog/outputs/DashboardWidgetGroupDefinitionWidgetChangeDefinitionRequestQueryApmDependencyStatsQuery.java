@@ -18,7 +18,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
      */
     private String dataSource;
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     private String env;
@@ -72,7 +72,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
         return this.dataSource;
     }
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public String env() {

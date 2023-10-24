@@ -123,14 +123,14 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
         return this.name;
     }
     /**
-     * List of products the scanning group applies.
+     * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      * 
      */
     @Export(name="productLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> productLists;
 
     /**
-     * @return List of products the scanning group applies.
+     * @return List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      * 
      */
     public Output<List<String>> productLists() {

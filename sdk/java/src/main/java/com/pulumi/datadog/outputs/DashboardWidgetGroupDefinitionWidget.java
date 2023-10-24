@@ -28,6 +28,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplo
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
@@ -167,6 +168,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
@@ -380,6 +386,13 @@ public final class DashboardWidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.sloListDefinition);
     }
     /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
+    }
+    /**
      * @return The definition for a Sunburst widget.
      * 
      */
@@ -463,6 +476,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
         private @Nullable DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
@@ -498,6 +512,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
     	      this.sloListDefinition = defaults.sloListDefinition;
+    	      this.splitGraphDefinition = defaults.splitGraphDefinition;
     	      this.sunburstDefinition = defaults.sunburstDefinition;
     	      this.timeseriesDefinition = defaults.timeseriesDefinition;
     	      this.toplistDefinition = defaults.toplistDefinition;
@@ -633,6 +648,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder splitGraphDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition) {
+            this.splitGraphDefinition = splitGraphDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sunburstDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition) {
             this.sunburstDefinition = sunburstDefinition;
             return this;
@@ -694,6 +714,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
             o.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             o.servicemapDefinition = servicemapDefinition;
             o.sloListDefinition = sloListDefinition;
+            o.splitGraphDefinition = splitGraphDefinition;
             o.sunburstDefinition = sunburstDefinition;
             o.timeseriesDefinition = timeseriesDefinition;
             o.toplistDefinition = toplistDefinition;

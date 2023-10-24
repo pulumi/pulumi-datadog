@@ -42,7 +42,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery> sloQuery() {

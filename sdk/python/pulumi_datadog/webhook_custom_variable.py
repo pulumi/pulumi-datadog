@@ -35,7 +35,11 @@ class WebhookCustomVariableArgs:
              is_secret: pulumi.Input[bool],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+
         _setter("is_secret", is_secret)
         _setter("name", name)
         _setter("value", value)
@@ -101,7 +105,11 @@ class _WebhookCustomVariableState:
              is_secret: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+
         if is_secret is not None:
             _setter("is_secret", is_secret)
         if name is not None:

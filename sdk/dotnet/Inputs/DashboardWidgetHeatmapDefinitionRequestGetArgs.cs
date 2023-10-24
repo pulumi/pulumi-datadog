@@ -18,6 +18,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaGetArgs>? _formulas;
+        public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaGetArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaGetArgs>());
+            set => _formulas = value;
+        }
+
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -35,6 +43,14 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestQueryGetArgs>? _queries;
+        public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestQueryGetArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestQueryGetArgs>());
+            set => _queries = value;
+        }
 
         /// <summary>
         /// The query to use for this widget.

@@ -50,7 +50,7 @@ namespace Pulumi.Datadog
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the user is disabled.
+        /// Whether the user is disabled. Defaults to `false`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
         /// </summary>
         [Output("sendUserInvitation")]
         public Output<bool?> SendUserInvitation { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Datadog
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the user is disabled.
+        /// Whether the user is disabled. Defaults to `false`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
         /// </summary>
         [Input("sendUserInvitation")]
         public Input<bool>? SendUserInvitation { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Datadog
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the user is disabled.
+        /// Whether the user is disabled. Defaults to `false`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether an invitation email should be sent when the user is created.
+        /// Whether an invitation email should be sent when the user is created. Defaults to `true`.
         /// </summary>
         [Input("sendUserInvitation")]
         public Input<bool>? SendUserInvitation { get; set; }

@@ -31,7 +31,11 @@ class ServiceAccountApplicationKeyArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              service_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceAccountId' in kwargs:
+            service_account_id = kwargs['serviceAccountId']
+
         _setter("name", name)
         _setter("service_account_id", service_account_id)
 
@@ -92,7 +96,13 @@ class _ServiceAccountApplicationKeyState:
              last4: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'serviceAccountId' in kwargs:
+            service_account_id = kwargs['serviceAccountId']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if key is not None:

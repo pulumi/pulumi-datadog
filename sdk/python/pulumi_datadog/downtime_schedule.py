@@ -58,7 +58,23 @@ class DowntimeScheduleArgs:
              notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
              recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayTimezone' in kwargs:
+            display_timezone = kwargs['displayTimezone']
+        if 'monitorIdentifier' in kwargs:
+            monitor_identifier = kwargs['monitorIdentifier']
+        if 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if 'notifyEndStates' in kwargs:
+            notify_end_states = kwargs['notifyEndStates']
+        if 'notifyEndTypes' in kwargs:
+            notify_end_types = kwargs['notifyEndTypes']
+        if 'oneTimeSchedule' in kwargs:
+            one_time_schedule = kwargs['oneTimeSchedule']
+        if 'recurringSchedule' in kwargs:
+            recurring_schedule = kwargs['recurringSchedule']
+
         _setter("scope", scope)
         if display_timezone is not None:
             _setter("display_timezone", display_timezone)
@@ -222,7 +238,23 @@ class _DowntimeScheduleState:
              one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
              recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayTimezone' in kwargs:
+            display_timezone = kwargs['displayTimezone']
+        if 'monitorIdentifier' in kwargs:
+            monitor_identifier = kwargs['monitorIdentifier']
+        if 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if 'notifyEndStates' in kwargs:
+            notify_end_states = kwargs['notifyEndStates']
+        if 'notifyEndTypes' in kwargs:
+            notify_end_types = kwargs['notifyEndTypes']
+        if 'oneTimeSchedule' in kwargs:
+            one_time_schedule = kwargs['oneTimeSchedule']
+        if 'recurringSchedule' in kwargs:
+            recurring_schedule = kwargs['recurringSchedule']
+
         if display_timezone is not None:
             _setter("display_timezone", display_timezone)
         if message is not None:

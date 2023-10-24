@@ -51,7 +51,15 @@ class MetricMetadataArgs:
              statsd_interval: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perUnit' in kwargs:
+            per_unit = kwargs['perUnit']
+        if 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if 'statsdInterval' in kwargs:
+            statsd_interval = kwargs['statsdInterval']
+
         _setter("metric", metric)
         if description is not None:
             _setter("description", description)
@@ -191,7 +199,15 @@ class _MetricMetadataState:
              statsd_interval: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perUnit' in kwargs:
+            per_unit = kwargs['perUnit']
+        if 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if 'statsdInterval' in kwargs:
+            statsd_interval = kwargs['statsdInterval']
+
         if description is not None:
             _setter("description", description)
         if metric is not None:

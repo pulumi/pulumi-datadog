@@ -36,7 +36,11 @@ class DashboardJsonArgs:
              dashboard: pulumi.Input[str],
              dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+
         _setter("dashboard", dashboard)
         if dashboard_lists is not None:
             _setter("dashboard_lists", dashboard_lists)
@@ -110,7 +114,13 @@ class _DashboardJsonState:
              dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardLists' in kwargs:
+            dashboard_lists = kwargs['dashboardLists']
+        if 'dashboardListsRemoveds' in kwargs:
+            dashboard_lists_removeds = kwargs['dashboardListsRemoveds']
+
         if dashboard is not None:
             _setter("dashboard", dashboard)
         if dashboard_lists is not None:

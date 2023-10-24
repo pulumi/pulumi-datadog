@@ -50,7 +50,7 @@ class GetUserResult:
     @pulumi.getter(name="exactMatch")
     def exact_match(self) -> Optional[bool]:
         """
-        When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+        When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
         """
         return pulumi.get(self, "exact_match")
 
@@ -108,7 +108,7 @@ def get_user(exact_match: Optional[bool] = None,
     ```
 
 
-    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
     :param str filter: Filter all users by the given string.
     """
     __args__ = dict()
@@ -142,7 +142,7 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
     ```
 
 
-    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
     :param str filter: Filter all users by the given string.
     """
     ...

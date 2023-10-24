@@ -35,7 +35,9 @@ class TeamArgs:
              description: pulumi.Input[str],
              handle: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("handle", handle)
         _setter("name", name)
@@ -113,7 +115,13 @@ class _TeamState:
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              user_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkCount' in kwargs:
+            link_count = kwargs['linkCount']
+        if 'userCount' in kwargs:
+            user_count = kwargs['userCount']
+
         if description is not None:
             _setter("description", description)
         if handle is not None:

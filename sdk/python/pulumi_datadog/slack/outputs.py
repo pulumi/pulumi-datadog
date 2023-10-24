@@ -21,10 +21,10 @@ class ChannelDisplay(dict):
                  snapshot: Optional[bool] = None,
                  tags: Optional[bool] = None):
         """
-        :param bool message: Show the main body of the alert event.
-        :param bool notified: Show the list of @-handles in the alert event.
-        :param bool snapshot: Show the alert event's snapshot image.
-        :param bool tags: Show the scopes on which the monitor alerted.
+        :param bool message: Show the main body of the alert event. Defaults to `true`.
+        :param bool notified: Show the list of @-handles in the alert event. Defaults to `true`.
+        :param bool snapshot: Show the alert event's snapshot image. Defaults to `true`.
+        :param bool tags: Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         ChannelDisplay._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -40,7 +40,9 @@ class ChannelDisplay(dict):
              notified: Optional[bool] = None,
              snapshot: Optional[bool] = None,
              tags: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if message is not None:
             _setter("message", message)
         if notified is not None:
@@ -54,7 +56,7 @@ class ChannelDisplay(dict):
     @pulumi.getter
     def message(self) -> Optional[bool]:
         """
-        Show the main body of the alert event.
+        Show the main body of the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "message")
 
@@ -62,7 +64,7 @@ class ChannelDisplay(dict):
     @pulumi.getter
     def notified(self) -> Optional[bool]:
         """
-        Show the list of @-handles in the alert event.
+        Show the list of @-handles in the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "notified")
 
@@ -70,7 +72,7 @@ class ChannelDisplay(dict):
     @pulumi.getter
     def snapshot(self) -> Optional[bool]:
         """
-        Show the alert event's snapshot image.
+        Show the alert event's snapshot image. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot")
 
@@ -78,7 +80,7 @@ class ChannelDisplay(dict):
     @pulumi.getter
     def tags(self) -> Optional[bool]:
         """
-        Show the scopes on which the monitor alerted.
+        Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         return pulumi.get(self, "tags")
 

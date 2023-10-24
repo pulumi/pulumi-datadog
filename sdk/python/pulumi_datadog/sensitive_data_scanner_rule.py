@@ -65,7 +65,19 @@ class SensitiveDataScannerRuleArgs:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         _setter("group_id", group_id)
         if description is not None:
             _setter("description", description)
@@ -259,7 +271,19 @@ class _SensitiveDataScannerRuleState:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         if description is not None:
             _setter("description", description)
         if excluded_namespaces is not None:

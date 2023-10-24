@@ -31,14 +31,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:gcp/integration:Integration")
 public class Integration extends com.pulumi.resources.CustomResource {
     /**
-     * Silence monitors for expected GCE instance shutdowns.
+     * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      * 
      */
     @Export(name="automute", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automute;
 
     /**
-     * @return Silence monitors for expected GCE instance shutdowns.
+     * @return Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automute() {
@@ -73,14 +73,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      * 
      */
     @Export(name="cspmResourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> cspmResourceCollectionEnabled() {

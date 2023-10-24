@@ -39,7 +39,11 @@ class LogsCustomPipelineArgs:
              name: pulumi.Input[str],
              is_enabled: Optional[pulumi.Input[bool]] = None,
              processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         _setter("filters", filters)
         _setter("name", name)
         if is_enabled is not None:
@@ -116,7 +120,11 @@ class _LogsCustomPipelineState:
              is_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if filters is not None:
             _setter("filters", filters)
         if is_enabled is not None:

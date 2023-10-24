@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepRetry {
     /**
-     * @return Number of retries needed to consider a location as failed before sending a notification alert.
+     * @return Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
      * 
      */
     private @Nullable Integer count;
     /**
-     * @return Interval between a failed test and the next retry in milliseconds.
+     * @return Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
      * 
      */
     private @Nullable Integer interval;
 
     private SyntheticsTestApiStepRetry() {}
     /**
-     * @return Number of retries needed to consider a location as failed before sending a notification alert.
+     * @return Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
      * 
      */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return Interval between a failed test and the next retry in milliseconds.
+     * @return Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
      * 
      */
     public Optional<Integer> interval() {

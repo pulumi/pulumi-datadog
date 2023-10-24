@@ -62,7 +62,7 @@ export class RumApplication extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -109,7 +109,7 @@ export interface RumApplicationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
      */
     type?: pulumi.Input<string>;
 }
@@ -123,7 +123,7 @@ export interface RumApplicationArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
      */
     type?: pulumi.Input<string>;
 }

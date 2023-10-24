@@ -56,9 +56,9 @@ import (
 type CloudWorkloadSecurityAgentRule struct {
 	pulumi.CustomResourceState
 
-	// The description of the Agent rule.
+	// The description of the Agent rule. Defaults to `""`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether the Agent rule is enabled.
+	// Whether the Agent rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The SECL expression of the Agent rule.
 	Expression pulumi.StringOutput `pulumi:"expression"`
@@ -102,9 +102,9 @@ func GetCloudWorkloadSecurityAgentRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudWorkloadSecurityAgentRule resources.
 type cloudWorkloadSecurityAgentRuleState struct {
-	// The description of the Agent rule.
+	// The description of the Agent rule. Defaults to `""`.
 	Description *string `pulumi:"description"`
-	// Whether the Agent rule is enabled.
+	// Whether the Agent rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The SECL expression of the Agent rule.
 	Expression *string `pulumi:"expression"`
@@ -113,9 +113,9 @@ type cloudWorkloadSecurityAgentRuleState struct {
 }
 
 type CloudWorkloadSecurityAgentRuleState struct {
-	// The description of the Agent rule.
+	// The description of the Agent rule. Defaults to `""`.
 	Description pulumi.StringPtrInput
-	// Whether the Agent rule is enabled.
+	// Whether the Agent rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The SECL expression of the Agent rule.
 	Expression pulumi.StringPtrInput
@@ -128,9 +128,9 @@ func (CloudWorkloadSecurityAgentRuleState) ElementType() reflect.Type {
 }
 
 type cloudWorkloadSecurityAgentRuleArgs struct {
-	// The description of the Agent rule.
+	// The description of the Agent rule. Defaults to `""`.
 	Description *string `pulumi:"description"`
-	// Whether the Agent rule is enabled.
+	// Whether the Agent rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The SECL expression of the Agent rule.
 	Expression string `pulumi:"expression"`
@@ -140,9 +140,9 @@ type cloudWorkloadSecurityAgentRuleArgs struct {
 
 // The set of arguments for constructing a CloudWorkloadSecurityAgentRule resource.
 type CloudWorkloadSecurityAgentRuleArgs struct {
-	// The description of the Agent rule.
+	// The description of the Agent rule. Defaults to `""`.
 	Description pulumi.StringPtrInput
-	// Whether the Agent rule is enabled.
+	// Whether the Agent rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The SECL expression of the Agent rule.
 	Expression pulumi.StringInput
@@ -261,12 +261,12 @@ func (o CloudWorkloadSecurityAgentRuleOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// The description of the Agent rule.
+// The description of the Agent rule. Defaults to `""`.
 func (o CloudWorkloadSecurityAgentRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether the Agent rule is enabled.
+// Whether the Agent rule is enabled. Defaults to `true`.
 func (o CloudWorkloadSecurityAgentRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudWorkloadSecurityAgentRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

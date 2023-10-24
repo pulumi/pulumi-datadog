@@ -41,7 +41,9 @@ class SyntheticsPrivateLocationArgs:
              description: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -131,7 +133,9 @@ class _SyntheticsPrivateLocationState:
              metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if config is not None:
             _setter("config", config)
         if description is not None:

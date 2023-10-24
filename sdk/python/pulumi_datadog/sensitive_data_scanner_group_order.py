@@ -27,7 +27,11 @@ class SensitiveDataScannerGroupOrderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
         _setter("group_ids", group_ids)
 
     @property
@@ -59,7 +63,11 @@ class _SensitiveDataScannerGroupOrderState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
         if group_ids is not None:
             _setter("group_ids", group_ids)
 

@@ -58,7 +58,7 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
  */
 export interface IntegrationTagFilterState {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -129,7 +129,7 @@ export interface IntegrationTagFilterState {
  */
 export interface IntegrationTagFilterArgs {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
+     * Your AWS Account ID without dashes.
      */
     accountId: pulumi.Input<string>;
     /**

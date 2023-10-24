@@ -294,6 +294,76 @@ import * as utilities from "./utilities";
  *     tags: [],
  *     type: "browser",
  * });
+ * // Example Usage (GRPC API test)
+ * // Create a new Datadog GRPC API test starting on google.org:50050
+ * const grpc = new datadog.SyntheticsTest("grpc", {
+ *     assertions: [
+ *         {
+ *             operator: "lessThan",
+ *             target: "2000",
+ *             type: "responseTime",
+ *         },
+ *         {
+ *             operator: "is",
+ *             target: "1",
+ *             type: "grpcHealthcheckStatus",
+ *         },
+ *         {
+ *             operator: "is",
+ *             target: "proto target",
+ *             type: "grpcProto",
+ *         },
+ *         {
+ *             operator: "is",
+ *             property: "property",
+ *             target: "123",
+ *             type: "grpcMetadata",
+ *         },
+ *     ],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @datadog.user",
+ *     name: "GRPC API test",
+ *     optionsList: {
+ *         tickEvery: 60,
+ *     },
+ *     requestDefinition: {
+ *         host: "google.com",
+ *         method: "GET",
+ *         port: 50050,
+ *         protoJsonDescriptor: `syntax = "proto3";
+ * option java_multiple_files = true;
+ * option java_package = "io.grpc.examples.helloworld";
+ * option java_outer_classname = "HelloWorldProto";
+ * option objc_class_prefix = "HLW";
+ * package helloworld;
+ * // The greeting service definition.
+ * service Greeter {
+ * 	// Sends a greeting
+ * 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * // The request message containing the user's name.
+ * message HelloRequest {
+ * 	string name = 1;
+ * }
+ * // The response message containing the greetings
+ * message HelloReply {
+ * 	string message = 1;
+ * }
+ *
+ * `,
+ *         service: "Hello",
+ *     },
+ *     requestMetadata: {
+ *         header: "value",
+ *     },
+ *     status: "paused",
+ *     subtype: "grpc",
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
+ *     type: "api",
+ * });
  * ```
  *
  * ## Import
@@ -410,7 +480,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -583,7 +653,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -674,7 +744,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**

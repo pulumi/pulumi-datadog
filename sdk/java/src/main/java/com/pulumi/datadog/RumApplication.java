@@ -86,14 +86,14 @@ public class RumApplication extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
      * 
      */
     public Output<Optional<String>> type() {

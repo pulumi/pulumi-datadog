@@ -35,7 +35,11 @@ class IntegrationArgs:
              subdomain: pulumi.Input[str],
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         _setter("subdomain", subdomain)
         if api_token is not None:
             _setter("api_token", api_token)
@@ -103,7 +107,11 @@ class _IntegrationState:
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subdomain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         if api_token is not None:
             _setter("api_token", api_token)
         if schedules is not None:

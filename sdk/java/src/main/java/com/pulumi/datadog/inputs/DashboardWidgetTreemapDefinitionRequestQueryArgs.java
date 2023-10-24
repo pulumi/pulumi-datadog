@@ -96,14 +96,14 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryArgs extends com.
     }
 
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      * 
      */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs> sloQuery;
 
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestQuerySloQueryArgs>> sloQuery() {
@@ -245,7 +245,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 

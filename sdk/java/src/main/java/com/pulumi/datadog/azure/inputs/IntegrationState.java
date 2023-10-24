@@ -32,14 +32,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     @Import(name="automute")
     private @Nullable Output<Boolean> automute;
 
     /**
-     * @return Silence monitors for expected Azure VM shutdowns.
+     * @return Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automute() {
@@ -77,14 +77,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     @Import(name="cspmEnabled")
     private @Nullable Output<Boolean> cspmEnabled;
 
     /**
-     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * @return Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cspmEnabled() {
@@ -92,14 +92,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     @Import(name="customMetricsEnabled")
     private @Nullable Output<Boolean> customMetricsEnabled;
 
     /**
-     * @return Enable custom metrics for your organization.
+     * @return Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> customMetricsEnabled() {
@@ -189,7 +189,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected Azure VM shutdowns.
+         * @param automute Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected Azure VM shutdowns.
+         * @param automute Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * @param customMetricsEnabled Enable custom metrics for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * @param customMetricsEnabled Enable custom metrics for your organization. Defaults to `false`.
          * 
          * @return builder
          * 

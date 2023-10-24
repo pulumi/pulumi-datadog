@@ -31,7 +31,9 @@ class MonitorJsonArgs:
              _setter: Callable[[Any, Any], None],
              monitor: pulumi.Input[str],
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("monitor", monitor)
         if url is not None:
             _setter("url", url)
@@ -81,7 +83,9 @@ class _MonitorJsonState:
              _setter: Callable[[Any, Any], None],
              monitor: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if monitor is not None:
             _setter("monitor", monitor)
         if url is not None:

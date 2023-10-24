@@ -163,6 +163,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs>? SloListDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Split Graph widget.
+        /// </summary>
+        [Input("splitGraphDefinition")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs>? SplitGraphDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
         [Input("sunburstDefinition")]

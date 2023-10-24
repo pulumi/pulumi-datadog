@@ -429,6 +429,90 @@ namespace Pulumi.Datadog
     ///         Type = "browser",
     ///     });
     /// 
+    ///     // Example Usage (GRPC API test)
+    ///     // Create a new Datadog GRPC API test starting on google.org:50050
+    ///     var grpc = new Datadog.SyntheticsTest("grpc", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "lessThan",
+    ///                 Target = "2000",
+    ///                 Type = "responseTime",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "1",
+    ///                 Type = "grpcHealthcheckStatus",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "proto target",
+    ///                 Type = "grpcProto",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Property = "property",
+    ///                 Target = "123",
+    ///                 Type = "grpcMetadata",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @datadog.user",
+    ///         Name = "GRPC API test",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 60,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "google.com",
+    ///             Method = "GET",
+    ///             Port = 50050,
+    ///             ProtoJsonDescriptor = @"syntax = ""proto3"";
+    /// option java_multiple_files = true;
+    /// option java_package = ""io.grpc.examples.helloworld"";
+    /// option java_outer_classname = ""HelloWorldProto"";
+    /// option objc_class_prefix = ""HLW"";
+    /// package helloworld;
+    /// // The greeting service definition.
+    /// service Greeter {
+    /// 	// Sends a greeting
+    /// 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+    /// }
+    /// // The request message containing the user's name.
+    /// message HelloRequest {
+    /// 	string name = 1;
+    /// }
+    /// // The response message containing the greetings
+    /// message HelloReply {
+    /// 	string message = 1;
+    /// }
+    /// 
+    /// ",
+    ///             Service = "Hello",
+    ///         },
+    ///         RequestMetadata = 
+    ///         {
+    ///             { "header", "value" },
+    ///         },
+    ///         Status = "paused",
+    ///         Subtype = "grpc",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -561,7 +645,7 @@ namespace Pulumi.Datadog
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -796,7 +880,7 @@ namespace Pulumi.Datadog
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1005,7 +1089,7 @@ namespace Pulumi.Datadog
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }

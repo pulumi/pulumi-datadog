@@ -35,7 +35,13 @@ class IntegrationServiceArgs:
              service_id: pulumi.Input[str],
              account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("service_id", service_id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -103,7 +109,13 @@ class _IntegrationServiceState:
              account_id: Optional[pulumi.Input[str]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if service_id is not None:

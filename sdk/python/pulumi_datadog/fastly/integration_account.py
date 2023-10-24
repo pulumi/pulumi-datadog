@@ -31,7 +31,11 @@ class IntegrationAccountArgs:
              _setter: Callable[[Any, Any], None],
              api_key: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
         _setter("name", name)
 
@@ -80,7 +84,11 @@ class _IntegrationAccountState:
              _setter: Callable[[Any, Any], None],
              api_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if name is not None:

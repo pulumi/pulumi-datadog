@@ -45,7 +45,15 @@ class MetricTagConfigurationArgs:
              tags: pulumi.Input[Sequence[pulumi.Input[str]]],
              aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
              include_percentiles: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+        if 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+
         _setter("metric_name", metric_name)
         _setter("metric_type", metric_type)
         _setter("tags", tags)
@@ -147,7 +155,15 @@ class _MetricTagConfigurationState:
              metric_name: Optional[pulumi.Input[str]] = None,
              metric_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+
         if aggregations is not None:
             _setter("aggregations", aggregations)
         if include_percentiles is not None:

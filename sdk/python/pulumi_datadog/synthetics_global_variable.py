@@ -61,7 +61,15 @@ class SyntheticsGlobalVariableArgs:
              restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         _setter("name", name)
         _setter("value", value)
         if description is not None:
@@ -236,7 +244,15 @@ class _SyntheticsGlobalVariableState:
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

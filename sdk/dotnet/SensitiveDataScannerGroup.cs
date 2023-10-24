@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of products the scanning group applies.
+        /// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         /// </summary>
         [Output("productLists")]
         public Output<ImmutableArray<string>> ProductLists { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _productLists;
 
         /// <summary>
-        /// List of products the scanning group applies.
+        /// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         /// </summary>
         public InputList<string> ProductLists
         {
@@ -197,7 +197,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _productLists;
 
         /// <summary>
-        /// List of products the scanning group applies.
+        /// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         /// </summary>
         public InputList<string> ProductLists
         {

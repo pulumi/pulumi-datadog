@@ -35,7 +35,13 @@ class TeamMembershipArgs:
              team_id: pulumi.Input[str],
              user_id: pulumi.Input[str],
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("team_id", team_id)
         _setter("user_id", user_id)
         if role is not None:
@@ -102,7 +108,13 @@ class _TeamMembershipState:
              role: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if role is not None:
             _setter("role", role)
         if team_id is not None:

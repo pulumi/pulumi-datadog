@@ -62,15 +62,15 @@ type Integration struct {
 
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
 	AppServicePlanFilters pulumi.StringPtrOutput `pulumi:"appServicePlanFilters"`
-	// Silence monitors for expected Azure VM shutdowns.
+	// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// Enable Cloud Security Management Misconfigurations for your organization.
+	// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 	CspmEnabled pulumi.BoolPtrOutput `pulumi:"cspmEnabled"`
-	// Enable custom metrics for your organization.
+	// Enable custom metrics for your organization. Defaults to `false`.
 	CustomMetricsEnabled pulumi.BoolPtrOutput `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
@@ -126,15 +126,15 @@ func GetIntegration(ctx *pulumi.Context,
 type integrationState struct {
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
 	AppServicePlanFilters *string `pulumi:"appServicePlanFilters"`
-	// Silence monitors for expected Azure VM shutdowns.
+	// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId *string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Enable Cloud Security Management Misconfigurations for your organization.
+	// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 	CspmEnabled *bool `pulumi:"cspmEnabled"`
-	// Enable custom metrics for your organization.
+	// Enable custom metrics for your organization. Defaults to `false`.
 	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
@@ -145,15 +145,15 @@ type integrationState struct {
 type IntegrationState struct {
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
 	AppServicePlanFilters pulumi.StringPtrInput
-	// Silence monitors for expected Azure VM shutdowns.
+	// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringPtrInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringPtrInput
-	// Enable Cloud Security Management Misconfigurations for your organization.
+	// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 	CspmEnabled pulumi.BoolPtrInput
-	// Enable custom metrics for your organization.
+	// Enable custom metrics for your organization. Defaults to `false`.
 	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
@@ -168,15 +168,15 @@ func (IntegrationState) ElementType() reflect.Type {
 type integrationArgs struct {
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
 	AppServicePlanFilters *string `pulumi:"appServicePlanFilters"`
-	// Silence monitors for expected Azure VM shutdowns.
+	// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Enable Cloud Security Management Misconfigurations for your organization.
+	// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 	CspmEnabled *bool `pulumi:"cspmEnabled"`
-	// Enable custom metrics for your organization.
+	// Enable custom metrics for your organization. Defaults to `false`.
 	CustomMetricsEnabled *bool `pulumi:"customMetricsEnabled"`
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters *string `pulumi:"hostFilters"`
@@ -188,15 +188,15 @@ type integrationArgs struct {
 type IntegrationArgs struct {
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
 	AppServicePlanFilters pulumi.StringPtrInput
-	// Silence monitors for expected Azure VM shutdowns.
+	// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringInput
 	// (Required for Initial Creation) Your Azure web application secret key.
 	ClientSecret pulumi.StringInput
-	// Enable Cloud Security Management Misconfigurations for your organization.
+	// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 	CspmEnabled pulumi.BoolPtrInput
-	// Enable custom metrics for your organization.
+	// Enable custom metrics for your organization. Defaults to `false`.
 	CustomMetricsEnabled pulumi.BoolPtrInput
 	// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
 	HostFilters pulumi.StringPtrInput
@@ -320,7 +320,7 @@ func (o IntegrationOutput) AppServicePlanFilters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.AppServicePlanFilters }).(pulumi.StringPtrOutput)
 }
 
-// Silence monitors for expected Azure VM shutdowns.
+// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
 func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
 }
@@ -335,12 +335,12 @@ func (o IntegrationOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Enable Cloud Security Management Misconfigurations for your organization.
+// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
 func (o IntegrationOutput) CspmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CspmEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable custom metrics for your organization.
+// Enable custom metrics for your organization. Defaults to `false`.
 func (o IntegrationOutput) CustomMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CustomMetricsEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -27,7 +27,11 @@ class LogsArchiveOrderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveIds' in kwargs:
+            archive_ids = kwargs['archiveIds']
+
         if archive_ids is not None:
             _setter("archive_ids", archive_ids)
 
@@ -60,7 +64,11 @@ class _LogsArchiveOrderState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveIds' in kwargs:
+            archive_ids = kwargs['archiveIds']
+
         if archive_ids is not None:
             _setter("archive_ids", archive_ids)
 

@@ -16,9 +16,17 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorArgs extends
 
     public static final SyntheticsTestBrowserStepParamsElementUserLocatorArgs Empty = new SyntheticsTestBrowserStepParamsElementUserLocatorArgs();
 
+    /**
+     * Defaults to `false`.
+     * 
+     */
     @Import(name="failTestOnCannotLocate")
     private @Nullable Output<Boolean> failTestOnCannotLocate;
 
+    /**
+     * @return Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> failTestOnCannotLocate() {
         return Optional.ofNullable(this.failTestOnCannotLocate);
     }
@@ -63,11 +71,23 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorArgs extends
             $ = new SyntheticsTestBrowserStepParamsElementUserLocatorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param failTestOnCannotLocate Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failTestOnCannotLocate(@Nullable Output<Boolean> failTestOnCannotLocate) {
             $.failTestOnCannotLocate = failTestOnCannotLocate;
             return this;
         }
 
+        /**
+         * @param failTestOnCannotLocate Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failTestOnCannotLocate(Boolean failTestOnCannotLocate) {
             return failTestOnCannotLocate(Output.of(failTestOnCannotLocate));
         }

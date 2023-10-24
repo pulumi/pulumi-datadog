@@ -49,7 +49,7 @@ func GetPermissions(ctx *pulumi.Context, args *GetPermissionsArgs, opts ...pulum
 
 // A collection of arguments for invoking getPermissions.
 type GetPermissionsArgs struct {
-	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
 	IncludeRestricted *bool `pulumi:"includeRestricted"`
 }
 
@@ -57,7 +57,7 @@ type GetPermissionsArgs struct {
 type GetPermissionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
 	IncludeRestricted *bool `pulumi:"includeRestricted"`
 	// Map of permissions names to their corresponding ID.
 	Permissions map[string]string `pulumi:"permissions"`
@@ -78,7 +78,7 @@ func GetPermissionsOutput(ctx *pulumi.Context, args GetPermissionsOutputArgs, op
 
 // A collection of arguments for invoking getPermissions.
 type GetPermissionsOutputArgs struct {
-	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+	// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
 	IncludeRestricted pulumi.BoolPtrInput `pulumi:"includeRestricted"`
 }
 
@@ -112,7 +112,7 @@ func (o GetPermissionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+// Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
 func (o GetPermissionsResultOutput) IncludeRestricted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetPermissionsResult) *bool { return v.IncludeRestricted }).(pulumi.BoolPtrOutput)
 }

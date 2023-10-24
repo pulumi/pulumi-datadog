@@ -4,8 +4,12 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the current order of your log indexes.
@@ -49,4 +53,50 @@ type GetLogsIndexesOrderResult struct {
 	Id string `pulumi:"id"`
 	// Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
 	IndexNames []string `pulumi:"indexNames"`
+}
+
+func GetLogsIndexesOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsIndexesOrderResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsIndexesOrderResult, error) {
+		r, err := GetLogsIndexesOrder(ctx, opts...)
+		var s GetLogsIndexesOrderResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetLogsIndexesOrderResultOutput)
+}
+
+// A collection of values returned by getLogsIndexesOrder.
+type GetLogsIndexesOrderResultOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesOrderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesOrderResult)(nil)).Elem()
+}
+
+func (o GetLogsIndexesOrderResultOutput) ToGetLogsIndexesOrderResultOutput() GetLogsIndexesOrderResultOutput {
+	return o
+}
+
+func (o GetLogsIndexesOrderResultOutput) ToGetLogsIndexesOrderResultOutputWithContext(ctx context.Context) GetLogsIndexesOrderResultOutput {
+	return o
+}
+
+func (o GetLogsIndexesOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsIndexesOrderResult] {
+	return pulumix.Output[GetLogsIndexesOrderResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLogsIndexesOrderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesOrderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+func (o GetLogsIndexesOrderResultOutput) IndexNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesOrderResult) []string { return v.IndexNames }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLogsIndexesOrderResultOutput{})
 }

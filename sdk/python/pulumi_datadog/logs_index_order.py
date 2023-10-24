@@ -31,7 +31,9 @@ class LogsIndexOrderArgs:
              _setter: Callable[[Any, Any], None],
              indexes: pulumi.Input[Sequence[pulumi.Input[str]]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("indexes", indexes)
         if name is not None:
             _setter("name", name)
@@ -81,7 +83,9 @@ class _LogsIndexOrderState:
              _setter: Callable[[Any, Any], None],
              indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if indexes is not None:
             _setter("indexes", indexes)
         if name is not None:

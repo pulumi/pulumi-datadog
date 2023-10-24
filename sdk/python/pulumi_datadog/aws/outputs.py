@@ -28,7 +28,9 @@ class GetIntegrationLogsServicesAwsLogsServiceResult(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              label: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("label", label)
 

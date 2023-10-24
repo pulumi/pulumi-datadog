@@ -27,13 +27,13 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
-	// Silence monitors for expected GCE instance shutdowns.
+	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrOutput `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
@@ -97,13 +97,13 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
-	// Silence monitors for expected GCE instance shutdowns.
+	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute *bool `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
@@ -116,13 +116,13 @@ type integrationState struct {
 }
 
 type IntegrationState struct {
-	// Silence monitors for expected GCE instance shutdowns.
+	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrInput
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
@@ -139,13 +139,13 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	// Silence monitors for expected GCE instance shutdowns.
+	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute *bool `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
@@ -159,13 +159,13 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	// Silence monitors for expected GCE instance shutdowns.
+	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute pulumi.BoolPtrInput
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
 	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
@@ -288,7 +288,7 @@ func (o IntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*Integra
 	}
 }
 
-// Silence monitors for expected GCE instance shutdowns.
+// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
 }
@@ -303,7 +303,7 @@ func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Whether Datadog collects cloud security posture management resources from your GCP project.
+// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
 func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolPtrOutput)
 }

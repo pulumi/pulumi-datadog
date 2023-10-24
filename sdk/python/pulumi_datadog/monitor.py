@@ -72,7 +72,6 @@ class MonitorArgs:
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-               Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
@@ -81,10 +80,10 @@ class MonitorArgs:
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
                starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-               and set `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-               recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+               and monitors not grouped by host. The only case when this should be used is to override the default and set
+               `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+               timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -92,7 +91,7 @@ class MonitorArgs:
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
                to `[*]` configures the monitor to notify as a simple-alert.
-        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
@@ -104,9 +103,8 @@ class MonitorArgs:
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-               this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-               all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
                updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
                identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
@@ -190,7 +188,57 @@ class MonitorArgs:
              timeout_h: Optional[pulumi.Input[int]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
         _setter("message", message)
         _setter("name", name)
         _setter("query", query)
@@ -395,7 +443,6 @@ class MonitorArgs:
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        Defaults to `true`.
         """
         return pulumi.get(self, "include_tags")
 
@@ -462,8 +509,8 @@ class MonitorArgs:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        and set `new_host_delay` to zero for monitors grouped by host.
+        and monitors not grouped by host. The only case when this should be used is to override the default and set
+        `new_host_delay` to zero for monitors grouped by host.
         """
         warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
         pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
@@ -478,8 +525,8 @@ class MonitorArgs:
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -531,7 +578,7 @@ class MonitorArgs:
     @pulumi.getter(name="notifyNoData")
     def notify_no_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        A boolean indicating whether this monitor will notify when data stops reporting.
         """
         return pulumi.get(self, "notify_no_data")
 
@@ -609,9 +656,8 @@ class MonitorArgs:
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        all times` and `in total` aggregation. `false` otherwise.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -750,7 +796,6 @@ class _MonitorState:
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-               Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
@@ -761,10 +806,10 @@ class _MonitorState:
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
                starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-               and set `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-               recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+               and monitors not grouped by host. The only case when this should be used is to override the default and set
+               `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+               timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -772,7 +817,7 @@ class _MonitorState:
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
                to `[*]` configures the monitor to notify as a simple-alert.
-        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
@@ -785,9 +830,8 @@ class _MonitorState:
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-               this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-               all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
                updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
                identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
@@ -876,7 +920,59 @@ class _MonitorState:
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if 'enableSamples' in kwargs:
+            enable_samples = kwargs['enableSamples']
+        if 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
         if enable_logs_sample is not None:
             _setter("enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
@@ -1050,7 +1146,6 @@ class _MonitorState:
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        Defaults to `true`.
         """
         return pulumi.get(self, "include_tags")
 
@@ -1141,8 +1236,8 @@ class _MonitorState:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        and set `new_host_delay` to zero for monitors grouped by host.
+        and monitors not grouped by host. The only case when this should be used is to override the default and set
+        `new_host_delay` to zero for monitors grouped by host.
         """
         warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
         pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
@@ -1157,8 +1252,8 @@ class _MonitorState:
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -1210,7 +1305,7 @@ class _MonitorState:
     @pulumi.getter(name="notifyNoData")
     def notify_no_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        A boolean indicating whether this monitor will notify when data stops reporting.
         """
         return pulumi.get(self, "notify_no_data")
 
@@ -1300,9 +1395,8 @@ class _MonitorState:
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        all times` and `in total` aggregation. `false` otherwise.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -1487,7 +1581,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-               Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
@@ -1498,10 +1591,10 @@ class Monitor(pulumi.CustomResource):
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
                starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-               and set `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-               recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+               and monitors not grouped by host. The only case when this should be used is to override the default and set
+               `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+               timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -1509,7 +1602,7 @@ class Monitor(pulumi.CustomResource):
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
                to `[*]` configures the monitor to notify as a simple-alert.
-        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
@@ -1522,9 +1615,8 @@ class Monitor(pulumi.CustomResource):
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-               this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-               all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
                updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
                identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
@@ -1763,7 +1855,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-               Defaults to `true`.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
@@ -1774,10 +1865,10 @@ class Monitor(pulumi.CustomResource):
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
                starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-               and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-               and set `new_host_delay` to zero for monitors grouped by host.
-        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-               recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+               and monitors not grouped by host. The only case when this should be used is to override the default and set
+               `new_host_delay` to zero for monitors grouped by host.
+        :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+               timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[str] notification_preset_name: Toggles the display of additional content sent in the monitor notification.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_bies: Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
@@ -1785,7 +1876,7 @@ class Monitor(pulumi.CustomResource):
                conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
                in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
                to `[*]` configures the monitor to notify as a simple-alert.
-        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
                in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
                evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
@@ -1798,9 +1889,8 @@ class Monitor(pulumi.CustomResource):
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
-        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-               this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-               all times` and `in total` aggregation. `false` otherwise.
+        :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+               you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
                updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
                identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`
@@ -1925,7 +2015,6 @@ class Monitor(pulumi.CustomResource):
     def include_tags(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        Defaults to `true`.
         """
         return pulumi.get(self, "include_tags")
 
@@ -1988,8 +2077,8 @@ class Monitor(pulumi.CustomResource):
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        and set `new_host_delay` to zero for monitors grouped by host.
+        and monitors not grouped by host. The only case when this should be used is to override the default and set
+        `new_host_delay` to zero for monitors grouped by host.
         """
         warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
         pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
@@ -2000,8 +2089,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -2037,7 +2126,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="notifyNoData")
     def notify_no_data(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        A boolean indicating whether this monitor will notify when data stops reporting.
         """
         return pulumi.get(self, "notify_no_data")
 
@@ -2099,9 +2188,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        all times` and `in total` aggregation. `false` otherwise.
+        A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         """
         return pulumi.get(self, "require_full_window")
 

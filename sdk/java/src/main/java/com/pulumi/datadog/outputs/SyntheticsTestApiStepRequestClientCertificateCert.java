@@ -16,10 +16,6 @@ public final class SyntheticsTestApiStepRequestClientCertificateCert {
      * 
      */
     private String content;
-    /**
-     * @return File name for the certificate.
-     * 
-     */
     private @Nullable String filename;
 
     private SyntheticsTestApiStepRequestClientCertificateCert() {}
@@ -30,10 +26,6 @@ public final class SyntheticsTestApiStepRequestClientCertificateCert {
     public String content() {
         return this.content;
     }
-    /**
-     * @return File name for the certificate.
-     * 
-     */
     public Optional<String> filename() {
         return Optional.ofNullable(this.filename);
     }

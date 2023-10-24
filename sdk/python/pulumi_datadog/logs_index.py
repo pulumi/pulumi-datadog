@@ -49,7 +49,17 @@ class LogsIndexArgs:
              disable_daily_limit: Optional[pulumi.Input[bool]] = None,
              exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyLimit' in kwargs:
+            daily_limit = kwargs['dailyLimit']
+        if 'disableDailyLimit' in kwargs:
+            disable_daily_limit = kwargs['disableDailyLimit']
+        if 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         _setter("filters", filters)
         _setter("name", name)
         if daily_limit is not None:
@@ -170,7 +180,17 @@ class _LogsIndexState:
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyLimit' in kwargs:
+            daily_limit = kwargs['dailyLimit']
+        if 'disableDailyLimit' in kwargs:
+            disable_daily_limit = kwargs['disableDailyLimit']
+        if 'exclusionFilters' in kwargs:
+            exclusion_filters = kwargs['exclusionFilters']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         if daily_limit is not None:
             _setter("daily_limit", daily_limit)
         if disable_daily_limit is not None:

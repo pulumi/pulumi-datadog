@@ -55,7 +55,11 @@ class SloCorrectionArgs:
              end: Optional[pulumi.Input[int]] = None,
              rrule: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+
         _setter("category", category)
         _setter("slo_id", slo_id)
         _setter("start", start)
@@ -211,7 +215,11 @@ class _SloCorrectionState:
              slo_id: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[int]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+
         if category is not None:
             _setter("category", category)
         if description is not None:

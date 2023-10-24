@@ -30,7 +30,7 @@ class LogsArchiveArgs:
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
@@ -57,7 +57,21 @@ class LogsArchiveArgs:
              rehydration_max_scan_size_in_gb: Optional[pulumi.Input[int]] = None,
              rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureArchive' in kwargs:
+            azure_archive = kwargs['azureArchive']
+        if 'gcsArchive' in kwargs:
+            gcs_archive = kwargs['gcsArchive']
+        if 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if 'rehydrationMaxScanSizeInGb' in kwargs:
+            rehydration_max_scan_size_in_gb = kwargs['rehydrationMaxScanSizeInGb']
+        if 'rehydrationTags' in kwargs:
+            rehydration_tags = kwargs['rehydrationTags']
+        if 's3Archive' in kwargs:
+            s3_archive = kwargs['s3Archive']
+
         _setter("name", name)
         _setter("query", query)
         if azure_archive is not None:
@@ -125,7 +139,7 @@ class LogsArchiveArgs:
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         """
         return pulumi.get(self, "include_tags")
 
@@ -185,7 +199,7 @@ class _LogsArchiveState:
         Input properties used for looking up and filtering LogsArchive resources.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
@@ -214,7 +228,21 @@ class _LogsArchiveState:
              rehydration_max_scan_size_in_gb: Optional[pulumi.Input[int]] = None,
              rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureArchive' in kwargs:
+            azure_archive = kwargs['azureArchive']
+        if 'gcsArchive' in kwargs:
+            gcs_archive = kwargs['gcsArchive']
+        if 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if 'rehydrationMaxScanSizeInGb' in kwargs:
+            rehydration_max_scan_size_in_gb = kwargs['rehydrationMaxScanSizeInGb']
+        if 'rehydrationTags' in kwargs:
+            rehydration_tags = kwargs['rehydrationTags']
+        if 's3Archive' in kwargs:
+            s3_archive = kwargs['s3Archive']
+
         if azure_archive is not None:
             _setter("azure_archive", azure_archive)
         if gcs_archive is not None:
@@ -260,7 +288,7 @@ class _LogsArchiveState:
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         """
         return pulumi.get(self, "include_tags")
 
@@ -373,7 +401,7 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
@@ -502,7 +530,7 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
@@ -543,7 +571,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> pulumi.Output[Optional[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         """
         return pulumi.get(self, "include_tags")
 

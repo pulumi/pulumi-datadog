@@ -33,7 +33,11 @@ class DashboardListArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
         _setter("name", name)
         if dash_items is not None:
             _setter("dash_items", dash_items)
@@ -83,7 +87,11 @@ class _DashboardListState:
              _setter: Callable[[Any, Any], None],
              dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
         if dash_items is not None:
             _setter("dash_items", dash_items)
         if name is not None:

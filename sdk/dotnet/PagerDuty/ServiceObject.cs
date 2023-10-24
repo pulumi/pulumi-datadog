@@ -41,7 +41,7 @@ namespace Pulumi.Datadog.PagerDuty
     public partial class ServiceObject : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Datadog.PagerDuty
         private Input<string>? _serviceKey;
 
         /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         /// </summary>
         public Input<string>? ServiceKey
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog.PagerDuty
         private Input<string>? _serviceKey;
 
         /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
         /// </summary>
         public Input<string>? ServiceKey
         {

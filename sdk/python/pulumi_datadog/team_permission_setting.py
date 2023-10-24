@@ -35,7 +35,11 @@ class TeamPermissionSettingArgs:
              action: pulumi.Input[str],
              team_id: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("action", action)
         _setter("team_id", team_id)
         _setter("value", value)
@@ -101,7 +105,11 @@ class _TeamPermissionSettingState:
              action: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if action is not None:
             _setter("action", action)
         if team_id is not None:

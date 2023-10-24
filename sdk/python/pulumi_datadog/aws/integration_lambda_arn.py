@@ -18,7 +18,7 @@ class IntegrationLambdaArnArgs:
                  lambda_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a IntegrationLambdaArn resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
         IntegrationLambdaArnArgs._configure(
@@ -31,7 +31,13 @@ class IntegrationLambdaArnArgs:
              _setter: Callable[[Any, Any], None],
              account_id: pulumi.Input[str],
              lambda_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         _setter("account_id", account_id)
         _setter("lambda_arn", lambda_arn)
 
@@ -39,7 +45,7 @@ class IntegrationLambdaArnArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -67,7 +73,7 @@ class _IntegrationLambdaArnState:
                  lambda_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IntegrationLambdaArn resources.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
         _IntegrationLambdaArnState._configure(
@@ -80,7 +86,13 @@ class _IntegrationLambdaArnState:
              _setter: Callable[[Any, Any], None],
              account_id: Optional[pulumi.Input[str]] = None,
              lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if lambda_arn is not None:
@@ -90,7 +102,7 @@ class _IntegrationLambdaArnState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -146,7 +158,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
         ...
@@ -235,7 +247,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -250,7 +262,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 

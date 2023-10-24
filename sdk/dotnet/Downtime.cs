@@ -100,7 +100,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> MonitorTags { get; private set; } = null!;
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted
+        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
         /// </summary>
         [Output("muteFirstRecoveryNotification")]
         public Output<bool?> MuteFirstRecoveryNotification { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Datadog
         public Output<string?> StartDate { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        /// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted
+        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
         /// </summary>
         [Input("muteFirstRecoveryNotification")]
         public Input<bool>? MuteFirstRecoveryNotification { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Datadog
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        /// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When true the first recovery notification during the downtime will be muted
+        /// When true the first recovery notification during the downtime will be muted Defaults to `false`.
         /// </summary>
         [Input("muteFirstRecoveryNotification")]
         public Input<bool>? MuteFirstRecoveryNotification { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Datadog
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        /// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

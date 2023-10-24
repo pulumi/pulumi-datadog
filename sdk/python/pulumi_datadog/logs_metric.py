@@ -41,7 +41,11 @@ class LogsMetricArgs:
              filter: pulumi.Input['LogsMetricFilterArgs'],
              name: pulumi.Input[str],
              group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+
         _setter("compute", compute)
         _setter("filter", filter)
         _setter("name", name)
@@ -125,7 +129,11 @@ class _LogsMetricState:
              filter: Optional[pulumi.Input['LogsMetricFilterArgs']] = None,
              group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+
         if compute is not None:
             _setter("compute", compute)
         if filter is not None:

@@ -46,14 +46,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -129,7 +129,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 

@@ -39,7 +39,11 @@ class TeamLinkArgs:
              team_id: pulumi.Input[str],
              url: pulumi.Input[str],
              position: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("label", label)
         _setter("team_id", team_id)
         _setter("url", url)
@@ -123,7 +127,11 @@ class _TeamLinkState:
              position: Optional[pulumi.Input[int]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if label is not None:
             _setter("label", label)
         if position is not None:

@@ -15,13 +15,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ChannelDisplay struct {
-	// Show the main body of the alert event.
+	// Show the main body of the alert event. Defaults to `true`.
 	Message *bool `pulumi:"message"`
-	// Show the list of @-handles in the alert event.
+	// Show the list of @-handles in the alert event. Defaults to `true`.
 	Notified *bool `pulumi:"notified"`
-	// Show the alert event's snapshot image.
+	// Show the alert event's snapshot image. Defaults to `true`.
 	Snapshot *bool `pulumi:"snapshot"`
-	// Show the scopes on which the monitor alerted.
+	// Show the scopes on which the monitor alerted. Defaults to `true`.
 	Tags *bool `pulumi:"tags"`
 }
 
@@ -37,13 +37,13 @@ type ChannelDisplayInput interface {
 }
 
 type ChannelDisplayArgs struct {
-	// Show the main body of the alert event.
+	// Show the main body of the alert event. Defaults to `true`.
 	Message pulumi.BoolPtrInput `pulumi:"message"`
-	// Show the list of @-handles in the alert event.
+	// Show the list of @-handles in the alert event. Defaults to `true`.
 	Notified pulumi.BoolPtrInput `pulumi:"notified"`
-	// Show the alert event's snapshot image.
+	// Show the alert event's snapshot image. Defaults to `true`.
 	Snapshot pulumi.BoolPtrInput `pulumi:"snapshot"`
-	// Show the scopes on which the monitor alerted.
+	// Show the scopes on which the monitor alerted. Defaults to `true`.
 	Tags pulumi.BoolPtrInput `pulumi:"tags"`
 }
 
@@ -142,22 +142,22 @@ func (o ChannelDisplayOutput) ToOutput(ctx context.Context) pulumix.Output[Chann
 	}
 }
 
-// Show the main body of the alert event.
+// Show the main body of the alert event. Defaults to `true`.
 func (o ChannelDisplayOutput) Message() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Message }).(pulumi.BoolPtrOutput)
 }
 
-// Show the list of @-handles in the alert event.
+// Show the list of @-handles in the alert event. Defaults to `true`.
 func (o ChannelDisplayOutput) Notified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Notified }).(pulumi.BoolPtrOutput)
 }
 
-// Show the alert event's snapshot image.
+// Show the alert event's snapshot image. Defaults to `true`.
 func (o ChannelDisplayOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Snapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Show the scopes on which the monitor alerted.
+// Show the scopes on which the monitor alerted. Defaults to `true`.
 func (o ChannelDisplayOutput) Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDisplay) *bool { return v.Tags }).(pulumi.BoolPtrOutput)
 }
@@ -192,7 +192,7 @@ func (o ChannelDisplayPtrOutput) Elem() ChannelDisplayOutput {
 	}).(ChannelDisplayOutput)
 }
 
-// Show the main body of the alert event.
+// Show the main body of the alert event. Defaults to `true`.
 func (o ChannelDisplayPtrOutput) Message() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -202,7 +202,7 @@ func (o ChannelDisplayPtrOutput) Message() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Show the list of @-handles in the alert event.
+// Show the list of @-handles in the alert event. Defaults to `true`.
 func (o ChannelDisplayPtrOutput) Notified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -212,7 +212,7 @@ func (o ChannelDisplayPtrOutput) Notified() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Show the alert event's snapshot image.
+// Show the alert event's snapshot image. Defaults to `true`.
 func (o ChannelDisplayPtrOutput) Snapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {
@@ -222,7 +222,7 @@ func (o ChannelDisplayPtrOutput) Snapshot() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Show the scopes on which the monitor alerted.
+// Show the scopes on which the monitor alerted. Defaults to `true`.
 func (o ChannelDisplayPtrOutput) Tags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ChannelDisplay) *bool {
 		if v == nil {

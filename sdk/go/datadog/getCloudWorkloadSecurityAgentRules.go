@@ -4,8 +4,12 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
@@ -49,4 +53,52 @@ type GetCloudWorkloadSecurityAgentRulesResult struct {
 	AgentRules []GetCloudWorkloadSecurityAgentRulesAgentRule `pulumi:"agentRules"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetCloudWorkloadSecurityAgentRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCloudWorkloadSecurityAgentRulesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCloudWorkloadSecurityAgentRulesResult, error) {
+		r, err := GetCloudWorkloadSecurityAgentRules(ctx, opts...)
+		var s GetCloudWorkloadSecurityAgentRulesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetCloudWorkloadSecurityAgentRulesResultOutput)
+}
+
+// A collection of values returned by getCloudWorkloadSecurityAgentRules.
+type GetCloudWorkloadSecurityAgentRulesResultOutput struct{ *pulumi.OutputState }
+
+func (GetCloudWorkloadSecurityAgentRulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesResult)(nil)).Elem()
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesResultOutput) ToGetCloudWorkloadSecurityAgentRulesResultOutput() GetCloudWorkloadSecurityAgentRulesResultOutput {
+	return o
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesResultOutput) ToGetCloudWorkloadSecurityAgentRulesResultOutputWithContext(ctx context.Context) GetCloudWorkloadSecurityAgentRulesResultOutput {
+	return o
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCloudWorkloadSecurityAgentRulesResult] {
+	return pulumix.Output[GetCloudWorkloadSecurityAgentRulesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of Agent rules.
+func (o GetCloudWorkloadSecurityAgentRulesResultOutput) AgentRules() GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesResult) []GetCloudWorkloadSecurityAgentRulesAgentRule {
+		return v.AgentRules
+	}).(GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCloudWorkloadSecurityAgentRulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesResultOutput{})
 }

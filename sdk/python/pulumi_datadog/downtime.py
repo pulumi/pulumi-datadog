@@ -35,11 +35,11 @@ class DowntimeArgs:
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
-        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
-        :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        :param pulumi.Input[str] timezone: The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         DowntimeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -69,7 +69,19 @@ class DowntimeArgs:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("scopes", scopes)
         if end is not None:
             _setter("end", end)
@@ -168,7 +180,7 @@ class DowntimeArgs:
     @pulumi.getter(name="muteFirstRecoveryNotification")
     def mute_first_recovery_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        When true the first recovery notification during the downtime will be muted
+        When true the first recovery notification during the downtime will be muted Defaults to `false`.
         """
         return pulumi.get(self, "mute_first_recovery_notification")
 
@@ -216,7 +228,7 @@ class DowntimeArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         return pulumi.get(self, "timezone")
 
@@ -252,12 +264,12 @@ class _DowntimeState:
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
-        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
-        :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        :param pulumi.Input[str] timezone: The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         _DowntimeState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -293,7 +305,21 @@ class _DowntimeState:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeChildId' in kwargs:
+            active_child_id = kwargs['activeChildId']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         if active is not None:
             _setter("active", active)
         if active_child_id is not None:
@@ -423,7 +449,7 @@ class _DowntimeState:
     @pulumi.getter(name="muteFirstRecoveryNotification")
     def mute_first_recovery_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        When true the first recovery notification during the downtime will be muted
+        When true the first recovery notification during the downtime will be muted Defaults to `false`.
         """
         return pulumi.get(self, "mute_first_recovery_notification")
 
@@ -483,7 +509,7 @@ class _DowntimeState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         return pulumi.get(self, "timezone")
 
@@ -543,12 +569,12 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
-        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
-        :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        :param pulumi.Input[str] timezone: The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         ...
     @overload
@@ -682,12 +708,12 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
-        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted
+        :param pulumi.Input[bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
-        :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        :param pulumi.Input[str] timezone: The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -777,7 +803,7 @@ class Downtime(pulumi.CustomResource):
     @pulumi.getter(name="muteFirstRecoveryNotification")
     def mute_first_recovery_notification(self) -> pulumi.Output[Optional[bool]]:
         """
-        When true the first recovery notification during the downtime will be muted
+        When true the first recovery notification during the downtime will be muted Defaults to `false`.
         """
         return pulumi.get(self, "mute_first_recovery_notification")
 
@@ -817,7 +843,7 @@ class Downtime(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
-        The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+        The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
         """
         return pulumi.get(self, "timezone")
 

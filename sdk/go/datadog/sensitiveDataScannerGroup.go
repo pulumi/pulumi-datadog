@@ -67,7 +67,7 @@ type SensitiveDataScannerGroup struct {
 	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
 	// Name of the Datadog scanning group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of products the scanning group applies.
+	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayOutput `pulumi:"productLists"`
 }
 
@@ -121,7 +121,7 @@ type sensitiveDataScannerGroupState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Name of the Datadog scanning group.
 	Name *string `pulumi:"name"`
-	// List of products the scanning group applies.
+	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists []string `pulumi:"productLists"`
 }
 
@@ -134,7 +134,7 @@ type SensitiveDataScannerGroupState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// Name of the Datadog scanning group.
 	Name pulumi.StringPtrInput
-	// List of products the scanning group applies.
+	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayInput
 }
 
@@ -151,7 +151,7 @@ type sensitiveDataScannerGroupArgs struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 	// Name of the Datadog scanning group.
 	Name string `pulumi:"name"`
-	// List of products the scanning group applies.
+	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists []string `pulumi:"productLists"`
 }
 
@@ -165,7 +165,7 @@ type SensitiveDataScannerGroupArgs struct {
 	IsEnabled pulumi.BoolInput
 	// Name of the Datadog scanning group.
 	Name pulumi.StringInput
-	// List of products the scanning group applies.
+	// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 	ProductLists pulumi.StringArrayInput
 }
 
@@ -300,7 +300,7 @@ func (o SensitiveDataScannerGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of products the scanning group applies.
+// List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
 func (o SensitiveDataScannerGroupOutput) ProductLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerGroup) pulumi.StringArrayOutput { return v.ProductLists }).(pulumi.StringArrayOutput)
 }

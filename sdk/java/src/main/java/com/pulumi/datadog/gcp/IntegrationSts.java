@@ -85,14 +85,14 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hostFilters);
     }
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      * 
      */
     @Export(name="isCspmEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isCspmEnabled;
 
     /**
-     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      * 
      */
     public Output<Boolean> isCspmEnabled() {

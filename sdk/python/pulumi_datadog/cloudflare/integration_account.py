@@ -35,7 +35,11 @@ class IntegrationAccountArgs:
              api_key: pulumi.Input[str],
              name: pulumi.Input[str],
              email: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
         _setter("name", name)
         if email is not None:
@@ -102,7 +106,11 @@ class _IntegrationAccountState:
              api_key: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if email is not None:

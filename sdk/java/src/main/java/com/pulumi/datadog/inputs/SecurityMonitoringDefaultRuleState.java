@@ -36,14 +36,14 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
     }
 
     /**
-     * Enable the rule.
+     * Enable the rule. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable the rule.
+     * @return Enable the rule. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -155,7 +155,7 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Enable the rule.
+         * @param enabled Enable the rule. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Enable the rule.
+         * @param enabled Enable the rule. Defaults to `true`.
          * 
          * @return builder
          * 

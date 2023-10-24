@@ -107,7 +107,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        /// Defaults to `true`.
         /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
@@ -153,15 +152,15 @@ namespace Pulumi.Datadog
         /// <summary>
         /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         /// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        /// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        /// and set `new_host_delay` to zero for monitors grouped by host.
+        /// and monitors not grouped by host. The only case when this should be used is to override the default and set
+        /// `new_host_delay` to zero for monitors grouped by host.
         /// </summary>
         [Output("newHostDelay")]
         public Output<int?> NewHostDelay { get; private set; } = null!;
 
         /// <summary>
-        /// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        /// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        /// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        /// timeframe for metric alerts or 2 minutes for service checks.
         /// </summary>
         [Output("noDataTimeframe")]
         public Output<int?> NoDataTimeframe { get; private set; } = null!;
@@ -189,7 +188,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> NotifyBies { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        /// A boolean indicating whether this monitor will notify when data stops reporting.
         /// </summary>
         [Output("notifyNoData")]
         public Output<bool?> NotifyNoData { get; private set; } = null!;
@@ -237,9 +236,8 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RenotifyStatuses { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        /// all times` and `in total` aggregation. `false` otherwise.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        /// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         /// </summary>
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
@@ -382,7 +380,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        /// Defaults to `true`.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -428,15 +425,15 @@ namespace Pulumi.Datadog
         /// <summary>
         /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         /// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        /// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        /// and set `new_host_delay` to zero for monitors grouped by host.
+        /// and monitors not grouped by host. The only case when this should be used is to override the default and set
+        /// `new_host_delay` to zero for monitors grouped by host.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
 
         /// <summary>
-        /// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        /// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        /// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        /// timeframe for metric alerts or 2 minutes for service checks.
         /// </summary>
         [Input("noDataTimeframe")]
         public Input<int>? NoDataTimeframe { get; set; }
@@ -470,7 +467,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        /// A boolean indicating whether this monitor will notify when data stops reporting.
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
@@ -524,9 +521,8 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        /// all times` and `in total` aggregation. `false` otherwise.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        /// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }
@@ -656,7 +652,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        /// Defaults to `true`.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -702,15 +697,15 @@ namespace Pulumi.Datadog
         /// <summary>
         /// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
         /// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-        /// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-        /// and set `new_host_delay` to zero for monitors grouped by host.
+        /// and monitors not grouped by host. The only case when this should be used is to override the default and set
+        /// `new_host_delay` to zero for monitors grouped by host.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
 
         /// <summary>
-        /// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-        /// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+        /// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+        /// timeframe for metric alerts or 2 minutes for service checks.
         /// </summary>
         [Input("noDataTimeframe")]
         public Input<int>? NoDataTimeframe { get; set; }
@@ -744,7 +739,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+        /// A boolean indicating whether this monitor will notify when data stops reporting.
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
@@ -798,9 +793,8 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-        /// all times` and `in total` aggregation. `false` otherwise.
+        /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+        /// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }

@@ -35,7 +35,13 @@ class IntegrationAccountArgs:
              api_key: pulumi.Input[str],
              api_secret: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+
         _setter("api_key", api_key)
         _setter("api_secret", api_secret)
         if tags is not None:
@@ -102,7 +108,13 @@ class _IntegrationAccountState:
              api_key: Optional[pulumi.Input[str]] = None,
              api_secret: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if api_secret is not None:
@@ -176,8 +188,10 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Import
 
+        Confluent account ID can be retrieved using the ListConfluentAccounts endpoint https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+
         ```sh
-         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "foobar"
+         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,8 +226,10 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Import
 
+        Confluent account ID can be retrieved using the ListConfluentAccounts endpoint https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+
         ```sh
-         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "foobar"
+         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
         :param str resource_name: The name of the resource.

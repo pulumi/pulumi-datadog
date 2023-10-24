@@ -23,7 +23,7 @@ class IntegrationStsArgs:
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         IntegrationStsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -39,7 +39,15 @@ class IntegrationStsArgs:
              automute: Optional[pulumi.Input[bool]] = None,
              host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if 'isCspmEnabled' in kwargs:
+            is_cspm_enabled = kwargs['isCspmEnabled']
+
         _setter("client_email", client_email)
         if automute is not None:
             _setter("automute", automute)
@@ -88,7 +96,7 @@ class IntegrationStsArgs:
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         return pulumi.get(self, "is_cspm_enabled")
 
@@ -111,7 +119,7 @@ class _IntegrationStsState:
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         _IntegrationStsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -129,7 +137,17 @@ class _IntegrationStsState:
              delegate_account_email: Optional[pulumi.Input[str]] = None,
              host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if 'delegateAccountEmail' in kwargs:
+            delegate_account_email = kwargs['delegateAccountEmail']
+        if 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if 'isCspmEnabled' in kwargs:
+            is_cspm_enabled = kwargs['isCspmEnabled']
+
         if automute is not None:
             _setter("automute", automute)
         if client_email is not None:
@@ -193,7 +211,7 @@ class _IntegrationStsState:
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         return pulumi.get(self, "is_cspm_enabled")
 
@@ -226,7 +244,7 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         ...
     @overload
@@ -308,7 +326,7 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,7 +375,7 @@ class IntegrationSts(pulumi.CustomResource):
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> pulumi.Output[bool]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         """
         return pulumi.get(self, "is_cspm_enabled")
 

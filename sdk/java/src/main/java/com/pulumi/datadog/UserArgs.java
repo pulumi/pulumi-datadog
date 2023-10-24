@@ -18,14 +18,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserArgs Empty = new UserArgs();
 
     /**
-     * Whether the user is disabled.
+     * Whether the user is disabled. Defaults to `false`.
      * 
      */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
     /**
-     * @return Whether the user is disabled.
+     * @return Whether the user is disabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> disabled() {
@@ -78,14 +78,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether an invitation email should be sent when the user is created.
+     * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      * 
      */
     @Import(name="sendUserInvitation")
     private @Nullable Output<Boolean> sendUserInvitation;
 
     /**
-     * @return Whether an invitation email should be sent when the user is created.
+     * @return Whether an invitation email should be sent when the user is created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> sendUserInvitation() {
@@ -121,7 +121,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Whether the user is disabled.
+         * @param disabled Whether the user is disabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Whether the user is disabled.
+         * @param disabled Whether the user is disabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sendUserInvitation Whether an invitation email should be sent when the user is created.
+         * @param sendUserInvitation Whether an invitation email should be sent when the user is created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sendUserInvitation Whether an invitation email should be sent when the user is created.
+         * @param sendUserInvitation Whether an invitation email should be sent when the user is created. Defaults to `true`.
          * 
          * @return builder
          * 

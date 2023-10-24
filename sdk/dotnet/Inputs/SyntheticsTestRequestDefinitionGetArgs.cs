@@ -97,6 +97,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// A protobuf JSON descriptor.
+        /// </summary>
+        [Input("protoJsonDescriptor")]
+        public Input<string>? ProtoJsonDescriptor { get; set; }
+
+        /// <summary>
         /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         /// </summary>
         [Input("servername")]

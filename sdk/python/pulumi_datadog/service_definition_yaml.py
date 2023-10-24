@@ -27,7 +27,11 @@ class ServiceDefinitionYamlArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceDefinition' in kwargs:
+            service_definition = kwargs['serviceDefinition']
+
         _setter("service_definition", service_definition)
 
     @property
@@ -59,7 +63,11 @@ class _ServiceDefinitionYamlState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceDefinition' in kwargs:
+            service_definition = kwargs['serviceDefinition']
+
         if service_definition is not None:
             _setter("service_definition", service_definition)
 

@@ -46,14 +46,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     }
 
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
      * 
      */
     @Import(name="groupMode")
     private @Nullable Output<String> groupMode;
 
     /**
-     * @return Group mode to query measures. Valid values are `overall`, `components`.
+     * @return Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
      * 
      */
     public Optional<Output<String>> groupMode() {
@@ -106,14 +106,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     }
 
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
      * 
      */
     @Import(name="sloQueryType")
     private @Nullable Output<String> sloQueryType;
 
     /**
-     * @return type of the SLO to query. Valid values are `metric`.
+     * @return type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
      * 
      */
     public Optional<Output<String>> sloQueryType() {
@@ -193,7 +193,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param groupMode Group mode to query measures. Valid values are `overall`, `components`.
+         * @param groupMode Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param groupMode Group mode to query measures. Valid values are `overall`, `components`.
+         * @param groupMode Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param sloQueryType type of the SLO to query. Valid values are `metric`.
+         * @param sloQueryType type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param sloQueryType type of the SLO to query. Valid values are `metric`.
+         * @param sloQueryType type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
          * 
          * @return builder
          * 

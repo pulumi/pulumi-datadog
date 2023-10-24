@@ -82,14 +82,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appServicePlanFilters);
     }
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     @Export(name="automute", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automute;
 
     /**
-     * @return Silence monitors for expected Azure VM shutdowns.
+     * @return Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automute() {
@@ -124,28 +124,28 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     @Export(name="cspmEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cspmEnabled;
 
     /**
-     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * @return Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> cspmEnabled() {
         return Codegen.optional(this.cspmEnabled);
     }
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     @Export(name="customMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customMetricsEnabled;
 
     /**
-     * @return Enable custom metrics for your organization.
+     * @return Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> customMetricsEnabled() {

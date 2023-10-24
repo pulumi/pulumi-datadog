@@ -42,6 +42,16 @@ public final class GetIpRangesResult {
      */
     private List<String> apmIpv6s;
     /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     * 
+     */
+    private List<String> globalIpv4s;
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     * 
+     */
+    private List<String> globalIpv6s;
+    /**
      * @return The ID of this resource.
      * 
      */
@@ -151,6 +161,20 @@ public final class GetIpRangesResult {
         return this.apmIpv6s;
     }
     /**
+     * @return An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     * 
+     */
+    public List<String> globalIpv4s() {
+        return this.globalIpv4s;
+    }
+    /**
+     * @return An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+     * 
+     */
+    public List<String> globalIpv6s() {
+        return this.globalIpv6s;
+    }
+    /**
      * @return The ID of this resource.
      * 
      */
@@ -257,6 +281,8 @@ public final class GetIpRangesResult {
         private List<String> apiIpv6s;
         private List<String> apmIpv4s;
         private List<String> apmIpv6s;
+        private List<String> globalIpv4s;
+        private List<String> globalIpv6s;
         private String id;
         private List<String> logsIpv4s;
         private List<String> logsIpv6s;
@@ -279,6 +305,8 @@ public final class GetIpRangesResult {
     	      this.apiIpv6s = defaults.apiIpv6s;
     	      this.apmIpv4s = defaults.apmIpv4s;
     	      this.apmIpv6s = defaults.apmIpv6s;
+    	      this.globalIpv4s = defaults.globalIpv4s;
+    	      this.globalIpv6s = defaults.globalIpv6s;
     	      this.id = defaults.id;
     	      this.logsIpv4s = defaults.logsIpv4s;
     	      this.logsIpv6s = defaults.logsIpv6s;
@@ -341,6 +369,22 @@ public final class GetIpRangesResult {
         }
         public Builder apmIpv6s(String... apmIpv6s) {
             return apmIpv6s(List.of(apmIpv6s));
+        }
+        @CustomType.Setter
+        public Builder globalIpv4s(List<String> globalIpv4s) {
+            this.globalIpv4s = Objects.requireNonNull(globalIpv4s);
+            return this;
+        }
+        public Builder globalIpv4s(String... globalIpv4s) {
+            return globalIpv4s(List.of(globalIpv4s));
+        }
+        @CustomType.Setter
+        public Builder globalIpv6s(List<String> globalIpv6s) {
+            this.globalIpv6s = Objects.requireNonNull(globalIpv6s);
+            return this;
+        }
+        public Builder globalIpv6s(String... globalIpv6s) {
+            return globalIpv6s(List.of(globalIpv6s));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -445,6 +489,8 @@ public final class GetIpRangesResult {
             o.apiIpv6s = apiIpv6s;
             o.apmIpv4s = apmIpv4s;
             o.apmIpv6s = apmIpv6s;
+            o.globalIpv4s = globalIpv4s;
+            o.globalIpv6s = globalIpv6s;
             o.id = id;
             o.logsIpv4s = logsIpv4s;
             o.logsIpv6s = logsIpv6s;

@@ -39,6 +39,11 @@ public final class SyntheticsTestAssertion {
      */
     private @Nullable SyntheticsTestAssertionTargetxpath targetxpath;
     /**
+     * @return Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    private @Nullable String timingsScope;
+    /**
      * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
@@ -81,6 +86,13 @@ public final class SyntheticsTestAssertion {
         return Optional.ofNullable(this.targetxpath);
     }
     /**
+     * @return Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    public Optional<String> timingsScope() {
+        return Optional.ofNullable(this.timingsScope);
+    }
+    /**
      * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
@@ -102,6 +114,7 @@ public final class SyntheticsTestAssertion {
         private @Nullable String target;
         private @Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath;
         private @Nullable SyntheticsTestAssertionTargetxpath targetxpath;
+        private @Nullable String timingsScope;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestAssertion defaults) {
@@ -111,6 +124,7 @@ public final class SyntheticsTestAssertion {
     	      this.target = defaults.target;
     	      this.targetjsonpath = defaults.targetjsonpath;
     	      this.targetxpath = defaults.targetxpath;
+    	      this.timingsScope = defaults.timingsScope;
     	      this.type = defaults.type;
         }
 
@@ -140,6 +154,11 @@ public final class SyntheticsTestAssertion {
             return this;
         }
         @CustomType.Setter
+        public Builder timingsScope(@Nullable String timingsScope) {
+            this.timingsScope = timingsScope;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -151,6 +170,7 @@ public final class SyntheticsTestAssertion {
             o.target = target;
             o.targetjsonpath = targetjsonpath;
             o.targetxpath = targetxpath;
+            o.timingsScope = timingsScope;
             o.type = type;
             return o;
         }
