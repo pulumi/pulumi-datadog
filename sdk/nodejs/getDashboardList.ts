@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * // Create a dashboard and register it in the list above.
  * const time = new datadog.Dashboard("time", {
  *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Terraform",
+ *     description: "Created using the Datadog provider in Pulumi",
  *     isReadOnly: true,
  *     layoutType: "ordered",
  *     title: "TF Test Layout Dashboard",
@@ -80,7 +80,7 @@ export interface GetDashboardListResult {
  * // Create a dashboard and register it in the list above.
  * const time = new datadog.Dashboard("time", {
  *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Terraform",
+ *     description: "Created using the Datadog provider in Pulumi",
  *     isReadOnly: true,
  *     layoutType: "ordered",
  *     title: "TF Test Layout Dashboard",

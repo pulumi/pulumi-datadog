@@ -22,6 +22,7 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Services as Individual Resources
     ///     var pd = new Datadog.PagerDuty.Integration("pd", new()
     ///     {
     ///         ApiToken = "38457822378273432587234242874",

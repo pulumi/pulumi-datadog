@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * // Example Dashboard JSON
  * const dashboardJson = new datadog.DashboardJson("dashboardJson", {dashboard: `{
  *    "title":"Ordered Layout Dashboard",
- *    "description":"Created using the Datadog provider in Terraform",
+ *    "description":"Created using the Datadog provider in Pulumi",
  *    "widgets":[
  *       {
  *          "id":719369537777170,

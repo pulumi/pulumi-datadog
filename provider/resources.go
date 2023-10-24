@@ -2,6 +2,7 @@ package datadog
 
 import (
 	// Allow embedding files
+	"bytes"
 	"context"
 	_ "embed"
 	"fmt"
@@ -81,6 +82,7 @@ func Provider() tfbridge.ProviderInfo {
 		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
 		Version:          version.Version,
 		UpstreamRepoPath: "./upstream",
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
 			"datadog_downtime":                   {Tok: makeResource(datadogMod, "Downtime")},
@@ -258,4 +260,16 @@ func Provider() tfbridge.ProviderInfo {
 	contract.AssertNoErrorf(err, "failed to apply token aliasing")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(defaults, tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, b []byte) ([]byte, error) {
+			b = bytes.ReplaceAll(b,
+				[]byte("Created using the Datadog provider in Terraform"),
+				[]byte("Created using the Datadog provider in Pulumi"))
+			return b, nil
+		},
+	})
 }
