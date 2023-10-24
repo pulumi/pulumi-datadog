@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:pagerduty/serviceObject:ServiceObject")
 public class ServiceObject extends com.pulumi.resources.CustomResource {
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
     @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
     /**
-     * @return Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+     * @return Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
      * 
      */
     public Output<String> serviceKey() {

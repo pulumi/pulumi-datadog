@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
     ///     var time = new Datadog.Dashboard("time", new()
     ///     {
     ///         Title = "TF Test Layout Dashboard",
-    ///         Description = "Created using the Datadog provider",
+    ///         Description = "Created using the Datadog provider in Pulumi",
     ///         LayoutType = "ordered",
     ///         IsReadOnly = true,
     ///         Widgets = new[]
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog
     ///     var screen = new Datadog.Dashboard("screen", new()
     ///     {
     ///         Title = "TF Test Free Layout Dashboard",
-    ///         Description = "Created using the Datadog provider",
+    ///         Description = "Created using the Datadog provider in Pulumi",
     ///         LayoutType = "free",
     ///         IsReadOnly = false,
     ///         Widgets = new[]

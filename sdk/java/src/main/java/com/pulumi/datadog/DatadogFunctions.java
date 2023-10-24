@@ -918,7 +918,7 @@ public final class DatadogFunctions {
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
@@ -975,7 +975,7 @@ public final class DatadogFunctions {
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
@@ -1032,7 +1032,7 @@ public final class DatadogFunctions {
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
@@ -1089,7 +1089,7 @@ public final class DatadogFunctions {
      * 
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
      *             .isReadOnly(true)
      *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)

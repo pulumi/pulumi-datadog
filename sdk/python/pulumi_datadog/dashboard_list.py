@@ -133,7 +133,7 @@ class DashboardList(pulumi.CustomResource):
 
         time = datadog.Dashboard("time",
             title="TF Test Layout Dashboard",
-            description="Created using the Datadog provider",
+            description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
             is_read_only=True,
             widgets=[datadog.DashboardWidgetArgs(
@@ -146,7 +146,7 @@ class DashboardList(pulumi.CustomResource):
             )])
         screen = datadog.Dashboard("screen",
             title="TF Test Free Layout Dashboard",
-            description="Created using the Datadog provider",
+            description="Created using the Datadog provider in Pulumi",
             layout_type="free",
             is_read_only=False,
             widgets=[datadog.DashboardWidgetArgs(
@@ -212,7 +212,7 @@ class DashboardList(pulumi.CustomResource):
 
         time = datadog.Dashboard("time",
             title="TF Test Layout Dashboard",
-            description="Created using the Datadog provider",
+            description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
             is_read_only=True,
             widgets=[datadog.DashboardWidgetArgs(
@@ -225,7 +225,7 @@ class DashboardList(pulumi.CustomResource):
             )])
         screen = datadog.Dashboard("screen",
             title="TF Test Free Layout Dashboard",
-            description="Created using the Datadog provider",
+            description="Created using the Datadog provider in Pulumi",
             layout_type="free",
             is_read_only=False,
             widgets=[datadog.DashboardWidgetArgs(

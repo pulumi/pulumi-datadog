@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
  *             .title(&#34;TF Test Layout Dashboard&#34;)
- *             .description(&#34;Created using the Datadog provider&#34;)
+ *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .layoutType(&#34;ordered&#34;)
  *             .isReadOnly(true)
  *             .widgets(DashboardWidgetArgs.builder()
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var screen = new Dashboard(&#34;screen&#34;, DashboardArgs.builder()        
  *             .title(&#34;TF Test Free Layout Dashboard&#34;)
- *             .description(&#34;Created using the Datadog provider&#34;)
+ *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .layoutType(&#34;free&#34;)
  *             .isReadOnly(false)
  *             .widgets(DashboardWidgetArgs.builder()

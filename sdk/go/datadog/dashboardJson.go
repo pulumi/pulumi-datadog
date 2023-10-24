@@ -32,7 +32,7 @@ import (
 //			_, err := datadog.NewDashboardJson(ctx, "dashboardJson", &datadog.DashboardJsonArgs{
 //				Dashboard: pulumi.String(`{
 //	   "title":"Ordered Layout Dashboard",
-//	   "description":"Created using the Datadog provider in Terraform",
+//	   "description":"Created using the Datadog provider in Pulumi",
 //	   "widgets":[
 //	      {
 //	         "id":719369537777170,

@@ -38,7 +38,7 @@ namespace Pulumi.Datadog
         ///         {
         ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
         ///         },
-        ///         Description = "Created using the Datadog provider in Terraform",
+        ///         Description = "Created using the Datadog provider in Pulumi",
         ///         IsReadOnly = true,
         ///         LayoutType = "ordered",
         ///         Title = "TF Test Layout Dashboard",
@@ -92,7 +92,7 @@ namespace Pulumi.Datadog
         ///         {
         ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
         ///         },
-        ///         Description = "Created using the Datadog provider in Terraform",
+        ///         Description = "Created using the Datadog provider in Pulumi",
         ///         IsReadOnly = true,
         ///         LayoutType = "ordered",
         ///         Title = "TF Test Layout Dashboard",

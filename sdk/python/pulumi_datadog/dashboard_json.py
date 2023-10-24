@@ -191,7 +191,7 @@ class DashboardJson(pulumi.CustomResource):
         # Example Dashboard JSON
         dashboard_json = datadog.DashboardJson("dashboardJson", dashboard=\"\"\"{
            "title":"Ordered Layout Dashboard",
-           "description":"Created using the Datadog provider in Terraform",
+           "description":"Created using the Datadog provider in Pulumi",
            "widgets":[
               {
                  "id":719369537777170,
@@ -709,7 +709,7 @@ class DashboardJson(pulumi.CustomResource):
         # Example Dashboard JSON
         dashboard_json = datadog.DashboardJson("dashboardJson", dashboard=\"\"\"{
            "title":"Ordered Layout Dashboard",
-           "description":"Created using the Datadog provider in Terraform",
+           "description":"Created using the Datadog provider in Pulumi",
            "widgets":[
               {
                  "id":719369537777170,

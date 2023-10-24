@@ -18,7 +18,7 @@ class ServiceObjectArgs:
                  service_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServiceObject resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         ServiceObjectArgs._configure(
@@ -39,7 +39,7 @@ class ServiceObjectArgs:
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Input[str]:
         """
-        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 
@@ -67,7 +67,7 @@ class _ServiceObjectState:
                  service_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceObject resources.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         _ServiceObjectState._configure(
@@ -90,7 +90,7 @@ class _ServiceObjectState:
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 
@@ -138,7 +138,7 @@ class ServiceObject(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         ...
@@ -221,7 +221,7 @@ class ServiceObject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -236,7 +236,7 @@ class ServiceObject(pulumi.CustomResource):
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[str]:
         """
-        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 

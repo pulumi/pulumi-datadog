@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var orderedDashboard = new Dashboard(&#34;orderedDashboard&#34;, DashboardArgs.builder()        
- *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+ *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .isReadOnly(true)
  *             .layoutType(&#34;ordered&#34;)
  *             .templateVariables(            
@@ -323,7 +323,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var freeDashboard = new Dashboard(&#34;freeDashboard&#34;, DashboardArgs.builder()        
- *             .description(&#34;Created using the Datadog provider in Terraform&#34;)
+ *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .isReadOnly(false)
  *             .layoutType(&#34;free&#34;)
  *             .templateVariables(            

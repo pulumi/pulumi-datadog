@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			time, err := datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
 //				Title:       pulumi.String("TF Test Layout Dashboard"),
-//				Description: pulumi.String("Created using the Datadog provider"),
+//				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				LayoutType:  pulumi.String("ordered"),
 //				IsReadOnly:  pulumi.Bool(true),
 //				Widgets: datadog.DashboardWidgetArray{
@@ -50,7 +50,7 @@ import (
 //			}
 //			screen, err := datadog.NewDashboard(ctx, "screen", &datadog.DashboardArgs{
 //				Title:       pulumi.String("TF Test Free Layout Dashboard"),
-//				Description: pulumi.String("Created using the Datadog provider"),
+//				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				LayoutType:  pulumi.String("free"),
 //				IsReadOnly:  pulumi.Bool(false),
 //				Widgets: datadog.DashboardWidgetArray{

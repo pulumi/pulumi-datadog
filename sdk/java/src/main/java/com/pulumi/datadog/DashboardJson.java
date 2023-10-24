@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *             .dashboard(&#34;&#34;&#34;
  * {
  *    &#34;title&#34;:&#34;Ordered Layout Dashboard&#34;,
- *    &#34;description&#34;:&#34;Created using the Datadog provider in Terraform&#34;,
+ *    &#34;description&#34;:&#34;Created using the Datadog provider in Pulumi&#34;,
  *    &#34;widgets&#34;:[
  *       {
  *          &#34;id&#34;:719369537777170,

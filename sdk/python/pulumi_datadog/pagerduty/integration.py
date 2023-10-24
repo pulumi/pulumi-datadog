@@ -166,6 +166,7 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Services as Individual Resources
         pd = datadog.pagerduty.Integration("pd",
             api_token="38457822378273432587234242874",
             schedules=[
@@ -204,6 +205,7 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Services as Individual Resources
         pd = datadog.pagerduty.Integration("pd",
             api_token="38457822378273432587234242874",
             schedules=[

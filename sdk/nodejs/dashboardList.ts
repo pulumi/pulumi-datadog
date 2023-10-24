@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const time = new datadog.Dashboard("time", {
  *     title: "TF Test Layout Dashboard",
- *     description: "Created using the Datadog provider",
+ *     description: "Created using the Datadog provider in Pulumi",
  *     layoutType: "ordered",
  *     isReadOnly: true,
  *     widgets: [{
@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * });
  * const screen = new datadog.Dashboard("screen", {
  *     title: "TF Test Free Layout Dashboard",
- *     description: "Created using the Datadog provider",
+ *     description: "Created using the Datadog provider in Pulumi",
  *     layoutType: "free",
  *     isReadOnly: false,
  *     widgets: [{

@@ -51,7 +51,7 @@ import (
 type ServiceObject struct {
 	pulumi.CustomResourceState
 
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -100,14 +100,14 @@ func GetServiceObject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceObject resources.
 type serviceObjectState struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 	ServiceKey *string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName *string `pulumi:"serviceName"`
 }
 
 type ServiceObjectState struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 	ServiceKey pulumi.StringPtrInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringPtrInput
@@ -118,7 +118,7 @@ func (ServiceObjectState) ElementType() reflect.Type {
 }
 
 type serviceObjectArgs struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 	ServiceKey string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName string `pulumi:"serviceName"`
@@ -126,7 +126,7 @@ type serviceObjectArgs struct {
 
 // The set of arguments for constructing a ServiceObject resource.
 type ServiceObjectArgs struct {
-	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 	ServiceKey pulumi.StringInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringInput
@@ -243,7 +243,7 @@ func (o ServiceObjectOutput) ToOutput(ctx context.Context) pulumix.Output[*Servi
 	}
 }
 
-// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
 func (o ServiceObjectOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceObject) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
 }
