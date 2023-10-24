@@ -47,15 +47,25 @@ class SloCorrectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             slo_id: pulumi.Input[str],
-             start: pulumi.Input[int],
+             category: Optional[pulumi.Input[str]] = None,
+             slo_id: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              duration: Optional[pulumi.Input[int]] = None,
              end: Optional[pulumi.Input[int]] = None,
              rrule: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if slo_id is None and 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+        if slo_id is None:
+            raise TypeError("Missing 'slo_id' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+
         _setter("category", category)
         _setter("slo_id", slo_id)
         _setter("start", start)
@@ -211,7 +221,11 @@ class _SloCorrectionState:
              slo_id: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[int]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if slo_id is None and 'sloId' in kwargs:
+            slo_id = kwargs['sloId']
+
         if category is not None:
             _setter("category", category)
         if description is not None:
@@ -343,44 +357,6 @@ class SloCorrection(pulumi.CustomResource):
         """
         Resource for interacting with the slo_correction API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-        example_slo = datadog.ServiceLevelObjective("exampleSlo",
-            name="example slo",
-            type="metric",
-            description="some updated description about example_slo SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.metric{type:good}.as_count()",
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.5,
-                warning=99.8,
-            )],
-            tags=["foo:bar"])
-        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
-            category="Scheduled Maintenance",
-            description="correction example",
-            start=1735707000,
-            end=1735718600,
-            slo_id=example_slo.id,
-            timezone="UTC")
-        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
-            category="Scheduled Maintenance",
-            description="correction example with recurrence",
-            start=1735707000,
-            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
-            duration=3600,
-            slo_id=example_slo.id,
-            timezone="UTC")
-        ```
-
         ## Import
 
         ```sh
@@ -406,44 +382,6 @@ class SloCorrection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with the slo_correction API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-        example_slo = datadog.ServiceLevelObjective("exampleSlo",
-            name="example slo",
-            type="metric",
-            description="some updated description about example_slo SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.metric{type:good}.as_count()",
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.5,
-                warning=99.8,
-            )],
-            tags=["foo:bar"])
-        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
-            category="Scheduled Maintenance",
-            description="correction example",
-            start=1735707000,
-            end=1735718600,
-            slo_id=example_slo.id,
-            timezone="UTC")
-        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
-            category="Scheduled Maintenance",
-            description="correction example with recurrence",
-            start=1735707000,
-            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
-            duration=3600,
-            slo_id=example_slo.id,
-            timezone="UTC")
-        ```
 
         ## Import
 

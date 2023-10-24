@@ -6,33 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getDashboardList({
- *     name: "My super list",
- * });
- * // Create a dashboard and register it in the list above.
- * const time = new datadog.Dashboard("time", {
- *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Terraform",
- *     isReadOnly: true,
- *     layoutType: "ordered",
- *     title: "TF Test Layout Dashboard",
- *     widgets: [{
- *         alertGraphDefinition: {
- *             alertId: "1234",
- *             liveSpan: "1h",
- *             title: "Widget Title",
- *             vizType: "timeseries",
- *         },
- *     }],
- * });
- * ```
  */
 export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardListResult> {
 
@@ -67,33 +40,6 @@ export interface GetDashboardListResult {
 }
 /**
  * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getDashboardList({
- *     name: "My super list",
- * });
- * // Create a dashboard and register it in the list above.
- * const time = new datadog.Dashboard("time", {
- *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Terraform",
- *     isReadOnly: true,
- *     layoutType: "ordered",
- *     title: "TF Test Layout Dashboard",
- *     widgets: [{
- *         alertGraphDefinition: {
- *             alertId: "1234",
- *             liveSpan: "1h",
- *             title: "Widget Title",
- *             vizType: "timeseries",
- *         },
- *     }],
- * });
- * ```
  */
 export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardListResult> {
     return pulumi.output(args).apply((a: any) => getDashboardList(a, opts))

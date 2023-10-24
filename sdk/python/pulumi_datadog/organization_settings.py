@@ -33,7 +33,9 @@ class OrganizationSettingsArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if settings is not None:
@@ -92,7 +94,11 @@ class _OrganizationSettingsState:
              name: Optional[pulumi.Input[str]] = None,
              public_id: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_id is None and 'publicId' in kwargs:
+            public_id = kwargs['publicId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -162,16 +168,6 @@ class OrganizationSettings(pulumi.CustomResource):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Manage Datadog Organization
-        organization = datadog.OrganizationSettings("organization", name="foo-organization")
-        ```
-
         ## Import
 
         ```sh
@@ -191,16 +187,6 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Manage Datadog Organization
-        organization = datadog.OrganizationSettings("organization", name="foo-organization")
-        ```
 
         ## Import
 
@@ -239,11 +225,7 @@ class OrganizationSettings(pulumi.CustomResource):
             __props__ = OrganizationSettingsArgs.__new__(OrganizationSettingsArgs)
 
             __props__.__dict__["name"] = name
-            if settings is not None and not isinstance(settings, OrganizationSettingsSettingsArgs):
-                settings = settings or {}
-                def _setter(key, value):
-                    settings[key] = value
-                OrganizationSettingsSettingsArgs._configure(_setter, **settings)
+            settings = _utilities.configure(settings, OrganizationSettingsSettingsArgs, True)
             __props__.__dict__["settings"] = settings
             __props__.__dict__["description"] = None
             __props__.__dict__["public_id"] = None

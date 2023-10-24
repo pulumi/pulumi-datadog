@@ -12,27 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myAgentRule = new Datadog.CloudWorkloadSecurityAgentRule("myAgentRule", new()
-    ///     {
-    ///         Description = "My agent rule",
-    ///         Enabled = true,
-    ///         Expression = "exec.file.name == \"java\"",
-    ///         Name = "my_agent_rule",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cloud Workload Security Agent rules can be imported using ID, e.g.

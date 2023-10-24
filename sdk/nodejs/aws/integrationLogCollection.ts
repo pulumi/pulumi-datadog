@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create a new Datadog - Amazon Web Services integration log collection
- * const main = new datadog.aws.IntegrationLogCollection("main", {
- *     accountId: "1234567890",
- *     services: ["lambda"],
- * });
- * ```
- *
  * ## Import
  *
  * Amazon Web Services log collection integrations can be imported using the `account ID`.

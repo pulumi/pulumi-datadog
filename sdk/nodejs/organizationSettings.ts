@@ -9,16 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Manage Datadog Organization
- * const organization = new datadog.OrganizationSettings("organization", {name: "foo-organization"});
- * ```
- *
  * ## Import
  *
  * ```sh

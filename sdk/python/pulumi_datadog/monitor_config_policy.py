@@ -31,9 +31,17 @@ class MonitorConfigPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_type: pulumi.Input[str],
+             policy_type: Optional[pulumi.Input[str]] = None,
              tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
         _setter("policy_type", policy_type)
         if tag_policy is not None:
             _setter("tag_policy", tag_policy)
@@ -83,7 +91,13 @@ class _MonitorConfigPolicyState:
              _setter: Callable[[Any, Any], None],
              policy_type: Optional[pulumi.Input[str]] = None,
              tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
         if policy_type is not None:
             _setter("policy_type", policy_type)
         if tag_policy is not None:
@@ -125,24 +139,6 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test = datadog.MonitorConfigPolicy("test",
-            policy_type="tag",
-            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
-                tag_key="env",
-                tag_key_required=False,
-                valid_tag_values=[
-                    "staging",
-                    "prod",
-                ],
-            ))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
@@ -156,24 +152,6 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test = datadog.MonitorConfigPolicy("test",
-            policy_type="tag",
-            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
-                tag_key="env",
-                tag_key_required=False,
-                valid_tag_values=[
-                    "staging",
-                    "prod",
-                ],
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param MonitorConfigPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -208,11 +186,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
-            if tag_policy is not None and not isinstance(tag_policy, MonitorConfigPolicyTagPolicyArgs):
-                tag_policy = tag_policy or {}
-                def _setter(key, value):
-                    tag_policy[key] = value
-                MonitorConfigPolicyTagPolicyArgs._configure(_setter, **tag_policy)
+            tag_policy = _utilities.configure(tag_policy, MonitorConfigPolicyTagPolicyArgs, True)
             __props__.__dict__["tag_policy"] = tag_policy
         super(MonitorConfigPolicy, __self__).__init__(
             'datadog:index/monitorConfigPolicy:MonitorConfigPolicy',

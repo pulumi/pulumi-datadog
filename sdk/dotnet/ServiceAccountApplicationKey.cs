@@ -12,26 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create new service_account_application_key resource
-    ///     var foo = new Datadog.ServiceAccountApplicationKey("foo", new()
-    ///     {
-    ///         Name = "Application key for managing dashboards",
-    ///         ServiceAccountId = "00000000-0000-1234-0000-000000000000",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Importing a service account's application key cannot import the value of the key.

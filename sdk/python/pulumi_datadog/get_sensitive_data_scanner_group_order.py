@@ -59,16 +59,6 @@ class AwaitableGetSensitiveDataScannerGroupOrderResult(GetSensitiveDataScannerGr
 def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitiveDataScannerGroupOrderResult:
     """
     Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_sensitive_data_scanner_group_order()
-    foobar = datadog.SensitiveDataScannerGroupOrder("foobar", group_ids=foo.group_ids)
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,15 +73,5 @@ def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] 
 def get_sensitive_data_scanner_group_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveDataScannerGroupOrderResult]:
     """
     Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_sensitive_data_scanner_group_order()
-    foobar = datadog.SensitiveDataScannerGroupOrder("foobar", group_ids=foo.group_ids)
-    ```
     """
     ...

@@ -40,7 +40,9 @@ class ChannelDisplay(dict):
              notified: Optional[bool] = None,
              snapshot: Optional[bool] = None,
              tags: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if message is not None:
             _setter("message", message)
         if notified is not None:

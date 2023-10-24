@@ -34,10 +34,22 @@ class ChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             channel_name: pulumi.Input[str],
-             display: pulumi.Input['ChannelDisplayArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_name: Optional[pulumi.Input[str]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_name is None:
+            raise TypeError("Missing 'channel_name' argument")
+        if display is None:
+            raise TypeError("Missing 'display' argument")
+
         _setter("account_name", account_name)
         _setter("channel_name", channel_name)
         _setter("display", display)
@@ -103,7 +115,13 @@ class _ChannelState:
              account_name: Optional[pulumi.Input[str]] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if channel_name is not None:
@@ -160,23 +178,6 @@ class Channel(pulumi.CustomResource):
         """
         Resource for interacting with the Datadog Slack channel API
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_channel = datadog.slack.Channel("testChannel",
-            account_name="foo",
-            channel_name="#test_channel",
-            display=datadog.slack.ChannelDisplayArgs(
-                message=True,
-                notified=False,
-                snapshot=False,
-                tags=True,
-            ))
-        ```
-
         ## Import
 
         Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
@@ -199,23 +200,6 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with the Datadog Slack channel API
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_channel = datadog.slack.Channel("testChannel",
-            account_name="foo",
-            channel_name="#test_channel",
-            display=datadog.slack.ChannelDisplayArgs(
-                message=True,
-                notified=False,
-                snapshot=False,
-                tags=True,
-            ))
-        ```
 
         ## Import
 
@@ -262,11 +246,7 @@ class Channel(pulumi.CustomResource):
             if channel_name is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
-            if display is not None and not isinstance(display, ChannelDisplayArgs):
-                display = display or {}
-                def _setter(key, value):
-                    display[key] = value
-                ChannelDisplayArgs._configure(_setter, **display)
+            display = _utilities.configure(display, ChannelDisplayArgs, True)
             if display is None and not opts.urn:
                 raise TypeError("Missing required property 'display'")
             __props__.__dict__["display"] = display

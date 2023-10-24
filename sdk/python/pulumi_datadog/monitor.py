@@ -157,10 +157,10 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message: pulumi.Input[str],
-             name: pulumi.Input[str],
-             query: pulumi.Input[str],
-             type: pulumi.Input[str],
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              enable_logs_sample: Optional[pulumi.Input[bool]] = None,
              escalation_message: Optional[pulumi.Input[str]] = None,
              evaluation_delay: Optional[pulumi.Input[int]] = None,
@@ -190,7 +190,65 @@ class MonitorArgs:
              timeout_h: Optional[pulumi.Input[int]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if enable_logs_sample is None and 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if escalation_message is None and 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if group_retention_duration is None and 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if groupby_simple_monitor is None and 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if include_tags is None and 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if monitor_threshold_windows is None and 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if monitor_thresholds is None and 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if new_group_delay is None and 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if new_host_delay is None and 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if no_data_timeframe is None and 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if notification_preset_name is None and 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if notify_audit is None and 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if notify_bies is None and 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if notify_no_data is None and 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if on_missing_data is None and 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if renotify_interval is None and 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if renotify_occurrences is None and 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if renotify_statuses is None and 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if require_full_window is None and 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if scheduling_options is None and 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if timeout_h is None and 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
         _setter("message", message)
         _setter("name", name)
         _setter("query", query)
@@ -876,7 +934,59 @@ class _MonitorState:
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_logs_sample is None and 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if enable_samples is None and 'enableSamples' in kwargs:
+            enable_samples = kwargs['enableSamples']
+        if escalation_message is None and 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if group_retention_duration is None and 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if groupby_simple_monitor is None and 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if include_tags is None and 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if monitor_threshold_windows is None and 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if monitor_thresholds is None and 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if new_group_delay is None and 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if new_host_delay is None and 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if no_data_timeframe is None and 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if notification_preset_name is None and 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if notify_audit is None and 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if notify_bies is None and 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if notify_no_data is None and 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if on_missing_data is None and 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if renotify_interval is None and 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if renotify_occurrences is None and 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if renotify_statuses is None and 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if require_full_window is None and 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if scheduling_options is None and 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if timeout_h is None and 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
         if enable_logs_sample is not None:
             _setter("enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
@@ -1441,29 +1551,6 @@ class Monitor(pulumi.CustomResource):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.Monitor("foo",
-            escalation_message="Escalation message @pagerduty",
-            include_tags=True,
-            message="Monitor triggered. Notify: @hipchat-channel",
-            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
-                critical="4",
-                warning="2",
-            ),
-            name="Name for monitor foo",
-            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            tags=[
-                "foo:bar",
-                "team:fooBar",
-            ],
-            type="metric alert")
-        ```
-
         ## Import
 
         ```sh
@@ -1548,29 +1635,6 @@ class Monitor(pulumi.CustomResource):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.Monitor("foo",
-            escalation_message="Escalation message @pagerduty",
-            include_tags=True,
-            message="Monitor triggered. Notify: @hipchat-channel",
-            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
-                critical="4",
-                warning="2",
-            ),
-            name="Name for monitor foo",
-            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            tags=[
-                "foo:bar",
-                "team:fooBar",
-            ],
-            type="metric alert")
-        ```
-
         ## Import
 
         ```sh
@@ -1649,17 +1713,9 @@ class Monitor(pulumi.CustomResource):
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
-            if monitor_threshold_windows is not None and not isinstance(monitor_threshold_windows, MonitorMonitorThresholdWindowsArgs):
-                monitor_threshold_windows = monitor_threshold_windows or {}
-                def _setter(key, value):
-                    monitor_threshold_windows[key] = value
-                MonitorMonitorThresholdWindowsArgs._configure(_setter, **monitor_threshold_windows)
+            monitor_threshold_windows = _utilities.configure(monitor_threshold_windows, MonitorMonitorThresholdWindowsArgs, True)
             __props__.__dict__["monitor_threshold_windows"] = monitor_threshold_windows
-            if monitor_thresholds is not None and not isinstance(monitor_thresholds, MonitorMonitorThresholdsArgs):
-                monitor_thresholds = monitor_thresholds or {}
-                def _setter(key, value):
-                    monitor_thresholds[key] = value
-                MonitorMonitorThresholdsArgs._configure(_setter, **monitor_thresholds)
+            monitor_thresholds = _utilities.configure(monitor_thresholds, MonitorMonitorThresholdsArgs, True)
             __props__.__dict__["monitor_thresholds"] = monitor_thresholds
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -1688,11 +1744,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
-            if variables is not None and not isinstance(variables, MonitorVariablesArgs):
-                variables = variables or {}
-                def _setter(key, value):
-                    variables[key] = value
-                MonitorVariablesArgs._configure(_setter, **variables)
+            variables = _utilities.configure(variables, MonitorVariablesArgs, True)
             __props__.__dict__["variables"] = variables
             __props__.__dict__["enable_samples"] = None
         super(Monitor, __self__).__init__(

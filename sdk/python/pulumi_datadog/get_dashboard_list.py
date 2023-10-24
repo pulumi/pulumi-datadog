@@ -61,30 +61,6 @@ def get_dashboard_list(name: Optional[str] = None,
     """
     Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_dashboard_list(name="My super list")
-    # Create a dashboard and register it in the list above.
-    time = datadog.Dashboard("time",
-        dashboard_lists=[test.id],
-        description="Created using the Datadog provider in Terraform",
-        is_read_only=True,
-        layout_type="ordered",
-        title="TF Test Layout Dashboard",
-        widgets=[datadog.DashboardWidgetArgs(
-            alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                alert_id="1234",
-                live_span="1h",
-                title="Widget Title",
-                viz_type="timeseries",
-            ),
-        )])
-    ```
-
 
     :param str name: A dashboard list name to limit the search.
     """
@@ -103,30 +79,6 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardListResult]:
     """
     Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_dashboard_list(name="My super list")
-    # Create a dashboard and register it in the list above.
-    time = datadog.Dashboard("time",
-        dashboard_lists=[test.id],
-        description="Created using the Datadog provider in Terraform",
-        is_read_only=True,
-        layout_type="ordered",
-        title="TF Test Layout Dashboard",
-        widgets=[datadog.DashboardWidgetArgs(
-            alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                alert_id="1234",
-                live_span="1h",
-                title="Widget Title",
-                viz_type="timeseries",
-            ),
-        )])
-    ```
 
 
     :param str name: A dashboard list name to limit the search.

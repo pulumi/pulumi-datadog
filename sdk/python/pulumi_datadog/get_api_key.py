@@ -74,15 +74,6 @@ def get_api_key(id: Optional[str] = None,
     """
     Use this data source to retrieve information about an existing api key.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_api_key(name="foo-application")
-    ```
-
 
     :param str id: The ID of this resource.
     :param str name: Name for API Key.
@@ -105,15 +96,6 @@ def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Use this data source to retrieve information about an existing api key.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_api_key(name="foo-application")
-    ```
 
 
     :param str id: The ID of this resource.

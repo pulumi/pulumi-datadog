@@ -4,35 +4,15 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list existing monitor config policies for use in other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetMonitorConfigPolicies(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetMonitorConfigPolicies(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetMonitorConfigPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMonitorConfigPoliciesResult
@@ -49,4 +29,52 @@ type GetMonitorConfigPoliciesResult struct {
 	Id string `pulumi:"id"`
 	// List of monitor config policies
 	MonitorConfigPolicies []GetMonitorConfigPoliciesMonitorConfigPolicy `pulumi:"monitorConfigPolicies"`
+}
+
+func GetMonitorConfigPoliciesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetMonitorConfigPoliciesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetMonitorConfigPoliciesResult, error) {
+		r, err := GetMonitorConfigPolicies(ctx, opts...)
+		var s GetMonitorConfigPoliciesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetMonitorConfigPoliciesResultOutput)
+}
+
+// A collection of values returned by getMonitorConfigPolicies.
+type GetMonitorConfigPoliciesResultOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorConfigPoliciesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorConfigPoliciesResult)(nil)).Elem()
+}
+
+func (o GetMonitorConfigPoliciesResultOutput) ToGetMonitorConfigPoliciesResultOutput() GetMonitorConfigPoliciesResultOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesResultOutput) ToGetMonitorConfigPoliciesResultOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesResultOutput {
+	return o
+}
+
+func (o GetMonitorConfigPoliciesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMonitorConfigPoliciesResult] {
+	return pulumix.Output[GetMonitorConfigPoliciesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetMonitorConfigPoliciesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of monitor config policies
+func (o GetMonitorConfigPoliciesResultOutput) MonitorConfigPolicies() GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput {
+	return o.ApplyT(func(v GetMonitorConfigPoliciesResult) []GetMonitorConfigPoliciesMonitorConfigPolicy {
+		return v.MonitorConfigPolicies
+	}).(GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMonitorConfigPoliciesResultOutput{})
 }

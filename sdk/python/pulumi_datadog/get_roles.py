@@ -74,15 +74,6 @@ def get_roles(filter: Optional[str] = None,
     """
     Use this data source to retrieve information about multiple roles for use in other resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_roles(filter="Datadog")
-    ```
-
 
     :param str filter: Filter all roles by the given string.
     """
@@ -102,15 +93,6 @@ def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
     """
     Use this data source to retrieve information about multiple roles for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    foo = datadog.get_roles(filter="Datadog")
-    ```
 
 
     :param str filter: Filter all roles by the given string.

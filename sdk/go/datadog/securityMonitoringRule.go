@@ -15,69 +15,6 @@ import (
 
 // Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadogSecurityDefaultRule` instead.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
-//				Cases: datadog.SecurityMonitoringRuleCaseArray{
-//					&datadog.SecurityMonitoringRuleCaseArgs{
-//						Condition: pulumi.String("errors > 3 && warnings > 10"),
-//						Notifications: pulumi.StringArray{
-//							pulumi.String("@user"),
-//						},
-//						Status: pulumi.String("high"),
-//					},
-//				},
-//				Enabled: pulumi.Bool(true),
-//				Message: pulumi.String("The rule has triggered."),
-//				Name:    pulumi.String("My rule"),
-//				Options: &datadog.SecurityMonitoringRuleOptionsArgs{
-//					EvaluationWindow:  pulumi.Int(300),
-//					KeepAlive:         pulumi.Int(600),
-//					MaxSignalDuration: pulumi.Int(900),
-//				},
-//				Queries: datadog.SecurityMonitoringRuleQueryArray{
-//					&datadog.SecurityMonitoringRuleQueryArgs{
-//						Aggregation: pulumi.String("count"),
-//						GroupByFields: pulumi.StringArray{
-//							pulumi.String("host"),
-//						},
-//						Name:  pulumi.String("errors"),
-//						Query: pulumi.String("status:error"),
-//					},
-//					&datadog.SecurityMonitoringRuleQueryArgs{
-//						Aggregation: pulumi.String("count"),
-//						GroupByFields: pulumi.StringArray{
-//							pulumi.String("host"),
-//						},
-//						Name:  pulumi.String("warnings"),
-//						Query: pulumi.String("status:warning"),
-//					},
-//				},
-//				Tags: pulumi.StringArray{
-//					pulumi.String("type:dos"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Security monitoring rules can be imported using ID, e.g.

@@ -64,9 +64,9 @@ class ServiceLevelObjectiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             thresholds: pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              force_delete: Optional[pulumi.Input[bool]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -77,7 +77,23 @@ class ServiceLevelObjectiveArgs:
              timeframe: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if thresholds is None:
+            raise TypeError("Missing 'thresholds' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if monitor_ids is None and 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if target_threshold is None and 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if warning_threshold is None and 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         _setter("name", name)
         _setter("thresholds", thresholds)
         _setter("type", type)
@@ -323,7 +339,17 @@ class _ServiceLevelObjectiveState:
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
              warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if monitor_ids is None and 'monitorIds' in kwargs:
+            monitor_ids = kwargs['monitorIds']
+        if target_threshold is None and 'targetThreshold' in kwargs:
+            target_threshold = kwargs['targetThreshold']
+        if warning_threshold is None and 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
         if description is not None:
             _setter("description", description)
         if force_delete is not None:
@@ -530,73 +556,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Metric-Based SLO
-        # Create a new Datadog service level objective
-        foo = datadog.ServiceLevelObjective("foo",
-            description="My custom metric SLO",
-            name="Example Metric SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                denominator="sum:my.custom.count.metric{*}.as_count()",
-                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
-            ),
-            tags=[
-                "foo:bar",
-                "baz",
-            ],
-            target_threshold=99.9,
-            thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="7d",
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="30d",
-                    warning=99.99,
-                ),
-            ],
-            timeframe="30d",
-            type="metric",
-            warning_threshold=99.99)
-        # Monitor-Based SLO
-        # Create a new Datadog service level objective
-        bar = datadog.ServiceLevelObjective("bar",
-            description="My custom monitor SLO",
-            monitor_ids=[
-                1,
-                2,
-                3,
-            ],
-            name="Example Monitor SLO",
-            tags=[
-                "foo:bar",
-                "baz",
-            ],
-            target_threshold=99.9,
-            thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="7d",
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="30d",
-                    warning=99.99,
-                ),
-            ],
-            timeframe="30d",
-            type="monitor",
-            warning_threshold=99.99)
-        ```
-
         ## Import
 
         Service Level Objectives can be imported using their string ID, e.g.
@@ -629,73 +588,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Metric-Based SLO
-        # Create a new Datadog service level objective
-        foo = datadog.ServiceLevelObjective("foo",
-            description="My custom metric SLO",
-            name="Example Metric SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                denominator="sum:my.custom.count.metric{*}.as_count()",
-                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
-            ),
-            tags=[
-                "foo:bar",
-                "baz",
-            ],
-            target_threshold=99.9,
-            thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="7d",
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="30d",
-                    warning=99.99,
-                ),
-            ],
-            timeframe="30d",
-            type="metric",
-            warning_threshold=99.99)
-        # Monitor-Based SLO
-        # Create a new Datadog service level objective
-        bar = datadog.ServiceLevelObjective("bar",
-            description="My custom monitor SLO",
-            monitor_ids=[
-                1,
-                2,
-                3,
-            ],
-            name="Example Monitor SLO",
-            tags=[
-                "foo:bar",
-                "baz",
-            ],
-            target_threshold=99.9,
-            thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="7d",
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    target=99.9,
-                    timeframe="30d",
-                    warning=99.99,
-                ),
-            ],
-            timeframe="30d",
-            type="monitor",
-            warning_threshold=99.99)
-        ```
 
         ## Import
 
@@ -753,11 +645,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if query is not None and not isinstance(query, ServiceLevelObjectiveQueryArgs):
-                query = query or {}
-                def _setter(key, value):
-                    query[key] = value
-                ServiceLevelObjectiveQueryArgs._configure(_setter, **query)
+            query = _utilities.configure(query, ServiceLevelObjectiveQueryArgs, True)
             __props__.__dict__["query"] = query
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_threshold"] = target_threshold

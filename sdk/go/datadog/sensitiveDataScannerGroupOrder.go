@@ -15,36 +15,6 @@ import (
 
 // Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSensitiveDataScannerGroupOrder(ctx, "mygrouporder", &datadog.SensitiveDataScannerGroupOrderArgs{
-//				GroupIds: pulumi.StringArray{
-//					pulumi.String("group-id-1"),
-//					pulumi.String("group-id-2"),
-//					pulumi.String("group-id-3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

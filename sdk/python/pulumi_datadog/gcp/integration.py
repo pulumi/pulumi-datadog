@@ -47,15 +47,41 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_email: pulumi.Input[str],
-             client_id: pulumi.Input[str],
-             private_key: pulumi.Input[str],
-             private_key_id: pulumi.Input[str],
-             project_id: pulumi.Input[str],
+             client_email: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             private_key_id: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
              automute: Optional[pulumi.Input[bool]] = None,
              cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
              host_filters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if client_email is None:
+            raise TypeError("Missing 'client_email' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if private_key_id is None and 'privateKeyId' in kwargs:
+            private_key_id = kwargs['privateKeyId']
+        if private_key_id is None:
+            raise TypeError("Missing 'private_key_id' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
+            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+
         _setter("client_email", client_email)
         _setter("client_id", client_id)
         _setter("private_key", private_key)
@@ -209,7 +235,23 @@ class _IntegrationState:
              private_key: Optional[pulumi.Input[str]] = None,
              private_key_id: Optional[pulumi.Input[str]] = None,
              project_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
+            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key_id is None and 'privateKeyId' in kwargs:
+            private_key_id = kwargs['privateKeyId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if automute is not None:
             _setter("automute", automute)
         if client_email is not None:

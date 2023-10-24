@@ -15,35 +15,6 @@ import (
 
 // Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, "myAgentRule", &datadog.CloudWorkloadSecurityAgentRuleArgs{
-//				Description: pulumi.String("My agent rule"),
-//				Enabled:     pulumi.Bool(true),
-//				Expression:  pulumi.String("exec.file.name == \"java\""),
-//				Name:        pulumi.String("my_agent_rule"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Cloud Workload Security Agent rules can be imported using ID, e.g.

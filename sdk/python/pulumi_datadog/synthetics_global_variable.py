@@ -52,8 +52,8 @@ class SyntheticsGlobalVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
              parse_test_id: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,19 @@ class SyntheticsGlobalVariableArgs:
              restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if parse_test_id is None and 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if parse_test_options is None and 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         _setter("name", name)
         _setter("value", value)
         if description is not None:
@@ -236,7 +248,15 @@ class _SyntheticsGlobalVariableState:
              secure: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parse_test_id is None and 'parseTestId' in kwargs:
+            parse_test_id = kwargs['parseTestId']
+        if parse_test_options is None and 'parseTestOptions' in kwargs:
+            parse_test_options = kwargs['parseTestOptions']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -383,22 +403,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
-            description="Description of the variable",
-            name="EXAMPLE_VARIABLE",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ],
-            value="variable-value")
-        ```
-
         ## Import
 
         Synthetics global variables can be imported using their string ID, e.g.
@@ -427,22 +431,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
-            description="Description of the variable",
-            name="EXAMPLE_VARIABLE",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ],
-            value="variable-value")
-        ```
 
         ## Import
 
@@ -493,18 +481,10 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if options is not None and not isinstance(options, SyntheticsGlobalVariableOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                SyntheticsGlobalVariableOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, SyntheticsGlobalVariableOptionsArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["parse_test_id"] = parse_test_id
-            if parse_test_options is not None and not isinstance(parse_test_options, SyntheticsGlobalVariableParseTestOptionsArgs):
-                parse_test_options = parse_test_options or {}
-                def _setter(key, value):
-                    parse_test_options[key] = value
-                SyntheticsGlobalVariableParseTestOptionsArgs._configure(_setter, **parse_test_options)
+            parse_test_options = _utilities.configure(parse_test_options, SyntheticsGlobalVariableParseTestOptionsArgs, True)
             __props__.__dict__["parse_test_options"] = parse_test_options
             __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["secure"] = secure

@@ -12,66 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Resource for interacting with the slo_correction API.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-    ///     var exampleSlo = new Datadog.ServiceLevelObjective("exampleSlo", new()
-    ///     {
-    ///         Name = "example slo",
-    ///         Type = "metric",
-    ///         Description = "some updated description about example_slo SLO",
-    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
-    ///         {
-    ///             Numerator = "sum:my.metric{type:good}.as_count()",
-    ///             Denominator = "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-    ///         },
-    ///         Thresholds = new[]
-    ///         {
-    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///             {
-    ///                 Timeframe = "7d",
-    ///                 Target = 99.5,
-    ///                 Warning = 99.8,
-    ///             },
-    ///         },
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSloCorrection = new Datadog.SloCorrection("exampleSloCorrection", new()
-    ///     {
-    ///         Category = "Scheduled Maintenance",
-    ///         Description = "correction example",
-    ///         Start = 1735707000,
-    ///         End = 1735718600,
-    ///         SloId = exampleSlo.Id,
-    ///         Timezone = "UTC",
-    ///     });
-    /// 
-    ///     var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new()
-    ///     {
-    ///         Category = "Scheduled Maintenance",
-    ///         Description = "correction example with recurrence",
-    ///         Start = 1735707000,
-    ///         Rrule = "FREQ=DAILY;INTERVAL=3;COUNT=3",
-    ///         Duration = 3600,
-    ///         SloId = exampleSlo.Id,
-    ///         Timezone = "UTC",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

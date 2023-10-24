@@ -73,19 +73,6 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsPipelinesResult:
     """
     Use this data source to list all existing logs pipelines for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    pipelines = datadog.get_logs_pipelines()
-    # Using data source to set pipeline order
-    lpo = datadog.LogsPipelineOrder("lpo",
-        name="lpo",
-        pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
-    ```
     """
     __args__ = dict()
     __args__['isReadOnly'] = is_read_only
@@ -103,18 +90,5 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsPipelinesResult]:
     """
     Use this data source to list all existing logs pipelines for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    pipelines = datadog.get_logs_pipelines()
-    # Using data source to set pipeline order
-    lpo = datadog.LogsPipelineOrder("lpo",
-        name="lpo",
-        pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
-    ```
     """
     ...

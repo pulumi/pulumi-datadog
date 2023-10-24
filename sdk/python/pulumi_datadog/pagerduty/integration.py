@@ -32,10 +32,16 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subdomain: pulumi.Input[str],
+             subdomain: Optional[pulumi.Input[str]] = None,
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subdomain is None:
+            raise TypeError("Missing 'subdomain' argument")
+        if api_token is None and 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         _setter("subdomain", subdomain)
         if api_token is not None:
             _setter("api_token", api_token)
@@ -103,7 +109,11 @@ class _IntegrationState:
              api_token: Optional[pulumi.Input[str]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subdomain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_token is None and 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         if api_token is not None:
             _setter("api_token", api_token)
         if schedules is not None:
@@ -160,29 +170,6 @@ class Integration(pulumi.CustomResource):
         """
         Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
@@ -197,29 +184,6 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

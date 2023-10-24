@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
- *     serviceKey: "9876543210123456789",
- *     serviceName: "testing_foo",
- * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
- *     serviceKey: "54321098765432109876",
- *     serviceName: "testing_bar",
- * });
- * ```
  */
 export class ServiceObject extends pulumi.CustomResource {
     /**

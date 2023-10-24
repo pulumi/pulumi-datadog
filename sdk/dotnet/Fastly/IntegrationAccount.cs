@@ -12,25 +12,6 @@ namespace Pulumi.Datadog.Fastly
     /// <summary>
     /// Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Datadog.Fastly.IntegrationAccount("foo", new()
-    ///     {
-    ///         ApiKey = "ABCDEFG123",
-    ///         Name = "test-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

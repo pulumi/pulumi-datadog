@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * Update operations are currently not supported with datadog API so any change forces a new resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create a new Datadog - Amazon Web Services integration Lambda ARN
- * const mainCollector = new datadog.aws.IntegrationLambdaArn("mainCollector", {
- *     accountId: "1234567890",
- *     lambdaArn: "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
- * });
- * ```
- *
  * ## Import
  *
  * Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).

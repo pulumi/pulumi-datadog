@@ -15,43 +15,6 @@ import (
 
 // Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := datadog.NewTeam(ctx, "fooTeam", &datadog.TeamArgs{
-//				Description: pulumi.String("Example team"),
-//				Handle:      pulumi.String("example-team-updated"),
-//				Name:        pulumi.String("Example Team-updated"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewTeamLink(ctx, "fooTeamLink", &datadog.TeamLinkArgs{
-//				TeamId:   fooTeam.ID(),
-//				Label:    pulumi.String("Link label"),
-//				Position: pulumi.Int("Example link"),
-//				Url:      pulumi.String("https://example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

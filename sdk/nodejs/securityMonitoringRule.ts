@@ -9,44 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadogSecurityDefaultRule` instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const myrule = new datadog.SecurityMonitoringRule("myrule", {
- *     cases: [{
- *         condition: "errors > 3 && warnings > 10",
- *         notifications: ["@user"],
- *         status: "high",
- *     }],
- *     enabled: true,
- *     message: "The rule has triggered.",
- *     name: "My rule",
- *     options: {
- *         evaluationWindow: 300,
- *         keepAlive: 600,
- *         maxSignalDuration: 900,
- *     },
- *     queries: [
- *         {
- *             aggregation: "count",
- *             groupByFields: ["host"],
- *             name: "errors",
- *             query: "status:error",
- *         },
- *         {
- *             aggregation: "count",
- *             groupByFields: ["host"],
- *             name: "warnings",
- *             query: "status:warning",
- *         },
- *     ],
- *     tags: ["type:dos"],
- * });
- * ```
- *
  * ## Import
  *
  * Security monitoring rules can be imported using ID, e.g.

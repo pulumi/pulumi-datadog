@@ -34,10 +34,14 @@ class RoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if permissions is not None:
             _setter("permissions", permissions)
@@ -109,7 +113,11 @@ class _RoleState:
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
              user_count: Optional[pulumi.Input[int]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_count is None and 'userCount' in kwargs:
+            user_count = kwargs['userCount']
+
         if name is not None:
             _setter("name", name)
         if permissions is not None:
@@ -180,26 +188,6 @@ class Role(pulumi.CustomResource):
         """
         Provides a Datadog role resource. This can be used to create and manage Datadog roles.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        bar = datadog.get_permissions()
-        # Create a new Datadog role
-        foo = datadog.Role("foo",
-            name="foo",
-            permissions=[
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsDowntime"],
-                ),
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsWrite"],
-                ),
-            ])
-        ```
-
         ## Import
 
         Roles can be imported using their ID, e.g.
@@ -222,26 +210,6 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog role resource. This can be used to create and manage Datadog roles.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        bar = datadog.get_permissions()
-        # Create a new Datadog role
-        foo = datadog.Role("foo",
-            name="foo",
-            permissions=[
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsDowntime"],
-                ),
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsWrite"],
-                ),
-            ])
-        ```
 
         ## Import
 

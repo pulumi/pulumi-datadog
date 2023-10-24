@@ -72,15 +72,6 @@ class AwaitableGetSecurityMonitoringFiltersResult(GetSecurityMonitoringFiltersRe
 def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityMonitoringFiltersResult:
     """
     Use this data source to retrieve information about existing security monitoring filters for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_security_monitoring_filters()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -96,14 +87,5 @@ def get_security_monitoring_filters(opts: Optional[pulumi.InvokeOptions] = None)
 def get_security_monitoring_filters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringFiltersResult]:
     """
     Use this data source to retrieve information about existing security monitoring filters for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_security_monitoring_filters()
-    ```
     """
     ...

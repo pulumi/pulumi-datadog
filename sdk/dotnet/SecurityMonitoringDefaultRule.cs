@@ -12,35 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new()
-    ///     {
-    ///         Cases = new[]
-    ///         {
-    ///             new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs
-    ///             {
-    ///                 Notifications = new[]
-    ///                 {
-    ///                     "@me",
-    ///                 },
-    ///                 Status = "high",
-    ///             },
-    ///         },
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }

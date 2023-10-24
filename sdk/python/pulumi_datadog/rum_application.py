@@ -29,9 +29,13 @@ class RumApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if type is not None:
             _setter("type", type)
@@ -85,7 +89,11 @@ class _RumApplicationState:
              client_token: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+
         if client_token is not None:
             _setter("client_token", client_token)
         if name is not None:
@@ -141,17 +149,6 @@ class RumApplication(pulumi.CustomResource):
         """
         Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        rum_application = datadog.RumApplication("rumApplication",
-            name="my-application",
-            type="browser")
-        ```
-
         ## Import
 
         ```sh
@@ -171,17 +168,6 @@ class RumApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        rum_application = datadog.RumApplication("rumApplication",
-            name="my-application",
-            type="browser")
-        ```
 
         ## Import
 

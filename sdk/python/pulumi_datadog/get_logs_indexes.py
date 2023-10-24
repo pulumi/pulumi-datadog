@@ -60,15 +60,6 @@ class AwaitableGetLogsIndexesResult(GetLogsIndexesResult):
 def get_logs_indexes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsIndexesResult:
     """
     Use this data source to list several existing logs indexes for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_logs_indexes()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,14 +74,5 @@ def get_logs_indexes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 def get_logs_indexes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesResult]:
     """
     Use this data source to list several existing logs indexes for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_logs_indexes()
-    ```
     """
     ...

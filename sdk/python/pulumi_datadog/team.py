@@ -32,10 +32,18 @@ class TeamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             handle: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             description: Optional[pulumi.Input[str]] = None,
+             handle: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if handle is None:
+            raise TypeError("Missing 'handle' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("description", description)
         _setter("handle", handle)
         _setter("name", name)
@@ -113,7 +121,13 @@ class _TeamState:
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              user_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if link_count is None and 'linkCount' in kwargs:
+            link_count = kwargs['linkCount']
+        if user_count is None and 'userCount' in kwargs:
+            user_count = kwargs['userCount']
+
         if description is not None:
             _setter("description", description)
         if handle is not None:
@@ -212,18 +226,6 @@ class Team(pulumi.CustomResource):
         """
         Provides a Datadog Team resource. This can be used to create and manage Datadog team.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.Team("foo",
-            description="Team description",
-            handle="example-team",
-            name="Example Team")
-        ```
-
         ## Import
 
         ```sh
@@ -244,18 +246,6 @@ class Team(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Team resource. This can be used to create and manage Datadog team.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.Team("foo",
-            description="Team description",
-            handle="example-team",
-            name="Example Team")
-        ```
 
         ## Import
 

@@ -4,35 +4,15 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetIntegrationNamespaceRules(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetIntegrationNamespaceRules(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIntegrationNamespaceRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIntegrationNamespaceRulesResult
@@ -49,4 +29,50 @@ type GetIntegrationNamespaceRulesResult struct {
 	Id string `pulumi:"id"`
 	// The list of available namespace rules for a Datadog-AWS integration.
 	NamespaceRules []string `pulumi:"namespaceRules"`
+}
+
+func GetIntegrationNamespaceRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationNamespaceRulesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationNamespaceRulesResult, error) {
+		r, err := GetIntegrationNamespaceRules(ctx, opts...)
+		var s GetIntegrationNamespaceRulesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetIntegrationNamespaceRulesResultOutput)
+}
+
+// A collection of values returned by getIntegrationNamespaceRules.
+type GetIntegrationNamespaceRulesResultOutput struct{ *pulumi.OutputState }
+
+func (GetIntegrationNamespaceRulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIntegrationNamespaceRulesResult)(nil)).Elem()
+}
+
+func (o GetIntegrationNamespaceRulesResultOutput) ToGetIntegrationNamespaceRulesResultOutput() GetIntegrationNamespaceRulesResultOutput {
+	return o
+}
+
+func (o GetIntegrationNamespaceRulesResultOutput) ToGetIntegrationNamespaceRulesResultOutputWithContext(ctx context.Context) GetIntegrationNamespaceRulesResultOutput {
+	return o
+}
+
+func (o GetIntegrationNamespaceRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationNamespaceRulesResult] {
+	return pulumix.Output[GetIntegrationNamespaceRulesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of this resource.
+func (o GetIntegrationNamespaceRulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIntegrationNamespaceRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of available namespace rules for a Datadog-AWS integration.
+func (o GetIntegrationNamespaceRulesResultOutput) NamespaceRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIntegrationNamespaceRulesResult) []string { return v.NamespaceRules }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIntegrationNamespaceRulesResultOutput{})
 }

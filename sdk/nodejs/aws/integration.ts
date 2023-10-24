@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create a new Datadog - Amazon Web Services integration
- * const sandbox = new datadog.aws.Integration("sandbox", {
- *     accountId: "1234567890",
- *     accountSpecificNamespaceRules: {
- *         auto_scaling: false,
- *         opsworks: false,
- *     },
- *     excludedRegions: [
- *         "us-east-1",
- *         "us-west-2",
- *     ],
- *     filterTags: ["key:value"],
- *     hostTags: [
- *         "key:value",
- *         "key2:value2",
- *     ],
- *     roleName: "DatadogAWSIntegrationRole",
- * });
- * ```
- *
  * ## Import
  *
  * Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID

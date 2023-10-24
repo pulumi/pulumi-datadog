@@ -32,10 +32,22 @@ class IntegrationTagFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             namespace: pulumi.Input[str],
-             tag_filter_str: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_id: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             tag_filter_str: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if tag_filter_str is None and 'tagFilterStr' in kwargs:
+            tag_filter_str = kwargs['tagFilterStr']
+        if tag_filter_str is None:
+            raise TypeError("Missing 'tag_filter_str' argument")
+
         _setter("account_id", account_id)
         _setter("namespace", namespace)
         _setter("tag_filter_str", tag_filter_str)
@@ -101,7 +113,13 @@ class _IntegrationTagFilterState:
              account_id: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              tag_filter_str: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if tag_filter_str is None and 'tagFilterStr' in kwargs:
+            tag_filter_str = kwargs['tagFilterStr']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if namespace is not None:
@@ -158,19 +176,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
         """
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Amazon Web Services integration tag filter
-        foo = datadog.aws.IntegrationTagFilter("foo",
-            account_id="123456789010",
-            namespace="sqs",
-            tag_filter_str="key:value")
-        ```
-
         ## Import
 
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
@@ -193,19 +198,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Amazon Web Services integration tag filter
-        foo = datadog.aws.IntegrationTagFilter("foo",
-            account_id="123456789010",
-            namespace="sqs",
-            tag_filter_str="key:value")
-        ```
 
         ## Import
 

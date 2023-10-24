@@ -55,7 +55,7 @@ class SensitiveDataScannerRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -65,7 +65,21 @@ class SensitiveDataScannerRuleArgs:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if standard_pattern_id is None and 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if text_replacement is None and 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         _setter("group_id", group_id)
         if description is not None:
             _setter("description", description)
@@ -259,7 +273,19 @@ class _SensitiveDataScannerRuleState:
              standard_pattern_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
+            excluded_namespaces = kwargs['excludedNamespaces']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if standard_pattern_id is None and 'standardPatternId' in kwargs:
+            standard_pattern_id = kwargs['standardPatternId']
+        if text_replacement is None and 'textReplacement' in kwargs:
+            text_replacement = kwargs['textReplacement']
+
         if description is not None:
             _setter("description", description)
         if excluded_namespaces is not None:
@@ -421,45 +447,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            name="My new scanning group",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            product_lists=["apm"])
-        myrule = datadog.SensitiveDataScannerRule("myrule",
-            name="My new rule",
-            description="Another description",
-            group_id=mygroup.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            pattern="myregex",
-            tags=["sensitive_data:true"],
-            text_replacement=datadog.SensitiveDataScannerRuleTextReplacementArgs(
-                number_of_chars=0,
-                replacement_string="",
-                type="hash",
-            ))
-        aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
-        mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
-            name="My library rule",
-            description="A description",
-            group_id=mygroup.id,
-            standard_pattern_id=aws_sp.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            tags=["sensitive_data:true"])
-        ```
-
         ## Import
 
         ```sh
@@ -487,45 +474,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            name="My new scanning group",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            product_lists=["apm"])
-        myrule = datadog.SensitiveDataScannerRule("myrule",
-            name="My new rule",
-            description="Another description",
-            group_id=mygroup.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            pattern="myregex",
-            tags=["sensitive_data:true"],
-            text_replacement=datadog.SensitiveDataScannerRuleTextReplacementArgs(
-                number_of_chars=0,
-                replacement_string="",
-                type="hash",
-            ))
-        aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
-        mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
-            name="My library rule",
-            description="A description",
-            group_id=mygroup.id,
-            standard_pattern_id=aws_sp.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            tags=["sensitive_data:true"])
-        ```
 
         ## Import
 
@@ -582,11 +530,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             __props__.__dict__["pattern"] = pattern
             __props__.__dict__["standard_pattern_id"] = standard_pattern_id
             __props__.__dict__["tags"] = tags
-            if text_replacement is not None and not isinstance(text_replacement, SensitiveDataScannerRuleTextReplacementArgs):
-                text_replacement = text_replacement or {}
-                def _setter(key, value):
-                    text_replacement[key] = value
-                SensitiveDataScannerRuleTextReplacementArgs._configure(_setter, **text_replacement)
+            text_replacement = _utilities.configure(text_replacement, SensitiveDataScannerRuleTextReplacementArgs, True)
             __props__.__dict__["text_replacement"] = text_replacement
         super(SensitiveDataScannerRule, __self__).__init__(
             'datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule',

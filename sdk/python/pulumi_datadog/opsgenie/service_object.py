@@ -35,11 +35,23 @@ class ServiceObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opsgenie_api_key: pulumi.Input[str],
-             region: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opsgenie_api_key: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
              custom_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if opsgenie_api_key is None and 'opsgenieApiKey' in kwargs:
+            opsgenie_api_key = kwargs['opsgenieApiKey']
+        if opsgenie_api_key is None:
+            raise TypeError("Missing 'opsgenie_api_key' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if custom_url is None and 'customUrl' in kwargs:
+            custom_url = kwargs['customUrl']
+
         _setter("name", name)
         _setter("opsgenie_api_key", opsgenie_api_key)
         _setter("region", region)
@@ -123,7 +135,13 @@ class _ServiceObjectState:
              name: Optional[pulumi.Input[str]] = None,
              opsgenie_api_key: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_url is None and 'customUrl' in kwargs:
+            custom_url = kwargs['customUrl']
+        if opsgenie_api_key is None and 'opsgenieApiKey' in kwargs:
+            opsgenie_api_key = kwargs['opsgenieApiKey']
+
         if custom_url is not None:
             _setter("custom_url", custom_url)
         if name is not None:
@@ -195,22 +213,6 @@ class ServiceObject(pulumi.CustomResource):
         """
         Resource for interacting with Datadog Opsgenie Service API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
-            name="fake_service_name",
-            opsgenie_api_key="00000000-0000-0000-0000-000000000000",
-            region="us")
-        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
-            name="fake_service_name_2",
-            opsgenie_api_key="11111111-1111-1111-1111-111111111111",
-            region="eu")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
@@ -226,22 +228,6 @@ class ServiceObject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with Datadog Opsgenie Service API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
-            name="fake_service_name",
-            opsgenie_api_key="00000000-0000-0000-0000-000000000000",
-            region="us")
-        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
-            name="fake_service_name_2",
-            opsgenie_api_key="11111111-1111-1111-1111-111111111111",
-            region="eu")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.

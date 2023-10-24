@@ -9,23 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testVariable = new datadog.SyntheticsGlobalVariable("testVariable", {
- *     description: "Description of the variable",
- *     name: "EXAMPLE_VARIABLE",
- *     tags: [
- *         "foo:bar",
- *         "env:test",
- *     ],
- *     value: "variable-value",
- * });
- * ```
- *
  * ## Import
  *
  * Synthetics global variables can be imported using their string ID, e.g.

@@ -15,41 +15,6 @@ import (
 
 // Provides a Datadog user resource. This can be used to create and manage Datadog users.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
-//				Filter: "Datadog Read Only Role",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
-//				Email: pulumi.String("new@example.com"),
-//				Roles: pulumi.StringArray{
-//					*pulumi.String(roRole.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

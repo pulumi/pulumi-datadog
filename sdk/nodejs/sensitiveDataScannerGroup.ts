@@ -9,23 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Sensitive Data Scanner group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const mygroup = new datadog.SensitiveDataScannerGroup("mygroup", {
- *     description: "A relevant description",
- *     filter: {
- *         query: "service:my-service",
- *     },
- *     isEnabled: true,
- *     name: "My new scanning group",
- *     productLists: ["apm"],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
