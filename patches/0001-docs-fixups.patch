@@ -1,0 +1,53 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Tue, 24 Oct 2023 11:57:12 -0700
+Subject: [PATCH] docs fixups
+
+
+diff --git a/docs/resources/dashboard_list.md b/docs/resources/dashboard_list.md
+index 7e38f433..6e27b53a 100644
+--- a/docs/resources/dashboard_list.md
++++ b/docs/resources/dashboard_list.md
+@@ -15,7 +15,12 @@ Provides a Datadog dashboard_list resource. This can be used to create and manag
+ ```terraform
+ # Create a new Dashboard List with two Dashboards
+ resource "datadog_dashboard_list" "new_list" {
+-  name = "Terraform Created List"
++  depends_on = [
++    datadog_dashboard.screen,
++    datadog_dashboard.time
++  ]
++
++  name = "Automated Created List"
+   dash_item {
+     type    = "custom_timeboard"
+     dash_id = datadog_dashboard.time.id
+diff --git a/docs/resources/integration_pagerduty.md b/docs/resources/integration_pagerduty.md
+index 70718c8b..8e59e25c 100644
+--- a/docs/resources/integration_pagerduty.md
++++ b/docs/resources/integration_pagerduty.md
+@@ -13,9 +13,6 @@ Provides a Datadog - PagerDuty resource. This can be used to create and manage D
+ ## Example Usage
+ 
+ ```terraform
+-# Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
+-
+-# Services as Individual Resources
+ resource "datadog_integration_pagerduty" "pd" {
+   schedules = [
+     "https://ddog.pagerduty.com/schedules/X123VF",
+diff --git a/docs/resources/integration_pagerduty_service_object.md b/docs/resources/integration_pagerduty_service_object.md
+index ba4ec972..d51aa047 100644
+--- a/docs/resources/integration_pagerduty_service_object.md
++++ b/docs/resources/integration_pagerduty_service_object.md
+@@ -29,8 +29,8 @@ resource "datadog_integration_pagerduty_service_object" "testing_bar" {
+ 
+ ### Required
+ 
+-- `service_key` (String, Sensitive) Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way to solve a drift is to manually mark the Service Object resource with [terraform taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
+-- `service_name` (String) Your Service name in PagerDuty.
++- **service_key** (String, Sensitive) Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
++- **service_name** (String) Your Service name in PagerDuty.
+ 
+ ### Read-Only
+ 
